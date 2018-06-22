@@ -1,0 +1,19 @@
+
+JS 3D 全景制作：
+
+
+详细讲解：
+https://segmentfault.com/a/1190000008545795
+
+
+首先：需要6张图，上下左右前后【即满足正方形盒子模型的六个面】
+
+其次：要按照固定位置摆放正确
+
+
+官方API:
+https://threejs.org/
+文档：
+https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene
+中文参考手册：
+http://techbrood.com/threejs/docs/

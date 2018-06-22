@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .maBtn{width: 138px; height: 34px; display: inline-block; font-size: 12px; text-align: center; line-height: 34px; margin-left: 0; background: #2353fd; cursor: pointer;  color: #fff; }
+        .maBtn.forbid{ background: #aaaaaa; cursor: not-allowed;  }
+    </style>
+</head>
+<body>
+<span class="maBtn fr cfff">获取短信验证码</span>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    //	获取验证码按钮效果
+
+    var timer = null;
+    $(".maBtn").click(function(){
+        if( !$(this).hasClass("forbid")){
+            $(this).html("<span class='forbid-time'>10</span>s后可以重新发送")
+            $(this).addClass("forbid");
+            var i = 10;
+
+            timer = setInterval( function time(){
+                i--;
+                $(".forbid-time").text(i);
+                if( i == 1){
+                    $(".maBtn").html("获取短信验证码")
+                    $(".maBtn").removeClass("forbid");
+                    clearTimeout(timer);
+                }
+            },1000);
+        }
+
+    });
+</script>
+</body>
+</html>

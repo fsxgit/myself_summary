@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*
+***移动端样式重置
+全局引用***
+ */
+*{margin: 0; padding: 0;}
+/*
+html {font-size:640px; }先设定一个根元素标注,防止设定根元素标准的js没加载进来时页面布局混乱的现象以rem为单位,此标准与设计稿相同尺寸
+*/
+html {font-size:640px; }
+body{ font-family: "hiragino sans gb", Helvetica,"Microsoft Yahei", Arial, Tahoma; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+body,div,a,span,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl.dt.dd.form,button,input,textarea,th,td,img{margin: 0; padding: 0; outline:0; font-style:normal; border:none;font-weight:normal;}
+table {border-collapse:collapse;border-spacing: 0}
+caption, th, td { text-align: left; font-weight: normal}
+a{ text-decoration:none;cursor:pointer;color:#999;}
+input{ border:none;}
+ol, ul ,li{list-style: none;}
+i,em,strong{font-style:normal;}
+img{ width:100%; height:100%; max-width: 100%;vertical-align: middle;border:none; display: block;}
+input,select:focus{
+    border-width:0;
+    border-color:white;
+    border-style:none;
+    background:none;
+    border:none;
+    outline:medium;
+    alpha:0;
+    appearance:none;
+    -webkit-appearance:none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-modify:read-write-plaintext-only;
+}
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+/*修改input的placeholder的默认颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #999;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #999;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #999;
+}
+html,body{width:100%; height:auto; overflow-x:hidden;}
+/*公共样式  开始*/
+.fl{float:left;}
+.fr{float:right;}
+.oh{overflow:hidden;}
+.cb{clear:both;}
+.tc{text-align:center;}
+.bc{margin-left:auto; margin-right:auto;}
+.fz0{font-size:0;}
+.pr{position:relative;}
+/*main的宽度是由页面来决定的*/
+.main{width:0.9375rem; margin:0 auto;}
+/*公共样式  结束*/
+/*头部公共样式 开始*/
+.XDheader{width:100%; height:auto; background:#49becd;}
+.XDheader .aBack{background:#49becd url(../images/backFFF.png)no-repeat 0 center; background-size:0.034375rem 0.0625rem; display: inline-block; width:0.034375rem; height:0.0625rem;}
+.XDheader div{ height:0.06rem;padding:0.04375rem 0;font-size:0.05rem; color:#fff;background:#49becd;}
+.ff52{width:100%; height:0.046875rem; border-bottom:1px solid #ccc; border-top: 1px solid #ccc; background:#f0eff5;}
+.ff5{width:100%; height:0.08rem; border-bottom:1px solid #ccc; background:#f0eff5;}
+.ffborTop{ border-top:1px solid #ccc;}
+/*头部公共样式 结束*/
+/*
+DingDan.html/XiaDingDan.html
+    加减 公用样式 开始
+*/
+.addBox{width:0.275rem;height:0.08125rem;background:url("../images/addBox.png") no-repeat 0 0;  background-size:contain; margin-top:0.04rem; margin-right:0.04rem;}
+#TxtBox{width:0.095rem;height:0.08125rem; text-align: center; line-height: 0.08rem; font-size: 0.04rem; float:left; }
+.reduce,.add{width:0.088rem;height:100%;display: inline-block; float:left; line-height: 0.08rem; text-align: center;}
+.reduce{background:url("../images/reduce.png") no-repeat  center;  background-size:0.0359375rem 0.00625rem;}
+.add{background:url("../images/add.png") no-repeat  center;  background-size:0.0359375rem 0.0359375rem;}
+/*加减 公用样式 结束*/
+
+
+/*
+KuaiSuXiaDan.html/JiShi.html/DingDan.html/aboutZiJi.html
+底部 公用样式 开始
+*/
+/*footer*/
+.KSfot{
+    display:-moz-box; /* Firefox */
+    display:-webkit-box; /* Safari and Chrome */
+    display:box;
+    position:fixed; left:0; bottom:0;
+    width:100%; height:0.14rem;padding-top:0.02rem;background:#fff; border-top:1px solid #d8d8d8;
+}
+.KSfot div{
+    -moz-box-flex:1.0; /* Firefox */
+    -webkit-box-flex:1.0; /* Safari 和 Chrome */
+    box-flex:1.0;
+    text-align: center;
+    font-size: 0;
+}
+.KSfot div span{display: inline-block; width:0.06875rem; height:0.115625rem;}
+
+.fotdot{position:absolute; right:-0.02rem; top:-0.01rem; background: url("../images/dotRed.png") no-repeat 0 0; background-size: contain; width:0.01875rem; height: 0.01875rem; }
+
+/*底部 公用样式 结束*/
+/*统一字体设置*/
+.Fs5{font-size: 0.05rem !important;}
+.Fs4{font-size: 0.04rem !important;}
+.Fs3{font-size: 0.03rem !important;}
+.Fs375{font-size: 0.0375rem !important;}
+.Fs45{font-size: 0.045rem !important; color:#000 !important;}
+.C000{color:#000 !important;}
+.C999{color:#999 !important;}
+.Hgd{background:#f0eff5; height:0.06rem; border-bottom: 1px solid #ccc;}
+.Hgdnone{background:#f0eff5; height:0.06rem;}
+.bn{border:none !important;}
+.btn{border-bottom:none !important;}
+.w0{width:0 !important;}
+a{display: inline-block;width:100%; height:100%;}
+a:active{background: #ccc;}
+
+

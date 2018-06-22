@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>页面自点击</title>
+	<style type="text/css">
+		.zh-box{width:400px; border:1px solid #ccc; padding:10px 20px; word-break:break-all; }
+	</style>
+    
+</head>
+<body>
+  <p class="zh-box" onclick="aa()">我是点击1111</div>
+
+  <p class="zh-box btn"  onclick="bb()">我是被点击222</div>
+
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+
+	function aa(){
+		alert(11111);
+
+		$(".btn").trigger("click"); 
+	};
+
+	function bb(){
+		alert("我是被调用的2222");
+	};
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>左侧主导航</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <style>
+        html,body{width:100%; height:100%;}
+    </style>
+</head>
+<body>
+<!--公用左侧主导航-->
+    <div class="c-left-nav oh">
+        <div class="nav-p">
+            <p class="p2 active"><a href="{:U('Portal/userinfo/trademark_gk')}" target="showFrame" ><span>商标概况</span></a></p>
+            <p class="p3"><a href="{:U('Portal/brand/brand_lst')}" target="showFrame" ><span>商标管理</span></a></p>
+            <p class="p4"><a href="{:U('Portal/userinfo/jiance')}" target="showFrame" ><span>商标监测</span></a></p>
+            <p class="p5"><a href="{:U('Portal/pinfo/index')}" target="showFrame" ><span>个人中心</span></a></p>
+            <p class="p1"><a href="{:U('Portal/cost/orderlst')}" target="showFrame" ><span>费用中心</span></a></p>
+        </div>
+    </div>
+<!--公用左侧主导航 end-->
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        $(".nav-p p").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>公用侧边栏</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+</head>
+<body>
+<!--返回顶部-->
+<div class="backTop">
+    <div class="backTop-msg"><img src="images/msg.png" width="50" height="50" alt=""/></div>
+    <div class="backTop-top"><a href="javascript:window.scrollTo( 0, 0 );" ><img src="images/top.png" width="50" height="50" alt=""/></a></div>
+</div>
+<!--返回顶部 end-->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+$(".backTop-msg,.backTop-top").hover(function(){
+	$(this).css("background","#157efb");
+},function(){
+	$(this).css("background","#456588");
+})
+</script>
+</body>
+</html>

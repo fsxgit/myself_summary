@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQuery CSS3动画过渡效果特效 - 站长素材</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="css/zzsc.css" />
+
+</head>
+<body>
+
+<div class="container clearfix" role="main">
+	<button class="button-animation">动画效果</button>
+	<button class="button-transition">过渡效果</button>
+</div>
+
+<script src="js/jquery-v1.min.js"></script>
+<script>
+
+'use strict';
+
+
+// helper functions
+
+;( function( $, window, document, undefined )
+{
+	var s = document.body || document.documentElement, s = s.style, prefixAnimation = '', prefixTransition = '';
+
+	if( s.WebkitAnimation == '' )	prefixAnimation	 = '-webkit-';
+	if( s.MozAnimation == '' )		prefixAnimation	 = '-moz-';
+	if( s.OAnimation == '' )		prefixAnimation	 = '-o-';
+
+	if( s.WebkitTransition == '' )	prefixTransition = '-webkit-';
+	if( s.MozTransition == '' )		prefixTransition = '-moz-';
+	if( s.OTransition == '' )		prefixTransition = '-o-';
+
+	$.fn.extend(
+	{
+		onCSSAnimationEnd: function( callback )
+		{
+			var $this = $( this ).eq( 0 );
+			$this.one( 'webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', callback );
+			if( ( prefixAnimation == '' && !( 'animation' in s ) ) || $this.css( prefixAnimation + 'animation-duration' ) == '0s' ) callback();
+			return this;
+		},
+		onCSSTransitionEnd: function( callback )
+		{
+			var $this = $( this ).eq( 0 );
+			$this.one( 'webkitTransitionEnd mozTransitionEnd oTransitionEnd otransitionend transitionend', callback );
+			if( ( prefixTransition == '' && !( 'transition' in s ) ) || $this.css( prefixTransition + 'transition-duration' ) == '0s' ) callback();
+			return this;
+		}
+	});
+})( jQuery, window, document );
+
+
+// test: animation
+
+;( function( $, window, document, undefined )
+{
+	var $button = $( '.button-animation' );
+	$button.on( 'click', function( e )
+	{
+		e.preventDefault();
+		$button.addClass( 'do-it' ).onCSSAnimationEnd( function()
+		{
+			alert( 'CSS动画已经完成！' );
+			$button.removeClass( 'do-it' );
+		});
+	});
+})( jQuery, window, document );
+
+
+// test: transition
+
+;( function( $, window, document, undefined )
+{
+	var $button = $( '.button-transition' );
+	$button.on( 'click', function( e )
+	{
+		e.preventDefault();
+		$button.addClass( 'do-it' ).onCSSTransitionEnd( function()
+		{
+			alert( 'CSS转换已完成！' );
+			$button.removeClass( 'do-it' );
+		});
+	});
+})( jQuery, window, document );
+
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';clear:both;">
+<br><br><br>
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p><br>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

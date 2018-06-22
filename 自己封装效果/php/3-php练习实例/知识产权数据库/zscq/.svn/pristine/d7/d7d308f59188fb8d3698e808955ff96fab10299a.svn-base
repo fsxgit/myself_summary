@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>顶部导航</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+</head>
+<body>
+<!--公用header-->
+    <div class="c-top-nav heiBg-top  bg10 cfff f14">
+        <div class="main">
+            <div class="top-left-logo fl"><img src="public/html/images/logo4.png" alt=""/></div>
+            <div class="top-right-mode fr fc11">
+                <div class="top-nav
+				-search  hover fl" style="">
+					<form action="index.php?g=Portal&m=Index&a=search" method='post' id='form'>
+                    <div class="top-search-input fl" style="background: #172029;">
+                        <input  type="text" placeholder="请输入企业名称或者商标名称" name='business_name' value='<?php echo $name;?>' id='business_name'/>
+                    </div>
+                    <input type="submit" class="top-search-btn fl" value="搜索" />
+					</form>
+                </div>
+                <div class="top-nav-xj hover  fl">新建</div>
+                <div class="top-nav-xx hover fl oh" style="padding-left: 20px;">
+					<img  class="fl" src="public/html/images/icon19.png" width="20" height="20" alt=""/>
+					<?php if($sum != 0){ ?>
+						<span class="fl" style="margin-top: 3px; margin-left: 4px;"><?php echo $sum; ?></span>
+					<?php }else{ ?>
+						
+					<?php } ?>
+				</div>
+                <div class="top-nav-img header-search fl pr">
+                    <img src="public/html/images/img3.png" alt=""/>
+                    <div class="sy-img-nav f12 c333" style="z-index:20;">
+                        <div class="p-box" style="border-right: 1px solid #ccc;">
+                            <p class="p2"><span onclick="per()">个人中心</span></p>
+                            <p class="p4"><span onclick="log()">退出登录</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cb"></div>
+        </div>
+    </div>
+<!--公用header end-->
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+
+    $(function(){
+        $(".top-nav-img,.p-box").hover(function(){
+            $(".sy-img-nav").show();
+        },function(){
+            $(".sy-img-nav").hide();
+        });
+        $(".p-box p").hover(function(){
+            $(this).addClass("active");
+        },function(){
+            $(this).removeClass("active");
+        })
+//        $(".top-search-btn").click(function(){
+//            $(".top-nav-search").removeClass("active");
+//        })
+//        $(".top-search-input input").focus(function(){
+//            $(".top-search-input input").blur(function(){
+//                $(".top-nav-search").addClass("active");
+//            })
+//        })
+    })
+
+	function per(){
+		window.location.href="index.php?g=Portal&m=Userinfo&a=index";
+	}
+	function log(){
+		window.location.href="index.php?g=Portal&m=Register&a=outlogin";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta  name="viewport" content="width=device-width, initial-scale=1">
+  <title>charts</title>
+</head>
+<body>
+<canvas id="myChart"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+  var ctx = document.getElementById("myChart");
+  let chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      datasets: [{
+        data: [10, 20, 30, 40, 50, 60]
+      }],
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          ticks: {
+            min: 'March'
+          }
+        }]
+      }
+    }
+  });
+</script>
+</body>
+</html>

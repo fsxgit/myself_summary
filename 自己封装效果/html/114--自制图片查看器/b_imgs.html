@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>他人主页</title>
+    <style>
+        html,body{width: 100%; height: 100%;}
+        body{background: #eee;}
+        .cxxq_wrap{ padding:10px 30px 30px; margin-top: 32px; width: 810px; background: #fff;}
+        .cxxq_wrap .date{color: #666; font-size: 14px; line-height: 40px;}
+        .imgs img{width: 196px; height: 196px; float: left; margin-bottom: 4px; margin-right: 4px;}
+        .img_shadow{position: fixed; left:0; top:0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 20; display: none;}
+        .imgs_box{position: fixed; z-index: 22;  padding:10px; display: none;}
+        .imgs_box img{position: fixed; left:0; top:0; bottom:0; right:0;  margin:auto; border:10px solid #fff; }
+        .imgs_box .prev{position: fixed; left:0; top:0; height: 100%;   width: 200px; background:url("images/imgPrev.png") no-repeat center center;    cursor: pointer; z-index: 24;  opacity: 0.6;}
+        .imgs_box .next{position: fixed; right:0; top:0; height: 100%;  width: 200px; background:url("images/imgNext.png") no-repeat center center; opacity: 0.6; cursor: pointer;  z-index: 24; }
+        .imgs_box .prev:hover{opacity: 1;}
+        .imgs_box .next:hover{opacity: 1;}
+        .hideImg{position: fixed; left:0; top:0; visibility: hidden; z-index: -1;}
+    </style>
+</head>
+<body>
+
+<div class="hot_left cxxq_wrap" >
+    <div class="hot_cont">
+        <div class="date">12月</div>
+        <div class="imgs">
+            <img src="images/img3.jpg" alt=""/>
+            <img src="images/img6.jpg" alt=""/>
+            <img src="images/img1.jpg" alt=""/>
+            <img src="images/img2.jpg" alt=""/>
+            <img src="images/img4.jpg" alt=""/>
+            <img src="images/img6.jpg" alt=""/>
+            <img src="images/img12.jpg" alt=""/>
+            <img src="images/dimg.jpg" alt=""/>
+        </div>
+    </div>
+</div>
+
+
+
+<!--大图图层-->
+<div class="img_shadow"></div>
+<div class="imgs_box">
+    <div class="prev"></div>
+    <div class="next"></div>
+    <img id="img" src="images/img6.jpg" alt=""/>
+</div>
+<div class="hideImg"><img src="" alt=""/></div>
+<!--大图图层 end-->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    var W3 = $("body").width();
+    var H3 = $("body").height();
+    $(".imgs img").click(function(){
+        $(this).addClass("on").siblings().removeClass("on");
+        var src = $(this).attr("src");
+        $(".hideImg img").attr("src",src);
+        var W1 = $(".hideImg img").width();
+        var H1 = $(".hideImg img").height();
+
+        if(W1 <=0.8*W3 && H1 <=0.8*H3){
+            $("#img").width(W1);
+            $("#img").height(H1);
+        }else{
+            $("#img").css("maxWidth",0.8*W3);
+            $("#img").css("maxHeight",0.8*H3);
+            $("#img").width("auto");
+            $("#img").height("auto");
+        }
+        console.log(W1);
+        console.log(H1);
+        $("#img").attr("src",src);
+        $(".img_shadow").show();
+        $(".imgs_box").fadeIn("600");
+        $("html").css("overflow","hidden");
+
+    });
+    $(".img_shadow").click(function(){
+        $(".img_shadow").hide();
+        $(".imgs_box").hide();
+        $("html").css("overflow","auto");
+
+    });
+    $(".imgs_box .next").click(function(){
+        var src = $(".imgs img.on").next("img").attr("src");
+        $(".imgs img.on").next("img").addClass("on").siblings().removeClass("on");
+        $(".hideImg img").attr("src",src);
+        var W1 = $(".hideImg img").width();
+        var H1 = $(".hideImg img").height();
+
+        if(W1 <=0.8*W3 && H1 <=0.8*H3){
+            $("#img").width(W1);
+            $("#img").height(H1);
+        }else{
+            $("#img").css("maxWidth",0.8*W3);
+            $("#img").css("maxHeight",0.8*H3);
+            $("#img").width("auto");
+            $("#img").height("auto");
+        }
+        $("#img").attr("src",src);
+        $(".img_shadow").show();
+        $(".imgs_box").fadeIn("600");
+    });
+    $(".imgs_box .prev").click(function(){
+        var src = $(".imgs img.on").prev("img").attr("src");
+        $(".imgs img.on").prev("img").addClass("on").siblings().removeClass("on");
+        $(".hideImg img").attr("src",src);
+        var W1 = $(".hideImg img").width();
+        var H1 = $(".hideImg img").height();
+
+        if(W1 <=0.8*W3 && H1 <=0.8*H3){
+            $("#img").width(W1);
+            $("#img").height(H1);
+        }else{
+            $("#img").css("maxWidth",0.8*W3);
+            $("#img").css("maxHeight",0.8*H3);
+            $("#img").width("auto");
+            $("#img").height("auto");
+        }
+        $("#img").attr("src",src);
+        $(".img_shadow").show();
+        $(".imgs_box").fadeIn("600");
+
+    })
+</script>
+</body>
+</html>
+

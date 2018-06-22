@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery倒计时插件downCount - 素材家园</title>
+<style type="text/css">
+body {
+	background: #363f48;
+	color: white;
+	font: normal 12px 'Open Sans', sans-serif;
+	margin-top: 20px;
+}
+ul.countdown {
+	list-style: none;
+	margin: 75px 0;
+	padding: 0;
+	display: block;
+	text-align: center;
+}
+ul.countdown li {
+	display: inline-block;
+}
+ul.countdown li span {
+	font-size: 80px;
+	font-weight: 300;
+	line-height: 80px;
+}
+ul.countdown li.seperator {
+	font-size: 80px;
+	line-height: 70px;
+	vertical-align: top;
+}
+ul.countdown li p {
+	color: #a7abb1;
+	font-size: 14px;
+}
+a {
+	color: #76949F;
+	text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+<ul class="countdown">
+  <li> <span class="hours">00</span></li>
+  <li class="seperator">:</li>
+  <li> <span class="minutes">00</span></li>
+  <li class="seperator">:</li>
+  <li> <span class="seconds">00</span></li>
+</ul>
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/jquery.downCount.js"></script> 
+<script type="text/javascript">
+        $('.countdown').downCount({
+            date: '11/17/2025 16:03:00', //设置结束时间
+            offset: 8     //区时设置
+        }, function () {
+            alert('倒计时结束!');//设置回调函数
+        });
+    </script>
+</body>
+</html>

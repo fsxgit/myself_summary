@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>公共组件</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--header-->
+    <div class="c-header oh">
+        <div class="fl c-logo"><img src="images/logo.png" width="168" height="50" alt=""/></div>
+        <div class="fr c-right oh">
+            <div class="c-tel oh fl">
+                <img src="images/icon1.png" class="fl" width="13" height="14" alt=""/>
+                <span class="fl f12">400-686-5658</span>
+            </div>
+            <input class="c-log fl" type="button" value="登录" />
+            <input class="c-reg fl" type="button" value="注册" />
+        </div>
+    </div>
+    <!--header end-->
+
+</div>
+</body>
+</html>

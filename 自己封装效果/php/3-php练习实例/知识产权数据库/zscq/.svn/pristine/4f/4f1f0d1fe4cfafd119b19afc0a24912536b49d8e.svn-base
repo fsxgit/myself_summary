@@ -1,0 +1,89 @@
+<?php
+/**
+ * 一路支付16个接口
+ */
+namespace Portal\Controller;
+use Common\Controller\HomebaseController; 
+header("content-type:text/html;charset=utf-8");
+class OneroadpayController extends HomebaseController{
+
+	//调用公共方法
+	private function ceshi($sid,$data){
+            $rs = request_api_xlb($sid,$data);//接口请求
+            return $rs;
+        }
+
+	//一路财富支付接口秘钥 1800
+	private function token(){
+            $token = $_COOKIE['code'];
+            $data = array(token => $token);
+            return $this->ceshi(1800,$data);
+	}
+        
+        //D15 一路财富支付接口 1587
+        public function oneroad(){
+            $totalOrdersNo = I('totalOrdersNo');
+            $tranPassword = I('tranPassword');
+            $bankCardNo = I('bankCardNo');
+            //支付类型   0 是余额   1是银行卡
+            $payType = I('payType');
+            $data = array(
+                totalOrdersNo => totalOrdersNo,
+                tranPassword => tranPassword,
+                bankCardNo => bankCardNo,
+                payType => payType
+            );
+            $arr_info = $this->ceshi(1587,$data);
+            return $arr_info;
+        }
+        
+        //D17 一路财富银行卡列表 1589
+        public function roadlist(){
+            $token = $_COOKIE['code'];
+            $data = array(token => $token);
+            $arr_info = $this->ceshi(1589,$data);
+            //支持的银行卡
+            $arr_list = $arr_info['RESULT']['result']['bankList'];
+            $this->assign("arrlist",$arr_list);
+            $this->display("my_qianbao_kt");
+        }
+		/**
+		*  收银台支付页面
+		*/
+		function shoupay(){
+			$orderid = I('post.orderid');
+			$arr = M("zcorder")->where("orderid = {$orderid}")->find();
+			M("mark")->where("id in({$arr['markid']})")->save(array('entname'=>$zcorder['applicantname']));
+			$this->assign("arr",$arr);
+			$this->display("shoyintai");
+		}
+		/**
+		*  支付订单
+		*/
+		function payorder(){
+			$orderid = I('post.orderid');
+			$arr = M("zcorder")->where("orderid = {$orderid}")->find();
+			//M("zcorder")->where("orderid = {$orderid}")->save(array('state'=>'1','actual_price'=>$arr['summary_price']));
+			/*
+			    推送注册单
+			*/
+			$zcorder = M("zcorder")->where("orderid = {$orderid}")->find();
+			$mark = M("mark")->where("id in({$zcorder['markid']})")->select();
+			$info['query_no'] = $zcorder['query_no'];
+			$info['order_no'] = $zcorder['order_no'];
+			$info['customerid'] = $zcorder['customerid'];
+			$info['customername'] = $zcorder['customername'];
+			$info['customermobile'] = $zcorder['customermobile'];
+			$info['applicantname'] = $zcorder['applicantname'];
+			$info['applicantaddress'] = $zcorder['applicantaddress'];
+			foreach($mark as $k=>$v){
+				$info['markname'] = $v['markname'];
+			    $info['markpicture'] = $v['marklogo'];
+				$registetype[] = $v['registetype'];
+			}
+			$info['registetype'] = implode(',',$registetype);
+		    request_api_xt("intel_property/trademark_regist_order_to_xtpt",$info);
+			$this->assign("orderid",$orderid);
+			$this->display("shoyintai-suc");
+		}
+}

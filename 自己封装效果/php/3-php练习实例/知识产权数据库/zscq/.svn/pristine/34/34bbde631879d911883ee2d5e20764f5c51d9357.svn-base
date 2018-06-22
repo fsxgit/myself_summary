@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标查询</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+    <div class="gl-cx-all main-hou">
+        <div class="bread-nav">
+            商标列表 > 商标详情
+        </div>
+        <div class="gl-cx-top">
+            <div class="cx-mode">
+                <div class="logo fl"><img src="../images/img1.png" alt=""/></div>
+                <div class="name fl">
+                    <p><span class="c999">商标名称：</span>神州易桥</p>
+                    <p><span class="c999">行业分类：</span>通讯移动</p>
+                </div>
+            </div>
+            <div class="cx-mode">
+                <div class="site">
+                    <p><span class="c999">创建日期：</span>2016.09.08</p>
+                    <p><span class="c999">申请人名称：</span>小米科技有限公司</p>
+                    <p><span class="c999">申请人地址：</span>北京市海淀区清河中街68号</p>
+                </div>
+            </div>
+            <div class="cx-mode bdn">
+                <div class="logo guwen fl"><img src="../images/img9.png" alt=""/></div>
+                <div class="name fl">
+                    <p><span class="c999">服务顾问名称：</span>小马</p>
+                    <p><span class="c999">服务顾问电话：</span>15900994215</p>
+                </div>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">查询方式</h1>
+            <div class="bgl-cont ">
+                智能推荐
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">查询结果</h1>
+            <div class="bgl-cont ">
+                部分可注册<span class="c999">（查询结果时间为：2014-04-03 21:21:21）</span>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">选择领域及行业</h1>
+            <div class="bgl-cont ">
+                【IT】通讯，电子，互联网等 <span class="ml10">智能设备</span>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">搜索结果</h1>
+            <div class="bgl-cont ">
+                <!--不可注册分类-->
+                <div class="fenlei-title">不可注册分类</div>
+                <div class="hang-lei-box">
+                    <div class="hang-lei-mode f12">
+                        <h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1>
+                        <div class="hang-lei-cont">
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                        </div>
+                    </div>
+                </div>
+                <!--不可注册分类 end-->
+                <!--小熊提示-->
+                <div class="cx-zhuce bufen-pet">
+                    <div class="c-img-txt ">
+                        <span>
+                            <span class="fl mr10"><img src="../images/icon2.png" width="52" height="80" alt=""/></span>
+                             <span class="fl">很抱歉，查询的分类都不可注册，我们根据企业的情况，建议您还可以选择注册一下分类：</span>
+                        </span>
+                    </div>
+                </div>
+                <!--小熊提示 end-->
+                <!--建议的分类-->
+                <div class="hang-lei-box">
+
+                    <div class="hang-lei-mode f12">
+                        <h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1>
+                        <div class="hang-lei-cont">
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                        </div>
+                    </div>
+                    <div class="hang-lei-mode f12">
+                        <h1 class="lei-h1">第30类 方便食品 <span>删除</span></h1>
+                        <div class="hang-lei-cont">
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                            <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"><img src="../images/del.png" width="7" height="7" alt=""/></span></div>
+                        </div>
+                    </div>
+                </div>
+                <!--建议的分类 end-->
+            </div>
+        </div>
+        <div class="bgl-mode bt  pb100">
+            <div class="bgl-cont tr">
+                <input type="button" class="blue-big-btn" value="去注册"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

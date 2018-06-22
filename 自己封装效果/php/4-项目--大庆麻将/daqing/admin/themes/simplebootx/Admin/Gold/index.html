@@ -1,0 +1,73 @@
+<admintpl file="header" />
+</head>
+<body>
+
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#" data-toggle="tab">吧币规则</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('index_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">签到</label>
+					<div class="controls">
+						<input type="text" name="qiandao" value="{$Think.config.QIANDAO}" />
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">发表帖子</label>
+					<div class="controls">
+						<input type="text" name="sendposts" value="{$Think.config.SENDPOSTS}" />
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">看视频</label>
+					<div class="controls">
+						<input type="text" name="wacthvideo" value="{$Think.config.WATCHVIDEO}" />
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">发表评论</label>
+					<div class="controls">
+						<input type="text" name="sendcomment" value="{$Think.config.SENDCOMMENT}" />
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">上传小任务</label>
+					<div class="controls">
+						<input type="text" name="uploadtask" value="{$Think.config.UPLOADTASK}" />
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">发咨询</label>
+					<div class="controls">
+						<input type="text" name="sendseek" value="{$Think.config.SENDSEEK}" />
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">每日获取吧币上限</label>
+					<div class="controls">
+						<input type="text" name="gold_day" value="{$Think.config.GOLD_DAY}" />
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		$(function(){
+			$('#js-smtpsecure').val('{$Think.config.SP_MAIL_SECURE}');
+		});
+	</script>
+</body>
+</html>

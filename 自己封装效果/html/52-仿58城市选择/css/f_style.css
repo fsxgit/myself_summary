@@ -1,0 +1,39 @@
+/*Css reset*/
+body, div,img, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0;}
+address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li {list-style:none;}
+a{ text-decoration:none;}
+th{text-align:left;}
+em,i{font-style: normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before, q:after{content:' '}
+abbr,acronym{border:0;}
+img{max-width: 100%; max-height:100%;}
+button,input,select,option,textarea{margin:0px; padding: 0px; border: none;outline: none;}
+body{ font-family: "hiragino sans gb","Microsoft Yahei", Arial, Tahoma,  Helvetica; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+.fl{float:left;}
+.fr{float:right;}
+.oh{overflow: hidden;}
+.tc{text-align: center;}
+/*保证绝对定位样式 start*/
+html{width: 100%; height:100%;}
+body{width: 100%; height:100%;  overflow-x: hidden; margin:0; background: #fff;}
+/*保证绝对定位样式 end*/
+/*头部 和 返回 css*/
+.XDheader{width:100%; height:auto; background:#58ab22; text-align: center;}
+.XDheader .aBack{background:#58ab22 url("../images/backFFF.png")no-repeat 0 center; background-size:0.34375rem 0.625rem; display: inline-block; width:0.34375rem; height:0.625rem;}
+.XDheader div{ height:0.6rem;padding:0.4375rem 0;font-size:0.5rem; color:#fff;background:#58ab22; line-height: 0.6rem;}
+.main{width:9.324074074074074rem; margin: 0 auto;height:auto; overflow: hidden;}
+/*body{width: 100%; height:100%; overflow:auto; margin:0; background: #f5f5f9;}*/
+.Bbox{background: #fff; width:100%; height:100%;}
+.BunBody{height:100%;margin:0; background: #fff}
+.Canbody{height:100%;overflow:auto;margin:0; background: #efeff4;}
+.Canbox,.MGbox{background: #fff;}
+.PCBody{width: 100%; height:100%; overflow:auto; margin:0; background: #f5f5f9;}
+.PDBody{height:auto;margin:0; background: #efeff4;}
+img{width:100%; height:100%;}
+
+.XDheader a:link,.XDheader a:active,.XDheader a:visited{color:#fff; text-decoration: none;}
+.fcou{padding-left:0.4rem;}

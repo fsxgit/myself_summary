@@ -1,0 +1,85 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: Dean <zxxjjforever@163.com>
+// +----------------------------------------------------------------------
+/**
+ * 搜索结果页面
+ */
+namespace Portal\Controller;
+use Common\Controller\CommonController;
+class UserinfoController extends CommonController {
+    public function index() {
+	$zsid = $_COOKIE['zsid'];//
+        $users_model = M("user");
+        $result = $users_model->where($zsid)->select();
+        $this->assign($result);
+    	$this->display("index");
+    }
+    public function top() {
+    	 $this->display("header");
+    }
+	public function left() {
+    	 $this->display("left");
+    }
+	public function right() {
+    	 $this->display("brand-gk");
+    }
+	public function sd() {
+    	 $this->display("brand-gl-bg");
+    }
+	public function trademark(){
+		$data = array(
+		             ''=>'',
+		 
+		 
+		             );
+		$arr = array(
+		                 'queryid'=>"1",
+						 'customerid'=>"662229",
+						 'customername'=>"13241375106",
+						 'customermobile'=>"13241375106",
+						 'markname'=>"海博远创",
+						 'markpicture'=>"",
+						 'querytype'=>"",
+					 );
+	} 
+	/**
+	*  商标概况
+	*/
+    function trademark_gk(){
+        $zsid = $_COOKIE['zsid'];//
+        $users_model = M("user");
+        $result = $users_model->where("id = $zsid")->find();
+        $this->assign("res",$result);
+        $this->display("brand_gk");
+    }
+        
+        //商标概括的搜索
+    public function search_input(){
+        $this->display("search_input");
+    }
+	//调用公共的接口
+	private function ceshi($sid,$data){
+            $rs = request_api_xlb($sid,$data);//接口请求
+            return $rs;
+        }
+
+	//优惠劵
+	public function yhjuan(){
+            $token = $_COOKIE['code'];
+            $data = array(token => $token,pageSize => 10,pageNumber => 0);
+            $res = $this->ceshi(1520,$data);
+            $res['RESULT']['result']['list'] = 1;
+            if($res['RESULT']['result']['list'] == ""){
+                $this->display("youhuiquan_wu");
+            }else{
+                $arr = array(id=>1,amount=>100000000,name=>'鬼知道',conditions=>1,startDate=>1,endDate=>2,shopType=>0,goods=>0,goodsTypes=>'我TM哪知道');
+                $this->assign("arr",$arr);
+                $this->display("youhuiquan");
+            }
+	}
+}

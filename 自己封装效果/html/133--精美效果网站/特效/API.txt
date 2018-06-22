@@ -1,0 +1,16 @@
+这里收藏的是一些体验比较好的网站：
+1、https://www.protectwise.com/
+  导航效果、菜单切换效果、banner 点点星空效果
+
+2、http://eosgravity.com/
+  引力区生态网络模块：里面小图标的画图效果 svg画图特效
+
+3、https://www.wecraftapps.com/
+  网站最后文字一点一点出来的效果
+
+4、http://congresos.otutravel.com/en/nosotros
+ 这个项目的加载效果不错
+
+ 5、http://www.spallian.com/?lang=en
+ 这个项目进来时候的由大到小的效果
+ 还有这个切换语言时候的效果

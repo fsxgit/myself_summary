@@ -1,0 +1,5 @@
+.box{float:left; width:40%; margin:10px 5%; text-align: center;}
+/*.box{ width: 50%;*/
+    /*height: 0;*/
+    /*padding-bottom: 100%;}*/
+.box img{max-width: 100%; width:100%; display: block; border-radius: 10px; }

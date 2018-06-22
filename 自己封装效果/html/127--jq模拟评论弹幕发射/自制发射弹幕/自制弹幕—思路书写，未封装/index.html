@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>模拟弹幕</title>
+    <style>
+        *{margin:0; padding:0;}
+        #dm_box{width: 100%; height: 500px; overflow: hidden; background: #eee; position: relative;}
+        #dm_btn{}
+        #dm_btn input[type="text"]{height:40px; padding:0 10px;}
+        #dm_btn input[type="button"]{height:44px; width: 80px;}
+        #dm_box span{ color: #fff; white-space:nowrap;  background: #0000ff; position: absolute; left:0; padding:2px 10px; border-radius: 14px; margin:0 10px;}
+        #dm_box .nspan{background: #c6158e; }
+        #dm_box p{ width: auto; min-width: 100%; height: 100px; line-height: 100px; color: #000; white-space:nowrap; position: absolute; left:0;}
+        #dm_box p span{margin:0 10px;}
+        #dm_box p:nth-of-type(1){background: #0000ff; top:0px;}
+        #dm_box p:nth-of-type(2){background: #4ec6a6; top:100px;}
+        #dm_box p:nth-of-type(3){background: #29c60b; top:200px;}
+        #dm_box p:nth-of-type(4){background: #c60a1f; top:300px;}
+        #dm_box p:nth-of-type(5){background: #c6158e; top:400px;}
+    </style>
+</head>
+<body>
+<div id="dm_box">
+    <!--<p>我是弹幕1的盒子</p>-->
+    <!--<p>我是弹幕2的盒子</p>-->
+    <!--<p>我是弹幕3的盒子</p>-->
+    <!--<p>我是弹幕4的盒子</p>-->
+    <!--<p>我是弹幕5的盒子</p>-->
+</div>
+<div id="dm_btn"><input id="newText" type="text" placeholder="输入弹幕"/><input id="send" type="button" value="发送"/></div>
+
+<script src="jquery.min.js"></script>
+<script>
+    var data4 = ["平给陕西照金北梁红军小学学生的回信","以青春之我肩负起国家民族的希望","中方的这个声明亮了！","中央印发《关于加强科研诚信建设的若干意见》","：住房公积金缴存总额已超12万亿元","见镜头","气和水环境改善","山西等8省份将试点监狱巡回检察","范围下调日用消费品进口关税","稻” 最高亩产超500公斤","袁隆平团队迪拜沙漠种“海水稻” 最高亩产超500公斤","排行榜百强","张步伐加快","北京拟建立空气质量生态保护补偿机制","点滴爱心汇聚终成善行大海","自行成交二手房可网上申请购房资格审核","共同推进中印两军关系健康稳定发展","乌克兰总统接见“被暗杀”俄记者 还对他表示感谢","意大利两大反建制政党或重新寻求组建联合政府","被叫“老大哥” 普京：感觉很窘迫","这是要让掏钱？","罪 最高可判五年监禁处罚","那请看看这些孩子的十年","接警员 称“为了解闷”","民警用发红包“吊”出位置","6岁女孩离家出走到丹东见网友","挝国家主席本扬举行会谈","习近平十大关键词“大朋友”习近平","这样寄语少年儿童2022奥组委","建设世界科技强国","人才计划必看的6月新规九价HPV疫苗2018高考临近首座跨断裂带","分享新规儿童票收费新规首个DNA疫苗","大桥微信外链","获批","看","热搜新闻词HOT WORDS","习近平同老"," 1","离家出走流浪16年","名牌大学毕业生不满工作分配","酒中投冰毒兴奋剂实施抢劫","女子微信搭讪诱人入局","河南西华一男子酒后拨打110辱骂","女大学生深夜宿舍开直播","警方卧底后直呼“不堪入目”","丑化恶搞英雄烈士行为","文化和旅游部查处'暴走漫画'","女子骑电动三轮车抄近路上高速","自称有洁癖要请假"];
+    var data = ["平给陕西照金北梁红军小学学生的回信","6岁女孩离家出走到丹东见网友","挝国家主席本扬举行会谈","习近平十大关键词“大朋友”习近平","这样寄语少年儿童2022奥组委","建设世界科技强国","人才计划必看的6月新规九价HPV疫苗2018高考临近首座跨断裂带","分享新规儿童票收费新规首个DNA疫苗"];
+
+
+/**
+ * danmu:自制弹幕发射功能
+ * data ：弹幕数据
+ * num: 设定每次从数据中拿出的用来滚动的条数【因为如果数据量太大，一次滚动问题太大，而且要循环滚动的】
+ * count：统计次数，统计总共从数据中拿了多少次了，第一次是0；
+ * id:弹幕相对滚动的父级的id;也就是存放每个弹幕span的父级id
+ *
+ *
+ * 注意要再调用数据时设定一个num，count变量使用
+ * **/
+
+    dmFun(data,5,"#dm_box");
+  function dmFun(data,num,id){
+        var data = data; //总数据
+        var num = num; //设定一次滚动的条数20条
+        var count = 0; //计次
+        var id = id;
+      danmu(data,num,count,id);
+      function danmu(data,num,count,id){
+          var start = count*num; //每次要取的值的开始位置
+          var end = start+num; //每次要取的值的结束位置
+       console.log(start);
+       console.log(end);
+       console.log(data);
+          var dataNew = data.slice(start,end);
+       console.log(dataNew);
+          if(dataNew.length == 0){
+              console.log("新一轮开始了!");
+              count = 0;
+              danmu(data,num,count,id);
+          }
+          $.each(dataNew,function(i,v){
+              var str = "<span>"+v+"</span>";
+              $(id).append(str);
+          });
+
+
+          var k = 1;
+          var $top = 100;
+          var ww = $(window).width();
+          //上一个span的最右边的位置
+          var $left1 = ww;
+          var $left2 = ww;
+          var aSpan = $(id).find(" span:not('.nspan')");
+          var len = aSpan.length;
+          var m = 0;
+          aSpan.each(function(){
+              var This = $(this);
+              //定义一个变量用来存储top值。最小值是20，最大值是80.
+
+              //为span设置随机的速度,最快速度为200.
+              var $speed = 5000;
+              //获取span的宽度
+              var $wid = This.width()+100;
+              //设置样式
+
+
+              //给每个span设定left位置
+              var lw = "";
+              if(k == 1){
+                  $top = 100;
+                  //给每个span设定left为屏幕宽度，也就是让每个span都跑到屏幕右边隐藏起来
+                  This.css({"top":$top,"left":$left1});
+                  $left1 = $left1 + $wid;
+                  lw = $left1;
+                  k = 2;
+              }else{
+                  $top = 300;
+                  //给每个span设定left为屏幕宽度，也就是让每个span都跑到屏幕右边隐藏起来
+                  This.css({"top":$top,"left":$left2});
+                  $left2 = $left2 + $wid;
+                  lw = $left2;
+                  k = 1;
+              }
+
+
+              //每个span要走过的距离
+              var gow = lw+ww;
+              //每个span要走的时间[为了保证匀速所以必须计算要走的时间]
+              var got = gow/$speed;
+
+              //设置目的地、速度、运动方式、回调函数。
+              //console.log("我的宽度="+$wid);
+              This.animate({"left":-$wid+50},Math.ceil(got*50000),function(){
+                  $(this).remove();
+                  m++;
+                  if(m == len){
+                      //也就是这一批走完的时候
+                      console.log("一批走完了!");
+                      count++;
+                      danmu(data,num,count,id);
+                  }
+              });
+          });
+      }
+  }
+
+
+    $("#send").click(function(){
+        var txt = $("#newText").val();
+        var nspan = "<span class='nspan'>"+txt+"</span>";
+        $("#dm_box").append(nspan);
+        $("#newText").val("");
+        var $top = 200;
+        var This = $("#dm_box span.nspan:nth-last-of-type(1)");
+        var ww = $(window).width();
+        var $wid = This.width()+100;
+        This.css({"top":$top,"left":ww});
+        //每个span要走过的距离
+        var gow = ww+$wid;
+        var $speed = 5000;
+        //每个span要走的时间[为了保证匀速所以必须计算要走的时间]
+        var got = gow/$speed;
+
+        //设置目的地、速度、运动方式、回调函数。
+        //console.log("我的宽度="+$wid);
+        This.animate({"left":-$wid+50},Math.ceil(got*50000),function(){
+            $(this).remove();
+            console.log("新弹幕走完了")
+        });
+    })
+</script>
+</body>
+</html>

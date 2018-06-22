@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>商品放大效果</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .zoom_box {
+            padding: 100px;
+        }
+
+        .zoom_box .min {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #f60;
+            position: relative;
+            float: left;
+            cursor: crosshair;    /*  鼠标十字架*/
+        }
+        /*mask的大小应满足 mask/min = max里面的图片的大小/max*/
+        .zoom_box .min #mask {
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(255, 255, 0, 0.3);
+            display: none;
+
+        }
+
+        .zoom_box .min img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .zoom_box .max {
+            border: 1px solid #f60;
+            width: 400px;
+            height: 400px;
+            float: left;
+            overflow: hidden;
+            margin-left: 10px;
+            display: none;
+            position: relative;
+        }
+
+        .zoom_box .max img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var mask = document.getElementById("mask");
+            var min = document.getElementsByClassName('min')[0];
+            var max = document.getElementsByClassName("max")[0];
+            min.onmouseover = function() {
+                mask.style.display = "block";
+                max.style.display = "block";
+            };
+            min.onmouseout = function() {
+                mask.style.display = "none";
+                max.style.display = "none";
+            };
+            min.onmousemove = function(event) {
+                console.log('test');
+                var e = event || window.event;
+                var x;
+                var y;
+                if (e.target == mask) {    //判断是否以mask为参考系
+                    x = e.offsetX + mask.offsetLeft;
+                    y = e.offsetY + mask.offsetTop;
+                } else {
+                    x = e.offsetX;
+                    y = e.offsetY;
+                }
+
+                if (x < mask.offsetWidth / 2) {
+                    x = mask.offsetWidth / 2;
+                } else if (x > min.offsetWidth - mask.offsetWidth / 2) {
+                    x = min.offsetWidth - mask.offsetWidth / 2;
+                }
+
+                if (y < mask.offsetHeight / 2) {
+                    y = mask.offsetHeight / 2;
+                } else if (y > min.offsetHeight - mask.offsetHeight / 2) {
+                    y = min.offsetHeight - mask.offsetHeight / 2;
+                }
+                mask.style.left = (x - mask.offsetWidth / 2) + "px";
+                mask.style.top = (y - mask.offsetHeight / 2) + "px";
+                var img = max.getElementsByTagName("img")[0];
+                img.style.left = (mask.offsetLeft * (-4)) + "px";
+                img.style.top = (mask.offsetTop * (-4)) + "px";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+<h2>有bug竟然显示不全，位置竟然有差异</h2>
+<div class="zoom_box">
+    <div class="min">
+        <img src="./img/s2.jpg">
+        <div id="mask"></div>
+    </div>
+    <div class="max">
+        <img src="./img/s2.jpg">
+    </div>
+</div>
+</body>
+
+</html>

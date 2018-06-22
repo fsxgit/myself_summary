@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+    <style>
+        .btn-box{margin:20px;}
+
+        .xz-beian p{margin-bottom: 10px;}
+        .xz-beian .bd-tit{display: inline-block; font-size: 12px; height: 34px; line-height: 34px;}
+        .xz-beian input{width:270px; padding-left: 10px;  font-size: 12px; height: 32px; line-height: 32px; border: 1px solid #ccc; border-radius: 4px;}
+        .xz-beian .lei-xk{}
+        .xz-beian .lei-xk{width:52px; display: inline-block; padding-left:24px; background: url("images/yn.png") no-repeat 0 center; margin-right: 20px; cursor: pointer;}
+        .xz-beian .lei-xk.active{background: url("images/y.png") no-repeat 0 center;}
+        .choose-xk{display: inline-block; padding-left:20px; background: url("images/y1.png") no-repeat 0 center; cursor: pointer; height: 24px; line-height: 26px;}
+        .choose-xk.active{background: url("images/yn1.png") no-repeat 0 center;}
+        .xk-qixian .date{width: 120px;}
+
+
+        /*查询中*/
+        .cx-box{width:500px; position: absolute; left:0; top:0; background: #fff; display: none; z-index: 14;}
+        .cx-top{height:232px; background: url("images/bg17.png") no-repeat 0 0;}
+        .cx-close{width:100%; text-align: right; }
+        .cx-close img{width:12px; height:12px; padding-right:26px; padding-top: 12px; cursor: pointer;}
+        .cx-loading{padding-top: 16px; padding-bottom: 20px; text-align: center;}
+        .cx-loading img{width: 80px; height: 80px;}
+        .cx-txt{font-size: 12px; color: #add4f5; text-align: center;}
+        .cx-txt .active{font-size: 16px; color: #fff;}
+        .cx-bot{width: 100%; padding:36px 0; text-align: center; font-size: 12px; }
+        .cx-bot .time{color: #f34545;}
+        /*查询中 end*/
+    </style>
+</head>
+<body>
+<div id="wrap">
+<div class="btn-box"><button class="blue-big-btn" onclick="xgName();">修改名字</button></div>
+
+<div class="btn-box"><button class="blue-big-btn" onclick="ckdetail();">查看详情</button></div>
+<div class="btn-box"><button class="blue-big-btn" onclick="brandxq();">商标详情</button></div>
+<div class="btn-box"><button class="blue-big-btn" onclick="xiazai();">下载资料</button></div>
+<div class="btn-box"><button class="blue-big-btn" onclick="beian();">许可备案</button></div>
+<div class="btn-box"><button class="blue-big-btn" onclick="xinzeng();">新增许可备案</button></div>
+<div class="btn-box"><button class="blue-big-btn" onclick="cxzhong();">查询中</button></div>
+
+
+
+
+<!--弹出框 -->
+    <!--弹出框遮罩-->
+    <div class="c-tan-shadow"></div>
+
+    <!--修改名字弹出框1 -->
+    <div class="c-tan-cont xg-ren-cont bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">修改购买人</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="xg-ren bc">
+            <input type="text" placeholder="请输入购买人名称"/>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding  xg-sure" value="确定"/>
+        </div>
+    </div>
+
+    <!--修改名字弹出框1 end-->
+
+    <!--商标详情弹出框2 --->
+    <div class="c-tan-cont bd-cont  bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">商标详情</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail bc">
+           <p class="oh"><span class="bd-tit fl">商标名称：</span><span class="brand-tan-logo  fl"><img src="images/img1.png" alt=""/></span></p>
+           <p><span class="bd-tit">商标名称：</span><span>神州易桥集分宝</span></p>
+           <p><span class="bd-tit">申请人名称：</span><span>神州易桥（北京）财税科技有限公司</span></p>
+           <p><span class="bd-tit">申请人地址：</span><span>北京市昌平区回龙观镇西大街118号1幢905室</span></p>
+           <p><span class="bd-tit">类别：</span><span>35</span></p>
+           <p><span class="bd-tit">小类：</span><span>090373已录制的计算机程序</span></p>
+           <p><span class="bd-tit">被许可人名称：</span><span>神州易桥（北京）财税科技有限公司</span><span class="ckxq">查看详情</span></p>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding ck-btn" value="确定"/>
+        </div>
+    </div>
+    <!--商标详情弹出框2 end-->
+
+    <!--查看详情弹出框3 -->
+    <div class="c-tan-cont ck-cont bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">商标详情</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail brand-cha bc">
+            <p><span class="bd-tit">被许可人名称（中文）：</span><span>神州易桥（北京）财税科技有限公司</span></p>
+            <p><span class="bd-tit">被许可人地址：</span><span>北京市昌平区回龙观镇西大街118号1幢905室</span></p>
+            <p><span class="bd-tit">被许可人邮编：</span><span>100000</span></p>
+            <p><span class="bd-tit">联系人：</span><span>马小亮</span></p>
+            <p><span class="bd-tit">电话：</span><span>18899875467</span></p>
+            <p><span class="bd-tit">代理机构名称：</span><span>神州易桥（北京）财税科技有限公司</span></p>
+            <p><span class="bd-tit">注册商标号：</span><span>23423550099</span></p>
+            <p><span class="bd-tit">是否共有商标：</span><span>否</span></p>
+            <p><span class="bd-tit">再许可：</span><span>否</span></p>
+            <p><span class="bd-tit">许可期限：</span><span>2016年7月1日至2017年6月30日</span></p>
+
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding ck-btn" value="确定"/>
+        </div>
+    </div>
+    <!--查看详情弹出框3 end-->
+
+    <!--商标详情弹出框4 --->
+    <div class="c-tan-cont xia-zai-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">请根据要求下载资料</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <p class="pb20">资料是严格按照商标局的要求填制，如果您有任何疑问请联系顾问。 请打印并加盖公章，将盖章后的资料邮寄给顾问。</p>
+            <div class="ziliao oh">
+                <p class="pb10"><span class="c999 mr10">资料</span><span class="fc1 cp">全部下载</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span><span class="fc1 fr cp">下载</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span><span class="fc1 fr cp">下载</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span></p>
+            </div>
+            <div class="mt20">
+                <p class="mb10"><span class="c999">邮寄至</span></p>
+                <p class="mb5">北京市朝阳区东四环中路远洋国际中心D座1001</p>
+                <p class="mb5">小布丁 顾问   186-1077-3717</p>
+            </div>
+            <div class="mt10">
+                <p class="mb10"><span class="c999">顾问留言</span></p>
+                <p>无</p>
+            </div>
+            <!--/*提示说明*//-->
+            <div class="c-dan-ts mt20">
+                <p class="ts1">如果许可给多人，需要根据被许可人的数量提供相应数量的资料。 </p>
+            </div>
+            <!--/*提示说明* end//-->
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="button" class="btn-qu write-big-btn" value="取消"/>
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!--商标详情弹出框4 end-->
+
+    <!--许可备案详情5 --->
+    <div class="c-tan-cont beian-alert-box bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">许可备案详情</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail brand-cha bc">
+            <p><span class="bd-tit">被许可人名称（中文）</span><span>神州易桥（北京）财税科技有限公司</span></p>
+            <p><span class="bd-tit">被许可人地址（中文）</span><span>北京市昌平区回龙观镇西大街118号1幢905室</span></p>
+            <p><span class="bd-tit">被许可人邮编</span><span>100000</span></p>
+            <p><span class="bd-tit">联系人</span><span>马小亮</span></p>
+            <p><span class="bd-tit">电话</span><span>18899875467</span></p>
+            <p><span class="bd-tit">商标注册号</span><span>23423550099</span></p>
+            <p><span class="bd-tit">是否共有商标</span><span>否</span></p>
+            <p><span class="bd-tit">再许可</span><span>否</span></p>
+            <p><span class="bd-tit">许可类型</span><span>普通许可</span></p>
+            <p><span class="bd-tit">许可期限</span><span>2016年7月1日至2017年6月30日</span></p>
+            <div class="oh">
+                <span class="bd-tit fl">许可使用的商品/服务项目</span>
+                <div class="fl">
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                </div>
+            </div>
+
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!--许可备案详情5 end-->
+
+    <!--新增许可备案6 --->
+    <div class="c-tan-cont xz-alert-box bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">新增许可备案</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail brand-cha xz-beian bc">
+            <p><span class="bd-tit">被许可人名称（中文）</span><span><input type="text" placeholder="需与营业执照上的名称完全一致"/></span></p>
+            <p><span class="bd-tit">被许可人地址（中文）</span><span><input type="text" placeholder="需与营业执照上的地址完全一致"/></span></p>
+            <p><span class="bd-tit">被许可人邮编</span><span><input type="text" placeholder="需与营业执照上的邮编完全一致"/></span></p>
+            <p><span class="bd-tit">联系人</span><span><input type="text" placeholder="请输入联系人"/></span></p>
+            <p><span class="bd-tit">电话</span><span><input type="text" placeholder="请输入联系电话"/></span></p>
+            <p><span class="bd-tit">商标注册号</span><span>23423550099</span></p>
+            <p><span class="bd-tit">是否共有商标</span><span>否</span></p>
+            <p><span class="bd-tit">再许可</span><span>是</span></p>
+            <div class="oh">
+                <span class="bd-tit fl">许可类型</span>
+                <div class="fl">
+                    <p><span class="lei-xk active">普通许可</span><span class="lei-xk">排他许可</span><span class="lei-xk">独占许可</span></p>
+                    <p><span class="c999">可以许可给多人，商标持有人和被许可人均可使用。</span></p>
+                </div>
+            </div>
+            <div class="oh xk-qixian">
+                <span class="bd-tit fl">许可期限</span>
+                <div class="fl">
+                    <p><input type="text" class="date" placeholder="开始日期"/>-<input type="text" class="date"  placeholder="结束日期"/></p>
+                    <p><span class="c999">不能大于商标有效期2012-07-14至2022-07-13</span></p>
+                </div>
+            </div>
+            <div class="oh">
+                <span class="bd-tit fl">许可使用的商品/服务项目</span>
+                <div class=" fl">
+                    <p><span class="choose-xk">090373 已录制的计算机程序</span></p>
+                    <p><span class="choose-xk">090373 已录制的计算机程序</span></p>
+                    <p><span class="choose-xk">090373 已录制的计算机程序</span></p>
+                    <p><span class="choose-xk">090373 已录制的计算机程序</span></p>
+                </div>
+            </div>
+
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!--新增许可备案6 end-->
+
+    <!--数据查询中-->
+    <div class="cx-box">
+        <div class="cx-top">
+            <div class="cx-close"><img src="images/close3.png" alt=""/></div>
+            <div class="cx-loading"><img src="images/loading.gif" alt=""/></div>
+            <div class="cx-txt">
+                <p>大数据引擎检索完成</p>
+                <p class="active">一类检查检索中</p>
+                <p>一类查询检查完成</p>
+            </div>
+        </div>
+        <div class="cx-bot">
+            <p>数据量巨大，专业人士正在努力查询中...</p>
+            <p>预计<span class="time">2分59秒</span>后出结果</p>
+        </div>
+        <!--数据查询中 end-->
+    </div>
+<!--弹出框 end-->
+
+
+
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+
+//    修改名字弹出框
+    function xgName(){
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".xg-ren-cont"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".xg-sure");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var oW = oBox.width();
+
+        var L = (wW - oW)/2;
+        var T = 80;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+    }
+
+//查看详情弹出框
+
+    function ckdetail(){
+//        遮罩层
+        var oShadow = $(".c-tan-shadow");
+//        弹出框
+        var oBox1 = $(".bd-cont");
+        var oBox2 = $(".ck-cont");
+//        弹出框 确定按钮
+        var oSure = $(".ck-btn");
+//        弹出框 关闭按钮
+        var oClose = $(".c-tan-close");
+//        弹出框 查看详情按钮
+        var oBtn1 = $(".ckxq");
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW1 = oBox1.width();
+        var oW2 = oBox2.width();
+        var oH1 = oBox1.height();
+        var oH2 = oBox2.height();
+        var L1 = (wW - oW1)/2;
+        var L2 = (wW - oW2)/2;
+        var T1 = (wH - oH1)/2;
+        var T2 = (wH - oH2)/2;
+        oBox1.css({"left":L1,"top":T1});
+        oBox2.css({"left":L2,"top":T2});
+        oBox1.fadeIn();
+        oShadow.show();
+        oBtn1.click(function(){
+            oBox1.fadeOut();
+            oBox2.fadeIn();
+        });
+        oClose.click(function(){
+            oBox1.fadeOut();
+            oBox2.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox1.fadeOut();
+            oBox2.fadeOut();
+            oShadow.hide();
+        });
+    }
+
+
+//    商标详情
+function brandxq(){
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".bd-cont"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+
+//    下载资料
+function xiazai(){
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".xia-zai-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+    var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oXiao.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//    许可备案
+function beian(){
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".beian-alert-box"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+    var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oXiao.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//    新增许可备案
+function xinzeng(){
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".xz-alert-box"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+    var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oXiao.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+
+    $(".lei-xk").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+    $(".choose-xk").click(function(){
+        $(this).toggleClass("active");
+    })
+}
+
+//    商标查询中
+function cxzhong(){
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".cx-box"); //弹出框
+    var oClose = $(".cx-close"); //关闭弹出框按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+    });
+//    倒计时
+    var ts = 3*60*1000-1000;//倒计时总时长3分钟
+    var timer1 = setInterval(timer,1000);
+    var timer2 = setInterval(function(){
+//            这里是放ajax 请求加载的地方
+
+    },5000);
+    function timer()
+    {
+        ts = ts - 1000;
+        var mm = parseInt(ts / 1000 / 60 % 60, 10);//计算剩余的分钟数
+        var ss = parseInt(ts / 1000 % 60, 10);//计算剩余的秒数
+        if(mm == 0 && ss == 0){
+            clearTimeout(timer1);
+            clearTimeout(timer2);
+            location.href="http://www.baidu.com";
+        }
+        document.getElementsByClassName("time")[0].innerHTML = mm + "分" + ss + "秒";
+    }
+}
+
+</script>
+</body>
+</html>

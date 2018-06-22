@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>前三直选复式</title>
+	<link href="//gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="apple-touch-icon-precomposed">
+	<style>
+		body,button,input{font-size:20px;}
+		.spans span{display: inline-block; padding:4px; border:1px solid #ccc; cursor: pointer; }
+		.spans span.active{background: #ff14be; color: #fff; }
+
+	</style>
+</head>
+<body>
+<h1>11选5，前三直选复式，的算法：</h1>
+<p>从01-11共11个号码中选择3个不重复的号码组成一注，所选号码与当期顺序摇出的5个号码中 的前3个号码相同，且顺序一致，即为中奖</p>
+<div class="spans na">第一位：
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>5</span>
+	<span>6</span>
+	<span>7</span>
+	<span>8</span>
+	<span>9</span>
+	<span>10</span>
+	<span>11</span>
+</div>
+<div class="spans nb">第二位：
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>5</span>
+	<span>6</span>
+	<span>7</span>
+	<span>8</span>
+	<span>9</span>
+	<span>10</span>
+	<span>11</span>
+</div>
+<div class="spans nc">第三位：
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>5</span>
+	<span>6</span>
+	<span>7</span>
+	<span>8</span>
+	<span>9</span>
+	<span>10</span>
+	<span>11</span>
+</div>
+
+<button>获取结果</button>
+
+<script src="js/jquery.min.js"></script>
+<script>
+$(function(){
+
+
+	$(".spans span").click(function(){
+		$(this).toggleClass("active");
+	});
+
+
+
+	//	C(n,m) 从n中选中m个的组合（n>=m）
+
+	function C(n,m){
+		var a = 1;
+		for (var i = n;i >= 1 ;i--){
+			a*=i;
+		}
+		
+		var b = 1;
+		for (var i = (n-m);i >= 1 ;i--){
+			b*=i;
+		}
+		
+		var c = 1;
+		for (var i = m;i >= 1 ;i--){
+			c*=i;
+		}
+//		console.log(a+"/"+b+"/"+c);
+		return res = a/(b*c);
+	}
+
+	$("button").click(function(){
+
+		var naActives = $(".na span.active");
+		var nbActives = $(".nb span.active");
+		var ncActives = $(".nc span.active");
+
+		var aa = zu(naActives,nbActives,ncActives);
+		alert(aa);
+		
+		
+	});
+
+
+	function zu(obj1,obj2,obj3){
+
+		var zres = 0;
+		obj1.each(function(){
+			var a0 = $(this).text().replace(/\s/g,"");
+			obj2.each(function(){
+				var b0 = $(this).text().replace(/\s/g,"");
+
+				if(a0 !== b0){
+					obj3.each(function(){
+						var c0 = $(this).text().replace(/\s/g,"");
+						if(b0 !== c0 && a0 !== c0){
+							zres++;
+						}
+					});
+				}
+			});
+		});
+		return  zres;
+	}
+	
+	
+	
+})
+</script>
+</body>
+</html>

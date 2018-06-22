@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>币站</title>
+    <link  rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <style>
+        *{margin:0; padding:0;}
+        body {
+            font-family: Source Sans Pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+            word-spacing: 1px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        .main {  width: 90%;  margin-left: auto;  margin-right: auto;  }
+        body, div, a, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, form, button, input, textarea, th, td, img {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            font-style: normal;
+            border: none;
+            font-weight: normal;
+        }
+        .pr {
+            position: relative;
+        }
+        .coin_box{padding-top: 66px; padding-bottom: 60px;}
+        .coin_txt_swipe{ position: relative; width: 100%; height: 100px;  padding-bottom: 10px; font-size: 20px; background: #eee; overflow: hidden; }
+        .coin_txt_swipe .span{position: absolute; display: block; white-space: nowrap;}
+        .comment_bot{position: fixed; left:0; bottom:0; width: 100%; background: #5185f0; padding:10px 0; -webkit-box-shadow: 0 0 10px 0 #aaa;
+            box-shadow: 0 0 10px 0 #aaa;}
+        .comment_bot .input{padding-left: 10px; height: 32px; margin-right: 52px; background: #fff; border-radius: 4px;}
+        .comment_bot .input input{height: 100%; width: 100%;}
+        .comment_bot .submit{position: absolute; right:0; top:0; width: 42px; height: 32px; line-height: 32px; text-align: center; background: #fff; border-radius: 4px; background:#fff url("images/submit-icon.png") no-repeat center center; background-size:18px 18px; }
+    </style>
+</head>
+<body>
+<div class="coin_box">
+    <div class="coin_txt_swipe pr">
+        <span class='span'>按时大大按时大大按时大大按</span>
+        <span class='span'>按时大</span>
+        <span class='span'>按时大大按时</span>
+        <span class='span'>按时大大按时大大按</span>
+    </div>
+</div>
+<div class="comment_bot">
+    <div class="main pr">
+        <div class="input"><input id="data_send_txt" type="text" placeholder="发一弹"/></div>
+        <div class="submit" id="data_send"></div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+/**
+ *发送弹幕方法【随机速度，随机高度】
+ * */
+sendBarrage();
+function sendBarrage(){
+    $(".coin_txt_swipe .span").each(function(){
+        var This = $(this);
+        //定义一个变量用来存储top值。最小值是20，最大值是80.
+        var $top = Math.random() * 60+20;
+        //为span设置随机的速度,最快速度为200.
+        var $speed = Math.random() * 10000 + 500;
+
+        //获取span的宽度
+        var $wid = This.width()+20;
+        //设置样式
+        This.css({"top":$top,"right":-$wid});
+        var ww = $(window).width();
+        //设置目的地、速度、运动方式、回调函数。
+        This.animate({"right":$wid+ww},$speed,function(){
+            $(this).remove();
+        });
+    });
+}
+/**
+ * 对一个加密币发弹幕评论
+ *
+ * */
+$("#data_send").click(function(){
+    var content = $("#data_send_txt").val();
+    if(content){
+        var nsapn= "<span class='span'>"+content+"</div>";
+        $(".coin_txt_swipe").append(nsapn);
+        sendBarrage();
+    }
+});
+
+</script>
+</body>
+</html>

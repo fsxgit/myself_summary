@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>我要保养</title>
+    <link href="__PUBLIC__/wx/css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/wx/css/common.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/wx/css/hei.css"/>
+    <style>
+        .dizhi{  height: 20px;
+            line-height: 22px;
+            text-align: right;
+            padding-right: 26px;
+            background: url("__PUBLIC__/wx/images/icon40.png") no-repeat right center;
+            background-size: 11px 6px;
+            color: #818181;}
+        #treelist_dummy{position: absolute; right:0 ;top:0; width: 100%; height: 20px; background: none;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="yby-mode mt16">
+        <div class="main">
+            <div class="tit fl">已开通地区</div>
+            <div class=" mob_dd fr pr">
+                <div class="dizhi" ></div>
+                <ul id="treelist">
+                    <volist name="provinces" id="province" key="k">
+                    <li>
+                        <span class="sheng">
+                            <php> if($province['parent_id'] == '1'){ echo $province['region_name']; }</php>
+                        </span><!-- 第一层 省 -->
+                        <ul>
+                            <volist name="citys" id="city">
+                                <php>if($city['parent_id'] == $province['region_id']){</php>
+                                    <li>
+                                        <span class="shi">
+                                            <php>echo $city['region_name'];</php>
+                                        </span><!-- 第二层 市 -->
+                                    </li>
+                                <php>} </php>
+                            </volist>
+                        </ul>
+                    </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="yby-tit">
+        <div class="main">
+            长春地区满减大优惠，首次下单更有一大波优惠券等你拿！
+        </div>
+    </div>
+    <div class="yby-mode">
+        <div class="main">
+            <div class="tit fl">保养位置</div>
+            <div class="txt site2 fr">北京市海淀区上地西路8号</div>
+        </div>
+    </div>
+    <div class="yy-xx-box">
+        <div class="main tel">
+            <div class="tit">手机号</div>
+            <div class="txt">
+                <input type="text" placeholder="请输入手机号" />
+            </div>
+        </div>
+        <div class="line95"></div>
+        <div class="main che">
+            <div class="tit">车牌号</div>
+            <div class="txt">
+
+            </div>
+        </div>
+        <div class="line95"></div>
+        <div class="main time">
+            <div class="tit">预约时间</div>
+            <div class="mobil_time">
+                <select name="" id="time">
+                    <option value="1">今天</option>
+                    <option value="2">明天上午</option>
+                    <option value="3">明天下午</option>
+                    <option value="4">后天上午</option>
+                    <option value="5">后天下午</option>
+                </select>
+            </div>
+        </div>
+        <div class="xing-height">
+
+        </div>
+        <div class="main xing">
+            <div class="tit">车型</div>
+            <div class="txt">
+
+            </div>
+        </div>
+    </div>
+    <!--保养详情-->
+    <div class="by-xd mt16">
+        <div class="com-tit main">保养详单</div>
+        <div class="by-table">
+            <div class="by-tit">
+                <span>名称</span>
+                <span>数量</span>
+                <span>单价</span>
+                <span class="brn">金额</span>
+            </div>
+            <div class="by-cont">
+                <span class="span1">
+                    <span>途能T1天 然气发动机</span>
+                </span>
+                <span class="span2">10.00</span>
+                <span class="span3">25.50</span>
+                <span class="span4">
+                    <span>2455.00</span>
+                </span>
+            </div>
+            <div class="main bb"></div>
+            <div class="by-cont">
+                <span class="span1">
+                    <span>途能T1天 然气发动机</span>
+                </span>
+                <span class="span2">10.00</span>
+                <span class="span3">25.50</span>
+                <span class="span4">
+                    <span>2455.00</span>
+                </span>
+            </div>
+            <div class="main bb"></div>
+        </div>
+        <!--添加-->
+        <div class="cj-add">
+            <img src="__PUBLIC__/wx/images/icon33.png" alt=""/>
+        </div>
+        <!--添加 end-->
+    </div>
+    <!--保养详情 end-->
+    <div class="yy-beizhu">
+        <div class="bz-tit">
+           <div class="main">
+               备注
+           </div>
+        </div>
+        <div class="txta main">
+            <textarea name="" id="" cols="30" rows="10" placeholder="请输入备注"></textarea>
+        </div>
+    </div>
+    <div class="yy-btn main">
+        <input type="button" class="main-btn" value="立即预约" />
+    </div>
+    <div class="yy-atation">
+        <span>
+            输入手机号成为会员，享会员积分，可兑换礼品
+        </span>
+    </div>
+    <div class="yy-rexian">
+        <span class="txt1">热线电话- </span>
+        <span class="txt2">400-9999-740</span>
+    </div>
+</div>
+
+<script src="__PUBLIC__/wx/js/jquery-1.11.0.min.js"></script>
+<script src="__PUBLIC__/wx/js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+$(function () {
+
+    $('#time').mobiscroll().select({
+        preset: 'select',
+        theme: 'android-ics light',
+        lang: 'zh',
+        setText: '确定', //确认按钮名称
+        cancelText: '取消',//取消按钮名籍我
+        minWidth: 200,
+        mode: 'scroller',
+        display: 'bottom',
+        headerText: function (valueText) { return "预约时间";} 	//弹出窗Title
+    });
+    $("#time_dummy").val("");
+
+});
+
+$(function () {
+    <!--固定写法-->
+//			初始化控件
+    var opt = { };
+    <!-- 指定省市区对应的 -->
+//			控件配置
+    opt.tree_list = {
+        preset : 'list',
+        labels: ['Region', 'Country', 'City'] //省市区
+    };
+
+    <!-- 固定写法 -->
+    $('#treelist').val('').scroller('destroy').scroller(
+            $.extend(opt['tree_list'],
+                    {
+                        theme: 'android-ics light',
+                        mode: 'scroller',
+                        display: 'bottom',
+                        setText: '确定', //确认按钮名称
+                        cancelText: '取消',//取消按钮名籍我
+                        lang: 'zh',
+                        headerText: function (valueText) { return "选择地址";},//弹出窗Title
+                        formatResult: function (array) {
+                            var fir = $('#treelist>li').eq(array[0]).find(".sheng").text();	//第一级文字
+                            var sec = $('#treelist>li').eq(array[0]).find('.shi').eq(array[1]).text();	//第二级文字
+//                            var tir = $('#treelist>li').eq(array[0]).find('.qu').eq(array[1]).find('li').eq(array[2]).text();	//第三级文字
+
+//                            用此方式来替代返回值不显示的问题的解决方法
+                            $(".dizhi").html(fir+""+sec);
+                            //return sec;
+                        }
+                    }
+            )
+    );
+
+
+    //			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+    $("#treelist_dummy").val("");
+//    $("#treelist_dummy").attr("placeholder","请选择地区");
+
+});
+
+</script>
+</body>
+</html>

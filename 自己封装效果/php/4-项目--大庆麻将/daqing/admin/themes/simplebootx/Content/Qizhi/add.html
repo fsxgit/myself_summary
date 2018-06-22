@@ -1,0 +1,43 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">气质列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+    <form name="myform" action="{:U('update')}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+        <input name="id" type="hidden" value="{$info['id']|default=''}"/>
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th width="100">气质名称</th>
+                <td>
+                    <input type="text" style="width:400px;" name="title" id="title" class="input" placeholder="请输入气质名称" value="{$info.title|default=''}"/>
+                </td>
+            </tr>
+            <tr>
+                <th width="100">详解</th>
+                <td>
+                    <textarea name="content" style="width:99%;height:80px;">{$info.content|default=''}</textarea>
+                </td>
+            </tr>
+        </table>
+        <div class="form-actions">
+            <button class="btn btn-primary btn_submit ajax-post" type="submit" target-form="form-horizontal">提交</button>
+            <a class="btn" href="{$backUrl}">返回</a>
+        </div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

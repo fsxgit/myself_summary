@@ -1,0 +1,30 @@
+/*登录页面 XiaDingDan.html css*/
+.kindBox{height:auto;border-bottom: 1px solid #ccc;}
+.kindBox .pinpai{font-size:0.04rem; height:0.15rem; line-height:0.15rem; margin-left:0.046rem;border-bottom: 1px solid #ccc;}
+.PaiName{margin-right:0.13rem; font-size:0.04rem;}
+.pinzhong{font-size:0.04rem; height:0.15rem; line-height:0.15rem; margin-left:0.046rem;border-bottom: 1px solid #ccc;}
+.pinzhongnoBot{border:none;}
+.pinzhong .right{display:inline-block;width:0.0234375rem; height:0.0375rem; margin-right:0.046rem; margin-top:0.05625rem;}
+.pinzhong .song{ margin-right:0.035rem;}
+.pinzhong .inputLen{ width:0.64rem; margin-right:0.035rem; font-size: 0.03rem;}
+.XDimgBox{font-size:0.04rem; height:auto; margin-left:0.046rem; padding:0.0375rem 0;  border-bottom: 1px solid #ccc;}
+.XDimgBox:nth-last-of-type(1){border:none;}
+.XDimgBox img{width:0.2765625rem; height:0.1953125rem; margin-right:0.04rem;}
+.XDimgBox .Choosename{margin-top:0.015625rem; padding-bottom:0.05rem;}
+.XDimgBox p:nth-of-type(2){color:#999; font-size: 0.03rem;}
+.PaiDayBox{font-size: 0; border-bottom: 1px solid #ccc;}
+.PaiDay{ margin-left:0.046rem; font-size: 0;  border-bottom: 1px solid #ccc;  height:0.15rem; line-height:0.15rem;}
+.PaiDayBox .BiaoQian{ font-size:0; padding:0.03125rem 0; margin-left:0.046rem;}
+.PaiDayBox .BiaoQian span{ font-size:0.04rem; width:0.2rem; height:0.082rem;line-height: 0.082rem; border:1px solid #ccc; border-radius: 0.041rem; display: inline-block; margin-right:0.023rem; text-align: center;}
+.PaiDayBox .BiaoQian span.fxActive{ border:1px solid #49becd; background:#49becd; color: #fff;}
+.xinxi{width:100%; height:auto; padding:0.059375rem 0 0.0375rem 0; border-bottom:1px solid #ccc; background:#f0eff5; font-size:0;}
+.xinxi h1{ margin-left:0.046rem;  height:0.04375rem; line-height:0.04375rem; font-size:0.0375rem; border-left:3px solid #49becd; padding-left:0.025rem; }
+.xinDetail{width:0.84375rem; margin:0 auto; font-size: 0;}
+.xinDetail p{width:100%; height:0.14rem; line-height: 0.14rem; font-size: 0; background: url("../images/borderDot.png") no-repeat left bottom; background-size: 100% 2px; }
+.xinDetail span{font-size: 0.04rem;}
+.xinDetail span.fl{color: #999;}
+.xinDetail span.fr{color: #000;}
+.xinDetail span.coff8{color:#ff843a;}
+.xinxiTot{padding-bottom: 0.292rem;}
+.XDbot{width:100%; height: auto; position:fixed; left: 0; bottom:0; padding:0.078rem 0;  text-align:center;  border-top:1px solid #ccc;  background:#f0eff5;font-size: 0;}
+.XDbot input{width:0.84375rem; height:0.134rem; font-size: 0.046875rem; background:#49becd; color:#fff; border-radius: 4px; }

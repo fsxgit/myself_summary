@@ -1,0 +1,285 @@
+html,body{background: #ebecf0; color: #394043; font-size:14px;}
+.by-xd{background: #fff;}
+.by-table{}
+.by-table .bb{border-top:1px solid #dfdfdf;}
+.by-table .bb:nth-last-of-type(1){border-top:none;}
+.by-table .by-tit{padding:15px 0;  font-size: 0; background: #f5f5f5; border-top:1px solid #e1e1e1;}
+.by-table .by-tit span{display:inline-block; width: 25%; text-align: center; font-size: 14px; background: url("../images/icon30.png") no-repeat right center; background-size: 1px 100%;}
+.by-table .by-tit span.brn{background: none;}
+.by-table .by-cont{padding:15px 0;  font-size: 0; overflow: hidden; }
+.by-table .by-cont span{display:inline-block; width: 25%; text-align: center; font-size: 12px; background: url("../images/icon30.png") no-repeat right center; background-size: 1px 100%; color: #282828;}
+.by-table .by-cont span.span1{font-size: 0; text-align: center; float: left;}
+.by-table .by-cont span.span1 span{font-size: 12px; width:80%; text-align: center; background: none;}
+.by-table .by-cont span.span4{background: none;font-size: 0; text-align: center;  float: left;}
+.by-table .by-cont span.span4 span{font-size: 12px; width:80%; text-align: center; background: none; color: #f19716;  height: 32px; line-height: 32px;}
+.by-table .by-cont span.span2{float: left; height: 32px; line-height: 32px;}
+.by-table .by-cont span.span3{ float: left; height: 32px; line-height: 32px;}
+.cj-add{width:100%; background: #fff; text-align: center; padding:15px 0; border-top:1px solid #e1e1e1;}
+.cj-add img{width:134px; height:auto;}
+/*预约方式*/
+.yy-mode{margin-top: 16px; padding:15px 0; background: #fff;}
+.yy-mode .yy-img{width:46px;}
+.yy-mode .yy-img img{width:20px; height:auto;}
+.yy-mode .tit{color: #394043; font-size:16px; font-weight: 600;}
+.yy-mode .txt{color: #a8a8a8; font-size:12px; }
+.yy-mode .img1{  padding-top: 8px;}
+.yy-mode .img2{  padding-top: 10px;}
+.yy-mode .mode{  background: url("../images/icon21.png") no-repeat right center; background-size:6px 11px;  }
+
+/*预约方式 end*/
+/*预约保养 */
+
+.yby-mode{overflow: hidden; background: #fff; padding:16px 0;}
+.yby-mode .tit{color: #394043; font-size:14px;}
+.yby-mode .txt{color: #818181; font-size:12px; padding-right: 26px; width: 180px; text-align: right;}
+.yby-mode .site1{background: url("../images/icon40.png") no-repeat right center; background-size:11px 6px;  }
+.yby-mode .site2{background: url("../images/icon41.png") no-repeat right center; background-size:14px 16px;  }
+.yby-tit{padding:10px 0 14px ; font-size: 12px;}
+.yby-tit div{padding-left:10px; background: url("../images/icon11.png") no-repeat 0 6px; background-size:4px 4px; color: #a8a8a8; }
+.yy-xx-box{background: #fff; margin-top: 20px; }
+.yy-xx-box .main{padding:15px 0; }
+.yy-xx-box .tit{padding-left:30px; width:70px; color: #394043; font-size:14px; float: left;}
+.yy-xx-box .txt{margin-left: 100px; height:19px;}
+.yy-xx-box .tel .tit{background: url("../images/icon43.png") no-repeat 0 center; background-size:13px 19px; }
+.yy-xx-box .tel .txt{}
+.yy-xx-box .che .tit{background: url("../images/icon44.png") no-repeat 0 center; background-size:19px 18px; }
+.yy-xx-box .che .txt{background: url("../images/icon21.png") no-repeat right center; background-size:6px 11px;  }
+.yy-xx-box .time .tit{background: url("../images/icon45.png") no-repeat 0 center; background-size:19px 19px;  }
+.yy-xx-box .time .txt{background: url("../images/icon40.png") no-repeat right center; background-size:11px 6px;  }
+.yy-xx-box .xing-height{height:20px; background:  #ebecf0;}
+.yy-xx-box .xing .tit{background: url("../images/icon46.png") no-repeat 0 center; background-size:19px 17px;}
+.yy-xx-box .xing .txt{background: url("../images/icon21.png") no-repeat right center;  background-size:6px 11px;  }
+.yy-beizhu{background: #fff;}
+.yy-beizhu .bz-tit{padding:20px 0 14px; background: #ebecf0; }
+.yy-beizhu .txta{padding:10px 0;}
+.yy-beizhu .txta textarea{width: 100%; height: 80px; overflow: auto; font-size: 14px;}
+.yy-btn{margin-top:26px;}
+.yy-atation{padding:15px 0; text-align: center; }
+.yy-atation span{padding-left:16px; background: url("../images/icon47.png") no-repeat 0 center; background-size:12px 12px; font-size: 12px; color: #a8a8a8; }
+.yy-rexian{text-align: center; padding-top: 10px; padding-bottom:16px;  background: url("../images/icon48.png") no-repeat center top; background-size:24px 1px;}
+.yy-rexian .txt1{color: #585858; font-size: 14px;}
+.yy-rexian .txt2{color: #595959; font-size: 16px; font-weight: 600;}
+/*预约保养 end*/
+/*预约保养 成功*/
+.by-suc{padding-top: 120px; text-align: center;}
+.by-suc .img{}
+.by-suc .img img{width:92px; height: 92px;}
+.by-suc .txt{color:#8d8d8d; font-size: 14px; margin-top:20px; margin-bottom:20px;}
+.by-suc .btn{}
+.by-suc .btn input{width:100px; height:40px; color: #fff; background:#231715; border-radius:20px; font-size: 16px;}
+/*预约保养 成功 end*/
+/*选择车型1*/
+.chex-box1{overflow: hidden; height: 100%;}
+.chex-box1 .nav{float: left; width: 80px;  height: 100%; text-align: center; background: #ededed; border-right: 1px solid #e5e5e5; overflow: hidden; }
+.chex-box1 .nav .nav-tit{height: 60px; line-height: 60px; border-bottom: 1px solid #e5e5e5;}
+.chex-box1 .nav .nav-cont{ font-size: 14px; height: 100%; overflow: hidden; overflow-y: auto;width: 88px;}
+.chex-box1 .nav .nav-cont p{height: 60px; line-height: 60px; border-bottom: 1px solid #e5e5e5;}
+.chex-box1 .nav .nav-cont p.active{background: #fff;}
+.chex-box1 .nav .nav-cont .bot{height: 60px; }
+.chex-box1 .cont{background: #fff;  height: 100%; }
+.chex-box1 .cont .cont-tit{height: 32px; line-height: 32px; color: #333; font-weight: 600; font-size: 16px; background: #f3f5f7; margin-left:80px; padding-left: 28px;}
+.chex-box1 .cont .cont-cont{ font-size: 14px;  margin-left: 108px;  overflow: hidden; overflow-y: auto; height: 100%; }
+.chex-box1 .cont .cont-cont p{height: 48px; line-height: 48px; border-bottom: 1px solid #e5e5e5; }
+.chex-box1 .cont .cont-cont p.active{ background: url("../images/icon51.png") no-repeat 90% center; background-size:16px 15px; }
+.chex-box1 .cont .cont-cont .bot{height: 48px;}
+/*选择车型1 end*/
+/*选择车型2*/
+.chex-box2{ border-bottom: 1px solid #e5e5e5;}
+.chex-box2 .mode{}
+.chex-box2 .mode .tit{ background: #f3f5f7; padding-left:16px; height: 30px; line-height: 30px;  color: #333; font-weight: 600; font-size: 14px;}
+.chex-box2 .mode .cont{margin-left: 16px;}
+.chex-box2 .mode .cont p{height: 40px; line-height: 40px; border-bottom: 1px solid #e5e5e5;}
+.chex-box2 .mode .cont p:nth-last-of-type(1){border-bottom: none;}
+.chex-box2 .mode .cont p span{background: url("../images/icon52.png") no-repeat right center; background-size:5px 8px; padding-right:12px; }
+
+.chex-box2 .nav{position: fixed; right:0; margin-right: 10px;  margin-top: 20px;}
+.chex-box2 .nav a{display: block; font-size: 12px;}
+.chex-box2 .nav a,.chex-box2 .nav a:link{color: #007aff;}
+.chex-box2 .tan{width: 100%; height:100%; position: fixed; display: none;}
+.chex-box2 .tan .tan-shadow{width: 100%; height:100%;  background: rgba(0,0,0,0.5);}
+.chex-box2 .tan .tan-cont{width: 60%; height:100%; overflow: auto;  background: #fff; position: absolute; right:0; top:0;}
+.chex-box2 .tan .tan-cont p{margin-left: 16px;  border-bottom: 1px solid #e5e5e5;  height: 40px; line-height: 40px;  color: #333;  font-size: 14px; }
+.chex-box2 .tan .tan-cont p.active{ background: url("../images/icon51.png") no-repeat 90% center; background-size:16px 15px;}
+
+.chex-box2 .tan .tan-name{width: 40%;  background: #fff; position: absolute; left:0; top:0; text-indent: 16px;}
+.chex-box2 .tan .tan-name .tit{ background: #f3f5f7; height: 30px; line-height: 30px;  color: #333; font-weight: 600; font-size: 14px;}
+.chex-box2 .tan .tan-name .name{ height: 40px; line-height: 40px;  color: #333;  font-size: 14px;}
+.chex-box2 .tan .tan-name .name span{ height: 40px; line-height: 40px;  color: #333;  font-size: 14px; background: url("../images/icon52.png") no-repeat right center; background-size:5px 8px; padding-right:12px; }
+/*选择车型2 end*/
+/*预约时间1*/
+.yys-box{}
+.yys-box .yys-nav{background: #fff; overflow: hidden;}
+.yys-box .yys-nav .mode{width:33.33%; padding:15px 0; float:left; background: url("../images/icon13.png") no-repeat right center; background-size:1px 20px; text-align: center; }
+.yys-box .yys-nav .day{color: #333; font-weight: 600;  font-size: 14px;}
+.yys-box .yys-nav .day em{font-style: italic;}
+.yys-ts{padding:15px 0;}
+.yys-ts div{background: url("../images/icon47.png") no-repeat 0 center; background-size:13px 13px;  text-indent:16px; font-size: 12px; color: #b2b3b7; }
+.yys-time{margin-top: 10px}
+.yys-time .mode{background: #fd9d6a; color: #fff; text-align: center; height:60px; line-height: 60px; border-radius: 4px; position: relative; font-size: 14px; margin-bottom: 10px;}
+.yys-time .mode.active{background: #21c6f9;}
+.yys-time .mode .time{height:60px; line-height: 60px; display: inline-block;  position: absolute; right:14px; font-size: 12px; }
+.yys-time .mode.active .time{background: url("../images/icon56.png") no-repeat right center; background-size:19px 16px; width: 60px;}
+.yys-btn{padding: 25px 0;}
+/*预约时间1 end*/
+/*最新活动*/
+.zxhd-box{padding-bottom: 50px;}
+.zxhd-box .zx-mode{ background: #fff; margin-top:8px;}
+.zxhd-box .zx-mode .zx-img{}
+.zxhd-box .zx-mode .zx-txt{padding:15px 0;}
+/*最新活动 end*/
+/*个人主页*/
+.geren-box{padding-bottom: 20px;}
+.gr-top{background: url("../images/icon57.png") no-repeat 0 0; background-size:100% 100%;height:240px; width: 100%; position: relative; text-align: center;}
+.gr-top .ren-bot{background: rgba(0,0,0,0.1);height:60px; width: 100%; position: absolute; left:0; bottom:0 ; color: #fff;}
+.gr-top .ren-bot .qian{float: left; width: 50%; height: 100%;}
+.gr-top .ren-bot .qian .txt1{color: #fff; font-size: 14px;  padding-top:12px; font-style:italic; }
+.gr-top .ren-bot .qian .txt2{color: #f5e4d3; font-size: 12px;}
+.gr-top .ren-bot .qian:nth-of-type(1){background: url("../images/icon63.png") no-repeat right center; background-size:1px 50%;}
+.gr-top .ren-img{padding-top:30px;}
+.gr-top .ren-img img{width: 70px; height: 70px; border-radius: 50%; border:1px solid #fff;}
+.gr-top .ren-tel{margin-top:8px;}
+.gr-top .ren-tel .txt1{color: #fff; font-size: 14px;}
+.gr-top .ren-tel .txt2{color: #f5e4d3; font-size: 12px;}
+.gr-cont .hy-mode{background: #fff; }
+.gr-cont  .hy-mode .main{padding:15px 0; display: block;}
+.gr-cont  .hy-mode span{height: 20px; line-height: 20px; display: inline-block;}
+.gr-cont  .hy-mode .icon{float: left; width: 40px; font-size: 0; height: 18px; line-height: 18px;}
+.gr-cont  .hy-mode .icon img{width: 18px; height: auto; display: block;}
+.gr-cont  .hy-mode .quan img{ padding-top: 2px; }
+.gr-cont  .hy-mode .name{float: left; font-size:16px;  color: #394043;  height: 18px; line-height: 18px;}
+.gr-cont  .hy-mode .zhi{float: right; font-size: 14px; color: #a2a2a2;  height: 18px; line-height: 18px;}
+.gr-cont  .hy-mode .zou{float: right; margin-left: 8px;  height: 18px; line-height: 18px;}
+.gr-cont  .hy-mode .zou img{float: right; height: 12px; width: auto; padding-top: 3px; }
+/*个人主页 end*/
+/*评价*/
+.pj-box{background: #fff; margin-top: 10px;}
+.pj-fw{overflow: hidden; padding:15px 0;}
+.pj-fw .name{ float: left; height: 22px; line-height: 22px;}
+.pj-fw .xing{float: left; overflow: hidden; font-size:0; margin-left: 20px;}
+.pj-fw .xing span{float: left; display: block; width:22px; height:21px; margin-right: 4px; background: url("../images/star1.png") no-repeat 0 0; background-size: 100% 100%;}
+.pj-fw .xing span.active{ background: url("../images/star2.png") no-repeat 0 0; background-size: 100% 100%;}
+.pj-fw .txt{ float: right;  height: 22px; line-height: 22px;}
+.pj-btn{margin-top:50px;}
+/*评价 end*/
+
+/*会员查询*/
+.jbxx-box .hy-mode{background: #fff; }
+.jbxx-box .hy-mode .main{padding:15px 0; display: block;}
+.jbxx-box .hy-mode span{height: 20px; line-height: 20px; display: inline-block;}
+.jbxx-box .hy-mode .icon{float: left; width: 40px; font-size: 0;}
+.jbxx-box .hy-mode .icon img{height: auto; width: 18px; display: block;}
+.jbxx-box .hy-mode .tel img{height: auto; width: 14px; display: block;}
+.jbxx-box .hy-mode .name{float: left; font-size:16px;  color: #394043;}
+.jbxx-box .hy-mode .zhi{float: right; font-size: 14px; line-height: 22px; color: #a2a2a2;}
+.jbxx-box .hy-mode .zou{float: right; margin-left: 8px;}
+.jbxx-box .hy-mode .zou img{ height: 12px; width: auto;}
+/*会员查询 end*/
+
+/*添加车辆信息*/
+.addcl-box{}
+.addcl-box .add1{background: #fff; margin-top: 20px;}
+.addcl-box .df-bar{padding:15px 0; font-size: 14px; background: #fff;}
+.addcl-box .df-bar .label span{display:block; float: right;  height:20px; line-height: 20px; padding:0 4px; border-radius: 2px; text-align: center; margin-left:6px; margin-bottom: 5px; background: #ececec; color: #7e7e7e;}
+.addcl-box .sr-chepai{overflow: hidden;}
+.addcl-box .sr-chepai .sel{width:40%; height: 20px; line-height: 20px;  float: left; overflow: hidden; border-right: 1px solid #ccc; margin-right: 8%;}
+.addcl-box .sr-chepai select{width:36px;  border: none; float: left;  background: url("../images/icon40.png") no-repeat scroll right center transparent; background-size:12px 6px;}
+.addcl-box .sr-chepai .pai-select1{margin-right:20px;}
+.addcl-box .sr-chepai .pai{float: left; width: 50%;  overflow: hidden;}
+.addcl-box .sr-chepai .pai span{width: 40px; float: left;  height: 20px; line-height: 20px;  font-size: 12px; display: block; }
+.addcl-box .sr-chepai .pai input{ width: 100%; height: 20px;  font-size: 12px;  }
+.addcl-box .sr-chepai .pai .hao{margin-left: 50px;}
+
+.addcl-box .xing{height: 20px; line-height: 20px; padding:15px 0; font-size: 14px; background: #fff;}
+.addcl-box .xing .name{width: 40px; float: left;}
+.addcl-box .xing .shur{display: block; overflow: hidden; height: 20px; margin-left:60px; background: url("../images/icon21.png") no-repeat right center; background-size:6px 11px; }
+.addcl-box .xing .shur input{display: block;  height: 20px; width: 100%; }
+/*添加车辆信息 end */
+/*优惠券*/
+.yhq-box{padding-top:30px;}
+.yhq-box .yhq-mode{color: #fff; background: url("../images/icon69.png") no-repeat 0 center; background-size:100% 100%; height:86px; margin-bottom: 24px;  }
+.yhq-box .yhq-mode.guoqi{color: #fff; background: url("../images/icon70.png") no-repeat 0 center; background-size:100% 100%; height:86px; margin-bottom: 24px;  }
+.yhq-box .yhq-mode .qian{float: left; width: 75%; }
+.yhq-box .yhq-mode .quan{margin-left: 16px; margin-top: 20px;}
+.yhq-box .yhq-mode .quan span{font-size: 16px; font-weight: 600; font-style: italic;}
+.yhq-box .yhq-mode .qi{font-size: 12px; margin-left: 16px; height: 20px; line-height: 20px; padding-left:18px; background: url("../images/icon68.png") no-repeat 0 center; background-size:12px 12px;  margin-top: 2px; }
+.yhq-box .yhq-mode .state{float: right;  width: 25%; text-align: center;  height:86px;  line-height: 86px; font-size: 16px;}
+/*优惠券 end*/
+/*优惠券详情*/
+.yhq-box{}
+.yhq-box .yhq-tit{font-size: 16px; text-align: center; font-weight: 600; margin-top: 20px; margin-bottom: 20px;}
+.yhq-box .yhq-p{font-size: 14px; margin-bottom: 24px; color: #5f5f5f;}
+/*优惠券详情 end*/
+/*我的钱包*/
+.wb-box{background: #fff;}
+.wb-box .wb-top{height:246px; background: url("../images/icon71.png") no-repeat 0 0 ;background-size: 100% 100%; color: #fff; text-align: center;}
+.wb-box .wb-top .zi-txt{font-size: 14px; padding-top:34px; padding-bottom:6px;}
+.wb-box .wb-top .zi-qian{font-size: 40px;}
+.wb-box .wb-top .zi-btn{padding-top:25px;}
+.wb-box .wb-top .zi-btn img{width: 154px; height:44px;}
+.wb-box .wb-nav{text-align: center; border-bottom: 1px solid #ccc;}
+.wb-box .wb-nav .wb-nav-box{width: 224px; margin:0 auto; overflow: hidden;}
+.wb-box .wb-nav .nav-qian{width: 72px; height:40px; line-height: 40px; font-size: 14px; margin:0 20px; float: left;color: #bdbdbd;
+    border-bottom: 2px solid #fff;}
+.wb-box .wb-nav .nav-qian.active{ color: #282828;  border-bottom: 2px solid #f39800;}
+.nav-mode-box{}
+.nav-mode-box .main{padding:15px 0;}
+.nav-mode-box .wb-tit{overflow: hidden;}
+.nav-mode-box .wb-tit .tit{font-size: 16px; color: #333; float: left;}
+.nav-mode-box .wb-tit .txt{font-size: 14px;color: #344a5e; float: right;}
+.nav-mode-box .wb-tit .txt em{color: #f39800;}
+.nav-mode-box .wb-txt{font-size: 14px;color: #9ea0a2; margin-top: 6px;}
+/*我的钱包 end*/
+/*充值*/
+.cz-box{}
+.cz-top{padding:16px 0;}
+.cz-quan{background: #fff; overflow: hidden; padding:15px 10px;}
+.cz-quan .wai{width: 33.33%; float: left; margin:5px 0;}
+.cz-quan .quan{border-radius: 4px; border:1px solid #bdbdbd; color: #bdbdbd; text-align: center; width: 90px; height:58px; margin:0 auto;}
+.cz-quan .wai.active .quan{border:1px solid #f39800; color:#f39800;  background: url("../images/icon72.png") no-repeat right bottom; background-size:22px 19px; }
+.cz-quan .quan p:nth-of-type(1){font-size: 16px; padding-top:10px;}
+.cz-quan .quan p:nth-of-type(2){font-size: 12px;}
+.cz-bot{margin-top: 46px;}
+/*充值 end*/
+
+/*意见反馈*/
+.fank-box{}
+.fank-box .fank-sr{padding:16px 0; background: #fff;}
+.fank-box .fank-sr textarea{height: 130px; overflow: auto; font-size: 14px;}
+/*意见反馈 end*/
+/*我要加盟*/
+.jiam-box{}
+.jiam-cont{background: #fff; border-radius: 4px; margin-top: 20px;}
+.jiam-box .jiam-xz{width: 94%; margin:0 auto; height:60px; line-height: 62px; border-bottom: 1px solid #e9e9e9; overflow: hidden; }
+.jiam-box .jiam-xz .name{width: 60px; font-size: 14px; float: left;}
+.jiam-box .jiam-xz .xz{margin-left: 60px; background: url("../images/icon40.png") no-repeat 96% center; background-size:11px 6px;  }
+.jiam-box .jiam-xz .tel{background: none;  }
+.jiam-box .jiam-xz .xz input{font-size: 14px; width: 100%; color: #333; }
+.jiam-bot{text-align: center; padding-top: 10px; padding-bottom:16px;  background: url("../images/icon48.png") no-repeat center top; background-size:24px 1px; position: fixed; left:0; bottom:0; width: 100%; color: #595959; font-size: 14px;}
+.jiam-bot .txt1{}
+.jiam-bot .txt2{ font-weight: 600;}
+
+#sheng select{width: 100%; background: none; border:none;}
+#qu select{width: 100%; background: none; border:none;}
+/*我要加盟 end*/
+/*下载App*/
+.dn-box{text-align: center;}
+.dn-box .dn-img1{ padding-top: 80px;}
+.dn-box .dn-img1 img{width: 98px; height: 98px;}
+.dn-box .dn-img2{padding-top: 20px;}
+.dn-box .dn-img2 img{width: 104px; height:36px;}
+.dn-box .dn-img3{padding-top: 6px;  padding-bottom:40px;}
+.dn-box .dn-img3 img{width: 16px; height: 14px;}
+.dn-box .dn-btn{background:url("../images/icon73.png") no-repeat 0 0; background-size:300px 52px; height: 52px; line-height: 52px; text-align: center; width: 300px; margin:0 auto; }
+.app-bot{text-align: center; padding-top: 10px; padding-bottom:16px;  background: url("../images/icon75.png") no-repeat center top; background-size:24px 1px; position: fixed; left:0; bottom:0; width: 100%; color: #a2a5a1; font-size: 14px;}
+.app-bot .txt1{}
+.app-bot .txt2{ font-weight: 600;}
+/*下载App end*/
+/*mobiscroll 样式*/
+.mob_dd{height: 20px; line-height: 20px; text-align: right; overflow: hidden; }
+.mob_dd input{ height: 20px; line-height: 22px; text-align: right; padding-right:26px; background: url("../images/icon40.png") no-repeat right center; background-size:11px 6px;  color: #818181;  }
+.mobil_time{ height: 20px; line-height: 20px; overflow: hidden;  text-align: right;}
+.mobil_time input{ height: 20px; line-height: 22px; text-align: right; padding-right:26px; background: url("../images/icon40.png") no-repeat right center; background-size:11px 6px;  float: right; color: #818181; }
+/*mobiscroll 样式 end*/
+
+
+

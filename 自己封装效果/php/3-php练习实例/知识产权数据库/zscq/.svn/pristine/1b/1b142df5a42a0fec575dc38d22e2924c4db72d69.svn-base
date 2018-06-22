@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/perCenter.css"/>
+</head>
+<body>
+    <div class="perCenter-box ">
+        <div class="bgl-nav bb main-hou">
+            <a href="javascript:;">安全设置</a>
+            <a href="javascript:;">联系人设置</a>
+            <a href="javascript:;" class="active">消息通知</a>
+        </div>
+        <div class="per-tab-box main-hou">
+            
+            <div class="tab-mode mt50">
+                <!--消息通知-->
+                <div class="msg-box">
+                    <div class="msg-tab oh">
+                        <div class="tab active fl">未读</div>
+                        <div class="tab fl">已读</div>
+                        <input type="button" class="yidu write-small-btn fr" value="全部已读"/>
+                    </div>
+                    <div class="brand-xinxi">
+                        <div class="brand-xx-mode oh f12  c333">
+                            <div class="mode-left fl">
+                                <span class="mode-txt">[支付消息] 放飞心灵 拥抱草原——易桥2015坝上草原消夏游</span>
+                                <span class="kai tz-kg fc1 ">展开</span>
+                                <span class="guan tz-kg fc1">收起</span>
+                            </div>
+                            <div class="mode-right c999 fr">2016-09-08 12:00</div>
+                        </div>
+                        <div class="brand-xx-mode oh f12  c333">
+                            <div class="mode-left fl">
+                                <span class="mode-txt">[支付消息] 转让成功。商标名称：易桥及分宝 WWW.12366.COM，商标分类：45。受让人名称（中文）：神州易桥(北京)财税科技有限神州易桥(北京)财税科技有限神州易桥(北京)财税科技公司，受让人地址（中文）：北京市昌平区回龙观镇西大街118号1幢905室。</span>
+                                <span class="kai tz-kg fc1 ">展开</span>
+                                <span class="guan tz-kg fc1">收起</span>
+                            </div>
+                            <div class="mode-right c999 fr">2016-09-08 12:00</div>
+                        </div>
+                        <div class="brand-xx-mode oh f12  c333">
+                            <div class="mode-left fl">
+                                <span class="mode-txt">[支付消息] 转让成功。商标名称：易桥及分宝 WWW.12366.COM，商标分类：45。受让人名称（中文）：神州易桥(北京)财税科技有限神州易桥(北京)财税科技有限神州易桥(北京)财税科技公司，受让人地址（中文）：北京市昌平区回龙观镇西大街118号1幢905室。</span>
+                                <span class="kai tz-kg fc1 ">展开</span>
+                                <span class="guan tz-kg fc1">收起</span>
+                            </div>
+                            <div class="mode-right c999 fr">2016-09-08 12:00</div>
+                        </div>
+                        <div class="brand-xx-mode oh f12  c333">
+                            <div class="mode-left fl">
+                                <span class="mode-txt">[支付消息] 转让成功。商标名称：易桥及分宝 WWW.12366.COM，商标分类：45。受让人名称（中文）：神州易桥(北京)财税科技有限神州易桥(北京)财税科技有限神州易桥(北京)财税科技公司，受让人地址（中文）：北京市昌平区回龙观镇西大街118号1幢905室。</span>
+                                <span class="kai tz-kg fc1 ">展开</span>
+                                <span class="guan tz-kg fc1">收起</span>
+                            </div>
+                            <div class="mode-right c999 fr">2016-09-08 12:00</div>
+                        </div>
+
+                    </div>
+                    <!--翻页按钮-->
+                    <div class="c-pages">
+                        <span>共100条记录，20页</span>
+                        <span>
+                            <a href="#">首页</a>
+                            <a href="#">上一页</a>
+                            <a href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#" class="active">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">下一页</a>
+                            <a href="#">末页</a>
+                        </span>
+                    </div>
+                    <!--翻页按钮 end-->
+                </div>
+                <!--消息通知 end-->
+            </div>
+        </div>
+    </div>
+
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+   
+    $(".msg-tab .tab").click(function(){
+        $(this).addClass("active").siblings(".tab").removeClass("active");
+    })
+    $(".mode-txt").each(function(){
+        var txt =$(this).text();
+//        alert(txt);
+        var len = txt.length;
+//        alert(len);
+        if(len > 94){
+//            alert(2);
+            var str = txt.substr(0,90);
+//            alert(str);
+            $(this).text(str+" ...");
+            $(this).siblings(".kai").show();
+            $(this).siblings(".kai").click(function(){
+                $(this).siblings(".mode-txt").text(txt);
+                $(this).hide();
+                $(this).siblings(".guan").show();
+                $(this).parents(".brand-xx-mode").addClass("active");
+                $(this).siblings(".guan").click(function(){
+                    $(this).siblings(".mode-txt").text(str+" ...");
+                    $(this).hide();
+                    $(this).siblings(".kai").show();
+                    $(this).parents(".brand-xx-mode").removeClass("active");
+                })
+            })
+        }
+    })
+</script>
+</body>
+</html>

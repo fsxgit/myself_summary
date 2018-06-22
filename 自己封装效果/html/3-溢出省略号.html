@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>折行，处理</title>
+	<style type="text/css">
+		.zh-box{width:400px; border:1px solid #ccc; padding:10px 20px; word-break:break-all; }
+		.box1{display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis; height:20px;}
+		.box2{
+			height:80px; 
+			overflow : hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+		
+		}
+		.box3{
+			height:80px; 
+			overflow : hidden;
+			text-overflow: ellipsis;
+			-webkit-box-orient: vertical;
+			text-overflow:-o-ellipsis-lastline;
+		
+		}
+	</style>
+    
+</head>
+<body>
+  <p class="zh-box box1">当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行</p>
+
+   <p class="zh-box box2">当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度</p>
+
+    <p class="zh-box box3">当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度之后自动换行当定义的宽度</p>
+
+
+</body>
+</html>

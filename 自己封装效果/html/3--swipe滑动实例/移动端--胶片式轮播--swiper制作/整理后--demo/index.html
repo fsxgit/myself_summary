@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>胶片式轮播</title>
+    <!--Swiper3.0.4-->
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="./swiper.min.css">
+    <link rel="stylesheet" href="./choumei.min.css">
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper" >
+        <div class="swiper-slide"><img src="./img1.jpg" class="main-img"></div>
+        <div class="swiper-slide"><img src="./img2.jpg" class="main-img"></div>
+        <div class="swiper-slide"><img src="./img3.jpg" class="main-img"></div>
+        <div class="swiper-slide"><img src="./img4.jpg" class="main-img"></div>
+        <div class="swiper-slide"><img src="./img5.jpg" class="main-img"></div>
+        <div class="swiper-slide"><img src="./img6.gif" class="main-img"></div>
+    </div>
+</div>
+<script src="./swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper(".swiper-container", {
+        //在loop模式下使用slidesPerview:'auto',还需使用该参数设置所要用到的loop个数:loopedSlides
+        loop : true,
+        slidesPerView: "auto",
+        loopedSlides :6,
+        autoplay: 30000,
+        autoplayDisableOnInteraction : false,
+        centeredSlides: !0,
+        watchSlidesProgress: !0,
+        paginationClickable: !0,
+        onProgress: function (a) {
+            var b, c, d;
+            for (b = 0; b < a.slides.length; b++)c = a.slides[b], d = c.progress, scale = 1 - Math.min(Math.abs(.2 * d), 1), es = c.style, es.opacity = 1 - Math.min(Math.abs(d / 2), 1), es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = "translate3d(0px,0," + -Math.abs(150 * d) + "px)"
+        },
+        onSetTransition: function (a, b) {
+            for (var c = 0; c < a.slides.length; c++)es = a.slides[c].style, es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = b + "ms"
+        }
+    });
+</script>
+
+
+</body>
+</html>

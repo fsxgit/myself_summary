@@ -1,0 +1,1 @@
+可以给#input1设置 display:none;就不会显示选择的文件名字了。修改了，input,type="file"默认的样子

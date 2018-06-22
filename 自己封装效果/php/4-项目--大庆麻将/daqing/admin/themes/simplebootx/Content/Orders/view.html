@@ -1,0 +1,113 @@
+<admintpl file="header" />
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">订单列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <php>
+    $status=array(0=>'<span class="label label-important">未支付</span>',1=>'<span class="label label-success">已支付</span>');
+    </php>
+    <!--信息提示-->
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th width="100">订单号</th>
+                <td>
+                    {$info.order_sn}
+                </td>
+            </tr>
+            <tr>
+                <th>订单总价</th>
+                <td>
+                    {$info.total}
+                </td>
+            </tr>
+            <tr>
+                <th>订单状态</th>
+                <td>
+                    {$status[$info['status']]}
+                </td>
+            </tr>
+            <tr>
+                <th>收件人</th>
+                <td>
+                    {$info.consinge}
+                </td>
+            </tr>
+            <tr>
+                <th>手机号</th>
+                <td>
+                    {$info.mobile}
+                </td>
+            </tr>
+             <tr>
+                <th>收货地址</th>
+                <td>
+                    {$info.address}
+                </td>
+            </tr>
+            <tr>
+                <th>下单时间</th>
+                <td>
+                    {$info.add_time|time_format}
+                </td>
+            </tr>
+            <tr>
+                <th>图书</th>
+                <td>
+                  <table class="table table-hover table-bordered" style="margin-bottom:0px;">
+                    <tr>
+                        <th>图书</th>
+                        <th>供货商</th>
+                        <th>封面</th>
+                        <th>单价</th>
+                        <th>运费</th>
+                        <th>数量</th>
+                    </tr>
+                    <volist name="info.data" id="vo">  
+                    <tr>
+                        <td>{$vo.title}</td>
+                        <td>{$vo.supplier}</td>
+                        <td><img src="{$vo.cover}" width="100"></td>
+                        <td>{$vo.price}</td>
+                        <td>{$vo.freight}</td>
+                        <td>x {$vo.num}</td>
+                    </tr>
+                    </volist>
+                  </table>
+                </td>
+            </tr>
+        </table>
+        <div class="form-actions">
+            <a class="btn" href="{$backUrl}">返回</a>
+        </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript">
+    function viewImg(img) {
+    Wind.use("artDialog", function () {
+        art.dialog({
+            title: '查看大图',
+            fixed: true,
+            width: "90%",
+            height: "90%",
+            id: "image_preview_" + img,
+            lock: true,
+            background: "#CCCCCC",
+            opacity: 0,
+            content: '<img src="' + img + '" />'
+        });
+    });
+}
+</script>
+</body>
+</html>

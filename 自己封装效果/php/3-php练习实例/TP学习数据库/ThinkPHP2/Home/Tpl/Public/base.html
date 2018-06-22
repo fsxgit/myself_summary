@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <block name="title"><title>标题</title></block>
+    <!--这里是block的父级模板页面是承载内容的床-->
+    <style>
+        *{margin:0; padding:0;}
+        body{font-size: 30px; color: #000;}
+        a{text-decoration: none; color:#fff;}
+        .m{width:100%; height:100px; background: #f00ebf; text-align: center; color: #fff; line-height: 100px;}
+        .box{width: 100%; height:auto; overflow: hidden;}
+        .l{width:20%; height:200px; background: #f0ae03; float:left; text-align: center; color: #fff; line-height: 200px;}
+        .c{width:60%; height:200px; background: #f0080b; float:left; text-align: center; color: #fff; line-height: 200px;}
+        .r{width:20%; height:200px; background: #0516f0; float:left; text-align: center; color: #fff; line-height: 200px;}
+        .f{width:100%; height:200px; background: #03f02f; float:right; text-align: center; color: #fff; line-height: 200px;}
+        .ad{background: #ccc; font-size: 40px; color: #ff1010; width: 100%; text-align: center; height:120px; line-height: 120px;}
+    </style>
+</head>
+<body>
+
+    <block name="menu">菜单</block>
+
+    <div class="ad">这里是广告部分</div>
+    <div class="box">
+        <block name="left">左边</block>
+        <block name="content">内容</block>
+        <block name="right">右边</block>
+    </div>
+    <div class="ad">这里也是广告部分</div>
+    <block name="fot">底部</block>
+</body>-
+</html>

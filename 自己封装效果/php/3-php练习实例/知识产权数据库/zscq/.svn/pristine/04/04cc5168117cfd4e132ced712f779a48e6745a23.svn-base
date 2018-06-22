@@ -1,0 +1,76 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/css/slb.css"/>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    
+
+商标查询 >>
+
+<a href="{:U('Bselect/waiting')}">待查询列表</a>>>
+
+<a href="">查看详情</a>
+
+<div class="sl-xq main">
+    <div class="sl-yuan">订单来源：PC</div>
+    <div class="sl-logo oh">
+        <div class="img fl mr20 mt20">
+		<img src="{$r.markpicture}" alt=""/>
+		</div>
+        <div class="img-txt fl mt20">
+            <p>商标名称：{$r.markname}</p>
+            <p>查询方式：自主选择类别</p>
+            <p></p>
+        </div>
+        <div class="txt fl">
+            <p class="sl-tit oh"><span class="fl c009">商标主体信息</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fr">创建时间：<?php echo date("Y-m-d",$r["addtime"]);?></span></p>
+            <p><span class="tit">公司名称：</span>{$s.companyname}</p>
+            <p><span class="tit">公司地址：</span>{$d.dom}</p>
+            <p><span class="tit">联系人：</span>{$r.customername}</p>
+            <p><span class="tit">联系电话：</span>{$r.customermobile}</p>
+        </div>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">所选查询分类</span>
+    </div>
+    <div class="sl-cont">
+        <div class="lei-mode">
+			<foreach name="nicecalss" item="v">
+            <h1>第{$v.id}类 {$v.name}</h1>
+			<foreach name="v.items" item="vo">
+            <div class="lei-box">
+				<foreach name="vo.items" item="vv">
+                <div class="lei"><span class="name">{$vv.code} {$vv.name}</span></div>
+				</foreach>
+            </div>
+			</foreach>
+			</foreach>
+        </div>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">服务顾问</span>
+    </div>
+    <div class="sl-cont">
+        <?php if($g){?>
+         <div class="img fl mr20 mt20"><img src="public/img/img2.png" alt=""/></div>
+        <div class="img-txt fl mr40 mt20">
+            <p class="name"><?php echo $g["consultantname"];?></p>
+            <p><?php echo $g["consultantmobile"];?></p>
+            </div>
+        <?php }else{?>
+        暂无顾问接单
+        <?php }?>
+        
+    </div>
+    <div class="sl-tit">
+        <span class="c009">查询结果</span>
+    </div>
+    <div class="sl-cont">
+        <p class="jieguo">等待顾问反馈结果中</p>
+    </div>
+	<div  style="text-align:center;width:100%;">
+        <a class="btn" href="{:U('Bselect/waiting')}"  style="margin:0 20px;">返回</a>
+    </div>
+</div>
+</div>
+</body>
+</html> 

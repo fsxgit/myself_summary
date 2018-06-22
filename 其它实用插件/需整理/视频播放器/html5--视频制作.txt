@@ -1,0 +1,310 @@
+HTML 5多媒体组件（视频的使用）
+　　要求
+　　必备知识：要充分利用本文，需要熟悉HTML。
+　　用户级别：中级
+　　范例文件：HTML5Video.zip (30.9 MB)
+　　毫无疑问，关于HTML5的一个最受欢迎的以及谈论最多的特性是其在不借助诸如Flash  Player等第三方插件的情况下，直接在你的网页上嵌入视频组件的能力。
+　　浏览器提供原生支持视频的新能力使得网页开发人员更易于在不依赖于外置插件有效性的情况下，在他们的网站上添加视频组件。由于苹果公司现阶段在iPhone和iPad上使用的Flash技术的局限性，传输HTML5视频的能力就显得尤为重要了。
+　　这篇教程主要向你介绍video元素及其属性，以及它所支持的不同的视频类型。这是这一系列三篇教程中的第一篇，主要涵盖了video(标签)，audio标签以及这两种标签使用的自定义控制等方面的内容。
+　　注意：你可以通过下载，研究sample files(示例文件)，自己探究一些示例代码以及这篇文章中列举出来的一些基本概念。
+　　视频服务：两项技术的快速比较
+　　如果你使用Flash Player创建一个在网站上播放的简单的MP4视频，你可能会用到下面的代码：
+<object type="application/x-shockwave-flash"   
+data="player.swf?videoUrl=myVideo.mp4&autoPlay=true" height="210" width="300">  
+<param name="movie" value="player.swf?videoUrl=myVideo.mp4&autoPlay=true">   
+</object>
+　　如果使用的是HTML5，你可以使用以下代码：
+<video src="myVideo.mp4" controls autoplay width="300" height="210"></video>
+　　当然，这个HTML5示例是极端简化了的，但是它所实现的功能是一样的，你也可以看出这是多么的简单。
+　　视频编码解码器
+　　视频编码解码器是一款可以对特定文件格式的视频进行编码或解码的软件。虽然HTML5标准最初强制支持Theora  Ogg视频编码解码器，但在受到Apple和Nokia的反对之后，这个要求就从标准中去除掉了。
+　　令人遗憾的是，这就意味着不同的浏览器支持不同的编码解码器，这听起来确实让人痛苦啊。但最近情况有所改善，你只需要(向不同的浏览器)提供两种不  同格式的视频内容：向Safari和Internet Explorer  9提供MP4/H.264格式视频，向Firefox，Chrome和Opera提供WebM格式视频。Firefox也支持Theora  Ogg，但在版本4之后就开始支持WebM格式了。
+　　当然，也有一种为你的视频内容定义不止一个的视频文件的方法，这个我在稍后就会讲到。
+　　video标签
+　　你在向你的网页上嵌入视频时用到的video元素，包含了几种不同的属性，在表1中列出了其中几项。
+　　表1. video标签属性
+　　属性描述
+　　src提供视频文件的URL地址。
+　　autoplay表明如果可能，网页上的视频应该自动播放。
+　　controls告知浏览器显示默认视频控制设置。
+　　muted设置视频的初始音频状态为静音 (此属性目前还不为任何浏览器所支持)
+　　loop表明视频应该连续不断的循环播放 (Firefox浏览器目前暂不支持这一属性)
+　　poster设置显示默认图片，而不是视频的第一帧。
+　　width指定video元素宽度的像素值。
+　　height指定video元素高度的像素值。
+　　preload向浏览器提示视频预加载状态。有三种可能的取值：
+　　none: 不执行任何的预加载
+　　metadata: 只加载视频的元数据，例如持续时间
+　　auto: 让浏览器自行决定(默认的)
+　　例如，如果你想视频自动播放，由浏览器提供控制，你只需要使用如下代码：
+<video src="myVideo.mp4" autoplay controls></video>
+　　source标签
+　　前面部分的实例中只用到了一个视频文件，使用一种MP4格式。那么你又会如何着手去处理WebM格式视频文件呢?
+　　这就是source元素出现的背景(由来)。一个video元素(标签)可以包含任意数目的source元素(标签)，使得你可以为同一个视频指定不同的源。
+　　source标签的使用
+　　source元素包含了表2所示的三个属性。
+　　表2. source标签属性
+    54053de6000187ca05000155.jpg
+    要在同一视频中指定MP4和WebM源，你可以使用以下代码：
+　　当浏览器试图播放视频时，它会逐一核查视频来源列表，直到找到可以播放的视频。因此，由于Firefox不能播放MP4格式文件，它会跳过MP4格式源文件，但它可以流畅的播放WebM格式源文件。
+　　注意，在前面的实例中，由于source标签使用了中的src属性，我把video标签中的src属性移除掉了。如果你在video标签中指定了src属性，它就会覆盖(掉)source标签中的所有src属性。
+　　指定编码解码器
+　　如果你想的话，你可以指定用以编码视频文件的确切的编码解码器。这可以帮助浏览器确定能否播放这一视频。由于很多时候你并不确定真正使用的是哪种编码解码器，最好只是提供文件类型，由播放器自身来决定(能不能播放)。
+　　如果你想指定某一编码解码器，你可以使用如下代码：
+<video autoplay controls> 
+<source src="myVideo.mp4" type='video/mp4; codec="mp4a.40.2"'>  
+<source src="myVideo.webm" type='video/webm; codec="vp8"'> 
+</video>
+　　注意编码解码器是如何被添加到type属性的，特别要注意引号的使用以及type和codec之间由分号隔开。在向type属性添加codec是，很容易把引号放错位置，这样就会由于浏览器无法正常解读source元素，使得视频不能正常播放。因此，如果你想明确的指定编码解码器，一定要仔细。
+　　回归传统
+　　当然，你也要向那些继续使用诸如Internet Explorer 8及更低版本，不支持HTML5的浏览器的用户提供相应的解决方案。
+　　由于浏览器会自动忽略它们不能解读的东西，像Internet Explorer  8那样的传统浏览器就会跳过video和source元素，只视它们为不存在。你可以利用这一特性，寻找另外一种替代的显示你的视频的方法，通过一个简单的下载链接或者是像Flash  Player那样的第三方插件。
+　　在前面例子的基础上，你可以按照下述方法添加一个同一视频文件的链接：
+<video autoplay controls>    
+<source src="myVideo.mp4" type="video/mp4">    
+<source src="myVideo.webm" type="video/webm">    
+<a href="myVideo.mp4">Download the video</a>    
+</video>
+ 
+　　传统的浏览器将会只显示视频文件下载链接。
+　　添加对Flash Player插件的支持也同样很简单：
+<video autoplay controls>    
+<source src="myVideo.mp4" type="video/mp4">    
+<source src="myVideo.webm" type="video/webm">    
+<object type="application/x-shockwave-flash" data="player.swf?videoUrl=myVideo.mp4&autoPlay=true">    
+<param name="movie" value="player.swf?videoUrl=mVideo.mp4&autoPlay=true">    
+</object>    
+<a href="myVideo.mp4">Download the video</a>    
+</video>
+　　在上面这个例子中，像Internet Explorer 8那样版本较老的浏览器就会在Flash Player中显示视频(如果系统中装有Flash  Player)，视频的下载链接也会显示。通过提供下载链接以及退回到使用Flash Player等方法，你向那些没有安装Flash  Player的用户提供了通过下载视频，然后在电脑上观看的视频访问方法。
+　　数字版权管理
+　　如果你担心其他人可以自由下载，分享你的视频，HTML5视频可能就不是你想要的。不管你使用的是这篇文章中讲到的哪种方法，你都向其  他用户提供了你的视频文件的直接URL地址，用户可以自由下载你的视频文件。目前使用的HTML5还不能防止这类事件的发生，在将来的某个时候可能在  HTML5中会出现处理数据版权管理(DRM)的规范的方法，但目前还没有。
+　　想了解更多的关于HTML5和DRM的信息，请参阅W3C’s HTML FAQs on this topic。
+　　视频字幕
+　　关于HTML5视频字幕的相关规定最初是HTML5标准的一部分。定义一种WebSRT文件格式，这种格式可以通过使用通常的SRT文件格式被用来指定视频字幕。
+　　稍后重命名为WebVTT(网页视频文本轨道)，字幕标准源于HTML5标准，然后自己成为一个标准体系。
+　　WebVTT文件格式
+　　WebVTT文件是一个特殊格式化的文本文件，其文件扩展名为.vtt。文件本身必须是UTF-8编码的，并以type/vtt  MIME类型标记。这一类型文件必须在顶端以WebVTT\r)，新的一行(\n)，或者是新的一行之后回车(\r\n)结束。
+　　这类文件中包含许多的cue，用以指定文本和视频文件中字幕的时间定位。
+　　其基本格式如下：
+　　WEBVTT [unique-cue-identifier] [hh]mm:ss.msmsms --> [hh]mm:ss.msmsms  [cue settings] Subtitle text 1 [Subtitle text 2] ...
+　　(代码中)unique-cue-identifer字符串是可有可无的。它是帮助确定文件中cue的简单字符串。cue定时以一种简单的格式给出，小时(hour)部分可有可无。每一个cue都可以有若干的cue设置，用于文字的对齐和定位。这些在下面将有更详细的介绍。接下来就是字幕的文字部分了，可以在同一行显示，也可以多行显示。
+　　视频文件中个别的cue可以通过这种方式定位不同的时间，通过另起一行分隔每一个cue块。
+　　下面是一个简短的例子：
+　　WEBVTT 1 00:00:10.500 --> 00:00:13.000 Elephant's Dream 2 00:00:15.000  --> 00:00:18.000 At the left we can see...
+　　你可以使用cue设置来设置视频中显示的字幕文字的位置和对齐方式。其中包含了五种这方面的设置，如表3所示。
+　　表 3. Cue设置
+　　Cue设置描述
+　　D:vertical | vertical-lr文本方向：竖直从左到右或是竖直从右到左。
+　　L:value行位置，以百分比值表示还是以特定的行号表示。
+　　A:start | middle | end相对于行的文本对齐方式。
+　　T:value文本位置，以百分比形式表示，相对于视频画面。
+　　S:value文字大小，以百分比表示。
+　　例如，要把文字定位于行的末端，到视频画面顶端10%的位置，你就会用到下述的cue设置：
+　　2 00:00:15.000 --> 00:00:18.000 A:end L:10% At the left we can  see...
+　　你现在了解了如何通过这种方式创建WebVTT文件，为整个视频添加字幕。
+　　track标签
+　　你可能会很想知道WebVTT文件是如何被关联到你的视频中去。答案就是track标签。这个标签也被引入到了HTML5中，使得你可以为诸如video标签的媒体元素指定外源的文本轨道。track标签的属性详见表4。
+　　表 4. track标签属性
+　　属性描述
+　　kind用于track定义的内容类型。可以是下面几种取值之一：subtitles，captions，descriptions，chapters，metadata。
+　　src文本轨道的URL地址，这里指的是WebVTT文件。
+　　srclang文本轨道资料的语言。
+　　label文本轨道的用户可读标签。
+　　default如果存在，表明这是默认文本轨道。
+　　例如，假设你想把名为english-subtitles.vtt的WebVTT文件加载到上述的视频示例中去。你可以使用下述代码来实现：
+
+<video autoplay controls>   
+<source src="myVideo.mp4" type="video/mp4">   
+<source src="myVideo.webm" type="video/webm">   
+<track src="english-subtitles.vtt" kind="subtitles" srclang="en" label="English subtitles">   
+</video>
+　　上述代码就把带有英语字幕的WebVTT文件绑定在了你的视频上。当然，在video元素中，你可以使用多个track元素。你可以使用(track元素的)srclang属性指定多种语言的WebVTT文件，实现向视频添加多语言字幕支持。(然后，如果用户的参数设置中并没有指明更为合适的轨迹，default属性就可以被用于追踪默认的轨迹)
+　　浏览器支持
+　　不幸的是，到目前为止，还没有哪一款浏览器直接支持WebVTT，但很多的有效的JavaScript资料库使你可以使用WebVTT文件格式，并为你的视频提供字幕，包括：
+　　Playr
+　　LeanBack Player
+　　Captionator(CaptionCrunch版本)
+　　MediaElement.js
+　　所有这些解决措施都支持视频字幕，有些还会提供一些额外的特性。浏览器也开始添加这方面的支持，Safari和Firefox在这方面取得了一些进  展，Microsoft最近也推出了关于WebVTT的演示活动，像我们展示供应商对不久的将来将会发展起来的WebVTT支持的严肃态度。
+　　下一步阅读方向
+　　你已经看到了，在你的网页上添加HTML5视频，以及为传统浏览器用户提供使用Flash  Player播放视频内容的复古的解决方法是多么的简单。尽管功能很强大，但由于缺乏DRM(数字版权管理)性能，HTML5视频目前并不适于那些想要保  护视频内容的用户使用。同时你也看到了，你在将来如何向你的视频添加字幕，以及你现在如何通过JavaScript资料库实现这一功能。
+　　在这一系列教程中的第二部分内容中，我主要讲解了HTML5的audio元素，在第三部分内容中，你将会学到更多的关于HTML5多媒体元素自定义控制方面的内容。
+
+文章来源：51CTO.COM  
+
+
+
+
+
+
+
+
+
+
+第四步：让播放器规范一点
+
+什么叫让播放器规范一点？那就是有控制条（前面已经介绍了）、开始播放前看到的画面，规定播放器的大小。
+
+播放器如果加载到了视频是可以在一开始就看到一个初始化的画面，但是往往会有这样的要求，给视频设置视频开始看到的图片（有时候为了吸引观众，会搞一张跟视频关系不大的图片，你懂的），或者是因为考虑网络问题，在还没加载视频的情况下不要显示一个黑屏给观众，这个时候也需要做这么一个设置，那就是设置poster属性即可：
+
+
+复制代码代码如下:
+
+<video controls preload="auto" poster="http://img0.ph.126.net/I10JqUUJDmlEtE_XYl4hOg==/6608842237655242020.jpg" width="640" height="264" src="http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4"></video>
+
+一般来说在应用过程中，播放器都是规定大小，所以要设置播放器的长宽，可以通过样式表里面设置，也可以通过属性width height来设置。需要注意的是设置播放器的宽高需要根据视频的比例来设置，否则最后看到视频是有空白，如果播放器的宽高超过视频的像素可看到模糊的拉伸效果，所以在设置宽高的时候一定要注意，不过可以先只设置宽或者高来观察，再得出准确的像素，比如
+
+复制代码代码如下:
+
+<video controls preload="auto" width=300 poster="http://img0.ph.126.net/I10JqUUJDmlEtE_XYl4hOg==/6608842237655242020.jpg" src="http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4"></video>
+
+在设置好宽度后，在浏览器中调试工具中看到了自适应的高度是165，那么这个时候再设置高度为165
+
+复制代码代码如下:
+
+<video controls preload="auto" width=300 height=165 poster="http://img0.ph.126.net/I10JqUUJDmlEtE_XYl4hOg==/6608842237655242020.jpg" src="http://www.w3cschool.cc/try/demo_source/mov_bbb.mp4"></video>
+总结：通过这四个步骤，可以完成了一个播放器的基本设置和使用了，主要是要了解播放器的一些属性和应用的场合，更多的应用那就要通过JS来控制了。
+
+
+
+
+
+
+
+
+HTML5的Video标签的属性,方法和事件汇总
+
+时间:2013-07-24
+
+HTML5的Video标签的属性,方法和事件汇总 
+
+ 
+<video>标签属性：
+src：视频的URL
+poster：视频封面，没有播放时显示的图片
+preload：预加载
+autoplay：自动播放
+loop：循环播放
+controls：浏览器自带的控制条
+width：视频宽度
+height：视频高度
+ 
+HTML5的audio标签的属性,方法和事件汇总
+<audio>标签属性：
+src：音乐的URL
+preload：预加载
+autoplay：自动播放
+loop：循环播放
+controls：浏览器自带的控制条
+ 
+Html代码  
+1.<audio id="media" src="http://www.sundxs.com/test.mp3" controls></audio>  
+ 
+Html代码  
+1.<video id="media" src="http://www.sundxs.com/test.mp4" controls width="400px" heigt="400px"></video>  
+ 
+ 
+ 
+获取HTMLVideoElement和HTMLAudioElement对象
+Js代码  
+1.   //audio可以直接通过new创建对象  
+2.   Media = new Audio("http://www.abc.com/test.mp3");  
+3.   //audio和video都可以通过JS获取对象,JS通过id获取video和audio的对象  
+4.   Media = document.getElementById("media");  
+ 
+ 
+Media方法和属性：
+HTMLVideoElement 和HTMLAudioElement 均继承自HTMLMediaElement
+ Js代码  
+1.   //错误状态  
+2.      Media.error; //null:正常  
+3.      Media.error.code; //1.用户终止 2.网络错误 3.解码错误 4.URL无效  
+4.     
+5.   //网络状态  
+6.      Media.currentSrc; //返回当前资源的URL  
+7.      Media.src = value; //返回或设置当前资源的URL  
+8.      Media.canPlayType(type); //是否能播放某种格式的资源  
+9.      Media.networkState; //0.此元素未初始化  1.正常但没有使用网络  2.正在下载数据  3.没有找到资源  
+10.     Media.load(); //重新加载src指定的资源  
+11.     Media.buffered; //返回已缓冲区域，TimeRanges  
+12.     Media.preload; //none:不预载 metadata:预载资源信息 auto:  
+13.    
+14.  //准备状态  
+15.     Media.readyState;    //1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA  
+16.     Media.seeking; //是否正在seeking  
+17.    
+18.  //回放状态  
+19.     Media.currentTime = value; //当前播放的位置，赋值可改变位置  
+20.     Media.startTime; //一般为0，如果为流媒体或者不从0开始的资源，则不为0  
+21.     Media.duration; //当前资源长度 流返回无限  
+22.     Media.paused; //是否暂停  
+23.     Media.defaultPlaybackRate = value;//默认的回放速度，可以设置  
+24.     Media.playbackRate = value;//当前播放速度，设置后马上改变  
+25.     Media.played; //返回已经播放的区域，TimeRanges，关于此对象见下文  
+26.     Media.seekable; //返回可以seek的区域 TimeRanges  
+27.     Media.ended; //是否结束  
+28.     Media.autoPlay;  //是否自动播放  
+29.     Media.loop;  //是否循环播放  
+30.     Media.play();    //播放  
+31.     Media.pause();   //暂停  
+32.    
+33.  //控制  
+34.     Media.controls;//是否有默认控制条  
+35.     Media.volume = value; //音量  
+36.     Media.muted = value; //静音  
+37.    
+38.     //TimeRanges(区域)对象  
+39.     TimeRanges.length; //区域段数  
+40.     TimeRanges.start(index) //第index段区域的开始位置  
+41.     TimeRanges.end(index) //第index段区域的结束位置  
+ 
+ 
+相关的事件：
+Js代码  
+1.          eventTester = function(e){  
+2.       Media.addEventListener(e,function(){  
+3.           console.log((new Date()).getTime(),e);  
+4.       });  
+5.   }  
+6.     
+7.   eventTester("loadstart");   //客户端开始请求数据  
+8.   eventTester("progress");    //客户端正在请求数据  
+9.   eventTester("suspend");     //延迟下载  
+10.  eventTester("abort");       //客户端主动终止下载（不是因为错误引起），  
+11.  eventTester("error");       //请求数据时遇到错误  
+12.  eventTester("stalled");     //网速失速  
+13.  eventTester("play");        //play()和autoplay开始播放时触发  
+14.  eventTester("pause");       //pause()触发  
+15.  eventTester("loadedmetadata");  //成功获取资源长度  
+16.  eventTester("loadeddata");  //  
+17.  eventTester("waiting");     //等待数据，并非错误  
+18.  eventTester("playing");     //开始回放  
+19.  eventTester("canplay");     //可以播放，但中途可能因为加载而暂停  
+20.  eventTester("canplaythrough"); //可以播放，歌曲全部加载完毕  
+21.  eventTester("seeking");     //寻找中  
+22.  eventTester("seeked");      //寻找完毕  
+23.  eventTester("timeupdate");  //播放时间改变  
+24.  eventTester("ended");       //播放结束  
+25.  eventTester("ratechange");  //播放速率改变  
+26.  eventTester("durationchange");  //资源长度改变  
+27.  eventTester("volumechange");    //音量改变  
+
+
+
+各自写法:poster
+<video controls poster="/images/w3school.gif">
+   <source src="movie.mp4" type="video/mp4">
+   <source src="movie.ogg" type="video/ogg">
+   Your browser does not support the video tag.
+</video> 
+
+
+
+
+
+
+
+
+
+

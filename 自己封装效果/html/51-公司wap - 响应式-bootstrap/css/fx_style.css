@@ -1,0 +1,42 @@
+.flTxt{color:#fff; width:100%; padding-bottom:20px; padding-top:20px;}
+.frImg{width:90%; margin:0 auto;}
+.frImg img{max-height:100%;}
+.item{overflow: hidden;}
+.fTeam{width:100%; text-align: center; font-size:1.55em; font-weight: 300; padding-top:20px; padding-bottom:30px; }
+.fTeambox{padding:0;}
+.fxSize{font-size:0.8em;}
+.fhaibo{color:#fff; font-size:1.55rem; text-align: center; padding:20px 0 0 0;}
+.fximgs{width:100%; overflow: hidden;padding:20px 0 30px 0;}
+.fximgs  img{width:100%; }
+.carousel-box{ width:100%; height:auto; position:relative;}
+.left-txt{ width:100%; font-size: 12px; font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica;}
+
+
+#myCarouse-fx{width:240px; margin:0 auto;  height:240px; background:url("../images/iphone_5.png") no-repeat center; background-size:auto 100%; margin-top:10px; }
+#myCarouse-fx .carousel-inner{overflow: hidden; width:41%;  height:200px;position:absolute; left:29%; top:14%; }
+#myCarouse-fx .carousel-control.fxleft{ background:url("../images/left_side.jpg") no-repeat center;  background-size:20px 50px;   opacity:1; }
+#myCarouse-fx .carousel-control.fxright{background:url("../images/right_side.jpg") no-repeat center;  background-size:20px 50px;  opacity:1;}
+
+
+#myCarouse-fx-two{width:240px; margin:0 auto;  height:240px; background:url("../images/imac.png") no-repeat center; background-size:contain; margin-top:10px; }
+#myCarouse-fx-two .carousel-inner{overflow: hidden; width:94%;  height:200px;position:absolute; left:3%; top:14%; }
+.carousel-control.myCarouse-fx-two-fxleft{ background:url("../images/left_side.jpg") no-repeat  center  43%;  background-size:20px 50px;   opacity:1; left:-30px;}
+.carousel-control.myCarouse-fx-two-fxright{background:url("../images/right_side.jpg") no-repeat center 43%;  background-size:20px 50px;  opacity:1;  right:-30px;}
+#myCarouse-fx-two .item img{height:128px; width:100%;}
+
+
+#myCarouse-fx-three{width:240px; margin:0 auto;  height:240px; background:url("../images/iphone.png") no-repeat center; background-size:contain; margin-top:10px; }
+#myCarouse-fx-three .carousel-inner{overflow: hidden; width:44%;  height:155px;position:absolute; left:28.9%; top:18.9%;  }
+.carousel-control.myCarouse-fx-three-fxleft{ background:url("../images/left_side.jpg") no-repeat center;  background-size:20px 50px;   opacity:1;}
+.carousel-control.myCarouse-fx-three-fxright{background:url("../images/right_side.jpg") no-repeat center;  background-size:20px 50px;  opacity:1; }
+#myCarouse-fx-three .item img{height:155px; width:100%;}
+
+.fx-contact{width:96%; margin:0 auto;}
+.fx-contact p{font-size:0.88em; color:#a0a0a0; margin:2px 0;}
+.contact-head{text-align: left;}
+.fx-container{text-align: center;color:#fff;}
+.logoIcon img{width:32px; height:36px;  float:left;margin-top:12px;}
+.fx-title{float:left; margin-top:19px; width:69.7%;}
+.fx-contact a:link,.fx-contact a:visited,.fx-contact a:active{color:#a0a0a0;}
+.fx-li li{margin-bottom:10px;}
+.ftuandui{padding-top:90px;}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟折线图</title>
+    <style>
+        body{height: 2000px;}
+        #canvas1{border:1px solid #ccc;}
+        table{}
+        table td{
+          padding:10px 20px;
+            border-radius: 50%;
+        }
+        .tdno{background: #ff14be;}
+        .canBox{position: absolute; left:0; top:0; width: 100%;}
+    </style>
+</head>
+<body>
+
+<div class="canBox">
+
+</div>
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="tdno">0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td class="tdno">5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td class="tdno">1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="tdno">0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td class="tdno">2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td class="tdno">6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="tdno">0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td class="tdno">5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td class="tdno">1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="tdno">0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td class="tdno">2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td class="tdno">6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td class="tdno">1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="tdno">0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td class="tdno">2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td class="tdno">6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="tdno">0</td>
+    </tr>
+</table>
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script>
+var y;
+$(".tdno").each(function(i){
+    var x = $(this).offset();
+   if(i==0){
+       y = x;
+   }else{
+       var w = 0;
+       var l = 0;
+
+       var xl = x.left;
+       var yl = y.left;
+
+       if(xl >= yl){
+           w = xl-yl;
+           l = yl;
+       }else{
+           w = yl-xl;
+           l = xl;
+       }
+       var h = x.top-y.top;
+       var t = x.top;
+
+       var nid = "canBox_xs"+i+(i-1);
+       var hm = '<canvas id="'+nid+'" class="ncanvas" width='+w+' height:'+h+' style="position:absolute; left:'+(l+24)+'px;top:'+(t-20)+'px; "></canvas>';
+       $(".canBox").append(hm);
+        var cx2 = document.getElementById(nid);
+        var ctx2 = cx2.getContext("2d");
+        ctx2.strokeStyle="#FF0000";
+
+        if(xl <= yl){
+            ctx2.moveTo(w,0);
+            ctx2.lineTo(0,h);
+        }else{
+            ctx2.moveTo(0,0);
+            ctx2.lineTo(w,h);
+        }
+       ctx2.lineWidth=1;
+       ctx2.stroke();
+
+       y = x;
+   }
+    console.log(x);
+
+});
+
+</script>

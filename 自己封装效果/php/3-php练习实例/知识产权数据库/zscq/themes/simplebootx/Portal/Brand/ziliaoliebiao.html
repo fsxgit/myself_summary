@@ -1,0 +1,241 @@
+
+<style>
+		.warn-txt{ height:14px; line-height: 14px; color: #cc0000; display: inline-block; padding-left:16px; background: url("public/html/images/icon30.png") no-repeat 0 center;  margin-top:10px;}
+        .blue-big-btn{width:100px; height:34px; line-height: 34px; text-align: center; background: #157efb; color: #fff; font-size:14px; cursor: pointer; border-radius: 2px; display: inline-block;}
+        /*弹出框*/
+        .c-tan-shadow{position: fixed;width:100%; height:100%; background: #000; opacity: 0.1;  filter:alpha(opacity=20);  left:0; top:0;  display: none;  z-index: 10;}
+        .c-tan-cont{position: fixed; left:20%; top:20%; background: #fff; width:502px;  border:4px solid #cecece; display: none; z-index: 12;}
+        .c-tan-top{width:100%; border-bottom:1px solid #eee; background: #f5fafd;}
+        .c-tan-Title{height:50px; line-height: 50px; font-size: 14px; margin-left: 20px; }
+        .c-tan-close{height:50px;width:50px; cursor: pointer;}
+        .c-tan-close img{margin-left:19px; margin-top:19px;}
+        .c-tan-close .img1{display: block;}
+        .c-tan-close .img2{display: none;}
+        .c-tan-close.active .img1{display: none;}
+        .c-tan-close.active .img2{display: block;}
+
+        .c-tan-input span{color: #333; margin-right:46px; font-size:12px;}
+        .c-tan-input input{height:32px; border:1px solid #ccc; width:298px; font-size:12px; border-radius: 2px; text-indent: 10px;}
+        .c-tan-bot{height:74px; line-height: 74px; width:420px; border-top: 1px solid #eee; text-align: right;}
+        .c-tan-bot input{height:32px;  width:98px; background: #157efb; color: #fff; border-radius: 2px; font-size: 14px;}
+        /*第二个弹出框不同部分*/
+        .xg-ren{padding:40px 0; width:420px;}
+        .xg-ren input{ width:418px; border:1px solid #eee; font-size: 12px; height: 32px; text-indent:10px; }
+        /*公用输入框样式*/
+        .c-fp-sel-wrap{ margin:5px 0; cursor: pointer; font-size: 12px;}
+        .c-fp-sel-box{  height: 32px;  line-height: 32px;  border: 1px solid #ccc;  display: inline-block; border-radius: 2px; cursor: pointer; position: relative; float: left; }
+        .c-fp-sel-box .downUp{ width: 20px; height: 32px;  line-height: 32px; display: inline-block; background: url("images/down.png") no-repeat 0 center;  float: right;}
+        .c-fp-sel-p{ height: auto;  line-height: 32px;cursor: pointer; position: absolute; left:-1px; top:32px;  border: 1px solid #eee;  background: #fff; display: none;}
+        .c-fp-sel-box.active .downUp{background: url("images/up.png") no-repeat 0 center;  float: right;}
+        .c-fp-sel-value{padding-left: 8px; height:32px; line-height:32px;  cursor: pointer;}
+        .c-fp-sel-p p{text-indent: 10px; margin:0; width: 100%;}
+        .c-fp-sel-p p.active{background:#f9f9f9;}
+        /*公用输入框样式 end*/
+        .xg-ren .chuan{width: 422px; height: 34px; background: none; color: #999;}
+        .c-fp-sel-box{ border-color: #eee;}
+        .xg-ren .c-fp-sel-value{padding-left: 0; width: 300px; border: none;}
+        .c-tan-width{width: 100%;}
+        .c-fp-sel-p{ border-color: #eee;}
+    </style>
+<!--上面切换模块 索要改变的部分-->
+                    <div class="list-gk-cont-left last">
+
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">资料列表</h1>
+                            <div class="bgl-cont">
+                                <div class="zl-list-tab oh">
+                                    <span class="active">顾问上传</span>
+                                    <span>用户上传</span>
+                                    <input  type="button" class="ml20 blue-big-btn fr"   onclick="xgName();" value="上传资料"/>
+                                    <input type="button" class="write-big-btn fr" value="全部下载"/>
+                                </div>
+                                <table class="bg-table mt20">
+                                    <tr class="tr1">
+                                        <td style="width: 10%;">序号</td>
+                                        <td style="width: 28%;">文件名称</td>
+                                        <td style="width: 9%;">业务类型</td>
+                                        <td style="width: 12%;">文件大小</td>
+                                        <td style="width: 18%;">更新时间</td>
+                                        <td  style="width: 34%;">操作</td>
+                                    </tr>
+									<foreach name="file" item="vo" key='k'>
+										<tr>
+											<td>1</td>
+											<td class="">{$vo.filename}</td>
+											<?php if($vo['type'] == 1){ ?>
+												<td>1</td>
+											<?php }else if($vo['type'] == 2){ ?>
+												<td>2</td>
+											<?php }else if($vo['type'] == 3){ ?>
+												<td>3</td>
+											<?php }else if($vo['type'] == 4){ ?>
+												<td>4</td>
+											<?php }else if($vo['type'] == 5){ ?>
+												<td>5</td>
+											<?php }else if($vo['type'] == 6){ ?>
+												<td>6</td>
+											<?php }else if($vo['type'] == 7){ ?>
+												<td>7</td>
+											<?php } ?>
+											<td>{$vo.size}k</td>
+											<td><?php echo date("Y-m-d H:i:s",$vo['add_time']); ?></td>
+											<td class="xk-hand">
+											<a href="/zscq{$vo.url}" download="{$vo.filename}">下载</a>
+											<a href="javascript:;" >删除</a></td>
+										</tr>
+									</foreach>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!--翻页按钮-->
+                        <div class="c-pages pb30">
+                            <span>共100条记录，20页</span>
+                                <span>
+                                    <a href="#">首页</a>
+                                    <a href="#">上一页</a>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#" class="active">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <a href="#">下一页</a>
+                                    <a href="#">末页</a>
+                                </span>
+                        </div>
+                        <!--翻页按钮 end-->
+                    </div>
+                    <!--上面切换模块 索要改变的部分 end-->
+                </div>
+                <!--6.资料列表 end-->
+				<!--弹出框 -->
+    <!--弹出框遮罩-->
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-cont xg-tan-cont bc">
+	<form enctype="multipart/form-data" onsubmit="return check()" method="post" action = "{:U('Portal/userinfo/upload')}">
+	<input type="hidden" id="markid" name="markid" value="{$id}">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">上传资料</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <div class="xg-ren bc">
+            <!--/*下拉选择框 */-->
+            <div class="c-fp-sel-wrap">
+                <div class="c-fp-sel-box c-tan-width">
+                    <input type="text" readonly="readonly" class="c-fp-sel-value ggg" placeholder="请选择文件类型"/>
+                    <span class="downUp"></span>
+                    <div class="c-fp-sel-p c-tan-width">
+                        <P class="active">注册</P>
+                        <P>转让</P>
+                        <P>变更</P>
+                        <P>续展</P>
+                        <P>许可备案</P>
+                        <P>驳回复审</P>
+						<P>异议答辩</P>
+                    </div>
+                </div>
+				<p class="warn-box" id = "leixingts"></p>
+                <div class="cb"></div>
+				<input type="hidden" id="leixing" name="leixing" value="">
+            </div>
+            <!--/*下拉选择框 end*/-->
+            <input type="button" class="chuan" id="btn1" onclick="myfile.click();" value="上传文件"/>
+			<input type="text" id="input1" style="display:none">
+			<input type="file" class = "ggg" name = "myfile" id="myfile" onchange="input1.value=this.value" style="display:none">
+			<p class="warn-box" id = "filets"></p>
+        </div>
+		
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="xg-sure" value="确定"/>
+        </div>
+	</form>
+    </div>
+<!--弹出框 end-->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+
+//    修改名字弹出框
+    function xgName(){
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".xg-tan-cont"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".xg-sure");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+       
+    }
+
+
+
+$(function(){
+    var aP = $(".c-fp-sel-p p"); //下拉的p
+    var apBox = $(".c-fp-sel-p"); //下拉的盒子
+    var oValue = $(".c-fp-sel-value"); //选中值存放的地方
+    var oBox = $(".c-fp-sel-box"); //最外层的盒子
+    var txt = aP.eq(0).text();
+    oValue.text(txt);
+    oBox.click(function(){
+        $(this).toggleClass("active");
+		$("#leixingts").hide();
+        if($(this).hasClass("active")){
+            apBox.slideDown();
+        }else{
+            apBox.slideUp();
+        }
+    });
+
+    aP.click(function(event){
+        $(this).addClass("active").siblings().removeClass("active");
+        var val = $(this).text();
+		var leiID = $(this).index()+1;
+		$("#leixing").val(leiID);
+        oValue.val(val);
+        oBox.removeClass("active");
+        apBox.slideUp();
+        event.stopPropagation();
+    });
+
+    $(".c-tan-close").hover(function(){
+        $(this).addClass("active");
+    },function(){
+        $(this).removeClass("active");
+    })
+})
+
+////提示错误后，再获取焦点是，提示隐藏
+$(".ggg").each(function(){
+	$(this).focus(function(){
+		$(this).parents("p").siblings(".warn-box").hide().html("");
+	})
+});
+
+function check(){
+	$("#filets").hide();
+	var leixing = $("#leixing").val();
+	var file = $("#myfile").val();
+	var asdfg = $("#asdfg").val();
+	if(leixing == ""){
+		$("#leixingts").show();
+		$("#leixingts").html("<span class='warn-txt'>请选择文件类型</span>");
+		return false;
+	}else if(file == ""){
+		$("#filets").show();
+		$("#filets").html("<span class='warn-txt'>请选择上传你的文件</span>");
+		return false;
+	}
+}
+</script>

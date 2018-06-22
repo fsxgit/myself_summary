@@ -1,0 +1,9 @@
+给对应元元素做js处理：
+<script>
+   $(".setInput").on("focus",function(){
+       setTimeout(function(){
+//           $(".setRoomName").scrollIntoViewIfNeeded();
+           $(".setRoomName").scrollIntoView(true);
+       },30)
+   })
+</script>

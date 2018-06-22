@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/wrong.css"/>
+</head>
+<body>
+    <div class="fp-box main c333 f12">
+        <div class="fp-step"><img src="images/fp2.png" width="640" height="54" alt=""/></div>
+        <div class="fp-input-box bc">
+            <div class="fp-sel-wrap">
+                <span class="tit">验证方式</span>
+                <div class="fp-sel-box">
+                    <span class="fp-sel-value"></span>
+                    <div class="fp-sel-p">
+                        <P class="active">手机</P>
+                        <P>密保</P>
+                    </div>
+                </div>
+                <div class="cb"></div>
+            </div>
+            <p><span class="tit">用户账号</span><input type="text" value="szw96857744"/></p>
+            <p class="warn-box"><span class="warn-txt">请输入手机号</span></p>
+            <p><span class="tit">手机号</span><input type="text" value="158990987534"/></p>
+            <p><span class="tit">验证码</span><input type="text" class="fp2-ma" placeholder="请输入验证码"/><input type="button" class="maBtn2 fr cfff" value="获取短信验证码"/></p>
+            <p><input type="submit" class="next bg1 cfff" value="下一步"/></p>
+        </div>
+    </div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        var txt = $(".fp-sel-p p").eq(0).text();
+        $(".fp-sel-value").text(txt);
+        $(".fp-sel-box").click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                $(".fp-sel-p").slideDown();
+            }else{
+                $(".fp-sel-p").slideUp();
+            }
+        })
+        $(".fp-sel-p p").click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            $(".fp-sel-value").text(val);
+            $(".fp-sel-box").removeClass("active");
+            $(".fp-sel-p").slideUp();
+            event.stopPropagation();
+        })
+    })
+</script>
+</body>
+</html>

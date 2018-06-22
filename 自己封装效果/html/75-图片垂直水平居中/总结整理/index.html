@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .lb-imgs{width:1000px; margin:40px auto;}
+        .lb-imgs  img{width:200px; height:200px; margin:10px; cursor: pointer;}
+        .imgShodaw{width:100%; height:100%; background: rgba(0,0,0,0.7); position:fixed; left:0; top:0; display: none;}
+        .imgBoxWai{width:800px; height:600px; padding:50px 100px;  margin:0 auto; background: #000; position: relative;}
+        .imgBoxNei{width:800px; height:600px;  text-align: center;  display: table-cell;  vertical-align:middle; font-size: 0; overflow: hidden;}
+        .imgBoxNei img{max-width:100%; height:auto; max-height:100%;}
+
+        .lb-close{width: 40px; height: 40px;  cursor: pointer; position: absolute; right:0; top:0; z-index: 10;}
+
+    </style>
+</head>
+<body>
+<div class="lb-imgs">
+    <img src="images/1.jpg" alt=""/>
+    <img src="images/6.jpg" alt=""/>
+    <img src="images/2.jpg" alt=""/>
+    <img src="images/4.jpg" alt=""/>
+    <img src="images/5.jpg" alt=""/>
+    <img src="images/3.jpg" alt=""/>
+    <img src="images/7.jpg" alt=""/>
+    <img src="images/9.jpg" alt=""/>
+    <img src="images/10.jpg" alt=""/>
+    <img src="images/11.jpg" alt=""/>
+    <img src="images/8.jpg" alt=""/>
+    <img src="images/12.jpg" alt=""/>
+</div>
+
+
+<div class="imgShodaw">
+    <div class="imgBoxWai">
+        <div class="lb-close">
+            <img src="images/close1.png" alt=""/>
+        </div>
+        <div class="imgBoxNei"><img src="images/1.jpg" alt=""/></div>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script >
+    imgLunbo();
+ function imgLunbo(){
+     var oShodaw = $(".imgShodaw");
+     var oWai = $(".imgBoxWai");
+     var oImg = $(".imgBoxNei img");
+     var aImgs = $(".lb-imgs img");
+
+     var oClose = $(".lb-close")
+     var oMT = ($(window).height()- oWai.outerHeight())/2;
+
+
+     oWai.css("marginTop",oMT);
+     var ii = 0;
+     aImgs.on("click",function(){
+         ii = $(this).index();
+         var src = $(this).attr("src");
+         oImg.attr("src",src);
+         oShodaw.show();
+
+     });
+
+     oClose.click(function(){
+         oShodaw.hide();
+     });
+
+ }
+</script>
+</body>
+</html>

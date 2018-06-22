@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+	<title> 二级联动</title>
+
+	<link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/mobiscroll.custom-2.5.0.min.js"></script>
+
+
+
+	<style type="text/css">
+		input, select {
+			width: 100%;
+			padding: 5px;
+			margin: 5px 0;
+			border: 1px solid #aaa;
+			box-sizing: border-box;
+			border-radius: 5px;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-webkit-border-radius: 5px;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		$(function () {
+			var i = Math.floor($('#treelist>li').length / 2);
+			var j = Math.floor($('#treelist>li').eq(i).find('ul li').length / 2);
+			$("#treelist").mobiscroll().treelist({
+				theme: "android-ics light",
+				mode: 'scroller',
+				lang: "zh",
+				display: 'bottom',
+				setText: '确定', //确认按钮名称
+				cancelText: '取消',//取消按钮名籍我
+				defaultValue: [i,j],
+				placeholder: '选择车型',
+				headerText: function (valueText) { return "选择车型"; }, 	//弹出窗Title
+				formatResult: function (array) { 						//返回自定义格式结果
+					return $('#treelist>li').eq(array[0]).children('span').text() +' '+ $('#treelist>li').eq(array[0]).find('ul li').eq(array[1]).text().trim(' ');
+
+				}
+			});
+
+//	??????????????????????????????????? 写法二
+//			写法二  这种写法返回值是 数字代码 ，例如：100
+//			var opt = { };
+//			//			控件配置
+//			opt.tree_list = {
+//				preset : 'list',
+//				labels: ['Region', 'Country', 'City'] //省市区
+//			};
+//			<!-- 固定写法 -->
+//			$('#treelist').val('').scroller('destroy').scroller(
+//					$.extend(opt['tree_list'],
+//							{
+//								theme: 'android-ics light',
+//								mode: 'scroller',
+//								display: 'bottom',
+//								setText: '确定', //确认按钮名称
+//								cancelText: '取消',//取消按钮名籍我
+//								lang: 'zh'
+//							}
+//					)
+//			);
+//	??????????????????????????????????? 写法二 end
+
+
+			//			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+			$("#treelist_dummy").val("");
+			$("#treelist_dummy").attr("placeholder","请选择车型");
+		})
+	</script>
+</head>
+
+<body>
+	<div>
+		<label >二级联动</label>
+		<ul id="treelist">
+			<li>
+				<span>奥迪</span>
+				<ul>
+					<li>奥迪A3</li>
+					<li>奥迪A4L</li>
+					<li>奥迪A6L</li>
+					<li>奥迪Q3</li>
+					<li>奥迪Q5</li>
+					<li>奥迪A4</li>
+					<li>奥迪A6</li>
+					<li>奥迪A1</li>
+					<li>奥迪A3(进口)</li>
+				</ul>
+			</li>
+			<li>
+				<span>宝马</span>
+				<ul>
+					<li>宝马X1</li>
+					<li>宝马i3</li>
+					<li>宝马1系</li>
+					<li>宝马3系</li>
+					<li>宝马5系</li>
+				</ul>
+			</li>
+			<li>
+				<span>奔驰</span>
+				<ul>
+					<li>奔驰A级</li>
+					<li>奔驰C级</li>
+					<li>奔驰E级</li>
+					<li>奔驰S级</li>
+					<li>奔驰GLK级</li>
+					<li>奔驰CLA级</li>
+					<li>奔驰CLS级</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: Dean <zxxjjforever@163.com>
+// +----------------------------------------------------------------------
+/**
+ * 搜索结果页面
+ */
+namespace Portal\Controller;
+use Common\Controller\CommonController;
+header("content-type:text/html;charset=utf-8");
+class WordpdfController extends CommonController {
+	public function xiazai($fileNameArr){
+		 // 最终生成的文件名（含路径）
+		$filename = "./" . date ( 'YmdH' ) . ".zip";
+		// 生成文件
+		// 使用本类，linux需开启zlib，windows需取消php_zip.dll前的注释
+		$zip = new \ZipArchive (); 
+		if ($zip->open ( $filename, \ZIPARCHIVE::CREATE ) !== TRUE) {
+			exit ( '无法打开文件，或者文件创建失败' );
+		}
+
+		//$fileNameArr 就是一个存储文件路径的数组 比如 array('/a/1.jpg,/a/2.jpg....');
+		//$fileNameArr = array('./2.pdf','./2.doc','./3.pdf','./4.pdf','./5.pdf','./3.doc');
+		foreach ( $fileNameArr as $val ) {
+			// 第二个参数是放在压缩包中的文件名称，如果文件可能会有重复，就需要注意一下
+			$zip->addFile ( $val, basename ( $val ) ); 
+		}
+		$zip->close (); // 关闭
+
+		//下面是输出下载;
+		header ( "Cache-Control: max-age=0" );
+		header ( "Content-Description: File Transfer" );
+		// 文件名
+		header ( 'Content-disposition: attachment; filename=' . basename ( $filename ) );
+		// zip格式的
+		header ( "Content-Type: application/zip" );
+		// 告诉浏览器，这是二进制文件
+		header ( "Content-Transfer-Encoding: binary" ); 
+		// 告诉浏览器，文件大小
+		header ( 'Content-Length: ' . filesize ( $filename ) ); 
+		//输出文件;
+		@readfile ( $filename );
+	}
+
+	//set_time_limit(0);
+	function MakePropertyValue($name,$value,$osm){
+		$oStruct = $osm->Bridge_GetStruct("com.sun.star.beans.PropertyValue");
+		$oStruct->Name = $name;
+		$oStruct->Value = $value;
+		return $oStruct;
+	}
+
+	function word2pdf($doc_url, $output_url){
+		$osm = new \COM("com.sun.star.ServiceManager") or die ("Please be sure that OpenOffice.org is installed.n");
+		$args = array($this->MakePropertyValue("Hidden",true,$osm));
+		$oDesktop = $osm->createInstance("com.sun.star.frame.Desktop");
+		//echo $doc_url;die;
+		$oWriterDoc = $oDesktop->loadComponentFromURL($doc_url,"_blank", 0, $args);
+		//echo 111;die;
+		$export_args = array($this->MakePropertyValue("FilterName","writer_pdf_Export",$osm));
+		$oWriterDoc->storeToURL($output_url,$export_args);
+		$oWriterDoc->close(true);
+		//$oWriterDoc->Quit();
+		$oDesktop->terminate();
+		//$osm->dispose();
+	}
+	
+	//开头添加字符串
+	function str_prefix($str, $n=1, $char=" "){
+		for ($x=0;$x<$n;$x++){$str = $char.$str;}
+		return $str;
+	}
+	//结尾添加字符串
+	function str_suffix($str, $n=1, $char=" "){
+		for ($x=0;$x<$n;$x++){$str = $str.$char;}
+		return $str;
+	}
+	
+	public function tihuan(){
+		$a1 = $this->ti("aa",40);
+		$a2 = $this->ti("中",17);
+		$a3 = $this->ti("中",13);
+		$a4 = $this->ti("中文字符串",42);
+		$a5 = $this->ti("中文字符串",24);
+		$a6 = $this->ti("中文字符串",28);
+		$a7 = $this->ti("中文字符串",28);
+		$a8 = $this->ti("中文字符串",28);
+		$a9 = $this->ti("中文字符串",27);
+		$a9 = $this->ti("中文字符串",27);
+
+		require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+
+		$PHPWord = new \PHPWord();
+		$document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/ccc.docx');
+		$document->setValue("value1",$a1);
+		$document->setValue('value2',$a2);
+		$document->setValue('value3',$a3);
+		$document->setValue('value4',$a4);
+		$document->setValue('value5',$a5);
+		$document->setValue('value6',$a6);
+		$document->setValue('value7',$a7);
+		$document->setValue('value8',$a8);
+		$document->setValue('value9',$a9);
+		$document->save('./WORD/aaa.docx');
+		//生成的PDF存放路径
+		$output_dir = "D:/WWW/zscq/PDF/";
+		//被生成的word 文件
+		$doc_file = "D:/WWW/zscq/WORD/aaa.docx";
+		//文件命名
+		$pdf_file = "5.pdf";
+		$output_file = $output_dir . $pdf_file;
+		$doc_file = "file:///" . $doc_file;
+		$output_file = "file:///" . $output_file;
+                array('./2.pdf','./2.doc','./3.pdf','./4.pdf','./5.pdf','./3.doc');
+		$this->word2pdf($doc_file,$output_file);
+                $this->xiazai(array('D:/WWW/zscq/PDF/5.pdf','D:/WWW/zscq/PDF/4.pdf'));
+	}
+
+	function ti($str,$old){
+		$newStr = preg_replace('/[^\x{4e00}-\x{9fa5}]/u', '', $str);
+		$len = mb_strlen($newStr,"utf-8");//中文的个数
+		$chlen = $len*2;//一个中文两个空格  中文占的长度
+		$len1 = strlen($str);
+		$enlen = $len1-($len*3);//出来的长度是非中文的长度  只占用一个空格
+		$zifulen = $chlen+$enlen;//字符串的总长度
+		$new_len = $old-$zifulen;//需要添加多少个空格下划线
+		//$pppp = intval($new_len/2);
+		//等于1就是奇数  等于0就是偶数
+		if($new_len%2==1){
+			//如果是奇数除法之后就会少两个
+			$add_len = intval($new_len/2);
+			@$kong .= "_";
+			//字符串开头
+			$b = $this->str_prefix($str,$add_len+1,$kong);
+			//字符串尾部添加
+			$a = $this->str_suffix($b,$add_len,$kong);
+		}else{
+			$add_len = intval($new_len/2);
+			@$kong .= "_";
+			//字符串开头
+			$b = $this->str_prefix($str,$add_len-1,$kong);
+			//字符串尾部添加
+			$a = $this->str_suffix($b,$add_len,$kong);
+		}
+		return $a;
+	}
+}

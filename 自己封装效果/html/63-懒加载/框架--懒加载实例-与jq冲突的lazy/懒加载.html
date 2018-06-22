@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>懒加载</title>
+    <style>
+        .box{width:1000px; margin:0 auto;}
+        .box img{display: block; width: 300px; height:300px; margin:10px 15px; border:1px solid #000; float: left;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="lazyImg/1.jpg" alt=""/>
+    <img src="lazyImg/2.jpg" alt=""/>
+    <img src="lazyImg/3.jpg" alt=""/>
+    <img src="lazyImg/4.jpg" alt=""/>
+    <img src="lazyImg/5.jpg" alt=""/>
+    <img src="lazyImg/6.jpg" alt=""/>
+    <img src="lazyImg/7.jpg" alt=""/>
+    <img src="lazyImg/8.jpg" alt=""/>
+    <img src="lazyImg/9.jpg" alt=""/>
+    <img src="lazyImg/10.jpg" alt=""/>
+    <img src="lazyImg/11.jpg" alt=""/>
+    <img src="lazyImg/12.jpg" alt=""/>
+    <img src="lazyImg/13.jpg" alt=""/>
+    <img src="lazyImg/14.jpg" alt=""/>
+    <img src="lazyImg/15.jpg" alt=""/>
+    <img src="lazyImg/16.jpg" alt=""/>
+    <img src="lazyImg/17.jpg" alt=""/>
+    <img src="lazyImg/18.jpg" alt=""/>
+    <img src="lazyImg/19.jpg" alt=""/>
+    <img src="lazyImg/20.jpg" alt=""/>
+    <img src="lazyImg/21.jpg" alt=""/>
+    <img src="lazyImg/22.jpg" alt=""/>
+    <img src="lazyImg/23.jpg" alt=""/>
+    <img src="lazyImg/24.jpg" alt=""/>
+    <img src="lazyImg/25.jpg" alt=""/>
+    <img src="lazyImg/26.jpg" alt=""/>
+    <img src="lazyImg/27.jpg" alt=""/>
+    <img src="lazyImg/28.jpg" alt=""/>
+    <img src="lazyImg/29.jpg" alt=""/>
+    <img src="lazyImg/30.jpg" alt=""/>
+    <img src="lazyImg/31.jpg" alt=""/>
+    <img src="lazyImg/32.jpg" alt=""/>
+    <img src="lazyImg/33.jpg" alt=""/>
+    <img src="lazyImg/34.jpg" alt=""/>
+    <img src="lazyImg/35.jpg" alt=""/>
+    <img src="lazyImg/36.jpg" alt=""/>
+    <img src="lazyImg/37.jpg" alt=""/>
+    <img src="lazyImg/38.jpg" alt=""/>
+    <img src="lazyImg/39.jpg" alt=""/>
+    <img src="lazyImg/30.jpg" alt=""/>
+    <img src="lazyImg/41.jpg" alt=""/>
+    <img src="lazyImg/42.jpg" alt=""/>
+    <img src="lazyImg/43.jpg" alt=""/>
+    <img src="lazyImg/44.jpg" alt=""/>
+    <img src="lazyImg/45.jpg" alt=""/>
+    <img src="lazyImg/46.jpg" alt=""/>
+    <img src="lazyImg/47.jpg" alt=""/>
+    <img src="lazyImg/48.jpg" alt=""/>
+    <img src="lazyImg/49.jpg" alt=""/>
+    <img src="lazyImg/50.jpg" alt=""/>
+    <img src="lazyImg/51.jpg" alt=""/>
+    <img src="lazyImg/52.jpg" alt=""/>
+    <img src="lazyImg/53.jpg" alt=""/>
+    <img src="lazyImg/54.jpg" alt=""/>
+<script src="js/jquery.min.js"></script>
+<script src="js/lazyload.js"></script>
+<script>
+var lazyload = $.noConflict();
+lazyload(function(){
+    lazyload("img").lazyload({
+       placeholder:"lazyImg/loading.gif"
+    });
+})
+</script>
+</div>
+</body>
+</html>

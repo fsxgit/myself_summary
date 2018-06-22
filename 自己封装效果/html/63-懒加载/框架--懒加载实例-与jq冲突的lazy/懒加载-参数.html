@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>懒加载</title>
+    <style>
+        .box{width:1000px; margin:0 auto;}
+        .box img{display: block; width: 300px; height:300px; margin:10px 15px; border:1px solid #000; float: left; cursor: pointer;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/1.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/2.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/3.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/4.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/5.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/6.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/7.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/8.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/9.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/10.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/11.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/12.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/13.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/14.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/15.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/16.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/17.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/18.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/19.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/20.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/21.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/22.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/23.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/24.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/25.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/26.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/27.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/28.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/29.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/30.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/31.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/32.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/33.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/34.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/35.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/36.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/37.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/38.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/39.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/30.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/41.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/42.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/43.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/44.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/45.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/46.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/47.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/48.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/49.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/50.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/51.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/52.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/53.jpg" alt=""/>
+    <img class="lazy" data-original="img/example.jpg"   src="lazyImg/54.jpg" alt=""/>
+<script src="js/jquery.min.js"></script>
+<script src="js/lazyload.js"></script>
+<script>
+    $(function(){
+        $("img.lazy").lazyload({
+            placeholder:"lazyImg/loading.gif", //默认占位图片
+            event : "click", //点击才加载，不要 可以去掉
+            threshold :20,  //lazyload默认是当滚动到该图片位置时，加载该图片。但是可以通过设置Threshold参数来实现滚到距离其一定位置时就加载。
+            effect : "fadeIn", //加载效果 选择
+            failure_limit : 10, //当代吗找到10张及以上与加载过图片相同的图片后，停止循环查找。
+            skip_invisible : true   //为了提升性能，插件默认忽略隐藏的图片；如果想要加载隐藏图片.设置skip_invisible为false;注意：Webkit浏览器将自动把没有宽度和高度的图像视为不可见
+        });
+    })
+</script>
+</div>
+</body>
+</html>

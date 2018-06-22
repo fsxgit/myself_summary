@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>分享展示</title>
+    <style>
+        *{margin:0; padding:0;}
+        html,body{font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; width: 100%; height:100%; }
+        h1{font-style: normal; font-weight: normal;}
+        .main{width:91.8%; margin-right: auto; margin-left: auto;}
+        .gap{height:12px;background: #f7f7f9; }
+        .bt{border-top:1px solid #ddd;}
+        .bb{border-bottom:1px solid #ddd;}
+        .fl{float:left;}
+        .fr{float:right;}
+        .oh{overflow: hidden;}
+        img{width:100%; height:auto;}
+
+        .fxBox{ width: 100%; height:100%; background: url("img/bg.jpg") no-repeat 0 0; background-size:100% 100%;  }
+        .logo{width:105px; height:227px; margin:0 auto; padding-top: 54px;}
+        .bot{position: absolute; width: 100%; left:0;bottom:56px; }
+        .bot img{width:130px ; height:14px; margin: 0 auto; display: block;}
+        .alertBox{width:260px;height:186px; background: rgba(0,0,0,0.8); position: fixed; left:0; top:0; border-radius: 6px;}
+        .alertBox2{width:260px;height:100px; line-height: 100px; background: rgba(0,0,0,0.8); position: fixed; left:0; top:0; border-radius: 10px; font-size: 14px; color: #fff; text-align: center;}
+        .alertBox3{width:260px;height:140px;  background: rgba(0,0,0,0.8); position: fixed; left:0; top:0; border-radius: 10px; font-size: 14px; color: #fff; }
+        .alertBox3 p{padding-top: 22px; width:200px; margin-right: auto; margin-left: auto;}
+        .txt{width:220px; margin:34px auto 0; color: #fff; font-size: 14px;}
+        .txt span{text-decoration:underline;}
+        .alertBot{width:100%; height:44px; line-height: 44px; border-top: 1px solid #fff; position: absolute; left:0; bottom:0; font-size:0; background: url("img/border.png") no-repeat center center ; background-size:2px 100%; }
+        .alertBot span{width:50%; display: inline-block; height:44px; line-height: 44px;  font-size:14px; text-align: center; color: #fff;}
+        .close{width:30px; height:30px; position: absolute; right:0; top:10px;}
+        .close img{width:20px; height:20px;}
+    </style>
+</head>
+<body>
+    <div class="fxBox">
+        <div class="logo"><img src="img/logo.png" alt=""/></div>
+        <div class="bot"><img src="img/name.png" alt=""/></div>
+
+<!--弹出框一-->
+        <div class="alertBox">
+            <div class="txt">
+                恭喜您，为您匹配到“ <span>丰台</span>”地区
+                <span>50</span>万元贷款项目,期限为<span> 5 </span>个月。
+                如接受匹配请点击接受按钮，如不
+                接受请点击重新匹配。
+            </div>
+            <div class="alertBot">
+                <span class="jie">接受</span>
+                <span class="new">重新匹配</span>
+            </div>
+            <div class="close guan">
+                <img src="img/close.png" alt=""/>
+            </div>
+        </div>
+<!--弹出框二-->
+        <div class="alertBox2">
+            已经记录了申请，每隔15分钟自动匹配
+        </div>
+<!--弹出框三-->
+        <div class="alertBox3">
+           <p>感谢您的确认，系统已经记录了您的投资申请，每15分钟自动为您筛选匹配一次项目，请留意查看短信通知和APP提醒。</p>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script>
+
+       function a(){
+           var oBox =document.getElementsByClassName("alertBox")[0];
+           var oBox2 =document.getElementsByClassName("alertBox2")[0];
+           var oBox3 =document.getElementsByClassName("alertBox3")[0];
+           var winHeight;
+           var winWidth;
+
+           // 浏览器可视窗口宽度
+           if (window.innerWidth)
+               winWidth = window.innerWidth;
+           else if ((document.body) && (document.body.clientWidth))
+               winWidth = document.body.clientWidth;
+
+           //// 浏览器可视窗口高度
+           if (window.innerHeight)
+               winHeight = window.innerHeight;
+           else if ((document.body) && (document.body.clientHeight))
+               winHeight = document.body.clientHeight;
+
+
+           var oBW = oBox.offsetWidth;
+           var oBW2 = oBox2.offsetWidth;
+           var oBW3 = oBox3.offsetWidth;
+           var oBH = oBox.offsetHeight;
+           var oBH2 = oBox2.offsetHeight;
+           var oBH3 = oBox3.offsetHeight;
+           var L = (winWidth-oBW)/2;
+           var L2 = (winWidth-oBW2)/2;
+           var L3 = (winWidth-oBW3)/2;
+           var T = (winHeight-oBH)/2;
+           var T2 = (winHeight-oBH2)/2;
+           var T3 = (winHeight-oBH3)/2;
+           oBox.style.left = L + "px";
+           oBox2.style.left = L2 + "px";
+           oBox3.style.left = L3 + "px";
+           oBox.style.top = T + "px";
+           oBox2.style.top = T2 + "px";
+           oBox3.style.top = T3 + "px";
+           oBox2.style.display = "none";
+           oBox3.style.display = "none";
+
+       }
+
+
+        $(function(){
+            $(".alertBox").show();
+            $(".guan").click(function(){
+              $(".alertBox").hide();
+            });
+            $(".new").click(function(){
+                $(".alertBox").hide();
+                $(".alertBox2").show().delay(2000).fadeOut();
+            });
+
+            $(".jie").click(function(){
+                $(".alertBox").hide();
+                $(".alertBox3").show();
+
+                setInterval(function(){
+                    window.opener = null;
+                    window.open(' ', '_self');
+                    window.close();
+                },3000)
+
+            });
+
+            a();
+        })
+
+
+
+
+    </script>
+
+</body>
+</html>

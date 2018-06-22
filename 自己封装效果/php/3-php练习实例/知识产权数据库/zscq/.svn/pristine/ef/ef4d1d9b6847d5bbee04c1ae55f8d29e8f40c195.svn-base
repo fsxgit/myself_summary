@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜索页-未注册</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+    <iframe src="header.html" width="100%" height="80px" frameborder="0"></iframe>
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+    <div class="f-bar">
+        <div class="bar-ma">
+            <div class="bar-ma-img"><img src="images/ma.png" width="100" height="100" alt=""/></div>
+        </div>
+        <div class="bar-msg"></div>
+        <div class="bar-top"><a href="javascript:window.scrollTo( 0, 0 );" ></a></div>
+    </div>
+    <!--公用右侧浮动导航 end-->
+
+<!--公用企业搜索输入框-->
+    <div class="search-box main">
+        <div class="search oh bc">
+            <input type="text" class="s-in fl f14" placeholder="请输入您的企业名称"/>
+            <input type="button" class="s-btn fl f16 cp cfff bg1" value="企业查询"/>
+        </div>
+    </div>
+<!--公用企业搜索输入框 end-->
+
+<!--s-content内容存放的地方-->
+    <div class="s-content main pr">
+        <div class="s-bar f12 c333 mt20">
+            首页>搜索结果
+        </div>
+        <!--公用结果1 未注册-->
+        <div class="s-result-wei mainBox">
+            <div class="res-wei-cont tc bc">
+               <div class="wei-cont-top oh">
+                   <img src="images/icon2.png" width="52"  height="80" class="fl" alt=""/>
+                   <span class="res-wei-txt c333 f14 fl">您所搜索的企业正在收录中或企业尚未注册</span>
+               </div>
+                <input class="wei-cont-btn cp cfff bg1" type="button" onclick="regCompany();" value="立即注册公司" />
+
+            </div>
+        </div>
+        <!--结果1 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+
+<!--页面的弹出框-->
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-cont">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">免费电话</div>
+            <div class="c-tan-close fr"><img src="images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <div class="c-tan-center bc">
+            <div class="c-tan-input mb10"><span>您的公司名称</span><input type="text" placeholder="请输入您的公司名称"/></div>
+            <div class="c-tan-input"><span>您的联系方式</span><input type="text" placeholder="请输入您的联系方式"/></div>
+        </div>
+        <div class="c-tan-bot bc">
+            <input type="button" class="btn-qu write-big-btn" value="取消"/>
+            <input type="submit" class="btn-ding blue-big-btn" value="确定"/>
+        </div>
+    </div>
+
+<!--页面的弹出框 end-->
+
+
+
+<!--公用底部-->
+<iframe src="footer.html" width="100%" height="440px" scrolling="no" frameborder="0"></iframe>
+<!--公用底部 end-->
+
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+    //      二维码的显示隐藏
+    maTab();
+    //    立即注册公司弹出框
+    function regCompany(){
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".c-tan-cont"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".btn-ding");  //弹出框确定按钮
+        var oQu = $(".btn-qu");  //弹出框取消按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oQu.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+    }
+</script>
+</body>
+</html>

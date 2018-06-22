@@ -1,0 +1,337 @@
+  <if condition="$markstate eq '1'">
+  <!--3.变更-->
+                <div class="div3 div_tab">
+                    <!--右边的完成步骤部分-->
+                    <div class="list-gk-cont-right fr">
+                        <!--自增长步骤-->
+                    <div class="step-tree pr">
+                            <div class="fl pa">
+							<if condition="$state.zhucestate eq 5 ">
+
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">本次服务结束，转让失败</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['sltz']);?></p>
+                            </div>
+                        </div>
+						</if>
+							<if condition="$state.zhucestate eq 4 ">
+
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">本次服务结束，转让成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['sltz']);?></p>
+                            </div>
+                        </div>
+						</if>
+							<if condition="$state.zhucestate eq 3 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >请等候办理结果</p>
+                            </div>
+                        </div>
+						</if>
+                               <if condition="($state.zhucestate eq 3) or ($state.zhucestate gt 2)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">顾问已收到资料，办理中</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['zlqb']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$state.zhucestate eq 2 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >请填写资料并快递给顾问</p>
+                            </div>
+                        </div>
+						</if>
+                       <if condition="($state.zhucestate eq 2) or ($state.zhucestate gt 1)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">请根据要求准备材料，并发给顾问</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['sczl']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$state.zhucestate eq 1 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" onclick="xiazai();">请根据要求准备材料，并发给顾问</p>
+                            </div>
+                        </div>
+						</if>
+                                <if condition="$state neq '' ">
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">用户下单并支付成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['add_time']);?></p>
+                            </div>
+                        </div>
+						</if>
+                            </div>
+                        </div>
+                        <!--自增长步骤 end-->
+                    </div>
+                    <!--右边的完成步骤部分 end-->
+                    <!--上面切换模块 索要改变的部分-->
+                    <div class="list-gk-cont-left">
+                        <!--/*提示说明*//-->
+                        <div class="c-ts-common ">
+                            <p>商标注册人的名称、地址发生变更的，必须向商标局申请办理相应变更手续。变更商标注册人名义或地址的，商标注册人应将其全部注册商标并变更。如果营业执照上记载的以下事项发生了变化，请及时进行变更若他人对您的商标提出撤销申请，商标局会将所有相关的文件通过商标注册证书上的地址邮寄给您，如由于未及时向商标局申请变更名义或地址，商标局的文件将不能送达给您，您的商标有可能因此而被撤销（已有大量因此原因商标被撤的先例）。</p>
+                        </div>
+                        <!--/*提示说明* end//-->
+                        <div class="bgl-mode mt20">
+                            <h1 class="c-h1">注册步骤</h1>
+                            <div class="bgl-cont bgl-steps">
+                                <span class="bgl-step">1</span>
+                                <span>用户支付订单</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">2</span>
+                                <span>整理资料快递给顾问</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">3</span>
+                                <span>顾问接收资料并办理</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">4</span>
+                                <span>变更成功</span>
+                            </div>
+                        </div>
+						<form method="post" action="{:U('Brand/biangengdingdan')}">
+						<input type="hidden" name="markid" value="{$markid}">
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">选择变更内容</h1>
+							<if condition="$order eq ''">
+                            <div class="bgl-cont bgl-change">
+                                <p class="mb10"><span class="c-gou mr10">申请人姓名变更为</span><input type="text" placeholder="神州易桥（北京）财税科技有限公司" name="applicantname"/></p>
+                                <p><span class="c-gou mr10">申请人地址变更为</span><input type="text" placeholder="北京市昌平区回龙观镇西大街118号1幢905室" name="applicantaddress"/></p>
+                            </div>
+							<else /> 
+							<div class="bgl-cont shourang">
+                          <p><span class="tit">变更人名称（中文）</span><input type="text" placeholder="{$detail.applicantname}"/></p>
+                                <p><span class="tit">变更人地址（中文）</span><input type="text" placeholder="{$detail.applicantaddress}"/></p>
+								</div>
+								<p>1、开始办理时间：2016-12-12 ，预计完成时间：2017-12-11。</p>
+								<p>2、商标变更完成大约需要12个月，具体以官方时间为准。</p>
+                            </if>
+                        </div>
+<if condition="$order eq ''">
+                        <div class="zr-jieshou f12 bt tr">
+                            <p class="mt20"><input type="submit" class="blue-big-btn" value="立即变更"/></p>
+                        </div>
+</if>
+						</form>
+                        <div class="bgl-mode mb50">
+                            <h1 class="c-h1">变更记录</h1>
+                            <div class="bgl-cont">
+                                <table class="bg-table">
+                                    <tr class="tr1">
+                                        <td style="width: 10%;">序号</td>
+                                        <td style="width: 60%;">变更内容</td>
+                                        <td  style="width: 30%;">变更完成时间</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="bg-neirong">
+                                            <p>申请人姓名变更为：神州易桥信息科技有限公司</p>
+                                            <p>申请人地址变更为：北京市昌平区回龙观大街龙冠置业大厦1200</p>
+                                        </td>
+                                        <td>2015.09.09 12:24:34</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td class="bg-neirong">
+                                            <p>申请人姓名变更为：神州易桥信息科技有限公司</p>
+                                            <p>申请人地址变更为：北京市昌平区回龙观大街龙冠置业大厦1200</p>
+                                        </td>
+                                        <td>2015.09.09 12:24:34</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td class="bg-neirong">
+                                            <p>申请人姓名变更为：神州易桥信息科技有限公司</p>
+                                            <p>申请人地址变更为：北京市昌平区回龙观大街龙冠置业大厦1200</p>
+                                        </td>
+                                        <td>2015.09.09 12:24:34</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--上面切换模块 索要改变的部分 end-->
+<else />
+                    <!--变更失效-->
+                       <div class="shixiao">
+                           <!--右边的完成步骤部分-->
+                           <div class="list-gk-cont-right fr">
+                               <!--自增长步骤-->
+                               <div class="step-tree pr">
+                                   <div class="fl pa">
+                                       <div class="step-mode fl">
+                                           <div class="step-dot first fl">
+                                               <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                               <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                           </div>
+                                           <div class="step-txt  fl">
+                                               <p class="txt">等待下发《商标注册证》</p>
+                                           </div>
+                                       </div>
+                                       <div class="step-mode active fl">
+                                           <div class="step-dot fl">
+                                               <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                               <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                           </div>
+                                           <div class="step-txt fl">
+                                               <p class="txt">公告期结束，注册成功</p>
+                                               <p class="time">2016.09.09 12:34:36</p>
+                                           </div>
+                                       </div>
+                                       <div class="step-mode active fl">
+                                           <div class="step-dot fl">
+                                               <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                               <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                           </div>
+                                           <div class="step-txt fl">
+                                               <p class="txt">第三人提出异议，商标注册终止</p>
+                                               <p class="time">2016.09.09 12:34:36</p>
+                                           </div>
+                                       </div>
+                                       <div class="step-mode active fl">
+                                           <div class="step-dot fl">
+                                               <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                               <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                           </div>
+                                           <div class="step-txt fl">
+                                               <p class="txt">资料已下载</p>
+                                               <p class="time">2016.09.09 12:34:36</p>
+                                           </div>
+                                       </div>
+                                       <div class="step-mode active fl">
+                                           <div class="step-dot fl">
+                                               <img src="public/html/images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                               <img src="public/html/images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                                           </div>
+                                           <div class="step-txt fl">
+                                               <p class="txt">第三人提出异议，商标注册终止</p>
+                                               <p class="time">2016.09.09 12:34:36</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <!--自增长步骤 end-->
+                           </div>
+                           <!--右边的完成步骤部分 end-->
+                           <!--上面切换模块 索要改变的部分-->
+                           <div class="list-gk-cont-left">
+                               <!--/*提示说明*//-->
+                               <div class="c-ts-common ">
+                                   <p>商标注册人的名称、地址发生变更的，必须向商标局申请办理相应变更手续。变更商标注册人名义或地址的，商标注册人应将其全部注册商标并变更。如果营业执照上记载的以下事项发生了变化，请及时进行变更若他人对您的商标提出撤销申请，商标局会将所有相关的文件通过商标注册证书上的地址邮寄给您，如由于未及时向商标局申请变更名义或地址，商标局的文件将不能送达给您，您的商标有可能因此而被撤销（已有大量因此原因商标被撤的先例）。</p>
+                               </div>
+                               <!--/*提示说明* end//-->
+                               <div class="bgl-mode mt20">
+                                   <h1 class="c-h1">注册步骤</h1>
+                                   <div class="bgl-cont bgl-steps">
+                                       <span class="bgl-step">1</span>
+                                       <span>用户支付订单</span>
+                                       <span class="bgl-point"></span>
+                                       <span class="bgl-step">2</span>
+                                       <span>整理资料快递给顾问</span>
+                                       <span class="bgl-point"></span>
+                                       <span class="bgl-step">3</span>
+                                       <span>顾问接收资料并办理</span>
+                                       <span class="bgl-point"></span>
+                                       <span class="bgl-step">4</span>
+                                       <span>变更成功</span>
+                                   </div>
+                               </div>
+                               <div class="bgl-mode">
+                                   <h1 class="c-h1">选择变更内容</h1>
+                                   <div class="bgl-cont tc">
+                                       <div class="shixiao mt40">
+                                <span class="oh">
+                                    <span class="fl mr10"><img src="public/html/images/icon2.png" width="52" height="80" alt=""/></span>
+                                     <span class="fl">商标已失效</span>
+                                </span>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="zr-jieshou f12 bt tr">
+                                   <p class="mt20"><input type="button" class="blue-big-btn" value="立即变更"/></p>
+                               </div>
+                               <div class="bgl-mode mb50">
+                                   <h1 class="c-h1">变更记录</h1>
+                                   <div class="bgl-cont">
+                                       <table class="bg-table">
+                                           <tr class="tr1">
+                                               <td style="width: 10%;">序号</td>
+                                               <td style="width: 60%;">变更内容</td>
+                                               <td  style="width: 30%;">变更完成时间</td>
+                                           </tr>
+                                           <tr>
+                                               <td>1</td>
+                                               <td class="bg-neirong">
+                                                   <p>申请人姓名变更为：神州易桥信息科技有限公司</p>
+                                                   <p>申请人地址变更为：北京市昌平区回龙观大街龙冠置业大厦1200</p>
+                                               </td>
+                                               <td>2015.09.09 12:24:34</td>
+                                           </tr>
+                                           <tr>
+                                               <td>2</td>
+                                               <td class="bg-neirong">
+                                                   <p>申请人姓名变更为：神州易桥信息科技有限公司</p>
+                                                   <p>申请人地址变更为：北京市昌平区回龙观大街龙冠置业大厦1200</p>
+                                               </td>
+                                               <td>2015.09.09 12:24:34</td>
+                                           </tr>
+                                           <tr>
+                                               <td>2</td>
+                                               <td class="bg-neirong">
+                                                   <p>申请人姓名变更为：神州易桥信息科技有限公司</p>
+                                                   <p>申请人地址变更为：北京市昌平区回龙观大街龙冠置业大厦1200</p>
+                                               </td>
+                                               <td>2015.09.09 12:24:34</td>
+                                           </tr>
+                                       </table>
+                                   </div>
+                               </div>
+
+                           </div>
+                           <!--上面切换模块 索要改变的部分 end-->
+                       </div>
+                    <!--变更失效 end-->
+                </div>
+                <!--3.变更 end-->
+				</if>

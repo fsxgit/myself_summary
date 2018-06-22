@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)./lottery.htmlHall -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="./css/normalize.min.css" rel="stylesheet">
+    <style>
+        .lotteryList{display: none;}
+    </style>
+    <script>(function () {
+        var IEvar = '9',
+                IEnum = navigator.userAgent.toLowerCase();
+        if (IEnum.indexOf("msie") > -1) {
+            if (Number(IEnum.match(/msie ([\d.]+)/)[1]) < IEvar) {
+                location.href = '/updateBrowser.html';
+            }
+        } else {
+            if (window.localStorage && window.sessionStorage) {
+                try {
+                    sessionStorage.setItem('TextLocalStorage', 'hello world');
+                    sessionStorage.removeItem('TextLocalStorage');
+                    localStorage.setItem('TextLocalStorage', 'hello world');
+                    localStorage.removeItem('TextLocalStorage');
+                } catch (e) {
+                    alert('您的浏览器太旧或者开启了隐私模式/无痕模式，无法浏览网页，请更换浏览器或使用常规模式，给您带来的不便，表示抱歉！')
+                }
+            } else {
+                location.href = '/updateBrowser.html';
+            }
+            ;
+        }
+    })();
+    ;
+    (function () {
+        if (location.href.search('CanPc') > -1) {
+            sessionStorage.setItem('CanPc', 1);
+        }
+        var u = navigator.userAgent;
+        if (!!u.match(/AppleWebKit.*Mobile.*/) && !sessionStorage.getItem('CanPc')) {
+            location.href = location.href.replace('www.', '').replace('http://', 'http://m.').replace(".html", '');
+        }
+    })();
+    (function () {
+        if ("undefined" === typeof(Promise)) {
+            document.write('<script src="//cdn.bootcss.com/es6-promise/4.0.5/es6-promise.auto.min.js"><\/script>');
+        }
+        ;
+        if ("undefined" === typeof(fetch)) {
+            document.write('<script src="//cdn.bootcss.com/fetch/2.0.1/fetch.min.js"><\/script>');
+        }
+    })()</script>
+    <script src="./js/layer.m.js"></script>
+    <link href="./css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script src="./js/xss.min.js"></script>
+    <link href="./css/app.css1.css" rel="stylesheet">
+    <title>十分彩网</title>
+    <link type="image/x-icon" rel="shortcut icon" href="./images/dafa.ico">
+</head>
+<body>
+<div id="app" class="lotteryHall">
+    <div class="header head3">
+        <div data-v-5d0c0cde="" id="HeaderTop" class="">
+            <div data-v-5d0c0cde="" class="snav">
+                <div data-v-5d0c0cde="" class="container">
+                    <div data-v-5d0c0cde="" class="snavAll"><a data-v-5d0c0cde="" href="./index.html"
+                                                               class="">Hi，欢迎来到十分彩网！</a>
+                        <ins data-v-5d0c0cde=""> |</ins>
+                        <a data-v-5d0c0cde="" class="betNavMore">全部彩票</a></div>
+                    <ul data-v-5d0c0cde="" class="snavInfo">
+                        <li data-v-5d0c0cde=""><a data-v-5d0c0cde="" href="./login.html"
+                                                  class="curr">亲，请登录</a><i data-v-5d0c0cde="" class="vertical"></i></li>
+                        <li data-v-5d0c0cde=""><a data-v-5d0c0cde="" href="./register.html"
+                                                  class="">用户注册</a></li>
+                        <a data-v-5d0c0cde="" class="serviceLink ServiceBtn"><i data-v-5d0c0cde="" class="iconfont"></i><span
+                                data-v-5d0c0cde=""></span></a></ul>
+                </div>
+                <div data-v-ee8285fc="" data-v-5d0c0cde="" class="cardBox" style="display: none;"><!----></div>
+            </div>
+        </div>
+        <!---->
+        <div class="nav">
+            <div class="container fix"><h3><a href="./index.html"><img src="./images/logo1.png"></a></h3>
+                <!---->
+                <ul class="navItem fix flr">
+                    <li class="" id="navIndex"><a href="./index.html">首页</a></li>
+                    <li class="curr" id="navLottery"><a href="./lotteryHall.html">购彩大厅</a></li>
+                    <li class="" id="navActivity"><a href="./activity.html">活动中心</a></li>
+                    <li class="" id="navMobile"><a href="./mobile.html">手机购彩</a></li>
+                    <li class="" id="navSecurityCenter"><a href="./securityCenter.html">我的账户</a></li>
+                    <li class="" id="navHelp"><a href="./helpCenter.html">帮助指南</a></li>
+                    <span>
+
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-v-0a301e56="" class="container mgt15" s="[object Object]">
+        <div data-v-0a301e56="" class="lotteryHead fix">
+            <div data-v-0a301e56="" class="lotterySlider defaultImg">
+                <div data-v-0a301e56="" class="slideBox">
+                    <div class="hd">
+                        <ul class="fx_banner_nav">
+                            <li class="on"></li>
+                            <li class=""></li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <div class="tempWrap">
+                            <div class="tempWrap" style="overflow: hidden; position: relative; width: 800px;">
+                                <ul class="fx_banner_lunbo" style="width: 1600px; left: 0px; position: relative; overflow: hidden; padding: 0px; margin: 0px; transition: left 0.5s;">
+                                    <li style="float: left; width: 800px;"><a href="./lottery.html"
+                                                                              class=""><img
+                                            src="./images/bannerl1.png"></a></li>
+                                    <li style="float: left; width: 800px;"><a href="./lottery.html"
+                                                                              class=""><img
+                                            src="./images/bannerl2.png"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-1d37e430="" data-v-0a301e56="" class="winnerListCon"><h3 data-v-1d37e430="" class="color">
+                风云榜</h3>
+
+                <div data-v-1d37e430="" class="winnerListSlide">
+                    <div data-v-1d37e430="" class="bd">
+                        <ul data-v-1d37e430="" id="carousel" class="winnerList fx_winnerList"
+                            style="top: -840px; transition: all 0.3s linear 0s;">
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/0A472675E5E5AF50.jpg">
+
+                                <p data-v-1d37e430="" class="color">没有不可能 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">19.4</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/1EF6FC3ACCBCD762.jpg">
+
+                                <p data-v-1d37e430="" class="color">90***5 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">9.5</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/1EF6FC3ACCBCD762.jpg">
+
+                                <p data-v-1d37e430="" class="color">90***5 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">9.5</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/E6CA6EB9F492879E.jpg">
+
+                                <p data-v-1d37e430="" class="color">ca***2 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">868.5</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/9816F54B27A9BF48.jpg">
+
+                                <p data-v-1d37e430="" class="color">痞罗 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">202.67</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/4A2E3EA214381904.jpg">
+
+                                <p data-v-1d37e430="" class="color">财神爷驾到 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">7.76</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/6F1A99A3D02A6DEC.jpg">
+
+                                <p data-v-1d37e430="" class="color">赌王 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">143.6</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/1EF6FC3ACCBCD762.jpg">
+
+                                <p data-v-1d37e430="" class="color">15***6 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">17.51</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/EED50A5799E76E58.jpg">
+
+                                <p data-v-1d37e430="" class="color">zx***4 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">8.98</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/C362F2B1E0EA389A.jpg">
+
+                                <p data-v-1d37e430="" class="color">13***2 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">0.9</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/4A2E3EA214381904.jpg">
+
+                                <p data-v-1d37e430="" class="color">财神爷驾到 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">38.8</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/4A2E3EA214381904.jpg">
+
+                                <p data-v-1d37e430="" class="color">ha***0 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">55.56</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/5C5A53823438F2CD.jpg">
+
+                                <p data-v-1d37e430="" class="color">ch***n 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">39.2</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/EED50A5799E76E58.jpg">
+
+                                <p data-v-1d37e430="" class="color">wo***4 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">39.2</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/5C5A53823438F2CD.jpg">
+
+                                <p data-v-1d37e430="" class="color">zh***7 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">235.2</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/0A472675E5E5AF50.jpg">
+
+                                <p data-v-1d37e430="" class="color">赢钱还贷款 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">19.6</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/C7BB5088540C8040.jpg">
+
+                                <p data-v-1d37e430="" class="color">s1***3 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">0.2</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/F0E57CF931E45118.jpg">
+
+                                <p data-v-1d37e430="" class="color">侯建才 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">3072</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/3578E1EB410B49C7.jpg">
+
+                                <p data-v-1d37e430="" class="color">54***9 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">1920</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/1EF6FC3ACCBCD762.jpg">
+
+                                <p data-v-1d37e430="" class="color">15***7 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">7.68</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/0A472675E5E5AF50.jpg">
+
+                                <p data-v-1d37e430="" class="color">没有不可能 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">19.4</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/1EF6FC3ACCBCD762.jpg">
+
+                                <p data-v-1d37e430="" class="color">90***5 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">9.5</span></p></li>
+                            <li data-v-1d37e430=""><img data-v-1d37e430=""
+                                                        src="./images/1EF6FC3ACCBCD762.jpg">
+
+                                <p data-v-1d37e430="" class="color">90***5 在大发时时彩<br data-v-1d37e430="">喜中<span
+                                        data-v-1d37e430="">9.5</span></p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div data-v-ee8285fc="" data-v-1d37e430="" class="cardBox"
+                     style="display: none; left: 708px; top: 211px;"><!----></div>
+            </div>
+        </div>
+        <div data-v-0a301e56="" class="lotteryLine fix"><i data-v-0a301e56=""></i> <em data-v-0a301e56=""></em></div>
+        <div data-v-0a301e56="" class="lotteryContent slideTabBox">
+            <ul data-v-0a301e56="" class="lotteryNav hd fix">
+                <li data-v-0a301e56="" class="on"><a data-v-0a301e56="">热门</a></li>
+                <li data-v-0a301e56="" class=""><a data-v-0a301e56="">全部</a></li>
+                <li data-v-0a301e56="" class=""><a data-v-0a301e56="">快3</a></li>
+                <li data-v-0a301e56="" class=""><a data-v-0a301e56="">时时彩</a></li>
+                <li data-v-0a301e56="" class=""><a data-v-0a301e56="">快乐彩</a></li>
+                <li data-v-0a301e56="" class=""><a data-v-0a301e56="">11选5</a></li>
+                <li data-v-0a301e56="" class=""><a data-v-0a301e56="">低频彩</a></li>
+            </ul>
+            <div data-v-0a301e56="" class="bd">
+                <ul data-v-0a301e56="" class="lotteryList fix">
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">安徽快3</h4> <em
+                                data-v-0a301e56="">全天80期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">江苏快3</h4> <em
+                                data-v-0a301e56="">全天82期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发快3</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快3</h4> <em
+                                data-v-0a301e56="">全天89期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                </ul>
+                <ul data-v-0a301e56="" class="lotteryList fix">
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">安徽快3</h4> <em
+                                data-v-0a301e56="">全天80期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">江苏快3</h4> <em
+                                data-v-0a301e56="">全天82期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发快3</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快3</h4> <em
+                                data-v-0a301e56="">全天89期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_SSC"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">重庆时时彩</h4> <em
+                                data-v-0a301e56="">全天120期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_SSC"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发时时彩</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_PK10"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京PK10</h4> <em
+                                data-v-0a301e56="">全天179期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_KL8"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快乐8</h4> <em
+                                data-v-0a301e56="">全天179期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_SYX5"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">上海11选5</h4> <em
+                                data-v-0a301e56="">全天90期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_SYX5"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">广东11选5</h4> <em
+                                data-v-0a301e56="">全天84期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_FC3D"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">福彩3D</h4> <em
+                                data-v-0a301e56="">全天1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_PL35"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">排列3</h4> <em
+                                data-v-0a301e56="">全天1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                </ul>
+                <ul data-v-0a301e56="" class="lotteryList fix">
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">安徽快3</h4> <em
+                                data-v-0a301e56="">全天80期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">江苏快3</h4> <em
+                                data-v-0a301e56="">全天82期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发快3</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快3</h4> <em
+                                data-v-0a301e56="">全天89期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                </ul>
+                <ul data-v-0a301e56="" class="lotteryList fix">
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">安徽快3</h4> <em
+                                data-v-0a301e56="">全天80期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">江苏快3</h4> <em
+                                data-v-0a301e56="">全天82期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发快3</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快3</h4> <em
+                                data-v-0a301e56="">全天89期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                </ul>
+                <ul data-v-0a301e56="" class="lotteryList fix">
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">安徽快3</h4> <em
+                                data-v-0a301e56="">全天80期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">江苏快3</h4> <em
+                                data-v-0a301e56="">全天82期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发快3</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快3</h4> <em
+                                data-v-0a301e56="">全天89期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                </ul>
+                <ul data-v-0a301e56="" class="lotteryList fix">
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">安徽快3</h4> <em
+                                data-v-0a301e56="">全天80期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">江苏快3</h4> <em
+                                data-v-0a301e56="">全天82期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发快3</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快3</h4> <em
+                                data-v-0a301e56="">全天89期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                </ul>
+                <ul data-v-0a301e56="" class="lotteryList fix">
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">安徽快3</h4> <em
+                                data-v-0a301e56="">全天80期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">江苏快3</h4> <em
+                                data-v-0a301e56="">全天82期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">大发快3</h4> <em
+                                data-v-0a301e56="">1分钟1期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                    <li data-v-0a301e56="" class="ClickShade"><a data-v-0a301e56=""><i data-v-0a301e56=""
+                                                                                       class="iconfont L_K3"></i>
+
+                        <div data-v-0a301e56="" class="lotteryDetail"><h4 data-v-0a301e56="">北京快3</h4> <em
+                                data-v-0a301e56="">全天89期</em></div>
+                    </a>
+
+                        <div data-v-0a301e56="" class="lotteryNow"><a data-v-0a301e56=""
+                                                                      href="./lottery.html"
+                                                                      class="now MustLogin">立即投注</a> <a
+                                data-v-0a301e56="" class="help"><i data-v-0a301e56="" class="iconfont"></i></a> <span
+                                data-v-0a301e56="" class="helpTip" style="display: none;"><em
+                                data-v-0a301e56="">玩法说明</em></span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-v-270904ef="" class="footer mgt40">
+        <div data-v-270904ef="" class="ftadCon">
+            <div data-v-270904ef="" class="container">
+                <ul data-v-270904ef="" class="ftad fix">
+                    <li data-v-270904ef=""><a data-v-270904ef="" id="dafaCloud" href="http://www.dafacloud.com/"
+                                              target="_blank"><p data-v-270904ef="">技术支持<i data-v-270904ef="">Technical
+                        support</i></p>
+
+                        <div data-v-270904ef="" class="technicalSupport fix"><img data-v-270904ef=""
+                                                                                  src="./images/dafayun.png"
+                                                                                  alt="大发云">
+
+                            <p data-v-270904ef="">
+                                大发云系统
+                                <br data-v-270904ef=""> 专业的彩票系统平台
+                            </p> <i data-v-270904ef=""></i></div>
+                    </a></li>
+                    <li data-v-270904ef=""><p data-v-270904ef="">服务体验<i data-v-270904ef="">Service experience</i></p>
+                        <ul data-v-270904ef="" class="serviceExperience">
+                            <li data-v-270904ef="">昨日充值到账平均时间
+                                <p data-v-270904ef="" class="footBar"><span data-v-270904ef="" class="s1"
+                                                                            style="width: 30%;"></span></p> <em
+                                        data-v-270904ef="">1'12</em><i data-v-270904ef="">秒</i></li>
+                            <li data-v-270904ef="">昨日提现到账平均时间
+                                <p data-v-270904ef="" class="footBar"><span data-v-270904ef="" class="s2"
+                                                                            style="width: 64.1667%;"></span></p> <em
+                                        data-v-270904ef="" id="timer">2'34</em><i data-v-270904ef="">秒</i></li>
+                        </ul>
+                    </li>
+                    <li data-v-270904ef=""><p data-v-270904ef="">充值方式<i data-v-270904ef="">Recharge method</i></p>
+
+                        <div data-v-270904ef="" class="rechargeMethod"><i data-v-270904ef="" class="wechat"></i><i
+                                data-v-270904ef="" class="alipay"></i><i data-v-270904ef="" class="cup"></i></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-v-270904ef="" class="container _about aboutText"><p data-v-270904ef="" class="fix"><a
+                data-v-270904ef="">关于我们</a>|<a data-v-270904ef="">联系我们</a>|<a data-v-270904ef="">商务合作</a>|<a
+                data-v-270904ef="">法律声明</a>|<a data-v-270904ef="">隐私声明</a>|</p>
+
+            <p data-v-270904ef="" class="copyright">Copyright © <span data-v-270904ef="" class="siteName">十分彩网</span>
+                Reserved | 18+</p></div>
+    </div>
+    <!---->
+    <div data-v-0835e1db="" class="layermbox layermbox2 layermshow" style="display: none;">
+        <div data-v-0835e1db="" class="laymshade"></div>
+        <div data-v-0835e1db="" class="layermmain">
+            <div data-v-0835e1db="" class="section">
+                <div data-v-0835e1db="" class="layermchild  layermanim">
+                    <div data-v-0835e1db="" class="layermcont"><i data-v-0835e1db=""></i> <i data-v-0835e1db=""
+                                                                                             class="laymloadtwo"></i> <i
+                            data-v-0835e1db=""></i>
+
+                        <div data-v-0835e1db=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/fx.js"></script>
+<script>
+    //    banner轮播
+    lunbo(".fx_banner_nav",".fx_banner_lunbo");
+    //中奖信息滚动轮播
+    czlunbo(".fx_winnerList");
+
+    $(".lotteryList").eq(0).show();
+    $(".lotteryNav li").click(function(){
+        var i = $(this).index();
+
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".lotteryList").eq(i).show().siblings(".lotteryList").hide();
+    })
+</script>
+</body>
+</html>

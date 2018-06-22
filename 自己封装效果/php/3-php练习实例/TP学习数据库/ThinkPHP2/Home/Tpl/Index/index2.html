@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--导入文件的有第一种方式-->
+    <!--<link rel="stylesheet" href="__PUBLIC__/css/test.css"/>-->
+    <!--导入文件的有第二种方式-->
+    <import type="js" file="js.test2"/>
+    <!--<import type="css" file="css.test"/>-->
+    <!--为什么不起作用-->
+    <!--<import type="css" file="css.my" basepath="./Test"/>-->
+    <!--导入文件的有第三种方式-->
+    <load href="__PUBLIC__/css/test.css" />
+
+</head>
+<body>
+    <h1>这里是模板中的语法知识</h1>
+    <button class="btn">点我</button>
+
+    <h2 class="imgBox"><img src="__PUBLIC__/images/test.jpg" alt="图片" title="我的图片"/></h2>
+    <br />
+    <h2>分支结构</h2>
+    <h3>【1】if else 结构</h3>
+        <div class="">
+            性别 {$sex}
+            <br/>
+            <if condition="$sex eq '男'">
+                男人是泥巴做的！！
+                <else />
+                女人是水做的！！
+            </if>
+        </div>
+    <h3>【2】if else if 结构</h3>
+        <div>
+            年龄 {$age}
+            <br/>
+            <if condition="$age lt 18">
+                我是未成年人！！
+                <elseif condition="$age eq 18" />
+                我正直青春年华！！
+                <else />
+                劳资是成年人！！
+            </if>
+        </div>
+    <h3>【3】switch 结构</h3>
+    <div>
+        数字 {$num}
+        <br/>
+        <switch name="num">
+                <case value="1">一年之计在于春</case>
+                <case value="2">二月初二龙抬头</case>
+                <case value="3">三月三风筝飞满天</case>
+                <default />嘻嘻嘻，这里是默认值！！
+        </switch>
+    </div>
+    <h2>循环结构</h2>
+    <h3>【1】for循环</h3>
+    <div>
+        <table border='1' width='500' style="text-align: center;">
+            <tr><td>序号</td><td>内容</td></tr>
+            <for start='10' end='00' name='j' step='-2' comparison='gt'>
+                <tr><td>{$j}</td><td>abc</td></tr>
+            </for>
+        </table>
+    </div>
+    <h3>【2】volist循环</h3>
+    <div>
+        <table border='1' width='500' style="text-align: center;">
+            <tr><td>id</td><td>用户名</td><td>密码</td><td>性别</td></tr>
+            <volist name="data" id="vo">
+                <tr><td>{$vo.id}</td><td>{$vo.username}</td><td>{$vo.password}</td><td>{$vo.sex}</td></tr>
+            </volist>
+        </table>
+    </div>
+    <h3>【3】foreach循环</h3>
+    <div>
+        <table border='1' width='500' style="text-align: center;">
+            <tr><td>顺序号</td><td>id</td><td>用户名</td><td>密码</td><td>性别</td></tr>
+            <foreach name="data" item="v" key="k">
+                <tr><td>{$k}</td><td>{$v.id}</td><td>{$v.username}</td><td>{$v.password}</td><td>{$v.sex}</td></tr>
+            </foreach>
+        </table>
+    </div>
+    <h2>比较标签</h2>
+    <h3>有：eq或者 equal 等于
+        neq 或者notequal 不等于
+        gt 大于
+        egt 大于等于
+        lt 小于
+        elt 小于等于
+        heq 恒等于
+        nheq 不恒等于 </h3>
+    <div>
+        【eq】
+        <eq name="cow" value="牛">
+            我是牛！！！
+            <else />
+            我不是牛！！！
+        </eq>
+    </div>
+    <div>
+        【gt】
+        <gt name="nn" value="30">
+            我是大于30的数字！！！
+            <else />
+            我是小于30的数字！！！
+        </gt>
+    </div>
+    <h2>范围标签</h2>
+    <div>
+        【in】
+        <in name="month" value="1,3,5,7,8,10,12">
+            {$month}月是大月是31天！！！
+            <else />
+            {$month}月是小月是30天！！！
+        </in>
+    </div>
+    <div>
+        【between】
+        <between name="num2" value="100,200">
+            {$num2}在100-200这些数字之间！！！
+            <else />
+            {$num2}不在100-200这些数字之间！！！
+        </between>
+    </div>
+    <h2>在模板中直接使用PHP代码</h2>
+    <div>
+        <?php
+            echo "在页面里可以直接使用php代码，我就是写在php里面的代码";
+        ?>
+    </div>
+</body>
+<script src="__PUBLIC__/js/test.js"></script>
+</html>

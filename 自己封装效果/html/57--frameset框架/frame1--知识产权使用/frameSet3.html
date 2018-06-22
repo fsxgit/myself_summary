@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习父子页面相互调用的方法</title>
+    <link rel="stylesheet" href="css/style2.css"/>
+    <style>
+        *{margin:0; padding:0;}
+        button{cursor: pointer; border:none;}
+        .header{
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 11;
+            min-width: 960px;
+            height: 100px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            background: #3B3B3B;
+            _position: absolute;
+            _width: 100%;
+        }
+        .left{
+            position: absolute;
+            top: 100px;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            width: 100px;
+            background: #f91315;
+            _height: 100%;
+        }
+        .iframe-box{
+            position: absolute;
+            top:100px;
+            left: 100px;
+            bottom: 0;
+            right:0;
+            min-width: 920px;
+        }
+        .iframe-box iframe{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .btn2{padding:10px; background: #0000ff; color: #fff; font-size: 20px}
+    </style>
+</head>
+<body>
+<!--top -->
+<div class="header">
+    <div class="main">
+        <span>首页</span>
+        <span>产品</span>
+        <span>关于</span>
+        <span>电话</span>
+        <span>城市</span>
+        <button class="btn2" onclick="myFrame.window.b();">点击调用子页面b方法</button>
+        <div class="sel-box">
+            分类
+            <div class="sel-item">
+                <p>手机</p>
+                <p>电脑</p>
+                <p>电视</p>
+                <p>洗衣机</p>
+                <p>电饭锅</p>
+                <p>电磁炉</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--top end-->
+<!--left nav-->
+<div class="left">
+    <p>手机</p>
+    <p>电脑</p>
+    <p>电视</p>
+    <p>洗衣机</p>
+    <p>电饭锅</p>
+    <p>电磁炉</p>
+</div>
+<!--left nav end-->
+<!--content 这里是存放内容的盒子，即需要改变的地方-->
+<div class="iframe-box">
+    <iframe src="content.html" name="myFrame" frameborder="0" ></iframe>
+</div>
+<!--content end-->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".sel-box").hover(function(){
+        $(".sel-item").slideDown("slow");
+    },function(){
+        $(".sel-item").slideUp("slow");
+    });
+
+
+    function a(){
+            alert("我是父页面的方法，是通过子页面调出来的；");
+    }
+</script>
+</body>
+</html>

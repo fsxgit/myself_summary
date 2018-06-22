@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('index')}">优惠码生成记录</a></li>
+			<li class="active"><a href="javascript:;">{$meta_title}</a></li>
+		</ul>
+			<!-- 搜索 -->
+				<!--信息提示-->
+	<div id="top-alert" class="fixed alert alert-error">
+		<button class="close fixed" style="margin-top: 4px;">&times;</button>
+		<div class="alert-content">{$meta_title}</div>
+	</div>
+	<php>
+		$status=array(0=>'<span class="label label-important">未使用</span>',1=>'<span class="label label-success">已使用</span>');</php>
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>优惠码</th>
+					<th>状态</th>
+					<th>使用手机号</th>
+					<th>使用时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<foreach name="listData" item="vo">
+				<tr>
+					<td>{$vo.code}</td>
+					<td>{$status[$vo['status']]}</td>
+					<td>{$vo.use_phone|default="----"}</td>
+					<td>{$vo.use_time|time_format}</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="pagination  pagination-centered">{$page}</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

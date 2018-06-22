@@ -1,0 +1,81 @@
+html,body{background: #ebecf0; color: #394043; font-size:14px;}
+.baoyang-box{padding-bottom:60px;}
+.dai-label{height:32px;margin-top:18px; width: 114px; text-align: center; margin-bottom: 10px; background: url("../images/icon9.png") no-repeat 0 center; background-size:114px 100%; font-size: 0; color: #fff; overflow: hidden;  }
+.dai-label .spanBox{display: inline-block;width: auto;}
+.dai-label span{float: left;font-size: 14px; display: inline-block; height: 26px; line-height: 26px; }
+.dai-label .xie{font-size: 14px; padding:0 3px;}
+.dai-label .tiao{font-size: 16px; font-weight: bold; color: #fcff00;  font-style: italic; margin-right: 4px}
+
+.dai-cont-mode{background: #fff; width:100%; height:auto; border-radius: 4px; overflow: hidden;  margin-top: 15px;}
+.dai-cont-mode .jiaji{position: absolute; right:16px; top:0; width:40px; height: 30px;}
+.dai-cont-mode .r-btn{position: absolute; right:0; top:40px; width: 10px; height: 20px;}
+.dai-cont-mode .ren-xq{overflow: hidden; background: #f7f7f7; padding:15px 0;}
+.dai-cont-mode .ren-xq .chepai{float: left; width:60px; height:46px;  padding-left:16px; text-align: center; background: url("../images/icon13.png") no-repeat right center; background-size:1px 100%;  color:#000; }
+.dai-cont-mode .ren-xq .che-site{font-size: 18px; font-weight: 600;}
+.dai-cont-mode .ren-xq .che-hao{font-size: 14px; font-weight: 600;}
+.dai-cont-mode .ren-xq .ren-xx{margin-left:88px; margin-right:20px; }
+.dai-cont-mode .ren-xx .xj{font-size: 12px; color:#354a5d; }
+.dai-cont-mode .ren-xx .shi{}
+.dai-cont-mode .ren-xx .shi span{ color: #354a5d;padding-left:10px; background:url("../images/icon11.png") no-repeat 0 center; background-size:4px 4px; font-size: 12px;}
+.dai-cont-mode .ren-xx .shi .bq{font-size: 12px; display: inline-block; height: 16px; padding:0 4px; background: #e7ecef; border-radius: 2px; color: #718392; margin-left: 4px;}
+.dai-cont-mode  .keh{padding:14px 16px 14px 30px; background:url("../images/icon4.png") no-repeat 16px center; background-size:12px 12px; font-size: 12px; color: #969595;  }
+.dai-cont-mode  .keh .kh{ color: #5da1cb; float: right; font-size: 12px;}
+.dai-cont-mode  .keh .dai{ color: #5abd68; }
+
+.ydd-name{padding:15px; overflow: hidden;}
+.ydd-name .ydd{font-size: 14px; color: #222; height:20px; display: inline-block; padding-right:18px; background: url("../images/icon7.png") no-repeat right center; background-size:13px 13px; float: left;}
+.ydd-name .jia{font-size: 12px; margin-left: 6px; float: right; color:#969595;}
+
+.df-box{padding-bottom: 20px;}
+.df-top-box{background: #fff;}
+.df-top{padding:15px 0; background: #fff;}
+.df-top .dingdan{}
+.df-top .dingdan .hao{font-size: 14px; font-weight: 600;}
+.df-top .dingdan .time{background:url("../images/icon4.png") no-repeat 0 center; background-size:12px 12px; font-size: 12px; color: #969595; padding-left:15px; margin-top:2px;}
+.df-top .ding-btn{background: #f19716; color: #fff; font-size: 14px; width:54px; height:30px; line-height: 30px; text-align: center;}
+.df-top .daizhi{background: #ff4444; }
+.df-top .wanc{background: #8dbada; }
+.heiGap{height:14px; background: #ebecf0;}
+.df-cont{background: #fff;}
+.df-cont .df-bar{padding:15px 0; font-size: 14px;}
+.df-cont .df-bar .name{float: left; color: #969595; width:90px; }
+.df-cont .df-bar .txt{margin-left: 90px; text-align: right;}
+.df-cont .df-bar .label span{display:block; float: right;  height:20px; line-height: 20px; padding:0 4px; border-radius: 2px; text-align: center; margin-left:6px; margin-bottom: 5px; background: #ececec; color: #7e7e7e;}
+
+.by-xd{background: #fff;}
+.by-table{}
+.by-table .bb{border-top:1px solid #dfdfdf;}
+.by-table .bb:nth-last-of-type(1){border-top:none;}
+.by-table .by-tit{padding:15px 0;  font-size: 0; background: #f5f5f5; border-top:1px solid #e1e1e1;}
+.by-table .by-tit span{display:inline-block; width: 25%; text-align: center; font-size: 14px; background: url("../images/icon30.png") no-repeat right center; background-size: 1px 100%;}
+.by-table .by-tit span.brn{background: none;}
+.by-table .by-cont{padding:15px 0;  font-size: 0; overflow: hidden; }
+.by-table .by-cont span{display:inline-block; width: 25%; text-align: center; font-size: 12px; background: url("../images/icon30.png") no-repeat right center; background-size: 1px 100%; color: #282828;}
+.by-table .by-cont span.span1{font-size: 0; text-align: center; float: left;}
+.by-table .by-cont span.span1 span{font-size: 12px; width:80%; text-align: center; background: none;}
+.by-table .by-cont span.span4{background: none;font-size: 0; text-align: center;  float: left;}
+.by-table .by-cont span.span4 span{font-size: 12px; width:80%; text-align: center; background: none; color: #f19716;  height: 32px; line-height: 32px;}
+.by-table .by-cont span.span2{float: left; height: 32px; line-height: 32px;}
+.by-table .by-cont span.span3{ float: left; height: 32px; line-height: 32px;}
+.by-table .by-cont-cj span.span4 span{ color: #5da1cb;}
+.by-table .by-cont-cj span.span2{ color: #5da1cb;}
+.by-table .by-cont-cj span.span3{ color: #5da1cb; }
+.cj-add{width:100%; background: #fff; text-align: center; padding:15px 0; border-top:1px solid #e1e1e1;}
+.cj-add img{width:134px; height:auto;}
+
+.kh-tel{background: url("../images/icon34.png") no-repeat right center; background-size:13px 13px;  overflow: hidden;}
+.kh-tel input{width: 90%; float: left; height: 18px;  font-size: 12px;}
+.kh-tel .ser{width: 10%; display: block; height: 18px; float: left; }
+.sr-chepai{overflow: hidden;}
+.sr-chepai .sel{width:45%;  float: left; overflow: hidden; border-right: 1px solid #ccc; margin-right: 4%;}
+.sr-chepai select{width:36px;  border: none; float: left;  background: url("../images/icon35.png") no-repeat scroll right center transparent; background-size:12px 6px;}
+.sr-chepai .pai-select1{margin-right:10px;}
+.sr-chepai .pai{float: left; width: 50%; background: url("../images/icon34.png") no-repeat right center; background-size:13px 13px;  overflow: hidden;}
+.sr-chepai .pai input{width: 80%; float: left; height: 18px;  font-size: 12px; }
+.sr-chepai .pai .ser{width: 20%; display: block; height: 18px; float: left; }
+
+
+.by-nav{width: 100%; overflow: hidden; background: #fff;}
+.by-nav .nav-mode{width: 50%; float: left; text-align: center; color: #b2b3b7;}
+.by-nav .nav-mode span{display:inline-block;  height: 44px; line-height: 44px; border-bottom: 2px solid #fff;}
+.by-nav .nav-mode.active span{ border-bottom: 2px solid #f39800; color: #282828;}

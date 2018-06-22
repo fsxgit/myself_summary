@@ -1,0 +1,120 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class OrderController extends AdminbaseController{
+	public function order_no(){
+		//未支付 0未支付1已支付2取消',
+                $where = " 1 ";
+                $orderno = I("orderno");
+                $markname = I("markname");
+                $source = I("source");
+                if($orderno!=''){
+                    $where.=" and order_no='$orderno'";  
+                    $con = "&orderno=$orderno";
+                 }if($markname!=''){
+                    $where.=" and markname=$markname";
+                    $con .= "&markname=$markname";
+		}
+                /*
+                if($source!=''){
+                    $where.=" and source=$source";
+                    $con .= "&source=$source";
+		}
+                */
+		$count = M("zcorder")->where("$where and state=0")->count();
+		$page = $this->page($count,10);
+
+		$res = M("zcorder")->where("$where and state=0")
+			->limit("$page->firstRow,$page->listRows")
+			->order("orderid desc")
+			->select();
+	//	var_dump($res);die;
+                $this->assign("orderno",$orderno);
+                $this->assign("markname",$markname);
+                $this->assign("source",$source);
+		$this->assign("res",$res);
+		$this->assign("page",$page->show("Admin",$con));
+		$this->display();
+	}
+	//已支付
+	public function order_pay(){
+                $where = " 1 ";
+                $orderno = I("orderno");
+                $markname = I("markname");
+                $source = I("source");
+                if($orderno!=''){
+                    $where.=" and order_no='$orderno'";  
+                    $con = "&orderno=$orderno";
+                 }if($markname!=''){
+                    $where.=" and markname=$markname";
+                    $con .= "&markname=$markname";
+		}
+                /*
+                if($source!=''){
+                    $where.=" and source=$source";
+                    $con .= "&source=$source";
+		}*/
+		$count = M("zcorder")->where("$where and state=1")->count();
+		$page = $this->page($count,10);
+
+		$res = M("zcorder")->where("$where and state=1")
+			->limit("$page->firstRow,$page->listRows")
+			->order("orderid desc")
+			->select();
+	//	var_dump($res);die;
+                $this->assign("orderno",$orderno);
+                $this->assign("markname",$markname);
+                $this->assign("source",$source);
+		$this->assign("res",$res);
+		$this->assign("page",$page->show("Admin",$con));
+		$this->display();
+	}
+        //已取消
+        public function cancel(){
+                $where = " 1 ";
+                $orderno = I("orderno");
+                $markname = I("markname");
+                $source = I("source");
+                if($orderno!=''){
+                    $where.=" and order_no='$orderno'";  
+                    $con = "&orderno=$orderno";
+                 }if($markname!=''){
+                    $where.=" and markname=$markname";
+                    $con .= "&markname=$markname";
+		}
+                /*
+                if($source!=''){
+                    $where.=" and source=$source";
+                    $con .= "&source=$source";
+		}*/
+            	$count = M("zcorder")->where("$where and state=2")->count();
+		$page = $this->page($count,10);
+
+		$res = M("zcorder")->where("$where and state=2")
+			->limit("$page->firstRow,$page->listRows")
+			->order("orderid desc")
+			->select();
+                $this->assign("orderno",$orderno);
+                $this->assign("markname",$markname);
+                $this->assign("source",$source);
+		$this->assign("res",$res);
+		$this->assign("page",$page->show("Admin",$con));
+		$this->display();
+        }
+	//订单详情
+	public function order_detail(){
+            $id = I("id");
+            $r = M("zcorder")->where("orderid=$id")->find();
+      //      $mark = explode(",",$r["markid"]);
+            $mid = $r["markid"];
+            $mark = M("mark")->where("id in($mid)")->select();
+            foreach($mark as $k=>$v){
+                $s = M("nice_first")->where("id=".$v["registetype"])->find();
+                $mark[$k]["registetype"] = $s["code"]."&nbsp;&nbsp;".$s["name"];
+            }
+         //   var_dump($mark);
+            $this->assign("r",$r);
+            $this->assign("mark",$mark);
+            $this->display();
+	}
+}

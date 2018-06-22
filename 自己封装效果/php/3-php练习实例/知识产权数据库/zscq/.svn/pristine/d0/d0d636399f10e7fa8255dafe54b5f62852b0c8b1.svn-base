@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标查询</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/brand.css"/>
+	<style type="text/css">
+		.hui-btn{width: 100px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background: #999;
+    color: #fff;
+    font-size: 14px;
+    cursor: not-allowed !important;
+    border-radius: 2px;
+    display: inline-block;}
+	</style>
+</head>
+<body>
+    <div class="gl-cx-all main-hou" >
+        <div class="bread-nav">
+            <a href="{:U('Brand/brand_query_lst')}">商标列表</a> > 商标详情
+        </div>
+		<form method="post" action="{:U('Brand/brand_register_add')}" onsubmit="return tijiao()">
+			
+<div id="mydiv">
+        <div class="gl-cx-top">
+            <div class="cx-mode">
+                <div class="logo fl"><img src="{$arr.markpicture}" alt=""/></div>
+                <div class="name fl">
+                    <p><span class="c999">商标名称：</span><if condition="$arr['newmarkname'] eq '' ">{$arr.markname}<else />{$arr.newmarkname}</if></p>
+					<if condition="$arr.type eq 1">
+					<p><span class="c999">行业分类：</span>{$arr.industry}</p>
+                    </if>
+                    
+                </div>
+            </div>
+            <div class="cx-mode">
+                <div class="site">
+                    <p><span class="c999">创建日期：</span><?php echo date('Y-m-d H:i:s',$arr['addtime']);?></p>
+                     <if condition="$user.isclaimed eq 1">
+                    <p><span class="c999">申请人名称：</span>{$user.companyname}</p>
+                    <p><span class="c999">申请人地址：</span>{$user.dom}</p>
+					</if>
+                </div>
+            </div>
+            <div class="cx-mode bdn">
+                <div class="logo guwen fl"><img src="public/html/images/img9.png" alt=""/></div>
+                <div class="name fl">
+                    <p><span class="c999">服务顾问名称：</span>{$user.consultantname}</p>
+                    <p><span class="c999">服务顾问电话：</span>{$user.consultantmobile}</p>
+                </div>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">查询方式</h1>
+            <div class="bgl-cont ">
+				<if condition="$arr.type eq 1">
+智能推荐
+				<elseif condition="$arr.type eq 2"/>
+委托顾问查询
+				<elseif condition="$arr.type eq 3"/>
+自主选择类别
+               <else /> 
+               </if>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">查询结果</h1>
+            <div class="bgl-cont ">
+			    <if condition="$arr.state eq 0">
+查询中
+				<elseif condition="$arr.state eq 1"/>
+全部可注册<span class="c999">（查询结果时间为：<?php echo date('Y-m-d H:i:s',$arr['endtime']);?>）</span>
+				<elseif condition="$arr.state eq 2"/>
+部分可注册<span class="c999">（查询结果时间为：<?php echo date('Y-m-d H:i:s',$arr['endtime']);?>）</span>
+				<elseif condition="$arr.state eq 3"/>
+全部不可注册<span class="c999">（查询结果时间为：<?php echo date('Y-m-d H:i:s',$arr['endtime']);?>）</span>
+               <elseif condition="$arr.state eq 4"/> 
+查询失败<span class="c999">（查询结果时间为：<?php echo date('Y-m-d H:i:s',$arr['endtime']);?>）</span>
+               </if>
+            </div>
+        </div>
+		<div style="display:none">
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">选择领域及行业</h1>
+            <div class="bgl-cont ">
+                【IT】通讯，电子，互联网等 <span class="ml10">智能设备</span>
+            </div>
+        </div>
+		</div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20">搜索结果</h1>
+            <div class="bgl-cont ">
+                <!--可注册分类-->
+<if condition=" $arr['okquerytype'] neq '' ">
+                <div class="fenlei-title">可注册分类</div>
+                <div class="hang-lei-box">
+				<foreach name="arr.okquerytype" item="vo" >
+                    <div class="hang-lei-mode g-xuan-box f12">
+						<h1 class="lei-h1 oh"><span class="fl">第{$vo.id}类 {$vo.name} </span>
+						<input type="checkbox"  name="ok{$vo.id}" onclick="quan({$vo.id})">全选<span class="fr">删除</span></h1>
+                        <div class="hang-lei-cont">
+						<foreach name="vo.items" item="vi" >
+						    <foreach name="vi.items" item="vs" >
+                                  <div class="lei-name">{$vs.code} &nbsp {$vs.name} <input type="checkbox" name="oneid[]" class="ok{$vo.id}" value="{$vs.id}"></div>
+                            </foreach>
+						 </foreach>  
+                        </div>
+                    </div>
+                </foreach>
+                </div>
+</if>
+                <!--可注册分类 end-->
+                <!--不可注册分类-->
+<if condition=" $arr['noquerytype'] neq '' ">
+                <div class="fenlei-title">不可注册分类</div>
+                <div class="hang-lei-box">
+				<foreach name="arr.noquerytype" item="vo" >
+                    <div class="hang-lei-mode f12">
+                       <h1 class="lei-h1">第{$vo.id}类 {$vo.name} </h1>
+                        <div class="hang-lei-cont">
+						<foreach name="vo.items" item="vi" >
+						    <foreach name="vi.items" item="vs" >
+                                  <div class="lei-name">{$vs.code} &nbsp {$vs.name} </div>
+                            </foreach>
+						 </foreach> 
+                        </div>
+                    </div>
+					</foreach>
+                </div>
+</if>
+                <!--不可注册分类 end-->
+                <!--小熊提示-->
+<if condition=" $arr['suggestedtype'] neq '' ">
+                 <div class="cx-zhuce bufen-pet">
+                    <div class="c-img-txt ">
+                        <span>
+                            <span class="fl mr10"><img src="public/html/images/icon2.png" width="52" height="80" alt=""/></span>
+                             <span class="fl">很抱歉，查询的分类中只有一部分可进行注册，我们根据企业的情况，建议您还可以选择注册一下分类：</span>
+                        </span>
+                    </div>
+                </div>
+                <!--小熊提示 end-->
+                <!--建议的分类-->
+                <div class="hang-lei-box">
+
+<foreach name="arr.suggestedtype" item="vo" >
+                    <div class="hang-lei-mode f12">
+						<h1 class="lei-h1 oh"><span class="fl">第{$vo.id}类 {$vo.name} </span>
+						<input type="checkbox"  name="tui{$vo.id}" onclick="quan1({$vo.id})">全选<span class="g-xuan-all fl">全选</span><span class="fr">删除</span></h1>
+                        <div class="hang-lei-cont">
+                            <foreach name="vo.items" item="vi" >
+						    <foreach name="vi.items" item="vs" >
+                                  <div class="lei-name">{$vs.code} &nbsp {$vs.name} <input type="checkbox" name="oneid[]" class="tui{$vo.id}" value="{$vs.id}"></div>
+                            </foreach>
+						 </foreach> 
+                        </div>
+                    </div>
+</foreach>
+</if>
+                </div>
+                <!--建议的分类 end-->
+            </div>
+        </div>
+		</div>
+				<input type="hidden" name="queryid" value="{$arr.queryid}">
+        <div class="bgl-mode bt  pb100">
+            <div class="bgl-cont tr">
+			    <if condition="($arr.zhuce eq 1 ) or ($arr.state eq 0) or ($arr.state eq 4) or ($user.isclaimed eq 0)">
+				<input type="button" class="hui-btn" value="去注册"/>    
+				<else /> 
+				<input type="submit" class="blue-big-btn" value="去注册"/>
+				</if>
+				
+				
+            </div>
+        </div>
+		</form>
+    </div>
+</body>
+</html>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+<script>
+   function quan(e){
+	  if($("input[name=ok"+e+"]").is(":checked")){
+         $(".ok"+e+":checkbox").attr("checked",true); 
+      }else{
+         $(".ok"+e+":checkbox").attr("checked",false); 
+      }
+   }
+   function quan1(e){
+	  if($("input[name=tui"+e+"]").is(":checked")){
+         $(".tui"+e+":checkbox").attr("checked",true); 
+      }else{
+         $(".tui"+e+":checkbox").attr("checked",false); 
+      }
+   }
+   function tijiao(){
+        var queryid = $('[name="queryid"]').val();
+		var str=document.getElementsByName("oneid[]");
+		var objarray=str.length;
+		var chestr="";
+		for (i=0;i<objarray;i++)
+		{
+		  if(str[i].checked == true)
+		  {
+		   chestr+=str[i].value;
+		  }
+		}
+        if(queryid==''||chestr==''){
+		   return false;
+		}else{
+		   return true;
+		}
+	}
+</script>

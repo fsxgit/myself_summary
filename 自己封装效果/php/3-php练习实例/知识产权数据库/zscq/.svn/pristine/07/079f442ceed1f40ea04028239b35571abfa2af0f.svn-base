@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>费用中心-我的钱包-充值</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/search.css"/>
+	 <style type="text/css">
+		#passts{ padding-top:10px;}
+		.warn-txt{ height:14px; line-height: 14px; color: #cc0000; display: inline-block; padding-left:16px; background: url("public/html/images/icon30.png") no-repeat 0 center; margin-left: 96px; }
+	 </style>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+
+    <!--公用右侧浮动导航 end-->
+
+
+<!--s-content内容存放的地方-->
+    <div class="s-content main-hou fy-center pr">
+		<div class="per-nav">我的钱包 > 开通钱包</div>
+		 <h1 class="c-h1">充值到神州钱包</h1>
+        <!--公用结果 -->
+        <div class="sy-cont">
+            <!--订单详情-->
+            <div class="order-xq-box">
+                <div class="sy-order-xq oh">
+                    <div class="order-xq-suc order-xq-cz fl c333">向神州钱包充值：<span class="fc8">￥{$amount}</span></div>
+                    <div class="order-xq-select fr">订单详情</div>
+                </div>
+                <div class="sh-box">
+                    <div class="sh-xinxi">
+                        <p>
+							<span class="sh-tit">收款方：</span>
+							<span>神州易桥股份有限公司</span>
+						</p>
+						<p>
+							<span class="sh-tit">交易号：</span>
+							<span id = "oid">{$custOrderNo}</span>
+						</p>
+						<p>
+							<span class="sh-tit">交易金额：</span>
+							<span id = "money">{$amount}</span>元
+						</p>
+						<p>
+							<span class="sh-tit">购买时间：</span>
+							<span>{$time}</span>
+						</p>
+						<p>
+							<span class="sh-tit">交易类型：</span>
+							<span>及时到账交易</span>
+						</p>
+                    </div>
+                </div>
+            </div>
+            <!--订单详情 end-->
+            <!--平台支付-->
+            <div class="pay-box">
+                <div class="ps-detail bc">
+                    <!--余额支付-->
+                    <div class="yue-box">
+                        <div class="yue-pay yin-pay">
+                            <div class="yue-pay-use fl">
+                                <span class="ps-choose">银 行 卡</span>
+                            </div>
+
+                            <div class="yin-choose  fl">
+                                <p class="yin-value">
+									<span class="sel-img">
+										<img src="" alt=""/>
+									</span>
+									<span class="sel-txt"></span>
+								</p>
+                                <div class="select-box">
+                                    <p>
+										<span class="sel-img">
+											<img src="public/html/images/bank1.png" alt=""/>
+										</span>
+										<span class="sel-txt" id = "ka">1111111111</span>
+									</p>
+									<p>
+									<span class="sel-img">
+										<img src="public/html/images/bank1.png" alt=""/>
+									</span>
+									<span class="sel-txt">中国工商银行（尾号7777）单笔限额5.0万，单日限额5.0万</span>
+								</p>
+                                </div>
+                            </div>
+                            <span class="add-new fc1">添加新的银行卡</span>
+                            <div class="yue-pay-zhi fr">支付：<span class="fc8">￥{$amount}</span></div>
+                        </div>
+                        <!--选择银行卡 end-->
+                        <div class="cb"></div>
+                        <div class="jy-pw">
+                            <span class="jy-name">交易密码</span>
+                            <input type="password" class = "ggg" id = "pass" name = "pass" placeholder="请输入交易密码"/>
+                            <span class="fpw c999">忘记密码?</span>
+							<p class="warn-box" id = "passts"></p>
+                        </div>
+                        <div class="jy-pay">
+                            <input type="button" onclick = "formck()" class="blue-big-btn" value="确认支付"/>
+							<a class="back-xg" href="{:U('Portal/oneroadpay/chongzhi1')}">返回修改</a>
+                        </div>
+
+                    </div>
+                    <!--余额支付 end-->
+                    <!--未开通-->
+                    <div class="wei-box">
+                        <div class="res-wei-cont tc bc">
+                            <div class="wei-cont-top oh">
+                                <img src="public/html/images/icon2.png" width="52"  height="80" class="fl" alt=""/>
+                                <span class="res-wei-txt c333 f14 fl">抱歉，您尚未开通神州钱包，请点击开通</span>
+                            </div>
+                            <input class="wei-cont-btn tan-btn cp" type="button" value="开通钱包" />
+
+                        </div>
+                    </div>
+                    <!--未开通 end-->
+                </div>
+            </div>
+            <!--平台支付 end-->
+        </div>
+
+        <!--公用结果 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+
+
+
+<!--公用底部-->
+
+<!--公用底部 end-->
+
+</div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+		//银行默认显示第一个
+		$(".select-box p").eq(0).addClass("active").siblings().removeClass("active");
+		var src1 = $(".select-box p").eq(0).find("img").attr("src");
+		var txt1 = $(".select-box p").eq(0).find(".sel-txt").text();
+		$(".yin-value img").attr("src",src1);
+		$(".yin-value .sel-txt").text(txt1);
+		//银行默认显示第一个 end
+
+        $(".order-xq-select").click(function(){
+            $(".order-xq-select").toggleClass("active");
+            $(".sh-box").slideToggle();
+        })
+        $(".ps-mode").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+        $(".yin-choose").click(function(){
+            $(this).toggleClass("active");
+            $(".select-box").slideToggle();
+        })
+		
+
+        $(".select-box p").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            var src = $(this).find("img").attr("src");
+            var txt = $(this).find(".sel-txt").text();
+            $(".yin-value img").attr("src",src);
+            $(".yin-value .sel-txt").text(txt);
+        })
+    });
+
+	$(".ggg").focus(function(){
+			$("#passts").hide().html("");
+		});
+
+
+	function formck(){
+		var pass = $("#pass").val();
+		var oid = $("#oid").html();
+		var money = $("#money").html();
+		var ka = $("#ka").html();
+		if(pass == ""){
+			$("#passts").show();
+			$("#passts").html("<span class='warn-txt'>请输入交易密码</span>");
+			return false;
+		}
+		$.ajax({
+            type: "POST",
+            url: "{:U('Portal/oneroadpay/chongzhi2')}",
+            data: {'amount':money,'custOrderNo':oid,'tranPassword':pass,'bankCardNo':ka},
+            success: function(msg){
+				alert(msg);
+			}
+        });
+	}
+
+</script>
+</body>
+</html>

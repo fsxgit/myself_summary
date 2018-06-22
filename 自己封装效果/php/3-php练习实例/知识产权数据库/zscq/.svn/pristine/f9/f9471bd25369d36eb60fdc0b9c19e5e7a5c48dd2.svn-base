@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{$site_name}</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/wrong.css"/>
+	<style>
+		.fp-input-box p .fp-ma{width:210px;}
+		.verify_img{float:right;}
+	</style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-top">
+            <!--header-->
+            <div class="c-header login-header oh">
+                <div class="fl c-logo"><img src="public/html/images/logo3.png" width="118" height="40" alt=""/></div>
+                <div class="fr c-right oh">
+                    <div class="c-tel oh fl">
+                        <img src="public/html/images/icon1.png" class="fl" width="13" height="14" alt=""/>
+                        <span class="fl f12">400-686-5658</span>
+                    </div>
+                </div>
+            </div>
+            <!--header end-->
+            <h1 class="login-title tc cfff f28 fb">知识产权后台登录</h1>
+            <div class="input-wrap  ">
+                <div class="input-wrap-left register f12 fl c333">
+                    <div class="fp-input-box bc">
+					<form class="form-horizontal js-ajax-form" action="{:U('user/register/doregister')}" method="post">
+                        <p>
+							<input type="text" placeholder="请输入手机号"/>
+						</p>
+                        <p>
+							<input type="text" placeholder="请输入登录密码，6-15个字符，可用字母、数字"/>
+						</p>
+                        <p>
+							<input type="text" placeholder="请再次输入密码"/>
+						</p>
+                        <p>
+							<input type="text" class="fp-ma" placeholder="请输入图片验证码"/>
+							<!--<img src="public/html/images/icon31.png" class="cp fr" alt=""/>-->
+							{:sp_verifycode_img('length=4&font_size=14&width=120&height=34&charset=1234567890&use_noise=1&use_curve=0')}
+						</p>
+                        <p class="warn-box">
+							<span class="warn-txt">验证码错误输入</span>
+						</p>
+						<p>
+							<input type="text" class="fp2-ma" placeholder="请输入验证码"/><input type="button" class="maBtn2 fr cfff" value="获取短信验证码"/>
+						</p>
+                        <p>
+							<span class="jieshou">我已阅读并接受</span>
+							<a href="javascript:;" class="xy">《用户协议》</a>
+						</p>
+						<p>
+							<input type="submit" class="next bg1 cfff" value="确定"/>
+						</p>
+						<p class="tc">已经注册过？<a href="javascript:;" class="xy">立即登录</a></p>
+                    </div>
+				</form>
+                </div>
+                <div class="input-wrap-right fl">
+                    <div class="input-hello bb  tc"><img src="public/html/images/hello.png" width="194" height="73" alt=""/></div>
+                    <div class="input-hello-txt tl f12">
+                        <p>神州易桥是一个智能化管理企业及个人知识产权的工具。</p>
+                        <p>神州易桥致力于为企业和个人提供最好的知识产权服务体验，简单优雅的设计，给用户带来前所未有的愉快感受。每个人都可以畅想互联网时代智慧带来的成果。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        $(".input-tab span").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            var i = $(this).index();
+            $(".input-box").eq(i).addClass("active").siblings().removeClass("active");
+        })
+
+        var oBox = $(".input-wrap");
+        var L = ($(".login-top").width()-oBox.width())/2;
+        var B = -270;
+        oBox.css({"left":L,"bottom":B});
+
+
+        $(".jieshou").click(function(){
+            $(this).toggleClass("active");
+        })
+    })
+</script>
+</body>
+</html>

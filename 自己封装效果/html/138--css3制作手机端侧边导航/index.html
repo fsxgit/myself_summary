@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <title>星河卓越</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<!--nav-->
+<div id="header">
+   <div class="main content pr">
+       <div id="meau" class="meau none">
+           <div id="menu-btn">
+               <div id="menu-btn-icon"></div>
+           </div>
+       </div>
+       <div class="logo"><a href="javascript:window.location.reload();"><img src="images/logo2_big.png" alt=""/></a></div>
+       <div class="nav_box">
+           <div id="nav_shadow">
+               <ul id="nav">
+                   <li data-id="page1"><span>首页</span></li>
+                   <li data-id="page3"><span>区块链+</span></li>
+                   <li data-id="page4"><span>互联网+</span></li>
+                   <li data-id="page5"><span>案例展示</span></li>
+                   <li data-id="page6"><span>团队介绍</span></li>
+                   <li data-id="page8"><span>联系我们</span></li>
+               </ul>
+           </div>
+       </div>
+       <div class="cb"></div>
+   </div>
+</div>
+<!--nav end-->
+<div style="padding:100px 0; text-align:center; font-size:12px; color:red;">
+<h1 >请调制手机模式测试---css3控制的导航出入---解决了使用jq 的animate制作导致的在Android、ios手机卡顿问题</h1>
+<h2>这充分说明了，在移动端能使用css3做动画的不要使用jq</h2>
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+    var sw = 1000;
+    var atFirst = 1; //证明此时滚动条是在首屏，
+    var atSlide = 0; //首屏滚动的索引，0 第一个，1第二个
+    var ww = $(window).width();
+    var wh = $(window).height();
+    $(".page1").css("height",wh);
+//    $("#nav_shadow").css("left",-ww);
+    $(".meau").click(function(e){
+        if($(".meau").hasClass("menu-open")){
+            $(".meau").removeClass("menu-open");
+            $("#nav_shadow").removeClass("bg");
+            $("#nav_shadow").removeClass("xchu").addClass("xjin");
+            $("body").removeClass("oh");
+        }else{
+            $(".meau").addClass("menu-open");
+            $("#nav_shadow").addClass("xchu").removeClass("xjin");
+            setTimeout(function(){
+                $("#nav_shadow").addClass("bg");
+            },400);
+
+            $("body").addClass("oh");
+        }
+        e.stopPropagation();
+    });
+
+    if(ww <= sw){
+        $("#nav li").click(function(){
+            $(".meau").removeClass("menu-open");
+            $("#nav_shadow").removeClass("bg");
+            $("#nav_shadow").removeClass("xchu").addClass("xjin");
+            $("body").removeClass("oh");
+        });
+        $("#nav_shadow").click(function(){
+            $(".meau").removeClass("menu-open");
+            $("#nav_shadow").removeClass("bg");
+            $("#nav_shadow").removeClass("xchu").addClass("xjin");
+            $("body").removeClass("oh");
+        });
+    }else{
+
+
+    }
+</script>
+</body>
+</body>
+</html>

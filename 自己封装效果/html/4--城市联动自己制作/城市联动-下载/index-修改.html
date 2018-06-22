@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>省市区三级联动插件 </title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/city.min.js"></script>
+    <style>
+        *{word-break:break-all;word-wrap:break-word;}
+        em{font-style:normal;}
+        div,p,form,h1,h2,h3,h4,h5,h6,input,textarea,span,label{margin:0;padding:0;}
+        body{font-size:14px;font-family:"Microsoft YaHei","微软雅黑";margin:0;padding:0;color:#676767;background:#fff;}
+        input,textarea{font-family:"Microsoft YaHei","微软雅黑";font-size:16px;}
+        textarea{resize:none;outline:none;}
+        dl,dd,dt,ul,li,ol{list-style-type:none;margin:0;padding:0;}
+        a{outline:none;text-decoration:none;}
+        img{vertical-align:middle;}
+        i{font-style:normal;}
+        .infolist{font-size:14px;position:relative;color:#494949;min-height:38px;margin:5px auto;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;width:100%;float:left;clear:both;}
+        label{position:absolute;width:5em;left:0;top:0;overflow:hidden;height:22px;padding:8px 0;line-height:22px; display: block;}
+        .infolist .liststyle span{width:100%; position:relative;height:36px;line-height:36px;display:inline-block;border-top:1px solid #E8E8E8; border-bottom:1px solid #E8E8E8;cursor:pointer;background:white;float:left;margin:5px auto;}
+        .infolist .liststyle span i{display:inline-block;height:36px;line-height:36px;padding-right:30px;position:relative; float:right;}
+        .infolist .liststyle span i:after{content:"";display:block;width:20px;height:36px;position:absolute;right:0;top:0;background-image:url(images/jt_nor.png);background-repeat:no-repeat;background-position:0 center;background-size:10px auto;}
+        .infolist .liststyle span ul{width:100%;border-radius:0 0 5px 5px;position:absolute;border:1px solid #E8E8E8;background:white;left:-1px;top:36px;border-top:0;margin-bottom:10px;display:none;z-index:10; max-height:300px; overflow-y:auto;}
+        .infolist .liststyle span em{padding-left:10px;}
+        .infolist .liststyle span ul li{width:100%;float:left;overflow:hidden;border-top:1px solid #E8E8E8;}
+        .infolist .liststyle span ul li a{display:block;height:36px;line-height:36px;padding:0 10px;color:#494949;}
+    </style>
+</head>
+<body>
+        <div id="content-wrap">     
+            <div id="content-left" class="demo">
+                <lable>所在地区：</lable>
+                <form action="" name="form1">
+                        <div class="infolist">
+                            <div class="liststyle">
+                                <span id="Province">
+                                    <em>请选择省份</em>
+                                    <i>请选择省份</i>
+                                    <ul>
+                                        <li><a href="javascript:void(0)" alt="请选择省份">请选择省份</a></li>
+                                    </ul>
+                                    <input type="hidden" name="cho_Province" value="请选择省份">
+                                </span>
+                                <span id="City">
+                                    <em>请选择城市</em>
+                                    <i>请选择城市</i>
+                                    <ul>
+                                        <li><a href="javascript:void(0)" alt="请选择城市">请选择城市</a></li>
+                                    </ul>
+                                    <input type="hidden" name="cho_City" value="请选择城市">
+                                </span>
+                                <span id="Area">
+                                    <em>请选择地区</em>
+                                    <i>请选择地区</i>
+                                    <ul>
+                                        <li><a href="javascript:void(0)" alt="请选择地区">请选择地区</a></li>
+                                    </ul>
+                                    <input type="hidden" name="cho_Area" value="请选择地区">
+                                </span>
+                            </div>
+                        </div>
+                    </form> 
+            </div>
+            <div id="content-right"></div>
+        </div>
+
+</body>
+</html>
+

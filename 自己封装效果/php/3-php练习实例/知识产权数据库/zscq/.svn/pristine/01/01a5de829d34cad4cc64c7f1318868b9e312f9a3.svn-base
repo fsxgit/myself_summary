@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>收银台</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/search.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+
+    <!--公用右侧浮动导航 end-->
+
+
+<!--s-content内容存放的地方-->
+    <div class="tc main-hou">
+        <!--公用结果 -->
+        <div class="sy-suc-img"><img src="public/html/images/gou3.png" alt=""/></div>
+        <div class="sy-suc-txt">
+            <p>您的服务已购买成功，我们将会有专业的客服人员与您联系！</p>
+            <p>感谢您的购买</p>
+        </div>
+        <div class="sy-suc-ck"><a href="{:U('Cost/orderlst')}" class="ck-xq blue-big-btn" >查看订单详情</a></div>
+        <!--公用结果 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+
+
+
+<!--公用底部-->
+
+<!--公用底部 end-->
+
+</div>
+</body>
+</html>

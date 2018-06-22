@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>选择城市页面</title>
+    <script src="js/fx_common.js"></script>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <style>
+        input{width:80%; height:40px; background: #ccc;}
+    </style>
+</head>
+<body>
+
+<div>
+    <input type="text" placeholder="选择城市" value="<?php $_GET['id'] ?>" readonly class="btn"/>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".btn").on("click",function(){
+        window.location.href = "dingwei.html";
+    })
+</script>
+</body>
+</html>

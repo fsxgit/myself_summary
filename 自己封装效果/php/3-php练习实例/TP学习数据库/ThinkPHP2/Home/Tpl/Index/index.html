@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>标量输出</p>
+    <h1>hello my name is {$name1}</h1>
+    <h1>hello my name is {$name2}</h1>
+<p>数组输出</p>
+    <h1>hello my name is {$name3}</h1>
+    <h1>hello my name is {$name3a}</h1>
+    <h1>hello my name is {$name3b[1]}</h1>
+    <h1>hello my name is {$name4}</h1>
+    <h1>hello my name is {$name4a}</h1>
+    <h1>hello my name is {$name4b[c3]}</h1>
+    <h1>hello my name is {$name4b.c3}</h1>
+<p>对象输出</p>
+    <h1>hello my name is {$NF:f}</h1>
+    <h1>hello my name is {$NF->f}</h1>
+<p>系统变量</p>
+<p>首先要有get的值</p>
+<h1>hello my name is {$name5}</h1>
+<h1>hello my name is {$Think.get.name}</h1>
+<h1>hello 浏览器的版本是 {$Think.version}</h1>
+<h1>hello 获取常量是 {$Think.const.APP_NAME}</h1>
+<p>使用函数</p>
+<h1>hello 这里是经过md5加密的数据 {$name6|md5}</h1>
+<h1>hello 这里是变为大写 {$name6|strtoupper}</h1>
+<h1>hello 这里是时间戳 {$name7}</h1>
+<h1>hello 这里是设置过格式的时间 {$name7|date="Y m d H:i:s",###}</h1>
+<h1>hello 这里是设置过格式的时间 {$name7|date="Y-m-d",###}</h1>
+<p>设置默认值</p>
+<h1>hello 这里是设置默认值的方法 {$name8|default="我是默认值"}</h1>
+<h1>hello 这里是设置默认值的方法 {$name8a|default="我是默认值"}</h1>
+<p>运算符使用</p>
+<h1>hello 这里是运算符的使用 {$num+1}</h1>
+<h1>hello 这里是运算符的使用 {$num-1}</h1>
+<h1>hello 这里是运算符的使用 {$num*3}</h1>
+</body>
+</html>

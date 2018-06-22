@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>把字符串以固定方式截取生成新的数组</title>
+</head>
+<body>
+<div>
+    <h1>把字符串以固定方式截取生成新的数组</h1>
+</div>
+
+<script src="jquery.min.js"></script>
+<script>
+   var str ="12 56 789 5 0";
+    var reg = /(\d)+/g;
+   var a = str.match(reg);
+   alert(a);
+    alert(a[0]);
+    alert(a[1]);
+    alert(a[2]);
+    alert(a[3]);
+    alert(a[4]);
+
+</script>
+</body>
+</html>

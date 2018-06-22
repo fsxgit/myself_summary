@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #input1{border:1px solid #0000FF; display: none;}
+        #btn1{width:70px;height:21px;font-size:12px;padding-top:3px; background:url(83.gif) no-repeat; height:22px; border:0;}
+    </style>
+</head>
+<body>
+
+<input type="file" value="上传文件"/>
+
+<input type="text" id="input1">
+<input name="button" type="button" id="btn1" onclick="myfile.click();" value="上传文件" />
+<input type="file" id="myfile" onchange="input1.value=this.value" style="display:none">
+</body>
+</html>

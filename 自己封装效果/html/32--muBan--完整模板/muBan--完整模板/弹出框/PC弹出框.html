@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>公司简介</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <style>
+        .ts-shadow{width: 100%; height: 100%; background: rgba(0,0,0,0.5); position: fixed; left:0; top:0; display: none;}
+        .ts-alert{width:540px; padding:14px 30px; border-radius: 4px; background: #fff; position: fixed;color: #333; display: none;  color:  #33485d;}
+        .ts-alert .ts-tit{font-size: 14px; overflow: hidden; color:  #33485d;}
+        .ts-alert .ts-tit span{float: left;}
+        .ts-alert .ts-tit span.close{float: right; display: block; width: 30px; text-align: center; cursor: pointer;}
+        .ts-alert .ts-txt{text-align: center; padding:10px 20px; max-height:300px; overflow: auto; border:1px solid #ccc;}
+        .ts-alert .ts-txt table{border-collapse:collapse;border-spacing:0; width: 100%;}
+        .ts-alert .ts-txt td{border:1px solid #ccc; height:30px; line-height: 30px; padding:0 10px;}
+        .ts-alert .ts-btn{text-align: right;padding-top: 10px;}
+        .ts-alert .ts-btn input{color: #fff; font-size: 14px; width: 100px; height: 30px; background: #33485d; border-radius:4px; border: none; outline: none;}
+        .ts-alert input{cursor: pointer;}
+    </style>
+</head>
+<body>
+<input  id="zhi" type="text" placeholder="请输入数字1或者2"/>
+<button>点我</button>
+
+<div class="ts-shadow"></div>
+<div class="ts-alert ts-box1">
+    <h1 class="ts-tit">
+        <span>选择发送客户11111：</span>
+        <span class="close">关闭</span>
+    </h1>
+    <div class="ts-txt">
+        <table>
+            <tr>
+                <td style="width: 20%;">全选<input class="all" type="checkbox"/></td>
+                <td style="width: 70%; text-align: left;">技师</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">王师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">李师傅</td>
+            </tr>
+        </table>
+    </div>
+    <div class="ts-btn">
+        <input type="button" value="确定"/>
+    </div>
+</div>
+
+
+<div class="ts-alert ts-box2">
+    <h1 class="ts-tit">
+        <span>选择发送客户2222222：</span>
+        <span class="close">关闭</span>
+    </h1>
+    <div class="ts-txt">
+        <table>
+            <tr>
+                <td style="width: 20%;">全选<input class="all" type="checkbox"/></td>
+                <td style="width: 70%; text-align: left;">技师</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">王师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">李师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">王师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">李师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">王师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">李师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">王师傅</td>
+            </tr>
+            <tr>
+                <td><input class="dan" type="checkbox"/></td>
+                <td style=" text-align: left;">李师傅</td>
+            </tr>
+        </table>
+    </div>
+    <div class="ts-btn">
+        <input type="button" value="确定"/>
+    </div>
+</div>
+
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+
+    $("button").click(function(){
+        var i = $("#zhi").val();
+        if(i == 1){
+            ts(".ts-box1");
+        }else if(i == 2){
+            ts(".ts-box2");
+        }
+    })
+
+   function ts(obj){
+       var THIS = $(obj);
+       var L = $(window).outerWidth()-THIS.outerWidth();
+       var T = $(window).outerHeight()-THIS.outerHeight();
+       THIS.css({"left":L/2,"top":T/2});
+       $(".ts-shadow").show();
+       THIS.show();
+       THIS.find(".ts-btn input,.close").click(function(){
+           THIS.hide();
+           $(".ts-shadow").hide();
+       })
+
+
+       THIS.find(".all").click(function(){
+           THIS.find(".dan").prop("checked",$(this).prop("checked"));
+       });
+
+       THIS.find(".dan").click(function(){
+           var i = 0;
+           THIS.find(".dan").each(function(){
+               //alert($(this).prop("checked"));
+               if($(this).prop("checked")==false){
+                   i = 1;
+
+                   return false;
+               }else{
+                   i = 0;
+               }
+           });
+           if(i==1){
+               THIS.find(".all").prop("checked",false);
+           }else{
+               THIS.find(".all").prop("checked",true);
+           }
+       })
+   }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class MainController extends AdminbaseController {
+	
+    public function index(){
+    	//注册用户
+		$c1 = M("user")->count();
+		//已认领用户
+		$c2 = M("user")->where("isclaimed=1")->count();
+		//已下单用户
+		//已有顾问
+		$c4 = M("user")->where("adviser=1")->count();
+		//商标查询数
+		//商标服务
+		//总订单数
+		$c7 = M("zcorder_copy")->count();
+		//未支付订单数
+		$c8 = M("zcorder_copy")->where("state=0")->count();
+
+    	$mysql= M()->query("select VERSION() as version");
+    	$mysql=$mysql[0]['version'];
+    	$mysql=empty($mysql)?L('UNKNOWN'):$mysql;
+    	
+    	//server infomaions
+    	$info = array(
+    			L('OPERATING_SYSTEM') => PHP_OS,
+    			L('OPERATING_ENVIRONMENT') => $_SERVER["SERVER_SOFTWARE"],
+    			L('PHP_RUN_MODE') => php_sapi_name(),
+    			L('MYSQL_VERSION') =>$mysql,
+    			L('PROGRAM_VERSION') => SIMPLEWIND_CMF_VERSION . "&nbsp;&nbsp;&nbsp; [<a href='http://www.thinkcmf.com' target='_blank'>ThinkCMF</a>]",
+    			L('UPLOAD_MAX_FILESIZE') => ini_get('upload_max_filesize'),
+    			L('MAX_EXECUTION_TIME') => ini_get('max_execution_time') . "s",
+    			L('DISK_FREE_SPACE') => round((@disk_free_space(".") / (1024 * 1024)), 2) . 'M',
+    	);
+    	$this->assign('server_info', $info);
+		$this->assign('c1', $c1);
+		$this->assign('c2', $c2);
+		$this->assign('c3', $c3);
+		$this->assign('c4', $c4);
+		$this->assign('c5', $c5);
+		$this->assign('c6', $c6);
+		$this->assign('c7', $c7);
+		$this->assign('c8', $c8);
+    	$this->display();
+    }
+}

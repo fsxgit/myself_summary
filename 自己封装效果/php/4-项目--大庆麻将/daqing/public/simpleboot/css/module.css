@@ -1,0 +1,28 @@
+.input-8x {
+  width: 400px;
+}
+.input-7x {
+  width: 350px;
+}
+.input-6x {
+  width: 300px;
+}
+.input-5x {
+  width: 250px;
+}
+.input-4x {
+  width: 200px;
+}
+.input-3x {
+  width: 150px;
+}
+.input-2x {
+  width: 100px;
+}
+.input-x {
+  width: 50px;
+}
+
+.input-500{ width: 500px;}
+
+.textarea-auto{ width: 99%; height: 100px;}

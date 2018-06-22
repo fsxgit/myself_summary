@@ -1,0 +1,80 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<style>
+a{cursor: pointer;}
+.btnfx{cursor: pointer; width:70px; height:35px;line-height:28px; border:1px solid #07a9ff; color: #07a9ff; border-radius: 4px; background: none; margin-left:4px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>商品列表</a></li>
+        <li><a href="{:U('Goods/goods_add')}">添加商品</a></li>
+    </ul>
+    <div id="mydiv">
+         <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>业务名称</th>
+                <th>类型</th>
+                <th>大类官费(元)</th>
+                <th>小类官费(元)</th>
+		<th>服务费(元)</th>
+                <th>市场价(元)</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="res" item="vo" key='k'>
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>
+                        <?php
+                        if($vo["type"]==1){
+                            echo "注册";
+                        }
+                        if($vo["type"]==2){
+                            echo "转让";
+                        }
+                        if($vo["type"]==3){
+                            echo "许可备案";
+                        }
+                        if($vo["type"]==4){
+                            echo "变更";
+                        }
+                        if($vo["type"]==5){
+                            echo "驳回";
+                        }
+                        if($vo["type"]==6){
+                            echo "异议";
+                        }if($vo["type"]==7){
+                            echo "续展";
+                        }
+                        
+                        ?>
+                    </td>
+                    <td>{$vo.service_name}</td>
+                    <td>{$vo.price_large}</td>
+                    <td>{$vo.price_small}</td>
+                    <td>{$vo.price_service}</td>
+                    <td>{$vo.price_market}</td>
+                    <td><a onclick="del({$vo.id})">删除</a> || <a href="{:U('Goods/upd_act',array('id'=>$vo['id']))}">修改</a>
+                    </td> 
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+   <div class="c-pages tc">
+							<span>{$page}</span>
+						</div>
+</div>
+</body>
+</html>
+<script>
+function del(id){
+	if(confirm("确定删除吗??")){
+		window.location.href='index.php?g=Admin&m=Goods&a=del&id='+id;
+	}
+}
+</script>

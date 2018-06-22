@@ -1,0 +1,8 @@
+zTree插件地址：
+http://www.treejs.cn/v3/main.php#_zTreeInfo
+
+SimpleTree1.0：配置详情:
+http://ask.csdn.net/questions/208331
+
+共有22款 jQuery 树形控件开源软件：
+http://www.oschina.net/project/tag/283/jquery-tree

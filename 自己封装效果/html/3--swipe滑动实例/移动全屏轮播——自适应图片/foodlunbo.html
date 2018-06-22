@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>相册</title>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <style>
+        html,body{ background: #2dee60; width: 100%; height:100%; overflow: hidden;}
+        body {
+
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+        }
+        .swiper-container {
+            height: 100%;
+            background: #000;
+        }
+        .swiper-wrapper{height:75%; position:absolute; left:0; top:0;}
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            overflow: hidden;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-slide img{ max-width: 100%; max-height: 100%;}
+        #fotBox{width:100%; color:#fff; font-size:12px;   text-align: left; position:absolute; left:0; bottom:0; z-index: 2; padding:20px 0;}
+        #fotBox p{padding-left: 20px; margin:2px 0; font-size: 14px;}
+        #topBox{height: 40px; line-height: 40px; position: fixed; width: 100%; left:0; top:0; color: #fff; font-size: 16px; z-index: 2; text-align: center; }
+        #topBox .bhack{position: absolute; display: block; width: 20px; background: url("images/backf.png") no-repeat 0 center; background-size:8px 16px;  height: 40px; line-height: 40px; margin-left: 20px;}
+        #topBox .bdel{position: absolute; right:0; display: block; width: 20px; background: url("images/delf.png") no-repeat 0 center; background-size:18px 18px;  height: 40px; line-height: 40px; margin-right: 20px;}
+    </style>
+</head>
+<body>
+<header id="topBox">
+    <a class="bhack" href="javascript:history.go(-1);"></a>
+    <a class="bdel" href="javascript:;"></a>
+    <span id="num">1</span>/<span id="tol"></span>
+
+</header>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="images/foods/1.jpg" alt=""/>
+        </div>
+        <div class="swiper-slide">
+            <img src="images/foods/2.jpg" alt=""/>
+        </div>
+        <div class="swiper-slide">
+            <img src="images/foods/3.jpg" alt=""/>
+        </div>
+        <div class="swiper-slide">
+            <img src="images/foods/4.jpg" alt=""/>
+        </div>
+        <div class="swiper-slide">
+            <img src="images/foods/1.jpg" alt=""/>
+        </div>
+    </div>
+</div>
+
+<div id="fotBox">
+    <p>热乎乎的</p>
+    <p>2014/03/06</p>
+</div>
+<!-- Swiper JS -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var myswiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        autoplay : 20000,
+        slidesPerView: 1,
+        autoplayDisableOnInteraction : false,
+        onSlideChangeEnd: function(swiper){
+            $(".swiper-wrapper div").each(function(){
+                if( $(this).hasClass('swiper-slide-active')){
+                    var i =$(this).index()+1;
+                    $("#num").html(i);
+                }
+            })
+        }
+    });
+$(function(){
+    var oTol = $("#tol");
+    var aSwiperSlide = $(".swiper-slide");
+    var oSwiperWrapper = $(".swiper-wrapper");
+    var T = ($(window).height()-oSwiperWrapper.height())/2;
+    oSwiperWrapper.css({top:T});
+    oTol.html(aSwiperSlide.length);
+})
+</script>
+</body>
+</html>

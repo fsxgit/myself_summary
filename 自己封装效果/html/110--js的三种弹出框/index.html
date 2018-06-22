@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>confirm/alert/propm</title>
+</head>
+<body>
+<button onclick="alertFun();">我是alert</button>
+<button onclick="confirmFun();">我是confirm</button>
+<button onclick="promptFun();">我是propm</button>
+<script>
+ function confirmFun(){
+     var con = confirm("您是男士吗？");
+     if(con){
+         alert("我知道啦，您是男士！");
+     }else{
+         alert("哦，原来您是女士啊！");
+     }
+ }
+ function alertFun(){
+     alert("您是男士吗？");
+ }
+function promptFun(){
+    var value = prompt('输入你的名字：', '默认名字');
+    if(value == null){
+        alert('你取消了输入！');
+    }else if(value == ''){
+        alert('姓名输入为空，请重新输入！');
+    }else{
+        alert('你好，'+value);
+    }
+}
+</script>
+</body>
+</html>

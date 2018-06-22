@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用字体</title>
+    <style>
+        *{
+            font-size: 30px;
+        }
+        .font1{
+            font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica;
+        }
+        .font2,.font3{
+            font-family: "MyNewFont";
+        }
+        @font-face {
+            font-family: 'MyNewFont';   /*字体名称*/
+            src: url('./font1305/BrownwoodNF.ttf');       /*字体源文件*/
+        }
+        @font-face {
+            font-family: 'MyNewFont1';   /*字体名称*/
+            src: url('./font/Gotham-Light.otf');       /*字体源文件*/
+        }
+        @font-face {
+            font-family: 'MyNewFont2';   /*字体名称*/
+            src: url('./font/en.TTF');       /*字体源文件*/
+        }
+        @font-face {
+            font-family: 'MyNewFont3';   /*字体名称*/
+            src: url('./font/zh.TTF');       /*字体源文件*/
+        }
+        .font4,.font5{
+            font-family: "MyNewFont2","MyNewFont3";
+        }
+    </style>
+</head>
+<body>
+    <div class="font1">中文字体效果1</div>
+    <div class="font2">英文、数字字体效果1111abcdefg</div>
+    <div class="font3">英文、数字字体效果222abcdefg</div>
+    <div class="font4">a字体sasdedf</div>
+    <div class="font5">a字体sasde</div>
+    <div class="font6">a字体sasde</div>
+</body>
+</html>

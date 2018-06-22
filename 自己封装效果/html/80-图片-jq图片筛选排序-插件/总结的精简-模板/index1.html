@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="gb2312">
+    <title>MixItUp过滤排序jQuery插件</title>
+
+    <link rel="stylesheet" href="css/layout.css">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var filterList = {
+
+                init: function () {
+
+                    // MixItUp plugin
+                    $('#portfoliolist').mixitup({
+                        targetSelector: '.portfolio',
+                        filterSelector: '.filter',
+                        effects: ['fade'],
+                        easing: 'snap',
+                        // 排序结束所要触发的自定义方法：
+                        onMixEnd: filterList.FunName()
+                    });
+
+                },
+
+
+                FunName: function () {
+
+                    $('#portfoliolist .portfolio').hover(
+                            function () {
+                                $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                                $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                            },
+                            function () {
+                                $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                                $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                            }
+                    );
+
+                }
+
+            };
+
+            // Run the show!
+            filterList.init();
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <ul id="filters" class="clearfix">
+        <li><span class="filter" data-filter="app card icon logo web">All</span></li>
+        <li><span class="filter" data-filter="app web">app和web</span></li>
+        <li><span class="filter" data-filter="app">App</span></li>
+        <li><span class="filter" data-filter="card">Card</span></li>
+        <li><span class="filter" data-filter="icon">Icon</span></li>
+        <li><span class="filter" data-filter="logo">Logo</span></li>
+        <li><span class="filter" data-filter="web">Web</span></li>
+    </ul>
+
+    <div id="portfoliolist">
+        <div class="portfolio logo" data-cat="logo">
+            <div class="portfolio-wrapper">
+                <img src="images/5.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="portfolio app" data-cat="app">
+            <div class="portfolio-wrapper">
+                <img src="images/4.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="portfolio web" data-cat="web">
+            <div class="portfolio-wrapper">
+                <img src="images/3.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="portfolio card" data-cat="card">
+            <div class="portfolio-wrapper">
+                <img src="images/2.jpg" alt="" />
+            </div>
+        </div>
+        <div class="portfolio logo" data-cat="logo">
+            <div class="portfolio-wrapper">
+                <img src="images/9.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="portfolio app" data-cat="app">
+            <div class="portfolio-wrapper">
+                <img src="images/7.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="portfolio web" data-cat="web">
+            <div class="portfolio-wrapper">
+                <img src="images/8.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="portfolio card" data-cat="card">
+            <div class="portfolio-wrapper">
+                <img src="images/1.jpg" alt="" />
+            </div>
+        </div>
+        <div class="portfolio icon" data-cat="icon">
+            <div class="portfolio-wrapper">
+                <img src="images/15.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+
+</div><!-- container -->
+</body>
+</html>

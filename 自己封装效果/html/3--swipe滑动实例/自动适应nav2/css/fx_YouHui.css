@@ -1,0 +1,20 @@
+/*内容*/
+/*优惠券公共样式*/
+body{background:#f0eff5;}
+.YHbox{background:#f0eff5;}
+.YHQmode{width:0.92rem; height:0.2375rem; margin:0.0375rem auto 0 auto;overflow: hidden;}
+.YHmoney{width:0.2218rem; height:0.2375rem; line-height:0.2375rem; font-size: 0.0625rem; }
+.YHquan{width:0.629575rem; height:100%; padding-left:0.040625rem;}
+/*0.656rem*/
+.YHtop{height:0.15rem; line-height: 0.15rem;}
+.YHname{display: block; height:0.15rem; line-height: 0.15rem;font-size:0.04375rem;}
+.YHshiyong{display: block; width:0.13437rem;height:0.15rem;line-height: 0.15rem;padding-left:0.025rem; margin-right:0.0015625rem; font-size:0.04375rem; text-align: left;}
+.YHbot{height:auto;text-align: left; font-size:0.034375rem; color:#a5a5a5;}
+/*优惠券未使用样式*/
+.YHbox .WeiYong{ background:#fff url("../images/WeiYongBg.png") no-repeat 0 0; background-size: cover; }
+.YHbox .WeiYong .YHmoney{color:#49becd;}
+.YHbox .WeiYong .YHshiyong{background: url("../images/WeiShiYong.png") no-repeat 0 center; background-size:0.1625rem 0.06875rem;}
+/*优惠券已使用样式*/
+.YHbox .YiYong{ background:#fff url("../images/YiYong.png") no-repeat 0 0; background-size: cover; }
+.YHbox .YiYong .YHmoney{color:#bababa;}
+.YHbox .YiYong .YHshiyong{background: url("../images/YiShiYong.png") no-repeat 0 center; background-size:0.1625rem 0.06875rem;}

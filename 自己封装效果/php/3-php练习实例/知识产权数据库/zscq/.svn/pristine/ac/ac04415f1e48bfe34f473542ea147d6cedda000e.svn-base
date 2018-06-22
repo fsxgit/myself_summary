@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人中心-修改密码</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/perCenter.css"/>
+</head>
+<body>
+    <div class="perCenter-box main-hou">
+        <div class="per-nav">安全设置 > 修改密码</div>
+        <div class="c-h1">修改密码</div>
+        <div class="bang-cel-box">
+            <div class="fp-input-box bc">
+                <p><span class="tit">原密码</span><input type="text" value="" placeholder="请输入原密码"/></p>
+                <p class="warn-box"><span class="warn-txt">原密码输入错误</span></p>
+                <p><span class="tit">新密码</span><input type="text" value="" placeholder="请输入新密码"/></p>
+                <p class="warn-box"><span class="warn-txt">原密码输入错误</span></p>
+                <p><span class="tit">重复新密码</span><input type="text" value="" placeholder="请重复密码"/></p>
+                <p class="warn-box"><span class="warn-txt">原密码输入错误</span></p>
+                <p><input type="submit" class="next bg1 cfff" value="保存密码"/></p>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

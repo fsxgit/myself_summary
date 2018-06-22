@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<video id="video" width="640" height="480" autoplay></video>
+	<button id="snap">拍照</button>
+	<canvas id="canvas" width="640" height="480"></canvas>
+
+	<script type="text/javascript">
+		window.addEventListener("DOMContentLoaded", function() {
+			var canvas = document.getElementById("canvas"),
+				context = canvas.getContext("2d"),
+				video = document.getElementById("video"),
+				videoObj = { "video": true, "audio": false },
+				errBack = function(error) {
+					console.log("捕获摄像头失败: ", error.code); 
+				};
+
+			navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+			if(navigator.getUserMedia) {
+				navigator.getUserMedia(videoObj, function(stream) {
+					var url = window.URL || window.webkitURL;
+            		video.src = url ? url.createObjectURL(stream) : stream;
+					video.play();
+				}, errBack);
+			} else {
+				console.log('不支持getUserMedia方法');
+			}
+
+			document.getElementById("snap").addEventListener("click", function() {
+				context.drawImage(video, 0, 0, 640, 480);
+			});
+		}, false);
+	</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>index文件</title>
+    
+</head>
+<body>
+	<h1>这是我的volist实验文件</h1>
+	<p>是通过控制器找到的ThinkPHP\Home\Lib\Action\IndexAction.class.php找到的</p>
+	<h2>下面是实现模板遍历数组的实例</h2>
+	<volist name="fsx" id="vo">
+			{$vo.id}号，名字是{$vo.username}性别是{$vo.sex}<br/>	
+	</volist>
+</body>
+</html>

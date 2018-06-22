@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>订单确定-商标注册</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+</head>
+<body>
+<div id="wrap">
+<!--公用header-->
+    <div class="c-header oh">
+        <div class="fl c-logo"><img src="images/logo.png" width="168" height="50" alt=""/></div>
+        <div class="fl c-step">商标注册确认</div>
+        <div class="fr c-right oh">
+            <div class="c-tel oh fl">
+                <img src="images/icon1.png" class="fl" width="13" height="14" alt=""/>
+                <span class="fl f12">400-686-5658</span>
+            </div>
+            <input class="c-log fl" type="button" value="登录" />
+            <input class="c-reg fl" type="button" value="注册" />
+        </div>
+    </div>
+<!--公用header end-->
+
+
+<!--s-content内容存放的地方-->
+    <div class="s-content main pr">
+        <!--右侧浮动导航-->
+        <div class="f-bar">
+            <div class="bar-ma">
+                <div class="bar-ma-img"><img src="images/ma.png" width="100" height="100" alt=""/></div>
+            </div>
+            <div class="bar-msg"></div>
+            <div class="bar-top"><a href="javascript:window.scrollTo( 0, 0 );" ></a></div>
+        </div>
+        <!--公用右侧浮动导航 end-->
+
+        <!--公用结果 企业认领-->
+            <div class="order-xinxi-box main">
+                <!--基本信息 -->
+                <div class="order-xinxi">
+                    <h1 class="xq-h1">联系人信息<span>我们会按照如下信息为您办理业务，请认真核对。</span></h1>
+                    <div class="ren-box">
+                        <p><span class="order-name">联系人：　</span><span class="order-cont">马小亮</span><span class="order-xg" onclick="xgName()">修改</span></p>
+                        <p><span class="order-name">手机号：　</span><span  class="order-cont">13456789</span><span class="order-xg">修改</span></p>
+                    </div>
+                    <h1 class="xq-h1">企业信息<span>我们会按照如下信息为您办理业务，请认真核对。</span></h1>
+                    <div class="ren-box">
+                        <p><span class="order-name">企业名称：</span><span class="order-cont">神州易桥（北京）财税科技有限公司</span><span class="order-xg">修改</span></p>
+                        <p><span class="order-name">注册地址：</span><span  class="order-cont">北京市昌平区回龙观镇西大街118号1幢905室</span><span class="order-xg">修改</span></p>
+                    </div>
+                    <h1 class="xq-h1">选择优惠券</h1>
+                    <div class="order-quan-box">
+                        <div class="quan-wai active">
+                            <div class="quan-nei">
+                                满200减100元
+                            </div>
+                        </div>
+                        <div class="quan-wai">
+                            <div class="quan-nei">
+                                满200减100元
+                            </div>
+                        </div>
+                        <div class="quan-wai">
+                            <div class="quan-nei">
+                                满200减100元
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <!--基本信息 end-->
+                <!--商标-->
+                <div class="brand-box">
+                    <h1 class="xq-h1">商品信息</h1>
+                    <table class="good-table">
+                        <tr class="bt-tr1">
+                            <td style="width:60px; padding-left:18px; padding-right: 18px">图标样式</td>
+                            <td style="width:258px;">名称</td>
+                            <td style="width:156px;">分类</td>
+                            <td style="width:128px;">类型</td>
+                            <td style="width:148px;">官费</td>
+                            <td style="width:148px;">服务费</td>
+                            <td style="width:226px;">小计</td>
+                        </tr>
+                        <tr>
+                            <td class="good-logo" onclick="ckdetail();"><img src="images/img1.png" alt=""/></td>
+                            <td>易桥集分宝</td>
+                            <td><span>35</span>，<span>36</span>，<span>37</span></td>
+                            <td>异议答辩</td>
+                            <td>2000元</td>
+                            <td>300元</td>
+                            <td>2300元</td>
+                        </tr>
+                    </table>
+                    <div class="order-total">
+                        <table class="order-total-table">
+                            <tr>
+                                <td class="tj-tit">官费总计：</td>
+                                <td class="tj-total">5200元</td>
+                            </tr>
+                            <tr>
+                                <td class="tj-tit">已为您节省：</td>
+                                <td>2000元</td>
+                            </tr>
+                            <tr>
+                                <td class="tj-tit">服务费：</td>
+                                <td>300元</td>
+                            </tr>
+                        </table>
+                        <div class="cb"></div>
+                        <input type="button" value="提交订单" class="order-tj-btn  blue-big-btn"/>
+                    </div>
+                </div>
+                <!--商标 end-->
+            </div>
+        <!--公用结果 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+<!--弹出框 -->
+    <!--修改名字弹出框-->
+    <div class="c-tan xg-name">
+        <div class="xg-ren-cont bc">
+            <div class="c-tan-top oh">
+                <div class="c-tan-Title fl">修改购买人</div>
+                <div class="c-tan-close fr"><img src="images/close.png" width="12" height="12" alt=""/></div>
+            </div>
+            <!--弹出框需要修改的部分-->
+            <div class="xg-ren bc">
+                <input type="text" placeholder="请输入购买人名称"/>
+            </div>
+            <!--弹出框需要修改的部分 end-->
+            <div class="c-tan-bot bc">
+                <input type="submit" class="btn-ding xg-sure" value="确定"/>
+            </div>
+        </div>
+    </div>
+    <!--修改名字弹出框 end-->
+    <!--商标详情弹出框-->
+    <div class="c-tan brand-tan">
+        <div class="c-tan-cont bd-cont sb-cont bc">
+            <div class="c-tan-top oh">
+                <div class="c-tan-Title fl">商标详情</div>
+                <div class="c-tan-close fr"><img src="images/close.png" width="12" height="12" alt=""/></div>
+            </div>
+            <!--弹出框需要修改的部分-->
+            <div class="brand-detail bc">
+               <p class="oh"><span class="bd-tit fl">商标名称：</span><span class="brand-tan-logo  fl"><img src="images/img1.png" alt=""/></span></p>
+               <p><span class="bd-tit">商标名称：</span><span>神州易桥集分宝</span></p>
+               <p><span class="bd-tit">申请人名称：</span><span>神州易桥（北京）财税科技有限公司</span></p>
+               <p><span class="bd-tit">申请人地址：</span><span>北京市昌平区回龙观镇西大街118号1幢905室</span></p>
+               <p><span class="bd-tit">类别：</span><span>35</span></p>
+               <p><span class="bd-tit">小类：</span><span>090373已录制的计算机程序</span></p>
+               <p><span class="bd-tit">被许可人名称：</span><span>神州易桥（北京）财税科技有限公司</span><span class="ckxq">查看详情</span></p>
+            </div>
+            <!--弹出框需要修改的部分 end-->
+            <div class="c-tan-bot bc">
+                <input type="submit" class="btn-ding ck-btn" value="确定"/>
+            </div>
+        </div>
+    </div>
+    <!--商标详情弹出框 end-->
+    <!--查看详情弹出框-->
+    <div class="c-tan brand-kan">
+        <div class="c-tan-cont bd-cont ck-cont bc">
+            <div class="c-tan-top oh">
+                <div class="c-tan-Title fl">商标详情</div>
+                <div class="c-tan-close fr"><img src="images/close.png" width="12" height="12" alt=""/></div>
+            </div>
+            <!--弹出框需要修改的部分-->
+            <div class="brand-detail brand-cha bc">
+                <p><span class="bd-tit">被许可人名称（中文）：</span><span>神州易桥（北京）财税科技有限公司</span></p>
+                <p><span class="bd-tit">被许可人地址：</span><span>北京市昌平区回龙观镇西大街118号1幢905室</span></p>
+                <p><span class="bd-tit">被许可人邮编：</span><span>100000</span></p>
+                <p><span class="bd-tit">联系人：</span><span>马小亮</span></p>
+                <p><span class="bd-tit">电话：</span><span>18899875467</span></p>
+                <p><span class="bd-tit">代理机构名称：</span><span>神州易桥（北京）财税科技有限公司</span></p>
+                <p><span class="bd-tit">注册商标号：</span><span>23423550099</span></p>
+                <p><span class="bd-tit">是否共有商标：</span><span>否</span></p>
+                <p><span class="bd-tit">再许可：</span><span>否</span></p>
+                <p><span class="bd-tit">许可期限：</span><span>2016年7月1日至2017年6月30日</span></p>
+
+            </div>
+            <!--弹出框需要修改的部分 end-->
+            <div class="c-tan-bot bc">
+                <input type="submit" class="btn-ding ck-btn" value="确定"/>
+            </div>
+        </div>
+    </div>
+    <!--查看详情弹出框 end-->
+<!--弹出框 end-->
+
+
+
+<!--公用底部-->
+    <div class="c-bot">
+        <div class="c-bot-top">
+           <div class="oh main">
+               <div class="bot-img img1">
+                   <a href="javascript:;"><img src="images/bot1.png" width="252" height="60" alt=""/></a>
+               </div>
+               <div class="bot-img img2">
+                   <a href="javascript:;"><img src="images/bot2.png" width="252" height="60" alt=""/></a>
+               </div>
+               <div class="bot-img img3">
+                   <a href="javascript:;"><img src="images/bot3.png" width="252" height="60" alt=""/></a>
+               </div>
+               <div class="bot-img">
+                   <a href="javascript:;"><img src="images/bot4.png" width="252" height="60" alt=""/></a>
+               </div>
+           </div>
+        </div>
+        <div class="c-bot-bot">
+            <div class="c-bot-tel tc"><img src="images/tel.png" alt=""/></div>
+            <div class="c-bot-copy tc">
+                <div class="copy1">
+                    <a href="javascript:;">神州易桥集团</a>
+                    |
+                    <a href="javascript:;">企博士</a>
+                    |
+                    <a href="javascript:;">企采团</a>
+                    |
+                    <a href="javascript:;">应用云</a>
+                    |
+                    <a href="javascript:;">商学院</a>
+                    |
+                    <a href="javascript:;">积分宝</a>
+                </div>
+                <div class="copy2">
+                    Copyright © 1998 - 2016 All Rights Reserved. 神州网版权所有
+                </div>
+                <div class="copy3">
+                    京ICP备10028182号 京公网安备110108400735号
+                </div>
+            </div>
+        </div>
+    </div>
+<!--公用底部 end-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+    $(function(){
+//      二维码的显示隐藏
+        maTab();
+        $(".quan-wai").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+
+    });
+//    修改名字弹出框
+    function xgName(){
+        $(".xg-name").fadeIn();
+        $(".c-tan-close,.xg-sure").click(function(){
+            $(".xg-name").fadeOut();
+        })
+    }
+
+//查看详情弹出框
+
+    function ckdetail(){
+        var cTan = $(".c-tan");
+        var tanBox1 = $(".brand-tan");
+        var tanBox2 = $(".brand-kan");
+
+        var bdCont = $(".sb-cont");
+        var ckCont = $(".ck-cont");
+
+        var oClose = $(".c-tan-close");
+
+//     弹出框居中显示隐藏
+        var wW = cTan.width();
+        var wH = cTan.height();
+        var zcW = bdCont.width();
+        var zcW2 = ckCont.width();
+        var zcH = bdCont.height();
+        var zcH2 = ckCont.height();
+
+
+        var L1 = (wW - zcW)/2;
+        var T1 = (wH - zcH)/2;
+        var L2 = (wW - zcW2)/2;
+        var T2 = (wH - zcH2)/2;
+        bdCont.css({"left":L1,"top":T1});
+        ckCont.css({"left":L2,"top":T2});
+        tanBox1.fadeIn();
+        $(".ck-btn").click(function(){
+            tanBox1.fadeOut();
+            tanBox2.fadeOut();
+
+        });
+
+        $(".ckxq").click(function(){
+            tanBox1.fadeOut();
+            tanBox2.fadeIn();
+        })
+        oClose.click(function(){
+            tanBox1.fadeOut();
+            tanBox2.fadeOut();
+        })
+
+    }
+
+</script>
+</body>
+</html>

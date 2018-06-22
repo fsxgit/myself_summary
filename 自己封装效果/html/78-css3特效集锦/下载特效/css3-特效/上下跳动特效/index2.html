@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>无标题文档</title>
+	<style type="text/css">
+		@-webkit-keyframes bounce-down {
+			25% {-webkit-transform: translateY(-10px);}
+			50%, 100% {-webkit-transform: translateY(0);}
+			75% {-webkit-transform: translateY(10px);}
+		}
+
+		@keyframes bounce-down {
+			25% {transform: translateY(-10px);}
+			50%, 100% {transform: translateY(0);}
+			75% {transform: translateY(10px);}
+		}
+
+		.animate-bounce-down{ background:#333; width: 100px; height: 100px; margin:100px auto;-webkit-animation: bounce-down 1.5s linear infinite;animation: bounce-down 1.5s linear infinite;
+		}
+
+		@-webkit-keyframes bounce-up {
+			25% {-webkit-transform: translateY(10px);}
+			50%, 100% {-webkit-transform: translateY(0);}
+			75% {-webkit-transform: translateY(-10px);}
+		}
+
+		@keyframes bounce-up {
+			25% {transform: translateY(10px);}
+			50%, 100% {transform: translateY(0);}
+			75% {transform: translateY(-10px);}
+		}
+
+		.animate-bounce-up{ background:#ddd; width: 100px; height: 100px; margin:100px auto;-webkit-animation: bounce-up 1.4s linear infinite;animation: bounce-up 1.4s linear infinite;}
+	</style>
+</head>
+
+<body>
+<div class="animate-bounce-up"></div>
+<div class="animate-bounce-down"></div>
+</body>
+</html>

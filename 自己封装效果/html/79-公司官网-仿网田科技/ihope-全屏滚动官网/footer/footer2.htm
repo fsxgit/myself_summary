@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>footer</title>
+	<link rel="stylesheet" href="css/footer2.css"/>
+</head>
+<body>
+
+<div id="div9">
+<div class="footerBg"></div>
+<div id="footer">
+
+	<div id="div_5-1">
+
+		<p class="p_5-1">联系我们</p>
+
+		<img src="images/xian1.png" />
+
+		<p class="p_5-2"><span>电话：</span>010-56230099</p>
+
+		<p class="p_5-2"><span>手机：</span>18701268669 18201599883</p>
+
+		<p class="p_5-2"><span>传真：</span>010-62971107</p>
+
+		<p class="p_5-2"><span>邮箱：</span><span >marketing@ihope99.com</span></p>
+
+		<p class="p_5-2"> <span>QQ：</span>982677074 2193007877</p>
+
+		<p class="p_5-2"> <span>地址：</span>北京市海淀区上地西路上地科技大厦3层</p>
+
+	</div>
+
+	<div id="div_5-2">
+
+		<p class="p_5-1">服务内容</p>
+
+		<img src="images/xian2.png" />
+
+		<p class="p_5-2">iOS开发</p>
+
+		<p class="p_5-2">Android开发</p>
+
+		<p class="p_5-2">网站开发</p>
+
+		<p class="p_5-2">微信开发</p>
+
+		<p class="p_5-2">项目咨询</p>
+
+	</div>
+
+	<div id="div_5-3">
+
+		<p class="p_5-1">关于我们</p>
+
+		<img src="images/xian3.png" />
+
+		<p class="p_5-3">北京海博远创是国内最早从事iOS\Android开发的公司，在移动互联网技术以及电子商务网站等领域处于国内领先地位。公司致力于成为国内最好的移动平台软件研发公司，客户包括中央电视台、中国电信、中国联通、中科院、新华社、中国好声音、总参总医院、花旗银行等。</p>
+
+	</div>
+
+</div>
+
+</div>
+
+<div id="div10">
+
+	<div id="copyright">
+
+		<p><span id="span10_1">Copyright &copy; 2011-2014 iHope99.com All Rights Reserved  版权所有 · 北京海博远创软件科技有限公司</span><span id="span10_2">备案编号：京ICP备11043388号</span></p>
+
+
+	</div>
+
+</div>
+
+<script>
+
+	$(function(){
+
+		var reid="{dede:field name='reid'/}";
+
+		reid=reid ? reid : null;
+
+		$(".case_nav").each(function(){
+
+			if(($(this).attr('tid'))==urlTid('tid')){
+
+				$(this).addClass('selected');
+
+			}else if(($(this).attr('tid'))==reid)	{
+
+				$(this).addClass('selected');
+
+			}		
+
+		})
+
+		if(!urlTid('tid') && !urlTid('aid')){
+
+			$(".case_nav:eq(0)").addClass('selected');
+
+		}
+
+
+
+	})
+
+
+
+//url参数获取
+
+   function urlTid(paras)
+
+    { 
+
+        var url = location.href; 
+
+        var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+
+        var paraObj = {} 
+
+        for (i=0; j=paraString[i]; i++){ 
+
+        paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+
+        } 
+
+        var returnValue = paraObj[paras.toLowerCase()]; 
+
+        if(typeof(returnValue)=="undefined"){ 
+
+        return ""; 
+
+        }else{ 
+
+        return returnValue; 
+
+        } 
+
+    }
+
+</script>
+
+</body>
+
+</html>

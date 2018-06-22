@@ -1,0 +1,2 @@
+1.首先，导航需要有 data-filter="" 属性。例如： data-filter="app" 
+2.其次，所属子元素必须含有与导航data-filter="" 属性相同的类名。例如：class="app"

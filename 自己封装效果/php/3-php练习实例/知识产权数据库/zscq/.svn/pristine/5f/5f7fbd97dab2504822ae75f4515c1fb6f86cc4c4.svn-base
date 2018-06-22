@@ -1,0 +1,142 @@
+用户管理>>
+<a href="{:U('Userinfo/index')}">用户列表</a>>>
+<a href="">用户详情</a>
+<admintpl file="header" />
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <style>
+        *{margin:0; padding:0;}
+        .mt20{margin-top: 20px;}
+        .c009{color: #009900;}
+        .c999{color: #999;}
+        .main{margin-left:40px; margin-right: 40px; width:auto; min-width:920px; font-size: 14px;}
+        .sl-tit{border-bottom:1px dotted #ccc; margin-top: 20px; }
+
+        .yh-box{font-size: 14px;}
+        .yh-box .top{text-align: center;}
+        .yh-box .top .img img{width: 100px; height: 100px; border-radius: 50%;}
+        .yh-box .top p{margin:10px 0;}
+        .yh-table{ border-collapse:collapse; margin-top:20px; width: 100%;}
+        .yh-table td{border: 1px solid #ccc;padding:10px 20px; text-align: left; }
+        .yh-table td.tit{background: #f7fbfd; color: #999;}
+        .jb_btn{width: 140px; margin-left: 20px; display: inline-block; background: #169bd5; color: #fff; text-align: center; border-radius: 4px; padding: 4px 0; cursor: pointer;}
+    </style>
+</head>
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<body>
+<div class="yh-box main">
+    <div class="top mt20">
+        <p class="img"><img src="{$userinfo.imgpath}"  alt=""/></p>
+        <p>{$userinfo.loginname}</p>
+        <p>{$userinfo.phone}</p>
+        <p>{$userinfo.email}</p>
+        <p class="c999">最近3小时前登陆过</p>
+    </div>
+    <div class="yh-bg">
+        <div class="sl-tit">
+            <span class="c009">{$userinfo.companyname}</span>
+            <span class="jb_btn" onclick="jj({$userinfo.id})">立即解绑</span>
+        </div>
+        <table class="yh-table">
+            <tr>
+                <td class="tit" style="width: 160px;">统一社会信用代码：</td>
+                <td>{$infolist.shxydm}</td>
+                <td class="tit"  style="width: 160px;">组织机构代码：</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="tit" >注册号：</td>
+                <td>{$infolist.regno}</td>
+                <td class="tit" >经营状态：</td>
+                <td>{$infolist.entstatus}</td>
+            </tr>
+            <tr>
+                <td class="tit" >公司类型：</td>
+                <td>{$infolist.enttype}</td>
+                <td class="tit" >成立日期：</td>
+                <td>{$infolist.esdate}</td>
+            </tr>
+            <tr>
+                <td class="tit" >法定代表人：</td>
+                <td>{$infolist.frdb}</td>
+                <td class="tit" >营业期限：</td>
+                <td><?php echo date("Y-m-d",$infolist["creationTimestamp"]);?>-<?php echo date("Y-m-d",$infolist["modificationTimestamp"]);?></td>
+            </tr>
+            <tr>
+                <td class="tit" >注册资本：</td>
+                <td>{$infolist.regcap}万人民币</td>
+                <td class="tit" >发照日期：</td>
+                <td>{$infolist.shxydm}</td>
+            </tr>
+            <tr>
+                <td class="tit" >登记机关：</td>
+                <td colspan="3">{$infolist.regorg}</td>
+            </tr>
+            <tr>
+                <td class="tit" >企业地址：</td>
+                <td colspan="3">{$infolist.dom}</td>
+            </tr>
+            <tr>
+                <td class="tit" >经营范围：</td>
+                <td colspan="3">{$infolist.opscope}</td>
+            </tr>
+
+        </table>
+   
+
+	<div class="sl-tit">
+            <span class="c009">商标信息</span>
+	</div>
+	&nbsp;<br>
+	<table class="table table-hover table-bordered">
+			<tr>
+				<td>序号</td>
+				<td>服务单号</td>
+				<td>商标图样</td>
+				<td>商标名称</td>
+				<td>分类</td>
+				<td>商标类型</td>
+				<td>申请号</td>
+				<td>注册号</td>
+				<td>当前状态</td>
+				<td>服务顾问</td>
+				<td>操作</td>
+			</tr>
+			<foreach name="marklist" item="vo" key='k'>
+				<tr>
+					<td>{$k+1}</td>
+					<td>{$vo.quer_no}</td>
+					<td><if condition=" $vo.marklogo eq '' ">
+						<img src="data:png;base64,{$vo.markimage}" width="50" height="50"/>
+					<elseif condition=" $vo.marking eq '' "/>
+                      <img src="{$vo.marklogo}" width="50" height="50"/>
+					</if></td>
+					<td>{$vo.markname}</td>
+					<td>{$vo.uniontypecode}</td>
+					<td>{$vo.marktype}</td>
+					<td>申请</td>
+					<td>{$vo.markcode_key}</td>
+					<td>{$vo.state}</td>
+					<td>{$vo.adv}</td>
+					<td>查看</td>
+				</tr>
+			</foreach>
+		</table>
+		<div class="c-pages tc">
+							<span>{$page}</span>
+						</div>
+ </div>
+</div>
+
+</body>
+</html> 
+
+<script>
+function jj(id){
+	if(confirm("是否解绑?")){
+		window.location.href="index.php?g=Admin&m=Userinfo&a=jie&id="+id;
+	}
+	
+}
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>base64加密</title>
+<form action="./1.php">
+	<input type="password" placeholder="请输入密码" id="mima"   name="baba" />
+	<input type="button" value="提交" id="tijiao" />
+</form>
+
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="base64.js"></script>
+<script type="text/javascript">
+
+		$("#tijiao").click(function(){
+			var mm = $("#mima").val();
+			//alert(mm);
+			//加密
+			var b = new Base64();  
+			var str1 = b.encode(mm);  
+			alert("base64 encode:" + str1);
+	　　　　//解密
+			var str2 = b.decode(str1);
+			alert("base64 decode:" + str2);
+			
+			$.ajax({
+				 type: "POST",
+				 url: "./1.php",
+				 data: {'baba':str1},
+				 success: function(data){
+					 alert(333);
+					 alert(data);
+				 }
+
+			})
+		})
+
+
+</script>  
+</head>
+
+<body>
+</body>
+</html>

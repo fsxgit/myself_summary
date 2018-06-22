@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_common.css"/>
+    <style>
+        body,html{width:100%; height:100%;}
+        .imgShodaw{width:100%; height:100%; background: rgba(0,0,0,0.7); position:fixed; left:0; top:0; display: none;}
+        .imgBoxNei{width:600px; height:400px;  text-align: center;  display: table-cell;  vertical-align:middle; font-size: 0;}
+        .imgs{padding-bottom: 300px;}
+        .imgs  img{width:300px; height:auto;}
+        .imgBoxNei img{max-width:100%; height:auto; max-height:100%;}
+        .imgBoxWai{width:600px; height:400px;  margin:0 auto;}
+        .txt{font-size: 80px; position: fixed; top:300px; left:300px;}
+    </style>
+</head>
+<body>
+<div class="imgs">
+    <span class="txt">请点击图片</span>
+    <img src="images/1.jpg" class="fximgs" alt=""/>
+    <img src="images/2.jpg" class="fximgs"  alt=""/>
+    <img src="images/3.jpg" class="fximgs" alt=""/>
+    <img src="images/4.jpg" class="fximgs"  alt=""/>
+</div>
+
+
+<div class="imgShodaw">
+    <div class="imgBoxWai">
+        <div class="imgBoxNei"><img src="images/1.jpg" alt=""/></div>
+    </div>
+
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script >
+  var oShodaw = $(".imgShodaw");
+  var oWai = $(".imgBoxWai");
+  var oImg = $(".imgBoxNei img");
+  var aImgs = $(".fximgs");
+    var oMT = ($(window).height()- oWai.height())/2;
+//  alert(oMT);
+
+  oWai.css("marginTop",oMT);
+
+  aImgs.on("click",function(){
+      var src = $(this).attr("src");
+      oImg.attr("src",src);
+      oShodaw.show();
+  })
+  oShodaw.on("click",function(){
+      oShodaw.hide();
+  })
+
+</script>
+</body>
+</html>

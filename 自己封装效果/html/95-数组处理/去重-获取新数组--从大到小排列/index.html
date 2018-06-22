@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去除数组中重复的值，获取新数组</title>
+    <style>
+        body{padding:60px 100px; }
+        div{border:1px solid #ccc; padding:60px; margin:10px;}
+        .box{color: #ff2f15; border: 1px solid #eee; padding:20px; font-size: 20px;}
+    </style>
+</head>
+<body>
+<h2>参考：<a href="http://www.cnblogs.com/longze/archive/2012/11/27/2791230.html" target="_blank">点这里</a></h2>
+<p>数组：[9,2,9,8,12,3,25,8,1,2,2,6,11]</p>
+<div>
+    <button class="btn1">点击获取新数组</button>
+    <p class="box"></p>
+</div>
+<div>
+    <button class="btn2">点击获取新数组,并按照从小到大的顺序排列</button>
+
+    <!--首字母-->
+    <p class="box1 box"></p>
+    <!--倒序-->
+    <p class="box2 box"></p>
+    <!--正序-->
+    <p class="box3 box"></p>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    var arr = [9,2,9,8,12,3,25,8,1,2,2,6,11];
+    var n_arr = [];
+    $(".btn1").click(function(){
+        $.each(arr,function(i,v){
+            var beTrue = false;
+            $.each(n_arr,function(ii,vv){
+                if(v == vv){
+                    beTrue = true;
+                }
+
+            });
+            if(!beTrue){
+                n_arr.push(v);
+            }
+        });
+        $(this).next("p").text(n_arr);
+    });
+
+
+
+
+    $(".btn2").click(function(){
+        //去重
+        $.each(arr,function(i,v){
+            var beTrue = false;
+            $.each(n_arr,function(ii,vv){
+                if(v == vv){
+                    beTrue = true;
+                }
+
+            });
+            if(!beTrue){
+                n_arr.push(v);
+            }
+        });
+
+        //排序
+        var n2_arr = n_arr.sort();
+        $(".box1").text(n2_arr);
+        var n3_arr = n_arr.sort(function(a,b){
+            return b-a;
+        });
+        $(".box2").text(n3_arr);
+        var n4_arr = n_arr.sort(function(a,b){
+            return a-b;
+        });
+        $(".box3").text(n4_arr);
+
+
+
+
+
+    });
+
+</script>
+</body>
+</html>

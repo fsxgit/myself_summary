@@ -1,0 +1,29 @@
+/*保证绝对定位样式 start*/
+html{height:100%;overflow:hidden;}
+body{height:100%;overflow:hidden;margin:0; background: #fff;}
+/*保证绝对定位样式 end*/
+.header{height:1.2rem; background:#fff; border-bottom:1px solid #a7a3a1; position: relative;}
+.oleftImg{width:0.29rem; height:0.59rem; float:left; font-size:0; margin-top:0.3rem; margin-left:0.5rem;}
+.oleftImg img{width:100%; height:100%; display: block;}
+
+.jiaobiao{width:0.656rem; height:0.56rem; display: inline-block; margin-left:0.1rem; }
+.jiaobiao img{width:100%; height:100%; display:block;}
+.KindTitle{font-size:0.5rem; float:right;width:auto; position:absolute;display:none;}
+.kinds{width:100%;height:auto; background: #000; opacity:0.9; position:absolute; left:0; top:1.23rem; display: none; z-index: 10;}
+.kinds p{width:9.16rem; margin:0 auto; height:1.5rem; color:#a7a3a1; font-size:0.5rem; line-height: 1.5rem; border-bottom:1px solid #a7a3a1; text-align: center;}
+.swiper-container{height:100%; }
+.swiper-slide{height:1.44rem; padding-left:3rem;}
+.box{width:100%; height:auto;overflow: hidden;}
+.boxRight{width:100%;  height:auto; text-align: left;}
+.boxRight .TitRight{width:100%;line-height: 1.444rem;  font-size:0.39rem; border-bottom:1px solid #a7a3a1; padding-left:0.63rem;display:table;}
+.boxRight .xingHao {float: left; margin-right:0.2rem;}
+.boxRight .mode div{width:100%; line-height: 1.444rem;  font-size:0.39rem;border-left:1px solid #a7a3a1; border-bottom:1px solid #a7a3a1;background: #fff; }
+.boxRight .mode span{ display:inline-block; width:0.48rem; height:0.48rem; line-height: 0.48rem;  font-size:0.3rem; text-align: center; color: #fff; border-radius:0.037rem; margin-right:0.407rem;}
+.boxRight .mode{display: none;}
+.boxRight .current{display:block;}
+ .swiper-wrapper .swiper-slide:nth-of-type(1) span{background: #f05800;}
+ .swiper-wrapper .swiper-slide:nth-of-type(2) span{background: #ffb700;}
+ .swiper-wrapper .swiper-slide:nth-of-type(3) span{background: #38a4f3;}
+.n{background: #e2e2e2;}
+
+

@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*
+***移动端样式重置
+全局引用***
+ */
+*{margin: 0; padding: 0;}
+div,span,p,img,button,i,header{
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+body{ font-family:"PingFang SC","Microsoft Yahei","hiragino sans gb", Helvetica, Arial, Tahoma; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+body,div,a,span,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,form,button,input,textarea,th,td,img{margin: 0; padding: 0; outline:0; font-style:normal; border:none;font-weight:normal; line-height: 100%;}
+body::-webkit-scrollbar{width:0;}
+table {border-collapse:collapse;border-spacing: 0}
+caption, th, td { text-align: left; font-weight: normal}
+a{ text-decoration:none;cursor:pointer;color:#999;}
+input{ border:none;}
+ol, ul ,li{list-style: none;}
+i,em,strong{font-style:normal;}
+img{  max-width: 100%;vertical-align: middle;border:none; display: block;}
+input,select:focus{
+    border-width:0;
+    border-color:white;
+    border-style:none;
+    background:none;
+    border:none;
+    outline:medium;
+    alpha:0;
+    appearance:none;
+    -webkit-appearance:none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-modify:read-write-plaintext-only;
+}
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+/*修改input的placeholder的默认颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #999;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #999;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #999;
+}
+/*html{margin:0; padding:0; width:100%; height:100%; position: fixed; left:0; top:0; overflow: hidden !important; }*/
+html{margin:0; padding:0; width:100%; height:100%; overflow: hidden !important; }
+body{width:100%; height:100%;  overflow: auto;}
+/*公共样式  开始*/
+.fl{float:left;}
+.fr{float:right;}
+.oh{overflow:hidden;}
+.cb{clear:both;}
+.tc{text-align:center;}
+.tl{text-align:left;}
+.tr{text-align:right;}
+.bc{margin-left:auto; margin-right:auto;}
+.fz0{font-size:0;}
+.pr{position:relative;}
+.none{display: none;}
+/*main的宽度是由页面来决定的*/
+.main{width:92%; margin-left:auto; margin-right:auto;}
+.fxBox{width:100%; max-width: 540px; height:auto; overflow: hidden;  margin-left:auto; margin-right:auto; padding-top: 64px;}
+/*.fxBox {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 64px;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    /*width: 100%;*/
+/*}*/
+
+.html2{background: #ececec;}
+.pb50{padding-bottom: 50px;}
+/*公共样式  结束*/
+
+a,button,input{
+    -webkit-tap-highlight-color: transparent;
+    outline:none;
+}
+
+/*header*/
+header{position: fixed; left:0; top:0; height:32px;  width: 100%; padding-top: 32px; text-align: center; color: #222; font-size: 18px; z-index: 20; background: #fff; border-bottom: 1px solid #b9b9b9;}
+header .left{display: block; width:40px;  height:40px; position: absolute;  top:20px; background: url("../images/icon_back.png") no-repeat center center;background-size:21px 21px;  }
+header .tit{width: 100%; text-align: center; font-size: 16px;}
+header .right{position:absolute; right:5px; top:20px;  width:40px; height:40px; background: url("../images/icon_other.png") no-repeat center center;background-size:21px 21px;  }
+#lv_dot{width:10px; height: 10px; border-radius: 50%; background: #ff4141; position: absolute; right: -3px; top:-3px;}
+/*header end*/
+/*苹方字体*/
+/*/!*苹方-简 常规体*!/*/
+/*div{font-family: PingFangSC-Regular, sans-serif;}*/
+/*/!*苹方-简 中粗体*!/*/
+/*div{font-family: PingFangSC-Semibold, sans-serif;}*/
+/*/!*苹方-简 中黑体*!/*/
+/*.div{font-family: PingFangSC-Medium, sans-serif;}*/
+/*/!*字体 end*!/*/
+
+/*microscroll 样式*/
+/*修改自带样式*/
+#setTime_dummy{display: none; z-index: -1; position: relative; left:-1000px; bottom:-1000px;}
+.dwb-s{float: right; border-left:1px solid #ccc; box-sizing: border-box;}
+.dwb-s .dwb{color: #2ea0f7 !important; font-size: 15px  !important; font-family: "PingFangSC-Semibold", sans-serif; }
+.dwb-c .dwb{color: #222 !important; font-size: 15px  !important; font-family: "PingFangSC-Semibold", sans-serif; }
+.dwb-c .dwb-a,.dwb-s .dwb-a{background: #eee !important;}
+.android-ics .dw .dwwol{width: 100%; left: 0; border-color:#e6e6e6; margin-top: -31px;}
+.android-ics .dwhl{padding:0 !important; width: 100%; padding-bottom: 10px;}
+.android-ics .dwv{border:none; padding-bottom: 30px; line-height: 56px; font-size: 18px; color: #333; font-family: "PingFangSC-Semibold", sans-serif;  font-weight: 600;}
+.android-ics .dw .dwb{height: 45px; line-height: 45px;}
+.dwbg{border-radius: 8px; overflow: hidden;}
+.dwo{opacity: 0.4;}
+.dwbc{margin-top: 10px;}
+/*microscroll 样式 end*/
+
+

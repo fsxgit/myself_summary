@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        frame[name="meau"]{border-bottom:1px solid #ccc;}
+        frame[name="meauLeft"]{border-right:2px solid #ccc;}
+    </style>
+</head>
+<!--一、frameset-->
+<!--1. 属性-->
+<!--①border-->
+<!--设置框架的边框粗细。-->
+<!--②bordercolor-->
+<!--设置框架的边框颜色。-->
+<!--③frameborder-->
+<!--设置是否显示框架边框。设定值只有0、1；0 表示不要边框，1 表示要显示边框。-->
+<!--④cols-->
+<!--纵向分割页面。其数值表示方法有三种：“30%、30（或者30px）、*”；数值的个数代表分成的视窗数目且数值之间用“,”隔开。“30%”表示该框架区域占全部浏览器页面区域的30%；“30”表示该区域横向宽度为30像素；“*”表示该区域占用余下页面空间。例如：cols="25%,200,*" 表示将页面分为三部分，左面部分占页面30%，中间横向宽度为200像素，页面余下的作为右面部分。-->
+<!--⑤rows-->
+<!--横向分割页面。数值表示方法与意义与cols相同。-->
+<!--⑥framespacing-->
+<!--设置框架与框架间的保留的空白距离。-->
+<!--2. 用例-->
+<!--<frameset(框架集) cols="213,*" frameborder(帧边缘)="no" border="0" framespacing="0">-->
+<!--二、frame-->
+<!--1. 属性-->
+<!--①name-->
+<!--设置框架名称。此为必须设置的属性。-->
+<!--②src-->
+<!--设置此框架要显示的网页名称或路径。此为必须设置的属性。-->
+<!--③scrolling-->
+<!--设置是否要显示滚动条。设定值为auto, yes, no。-->
+<!--④bordercolor-->
+<!--设置框架的边框颜色。-->
+<!--⑤frameborder-->
+<!--设置是否显示框架边框。设定值只有0、1；0 表示不要边框，1 表示要显示边框。-->
+<!--⑥noresize-->
+<!--设置框架大小是否能手动调节。-->
+<!--⑦marginwidth-->
+<!--设置框架边界和其中内容之间的宽度。-->
+<!--⑧marginhight-->
+<!--设置框架边界和其中内容之间的高度。-->
+<!--⑨width-->
+<!--设置框架宽度。-->
+<!--⑩height-->
+<!--设置框架高度。-->
+<!--2. 用例-->
+<!--<frame(框架) src="???" name="topFrame" scrolling(成卷形)="No" noresize="noresize" marginwidth="10" marginhight="10" width="400" height="800" />-->
+<!--&lt;!&ndash;切记 不能写body&ndash;&gt;-->
+<!--frameset 在一个页面中设置一个或多个框架 不能嵌套在body标签里-->
+<frameset rows="80px,*" frameborder="no" border="0" framespacing="0">
+    <frame name="meau" src="pages/top.html">
+    <frameset cols="20%,80%">
+        <frame name="meauLeft" src="pages/l1.html">
+        <frame name="content" src="pages/1.html">
+    </frameset>
+</frameset>
+</html>

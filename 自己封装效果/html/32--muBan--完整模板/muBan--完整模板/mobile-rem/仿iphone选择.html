@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>详情</title>
+    <script src="js/f_js.js"></script>
+    <link rel="stylesheet" href="css/f_style.css"/>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <link rel="stylesheet" href="css/fn_fang.css"/>
+    <style>
+        html,body{ background: #efeff4;}
+        .swiper-container{width:100%;height:100px;  font-size:0; }
+        .swiper-wrapper{width:auto; height: 100%; font-size:0;}
+        .swiper-slide{width:100%;height:30px;color: #fff; text-align: center; line-height:30px; font-size: 20px; background: #f05800; }
+        .textBox{width:100%; height:100px; background: #000; position:relative;}
+        .swiper-slide-active{background:#ccc;}
+        .shadowBox{position:absolute; width:100%; height:100%; left:0; top:0; background:rgba(0,0,0,0.5);  z-index: 1000;}
+    </style>
+</head>
+<body>
+<div class="Bbox">
+    <!--banner 轮播 开始-->
+    <div class="swiper-container textBox">
+        <div class="shadowBox">
+
+        </div>
+        <div class="swiper-wrapper ">
+            <div class="bannerimg swiper-slide">1111111111</div>
+            <div class="bannerimg swiper-slide">2222222222</div>
+            <div class="bannerimg swiper-slide">3333333333</div>
+            <div class="bannerimg swiper-slide">4444444444</div>
+            <div class="bannerimg swiper-slide">5555555555</div>
+        </div>
+    </div>
+    <!--banner 轮播 结束-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script>
+    bannerLunBo_xq();
+
+    function bannerLunBo_xq(){
+        //轮播开始
+        var myswiper = new Swiper('.swiper-container', {
+            autoplay:3000,
+            direction : 'vertical',
+            initialSlide :1,
+            slidesPerView: 3,
+            centeredSlides : true,
+            pagination : '.swiper-pagination',
+            autoplayDisableOnInteraction : false
+        });
+    }
+
+</script>
+</body>
+</html>

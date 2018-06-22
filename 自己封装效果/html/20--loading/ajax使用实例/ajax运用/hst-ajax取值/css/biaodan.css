@@ -1,0 +1,64 @@
+
+@charset "utf-8";
+/*公共样式*/
+/*Css reset*/
+body, div,img, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0;}
+address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li {list-style:none;}
+a{ text-decoration:none;}
+th{text-align:left;}
+em,i{font-style: normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before, q:after{content:' '}
+abbr,acronym{border:0;}
+img{max-width: 100%; max-height:100%;}
+button,input,select,option,textarea{margin:0px; padding: 0px; border: none;outline: none;}
+body{ font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+
+.box{width:100%; height:auto;overflow: hidden;}
+/*取消交易Cannel.html 开始*/
+.CTitle{width:100%; height:1.296rem; line-height:1.296rem; font-size:0.3333rem; background: #efeff4; padding-left: 0.46rem;  border-bottom:1px solid #dcdcdc;}
+.CselectBox p{width:100%; height:1.296rem;  line-height:1.296rem; font-size:0.425rem; margin-left: 0.46rem; border-bottom:1px solid #dcdcdc;}
+.CselectBox p.nbb{border-bottom: none;}
+.CselectBox p.active{ background:url("../images/chooseBg.png") no-repeat 8.503rem center; background-size:0.546rem 0.416rem;}
+.efe{background: #efeff4; height:0.555rem; width:100%;}
+.CTxtBox{width:100%; height:auto; padding-top:0.46rem;}
+.CTxtBox textarea{width:80%; height:3.185rem; margin-left: 0.46rem; background: url("../images/bi.png") no-repeat 0 0; background-size: 0.416rem; padding-left:0.616rem; border: none; line-height:0.625rem; font-size: 0.425rem;}
+.CBot{width:100%; height:auto; overflow: hidden; text-align: center; margin-top:1.11rem;}
+.CBot button{width:8.88rem; height:1.296rem; background: #289b56; border-radius:2px; color: #fff; font-size: 0.425rem;}
+/*取消交易Cannel.html 结束*/
+/*开始交易Btrade.html 开始*/
+.f38{font-size: 0.388rem; color:#7f7f7f;}
+.bb{border-bottom:1px solid #dcdcdc;}
+.wait{width:100%; height:1.444rem; line-height:1.444rem; background: url("../images/wait.png") no-repeat 0 0.4444rem; background-size:2.796rem 0.6666rem; font-size:0.315rem; color:#fff; padding-left:0.3888rem;}
+.Bcontent{width:9.611rem; height:auto; overflow: hidden; margin-left:0.3888rem;}
+.Bcontent div{width:100%; height:1.629rem; line-height:1.629rem; font-size:0.4259rem;}
+.Bcontent .name{margin-right:0.907rem;}
+.Bcontent button{width:2.35rem; height:0.833rem; font-size:0.4259rem; margin-left:1.259rem; border:1px solid #58ab22; color:#58ab22;  background: #fff; border-radius:2px;}
+.flower{width: 100%; height:3.2rem; overflow:hidden;text-align: center; padding-top: 1.8rem; border-top: 1px solid #dcdcdc;}
+.Bbot{width: 100%; height:1.333rem; line-height:1.333rem; font-size: 0.407rem;border-top:1px solid #ccc; position: absolute; left:0; bottom:0;}
+.Bbot span{display:inline-block; width:50%; height: 100%; text-align: center; float: left; color:#58ab22; background: #fff;}
+.Bbot span.active{ background:#58ab22; color:#fff;}
+/*开始交易Btrade.html 结束*/
+/*完成记录CompNote.html 开始*/
+.CNbox{width:100%; height:auto;overflow:hidden;border-bottom:1px solid #dcdcdc;}
+.CNbox .phone{width: 100%;font-size: 0.407rem; margin-top:0.444rem;}
+.CNbox .mode{width: 100%;margin-left:0.388rem;}
+.CNbox .time{width: 100%; margin-top:0.37rem; font-size: 0.277rem; padding-bottom:0.444rem; }
+.CNbox .WP{font-size: 0.333rem; margin-top: 0.314rem;}
+.CNbox .num{margin-right:3.19rem;}
+.CNbox i{font-size:0.407rem; color: #ff7d23;}
+.CNbox .WSF{ display:inline-block; width:1.3rem; height:0.537rem; line-height:0.537rem; border-radius: 0.2514rem;  background: #eee url("../images/cellphone.png") no-repeat 0.24rem center; background-size:0.24rem 0.277rem; padding-left:0.6rem; margin-right:0.2rem; }
+/*完成记录CompNote.html 结束*/
+/*绑定手机号BundPhone.html 开始*/
+.BPbox{width:100%; height:auto;overflow:hidden; font-size: 0.3888rem;}
+.BPbox .phoneNum{width:100%; height:1.35rem; line-height:1.35rem;overflow:hidden; background: #fff; margin-top: 0.611rem; padding-left:0.46rem; }
+.BPbox .phoneNum button{width:2.68rem; height:0.72rem; background:#fff; border: 1px solid #58ab22; color:#58ab22; border-radius:0.4rem; margin-left:0.46rem; }
+.BPbox input{width:3.7rem;margin-left:0.83rem; font-size:0.4rem; }
+.BPbox .code{width:100%;  height:1.35rem; line-height:1.35rem;overflow:hidden; background: #fff; margin-top: 0.611rem; padding-left:0.46rem;}
+.BPbox .btn{width:100%; height:auto;overflow:hidden; text-align: center;margin-top: 0.926rem;}
+.BPbox .btn button{ width:8.9rem; height:1.33rem; border-radius:0.06rem; background:#58ab22;color:#fff; font-size: 0.4rem;  }
+/*绑定手机号BundPhone.html 结束*/
+

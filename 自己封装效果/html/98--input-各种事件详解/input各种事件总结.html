@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title></title>
+</head>
+<body>
+<h1></h1>
+    <input type="number" name="num" min="1" max="100" />
+    <input type="text" name="change" placeholder="请输入内容,我是change事件" />
+    <input type="text" name="keyup" placeholder="请输入内容，我是keyup事件" />
+    <input type="text" name="keydown" placeholder="请输入内容，我是keydown事件" />
+    <input type="text" name="keypress" placeholder="请输入内容，我是keypress事件" />
+    <input type="text" name="blur" placeholder="请输入内容，我是blur事件" />
+    <input type="text" name="focus" placeholder="请输入内容，我是focus事件" />
+    <input type="text" name="bian" placeholder="内容变化就触发事件" />
+    <button>蒂娜我1</button>
+    <button class="btn2">蒂娜我2-我可以触发</button>
+    <h1 style="color: red;">
+        <p>注意：如果是通过jQuery改变inuput的值（如：$("input").val("123")），这些事件都不会触发。</p>
+        <p>如果想要jq赋值也触发改变效果，可以在jq改变后，用jq触发一次此事件：例如： $("input").blur();</p>
+    </h1>
+    <div style="color: blue;">
+        <h2>API</h2>
+        <p>change：内容改变触发，必须是失去焦点时才会触发</p>
+        <p>input propertychange：内容改变触发，键盘抬起时触发</p>
+        <p>keyup：键盘抬起时触发,适用于手机端，一般内容改变时触发，常用这个</p>
+        <p>keydown：键盘按下时触发</p>
+        <p>keypress：键盘按下时触发</p>
+        <p>blur：失去焦点时触发</p>
+        <p>focus：获取焦点时触发</p>
+    </div>
+<script src="js/jquery.min.js"></script>
+<script>
+    $("input[name='num']").keyup(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='change']").change(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keyup']").keyup(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keydown']").keydown(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keypress']").keypress(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='blur']").blur(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='bian']").on("input propertychange",function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+
+    $("button").click(function(){
+        $("input[name='bian']").val("123456");
+    });
+    $(".btn2").click(function(){
+        $("input[name='blur']").val("哈哈哈哈");
+        $("input[name='blur']").blur();
+    })
+</script>
+</body>
+</html>

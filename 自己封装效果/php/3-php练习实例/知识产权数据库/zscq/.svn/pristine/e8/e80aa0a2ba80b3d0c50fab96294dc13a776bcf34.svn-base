@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标查询</title>
+    <link rel="stylesheet" href="../css/up-style.css" type="text/css" />
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand2.css"/>
+    <link rel="stylesheet" type="text/css" href="../js/tree_themes/SimpleTree.css"/>
+    <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/SimpleTree.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".st_tree").SimpleTree({
+//		click:function(a){
+//			if(!$(a).attr("hasChild"))
+//				alert($(a).attr("ref"));
+//		}
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="brand-gl main-hou c333">
+        <div class="bgl-nav bb">
+            <a href="javascript:;">商标列表</a>
+            <a href="javascript:;" class="active">查询商标</a>
+            <a href="javascript:;">查询列表</a>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20 bdn">注册步骤</h1>
+            <div class="bgl-cont bgl-steps">
+                <span class="bgl-step">1</span>
+                <span>用户提交商标查询</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">2</span>
+                <span>顾问查询商标</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">3</span>
+                <span>顾问反馈结果</span>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1">上传商标</h1>
+            <div class="bgl-cont oh">
+                <div class="brand-chuan-left fl">
+                    <div class="brand-chuan-left-top oh">
+                        <input type="text" class="input-txt fl" placeholder="请输入您要注册的商标名称"/>
+                        <input type="button" class="blue-big-btn fl" value="预览"/>
+                    </div>
+                    <div class="brand-chuan-left-bot oh">
+                        <div class="wangge fl">
+                            <img src="../images/yl.png" width="200" height="200" alt=""/>
+                        </div>
+                        <div class="chuanSay fl">
+                            <p class="txt">jpg格式，大小不超过200K 像素介于400×400px至1500×1500px之间 尺寸介于5×5CM至10×10CM之间</p>
+                            <p><input type="button" class="blue-big-btn fl"  onclick="shangchuan();" value="上传图片"/></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-chuan-right fl">
+                    <div class="img fl"><img src="../images/say.png" width="51" height="80" alt=""/></div>
+                    <div class="txt fl">
+                        <h2>商标图样注意事项</h2>
+                        <p>1、如果您没有商标设计图，请输入商标名称，点击预览，我们会生成一个商标图样，如果您 有商标设计图，请输入商标名称后，上传商标图</p>
+                        <p>2、我们将完全依照您提供的商标标样文字、图案、颜色提交至国家商标局。请您确认后上传。 </p>
+                        <p>3、如果上传图样为彩色，取得注册后，只能按照该彩色图样使用。  </p>
+                        <p>4、如果上传图样为黑白，取得注册后，可以更换商标颜色使用，建议上传黑白图样。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <div class="bgl-cont ">
+                <div class="c-rl-cont-ts">
+                    <p class="ts1">1、顾问会按照您提交的名称和商标样式进行查询，请慎重填写。 </p>
+                    <p>2、如果没有商标样式，请输入名称后点击【预览】将根据商标的名称自动。</p>
+                </div>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20 bdn">查询方式</h1>
+            <div class="bgl-cont">
+                <div class="bgl-cx-styles">
+                    <span class="active">智能推荐</span>
+                    <span>委托顾问查询</span>
+                    <span>自主选择分类</span>
+                </div>
+                <p class="bgl-cx-styles-say">您只需选择领域及行业，系统会自动推荐适合注册的分类。</p>
+            </div>
+        </div>
+        <!--这里是查询方式的三种选择所需要显示部分的盒子-->
+        <div class="tj-styles-box">
+            <!--智能推荐-->
+            <div class="tj-mode active">
+                <div class="bgl-mode">
+                    <h1 class="c-h1">选择领域及行业</h1>
+                    <div class="bgl-cont">
+                        <div class="tj-styles-box1 fl">
+                            <div class="c-fp-sel-box ly-width">
+                                <input type="text" readonly="readonly" class="c-fp-sel-value" placeholder="选择所在领域"/>
+                                <span class="downUp"></span>
+                                <div class="c-fp-sel-p ly-width">
+                                    <P class="active">手机</P>
+                                    <P>密保</P>
+                                </div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="tj-styles-box2 fl">
+                            <div class="c-fp-sel-box ly-width">
+                                <input type="text" readonly="readonly" class="c-fp-sel-value" placeholder="选择所在领域"/>
+                                <span class="downUp"></span>
+                                <div class="c-fp-sel-p ly-width">
+                                    <P class="active">通讯信息</P>
+                                    <P>密保</P>
+                                </div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="cb"></div>
+                    </div>
+                </div>
+                <div class="bgl-mode ">
+                    <h1 class="c-h1">选择领域及行业</h1>
+                    <div class="bgl-cont ">
+                        <div class="hang-lei-box">
+                            <!--添加类的盒子 第2步盒子-->
+                            <div class="add-step2-box">
+                                <!--一个类-->
+                                <!--<div class="hang-lei-mode f12">-->
+                                    <!--<h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1>-->
+                                    <!--&lt;!&ndash;第3步 开关&ndash;&gt;-->
+                                    <!--<div class="oh">-->
+                                        <!--<div class="hang-lei-cont addReduce-cont4 fl">-->
+                                            <!--<div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>-->
+                                        <!--</div>-->
+                                        <!--<span class="lei-add addReduce2 active fl">+</span>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash;添加类的盒子 第3步盒子&ndash;&gt;-->
+                                    <!--<div class="lei-kai-box addReduce-cont2">-->
+                                        <!--<div class="lei-kai-tab">-->
+                                            <!--<p class="lei-tab active">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                        <!--</div>-->
+                                        <!--<div class="lei-kai-cont addReduce-cont3">-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash;添加类的盒子 第3步盒子 end&ndash;&gt;-->
+                                <!--</div>-->
+                                <!--一个类 end-->
+                                <!--一个类-->
+                                <!--<div class="hang-lei-mode f12">-->
+                                    <!--<h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1>-->
+                                    <!--&lt;!&ndash;第3步 开关&ndash;&gt;-->
+                                    <!--<div class="oh">-->
+                                        <!--<div class="hang-lei-cont addReduce-cont4 fl">-->
+                                            <!--<div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>-->
+                                        <!--</div>-->
+                                        <!--<span class="lei-add addReduce2 active fl">+</span>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash;添加类的盒子 第3步盒子&ndash;&gt;-->
+                                    <!--<div class="lei-kai-box addReduce-cont2">-->
+                                        <!--<div class="lei-kai-tab">-->
+                                            <!--<p class="lei-tab active">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                            <!--<p class="lei-tab">4301 提供餐饮，住宿服务</p>-->
+                                        <!--</div>-->
+                                        <!--<div class="lei-kai-cont addReduce-cont3">-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                            <!--<span>第1类 道路、池塘和湖泊、河流、高</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash;添加类的盒子 第3步盒子 end&ndash;&gt;-->
+                                <!--</div>-->
+                                <!--一个类 end-->
+                            </div>
+                            <!--添加类的盒子 第2步盒子 end-->
+                            <div class="hang-lei-mode f12">
+                                <h1 class="lei-h1">继续添加商品类别</h1>
+                                <div class="hang-lei-cont">
+                                    <!--展开合并第1步-->
+                                    <!--第1步开关-->
+                                    <span class="lei-reduce  addReduce">-</span>
+                                    <div class="lei-xu-cont addReduce-cont1">
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                        <span>第1类 道路、池塘和湖泊、河流、高</span>
+                                    </div>
+                                    <!--展开合并第一步 end-->
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--委托顾问查询/-->
+            <div class="tj-mode"></div>
+            <!--自主选择分类-->
+            <div class="tj-mode">
+                <div class="zizhu-box oh">
+                    <div class="zizhu-left-nav">
+                        <!--树状 菜单-->
+                        <div class="st_tree">
+                            <ul>
+                                <li><a href="#" ref="hyjm">欢迎界面</a></li>
+                                <li><a href="#" ref="xtgl">系统管理</a></li>
+                                <ul show="true">
+                                    <li><a href="#" ref="yhgl">用户管理</a></li>
+                                    <ul show="true">
+                                        <li><a href="#" ref="yhgl">用户管理</a></li>
+                                        <li><a href="#" ref="rzck">日志查看</a></li>
+                                    </ul>
+                                    <li><a href="#" ref="rzck">日志查看</a></li>
+                                    <ul show="true">
+                                        <li><a href="#" ref="yhgl">用户管理</a></li>
+                                        <li><a href="#" ref="rzck">日志查看</a></li>
+                                    </ul>
+                                </ul>
+                                <li><a href="#" ref="ckgl">仓库管理</a></li>
+                                <ul>
+                                    <li><a href="#" ref="kcgl">库存管理</a></li>
+                                    <li><a href="#" ref="shgl">收货管理</a></li>
+                                    <li><a href="#" ref="fhgl">发货管理</a></li>
+                                    <ul>
+                                        <li><a href="#" ref="yhgl">用户管理</a></li>
+                                        <li><a href="#" ref="rzck">日志查看</a></li>
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </div>
+                        <!--树状 菜单 end-->
+                    </div>
+                    <div class="zizhu-right-cont">
+                        <div class="hang-lei-mode">
+                            <h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1>
+                            <div class="hang-lei-cont">
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-add"><img src="../images/add1.png" width="60" height="28" alt=""/></div>
+                            </div>
+                        </div>
+                        <div class="hang-lei-mode">
+                            <h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1>
+                            <div class="hang-lei-cont">
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-add"><img src="../images/add1.png" width="60" height="28" alt=""/></div>
+                            </div>
+                        </div>
+                        <div class="hang-lei-mode">
+                            <h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1>
+                            <div class="hang-lei-cont">
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>
+                                <div class="lei-add"><img src="../images/add1.png" width="60" height="28" alt=""/></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--这里是查询方式的三种选择所需要显示部分的盒子 end-->
+        <div class="bgl-mode bt">
+            <div class="bgl-cont tr">
+                <input type="button" class="blue-big-btn" value="立即办理"/>
+            </div>
+        </div>
+    </div>
+
+    <!--查询商标上传图片功能-->
+    <div class="shadow"></div>
+    <div class="container">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">上传图片</div>
+            <div class="c-tan-close fr"><img src="../images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <div class="imageBox">
+            <div class="thumbBox"></div>
+            <div class="spinner" style="display: none"></div>
+        </div>
+        <div class="action">
+            <!-- <input type="file" id="file" style=" width: 200px">-->
+            <div class="new-contentarea tc"> <a href="javascript:void(0)" class="upload-img">
+                <label for="upload-file">上传图像</label>
+            </a>
+                <input type="file" class="" name="upload-file" id="upload-file" />
+            </div>
+           <div class="oh">
+				<span id="btnZoomOut" class="Btnsty_peyton"><img src="../images/add4.png" /></span>
+				<span id="btnZoomIn" class="Btnsty_peyton"><img src="../images/add3.png" /></span>
+               <!-- <input type="button" id="btnZoomIn" class="Btnsty_peyton" value=""  >
+               <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="" > -->
+           </div>
+        </div>
+		<div class="tc pt10 pb30 c999 f12">请上传上传格式JPG、JPEG、PNG,大小不超过200K</div>
+        <div class="btnCrop_box bt pt20 pb20 oh">
+            <input type="button" id="btnCrop"  class="Btnsty_peyton" value="确定">
+        </div>
+        <!--<div class="cropped"></div>-->
+    </div>
+    <!--查询商标上传图片功能 end-->
+
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+//    第1步
+$(".addReduce").click(function(){
+    $(this).toggleClass("active");
+    if($(this).hasClass("active")){
+        $(this).html("-");
+        $(".addReduce-cont1").slideDown();
+    }else{
+        $(this).html("+");
+        $(".addReduce-cont1").slideUp();
+    }
+});
+
+//第2步
+$(".addReduce-cont1 span").click(function(){
+    if($(this).hasClass("active")){
+//        alert(1);
+        return false;
+    }else{
+//        alert(2);
+        $(this).addClass("active");
+        $(".add-step2-box").show();
+        var html1 = $(".add-step2-box").html();
+        html1 += '<div class="hang-lei-mode f12"><h1 class="lei-h1">第35类 广告销售 <span>删除</span></h1><!--第3步 开关--><div class="oh"><div class="hang-lei-cont addReduce-cont4 fl"><div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div></div><span class="lei-add addReduce2 active fl">+</span></div><!--添加类的盒子 第3步盒子--><div class="lei-kai-box addReduce-cont2"><div class="lei-kai-tab"><p class="lei-tab active">4301 提供餐饮，住宿服务</p><p class="lei-tab">4301 提供餐饮，住宿服务</p><p class="lei-tab">4301 提供餐饮，住宿服务</p><p class="lei-tab">4301 提供餐饮，住宿服务</p><p class="lei-tab">4301 提供餐饮，住宿服务</p><p class="lei-tab">4301 提供餐饮，住宿服务</p><p class="lei-tab">4301 提供餐饮，住宿服务</p><p class="lei-tab">4301 提供餐饮，住宿服务</p></div><div class="lei-kai-cont addReduce-cont3"><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span><span>第1类 道路、池塘和湖泊、河流、高</span></div></div><!--添加类的盒子 第3步盒子 end--></div>';
+        $(".add-step2-box").html(html1);
+
+        $(".lei-tab").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+        $(".lei-h1 span").click(function(){
+            $(this).parents(".hang-lei-mode").remove();
+        })
+    }
+
+
+    //第3步
+    $(".addReduce2").each(function(){
+        $(this).click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                $(this).html("+");
+                $(this).parents(".hang-lei-mode").find(".addReduce-cont2").hide();
+            }else{
+                $(this).html("-");
+                $(this).parents(".hang-lei-mode").find(".addReduce-cont2").show();
+            }
+        });
+    })
+//第4步
+
+    $(".addReduce-cont3").each(function(){
+        $(this).find("span").click(function(){
+            if($(this).hasClass("active")){
+//                alert(3);
+                return false;
+            }else{
+//                alert(4);
+                $(this).addClass("active");
+                $(this).parents(".hang-lei-mode").find(".addReduce-cont4").show();
+                var html2 = $(this).parents(".hang-lei-mode").find(".addReduce-cont4").html();
+                html2 += '<div class="lei-name">290074 &nbsp 以果蔬为主的零食小吃 <span class="del"></span></div>';
+                $(this).parents(".hang-lei-mode").find(".addReduce-cont4").html(html2);
+//                点击标签的删除按钮 删除此小标签
+                $(".del").each(function(){
+                    $(this).click(function(){
+//                        alert(11111);
+                        $(this).parents(".lei-name").remove();
+                    })
+                })
+            }
+        });
+
+    })
+
+
+})
+
+
+
+
+
+    $(".bgl-cx-styles span").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+        var i = $(this).index();
+        $(".tj-mode").eq(i).addClass("active").siblings().removeClass("active");
+
+    })
+    $(".bgl-nav a").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+
+    cSelect1();
+    function cSelect1(){
+        var aP = $(".tj-styles-box1 .c-fp-sel-p p"); //下拉的p
+        var apBox = $(".tj-styles-box1 .c-fp-sel-p"); //下拉的盒子
+        var oValue = $(".tj-styles-box1 .c-fp-sel-value"); //选中值存放的地方
+        var oBox = $(".tj-styles-box1 .c-fp-sel-box"); //最外层的盒子
+        oBox.click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                apBox.slideDown();
+            }else{
+                apBox.slideUp();
+            }
+        })
+        aP.click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            oValue.val(val);
+            oBox.removeClass("active");
+            apBox.slideUp();
+            event.stopPropagation();
+        })
+    }
+    cSelect2();
+    function cSelect2(){
+        var aP = $(".tj-styles-box2 .c-fp-sel-p p"); //下拉的p
+        var apBox = $(".tj-styles-box2 .c-fp-sel-p"); //下拉的盒子
+        var oValue = $(".tj-styles-box2 .c-fp-sel-value"); //选中值存放的地方
+        var oBox = $(".tj-styles-box2 .c-fp-sel-box"); //最外层的盒子
+        var txt = aP.eq(0).text();
+        oValue.val(txt);
+        oBox.click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                apBox.slideDown();
+            }else{
+                apBox.slideUp();
+            }
+        })
+        aP.click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            oValue.val(val);
+            oBox.removeClass("active");
+            apBox.slideUp();
+            event.stopPropagation();
+        })
+    }
+</script>
+<!--上传图片-->
+<script type="text/javascript" src="../js/cropbox.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        var options =
+        {
+            thumbBox: '.thumbBox',
+            spinner: '.spinner',
+            imgSrc: 'images/avatar.png'
+        }
+        var cropper = $('.imageBox').cropbox(options);
+        $('#upload-file').on('change', function(){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        })
+        $('#btnCrop').on('click', function(){
+            var img = cropper.getDataURL();
+            $('.cropped').html('');
+            $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
+            $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+            $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
+        })
+        $('#btnZoomIn').on('click', function(){
+            cropper.zoomIn();
+        })
+        $('#btnZoomOut').on('click', function(){
+            cropper.zoomOut();
+        })
+    });
+</script>
+<script>
+    function shangchuan(){
+
+        var L = ($(window).width()-$(".container").width())/2;
+        var T = ($(window).height()-$(".container").height())/2;
+        $(".container").css({"left":L,"top":T});
+        $(".shadow").show();
+        $(".container").fadeIn();
+
+        $(".c-tan-close").click(function(){
+            $(".shadow").hide();
+            $(".container").fadeOut();
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<php>$user = session('userLoginS');if(empty($user)){</php>
+	<a class="hover1" href="{:U('Home/register/login')}">登录</a>
+	<a class="hover2" href="{:U('Home/register/index')}">注册</a>
+<php>}else{</php>
+	<a class="lgsuc" href="javascrpt:;">你好,{$user.username}</a> <a class="hover2" href="{:U('Home/register/loginout')}">退出</a>
+<php>}</php>

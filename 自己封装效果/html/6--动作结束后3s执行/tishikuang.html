@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #tsbox{width:347px; height:70px; position:absolute; left:0; top:0; background: #fff;  border:1px solid #979797; display: none; font-size:12px; color:#333; line-height:70px; text-align: center; box-shadow: 0 0 10px #666; }
+    </style>
+</head>
+<body>
+<button id="btn">点点</button>
+<div id="tsbox">
+    您所选择场景数已达上限，请取消一个场景再次选择。
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var timer = null;
+    $("#btn").click(function(){
+        alt();
+        timer = setTimeout(alt2,2000);
+        var L= ($(document).width()-$("#tsbox").width())/2;
+        var T= ($(window).height()-$("#tsbox").height())/2;
+        $("#tsbox").css({left:L,top:T});
+    });
+    function alt(){
+        $("#tsbox").fadeIn();
+    }
+    function alt2(){
+        $("#tsbox").fadeOut();
+    }
+</script>
+</body>
+</html>

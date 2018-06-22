@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>侧边栏</title>
+	<link rel="stylesheet" type="text/css" href="css/Slide_normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/Slide_default.css">
+	<link rel="stylesheet" href="css/Slide_styles.css">
+	<link rel="stylesheet" href="css/Slide_fx_gai.css">
+</head>
+<body>
+	<nav id="menu" class="menu">
+
+    </nav>
+    <main id="main" class="panel">
+    	<button class="btn-hamburger js-slideout-toggle">
+          <span class="tooltip">Open slideout</span>
+        </button>
+    </main>
+	
+	<script type="text/javascript" src="js/slideout.min.js"></script>
+	<script type="text/javascript">
+		var slideout = new Slideout({
+	        'panel': document.getElementById('main'),
+	        'menu': document.getElementById('menu'),
+	        'padding': 235,
+	        'tolerance': 70
+	      });
+
+	      document.querySelector('.js-slideout-toggle').addEventListener('click', function() {
+	        slideout.toggle();
+	      });
+
+	      document.querySelector('.menu').addEventListener('click', function(eve) {
+	        if (eve.target.nodeName === 'A') { slideout.close(); }
+	      });
+	     function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
+	    window.onload = function(){
+	    	aload();
+	    	document.querySelector('.iphone').className += ' shown';
+	    }
+	</script>
+</body>
+</html>
+
+
+<!--&lt;!&ndash;说明 书/&ndash;&gt;-->
+<!--配置参数 Slideout(options) 创建一个新的Slideout对象实例。-->
+<!--options：(Object)在新对象实例中的参数对象。-->
+<!--options.panel：(HTMLElement)包含页面内容的DOM元素，默认为.slideout-panel。-->
+<!--options.menu：(HTMLElement)侧边栏DOM元素，默认值为.slideout-menu。-->
+<!--[options.duration]：(Number)打开/关闭侧边栏的时间，单位毫秒，默认值为300。-->
+<!--[options.fx]：(String)打开和关闭侧边栏时的CSS动画的easing效果，默认值为ease。-->
+<!--[options.padding]：(Number)默认值为256。-->
+<!--[options.tolerance]：(Number)默认值为70。-->
+<!--[options.touch]：(Boolean)设置为false时禁用移动触摸事件，默认值为true。-->
+<!--[options.side]：(String)在那一边打开侧边栏，可选值为left或right，默认值为left。-->
+
+<!--var slideout = new Slideout({-->
+<!--'panel': document.getElementById('main'),-->
+<!--'menu': document.getElementById('menu'),-->
+<!--'padding': 256,-->
+<!--'tolerance': 70-->
+<!--});-->
+<!--复制代码-->
+<!--方法-->
+<!--Slideout.open();：打开侧边栏菜单，它发出beforeopen和open事件。-->
+<!--Slideout.close();：关闭侧边栏菜单，它发出beforeclose和close事件。-->
+<!--Slideout.toggle();：切换侧边栏菜单。-->
+<!--Slideout.isOpen();：如果侧边栏菜单打开返回true，否则返回false。-->
+<!--Slideout.enableTouch();：允许通过touch事件来打开侧边栏菜单。-->
+<!--Slideout.disableTouch();：禁止通过touch事件来打开侧边栏菜单。-->
+<!--Slideout.on(event, listener);-->
+<!--slideout.on('open', function() { ... });-->
+<!--复制代码-->
+<!--Slideout.once(event, listener);-->
+<!--slideout.once('open', function() { ... });-->
+<!--复制代码-->
+
+<!--Slideout.off(event, listener);-->
+
+<!--slideout.once('open', function() { ... });-->
+<!--复制代码-->
+<!--Slideout.emit(event, ...data); slideout.emit('open');-->
+<!--事件-->
+
+<!--一个Slideout对象实例会发出下面的一些事件：-->
+<!--beforeclose-->
+<!--close-->
+<!--beforeopen-->
+<!--open-->
+<!--translate-->
+<!--Slideout对象实例只有在通过touch事件打开和关闭菜单时才发出translate事件。-->
+
+<!--slideout.on('translate', function(translated) {-->
+<!--console.log(translated); // 120 in px-->
+<!--});-->

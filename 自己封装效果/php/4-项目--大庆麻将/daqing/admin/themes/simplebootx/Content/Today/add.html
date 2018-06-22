@@ -1,0 +1,64 @@
+<admintpl file="header" />
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">小引导列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+    <form name="myform" action="{:U('update')}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+        <input name="id" type="hidden" value="{$info['id']|default=''}"/>
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th width="100">年龄段</th>
+                <td>
+                    <volist name="stage" id="vo">
+                        <label class="checkbox inline"><input type="checkbox" value="{$vo.id}" {$vo.checked} name="stage[]">{$vo.stage}</label>
+                    </volist>
+                    <label class="checkbox inline">(可以多选)</label>
+                </td>
+            </tr>
+            <tr>
+                <th>标题</th>
+                <td>
+                    <input type="text" style="width:400px;" name="title" id="title" placeholder="请输入标题" value="{$info.title|default=''}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>封面</th>
+                <td>
+                    <input type="hidden" name="cover" id="thumb" value="{$info.cover|default=''}">
+                    <a href="javascript:upload_one_image('图片上传','#thumb');">
+                        <if condition="isset($info['cover'])">
+                            <img src="{$info.cover}" id="thumb-preview" width="135" style="cursor: hand" />
+                            <else />
+                            <img src="__TMPL__Public/assets/images/default-thumbnail.png" id="thumb-preview" width="135" style="cursor: hand" />
+                        </if>
+                    </a>
+                    <input type="button" class="btn btn-small" onclick="$('#thumb-preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;" value="取消图片">支持jpg,png,gif,图片小于2MB。</td>
+            </tr>
+            <tr>
+                <th>内容</th>
+                <td>
+                    <textarea name="content" class="txt100">{$info.content|default=''}</textarea>
+                </td>
+            </tr>
+        </table>
+        <div class="form-actions">
+            <button class="btn btn-primary btn_submit ajax-post" type="submit" target-form="form-horizontal">提交</button>
+            <a class="btn" href="{$backUrl}">返回</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

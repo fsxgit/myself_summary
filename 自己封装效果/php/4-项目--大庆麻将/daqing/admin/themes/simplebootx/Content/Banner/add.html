@@ -1,0 +1,115 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">轮播图列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+    <form name="myform" action="{:U('update')}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+        <input name="id" type="hidden" value="{$info['id']|default=''}"/>
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th width="100">年龄段</th>
+                <td>
+                    <volist name="stage" id="vo">
+                        <label class="radio inline">
+                            <input type="radio" class="stages" value="{$vo.id}" {$vo.checked} name="stage">{$vo.stage}</label>
+                    </volist>
+                </td>
+            </tr>
+           
+            <tr>
+                <th>图片</th>
+                <td>
+                    <input type="hidden" name="cover" id="thumb" value="{$info.cover|default=''}">
+                    <a href="javascript:upload_one_image('图片上传','#thumb');">
+                        <if condition="isset($info['cover'])">
+                            <img src="{$info.cover}" id="thumb-preview" width="135" style="cursor: hand" />
+                            <else />
+                            <img src="__TMPL__Public/assets/images/default-thumbnail.png" id="thumb-preview" width="135" style="cursor: hand" />
+                        </if>
+                    </a>
+                    <input type="button" class="btn btn-small" onclick="$('#thumb-preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;" value="取消图片">支持jpg,png,gif,图片小于2MB。</td>
+            </tr>
+            <tr>
+                <th>跳转类型</th>
+                <td>
+                    <volist name="tlist" id="vo">
+                   <label class="radio inline">
+                        <input type="radio" name="to_type" {$vo.checked} value="{$vo.type}">{$vo.name}
+                    </label>
+                </volist>
+        </td>
+    </tr>
+    <tr>
+        <th>跳转内容</th>
+        <td>
+            <input type="text" style="width:400px;" name="title" id="title" placeholder="请选择跳转内容" value="{$info.title|default=''}"/>
+            <input type="hidden" name="to_infoid" id="to_infoid" value="{$info.to_infoid|default=''}"><a href="javascript:;" onclick="choose()" class="btn btn-info">选择</a>
+        </td>
+    </tr>
+</table>
+<div class="form-actions">
+    <button class="btn btn-primary btn_submit ajax-post" type="submit" target-form="form-horizontal">提交</button>
+    <a class="btn" href="{$backUrl}">返回</a>
+</div>
+</form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript">
+    targetTypeList = JSON.parse('{$tlist|json_encode}');
+    $(function(){
+        $(".stages").each(function(){
+            $(this).on('click',function(){
+                $("#to_infoid").val('')
+                $("#title").val('')
+            })
+        })
+        $("input[name='to_type']").each(function(){
+            $(this).on('click',function(){
+                $("#to_infoid").val('')
+                $("#title").val('')
+            })
+        })
+    })
+    function choose() {
+        var type =  $("input[name='to_type']:checked").val();
+        var stages =  $("input[name='stage']:checked").val();
+        if( typeof(stages)=="undefined" ){
+            alert("请选择年龄段");
+            return false;
+        }
+        if(typeof(type)=="undefined"){
+            alert("请选择跳转类型");
+            return false;
+        }
+        var url = targetTypeList[type].url +"&stages="+stages;
+        var params = {
+            type: 2,
+            title: targetTypeList[type].title,
+            shadeClose: true,
+            skin: 'layui-layer-nobg',
+            shade: [0.5, '#000000'],
+            area: ['90%', '90%'],
+            content: url
+        };
+        Wind.css('layer');
+        Wind.use("layer",
+        function() {
+            layer.open(params);
+        });
+    }
+</script>
+</body>
+</html>

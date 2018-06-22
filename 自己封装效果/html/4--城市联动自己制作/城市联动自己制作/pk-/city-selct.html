@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    p,li{cursor:pointer;}
+</style>
+<body>
+
+<p id="city" style="background: red;height: 30px;line-height: 30px;cursor: pointer;">省市</p>
+<ul id="cityList"></ul>
+<input type="hidden" name="" id="btn" />
+<input type="hidden" name="" id="btn2" />
+<p style="background: green;height: 30px;line-height: 30px;cursor: pointer;">区</p>
+<ul id="cityArea"></ul>
+<script src="./js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        var $city = $('#city');
+        var $cityList = $("#cityList");
+        var $cityArea = $("#cityArea");
+        var $cityListLi = "";
+        var $cityAreaaLi = "";
+        $city.on('click',function(){
+            ajax();
+        });
+
+        function ajax()
+        {
+            $.ajax({
+                type:'GET',
+                url:'./data/package.json',
+                async:false,
+                dataType:'json',
+                success:function(data)
+                {
+                    $.each(data,function(index,val){
+                        $cityListLi += "<li data-id = "+ val.id +">"+ val.city +"</li>"
+                    });
+                    $cityList.html($cityListLi);
+
+                    //绑定城市点击事件
+                    $cityList.on('click','li',function(){
+                        var _id = $(this).data('id');
+                        $.each(data,function(index,val){
+                            if( val.id == _id )
+                            {
+                                $cityAreaaLi = "";
+                                $.each(val.cityArea,function(i,d){
+                                    $cityAreaaLi += "<li>" + d + "</li>";
+                                });
+
+                                $cityArea.html($cityAreaaLi);
+                                //市级取值
+                                $cityArea.on('click','li',function(){
+                                    alert($(this).text());
+                                });
+                            };
+                        });
+                    });
+                },
+                error:function(){
+                    console.log('error');
+                }
+            });
+        };
+    });
+</script>
+</body>
+</html>

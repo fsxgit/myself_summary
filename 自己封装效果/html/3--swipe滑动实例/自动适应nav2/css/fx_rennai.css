@@ -1,0 +1,9 @@
+/*内容*/
+.Scontent{width:100%; height:auto;font-size: 0; padding-bottom:0.1rem; }
+.SmodeBox{ margin-left:0.03rem;height:auto;font-size: 0; border-bottom:1px solid #b5b5b5;}
+.Smode{height:auto;font-size: 0; padding:0.04rem 0;}
+.Smode .imgbox{width:0.2765625rem; height:0.19375rem;font-size: 0; margin-right:0.04rem;}
+.Smode .TxtTop{font-size: 0.04rem; margin-top:0.02rem;}
+.Smode .TxtBop{width:0.6rem; height:0.078rem; font-size: 0.04rem; line-height: 0.09rem; margin-top:0.03rem;}
+.Smode .price{color:#49becd; font-size: 0.05rem;}
+.Smode .zan{color:#b5b5b5; margin-left:0.02rem;}

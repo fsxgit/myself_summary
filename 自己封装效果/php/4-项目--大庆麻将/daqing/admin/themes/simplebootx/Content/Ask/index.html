@@ -1,0 +1,59 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">{$meta_title}</a></li>
+		</ul>
+			<!-- 搜索 -->
+				<!--信息提示-->
+	<div id="top-alert" class="fixed alert alert-error">
+		<button class="close fixed" style="margin-top: 4px;">&times;</button>
+		<div class="alert-content">{$meta_title}</div>
+	</div>
+	<!--信息提示-->
+	<php>
+	$status=array(0=>'<span class="label label-important">未回复</span>',1=>'<span class="label label-success">已回复</span>');</php>
+		<form class="js-ajax-form" method="post">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th width="50">ID</th>
+					<th>用户</th>
+					<th>提问专家</th>
+					<th>提问内容</th>
+					<th>提问时间</th>
+					<th>状态</th>
+					<th width="120">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<foreach name="listData" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.nickname}</td>
+					<td>{$vo.expert_name|default="----"}</td>
+					<td>{$vo.content}</td>
+					<td>{$vo.add_time|time_format}</td>
+					<td>{$status[$vo['status']]}</td>
+					<td>
+						<a href="{:U('reply',array('id'=>$vo['id']))}">查看</a> | 
+						<a class="ajax-get confirm" href="{:U('del',array('id'=>$vo['id']))}" data-tips='确定要删除吗?'>删除</a>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="table-actions">
+			<!-- <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('listorders')}">排序</button> -->
+			</div>
+		</form>
+		<div class="pagination  pagination-centered">{$page}</div>
+	</div>
+	<style type="text/css">
+		.count{ overflow: hidden; font-size: 18px; text-align: center;}
+		.count span{display: inline-block; margin-right: 20px;}
+	</style>
+	<script src="__PUBLIC__/js/common.js"></script>
+	</body>
+	</html>

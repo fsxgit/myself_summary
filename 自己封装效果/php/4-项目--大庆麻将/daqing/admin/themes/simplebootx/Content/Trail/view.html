@@ -1,0 +1,78 @@
+<admintpl file="header" />
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">用户轨迹列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th width="100">用户</th>
+                <td>
+                    {$info.child_name|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>标题</th>
+                <td>
+                    {$info.title|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>时间</th>
+                <td>
+                    {$info.add_time|time_format}
+                </td>
+            </tr>
+            <tr>
+                <th>内容</th>
+                <td>
+                    {$info.content|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>图片</th>
+                <td>
+                    <php>$img= str2arr($info['thumb'],'|'); </php>
+                    <notempty name="img"> 
+                    <volist name="img" id="vo">
+                        <a href="javascript:;" onclick="viewImg('{$vo}');"  style="margin: 5px;"><img src="{$vo}!thumb.jpg" width="100"/></a>
+                    </volist>
+                    </notempty>
+                </td>
+            </tr>
+        </table>
+        <div class="form-actions">
+            <a class="btn" href="{$backUrl}">返回</a>
+        </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript">
+    function viewImg(img) {
+    Wind.use("artDialog", function () {
+        art.dialog({
+            title: '查看大图',
+            fixed: true,
+            width: "90%",
+            height: "90%",
+            id: "image_preview_" + img,
+            lock: true,
+            background: "#CCCCCC",
+            opacity: 0,
+            content: '<img src="' + img + '" />'
+        });
+    });
+}
+</script>
+</body>
+</html>

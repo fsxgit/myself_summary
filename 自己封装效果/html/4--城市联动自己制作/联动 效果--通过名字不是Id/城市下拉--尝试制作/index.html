@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        .citybox{width:300px; margin:50px auto; background: #ccc;}
+        .citybox h1{ border-bottom: 1px solid #cc3f1e; line-height: 30px;height:30px;  font-size: 16px;text-align: left; cursor:pointer; }
+        .citybox p{ border-bottom: 1px solid #cc3f1e; line-height: 30px;height:30px; text-align:left; font-size: 12px; padding-left:30px; cursor:pointer; }
+        .shengbox,.qubox,.xianbox{display: none;}
+    </style>
+</head>
+<body>
+
+<div class="citybox">
+    <div class="Fsheng">
+        <h1>省 <span class="SValue">请选择省份</span></h1>
+        <div class="shengbox">
+            <p>嘻嘻</p>
+            <p>哈哈哈</p>
+        </div>
+    </div>
+    <div class="Fqu">
+        <h1>市/区 <span class="QValue">请选择市/区</span></h1>
+        <div class="qubox">
+            <p>嘻嘻</p>
+            <p>哈哈哈</p>
+        </div>
+    </div>
+    <div class="Fxian">
+        <h1>县<span class="XValue">请选择县</span></h1>
+        <div class="xianbox">
+            <p>嘻嘻</p>
+            <p>哈哈哈</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+
+ajaxData();
+SSQjs();
+
+//其他js
+
+function SSQjs(){
+    var oFsheng = $(".Fsheng");
+    var oSBox = $(".shengbox");
+    var aPsheng = $(".shengbox p");
+    var aHsheng = $(".Fsheng h1");
+
+    var aPqu = $(".Fqu p");
+    var aHqu = $(".Fqu h1");
+    var aPxian = $(".Fxian p");
+    var aHxian = $(".Fxian h1");
+
+    var oQBox = $(".qubox");
+    var oXBox = $(".xianbox");
+    var oSvalue = $(".SValue");
+    var oQvalue = $(".QValue");
+    var oXvalue = $(".XValue");
+
+
+//    aPsheng.on("click",function(){
+//
+//        alert("aaa");
+////            oSBox.slideToggle();
+////
+////            oSvalue.text(txt);
+//    });
+    aHsheng.on("click",function(){
+        oSBox.slideToggle();
+    });
+    aHqu.on("click",function(){
+        oQBox.slideToggle();
+    });
+    aHxian.on("click",function(){
+        oXBox.slideToggle();
+    });
+
+
+
+};
+
+//省市区 调用数据 方法
+function ajaxData(){
+    var oFsheng = $(".Fsheng");
+    var oSBox = $(".shengbox");
+    var aPsheng = $(".shengbox p");
+    var aHsheng = $(".Fsheng h1");
+
+    var aPqu = $(".Fqu p");
+    var aHqu = $(".Fqu h1");
+    var aPxian = $(".Fxian p");
+    var aHxian = $(".Fxian h1");
+
+    var oQBox = $(".qubox");
+    var oXBox = $(".xianbox");
+    var oSvalue = $(".SValue");
+    var oQvalue = $(".QValue");
+    var oXvalue = $(".XValue");
+    var oSBox = $(".shengbox");
+    var oQBox = $(".qubox");
+    var oXBox = $(".xianbox");
+    $.ajax({
+        url:"./data/dataCity.json",
+        data:"",
+        dataType:"json",
+        type:"GET",
+        async:"false",
+        success:function(data){
+//获取省份
+            $.each(data.datas,function(indexS,valS){
+                if(valS.C){
+                    var arrS = "";
+                    $.each(valS.C,function(i,v){
+                        arrS += "<p >"+ v +"</p>"
+                    });
+
+                    oSBox.html(arrS);
+                }
+
+            });
+
+//         绑定省份点击事件
+            var iName = "";//为查找县的名字做准备
+            oSBox.on("click","p",function(){
+                var txt = $(this).text();
+                oSBox.slideToggle();
+                oSvalue.text(txt);
+
+                var iS = $(this).index();
+                //alert("iS");
+                var quName = "C_"+iS;
+                //alert("quName");
+                $.each(data.datas,function(indexQ,valQ){
+//                    console.log(valQ);
+//                    如果是通过获取的名字来找的话这样声明的名字 是不会被传值进去的,只会被当做本来名字来使用  例如 : valQ.quName中的 quName 不会被当做 上面传进来的 "C_"+iS 来使用  只会被当做 quName 来使用, 然后去 数据库里面找就找不到数据了,所以  通过名字来找数据的方法不能这样写 , 通过id的可以这样写
+//                    if(valQ.quName){
+//                        var arrQ = "";
+//                        $.each(valQ.quName,function(i,v){
+//                            arrQ += "<p >"+ v +"</p>"
+//                        });
+//                        oQBox.html(arrQ);
+//                    }
+                    //获取区域值
+                    if(valQ[quName]){
+                        var arrQ = "";//每次先清空
+                        $.each(valQ[quName],function(i,v){
+                            arrQ += "<p data-name = "+quName+">"+ v +"</p>"
+                        });
+                        oQBox.html(arrQ);
+                        return iName = quName;
+                    }
+                });
+
+            });
+
+
+//            绑定市/区点击事件
+            oQBox.on("click","p",function(){
+                var txt = $(this).text();
+                oQBox.slideToggle();
+                oQvalue.text(txt);
+//                alert($(this).text());
+//                alert(iName);
+                var iQ = $(this).index();
+                var xianName = iName+"_"+iQ;
+//                alert(xianName);
+                $.each(data.datas,function(indexX,valX){
+                    if(valX[xianName]){
+                        var arrX = "";//每次先清空
+                        $.each(valX[xianName],function(i,v){
+                            arrX += "<p data-name = "+xianName+">"+ v +"</p>"
+                        });
+                        oXBox.html(arrX);
+                    }
+                });
+                oXBox.on("click","p",function(){
+                    var txt = $(this).text();
+                    oXBox.slideToggle();
+                    oXvalue.text(txt);
+                })
+            })
+
+
+        },
+        error:function(){
+            alert("呵呵呵呵 !");
+        }
+    })
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<?php
+/**
+ * 会员注册
+ */
+namespace Portal\Controller;
+use Common\Controller\HomebaseController; 
+header("content-type:text/html;charset=utf-8");
+class RegisterController extends HomebaseController {
+        function index(){
+	    if(empty($_COOKIE['code'])){ //已经登录时直接跳到首页
+                $this->display("login");
+	    }else{
+	 	redirect(U("Portal/Userinfo/index"));      
+	    }
+	}
+        //注册页面
+	public function register(){
+            $this->display("register");
+	}
+        
+        
+        //公共方法里面的接口
+        //调取所有数据
+        private function ceshi($sid,$data){
+	  $rs = request_api_xlb($sid,$data);//接口请求
+	  return $rs;
+            $arr = array(
+		'SID'=>$sid,//接口id
+		'PARAMS'=>$data,//请求的参数数组
+		'REQID'=>'949',	
+            );
+            $apiurl = json_encode($arr);//转成json
+            $rs = request_api($apiurl);//接口请求
+            return $rs;
+	}
+        
+        //验证手机号是否为空
+        //手机获取验证码
+        //sid 固定的值 文档里定义好的参数
+	public function telcode(){
+            $tel = I("tel");
+            if(empty($tel)){
+                echo 100;
+                exit;
+            }else{
+                $data = array(phone => $tel);
+		$this->ceshi(1513,$data);
+            }
+	}
+        
+        //退出登录 1527
+        public function outlogin(){
+            $token = $_COOKIE['code'];
+            $data = array(token => $_COOKIE['code']);
+            $this->ceshi(1527,$data);
+            setcookie("code", '');
+            setcookie("zsid", '');
+            redirect(U("Portal/pinfo/index"));
+        }
+
+
+        //快捷登录
+        public function fastlogin(){
+            $username = I('tel');
+            $code = I('code');
+            $data = array(phone =>$username,code =>$code);
+            $token = $this->ceshi(1515, $data);
+            if(empty($token['RESULT']['result']['token'])){
+                //没有返回token登录失败
+                echo 100;
+                exit;
+            }else{
+                $data = array(token=>$token['RESULT']['result']['token']);
+                $arrinfo = $this->ceshi(1522,$data);
+                $datainfo = array(
+                    'id' =>$arrinfo['RESULT']['result']['id'],
+                    'imgPath' =>$arrinfo['RESULT']['result']['imgPath'],
+                    'loginName' =>$arrinfo['RESULT']['result']['loginName'],
+                    'phone' =>$arrinfo['RESULT']['result']['phone'],
+                    'email' =>$arrinfo['RESULT']['result']['email'],
+                    'kyjf' =>$arrinfo['RESULT']['result']['kyjf'],
+                    'djjf' =>$arrinfo['RESULT']['result']['djjf'],
+                    'lsdjjf' =>$arrinfo['RESULT']['result']['lsdjjf'],
+                    'ljxfjf' =>$arrinfo['RESULT']['result']['ljxfjf'],
+                    'companyName' =>$arrinfo['RESULT']['result']['companyName'],
+           //         'linkMan' =>$arrinfo['RESULT']['result']['linkMan'],
+           //         'isClaimed' =>$arrinfo['RESULT']['result']['isClaimed'],
+                );
+                $dd = $arrinfo['RESULT']['result']['id'];
+                $users_model = M("user");
+                $result = $users_model->where("id=$dd")->count();
+				$resu = $users_model->where("id=$dd")->find();
+             //   var_dump($result);die;
+                if($result>0){
+					if($resu["isclaimed"]==1){
+						unset($arrinfo['RESULT']['result']['isClaimed']);
+						unset($arrinfo['RESULT']['result']['companyName']);
+					}
+                    $users_model->save($datainfo);
+                }else{
+                    $infoys = $users_model->add($datainfo);
+                }
+            }
+            //登录接口返回的TOKEN返存入到cookie 
+            setcookie("code",$token['RESULT']['result']['token'],time()+3600*24*30);
+            //获取个人信息接口的ID
+            setcookie("zsid",$arrinfo['RESULT']['result']['id'],time()+3600*24*30);
+            if(empty($_COOKIE['url'])){
+                   echo 13;
+               // redirect(U("Portal/Userinfo/index"));
+            }else{
+                $url = 'http://'.$_SERVER['SERVER_NAME'].$_COOKIE["url"]; 
+                echo $url;
+                exit;
+            }    
+        }
+
+        //登录
+        public function loginem(){
+            $username = I("username");
+            $password = I("password");
+            $data = array(phone =>$username,pwd =>md5($password));
+            $token = $this->ceshi(1511, $data);
+            // var_dump($token);die;
+            //判断有没有token返回  来返回登录成功与失败
+            if(empty($token['RESULT']['result']['token'])){
+                //接口没有返回TOKEN
+                echo 100;
+                exit;
+            }else{
+                $data = array(token=>$token['RESULT']['result']['token']);
+                $arrinfo = $this->ceshi(1522,$data);
+                $datainfo = array(
+                    'id' =>$arrinfo['RESULT']['result']['id'],
+                    'imgPath' =>$arrinfo['RESULT']['result']['imgPath'],
+                    'loginName' =>$arrinfo['RESULT']['result']['loginName'],
+                    'phone' =>$arrinfo['RESULT']['result']['phone'],
+                    'email' =>$arrinfo['RESULT']['result']['email'],
+                    'kyjf' =>$arrinfo['RESULT']['result']['kyjf'],
+                    'djjf' =>$arrinfo['RESULT']['result']['djjf'],
+                    'lsdjjf' =>$arrinfo['RESULT']['result']['lsdjjf'],
+                    'ljxfjf' =>$arrinfo['RESULT']['result']['ljxfjf'],
+                    //'companyName' =>$arrinfo['RESULT']['result']['companyName'],
+          //          'linkMan' =>$arrinfo['RESULT']['result']['linkMan'],
+          //          'isClaimed' =>$arrinfo['RESULT']['result']['isClaimed'],
+                );
+                $dd = $arrinfo['RESULT']['result']['id'];
+                $users_model = M("user");
+                $result = $users_model->where("id=$dd")->count();
+				$resu = $users_model->where("id=$dd")->find();
+                if($result>0){
+					if($resu["isclaimed"]==1){
+						unset($arrinfo['RESULT']['result']['isClaimed']);
+						unset($arrinfo['RESULT']['result']['companyName']);
+					}
+                    $users_model->save($datainfo);
+                }else{
+                    $infoys = $users_model->add($datainfo);
+                    if($arrinfo['RESULT']['result']['isClaimed'] == 1){
+                        //$arrinfo['RESULT']['result']['companyName'] = "神州数码（中国）有限公司";
+                        $arr = array('entName'=>$arrinfo['RESULT']['result']['companyName']);
+                        $rs = request_api_xt('api/findEnterpersInfo.do',$arr);
+                        
+                        $d["entname"] = $rs["data"]["entname"];
+                        $d["regno"] = $rs["data"]["regno"];
+                        $d["frdb"] = $rs["data"]["frdb"];
+                        $d["esdate"] = $rs["data"]["esdate"];
+                        $d["entstatus"] = $rs["data"]["entstatus"];
+                        $d["regcap"] = $rs["data"]["regcap"];
+                        $d["enttype"] = $rs["data"]["enttype"];
+                        $d["dom"] = $rs["data"]["dom"];
+                        $d["opscope"] = $rs["data"]["opscope"];
+                        $d["regorg"] = $rs["data"]["regorg"];
+                        $d["regcapcur"] = $rs["data"]["regcapcur"];
+                        $d["shxydm"] = $rs["data"]["shxydm"];  
+                        $d["user_id"] = $arrinfo['RESULT']['result']['id'];
+                        M("enterprise")->add($d);
+                        /*
+                        $p=0;
+                        $pageSize = 10000;
+                        $ar = array('entName'=>$name,'page'=>$p,'pageSize'=>$pageSize);
+                        $ls = request_api_xt('api/findTrademarkList.do',$ar);//商标信息
+                        foreach($ls["data"]["data"] as $k=>$v){
+                            $ls["data"]["data"][$k]["customerid"] = $_COOKIE["zsid"];
+                        }
+                        M("mark")->addAll($ls["data"]["data"]);
+                          */
+                         
+                    }
+                }
+            }
+            //登录接口返回的TOKEN返存入到cookie 
+            setcookie("code",$token['RESULT']['result']['token'],time()+3600*24*30);
+            //获取个人信息接口的ID
+            setcookie("zsid",$arrinfo['RESULT']['result']['id'],time()+3600*24*30);
+            //登陆成功跳转到什么地方
+            if(empty($_COOKIE['url'])){
+                echo 12;
+                exit;
+            }else{
+                $url = 'http://'.$_SERVER['SERVER_NAME'].$_COOKIE["url"]; 
+                echo $url;
+                exit;
+            }    
+        }
+        //CK验证码
+        public function check_verify($code, $id = ''){
+            $verify = new \Think\Verify();
+            return $verify->check($code, $id);
+	}
+        
+	//注册
+	public function regem(){
+            $verrify = I("verify");
+            if(!self::check_verify($verrify)){  
+                echo 0;
+                exit;
+            }else{
+                $password = I('password');
+                $tel = I('username');
+                $code = I('code');
+                $data = array(phone =>$tel,pwd =>$password,code =>$code);
+                $token = $this->ceshi(1514, $data);
+                if(empty($token['RESULT']['result']['token'])){
+                    //注册失败  没有返回token
+                    echo 1;
+                    exit;
+                }else{
+                    setcookie("code", $token['RESULT']['result']['token'], time()+3600*24*30);
+                    //如果成功不需要返回东西直接跳转到神马页面  忘了
+                    redirect(U("Portal/Userinfo/index"));
+                    exit;
+                }
+            }
+        }
+        
+        //忘记密码
+        public function forgetpwd(){
+            $tel = I('phone');
+            $pwd = I('pwd');
+            $code = I('code');
+            $this->fpwd($tel,$pwd,$code);
+        }
+
+        //忘记密码 1516
+        private function fpwd($tel,$pwd,$code){
+            $tel = I('tel');
+            $pwd = I('pwd');
+            $code = I('code');
+            $data = array(phone=>$tel,pwd=>md5($pwd),code=>$code);
+            $this->ceshi(1516, $data);
+            //redirect(U("Portal/register/index"));
+            $this->success("找回密码成功!",U("Portal/register/index"));
+        }
+        
+        //修改登录密码 1525
+        public function pass1(){
+            $this->display("pass1");
+        }
+        
+        public function ckpwd(){
+            if(!sp_check_verify_code()){
+                $this->error("验证码错误！");
+            }
+            //$oldpassword = I('oldpwd');
+            //$newpassword = I('newold');
+            $oldpwssword = "123456";
+            $newpassword = "111111";
+            $this->uppwd($oldpwssword, $newpassword);
+        }
+        private function uppwd($oldpassword,$newpassword){
+            $data = array(oldPwd=>md5($oldpassword),newPwd=>md5($newpassword),token=>$_COOKIE['code']);
+            $arrinfo = $this->ceshi(1525,$data);
+            var_dump($arrinfo);
+            exit;
+        }
+
+        
+        
+        //检测有没有手机号
+        public function cktel(){
+            if(!sp_check_verify_code()){
+                $this->error("验证码错误！");
+            }
+            $tel = I('tel');
+            $users_model = M("user");
+            $result = $users_model->where("phone=$tel")->count();
+            if($result){
+                $this->display("pass2");
+                exit;
+            }else{
+                $this->success("没有手机号",U("Portal/index/index"));
+            }
+        }
+        //验证码
+        	public function yzm(){
+		$config =array(
+				'fontSize'    =>    26,    // 验证码字体大小
+				'length'      =>    4,     // 验证码位数
+				'useNoise'    =>    false, // 关闭验证码杂点
+				'useCurve'    =>    false,
+			);
+		$Verify =     new \Think\Verify($config);
+		$Verify->entry();
+	}
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas测试-</title>
+    <style>
+        body{height: 2000px; padding:60px;}
+        #canvas1{border:1px solid #ccc;  width: 200px; height: 200px;}
+    </style>
+</head>
+<body>
+<h1>画布宽高与画布大小的区别：</h1>
+
+<canvas id="canvas1" width="300" height="200"></canvas>
+
+
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script>
+
+
+    var c = document.getElementById("canvas1");
+    var ctx = c.getContext("2d");
+//画直线
+    ctx.strokeStyle="#FF0000";
+    ctx.moveTo(0,0);
+    ctx.lineTo(300,200);
+
+    ctx.stroke();
+
+</script>

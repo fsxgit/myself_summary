@@ -1,0 +1,31 @@
+[ 2016-09-22T10:55:44+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-22T16:53:49+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-22T16:53:49+08:00 ] 127.0.0.1 /undefined
+ERR: 无法加载控制器:Undefined
+
+[ 2016-09-22T16:54:40+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=order_info_save
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-22T16:54:43+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=order_info_save
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy` [ RunTime:0.0110s ]
+SQL: UPDATE `zs_zcorder_copy` SET `customername`='ooooooouu' WHERE ( orderid=143 ) [ RunTime:0.0080s ]
+

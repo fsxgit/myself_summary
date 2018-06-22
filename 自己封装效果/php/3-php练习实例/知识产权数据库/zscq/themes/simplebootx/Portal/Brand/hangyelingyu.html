@@ -1,0 +1,14 @@
+		<foreach name="nicecalss" item="vo" >
+		<div class="hang-lei-mode f12">
+                               <h1 class="lei-h1">第{$vo.id}类 {$vo.name} <span>删除</span></h1>
+                                <div class="hang-lei-cont">
+                                   <foreach name="vo.items" item="vi" > 
+								   <foreach name="vi.items" item="vv" > 
+									<div class="lei-name">{$vv.code} &nbsp {$vv.name} 
+									<input type="hidden" name="nmd[]" value='{$vv.id}'><span class="del"></span></div>
+                                    </foreach>
+									</foreach>
+                                    <div class="lei-add"><img src="public/html/images/add1.png" width="60" height="28" alt=""/></div>
+                                </div>
+                     </div>
+		</foreach>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>swipe学习</title>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <script>
+        //        使屏幕大小 作为html的font-size  作为页面的root
+        var iWidth=document.documentElement.getBoundingClientRect().width;
+        document.getElementsByTagName("html")[0].style.fontSize=iWidth+"px";
+    </script>
+    <style>
+        *{margin:0; padding:0;}
+        .swiper-container{width:100%; height:auto; overflow:hidden; background:#666666;}
+        .swiper-wrapper{width:170%; height:auto; font-size: 0;}
+        .swiper-slide{width:0.109rem; height:0.12rem; line-height: 0.12rem; border-bottom: 2px solid #fff; margin:0 0.025rem;text-align: center; font-size: 0.04375rem; color:#fff;}
+        .active{border-bottom:2px solid #de3435; color:#de3435;}
+    </style>
+</head>
+<body>
+<!--实验一 开始-->
+<div class="swiper-container">
+    <div class="swiper-wrapper" id="nav">
+        <div class="swiper-slide active">美食</div>
+        <div class="swiper-slide">娱乐</div>
+        <div class="swiper-slide">住宿</div>
+        <div class="swiper-slide">旅游</div>
+        <div class="swiper-slide">购物</div>
+        <div class="swiper-slide">美容</div>
+        <div class="swiper-slide">家居</div>
+        <div class="swiper-slide">婚庆</div>
+        <div class="swiper-slide">数码</div>
+        <div class="swiper-slide">汽车</div>
+    </div>
+    <!--&lt;!&ndash; 如果需要分页器 &ndash;&gt;-->
+    <!--<div class="swiper-pagination"></div>-->
+
+    <!--&lt;!&ndash; 如果需要导航按钮 &ndash;&gt;-->
+    <!--<div class="swiper-button-prev"></div>-->
+    <!--<div class="swiper-button-next"></div>-->
+
+    <!--&lt;!&ndash; 如果需要滚动条 &ndash;&gt;-->
+    <!--<div class="swiper-scrollbar"></div>-->
+</div>
+<!--导航等组件可以放在container之外-->
+<!--实验一 结束-->
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script>
+//    $(function(){
+//        var aa = Math.abs(~2017);
+//        alert(aa);
+//    })
+//    var mySwiper = new Swiper ('.swiper-container', {
+//        direction: 'vertical',
+//        loop: true,
+//
+//        // 如果需要分页器
+//        pagination: '.swiper-pagination',
+//
+//        // 如果需要前进后退按钮
+//        nextButton: '.swiper-button-next',
+//        prevButton: '.swiper-button-prev',
+//
+//        // 如果需要滚动条
+//        scrollbar: '.swiper-scrollbar'
+//    })
+    var  mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal', //水平方向
+        grabCursor : true, //指针形状
+        freeMode : true,//不自动粘合
+        slidesPerView : 'auto',//按设置的宽高自由分配显示的个数
+        preventClicks : false
+    });
+    var $aNav = $("#nav div");
+
+    $aNav.click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+</script>
+</body>
+</html>

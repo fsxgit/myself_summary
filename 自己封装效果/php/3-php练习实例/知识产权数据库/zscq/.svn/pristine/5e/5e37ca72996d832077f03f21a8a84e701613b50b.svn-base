@@ -1,0 +1,88 @@
+ <!--/*提示说明*//-->  
+		<if condition=" $user.isclaimed eq 0 "> 
+        <div class="c-rl-cont-ts cx-list-ts">
+			 <p>您还没有认领公司，最多可免费查询三次，认领公司后不限制 查询次数{$user.chasum}。<a class="kan fc1 fb">去认领公司</a></p>
+        </div>
+		</if>
+        <!--/*提示说明* end//-->
+        <!--商标-->
+        <div class="brand-box">
+            <table class="brand-table c333">
+                <tr class="bt-tr1 bg5 c999">
+                    <td style="width:5%;">序号</td>
+                    <td style="width:16.6%;">名称</td>
+                    <td style="width:8.3%;">图标样式</td>
+                    <td style="width:13.1%;">商标名称</td>
+                    <td style="width:10.6%;">查询方式</td>
+                    <td style="width:12.5%;">查询日期</td>
+                    <td style="width:12.5%;">查询状态</td>
+                    <td style="width:21.3%;">操作</td>
+                </tr>
+				<foreach name="arr" item="vo" >
+                <tr>
+                    <td>{$key+1}</td>
+                    <td>{$vo.number}</td>
+                    <td class="brand-logo"><img src="{$vo.markpicture}" alt=""/></td>
+                    <td>{$vo.markname}</td>
+                    <td><if condition="$vo.type eq 1">智能推荐<elseif condition="$vo.type eq 2"/>委托顾问查询<elseif condition="$vo.type eq 3"/>自主选择类别</if></td>
+                    <td><?php echo date('Y-m-d H:i:s',$vo['addtime']);?></td>
+                    <td><if condition="$vo.state eq 0">查询中<elseif condition="$vo.state eq 1"/>全部可注册<elseif condition="$vo.state eq 2"/>部分可注册<elseif condition="$vo.state eq 3"/>全部不可注册<elseif condition="$vo.state eq 4"/>查询失败</if></td>
+                    <td><a href="javascript:;">查看</a></td>
+                </tr>
+               </foreach>
+
+            </table>
+            <!--翻页按钮"javascript:void(0);" onclick="js_method()"-->
+            <div class="c-pages mb50">
+			<if condition=" $user.isclaimed eq 0 "></if>
+                <span>共{$count}条记录，{$num}页</span>
+                <span>
+                    <a href="javascript:void(0);" onclick="page(1)">首页</a>
+                    <a href="javascript:void(0);" onclick="page({$page-1})">上一页</a>
+                    <if condition="$num lt 6">
+					  <for start="1" end="$num+1">
+					  <a href="javascript:void(0);"  onclick="page({$i})" 
+					  <if condition=" $i eq $page ">class="active"</if>
+					  >{$i}</a>
+					  </for>
+					</if>
+					<if condition="($num gt 5) and ($page lt 3)">
+							  <for start="1" end="6">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+                   <if condition="($num gt 5) and ($page lt $num-1) and ($page gt 3)">
+							  <for start="$page-2" end="$page+3">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+					<if condition="($num gt 5) and ($page gt 3) and ($page eq $num)">
+							  <for start="$page-4" end="$page+1">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+					<if condition="($num gt 5) and ($page gt 3) and ($page eq $num-1)">
+							  <for start="$page-3" end="$page+2">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+					<if condition="($num gt 5) and ($page eq 3)">
+							  <for start="1" end="6">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+                    <a href="javascript:void(0);" onclick="page({$page+1})">下一页</a>
+                    <a href="javascript:void(0);" onclick="page({$num})">末页</a>
+                </span>
+            </div>
+            <!--翻页按钮 end-->

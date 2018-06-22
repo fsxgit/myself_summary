@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        .huo{ text-align: center; width: auto; padding:4px 40px; display: inline-block; height: 30px; line-height: 30px; border:1px solid #ccc; border-radius: 4px; margin:10px; position: relative; cursor: pointer; }
+        .huo span{width:30px; height:38px; background: url("images/del.jpg") no-repeat center center; background-size:14px 14px; display: none; position: absolute; right:0; top:0; }
+
+    </style>
+
+</head>
+<body>
+    <div class="huo">火锅<span></span></div>
+    <div class="huo">麻辣烫<span></span></div>
+    <div class="huo">有条<span></span></div>
+    <div class="huo">饼干<span></span></div>
+    <div class="huo">互殴<span></span></div>
+    <div class="huo">么么哒<span></span></div>
+<script>
+    var aHuo = document.getElementsByClassName("huo");
+    for(var i = 0 ;i < aHuo.length; i++){
+        aHuo[i].index = i;//给每一个加一个属性index  值是i  调用 this.index即可
+        aHuo[i].onmouseover = function(){
+//            alert(this.index);
+            var m = this.index;
+            this.getElementsByTagName("span")[0].style.display = "block";
+            this.getElementsByTagName("span")[0].onclick = function(){
+                alert(m);
+                var txt = aHuo[m].innerText;
+                alert(txt);
+            }
+        };
+        aHuo[i].onmouseout =function(){
+            this.getElementsByTagName("span")[0].style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>text</title>
+<script type="text/javascript" src="js/jquery.1.4.2-min.js"></script>
+</head>
+
+<body>
+<!--演示内容开始-->
+<script type="text/javascript" src="js/payfor.js"></script>
+<style type="text/css">
+*{margin:0;padding:0;}
+a,img{border:0;text-decoration:none;}
+.box{width:300px; margin:50px auto;}
+	#TxtBox{width:40px;height:40px; text-align: center; line-height: 40px; font-size: 20px; float:left; }
+	.reduce,.add{width:40px;height:40px;display: inline-block; float:left; line-height: 40px; text-align: center; background: #ccc;border:2px solid #ccc;}
+
+</style>
+	<div class="box">
+		<div class="addBox">
+			<a class="reduce" onClick="setAmount.reduce('#TxtBox')" href="javascript:void(0)">
+			-</a>
+			<input type="text" name="qty_item_1" value="1" id="TxtBox" onKeyUp="setAmount.modify('#TxtBox')" class="text" />
+			<a class="add" onClick="setAmount.add('#TxtBox')" href="javascript:void(0)">
+			+</a>
+		</div>
+	</div>
+<!--演示内容结束-->
+</body>
+</html>

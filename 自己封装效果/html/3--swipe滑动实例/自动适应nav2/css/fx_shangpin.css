@@ -1,0 +1,36 @@
+/*内容*/
+.SPBox{width:100%; height:auto; overflow-x: hidden;}
+.bannerimg{width:100%; height:0.8rem;}
+.goodslove{width:0.21rem;height:0.09rem; line-height: 0.09rem; color:#fff; background:rgba(0,0,0,0.5); position:absolute; right:0.04375rem;bottom:0.04375rem; font-size: 0; border-radius: 0.045rem; }
+.goodslove .loveBgN{display:inline-block;  width:0.053rem;height:0.0468rem; margin:0.021rem 0.018rem 0 0.031rem;}
+.goodslove .loveBgN{ background: url("../images/loveN.png")no-repeat left center; background-size: cover;}
+.goodslove .loveBgY{ background: url("../images/loveY.png")no-repeat left center; background-size: cover;}
+.goodslove .lovenum{display:inline-block;  width:0.053rem;height:0.0468rem; font-size:0.034rem;}
+.goodName{margin-top:0.0468rem;}
+.goodName p{font-size: 0.0375rem;}
+.goodDetail{width:0.75rem; background: url("../images/borderBg.png") no-repeat right top; background-size: 1px 0.089rem; }
+.shareBox{font-size: 0; text-align: center; margin-left:0.075rem; color:#999;}
+.shareBox span{font-size:0.032rem;}
+.shareBox .shareimg{display:block;  width:0.059rem; height:0.0625rem; margin-bottom: 0.02rem;}
+.goodName .goodprice{color:#49becd; font-size:0.05rem;}
+.guigeBox{width:100%; height:auto; background:#f5f5f5 url(../images/borderTop.png) no-repeat left top; background-size:1rem 0.0328rem ; padding-bottom:0.0656rem; border-bottom: 1px solid #ccc;  }
+.guige {padding:0.0375rem 0;}
+.guige .name{margin-right:0.0375rem;}
+.guige  span{font-size:0.0375rem;}
+.guize span{font-size:0.03rem;}
+.guize .Txt{width:0.71rem; margin-left:0.01rem;}
+.JieShaoBox{width:100%; height:auto;}
+.JieShaoBox h1{font-size:0.042rem; margin-left:0.04375rem; border-bottom: 1px solid #ccc; height:0.11875rem; line-height:0.11875rem;}
+.JieShaoTop{padding:0.059rem 0; width:0.89rem; margin:0 auto;}
+.JieShaoTop .imgBox{width:0.373rem; height:0.278rem;}
+.JieShaoTop .jieshao{width:0.373rem; height:0.278rem; margin-left:0.1rem;}
+.JieShaoTop .jieshao p{font-size:0.0375rem;  height:0.09rem; line-height: 0.09rem; background: url("../images/borderBonDot.png") no-repeat left bottom; background-size:0.43rem 2px;}
+.JieShaoBot{width:0.89rem; margin:0 auto;}
+.JieShaoBot .botimg{width:100%; height:0.4rem; border:1px solid #ccc;}
+.JieShaoBot .jieshaoTxt{ height: auto; margin-top:0.03rem; padding-bottom:0.0875rem;}
+.JieShaoBot .jieshaoTxt p{ height:auto; line-height: 0.07rem; font-size:0.04rem;}
+.Spbot:link,.Spbot:visited{width:100%; height:0.15625rem; line-height:0.15625rem; display: block; background: #4bbfce; color:#fff; text-align: center; font-size:0.05rem; }
+
+.goodslove{z-index: 10;}
+.swiper-pagination{width:30% !important; height:10px !important; font-size: 0;}
+

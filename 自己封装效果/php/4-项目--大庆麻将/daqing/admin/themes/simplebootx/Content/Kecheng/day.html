@@ -1,0 +1,45 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('index')}">课程列表</a></li>
+			<li class="active"><a href="javascript:;">{$meta_title}</a></li>
+			<li><a href="{:U('create',array('kid'=>$kid))}">添加课程内容</a></li>
+		</ul>
+			<!-- 搜索 -->
+				<!--信息提示-->
+	<div id="top-alert" class="fixed alert alert-error">
+		<button class="close fixed" style="margin-top: 4px;">&times;</button>
+		<div class="alert-content">{$meta_title}</div>
+	</div>
+	<!--信息提示-->
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>标识</th>
+					<th>简介</th>
+					<th>封面</th>
+					<th width="120">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<foreach name="listData" item="vo">
+				<tr>
+					<td>{$vo.sign}</td>
+					<td>{$vo.intro}</td>
+					<td><img src="{$vo.cover}" width="150"></td>
+					<td>
+						<a href="{:U('save',array('id'=>$vo['id']))}">修改</a> | 
+						<a class="ajax-get confirm" href="{:U('daydel',array('id'=>$vo['id']))}" data-tips='确定要删除吗?'>删除</a>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="table-actions">
+		</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	</body>
+	</html>

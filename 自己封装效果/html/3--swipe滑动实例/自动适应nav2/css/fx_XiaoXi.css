@@ -1,0 +1,10 @@
+/*内容*/
+body{background:#fff;}
+.DZbox{background: #fff; width:100%; height:auto;}
+.DZbox .Ren{ width:100%; height:auto; padding:0.04rem 0; border-bottom:1px solid #ccc;}
+.DZbox .RenXin{ width:0.921rem; margin: 0 auto; height:auto;}
+.DZbox .name{display: inline-block; padding-right:0.0375rem; margin-right:0.04rem; }
+.DZbox .Time{font-size:0.03rem; color: #999; }
+.DZbox  p:nth-of-type(1){font-size:0.046rem; }
+.DZbox  p:nth-of-type(2){font-size:0.04rem; color:#999; height:auto; line-height: 0.05rem; margin-top:0.02rem;}
+

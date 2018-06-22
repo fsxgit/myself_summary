@@ -1,0 +1,153 @@
+a,a:link,a:visited,a:hover{text-decoration:none; cursor: pointer;}
+a:hover{text-decoration:underline;}
+/*	a:link:   连接时的状态
+
+	a:visited:连接被访问过之后的状态
+
+	a:hover:鼠标放到连接上的时候的状态
+
+	a:active:连接被按下的时候的状态
+*/
+/*产品的公共组件*/
+
+.main{width:1200px; margin-left:auto; margin-right:auto;}
+.mainBox{width:1198px;margin-left:auto; margin-right:auto; border:1px solid #eee;}
+#wrap{width:100%; height:auto; background: #fff;}
+.xq-h1{height:36px; line-height: 38px; font-weight: bold; text-indent:8px; border-bottom: 1px solid #eee; font-size:16px; margin: 20px 0; background: url("../images/bg2.png")no-repeat 0 center;  color: #333; }
+.xq-h1 span{font-size: 12px; color: #999; margin-left:4px;}
+/*公用h1	*/
+.c-h1{height:36px; line-height: 38px; font-weight: bold; text-indent:8px; border-bottom: 1px solid #eee; font-size:14px; background: url("../images/bg2.png")no-repeat 0 center;  color: #333; }
+.c-gou{display: inline-block; padding-left:20px; background: url("../images/y1.png") no-repeat 0 center; cursor: pointer; height: 24px; line-height: 26px;}
+.c-gou.active{background: url("../images/yn1.png") no-repeat 0 center;}
+/*公用h1	end*/
+/*头部*/
+.c-header{width:100%; height:80px; background: url("../images/hBg.png") no-repeat 0 0 ; background-size:100% 100%; }
+.c-logo{margin-left:40px; margin-top:16px;}
+.c-step{margin-left: 20px; padding-left: 20px;border-left:1px solid #a3adce; height: 40px; line-height: 40px; font-size: 24px; color: #e5e5e5; margin-top: 20px;}
+.c-right{margin-top: 24px; margin-right: 40px;}
+.c-tel{padding-top:10px; }
+.c-tel .f12{margin-top: 2px; color: #fff; }
+.c-tel img{padding-top:2px; margin-right: 4px;}
+.c-log{width:98px; height:32px; background:none; border:1px solid #fff; color: #fff; font-size: 14px; margin-right: 10px; margin-left:26px; cursor: pointer;}
+.c-reg{width:98px; height:32px; background:#fff; border:1px solid #fff; color: #333; font-size: 14px; cursor: pointer;}
+/*头部 end*/
+/*顶部 导航*/
+.c-header-2{width:100%; height:80px; background:#fff; border-bottom: 1px solid #eee;}
+.c-logo-2{margin-left:80px; margin-top:16px;}
+.c-step-2{margin-left: 20px; padding-left: 20px;border-left:1px solid #eee; height: 40px; line-height: 40px; font-size: 18px; color: #999; margin-top: 20px;}
+.c-right-2{margin-top: 24px; margin-right: 80px;}
+.c-log-2{width:98px; height:32px; background:none; border:1px solid #157efb; color: #157efb; font-size: 14px; margin-right: 10px; margin-left:26px; cursor: pointer;  border-radius: 2px;}
+.c-reg-2{width:98px; height:32px; background:#157efb; border:1px solid #157efb; color: #fff; font-size: 14px; cursor: pointer;  border-radius: 2px; }
+/*顶部 导航 end*/
+/*底部*/
+.c-bot{margin-top: 40px;}
+.c-bot-top{padding:40px 0; border-top:1px solid #ccc;}
+.c-bot-top .bot-img{float: left;}
+.c-bot-top .img1{margin-right: 88px;}
+.c-bot-top .img2{margin-right: 20px;}
+.c-bot-top .img3{margin-right: 68px;}
+.c-bot-bot{background: #000; height:180px;}
+.c-bot-tel{padding-top:40px;}
+.c-bot-copy{color: #949494; font-size: 14px; padding-top: 70px;}
+.copy1{padding-bottom: 20px;}
+.copy1 a{margin-right: 40px;}
+.copy1 a:hover,.copy1 a:link,.copy1 a:active,.copy1 a:visited{color:#949494; }
+/*底部 end*/
+/*右侧浮动导航条*/
+.f-bar{width:50px; height:152px; background:#FFF url("../images/fBg.png") no-repeat 0 0 ; position: fixed; right:76px; bottom:100px;z-index:20;}
+.bar-ma{position: relative; width:50px; height:50px;margin-bottom: 1px;}
+.bar-ma-img{padding:10px 16px 10px 10px; background: url("../images/maBg.png") no-repeat 0 0; width: 100px; height: 100px; position: absolute; left:-130px; top:10px; display: none;}
+.bar-msg{width:50px; height:50px; margin-bottom: 1px; cursor: pointer;}
+.bar-top{width:50px; height:50px; cursor: pointer;}
+.bar-top a{display: block; width:50px; height:50px; cursor: pointer;}
+/*右侧浮动导航条 end*/
+/*返回顶部*/
+.backTop{width:50px; height:152px; position: fixed; right:76px; bottom:100px; z-index:20; background:#FFF;}
+.backTop-msg{width:50px; height:50px; margin-bottom: 1px; cursor: pointer;}
+.backTop-top{width:50px; height:50px; cursor: pointer;}
+.backTop-top a{display: block; width:50px; height:50px; cursor: pointer;}
+/*返回顶部 end*/
+/*翻页按钮*/
+.c-pages{padding:20px 0; text-align: center;}
+.c-pages span{display: inline-block; margin-right: 5px; height:28px; line-height: 28px;}
+.c-pages span a{display: inline-block; margin:0 5px; height:28px; line-height: 28px; text-align: center; padding:0 10px; border:1px solid #ccc; text-decoration: none;}
+.c-pages span a:link,.c-pages span a:hover,.c-pages span a:active,.c-pages span a:visited{color: #333;}
+.c-pages span a.active{color: #fff; background: #157efb;}
+/*翻页按钮 end*/
+
+/*左侧主导航*/
+.c-left-nav{width:200px; height:100%; background:#293038; }
+.c-left-nav .nav-p{color: #acb1b5;}
+.c-left-nav p{height: 60px; line-height: 60px; cursor: pointer;}
+.c-left-nav p span{display: inline-block;padding-left: 30px; height: 20px; line-height: 20px; font-size: 16px; margin-left:40px;}
+.c-left-nav p a,.c-left-nav p a:link,.c-left-nav p a:visited,.c-left-nav p a:visited,.c-left-nav p a:hover{color: #acb1b5;}
+.c-left-nav .p1 span{background: url("../images/icon12.png") no-repeat 0 0;}
+.c-left-nav .p2 span{background: url("../images/icon13.png") no-repeat 0 0;}
+.c-left-nav .p3 span{background: url("../images/icon14.png") no-repeat 0 0;}
+.c-left-nav .p4 span{background: url("../images/icon15.png") no-repeat 0 0;}
+.c-left-nav .p5 span{background: url("../images/icon16.png") no-repeat 0 0;}
+.c-left-nav p.active{background: #fff;  color: #157efb;}
+.c-left-nav p.active a,.c-left-nav p.active a:link,.c-left-nav p.active a:visited,.c-left-nav p.active a:visited,.c-left-nav p.active a:hover{color: #157efb;}
+.c-left-nav .p1.active span{background: url("../images/icon12r.png") no-repeat 0 0;}
+.c-left-nav .p2.active span{background: url("../images/icon13r.png") no-repeat 0 0;}
+.c-left-nav .p3.active span{background: url("../images/icon14r.png") no-repeat 0 0;}
+.c-left-nav .p4.active span{background: url("../images/icon15r.png") no-repeat 0 0;}
+.c-left-nav .p5.active span{background: url("../images/icon16r.png") no-repeat 0 0;}
+/*左侧主导航 end*/
+/*顶部主导航*/
+.c-top-nav{height:60px;}
+.top-left-logo{padding-top:10px; margin-left: 20px;}
+.top-right-mode{}
+.top-right-mode .hover{cursor: pointer; }
+.top-right-mode div{ border-left:1px solid #2d8ed5;}
+.top-nav-ss{padding:20px 20px 20px 46px; background: url("../images/icon17.png") no-repeat 20px center;  line-height: 20px; height: 20px;}
+.top-nav-xj{padding:20px 20px 20px 46px; background: url("../images/icon18.png") no-repeat 20px center; line-height: 20px; height: 20px;}
+.top-nav-xx{padding:20px 20px 20px 46px; background: url("../images/icon19.png") no-repeat 20px center; line-height: 20px; height: 20px;}
+.top-nav-xx span{display: inline-block; background: #fb4440; color: #fff; height:14px; line-height: 14px; border-radius: 6px; padding:0 6px; font-size: 12px}
+.top-nav-img{padding:10px 20px; line-height: 40px; height: 40px;}
+/*顶部主导航 end*/
+
+
+
+
+
+/*弹出框*/
+.c-tan-shadow{position: fixed;width:100%; height:100%; background: rgba(0,0,0,0.1);  left:0; top:0;  display: none;  z-index: 10;}
+.c-tan-cont{position: fixed; left:20%; top:20%; background: #fff; width:502px;  border:4px solid #cecece; display: none; z-index: 12;}
+.c-tan-top{width:100%; border-bottom:1px solid #eee;}
+.c-tan-Title{height:50px; line-height: 50px; font-size: 14px; margin-left: 20px; }
+.c-tan-close{height:50px;width:50px; cursor: pointer;}
+.c-tan-close img{margin-left:19px; margin-top:19px;}
+.c-tan-center{padding:40px 0; width:420px;}
+.c-tan-input{height: 34px; line-height: 34px; font-size: 0;}
+.c-tan-input span{color: #333; margin-right:46px; font-size:12px;}
+.c-tan-input input{height:32px; border:1px solid #ccc; width:298px; font-size:12px; border-radius: 2px; text-indent: 10px;}
+.c-tan-bot{height:74px; line-height: 74px; width:420px; border-top: 1px solid #eee; text-align: right;}
+.c-tan-bot input{height:32px;  width:98px; border:1px solid #ccc; border-radius: 2px; font-size: 12px;}
+.c-tan-bot .btn-qu{ margin-right:10px;}
+/*第二个弹出框不同部分*/
+.c-tan-rl{padding:40px 0; width:420px;}
+.c-tan-rl p{font-size: 12px;}
+.rl-sf{font-size: 14px;}
+.rl-name{padding:18px 0 8px;}
+/*第三个弹出框不同部分*/
+.rl-suc{height: 60px; line-height: 60px;}
+.rl-suc span{margin-left:16px;}
+/*第四个弹出框不同部分*/
+.xg-ren{padding:40px 0; width:420px;}
+.xg-ren input{ width:418px; border:1px solid #eee; font-size: 12px; height: 32px; text-indent:10px; }
+/*第五个弹出框不同部分*/
+.brand-detail{padding:40px 0; width:420px; font-size: 12px;}
+.brand-detail p{margin-bottom:10px;}
+.brand-detail .bd-tit{color: #999; width: 132px; display: inline-block;}
+.brand-detail .ckxq{color: #157efb; margin-left: 4px; cursor: pointer;}
+.brand-tan-logo{border:1px solid #eee;}
+.brand-tan-logo img{width: 80px; height:80px;}
+.brand-cha{padding:40px 0 28px;}
+/*第六个弹出框不同部分*/
+.cha-good h1{line-height: 28px;}
+.cha-good p{line-height: 28px;}
+/*弹出框 end*/
+
+
+

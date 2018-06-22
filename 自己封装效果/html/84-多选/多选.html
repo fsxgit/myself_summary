@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多选</title>
+    <style>
+        body{padding:50px;}
+        .dans{padding:20px 0;}
+    </style>
+</head>
+<body>
+
+<div>
+    <label><input class="duo" type="checkbox"/>多选</label>
+</div>
+<div class="dans">
+    <label><input type="checkbox"/>选项一</label>
+    <label><input type="checkbox"/>选项二</label>
+    <label><input type="checkbox"/>选项三</label>
+    <label><input type="checkbox"/>选项四</label>
+    <label><input type="checkbox"/>选项五</label>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+$(".duo").click(function(){
+    if($(this).is(":checked")){
+        $(".dans input").prop("checked","true");
+    }else{
+        $(".dans input").prop("checked","");
+    }
+});
+$(".dans input").click(function(){
+    var i = 1;
+    $(".dans input").each(function(){
+        if($(this).is(":checked")){
+            i = 1;
+        }else{
+            i = 2;
+            return false;
+        }
+    });
+    if(i == 1){
+        $(".duo").prop("checked","true");
+    }else{
+        $(".duo").prop("checked","");
+    }
+})
+
+
+</script>
+</body>
+</html>

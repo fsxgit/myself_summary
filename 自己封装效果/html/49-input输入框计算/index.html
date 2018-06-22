@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        input{margin:0; padding:0;}
+        .bagsBox{}
+        .bagMode{overflow: hidden; padding:20px; border-bottom: 1px solid #ccc;}
+        .inputBag{float: left;}
+        .onlyInputBox{margin-bottom:10px;}
+        .onlyInputBox input{margin-right:10px;}
+        .SaddBtn{float: left;}
+        .bagBot{height:20px; margin-top:10px;}
+        .bagNumValue{width:30px; text-align: center;}
+        .jixuBtn{padding:20px 10px;}
+        /*.tjBox{display: none; }*/
+        .numColor{color:#ff2f15; font-size: 20px;}
+        .tabBtn span{display: inline-block; width:60px; height:30px; text-align: center; line-height: 30px; margin:20px 10px;}
+        .tabBox{display: none;}
+        .active{display: block;}
+        .libao{display: none;}
+    </style>
+
+</head>
+<body class="J_scroll_fixed">
+
+<div class="tabBtn">
+    <label for="dan" class="choSpan"><span><input type="radio" name="cho" id="dan" checked/>单选</span></label>
+    <label for="duo" class="choSpan"><span><input type="radio" name="cho" id="duo"/>多选</span></label>
+
+</div>
+<!--单选 盒子-->
+<div class="tabBox active tabBoxDan">
+    <div class="bagsBox">
+        <!--打包的包的初始化  开始-->
+        <div class="bagMode">
+            <div class="inputBag">
+                <!--小添加SaddBtn要增加的部分 开始-->
+                <div class="controls onlyInputBox sInputBox">
+                    <input type="button" value="删除" class="delfx"/><input type="text" class="input" name="area_name" value="">单价：<input type="tel" class="input danPrice" placeholder="请输入价格" name="area_name" value="3">个数：<input type="tel"  placeholder="请输入个数" class="input numGe" name="area_name" value="1"><input type="text" class="input" name="area_name" value="">
+                </div>
+                <!--小添加SaddBtn要增加的部分 结束-->
+
+
+            </div>
+            <!--小添加按钮-->
+            <button class="SaddBtn">添加</button>
+            <div style="clear: both;"></div>
+
+
+            <div class="bagBot">
+                <div class="bagTop">
+                    <input type="button" value="保存" class="baocun"/>
+                <span class="tjBox">
+                    <span class="bagNum">请输入所需包1的个数: <input type="tel" value="1" class="bagNumValue"/></span>
+                    <input type="button" value="提交" class="tijiao"/>
+                </span>
+
+                </div>
+
+            </div>
+        </div>
+        <!--打包包的初始化  结束-->
+    </div>
+    <div class="jixuBtn">
+        共有<span class="numColor numHui"></span>张优惠券，共计<span class="numColor numMoney"></span>元
+    </div>
+</div>
+
+
+
+
+<!--多选打包的盒子-->
+<div class="tabBox tabBoxDuo">
+    <div class="bagsBox ">
+        <!--打包的包的初始化  开始-->
+        <div class="bagMode bagModeDuo">
+            <h1>礼包<span class="nameNum"></span><input type="button" class="BagDel" value="删除此包"/></h1>
+            <div class="inputBag">
+                <!--小添加SaddBtn要增加的部分 开始-->
+                <div class="controls onlyInputBox">
+                    <input type="button" value="删除" class="delfx"/><input type="text" class="input" name="area_name" value="">单价：<input type="tel" class="input danPriceDuo" placeholder="请输入价格" name="area_name" value="4">个数：<input type="tel"  placeholder="请输入个数" class="input numGeDuo" name="area_name" value="3"><input type="text" class="input ceshi" name="area_name" value="">
+                </div>
+                <!--小添加SaddBtn要增加的部分 结束-->
+            </div>
+            <!--小添加按钮-->
+            <button class="SaddBtn">添加</button>
+            <div style="clear: both;"></div>
+            <!--单个包数目统计-->
+            <div class="bagBot">
+                <div class="bagTop">
+                    <input type="button" value="保存" class="baocun"/>
+                    <span class="tjBox">
+                        <span class="bagNum">请输入所需包1的个数: <input type="tel" value="1" class="bagNumValue numBagDuo"/></span>
+                        <input type="button" value="提交" class="tijiao"/>
+                        <span>
+                            共有<span class="numColor numHuiDuo"></span>张优惠券，共计<span class="numColor numMoneyDuo"></span>元
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!--打包包的初始化  结束-->
+
+    </div>
+    <div class="jixuBtn">
+        <input type="button" value="请继续添加" class="BaddBtn"/>
+        共有<span class="numColor duoHuiTol">3</span>张优惠券，共计<span class="numColor duoMoneyTol">100</span>元
+
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/fx_js.js"></script>
+<script>
+//    添加包的js
+    addMore();//添加多选
+    addDan();//添加单选
+//切换多包和单包的js
+    tabBox();
+//    计算包个数，价钱，总价，总包数的js
+    DanCal();//计算单选
+    DuoCal();//计算多选
+
+
+
+
+</script>
+</body>
+</html>

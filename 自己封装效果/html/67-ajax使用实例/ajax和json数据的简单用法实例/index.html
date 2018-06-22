@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例</title>
+    <style>
+        div{border:1px solid #ccc; margin:20px; padding:20px;}
+        .red{color:#ff0039; font-size: 18px;}
+        button{cursor: pointer;}
+    </style>
+</head>
+<body>
+<div>
+    <p><span>点击获取plants下面的第3种植物</span>
+    <p><button class="btn1">获取结果</button>：<span class="res1 red"></span></p>
+</div>
+<div>
+    <p><span>点击获取animals下面的第2种植物</span>
+    <p><button class="btn2">获取结果</button>：<span class="res2 red"></span></p>
+</div>
+
+
+<div>
+    <p><span>选择种类：</span>
+        <select name="" id="kinds">
+            <option value="animals">动物</option>
+            <option value="plants">植物</option>
+            <option value="flowers">花朵</option>
+        </select>
+    </p>
+    <p><span>选择索引值：</span>
+        <select name="" id="order">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </p>
+
+    <p><button class="btn3">获取结果</button>：<span class="res3 red"></span></p>
+</div>
+<div>
+    <h3>遍历所有<span class="red">动物</span>数据</h3>
+    <button class="btn4">获取结果</button>
+    <div class="res4">
+
+    </div>
+</div>
+
+
+<script src="jquery-1.9.1.min.js"></script>
+<script>
+//    定值写法
+    $(".btn1").click(function(){
+        $.ajax({
+            type:"GET",
+            url:"data.json",
+            async:false,
+            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            dataType:'json',
+            success:function(data){
+//               console.log(data);
+                var datas = data.datas;
+                var res = datas.animals[3];
+                $(".res1").text(res);
+
+            },
+            error:function(){
+                alert("获取数据失败！！")
+            }
+        })
+    });
+    $(".btn2").click(function(){
+        $.ajax({
+            type:"GET",
+            url:"data.json",
+            async:false,
+            dataType:'json',
+            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            success:function(data){
+//               console.log(data);
+                var datas = data.datas;
+                var res = datas.plants[3];
+                $(".res2").text(res);
+
+            },
+            error:function(){
+                alert("获取数据失败！！")
+            }
+        })
+    })
+//变量的写法
+    $(".btn3").click(function(){
+        var name= $("#kinds").val();
+        var i= $("#order").val();
+        $.ajax({
+            type:"GET",
+            url:"data.json",
+            async:false,
+            dataType:'json',
+            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            success:function(data){
+//               console.log(data);
+                var datas = data.datas;
+//                var res = datas.name[i];  错误写法，这样只会把 name当做一个类名字去查找，查找结果为underfined;
+                var res = datas[name][i];
+                $(".res3").text(res);
+
+            },
+            error:function(){
+                alert("获取数据失败！！")
+            }
+        })
+    })
+
+//获取所有数据
+$(".btn4").click(function(){
+    var arr = ""
+    $.ajax({
+        type:"GET",
+        url:"data.json",
+        async:false,
+        dataType:'json',
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        success:function(data){
+//               console.log(data);
+            var datas = data.datas;
+            $.each(datas.animals,function(index,val){
+                arr += "<p data-id="+index+">"+val+"</p>";
+            });
+            $(".res4").html(arr);
+
+        },
+        error:function(){
+            alert("获取数据失败！！")
+        }
+    })
+})
+</script>
+</div>
+</body>
+</html>

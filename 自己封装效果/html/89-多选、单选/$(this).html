@@ -1,0 +1,261 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <style>
+        .c-tan-shadow{position: fixed; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.3); display:none;}
+        .c-tan-box{width:900px;  max-height:600px; background: #fff;position: fixed; left:50%; top:50%;margin-left: -450px; display:none;}
+        .c-tan-box .liang span{margin-right:10px; font-size: 14px;}
+        .c-tan-box .liang input{font-size: 14px; height:26px; text-align: center;}
+        .c-btn{ text-align: center; border-top:1px solid #eee; padding-top: 4px;}
+        .c-btn span{display: inline-block; width: 40%; height:30px; line-height: 30px; cursor: pointer;}
+        .c-btn span:hover{color: #ff0511;}
+        .c-tab-cont{width:840px; margin:30px auto 10px; max-height:524px;   overflow: auto;}
+        table{border-collapse: collapse; width: 100%; }
+        table td{border: 1px solid #adadad; padding:10px; box-sizing: border-box; }
+        table tr td:nth-of-type(1){width: 20%;}
+        table tr td:nth-of-type(2){width: 80%;}
+        label{white-space:nowrap; width: 120px; overflow: hidden; display: inline-block; text-overflow: ellipsis; padding:2px 0; cursor: pointer;}
+    </style>
+</head>
+<body>
+<button class="c-tan">弹弹弹</button>
+
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-box">
+        <div class="c-tab-cont">
+            <table id="fxtable">
+                <thead>
+                    <tr>
+                        <td colspan="2">
+                            <label class="qx1"><input type="checkbox"/> 全选</label>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="qx2"><input  type="checkbox"/> 全选2</label>
+                        </td>
+                        <td>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                            <label title="单选单选单选单选" class="dx"><input  type="checkbox"/> 单选单选单选单选</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="c-btn">
+            <span class="c-tan-xiao">取消</span>
+            <span class="c-tan-sure">确认</span>
+        </div>
+    </div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+//    弹出框
+    $(".c-tan").click(function(){
+
+        $(".c-tan-box").css("marginTop",-($(".c-tan-box").outerHeight()/2));
+        $(".c-tan-shadow,.c-tan-box").show();
+    });
+    $(".c-tan-xiao").click(function(){
+        $(".c-tan-shadow,.c-tan-box").hide();
+    });
+
+
+xz();
+function xz(){
+    //全选
+
+    function qxTrue(){
+        $("#fxtable tbody input[type='checkbox']").prop("checked",true);
+    }
+    function qxFalse(){
+        $("#fxtable tbody input[type='checkbox']").prop("checked",false);
+    }
+    function qx1True(){
+        $(".qx1 input[type='checkbox']").prop("checked",true);
+    }
+    function qx1False(){
+        $(".qx1 input[type='checkbox']").prop("checked",false);
+    }
+
+//  input发生变化时检查全选1按钮是否要选中
+    function qxYesNo(){
+        var i = 1;
+        $("#fxtable tbody input[type='checkbox']").each(function(){
+            if($(this).is(":checked")){
+                i =1;
+            }else{
+                i=2;
+                return false;
+            }
+        });
+        if(i == 1){
+            qx1True();
+        }else{
+            qx1False();
+        }
+    }
+// 点击全选1按钮
+    $(".qx1").click(function(){
+        if($(this).find("input[type='checkbox']").is(":checked")){
+            qxTrue();
+        }else{
+            qxFalse();
+        }
+    });
+
+//    点击全选2 时
+    $(".qx2").click(function(){
+        if($(this).find("input[type='checkbox']").is(":checked")){
+            $(this).parent().siblings().find("input[type='checkbox']").prop("checked",true);
+        }else{
+            $(this).parent().siblings().find("input[type='checkbox']").prop("checked",false);
+        }
+        qxYesNo();
+    });
+
+//    点击单选 时
+    $(".dx").click(function(){
+        var This1 = $(this).parent("td").find("input[type='checkbox']");
+        var pqx = $(this).parent("td").siblings().find("input[type='checkbox']");
+        var That = $(this).find("input[type='checkbox']");
+        if(That.is(":checked")){
+//            That.prop("checked",false); 这一行不知道该要还是不该要
+            var m = 1;
+            This1.each(function(){
+                var This2 = $(this);
+                if(This2.is(":checked")){
+                    m =1;
+                }else{
+                    m=2;
+                    return false;
+                }
+            });
+            if(m == 1){
+                pqx.prop("checked",true);
+            }else{
+                pqx.prop("checked",false);
+            }
+        }else{
+//            That.prop("checked",true);这一行不知道该要还是不该要
+            var n = 1;
+            This1.each(function(){
+                var This2 = $(this);
+                if(This2.is(":checked")){
+                    n =1;
+                }else{
+                    n=2;
+                    return false;
+                }
+            });
+            if(n == 1){
+                pqx.prop("checked",true);
+            }else{
+                pqx.prop("checked",false);
+            }
+        }
+        qxYesNo();
+    })
+}
+</script>
+</body>
+</html>

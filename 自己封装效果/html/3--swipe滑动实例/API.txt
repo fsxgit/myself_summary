@@ -1,0 +1,3 @@
+http://www.swiper.com.cn/
+
+PC端禁用【因为IE浏览器不支持】

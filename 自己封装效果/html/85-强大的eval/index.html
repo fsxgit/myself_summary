@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则学习</title>
+    <style>
+        body{ text-align: center;}
+        .box{text-align: left; width:1000px; margin:40px auto;}
+        p{margin:10px 0;}
+        .red{display: none; color: red; margin-left: 20px;}
+        .green{display: none; color: green; margin-left: 20px;}
+    </style>
+</head>
+<body>
+<h1>这里是学习正则测试的文件</h1>
+
+<div class="box">
+    <div class="mode">
+        <p>测试1:</p>
+        <p>要求：匹配 Hello</p>
+        <p><input type="text" class="ts" placeholder="请输入符合要求的字符"/><span class="red">*您输入的不符合要求</span><span class="green">正确</span></p>
+    </div>
+    <div class="mode">
+        <p>测试1:</p>
+        <p>要求：匹配 xixi</p>
+        <p><input type="text" class="ts" placeholder="请输入符合要求的字符"/><span class="red">*您输入的不符合要求</span><span class="green">正确</span></p>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script>
+    var reg0 = "/Hello/g";
+    var reg1 = "/xixi/g";
+
+    $(".ts").each(function(i){
+
+        var reg = eval("reg"+i); //eval把字符串转换成 对应的 正则;
+        var That = $(this);
+        That.focus(function(){
+            That.siblings("span").hide();
+        });
+
+        That.blur(function(){
+            var str = That.val();
+            var isTrue =eval(reg).test(str);
+            if(isTrue){
+                That.siblings(".green").show();
+            }else{
+                That.siblings(".red").show();
+            }
+        })
+    });
+
+</script>
+</body>
+</html>

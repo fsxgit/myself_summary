@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3demo</title>
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        body{background: #000; color: #fff;}
+        h1,h2,h3{padding:40px;}
+    </style>
+</head>
+<body>
+<h1>模仿---https://www.protectwise.com/官网效果</h1>
+<h2>一些官网--星河卓越可能用到的css3效果</h2>
+
+
+<h3>效果1--css3菜单变换-移入显示效果</h3>
+<div style="position: relative; width: 300px; height: 100px;  margin-left: 100px;">
+    <div id="meau">
+        <div id="menu-btn">
+            <div id="menu-btn-icon"></div>
+        </div>
+    </div>
+</div>
+<h2>刷新页面，观察这里按钮的效果</h2>
+<div id="request-demo-wrapper">
+    <div id="request-demo-close-btn"></div>
+</div>
+
+<hr/>
+
+<script src="js/jquery.2.11.1.min.js"></script>
+<script>
+    $("#meau").hover(function(){
+        $(this).addClass("menu-open");
+    },function(){
+        $(this).removeClass("menu-open");
+    });
+    setTimeout(function(){
+        $("#request-demo-wrapper").addClass("on");
+    },500);
+    setTimeout(function(){
+        $("#request-demo-wrapper").removeClass("on");
+    },4000)
+
+</script>
+</body>
+</html>

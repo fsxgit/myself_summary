@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>全屏滚动布局</title>
+	<link rel="stylesheet" href="css/css.css"/>
+	<link rel="stylesheet" href="css/css3.css"/>
+</head>
+<body>
+<div class="navf">
+	<div class="main oh">
+		<div class="logof fl">
+			<img src="images/logo.png" alt=""/>
+		</div>
+		<div class="logotxt fl">飘飘工作室</div>
+		<div class="nav-list fr">
+			<a href="javascript:;">绿色风景</a>
+			<a href="javascript:;">宇宙奥妙</a>
+			<a href="javascript:;">萌宠天堂</a>
+			<a href="javascript:;">海底世界</a>
+			<a href="javascript:;">都市风情</a>
+		</div>
+	</div>
+</div>
+	<div id="view">
+		<div id="frame">
+			<div class="op-section first">
+				<h1>河北工程大学环境保护协会</h1>
+				<div class="main oh welman-box">
+					<div class="weltxt fl ">
+						<p>爱护环境，</p>
+						<p>人人有责！</p>
+					</div>
+					<div class="welgif fr"><img src="images/wel.gif" alt=""/></div>
+					<div class="welman fr "><img src="images/welcome.png" alt=""/></div>
+				</div>
+			</div>
+			<div class="op-section second">
+				<div class="xk-box ">
+					<h1>鹊桥仙</h1>
+					<h2>秦观•北宋</h2>
+					<p>纤云弄巧，飞星传恨， 银汉迢迢暗度。</p>
+					<p>金风玉露一相逢， 便胜却、人间无数。</p>
+					<p>柔情似水，佳期如梦， 忍顾鹊桥归路。</p>
+					<p>两情若是久长时， 又岂在、朝朝暮暮。</p>
+				</div>
+			</div>
+			<div class="op-section third">
+				<h1>宠物天堂</h1>
+				<ul class="ul-pet main">
+					<li class="hvr-skew-backward">
+						<img src="images/pet1.jpg" alt=""/>
+						<p>汪星人</p>
+					</li>
+					<li class="hvr-skew-backward">
+						<img src="images/pet2.jpg" alt=""/>
+						<p>喵星人</p>
+					</li>
+					<li class="hvr-skew-forward">
+						<img src="images/pet3.jpg" alt=""/>
+						<p>傻兔兔</p>
+					</li>
+					<li class="hvr-skew-forward">
+						<img src="images/pet4.jpg" alt=""/>
+						<p>飞行人</p>
+					</li>
+				</ul>
+			</div>
+			<div class="op-section fourth">
+
+			</div>
+			<div class="op-section fifth">
+				<div class="btn-box">
+					<p><a href="javascript:;"  class="btn scale-hzt tc" style="opacity: 1;">了解更多</a></p>
+					<p><a href="javascript:void(0)"  class="btn scale-vtl tc">演示视频</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="radioWrap">
+		<!--导航点-->
+		<ul id="radio">
+			<li>section0</li>
+			<li>section1</li>
+			<li>section2</li>
+			<li>section3</li>
+			<li>section4</li>
+		</ul>
+		<!--当前导航点-->
+		<span id="radioOn"></span>
+	</div>
+
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script src="js/onepage.js"></script>
+	<script>
+		$(document).ready(function(){
+			startOnePage({
+				frame: "#view",
+				container: "#frame",
+				sections: ".op-section",
+				radio: "#radio",
+				radioOn: "#radioOn",
+				speed: 500,
+				easing: "easeInCirc"
+//easing可选参数：
+//		linear、swing、easeInQuad、easeOutQuad、easeInOutQuad、easeInCubic、easeOutCubic、easeInOutCubic、easeInQuart、easeOutQuart、easeInOutQuart、
+//		easeInQuint、easeOutQuint、easeInOutQuint、easeInExpo、easeOutExpo、easeInOutExpo、easeInSine、easeOutSine、easeInOutSine、easeInCirc、easeOutCirc、
+//		easeInOutCirc、easeInElastic、easeOutElastic、easeInOutElastic、easeInBack、easeOutBack、easeInOutBack、easeInBounce、easeOutBounce、easeInOutBounce
+
+			});
+		});
+
+		//捕捉webkitAnimationEnd事件  css3动画结束时执行
+		$(".welman").on("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
+			$(".first .welgif").css("opacity",1);
+		});
+
+	</script>
+</body>
+</html>

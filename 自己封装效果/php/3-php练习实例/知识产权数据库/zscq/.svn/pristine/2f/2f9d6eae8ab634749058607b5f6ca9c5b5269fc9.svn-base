@@ -1,0 +1,120 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class BrandController extends AdminbaseController{
+	//注册中
+	public function zing(){
+		$bname = I("bname");
+		$state = I("state");
+                $where =" 1 ";
+		if($bname!=''){
+            $where.=" and markname like '%$bname%'";  
+			$con = "&bname=$bname";
+                }
+                /*
+                if($state!=''){
+			$where.=" and state={$state}";
+			$con .= "&state=$state";
+		}*/
+                $count = M("mark")->where("$where and begindate is null and enddate is null")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and state=1 and begindate is null and enddate is null")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show("Admin",$con));
+		$this->display();
+	}
+	//注册成功
+	public function zsuccess(){
+		$bname = I("bname");
+		$state = I("state");
+                $where = " 1 and xiangmu not like '%已无效%'";
+                        if($bname!=''){
+                    $where.=" and markname like '%$bname%'";  
+                                $con = "&bname=$bname";
+                }
+                /*
+                if($state!=''){
+			$where.=" and state={$state}";
+			$con .= "&state=$state";
+		}*/
+		$count = M("mark")->where("$where and UNIX_TIMESTAMP(begindate)< unix_timestamp(now()) and UNIX_TIMESTAMP(enddate)> unix_timestamp(now())")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and UNIX_TIMESTAMP(begindate)< unix_timestamp(now()) and UNIX_TIMESTAMP(enddate)> unix_timestamp(now())")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show("Admin",$con));
+		$this->display();
+	}
+	//注册失败
+	public function zfail(){
+		$bname = I("bname");
+		
+                $where =" 1 ";
+                    if($bname!=''){
+                            $where.=" and markname like '%$bname%'";  
+                            $con = "&bname=$bname";
+                }
+		$count = M("mark")->where("$where and markstate=2")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=2")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show("Admin",$con));
+		$this->display();
+	}
+	//已失效
+	public function zwu(){
+		$bname = I("bname");
+		
+        $where = " 1 and xiangmu like '%已无效%'";
+		if($bname!=''){
+            $where.=" and markname like '%$bname%'";  
+			$con = "&bname=$bname";
+        }
+		$count = M("mark")->where("$where")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show("Admin",$con));
+		$this->display();
+	}
+	//详情
+	public function detail(){
+		$id = I("id");
+		$r = M("mark")->where("id=$id")->find();
+		$uid = $r["customerid"];
+		$name = $r["entname"];
+		$ad = M("enterprise")->where("entname='$name'")->find();
+		$i = M("user")->where("id=$uid")->find();
+		if($i["adviser"]==1){
+			$g = M("adviser")->where("customerid=$uid")->find();
+			$this->assign("g",$g);
+		}
+		$this->assign("ad",$ad);
+		$this->assign("r",$r);
+		$this->assign("i",$i);
+		$this->display();
+	}
+}

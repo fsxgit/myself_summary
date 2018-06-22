@@ -1,0 +1,209 @@
+/*foot部分*/
+.foot {
+    text-align: center;
+}
+.foot_logo {
+    padding: 70px 0 0 0;
+}
+.foot_logo img {
+    width: 12%;
+}
+.foot_nav {
+    text-align: center;
+}
+.foot_nav a {
+    display: inline-block;
+    margin: 20px 20px 20px 0;
+    padding: 0 20px 0 0;
+
+    border-right: 1px solid #e0e1e3;
+
+    font-size: 1.8rem;
+    color: #30343f;
+    text-decoration: none;
+}
+.foot_nav a:hover {
+    text-decoration: underline;
+}
+.foot_nav a:last-child {
+    border-right: 0px;
+    margin-right: 0;
+    padding-right: 0;
+}
+.foot_info {
+    font-size: 1.2rem;
+    color: #959699;
+}
+.foot_info p {
+    margin: 10px 0;
+}
+.foot_info p:last-child {
+    position: relative;
+    top: -3px;
+}
+.foot_info img {
+    height: 14px;
+    margin: 0 5px 0 20px;
+    position: relative;
+    top: 2px;
+}
+.feedback_hide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 6;
+    background: rgba(0, 0, 0, .5);
+    text-align: left;
+}
+.feedback_wrap {
+    position: relative;
+    top: 20%;
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #eff2f8;
+    border-radius: 5px;
+}
+.feedback_title {
+    position: relative;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.feedback_title span {
+    line-height: 1.8;
+    font-size: 18px;
+    color: #606784;
+}
+.feedback_title a {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background: url(../img/icon/join_close.png) no-repeat;
+    background-size: 100% 100%; 
+}
+.feedback_content {
+    height: 270px;
+    padding: 0 15px 30px 15px;
+    background: #fff;
+    overflow-y: auto;
+}
+.feedback_content li {
+    display: block;
+    position: relative;
+    list-style: none;
+}
+.feedback_content li b {
+    display: block;
+    padding: 30px 0 20px 0;
+    font-size: 13px;
+    color: #606784;
+    text-align: center;
+    font-weight: normal;
+    opacity: .5;
+}
+.feedback_content li i {
+    position: absolute;
+    display: block;
+}
+.feedback_content li span {
+    display: block;
+    position: relative;
+    padding: 10px;
+    margin: 0 55px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #30343f;
+    border-radius: 3px;
+}
+.feedback_content li:nth-child(odd) i {
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url(../img/icon/feedback_logo.png) no-repeat;
+    background-size: 100% 100%;
+}
+.feedback_content li:nth-child(odd) span {
+    float: left;
+    background: #def3fd;
+}
+.feedback_content li:nth-child(odd) span:before {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    margin-top: -5px;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #def3fd;
+    border-bottom: 5px solid transparent;
+    content: " ";
+}
+.feedback_content li:nth-child(even) i {
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url(../img/icon/head_portrait.png) no-repeat;
+    background-size: 100% 100%;
+}
+.feedback_content li:nth-child(even) span {
+    float: right;
+    background: #eff2f8;
+}
+.feedback_content li:nth-child(even) span:before {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    margin-top: -5px;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #eff2f8;
+    border-bottom: 5px solid transparent;
+    content: " ";
+}
+.feedback_input {
+    margin: 10px 0;
+}
+.feedback_input textarea {
+    width: 490px;
+    height: 90px;
+    padding: 5px;
+    border: 0;
+    font-size: 14px;
+    color: rgba(96, 103, 132, .5);
+    resize: none;
+    outline: none;
+}
+.feedback_btn {
+    padding: 5px 0;
+    text-align: center;
+}
+.feedback_btn button{
+    width: 168px;
+    height: 45px;
+    background: #5aacf3;
+    border: 0;
+    border-radius: 3px;
+    font-size: 18px;
+    color: #fff;
+}
+.feedback_tel {
+    position: absolute;
+    width: 100%;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    bottom: -30px;
+}

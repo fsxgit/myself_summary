@@ -1,0 +1,128 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+	        <li class="active"><a href="#A" data-toggle="tab">{:L('GENERAL_SETTING')}</a></li>
+	        <li><a href="#B" data-toggle="tab">{:L('SEO_SETTING')}</a></li>
+	    </ul>
+		<form class="form-horizontal js-ajax-form" action="{:U('AdminTerm/add_post')}" method="post">
+			<div class="tabbable">
+		        <div class="tab-content">
+		          <div class="tab-pane active" id="A">
+						<fieldset>
+						<table class="table table-hover table-bordered">
+								 <tr>
+					                <th width="100">{:L('PARENT')}</th>
+					                <td>
+					                <select name="parent" class='input-8x'>
+										<option value="0">{:L('ROOT')}</option>
+										{$terms_tree}
+									</select>
+					            	</td>
+					            </tr>
+								 <tr>
+					                <th>{:L('NAME')}</th>
+					                <td><input type="text" name="name" value=""  class='input-8x'><span class="form-required">*</span></td>
+					            </tr>
+								 <tr>
+					                <th>{:L('CATEGORY_DESCRIPTION')}</th>
+					                <td><textarea name="description" rows="5" cols="57"  class='textarea-auto'></textarea></td>
+					            </tr>
+					            <tr>
+					                <th width="100">{:L('LIST_TEMPLATE')}</th>
+					                <td><php>
+										$list_tpls=$tpl_list;
+										unset($list_tpls['list']);
+									</php>
+				              		<select  name="list_tpl" class='input-8x'>
+				              			<option value="list">list{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+				              			<foreach name="list_tpls" item="vo">
+				              				<option value="{$vo}">{$vo}{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+				              			</foreach>
+				              		</select>
+				              		</td>
+					            </tr>
+								 <tr>
+					                <th>{:L('ARTICLE_TEMPLATE')}</th>
+					                <td><php>
+										$article_tpls=$tpl_list;
+										unset($article_tpls['article']);
+									</php>
+				              		<select  name="one_tpl" class='input-8x'>
+				              			<option value="article">article{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+				              			<foreach name="article_tpls" item="vo">
+				              				<option value="{$vo}">{$vo}{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+				              			</foreach>
+				              		</select>
+				              		</td>
+					            </tr>
+								 <tr>
+					                <th>{:L('CATEGORY_TYPE')}</th>
+					                <td><select name="taxonomy" class='input-8x' id="taxonomy">
+										<foreach name="taxonomys" item="vo">
+								        	<option value="{$key}">{$vo}</option>
+										</foreach>
+									</select></td>
+					            </tr>
+					             <tr id="contentBox" style="display: none">
+					                <th>内容</th>
+					                <td><script type="text/plain" id="content" name="content">{$info.content|default=''}</script></td>
+					            </tr>
+							 </table>
+						</fieldset>
+		          </div>
+		          <div class="tab-pane" id="B">
+						<fieldset>
+						<table class="table table-hover table-bordered">
+								 <tr>
+					                <th width="100">{:L('SEO_TITLE')}</th>
+					                <td><input type="text" name="seo_title" value="" class='input-8x'></td>
+					            </tr>
+								 <tr>
+					                <th>{:L('SEO_KEYWORDS')}</th>
+					                <td><textarea name="seo_keywords" rows="5" cols="57"  class='textarea-auto'></textarea></td>
+					            </tr>
+								 <tr>
+					                <th>{:L('SEO_DESCRIPTION')}</th>
+					                <td><textarea name="seo_description" rows="5" cols="57"  class='textarea-auto'></textarea></td>
+					            </tr>
+			            </table>
+						</fieldset>
+		          </div>
+		        </div>
+		    </div>
+		    <div class="form-actions">
+		     	<button class="btn btn-primary js-ajax-submit"type="submit">{:L('ADD')}</button>
+		      	<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
+		    </div>
+		</form>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+    <script type="text/javascript">
+        //编辑器路径定义
+        var editorURL = GV.WEB_ROOT;
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript">
+        $(function () {
+            $("#taxonomy").on('change',function(){
+                var _val = $(this).val();
+                if( _val == 'page' ){
+                    $("#contentBox").show();
+                }else{
+                    $("#contentBox").hide();
+                }
+            })
+            //编辑器
+            editorcontent = new baidu.editor.ui.Editor({'initialFrameHeight':400});
+            editorcontent.render('content');
+            try {
+                editorcontent.sync();
+            } catch (err) {}
+        })
+    </script>
+    
+</body>
+</html>

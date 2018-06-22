@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人中心-绑定邮箱</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/perCenter.css"/>
+</head>
+<body>
+    <div class="perCenter-box main-hou">
+        <div class="per-nav">安全设置 > 绑定邮箱</div>
+        <div class="c-h1">绑定邮箱</div>
+        <div class="bang-cel-box">
+            <div class="fp-input-box bc">
+                <p><span class="tit">验证邮箱</span><input type="text" value="" placeholder="请输入邮箱"/></p>
+                <p class="warn-box"><span class="warn-txt">邮箱格式错误</span></p>
+                <p><span class="tit">图片验证码</span><input type="text" class="fp-ma" placeholder="请输入图片验证码"/><img src="../images/icon31.png" class="cp fr" alt=""/></p>
+                <p><input type="submit" class="next bg1 cfff" value="发送验证邮件"/></p>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

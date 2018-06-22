@@ -1,0 +1,24 @@
+/*内容*/
+body{background:#f0eff5;}
+.SNbox{width:100%; height:auto; background: #fff; margin-top:0.046875rem;}
+.SNhang{margin-left:0.04rem; border-bottom:1px solid #ccc; height:0.15rem; line-height: 0.15rem; }
+.SNhang .hangL{font-size:0.046rem; width:0.28rem;}
+.SNhang .hangR{font-size:0.04rem; }
+.SNhang .hangR label{display:inline-block;  font-size:0.04rem; width:0.09rem; padding-left:0.09rem; background: url("../images/XuanN.png") no-repeat left center; background-size: 0.0656rem; height:0.15rem; line-height: 0.15rem;}
+.SNhang .hangR label:nth-of-type(1){margin-right:0.06rem;}
+.SNhang .hangR label.active{background: url("../images/XuanY.png") no-repeat left center; background-size: 0.0656rem;}
+.SNhang .hangR label input.cIos{width:0;}
+.SNtel{border:none;}
+/*三级联动*/
+.SNDiZhiBox{width:100%; height:auto; border-bottom: 1px solid #ccc;}
+.SNDiZhiBox a{display: block;  margin-right:0.04rem; width:0.0375rem;height:100%; background: url("../images/right.png") no-repeat center; background-size:0.0234rem 0.0375rem;}
+.XXDZ{border:none;}
+.BaoCun{width:100%; height:auto;padding:0.106rem 0 0.02rem; background:#f0eff5; }
+.BaoCunBtn{ display:inline-block; width:0.92rem; height:0.13rem; line-height: 0.13rem; background:#49becd; color:#fff; text-align: center; border-radius: 4px; font-size: 0.05rem;}
+.DZzi{font-size: 0.04rem;}
+.XiangXiDZ{width:0.6rem;}
+/*城市选择弹出框  开始*/
+.cityShadow,.quShadow{position:fixed; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display: none;}
+.cityBox,.quBox{width:90%; height:auto; background: #f5f5f5; position:fixed; left:0; top:0;font-size: 0.04rem; min-height: 0.6rem;max-height: 1rem; overflow: auto;}
+.cityBox h1,.quBox h1{font-weight:normal; font-size: 0.05rem; text-align: center; background: #49bfcd; color:#fff; height: 0.1rem; line-height: 0.1rem; }
+.cityBox p,.quBox p{ height:0.1rem;  line-height:0.1rem; font-size: 0.04rem; border-bottom: 1px solid #ccc; text-align: center;}

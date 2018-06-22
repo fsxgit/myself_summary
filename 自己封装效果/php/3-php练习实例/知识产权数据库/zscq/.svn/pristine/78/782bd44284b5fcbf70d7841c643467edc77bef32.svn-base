@@ -1,0 +1,349 @@
+            <!--切换的内容-->
+                <!--1.商标概况-->
+                <div class="div1 div_tab active">
+                    <!--右边的完成步骤部分-->
+                                <div class="list-gk-cont-right fr">
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                      <if condition="$order['state'] eq 10 ">
+
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">本次服务结束，恭喜注册成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['sltz']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 9 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" onclick="funsd({$state.orderid})">请确认是否收到《商标注册证》</p>
+                            </div>
+                        </div>
+						</if>
+						 <if condition="($order['state'] eq 9) or ($order['state'] gt 8)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">《商标注册证》已寄出</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['sltz']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 8 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >等待寄出</p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="($order['state'] eq 8) or ($order['state'] gt 7)">
+                          <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">已收到商标注册证。</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['sltz']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<!--
+						有人提出异议
+						
+						<if condition="($order2 neq '') and ($order['state'] eq 8)">
+                          <div class="step-mode  fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                               <div class="step-txt  fl">
+                                <p class="txt" >进入异议答辩阶段</p>
+                            </div>
+                          </div>
+                      </if>!-->
+						<!--<if condition="$order82 neq ''">
+                          <div class="step-mode active fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt fl">
+                                  <p class="txt"  onclick="xiazai()">进入异议答辩流程，请点击此处下载资料</p>
+                                  <p class="time"><?php echo date('Y.m.d H:i:s',$state['sltz']);?></p>
+                              </div>
+                          </div>
+                      </if>!-->
+                       <if condition="($order['state'] eq 7) and ($order['state'] gt 6)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <a href="{:U('Brand/shangbiaoyiyi',array('orderid'=>$state['orderid']))}"><div class="step-txt fl" onclick="sb1yy({$state.orderid})">
+                                <p class="txt">第三人提出异议，商标注册中止</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['sltz']);?></p>
+                            </div></a>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 6 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入公告阶段</p>
+                            </div>
+                        </div>
+						</if>
+                      <if condition="($order['state'] eq 6) or ($order['state'] gt 5)">
+                          <div class="step-mode active fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt fl">
+                                  <p class="txt">通过实质审查</p>
+                                  <p class="time"><?php echo date('Y.m.d H:i:s',$order['time6']);?></p>
+                              </div>
+                          </div>
+                      </if>
+						<!--
+						驳回复审的状态展示
+						!-->
+                     <if condition="($order2['state'] eq '0') and ($order['state'] lt '6')">
+                          <div class="step-mode  fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt  fl">
+                                <p class="txt" >进入驳回复审阶段</p>
+                            </div>
+                          </div>
+                      </if>
+                      <if condition="$order2['state'] neq ''">
+                          <div class="step-mode active fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt fl">
+                                  <p class="txt"  onclick="xiazai()">进入驳回复审流程，请点击此处下载资料</p>
+                                  <p class="time"><?php echo date('Y.m.d H:i:s',$order4['paytime']);?></p>
+                              </div>
+                          </div>
+                      </if>
+                      <!--
+						驳回复审的状态展示
+						!-->
+
+						 <if condition="($order['time5'] neq '') and ($order['state'] gt 4)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt" onclick="sbbh({$order.id})">商标全部驳回，请点击选择是否申请驳回复审。</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time5']);?></p>
+                            </div>
+                        </div>
+						</if>
+
+						<if condition="$order['state'] eq 4 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入实质审查阶段</p>
+                            </div>
+                        </div>
+						</if>
+                      <if condition="($order['state'] eq 4) or ($order['state'] gt 3)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">已下发受理通知书</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time4']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 3 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进度受理阶段</p>
+                            </div>
+                        </div>
+						</if>
+                        <if condition="($order['state'] eq 3) or ($order['state'] gt 2)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">已提交注册申请</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time3']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 2 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入提交申请阶段</p>
+                            </div>
+                        </div>
+						</if>
+                      <if condition="($order['state'] eq 2) or ($order['state'] gt 1)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">资料符合要求</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time2']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 1 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入资料审查阶段</p>
+                            </div>
+                        </div>
+						</if>
+                       <if condition="($order['state'] eq 1) or ($order['state'] gt 0)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">请根据要求准备材料，并发给顾问</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time1']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="($order1['state'] eq 1) and ($order['state'] eq 0) ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" onclick="xiazai();">请根据要求准备材料，并发给顾问</p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order1['state'] neq '0' ">
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">用户下单并支付成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order1['paytime']);?></p>
+                            </div>
+                        </div>
+						</if>
+                    </div>
+              
+                </div>
+
+                 
+            </div>
+                        <!--自增长步骤 end-->
+                    </div>
+                    <!--右边的完成步骤部分 end-->
+                    <!--上面切换模块 索要改变的部分-->
+                    <div class="list-gk-cont-left">
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">注册步骤</h1>
+                            <div class="bgl-cont bgl-steps">
+                                <span class="bgl-step">1</span>
+                                <span>开始申报</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">2</span>
+                                <span>形式审查</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">3</span>
+                                <span>实质审查</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">4</span>
+                                <span>公告商标</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">5</span>
+                                <span>注册成功</span>
+                            </div>
+                        </div>
+                         <div class="bgl-mode">
+                    <h1 class="c-h1">商标信息</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">申请人姓名:</span><span class="fl">{$order1.applicantname}</span></p>
+                        <p class="oh"><span class="tit fl">申请人地址：</span><span class="fl">{$order1.applicantaddress}</span></p>
+                        <p class="oh"><span class="tit fl">申请/注册号：</span><span class="fl">{$mark.markcode_key}<span class="c999">（申请日期：{$mark.appdate}）</span></span></p>
+                        <p class="oh"><span class="tit fl">初审公告期号：</span><span class="fl">{$mark.checkdate} <span class="c999">（初审公告日期：{$mark.checkdate}）</span></span></p>
+                        <p class="oh"><span class="tit fl">注册公告期号：</span><span class="fl">{$mark.checkdate} <span class="c999">（注册公告日期：{$mark.regdate}）</span></span></p>
+                        <p class="oh"><span class="tit fl">专用权有效期：</span><span class="fl">{$mark.begindate}-{$mark.enddate}</span></p>
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">联系人信息</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">联系人:</span><span class="fl">{$user.linkman}</span></p>
+                        <p class="oh"><span class="tit fl">联系电话：</span><span class="fl">{$user.phone}</span></p>
+                        <p class="oh"><span class="tit fl">联系人地址：</span><span class="fl">{$user.address}</span></p>
+
+                    </div>
+                </div>
+                       <div class="bgl-mode">
+                    <h1 class="c-h1">服务顾问</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">律师:</span><span class="fl">{$adviser.consultantname}</span></p>
+                        <p class="oh"><span class="tit fl">联系电话：</span><span class="fl">{$adviser.consultantmobile}</span></p>
+                        <p class="oh"><span class="tit fl">代理机构：</span><span class="fl">北京微税知识产权代理有限公司
+</span></p>
+                        <p class="oh"><span class="tit fl">代理机构地址：</span><span class="fl">北京市昌平区回龙观镇西大街118号1幢906室</span></p>
+
+                    </div>
+                </div>
+                    </div>
+                    <!--上面切换模块 索要改变的部分 end-->
+                </div>

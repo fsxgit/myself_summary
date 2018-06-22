@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片展览</title>
+    <style>
+        *{margin:0; padding:0;}
+        .main{width: 1000px; margin:20px auto;}
+        ul,li{list-style: none; }
+        .nav-list{text-align: center;}
+        .nav-list li{display: inline-block; margin:0; color: #a0a0a0; cursor: pointer;}
+        .nav-list li:hover{color: #ff17da; }
+        .nav-list li:after{
+            content:"/";
+            color:#ff0039;
+            padding:0 20px;
+        }
+        .nav-list li:last-child:after{
+            display: none;
+        }
+
+        .imgs-list{overflow: hidden;}
+        .imgs-list li{width: 200px; margin:14px; float: left; }
+        .imgs-list li img{width: 200px; height: 200px;}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="nav">
+            <ul class="nav-list">
+                <li data-lei="0"  data-filter="*">全部</li>
+                <li data-lei="2"  data-filter=".1">艺术</li>
+                <li data-lei="3"  data-filter=".2">秀丽风景</li>
+                <li data-lei="4"  data-filter=".3">人物</li>
+                <li data-lei="1"  data-filter=".4">萌宠世界</li>
+            </ul>
+        </div>
+        <div class="imgs">
+            <ul class="imgs-list">
+                <li class="item 1" data-lei="1"><img src="images/1.jpg" alt=""/></li>
+                <li class="item 2"  data-lei="2"><img src="images/2.jpg" alt=""/></li>
+                <li class="item 3"  data-lei="3"><img src="images/3.jpg" alt=""/></li>
+                <li class="item 4"  data-lei="4"><img src="images/4.jpg" alt=""/></li>
+                <li class="item 1"  data-lei="1"><img src="images/5.jpg" alt=""/></li>
+                <li class="item 2"  data-lei="2"><img src="images/6.jpg" alt=""/></li>
+                <li class="item 3"  data-lei="3"><img src="images/7.jpg" alt=""/></li>
+                <li class="item 4"  data-lei="4"><img src="images/8.jpg" alt=""/></li>
+                <li class="item 1"  data-lei="1"><img src="images/9.jpg" alt=""/></li>
+                <li class="item 2"  data-lei="2"><img src="images/10.jpg" alt=""/></li>
+                <li class="item 3"  data-lei="3"><img src="images/11.jpg" alt=""/></li>
+                <li class="item 4"  data-lei="4"><img src="images/12.jpg" alt=""/></li>
+                <li class="item 1"  data-lei="1"><img src="images/13.jpg" alt=""/></li>
+                <li class="item 2"  data-lei="2"><img src="images/14.jpg" alt=""/></li>
+                <li class="item 3"  data-lei="3"><img src="images/15.jpg" alt=""/></li>
+                <li class="item 4"  data-lei="4"><img src="images/16.jpg" alt=""/></li>
+            </ul>
+        </div>
+    </div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/portfolio.pack.min.js"></script>
+
+    <script>
+//    $(".nav-list li").click(function(){
+//        var iLei = $(this).data("lei");
+//        if(iLei == 0){
+//            $(".imgs-list li").show();
+//        }else{
+//            $(".imgs-list li").each(function(){
+//                var iiLei = $(this).data("lei");
+//                if(iiLei == iLei){
+//                    $(this).show();
+//                }else{
+//                    $(this).hide();
+//                }
+//            })
+//        }
+//    })
+
+
+
+    /*-----------------------------------------------------------------------------------*/
+    /*	ISOTOPE CLASSIC PORTFOLIO
+     /*-----------------------------------------------------------------------------------*/
+    $(document).ready(function () {
+        var $container = $('.imgs-list');
+        $container.imagesLoaded(function () {
+            $container.isotope({
+                itemSelector: '.item',
+                layoutMode: 'fitRows'
+            });
+        });
+
+        $(window).on('resize', function () {
+            $('.item').isotope('reLayout')
+        });
+
+        $('.nav-list li').click(function () {
+
+            $('.nav-list li').removeClass('active');
+            $(this).addClass('active');
+
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector
+            });
+
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

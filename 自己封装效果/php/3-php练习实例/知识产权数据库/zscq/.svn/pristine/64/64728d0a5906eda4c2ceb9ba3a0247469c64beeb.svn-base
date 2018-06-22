@@ -1,0 +1,108 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<style>
+a{cursor: pointer;}
+
+.btnfx{cursor: pointer; width:70px; height:28px;line-height:28px; border:1px solid #07a9ff; color: #07a9ff; border-radius: 4px; background: none; margin-left:20px;float:left;margin-top:2px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+	商标服务 >>
+
+<a href="">注册失败</a>
+&nbsp;<br>
+&nbsp;<br>
+	<form method="post" action="{:U('Brand/zfail')}">
+	<div style="float:left;">
+		<input type="text" name="bname" placeholder="商标名称" value="{$name}">
+	
+	</div>
+        <input type="submit" value="搜索" class="btnfx">
+    </form>
+    <div id="mydiv">
+         <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>服务单号</th>
+                <th>商标图样</th>
+                <th>商标名称</th>
+				<th>分类</th>
+                <th>申请号</th>
+				<th>当前状态</th>
+				<th>服务顾问</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="res" item="vo" key='k'>
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.quer_no}</td>
+                    <td>
+					<if condition=" $vo.marklogo eq '' ">
+						<img src="data:png;base64,{$vo.markimage}" width="50" height="50"/>
+					<elseif condition=" $vo.marking eq '' "/>
+                      <img src="{$vo.marklogo}" width="50" height="50"/>
+					</if>
+					</td>
+                    <td>{$vo.markname}</td>
+					<td>{$vo.uniontypecode}</td>
+                    <td>{$vo.markcode_key}</td>
+					<td>
+					<?php 
+					if($vo["state"]==0){
+						echo "准备资料";
+					}
+					if($vo["state"]==1){
+						echo "资料审查";
+					}
+					if($vo["state"]==2){
+						echo "提交申请";
+					}
+					if($vo["state"]==3){
+						echo "受理阶段";
+					}
+					if($vo["state"]==4){
+						echo "实质审查";
+					}
+					if($vo["state"]==5){
+						echo "驳回复审";
+					}
+					if($vo["state"]==6){
+						echo "通过实质审查";
+					}
+					if($vo["state"]==7){
+						echo "异议答辩";
+					}
+					if($vo["state"]==8){
+						echo "等待寄出<<商标注册证>>";
+					}
+					if($vo["state"]==9){
+						echo "确认是否收到<<商标注册证>>";
+					}
+					if($vo["state"]==10){
+						echo "注册成功";
+					}
+					?>
+					</td>
+					<td>{$vo.adv}</td>
+                    <td><a onclick="show({$vo.id})">查看详情</a>
+                    </td> 
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+  <div class="c-pages tc">
+							<span>{$page}</span>
+						</div>
+</div>
+</body>
+</html>
+<script src="publicml/js/js.js"></script>
+<script>
+function show(id){
+	window.location.href='index.php?g=Admin&m=Brand&a=detail&id='+id;
+}
+</script>

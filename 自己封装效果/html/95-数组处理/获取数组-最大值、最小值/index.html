@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取数组最大值、最小值</title>
+    <style>
+        body{padding:60px 100px; }
+        div{border:1px solid #ccc; padding:60px; margin:10px;}
+        .box{color: #ff2f15; border: 1px solid #eee; padding:20px; font-size: 20px;}
+    </style>
+</head>
+<body>
+<h2>方法一</h2>
+<p>数组：[9,2,5,8,3,18,1,7,2,6,11]</p>
+<div>
+    <button class="btn1">点击获取最大值</button>
+    <p class="box"></p>
+</div>
+<div>
+    <button class="btn2">点击获取最小值</button>
+    <p  class="box"></p>
+</div>
+<h2>方法二</h2>
+<div>
+    <button class="btn3">点击获取最大值</button>
+    <p class="box"></p>
+</div>
+<div>
+    <button class="btn4">点击获取最小值</button>
+    <p  class="box"></p>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    var arr = [9,2,5,8,3,18,1,7,2,6,11];
+//    直接使用简单的js封装方法
+    $(".btn1").click(function(){
+        var box = $(this).next("p");
+        var txt = Math.max.apply(null,arr);
+        box.text(txt)
+    });
+    $(".btn2").click(function(){
+        var box = $(this).next("p");
+        var txt = Math.min.apply(null,arr);
+        box.text(txt)
+    });
+//    自己实现
+
+    $(".btn3").click(function(){
+        var box = $(this).next("p");
+        var Max = arr[0];
+        $.each(arr,function(i,v){
+            if(Max < v){
+                Max = v
+            }
+        });
+        box.text(Max);
+    });
+    $(".btn4").click(function(){
+        var box = $(this).next("p");
+        var Max = arr[0];
+        $.each(arr,function(i,v){
+            if(Max > v){
+                Max = v
+            }
+        });
+        box.text(Max);
+    })
+
+</script>
+</body>
+</html>

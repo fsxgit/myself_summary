@@ -1,0 +1,252 @@
+<admintpl file="header" />
+<style>
+	label,.controls{display: inline-block;}
+	.input{height:15px !important;}
+	.fx_pr{position:relative;}
+	.mapBox{position: absolute; left:478px; top:80px; width:400px; height:320px;}
+	a{cursor:pointer;text-decoration:none;}
+	.cao.active{color: #157efb;}
+</style>
+<link rel="stylesheet" type="text/css" href="public/tree/js/tree_themes/SimpleTree.css"/>
+<script type="text/javascript" src="public/tree/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="public/tree/js/SimpleTree.js"></script>
+
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>添加分类</a></li>
+	<li><a href="{:U('Markname/industry_sort_lst')}">分类列表</a></li>
+    </ul>
+    <div style="margin-left:100px;">
+        <form method="post" action="{:U('Markname/nice_add')}" id="form" enctype="multipart/form-data">
+         
+            <input type='hidden' id='class_name3' name="class_name3">
+            <div class="control-group">
+                <label class="control-label" style="margin-left:29px;">行业类别：</label>
+                <div class="controls">
+                    <input type="text" name="cate" id="cate" class="input">
+                </div>
+                <font color="red">*必填</font>
+            </div>
+            <div class="control-group">
+                <label class="control-label" style="margin-left:55px;">排序：</label>
+                <div class="controls">
+                    <input type="text" name="sort" id="sort" class="input" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                </div>
+                <font color="red">*必填</font>
+            </div>
+            <div class="control-group">
+                <label class="control-label">添加二级类别：</label>
+                <div class="controls">
+                    <input type="text" name="second_cate" id="second_cate" class="input" placeholder="长度50个字符">
+                    <input type="button" value="保存" onclick="cc()">
+                </div>
+                <font color="red">*必填</font>
+            </div>
+            <div class="control-group">
+                <label class="control-label" style="margin-left:27px;">二级类别：</label>
+                <div class="controls ffs" style='margin-left:10px;'>
+                    <span><font color='red'>请关联每一个二级类别的尼斯分类</font></span>
+                </div>
+            </div>
+
+			<div class="control-group">
+                <label class="control-label" style="float:left;">关联尼斯分类：</label>
+                <div class="controls ff" style='margin-left:10px;float:left;width:200px;overflow: auto;'>
+                    
+                   <div class="st_tree">
+                       尼斯分类
+                            <ul>
+                                <foreach name="res" item="vo">
+                                <li><a href="#" ref="xtgl">第{$vo.code}类         {$vo.name}</a></li>
+                                <ul>
+                                <foreach name="vo.second" item="v">
+                                <li><a href="#" ref="yhgl">{$v.code}        {$v.name}</a></li>
+                                    <ul>
+                                        <foreach name="v.third" item="vv">
+                                        <li><a href="#" ref="yhgl" onclick="thi({$vv.id})">{$vv.name}</a></li>
+                                        </foreach>
+                                    </ul>
+                                </foreach>
+				</ul>
+				</foreach>
+                            </ul>
+                    </div>
+                </div>
+				
+                
+            </div>
+            <div id="divv"></div>
+            <div id="da"></div>
+            <div style="clear:both;"></div>
+    </div>
+    <div  style="text-align:center; background:#ccc; width:100%;">
+        <button type="button" class="btn btn-primary btn_submit" style="margin:0 20px;" onclick="sb()">提交</button>
+        <a class="btn" href="{:U('markname/industry_sort_lst')}"  style="margin:0 20px;">返回</a>
+    </div>
+</form>
+</div>
+</body>
+</html>
+<script>
+    
+$(function(){
+	$(".st_tree").SimpleTree({
+//		click:function(a){
+//			if(!$(a).attr("hasChild"))
+//				alert($(a).attr("ref"));
+//		}
+	});
+});    
+var nn = 1;
+function cc(){
+        var flag=0;
+        var num = $("#second_cate").val();
+        if(num==""){
+            return false;
+        }
+        
+        var span = $(".spanname");
+	$.each(span,function(i,e){
+		var a = e.innerText;
+		var b=a.replace("x","");  
+                if(num==b){
+                    flag=1;
+                }
+	})
+       if(flag==1){
+           alert("该名称已存在!");
+           return false;
+       }
+        
+	html='<div id='+nn+' style="border:1px hash #ccc;margin-left:3px;margin-right:7px;cursor:pointer;" class="spanname"><span class="cao">'+num+'</span><a id="rem"><img src="public/images/u9409.png"></a>'+'</div>';
+        
+	$(".ffs").append(html);
+        
+        h='<div id='+"div"+nn+' class="bei"></div>';
+        $("#divv").append(h);
+        
+	$(".cao").click(function(){
+		$(this).addClass("active").parents(".spanname").siblings(".spanname").find(".cao").removeClass("active");
+                var i= $(this).parents(".spanname").attr("id")-1;
+                did = $(this).parent().attr("id");
+               
+                $("#divv div.bei").eq(i).show().siblings().hide();
+                //切换
+               
+	})
+        nn++;
+}
+
+$("#rem").live("click",function(){
+    //     console.dir($(this).parent().attr("id"));
+         var ii = $(this).parent().attr("id");
+         $("#divv").find("#div"+ii).remove();
+	$(this).parent().remove();
+        
+        if(did==ii){
+            did = "";
+        }
+        
+});
+
+function thi(id){
+      //  alert(did);
+        if(did==""){
+            alert("请先选择类别");
+            return false;
+        }
+        var f = 0;
+        
+        iss='div'+did;
+	a = "#"+iss;
+        
+        $(a).find("input[name='size[]']").each(function(){
+            if($(this).val()==id){
+                f = 1;
+            }
+        })
+       if(f==1){
+           alert("该类别已存在");
+           return false;
+       }
+	ht = "<input type='hidden' name='size[]' id="+'dongtai'+id+" value="+id+">";
+	$.ajax({
+		 type: "POST",
+		 url: "index.php?g=Admin&m=Markname&a=getdata",
+		 data: {id:id},
+		 dataType:"json",
+		 success: function(data){
+			htm='<div class="cate">'+data.code+data.name+'<a id="re" data-type="'+data.id+'"><img src="public/images/u9409.png"></a>'+'</div>';
+			
+			$("#"+iss).append(ht);
+			$("#"+iss).append(htm);
+		}
+	 });
+}
+
+$("#re").live("click",function(){
+	ids = $(this).data("type");
+	idss='dongtai'+ids;
+	$("#"+idss).remove();
+	$(this).parent().remove();
+});
+
+function sb(){
+        var cate = $("#cate").val();
+        var sort = $("#sort").val();
+        var second_cate = $("#second_cate").val();
+        if(cate==""){
+            alert("请输入行业类别!");
+            return false;
+        }
+        if(sort==""){
+            alert("请输入排序!");
+            return false;
+        }
+        if(second_cate==""){
+            alert("请输入二级类别!");
+            return false;
+        }
+    
+	var span = $(".spanname");
+	var naa = "";
+	var nam = "";
+	$.each(span,function(i,e){
+            var a = e.innerText;
+            var b=a.replace("x","");  
+            naa += b;
+            
+            hss = "<input type='hidden' name='names[]' id="+e.id+" value="+naa+">";
+            $("#da").append(hss);
+            naa = "";
+            
+            eid = e.id;
+            
+            ess='div'+eid;
+            ae = "#"+ess;
+      //      alert("nam"eid);
+      //      var "nam"eid = "";
+        
+            $(ae).find("input[name='size[]']").each(function(){
+                nam += $(this).val()+',';
+            })
+            nam=nam.substring(0,nam.length-1);
+            hs = "<input type='hidden' name='go[]' id="+eid+" value="+nam+">";
+            $("#da").append(hs);
+            nam = "";
+	})
+        
+        var cate = $(".cate");
+	var na = "";
+	
+	$.each(cate,function(i,e){
+		var a = e.innerText;
+		var b=a.replace("x","");  
+		na += b+',';
+	})
+//	alert(na);
+        $("#class_name3").val(na);
+	$("#form").submit();
+}
+</script>

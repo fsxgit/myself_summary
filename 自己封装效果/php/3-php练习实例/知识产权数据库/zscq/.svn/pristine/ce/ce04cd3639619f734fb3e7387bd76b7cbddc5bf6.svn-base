@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>详情页</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+    <iframe src="header.html" width="100%" height="80px" frameborder="0"></iframe>
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+    <div class="f-bar">
+        <div class="bar-ma">
+            <div class="bar-ma-img"><img src="images/ma.png" width="100" height="100" alt=""/></div>
+        </div>
+        <div class="bar-msg"></div>
+        <div class="bar-top"><a href="javascript:window.scrollTo( 0, 0 );" ></a></div>
+    </div>
+    <!--公用右侧浮动导航 end-->
+
+
+<!--s-content内容存放的地方-->
+    <div class="s-content main pr">
+        <div class="s-bar f12 c333">
+            首页>企业查询列表>神州易桥（北京）财税科技有限公司>企业认领
+        </div>
+        <!--公用结果 企业认领-->
+            <div class="xq-box main">
+                <div class="xq-top">
+                    <div class="xq-logo oh">
+                        <div class="logo-img fl"><img src="images/img1.png" alt=""/></div>
+                        <div class="xq-title c333 fl">
+                            <p class="gs-name">神州易桥（北京）财税科技有限公司</p>
+                            <p class="gs-site c999">北京市海淀区黑泉路8号宝胜广场c座一层</p>
+                        </div>
+                    </div>
+                    <div class="xq-top-msg oh">
+                        <div class="top-msg-left fl">
+                            <span class="first">
+                                <p class="msg">彭聪</p>
+                                <p class="name">法定代表人</p>
+                            </span>
+                            <span>
+                                <p class="msg">5-10年</p>
+                                <p class="name">成立期限</p>
+                            </span>
+                            <span>
+                                <p class="msg">65789万人民币</p>
+                                <p class="name">注册资本</p>
+                            </span>
+                            <span class="last">
+                                <p class="msg">8枚</p>
+                                <p class="name">商标数量</p>
+                            </span>
+
+                        </div>
+                        <div class="top-msg-right fr">
+                            <span class="fc10">已有345人浏览</span>
+                            <input type="button" class="blue-big-btn" value="认领企业"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="xq-bot oh">
+                    <div class="xq-bot-left">
+                        <!--基本信息 -->
+                        <div class="xinxi-box">
+                           <h1 class="xq-h1">基本信息</h1>
+                           <table class="xinxi-table c333">
+                               <tr>
+                                   <td class="td1 bg5 c999">统一社会信用码</td>
+                                   <td style="width:268px;">2424353453453464363</td>
+                                   <td class="td1 bg5 c999">组织机构代码</td>
+                                   <td style="width:268px;">349876</td>
+                               </tr>
+                               <tr>
+                                   <td class="td1 bg5 c999">注册号</td>
+                                   <td >8886jhkhk094984</td>
+                                   <td class="td1 bg5 c999">营业状态</td>
+                                   <td >开业</td>
+                               </tr>
+                               <tr>
+                                   <td class="td1 bg5 c999">公司类型</td>
+                                   <td >有限责任公司</td>
+                                   <td class="td1 bg5 c999">成立日期</td>
+                                   <td >2008.09.23</td>
+                               </tr>
+                               <tr>
+                                   <td class="td1 bg5 c999">法定代表人</td>
+                                   <td >彭聪</td>
+                                   <td class="td1 bg5 c999">营业期限</td>
+                                   <td >2008.09.23-2039.09.23</td>
+                               </tr>
+                               <tr>
+                                   <td class="td1 bg5 c999">注册成本</td>
+                                   <td >2345万人民币</td>
+                                   <td class="td1 bg5 c999">发照日期</td>
+                                   <td >2016.03.25</td>
+                               </tr>
+                               <tr>
+                                   <td class="td1 bg5 c999">登记机关</td>
+                                   <td colspan="3">昌平分局</td>
+                               </tr>
+                               <tr>
+                                   <td class="td1 bg5 c999">企业地址</td>
+                                   <td colspan="3">北京市海淀区黑泉路8号宝胜广场c座一层</td>
+                               </tr>
+                               <tr class="last">
+                                   <td class="td1 bg5 c999">经营范围</td>
+                                   <td colspan="3">在我国,审批专利采用先申请原则,即两个以上的申请人向专利局提出同样的专利申请,专利权授予最先申请专利的个人或单位,因此申请人应及时将其发明申请专利,以防他人抢先....专利如何进行专利申请权转让?专利申请权进行转让，首先应签订转让合同，然后到专利局办理登记手续，并由专利局公告，合同自登记之日起生效。专利申请权转让合同，是指转让方将其发明创造申请专利的权利....在我国,审批专利采用先申请原则,即两个以上的申请人向专利局提出同样的专利申请,到专利局办理登记手续，并由专利局公告，合同自登记之日起生效。专利申请权转让合同，是指转让方将其发明创造申请专利的权利....</td>
+                               </tr>
+                           </table>
+                       </div>
+                        <!--基本信息 end-->
+                        <!--商标-->
+                        <div class="brand-box">
+                            <h1 class="xq-h1">商标（10枚）</h1>
+                            <table class="brand-table c333">
+                                <tr class="bt-tr1 bg5 c999">
+                                    <td style="width:60px;">商标</td>
+                                    <td style="width:162px;">神州顺利办</td>
+                                    <td style="width:202px;">状态</td>
+                                    <td style="width:60px;">申请时间</td>
+                                    <td style="width:60px;">注册号</td>
+                                    <td style="width:128px;">类别</td>
+                                </tr>
+                                <tr>
+                                    <td class="brand-logo"><img src="images/img1.png" alt=""/></td>
+                                    <td>神州顺利办</td>
+                                    <td>商标注册申请等待处理中</td>
+                                    <td>2015.09.08</td>
+                                    <td>3456233222</td>
+                                    <td>23-广告销售</td>
+                                </tr>
+                                <tr>
+                                    <td class="brand-logo"><img src="images/img1.png" alt=""/></td>
+                                    <td>神州顺利办</td>
+                                    <td>商标注册申请等待处理中</td>
+                                    <td>2015.09.08</td>
+                                    <td>3456233222</td>
+                                    <td>23-广告销售</td>
+                                </tr>
+                                <tr>
+                                    <td class="brand-logo"><img src="images/img1.png" alt=""/></td>
+                                    <td>神州顺利办</td>
+                                    <td>商标注册申请等待处理中</td>
+                                    <td>2015.09.08</td>
+                                    <td>3456233222</td>
+                                    <td>23-广告销售</td>
+                                </tr>
+                                <tr>
+                                    <td class="brand-logo"><img src="images/img1.png" alt=""/></td>
+                                    <td>神州顺利办</td>
+                                    <td>商标注册申请等待处理中</td>
+                                    <td>2015.09.08</td>
+                                    <td>3456233222</td>
+                                    <td>23-广告销售</td>
+                                </tr>
+                                <tr>
+                                    <td class="brand-logo"><img src="images/img1.png" alt=""/></td>
+                                    <td>神州顺利办</td>
+                                    <td>商标注册申请等待处理中</td>
+                                    <td>2015.09.08</td>
+                                    <td>3456233222</td>
+                                    <td>23-广告销售</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <!--商标 end-->
+                        <!--翻页按钮-->
+                        <div class="c-pages">
+                            <span>共100条记录，20页</span>
+                            <span>
+                                <a href="#">首页</a>
+                                <a href="#">上一页</a>
+                                <a href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#" class="active">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">下一页</a>
+                                <a href="#">末页</a>
+                            </span>
+                        </div>
+                        <!--翻页按钮 end-->
+                    </div>
+                    <div class="xq-bot-right">
+                        <div class="lxstyle">
+                            <h1 class="xq-h1">联系方式</h1>
+                            <div class="lx-box">
+                                <table class="lx-table">
+                                    <tr>
+                                        <td style="width:20px;"><img src="images/icon7.png" alt=""/></td>
+                                        <td>021-94875899</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="images/icon5.png" alt=""/></td>
+                                        <td>hr@12366.com</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><a href="javascript:;"><img src="images/icon6.png" alt=""/></a></td>
+                                        <td><a href="javascript:;">www.eqiao.com.cn</a></td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="llrecord">
+                            <h1 class="xq-h1">浏览记录</h1>
+                            <div class="jl-box">
+                                <table class="jl-table">
+                                    <tr>
+                                        <td style="width:60px;"><a href="javascript:;"><img src="images/img2.png" alt=""/></a></td>
+                                        <td><a href="javascript:;">神州易桥信息服务有限公司</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60px;"><a href="javascript:;"><img src="images/img2.png" alt=""/></a></td>
+                                        <td><a href="javascript:;">神州易桥信息服务有限公司</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60px;"><a href="javascript:;"><img src="images/img2.png" alt=""/></a></td>
+                                        <td><a href="javascript:;">神州易桥信息服务有限公司</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:60px;"><a href="javascript:;"><img src="images/img2.png" alt=""/></a></td>
+                                        <td><a href="javascript:;">神州易桥信息服务有限公司</a></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--公用结果 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+
+
+
+
+
+
+<!--公用底部-->
+<iframe src="footer.html" width="100%" height="440px" scrolling="no" frameborder="0"></iframe>
+<!--公用底部 end-->
+
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+    $(function(){
+//      二维码的显示隐藏
+        maTab();
+
+    })
+</script>
+</body>
+</html>

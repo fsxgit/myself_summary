@@ -1,0 +1,32 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>hello 我是增加用户信息界面！！</h1>
+
+<h2>增加信息：</h2>
+<!--<form action="/ThinkPHP/index.php/User/create" method='post'>-->
+<!--模块名之前的部分可以用__URL__来代替避免了以后修改了项目目录名而引发的全部修改的问题-->
+<form action="__URL__/create" method='post'>
+   <table>
+       <tr>
+           <td>用户名：</td>
+           <td> <input type="text" name="username" value=""/></td>
+       </tr>
+       <tr>
+           <td>性别：</td>
+           <td><input type="radio" name="sex" value="1" checked/>男<input type="radio" name="sex"  value="0"/>女</td>
+       </tr>
+       <tr>
+           <td><input type="submit" value="确认添加"/></td>
+           <td><input type="button" value="取消"/></td>
+       </tr>
+   </table>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+/*内容*/
+.Scontent{width:100%; height:auto;font-size: 0;}
+.SmodeBox{ margin-left:0.03rem;height:auto;font-size: 0; border-bottom:1px solid #b5b5b5;}
+.Smode{height:auto;font-size: 0; padding:0.04rem 0;}
+.Smode .imgbox{width:0.2765625rem; height:0.19375rem;font-size: 0; margin-right:0.04rem;}
+.Smode .TxtTop{font-size: 0; margin-top:0.02rem;}
+.Smode .TxtBop{width:0.6rem; height:0.078rem; font-size: 0.04rem; line-height: 0.09rem; margin-top:0.03rem;}
+.Smode .price{color:#49becd;}
+.Smode .zan{color:#b5b5b5; margin-left:0.02rem;}
+.Smode .choose{color:#49becd; display: inline-block; padding:0.015rem 0.025rem;  border:1px solid #49becd; border-radius:4px; text-align: center; line-height:0.04rem; }
+.Smode .TxtTop span{display: inline-block; font-size: 0.04375rem;}
+.Smode .TxtTop span.ding{  width:0.046875rem; height:0.046875rem; margin-left:0.02rem; margin-top:0.01rem;}
+
+/*续单弹出框*/
+.BgShodaw{position:fixed;left:0; top:0;width:100%; height:100%;background: rgba(0,0,0,0.5); z-index: 10;  display: none;}
+.XuBox{font-size: 0; border-bottom: 1px solid #ccc; background: #fff; border-radius: 4px; position:fixed; left:0; top:0; z-index: 11;}
+.XuBox h1{border-bottom: 1px solid #ccc; width: 100%; text-align: center; font-size: 0.04rem; color:#49becd; height: 0.14rem; line-height: 0.14rem; }
+.XuBox .PaiDay{ font-size: 0;  width:0.35rem; margin: 0 auto; height:0.15rem; line-height:0.15rem;}
+.XuBox .PaiName{ font-size: 0.03rem; color: #999;}
+.XuBtn{width:100%; height:auto; border-top:1px solid #ccc;padding:0.03rem 0;}
+.XuBtn span{display: inline-block; width: 50%;height:0.071rem; line-height: 0.071rem; color:#a0a0a0; font-size:0.04rem; text-align: center;}
+.XuBtn span:nth-of-type(2){color:#49becd; background: url("../images/borderLeftBg.png") no-repeat left center; background-size:1px 0.071rem;}

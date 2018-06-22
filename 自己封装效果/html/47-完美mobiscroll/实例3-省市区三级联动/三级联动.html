@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+	<title>三级联动-Mobiscroll Treelist </title>
+
+	<link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/mobiscroll.custom-2.5.0.min.js"></script>
+
+
+
+	<style type="text/css">
+		input{
+			width: 100%;
+			padding: 5px;
+			margin: 5px 0;
+			border: 1px solid #aaa;
+			box-sizing: border-box;
+			border-radius: 5px;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		$(function () {
+
+			<!--固定写法-->
+//			初始化控件
+			var opt = { };
+
+			<!-- 指定省市区对应的 -->
+//			控件配置
+			opt.tree_list = {
+				preset : 'list',
+				labels: ['Region', 'Country', 'City'] //省市区
+			};
+
+			<!-- 固定写法 -->
+			$('#treelist').val('').scroller('destroy').scroller(
+				$.extend(opt['tree_list'],
+						{
+							theme: 'android-ics light',
+							mode: 'scroller',
+							display: 'bottom',
+							setText: '确定', //确认按钮名称
+							cancelText: '取消',//取消按钮名籍我
+							lang: 'zh',
+							headerText: function (valueText) { return "选择地址";}, 	//弹出窗Title
+							formatResult: function (array) {
+													//alert(array);//返回自定义格式结果
+								//return $('#treelist>li').eq(array[0]).find(".sheng").text();	//第一级文字
+								//return $('#treelist>li').eq(array[0]).find('.shi').eq(array[1]).text();	//第二级文字
+								//return $('#treelist>li').eq(array[0]).find('.qu').eq(array[1]).find('li').eq(array[2]).text();	//第三级文字
+
+
+								var fir = $('#treelist>li').eq(array[0]).find(".sheng").text();	//第一级文字
+								var sec = $('#treelist>li').eq(array[0]).find('.shi').eq(array[1]).text();	//第二级文字
+								var tir = $('#treelist>li').eq(array[0]).find('.qu').eq(array[1]).find('li').eq(array[2]).text();	//第三级文字
+								return fir+" "+sec+" "+tir;
+							}
+						}
+				)
+			);
+
+
+			//			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+			$("#treelist_dummy").val("");
+			$("#treelist_dummy").attr("placeholder","请选择地区");
+
+		});
+	</script>
+</head>
+
+<body>
+	<div>
+		<label for="treelist">省市区三级联动</label>
+		<ul id="treelist">
+			<li>
+				<span class="sheng">广东省</span><!-- 第一层 省 -->
+				<ul>
+					<li>
+						<span class="shi">广州市</span><!-- 第二层 市 -->
+						<ul class="qu">
+							<li>白云区</li>    <!-- 第三层 区 -->
+							<li>天河区</li>
+							<li>番禺区</li>
+							<li>花都区</li>
+						</ul>
+					</li>
+					<li>
+						<span class="shi">佛山市</span>
+						<ul class="qu">
+							<li>南海区</li>
+							<li>禅城区</li>
+							<li>顺德区</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="sheng">湖北省</span>
+				<ul>
+					<li>
+						<span class="shi">武汉市</span>
+						<ul class="qu">
+							<li>汉口市</li>
+							<li>南昌市</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="sheng">陕西省</span>
+				<ul>
+					<li>
+						<span class="shi">西安市</span>
+						<ul class="qu">
+							<li>未央区</li>
+							<li>钟楼</li>
+							<li>高薪区</li>
+						</ul>
+					</li>
+					<li>
+						<span class="shi">咸阳市</span>
+						<ul class="qu">
+							<li>xx1区</li>
+							<li>xx2区</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+.box{width:100%; height:auto; background: #fff;}
+.navbox{height:78px; font-size:16px; line-height:78px;}
+.nav li{float:left; height:100%; padding:0 34px; }
+.nav li.active{background:#4291e3;}
+.nav li.active a{background:#4291e3;color:#fff;}
+.nav li a{color:#666;}
+/*banner 轮播*/
+.Tabbox{width:100%; height:738px; border-top:1px solid #4291e3; overflow: hidden;  }
+.bannerList{width:400%; height:100%; position:absolute; left:0; top:0; }
+.bannerList li{float:left; width:25%; height:100%; background: url("../images/bannerBg1.jpg") no-repeat 0 0; background-size:cover;}
+.liContent{height:100%;}
+.bannerList .phone{position:absolute; right:0; top:90px;}
+.bannerList .load{position:absolute; left:0; top:376px;}
+.bannerList .txt{position:absolute; left:0; top:176px; color:#fff;}
+.bannerList .txt p:nth-of-type(1){font-size: 38px; line-height: 50px;}
+.bannerList .txt p:nth-of-type(2){font-size: 18px; line-height: 38px;}
+.indexBox{height:100%;}
+.indexBox .indexDot{width:auto; height:auto; position:absolute; right:40px; bottom:30px; z-index:8; }
+.indexBox .indexDot span{display: inline-block; width:14px; height:14px; background: #ff0039; margin:0 7px; border-radius: 7px; cursor:pointer;}
+.indexBox .indexDot span.active{background: #000;}
+.indexBox .btn{display: block; width:60px; height:80px; cursor:pointer;}
+.indexBox .btnleft{position:absolute; left:-78px; top:352px; }
+.indexBox .btnright{position:absolute; right:-78px; top:352px;}
+.indexBox .btn:hover{background:rgba(0,0,0,0.2);}
+
+.teacherBg{background: #fff; width:100%; height:820px;}
+.teacherBox{height:100%;}
+.teacherBox h1{width:100%; height:26px; line-height: 26px; font-size: 26px; text-align: center; background: url("../images/lineBg.png") no-repeat 0 center;  margin-top:80px; }
+.playerBox{width:100%; height:auto;}
+.playerBox li{margin-top:48px; margin-right:22px; width:318px; height:auto; float:left;}
+.playerBox li:nth-of-type(3),.playerBox li:nth-of-type(6){margin-right:0;}
+.playerBox .imgbox{margin-top:48px; width:318px; height:188px;}
+.playerBox .imgtxt{position:absolute; left:0; bottom:0; width:100%; height:40px; line-height: 40px;background: rgba(0,0,0,0.5); color:#fff; font-size: 12px;}
+.playerBox .imgLeft{margin-left:12px; margin-right:6px;}
+.playerBox .imgRight{ margin-right:22px; margin-top:6px;}
+.jieShao{font-size:14px; color:#767676; margin-top:26px;}
+.jieShao .name{font-size:22px; color:#000;}
+.jieShao .JieTxt{ margin-top:12px;}
+
+
+.yuekeBg{background: #f8f8f8; width:100%; height:810px;   padding-top:80px; }
+.yuekeBox{height:100%;}
+.yuekeBox h1{width:100%; height:26px; line-height: 26px; font-size: 26px; text-align: center; background: url("../images/lineBg.png") no-repeat 0 center;}
+
+.yuekeBg .tedian .imgbox{ margin-top:76px;  height:794px;}
+.yuekeBg .tedianTxt{font-size:16px; margin-top:308px;}
+.yuekeBg .tedianTxt .tit{font-size:30px; margin-top:10px; padding-bottom:30px;}
+.yuekeBg .tedianTxt .txt{line-height: 32px;}
+
+.xingjiBg{background: #fff; height:790px;}
+.xingjiBox{height:100%;}
+
+.xingjiBox .tedianTxt{margin-top:260px;}
+.xingjiBg .tedian .imgbox{ margin-top:186px;}
+.xingjiBg .tedianTxt{font-size:16px; margin-top:308px;}
+.xingjiBg .tedianTxt .tit{font-size:30px; margin-top:10px; padding-bottom:30px;}
+.xingjiBg .tedianTxt .txt{line-height: 32px;}
+
+.jiaoshiBg{background: #f8f8f8; height:786px;}
+.jiaoshiBox{height:100%;}
+.jiaoshiBox .tedianTxt{margin-top:260px;}
+.jiaoshiBg .tedian .imgbox{ margin-top:166px;}
+.jiaoshiBg .tedianTxt{font-size:16px; margin-top:308px;}
+.jiaoshiBg .tedianTxt .tit{font-size:30px; margin-top:10px; padding-bottom:30px;}
+.jiaoshiBg .tedianTxt .txt{line-height: 32px;}
+
+.downloadBox{width:100%; height:656px;}
+.downloadBox h1{width:100%; height:166px; line-height: 166px;  font-size: 30px; text-align: center; background: url("../images/lineBg.png") no-repeat 0 center; }
+.downloadBox .xuanchuanyu{font-size:50px; padding:36px 0 76px 0; color:#4291e3; }
+.phonenum{width:276px; height:62px; background: url("../images/phonebg.png") no-repeat 0 0; margin:0 auto; }
+.phonenum .kefu{padding-top:10px; padding-left:26px; font-size: 14px; color: #999;}
+.phonenum .num{padding-top:2px; padding-left:26px; font-size: 20px;}
+
+.footer{width:100%; height:82px; line-height: 82px; font-size:14px; color:#a7a8a8; border-top: 1px solid #ccc;}

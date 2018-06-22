@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3demo</title>
+    <!--<link rel="stylesheet" href="../app.5fcb95fb.css"/>-->
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        h1,h2,h3{padding:40px;}
+    </style>
+</head>
+<body>
+<h1>模仿---https://www.protectwise.com/官网效果</h1>
+<h2>一些官网--星河卓越可能用到的css3效果</h2>
+
+<h3>效果1--css3移入导航背景</h3>
+<hr/>
+<div id="header-menu-wrapper" class="header-menu-wrapper">
+    <div id="header-menu-inner">
+        <div id="header-lower-links">
+            <a class="btn btn-type-underline white-txt light-blue-stroke" id="nav-request-demo" href="javascript:;">Request Demo</a>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<h3>效果1--css3菜单变换-移入显示效果</h3>
+<div style="position: relative; width: 300px; height: 100px; margin:20px
+auto;">
+    <header id="meau">
+        <div id="header-menu-btn">
+            <div id="header-menu-btn-icon"></div>
+        </div>
+    </header>
+</div>
+
+<hr/>
+
+<h3>效果1--css3导航切换</h3>
+<ol class="flickity-page-dots">
+    <li class="dot is-selected" aria-label="Page dot 1" aria-current="step"></li>
+    <li class="dot" aria-label="Page dot 2"></li>
+    <li class="dot" aria-label="Page dot 3"></li>
+    <li class="dot" aria-label="Page dot 4"></li>
+</ol>
+<script src="js/jquery.2.11.1.min.js"></script>
+<script>
+    $(".flickity-page-dots li").hover(function(){
+        $(this).addClass("is-selected");
+    },function(){
+        $(this).removeClass("is-selected");
+    });
+    $(".flickity-page-dots li").click(function(){
+        $(this).addClass("is-selected").siblings().removeClass("current");
+    });
+
+
+
+    $("#meau").hover(function(){
+        $(this).addClass("menu-open");
+    },function(){
+        $(this).removeClass("menu-open");
+    })
+</script>
+</body>
+</html>

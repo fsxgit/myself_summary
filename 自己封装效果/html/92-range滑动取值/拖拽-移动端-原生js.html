@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <title>Document</title>
+    <style>
+        h1{text-align: center;}
+        .box{width: 90%; margin:0 auto; }
+        .pro_warp{margin:40px 0; height:12px; width: 100%; border-radius: 4px; background: #a0a0a0; position: relative;}
+        .pro_center{height:12px; width: 40%; background: #009615; border-radius: 4px;}
+        .btn{position: absolute; height:24px; width: 10px; background: #ff0bf8; left:; top:-50%;}
+    </style>
+</head>
+<body>
+
+<h1>移动端拖拽效果</h1>
+<div class="box">
+    <div class="pro_warp" id="wrap">
+        <div class="pro_center"></div>
+        <div class="btn" id="id" style="left:0px;"></div>
+    </div>
+
+
+</div>
+</body>
+<script>
+    function load (){
+
+        var W = document.getElementById("wrap").clientWidth;
+        /*单指拖动*/
+        var obj = document.getElementById('id');
+        obj.addEventListener("touchstart", function(event) {
+            var touch = event.targetTouches[0];
+            var left = parseInt(obj.style.left);
+            // alert(left);
+            var x = touch.pageX - left;
+            var y = touch.pageY - left;
+            obj.addEventListener('touchmove', function(event) {
+                // 如果这个元素的位置内只有一个手指的话
+
+                if (event.targetTouches.length == 1) {
+                    event.preventDefault(); // 阻止浏览器默认事件，重要
+                    var touch = event.targetTouches[0];
+                    // 把元素放在手指所在的位置
+
+                    var Move = touch.pageX - x;
+                    console.log(Move);
+                    if(Move <=0){
+                        Move = 0;
+
+                    }
+                    if(Move >= W-10){
+                        Move = W-10;
+                    }
+                    obj.style.left = Move + 'px';
+                    // obj.style.top = touch.pageY + 'px';
+
+                }
+            }, false);
+
+        });
+        obj.addEventListener("touchend",function(){
+            obj.removeEventListener("touchstart");
+            obj.removeEventListener("touchmove");
+        });
+    }
+    window.addEventListener('load',load, false);
+</script>
+</html>  

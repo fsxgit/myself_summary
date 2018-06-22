@@ -1,0 +1,110 @@
+<admintpl file="header" />
+<style>
+.home_info li em {
+	float: left;
+	width: 120px;
+	font-style: normal;
+}
+li {
+	list-style: none;
+}
+
+.wrap{padding:0 100px;}
+.tai_h1{font-size: 28px; text-align: center; padding-bottom: 30px; padding-top: 30px;}
+.tai_box{overflow: hidden; margin-top:80px;}
+.tai_mode{float: left; width:25%; text-align: center;}
+.tai_mode p{margin-bottom: 0;}
+.num_box{width:140px; height:140px; border:1px solid #000; display: inline-block;}
+.tai_num{color:#ff0000; font-size: 24px; font-weight: 600;margin-top: 48px; padding-bottom: 2px;}
+</style>
+</head>
+<body>
+	<!--<div class="wrap">-->
+		<!--<div id="home_toptip"></div>-->
+		<!--<h4 class="well">tttt</h4>-->
+		<!--<div class="home_info">-->
+			<!--<ul>-->
+				<!--<volist name="server_info" id="vo">-->
+					<!--<li><em>{$key}</em> <span>{$vo}</span></li>-->
+				<!--</volist>-->
+			<!--</ul>-->
+		<!--</div>-->
+	<!--</div>-->
+	<div class="wrap">
+		<h1 class="tai_h1">知识产权项目运营工作台</h1>
+		<div class="tai_box">
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">9999</p>
+					<p class="tai_txt">注册用户</p>
+				</div>
+			</div>
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">9999</p>
+					<p class="tai_txt">已认领企业用户</p>
+				</div>
+			</div>
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">55555</p>
+					<p class="tai_txt">已下单客户</p>
+				</div>
+			</div>
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">9999</p>
+					<p class="tai_txt">已有顾问</p>
+				</div>
+			</div>
+		</div>
+		<div class="tai_box">
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">9999</p>
+					<p class="tai_txt">商标查询数</p>
+				</div>
+			</div>
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">9999</p>
+					<p class="tai_txt">商标服务</p>
+				</div>
+			</div>
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">9999</p>
+					<p class="tai_txt">总订单数</p>
+				</div>
+			</div>
+			<div class="tai_mode">
+				<div class="num_box">
+					<p class="tai_num">9999</p>
+					<p class="tai_txt">未支付订单数</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		//获取官方通知
+		$.getJSON("http://www.thinkcmf.com/service/sms_jsonp.php?lang={$Think.LANG_SET}&v={$Think.SIMPLEWIND_CMF_VERSION}&callback=?",
+		function(data) {
+			var tpl = '<li><em class="title"></em><span class="content"></span></li>';
+			var $thinkcmf_notices = $("#thinkcmf_notices");
+			$thinkcmf_notices.empty();
+			if (data.length > 0) {
+				$.each(data, function(i, n) {
+					var $tpl = $(tpl);
+					$(".title", $tpl).html(n.title);
+					$(".content", $tpl).html(n.content);
+					$thinkcmf_notices.append($tpl);
+				});
+			} else {
+				$thinkcmf_notices.append("<li>^_^,{:L('NO_NOTICE')}~~</li>");
+			}
+
+		});
+	</script>
+</body>
+</html>

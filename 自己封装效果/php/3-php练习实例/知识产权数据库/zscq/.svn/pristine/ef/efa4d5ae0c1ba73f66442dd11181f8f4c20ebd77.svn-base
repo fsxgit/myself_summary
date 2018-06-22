@@ -1,0 +1,21 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class BcheckController extends AdminbaseController{
+	//续展检测
+	public function xuzhan(){
+		
+		$count = M("mark")->where("state=0")->count();
+	//	echo M("inquire")->getlastsql();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("state=0")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+		
+		$this->assign("res",$res);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+}

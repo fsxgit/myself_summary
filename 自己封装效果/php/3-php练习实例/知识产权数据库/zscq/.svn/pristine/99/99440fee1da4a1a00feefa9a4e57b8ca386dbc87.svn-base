@@ -1,0 +1,269 @@
+<?php
+/**
+ * 获取个人信息   手机邮箱头像修改与绑定
+ */
+namespace Portal\Controller;
+use Common\Controller\HomebaseController; 
+class PinfoController extends HomebaseController {
+    
+    //个人中心主页
+    public function index(){
+        if(empty($_COOKIE['code'])){
+            //$this->success("请登录",U("Portal/register/index"));
+            redirect(U("Portal/register/index"));
+            exit;
+        }else{
+            $zsid = $_COOKIE['zsid'];
+            $users_model = M("user");
+            $result = $users_model->where("id=$zsid")->find();
+            if($result['isclaimed'] == 1){
+                //$array = array('entName'=>$result['companyname']);
+                $array = array('entName'=>"神州数码（中国）有限公司");
+                $rs = request_api_xt('api/findEnterpersInfo.do',$array);//企业
+                $this->assign("rs",$rs['data']['dom']);
+                $this->assign("res",$result);
+                $this->display("perCenter");
+                exit;
+            }else{
+                $this->assign("res",$result);
+                $this->display("perCenter");
+                exit;
+            }
+        }
+    }
+
+
+    //调用公共方法的私有化的方法
+    private function ceshi($sid,$data){
+	$rs = request_api_xlb($sid,$data);//接口请求
+	return $rs;
+    }
+    private function ceshi1($sid,$data){
+	$rs = request_api_xlb($sid,$data);//接口请求
+    }
+        
+    public function telcode(){
+        $tel = I("tel");
+        $data = array(phone => $tel);
+        $this->ceshi(1513,$data);
+    }
+    
+    //获取个人信息
+    public function getinfo(){
+        if(empty($_COOKIE['code'])){
+            redirect(U("Portal/index/index")); 
+        }else{
+            $data = array(token=>$_COOKIE['code']);
+            $arrinfo = $this->ceshi(1522,$data);
+            $datainfo = array(
+                'id' =>$arrinfo['RESULT']['result']['id'],
+                'imgPath' =>$arrinfo['RESULT']['result']['imgPath'],
+                'loginName' =>$arrinfo['RESULT']['result']['loginName'],
+                'phone' =>$arrinfo['RESULT']['result']['phone'],
+                'email' =>$arrinfo['RESULT']['result']['email'],
+                'kyjf' =>$arrinfo['RESULT']['result']['kyjf'],
+                'djjf' =>$arrinfo['RESULT']['result']['djjf'],
+                'lsdjjf' =>$arrinfo['RESULT']['result']['lsdjjf'],
+                'ljxfjf' =>$arrinfo['RESULT']['result']['ljxfjf'],
+                'companyName' =>$arrinfo['RESULT']['result']['companyName'],
+                'linkMan' =>$arrinfo['RESULT']['result']['linkMan'],
+                'isClaimed' =>$arrinfo['RESULT']['result']['isClaimed'],
+            );
+            $users_model = M("user");
+            $id = $arrinfo['RESULT']['result']['id'];
+            $result = $users_model->where("id=$id")->count();
+            if($result){
+                $users_model->save($datainfo);
+            }else{
+                $infoys = $users_model->add($datainfo);
+            }
+            if($infoys){
+                echo "成功跳转";
+                exit;
+            }else{
+                echo "失败跳转";
+            }
+        }
+    }
+    
+    //绑定个人邮箱 1524
+    public function ckemail(){
+        $this->display("perCenter-email");
+    }
+    public function bdemail(){
+        $code = I("code");
+        if(!self::check_verify($code)){  
+            echo 0;
+            exit;
+        }else{
+            $id = $_COOKIE['zsid'];
+            $email = I('email');
+            $data = array(email=>$email,token=>$_COOKIE['code']);
+            $arrinfo = $this->ceshi(1524,$data);
+            json_decode($arrinfo);
+            if($arrinfo['RESULT']['result']['code'] == 0){
+                //等于0是修改成功
+                $datainfo = array(
+                        'email' =>$email
+                    );
+                $users_model = M("user");
+                $users_model->where(array('id' => $id))->save($datainfo);
+                echo 1;
+                exit;
+            }else{
+                echo $arrinfo['RESULT']['result']['msg'];
+                exit;
+            }
+        }
+    }
+    
+    //修改绑定手机号 1526
+    public function cktel(){
+        $id = $_COOKIE['zsid'];
+        $users_model = M("user");
+        $result = $users_model->where("id = $id")->find();
+        $this->assign("res",$result);
+        $this->display("perCenter-cel2");
+    }
+    public function uptel(){
+        $id = $_COOKIE['zsid'];
+        $oldPhone = I('oldtel');
+        $oldcode = I('oldcode');
+        $newPhone = I('newtel');
+        $newCode = I('newcode');
+        
+        $data = array(oldPhone=>$oldPhone,oldCode=>$oldcode,newPhone=>$newPhone,newCode=>$newCode,token=>$_COOKIE['code']);
+        $arrinfo = $this->ceshi(1526,$data);
+        json_decode($arrinfo);
+        if($arrinfo['RESULT']['result']['code'] == 0){
+            //等于0是修改成功
+            $datainfo = array(
+                    'phone' =>$newPhone
+                );
+            $users_model = M("user");
+            $users_model->where(array('id' => $id))->save($datainfo);
+            echo 1;
+            exit;
+        }else{
+            echo $arrinfo['RESULT']['result']['msg'];
+            exit;
+        }
+    }
+    
+    
+
+    //用户每次修改手机号 或者邮箱之后做表修改操作
+    private function upuser(){
+        $data = array(token=>$_COOKIE['code']);
+        $arrinfo = $this->ceshi(1522,$data);
+        $datainfo = array(
+            'id' =>$arrinfo['RESULT']['result']['id'],
+            'imgPath' =>$arrinfo['RESULT']['result']['imgPath'],
+            'loginName' =>$arrinfo['RESULT']['result']['loginName'],
+            'phone' =>$arrinfo['RESULT']['result']['phone'],
+            'email' =>$arrinfo['RESULT']['result']['email'],
+            'kyjf' =>$arrinfo['RESULT']['result']['kyjf'],
+            'djjf' =>$arrinfo['RESULT']['result']['djjf'],
+            'lsdjjf' =>$arrinfo['RESULT']['result']['lsdjjf'],
+            'ljxfjf' =>$arrinfo['RESULT']['result']['ljxfjf'],
+            'companyName' =>$arrinfo['RESULT']['result']['companyName'],
+            'linkMan' =>$arrinfo['RESULT']['result']['linkMan'],
+            'isClaimed' =>$arrinfo['RESULT']['result']['isClaimed'],
+        );
+        $users_model = M("user");
+        $result = $users_model->where($arrinfo['RESULT']['result']['id'])->count();
+        if($result){
+            $users_model->save($datainfo);
+        }else{
+            echo "信息表里没有这个用户的ID";
+        }
+    }
+    
+    //CK验证码
+    public function check_verify($code, $id = ''){
+        $verify = new \Think\Verify();
+        return $verify->check($code, $id);       
+    }
+    
+    //修改密码    系列方法1-6
+    public function uppass1(){
+        $this->display("find-pass1");
+    }
+    
+    public function uppass2(){
+        $code = I("code");
+        if(!self::check_verify($code)){
+            //验证码不正确
+            echo 0;
+            exit;
+        }else{
+            $id = $_COOKIE['zsid'];
+            $tel = I('tel');
+            $users_model = M("user");
+            $result = $users_model->where("id=$id and loginName=$tel")->count();
+            if($result){
+                //有这个手机号
+                echo 1;
+                exit;
+            }else{
+                //没有这个手机号
+                echo 2;
+                exit;
+            }
+        }
+    }
+    
+    public function telcode1(){
+        $tel = I("tel");
+        if(empty($tel)){
+            echo 100;
+            exit;
+        }else{
+            $id = $_COOKIE['zsid'];
+            $tel = I('tel');
+            $users_model = M("user");
+            $result = $users_model->where("id=$id and loginName=$tel")->count();
+            if($result){
+                $data = array(phone => $tel);
+                $this->ceshi1(1513,$data);
+                echo 111;
+                exit;
+            }else{
+                echo 222;
+                exit;
+            }
+        }
+    }
+        public function uppass3(){
+            $this->display("find-pass2");
+        }
+        
+        public function uppass4(){
+            $this->display("find-pass3");
+        }
+        
+        public function uppass5(){
+            $oldpass = I('oldpass');
+            $newpass = I('newpass');
+            $code = $_COOKIE['code'];
+            $data = array(token => $code,oldPwd => md5($oldpass),newPwd => md5($newpass));
+            $arrinfo = $this->ceshi(1525,$data);
+            json_decode($arrinfo);
+            if($arrinfo['RESULT']['result']['code'] == ""){
+                echo 0;
+                exit;
+            }else{
+                echo 1;
+                exit;
+            }
+        }
+        public function uppass6(){
+            $this->display("find-pass4");
+        }
+        public function uppass7(){
+            setcookie("code", '');
+            setcookie("zsid", '');
+            echo 1;
+            exit;
+        }
+}

@@ -1,0 +1,106 @@
+*{margin:0; padding:0;}
+
+body{margin:0; padding:0; overflow-y: hidden; color:#fff;}
+li{list-style-type:none;}
+
+/* styled just for clear visual division of each areas */
+.op-section{background-color:#1abc9c;}
+.first{background: url("../images/bg.jpg") no-repeat center center; background-size:cover; }
+.second{background: url("../images/bg2.jpg") no-repeat center center; background-size:cover; }
+.third{background-color:#34495e;}
+.fourth{background: url("../images/bg3.jpg") no-repeat center center; background-size:cover;}
+.fifth{background: url("../images/bg41.jpg") no-repeat center center; background-size:cover;}
+.last{background-color:#f39c12;}
+
+
+/*这里的样式 决定导航点的位置 和显示的个数*/
+#radioWrap{
+    width:20px;
+    height:180px;
+    position:absolute;
+    right:5%;
+    top:50%;
+    margin-top: -90px;}
+
+#radio{width:100%; height:100%; overflow: hidden;}
+
+#radio li{
+    width:20px;
+    height:20px;
+    background-color: rgba(255,255,255, 0.5);
+    text-indent: -10000px;
+    border-radius: 50%;
+    margin-top: 12px;
+    cursor:pointer;}
+#radio li:first-child{margin-top:0;}
+
+/*
+    set position to absolute(essential).
+    use margin to adjust gaps between LIs because ApplikeOnePage.js uses .outerHeight(true) method
+    to measure the interval gap to which each radio buttons are placed.
+*/
+#radioOn{
+    width:20px;
+    height:20px;
+    margin-bottom:12px;
+    position: absolute;
+    top:0; left:0;
+    background-color: #ff0039;
+    border-radius: 50%;}
+
+
+
+
+/*nav style*/
+.main{width: 1000px; margin-left: auto; margin-right: auto;}
+.fl{float: left;}
+.fr{float: right;}
+.oh{overflow: hidden;}
+.navf{width:100%; padding:10px 0; background:#000; position:fixed; left:0; top:0; z-index: 10;}
+.navf .logof{width:40px; height: 40px; border-radius: 50%; overflow: hidden;}
+.navf .logof img{width:40px; height: 40px; border-radius: 50%; overflow: hidden;}
+.navf .logotxt{height: 40px; line-height: 40px; margin-left: 10px; color: #fff; font-size: 20px; font-family: "microsoft yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+.navf .nav-list{height: 40px; line-height: 40px;}
+.navf .nav-list a{font-size: 16px; color: #fff;  margin:0 10px;}
+.navf .nav-list a:hover{color: #ffec0e;}
+/*nav style end*/
+.first{}
+.first h1{padding-top: 200px; font-size: 60px; text-align: center; color: #fff;}
+.first .welman-box{position: relative; }
+.first .welman{padding-top: 100px;}
+.first .welman img{width: 600px;}
+.first .weltxt{padding-top: 240px; font-size: 60px;  margin-left: 60px; color: #fff;}
+.first .welgif{position: absolute; right:450px; bottom:230px; opacity: 0;}
+.first .welgif img{width: 140px; height: 140px;}
+.second{}
+.second .xk-box{color: #fff; font-size: 20px; margin-left:180px; padding-top: 240px; width:360px;}
+.second .xk-box h1{ font-size: 38px;}
+.second .xk-box h2{font-size: 20px; padding:10px 0;}
+.second .xk-box p{font-size: 20px; line-height: 40px;}
+.third{background-color:#34495e;}
+.third h1{padding-top: 200px; font-size: 60px; text-align: center; color: #fff;}
+.third .ul-pet{overflow: hidden; padding-top: 100px;}
+.third .ul-pet li{width: 200px; margin:0 25px; float: left;}
+.third .ul-pet li img{width: 200px; height: 200px; border-radius: 50%;}
+.third .ul-pet li p{padding-top: 40px; font-size: 30px; color: #fff; text-align: center;}
+.fourth{background-color:#2ecc71;}
+.fifth{}
+.fifth .btn-box{width: 600px; padding-top: 400px;  color: #fff;}
+.fifth .btn-box p{margin-bottom: 40px;}
+.last{}
+
+a{text-decoration: none;}
+.tc{text-align: center;}
+.btn {
+    margin-right: 22px;
+    width: 128px;
+    height: 38px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 38px;
+}
+
+.btn:hover{
+    color: #00a0e9;
+}

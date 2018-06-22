@@ -1,0 +1,12 @@
+.main{width:1000px; margin:0 auto;}
+a{color:#666;}
+a:link,a:visited,a:hover{color:#666; text-decoration:none;}
+a:hover{text-decoration:underline;}
+/*	a:link:   连接时的状态
+
+	a:visited:连接被访问过之后的状态
+
+	a:hover:鼠标放到连接上的时候的状态
+
+	a:active:连接被按下的时候的状态
+*/

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>六个格子输入框</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{font-family: "PingFang SC", "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        #telCode{overflow: hidden;}
+        #telCode li{width: 50px; height: 50px; line-height: 50px; font-size: 20px;  list-style: none; border:1px solid #ccc; display: block; float: left; text-align: center; position: relative;}
+        #telCode li.focus::before{
+            content: "";
+            height: 30px;
+            width: 1px;
+            background: #000;
+            display: inline-block;
+            margin-top: 11px;
+            position: absolute;
+            left:30px;
+            top:0;
+            animation: myfocus 700ms infinite;
+            -webkit-animation: myfocus 700ms infinite; /* Safari 与 Chrome */
+        }
+        @keyframes myfocus
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        @-webkit-keyframes myfocus /* Safari 与 Chrome */
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+        #codeInput{border:1px solid #ccc; background: #eee; padding:10px 0;  position: absolute; left:-1000px; top:-1000px; }
+    </style>
+</head>
+<body>
+<h2>模拟支付宝支付密码</h2>
+<h4>实现不连续格子密码输入</h4>
+<h5 style="color: red;">这个感觉还不错！</h5>
+<h6 style="color: red;">有焦点光标</h6>
+<input autofocus id="codeInput" maxlength="6" type="tel"/>
+<ul id="telCode">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+$(function(){
+    $("#telCode").click(function(){
+        $("#codeInput").focus();
+        var k = 0;
+        $("#telCode li").each(function(i){
+            var This =  $(this);
+            var txt = This.text();
+            if(!txt){
+                if(k == 0){
+                    This.addClass("focus").siblings().removeClass("focus");
+                    k = 1;
+                }
+            }
+
+        });
+    });
+        var len1 = $("#telCode li").length;
+        //验证手机号的方法
+        $("#codeInput").on('input propertychange',function(){
+            var This = $(this);
+            var code = $(this).val();
+            var reg = /[^0-9]/ig;
+            code = code.replace(reg,"");
+            This.val(code);
+            //console.log(code);
+            var len2 = code.length;
+            if(len1 == len2){
+                console.log("输完了");
+            }
+            //把input里面的数据给到每一个li里面
+            var arr =[];
+            arr=code.split("");
+
+            var k = 0;
+            var len = $("#telCode li");
+            $("#telCode li").each(function(i){
+                if(arr[i]){
+                    $("#telCode li:nth-of-type("+(i+1)+")").text(arr[i]);
+                }else{
+                    if(k == 0){
+                        $("#telCode li:nth-of-type("+(i+1)+")").text("");
+                        k = 1;
+                        if(k == 1){
+                            $("#telCode li:nth-of-type("+(i+1)+")").addClass("focus").siblings().removeClass("focus");
+                        }
+                    }
+                }
+            });
+
+        });
+})
+</script>
+</html>

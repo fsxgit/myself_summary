@@ -1,0 +1,85 @@
+@charset "utf-8";
+/*
+***移动端样式重置
+全局引用***
+ */
+*{margin: 0; padding: 0;}
+html {font-size:640px; }
+body{ font-family: "hiragino sans gb", Helvetica,"Microsoft Yahei", Arial, Tahoma; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+body,div,a,span,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,form,button,input,textarea,th,td,img{margin: 0; padding: 0; outline:0; font-style:normal; border:none;font-weight:normal;}
+table {border-collapse:collapse;border-spacing: 0}
+caption, th, td { text-align: left; font-weight: normal}
+a{ text-decoration:none;cursor:pointer;color:#999;}
+input{ border:none;}
+ol, ul ,li{list-style: none;}
+i,em,strong{font-style:normal;}
+img{ width:100%; height:100%; max-width: 100%;vertical-align: middle;border:none; display: block;}
+input,select:focus{
+    border-width:0;
+    border-color:white;
+    border-style:none;
+    background:none;
+    border:none;
+    outline:medium;
+    alpha:0;
+    appearance:none;
+    -webkit-appearance:none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-modify:read-write-plaintext-only;
+}
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+/*修改input的placeholder的默认颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #999;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #999;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #999;
+}
+html,body{width:100%; height:auto; overflow-x:hidden;}
+/*公共样式  开始*/
+.fl{float:left;}
+.fr{float:right;}
+.oh{overflow:hidden;}
+.cb{clear:both;}
+.tc{text-align:center;}
+.tl{text-align:left;}
+.tr{text-align:right;}
+.bc{margin-left:auto; margin-right:auto;}
+.fz0{font-size:0;}
+.pr{position:relative;}
+.ff4{height:0.4375rem; background:#efeff4;}
+.ml4{margin-left:0.40625rem;}
+.f50{font-size:0.50rem;}
+.f45{font-size:0.4531rem;}
+.f43{font-size:0.4375rem;}
+.f38{font-size:0.38rem;}
+.f32{font-size:0.32rem;}
+.p166{padding-bottom:1.66rem;}
+/*main的宽度是由页面来决定的*/
+.main{width:9.1875rem; margin-left:auto; margin-right:auto;}
+.fxBox{width:100%; height:auto; overflow: hidden;}
+/*公共样式  结束*/
+/*头部公共样式 开始*/
+.fxheader{width:100%; height:auto; background:#ff5a5f;}
+.fxheader .fBack{background: url(../images/fback.png)no-repeat 0 center; background-size:0.34375rem 0.625rem; display: inline-block; width:0.34375rem; height:0.625rem;}
+.fxheader .fShare{background:url(../images/fshare.png)no-repeat 0 center; background-size:0.6rem 0.6rem; display: inline-block; width:0.6rem; height:0.6rem;}
+.fxheader .fdiv{ height:0.6rem;padding:0.4375rem 0;font-size:0.5rem; color:#fff;}
+/*头部公共样式 结束*/
+
+/*a标签点击变背景颜色 但是手机端不起作用?*/
+a:active{background: #999;}
+/*公共banner轮播css 开始*/
+.swiper-container{width:100%;height:6.65rem;}
+.swiper-wrapper{width:auto; height: 100%;}
+.bannerImg{width:10rem; height:100%;height:3.03125rem; margin-bottom:0.609375rem;}
+.swiper-pagination-bullet{background:#fff; opacity:0.6;}
+.swiper-pagination-bullet-active{background: #ff2f15; opacity:1;}
+.fixMark{position:absolute; left:0.4rem;top:0.4rem; width:1.5625rem; height:1.25rem; z-index: 10;}
+/*公共banner轮播css 结束*/

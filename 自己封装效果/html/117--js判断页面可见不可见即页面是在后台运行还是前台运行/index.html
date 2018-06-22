@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断页面是否可见</title>
+</head>
+<body>
+
+<h1>判断页面是不是在后台运行！</h1>
+
+<script>
+    document.addEventListener("visibilitychange", function() {
+        if(document.visibilityState == "visible"){
+            alert("能看见我了!");
+        }
+        if(document.visibilityState == "visible"){
+            console.log("我隐藏了!");
+        }
+    });
+</script>
+</body>
+</html>

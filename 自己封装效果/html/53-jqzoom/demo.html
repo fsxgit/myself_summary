@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        img{border: 0;}
+        a{text-decoration: none;display: table-cell;vertical-align: middle;text-align: center;width: 154px;}
+        .container{width: 980px;margin:100px auto;}
+        img.sm-img{padding: 3px;border: 1px solid #cccccc; background: white; vertical-align: middle;}
+        .big-img-span{width:200px; height:200px; padding:3px; background:white; border:1px solid #cccccc; text-align:center; position:absolute; z-index:1000; left:0; top:0; overflow: hidden;}
+        a:hover img.sm-img{border:1px solid #f30;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="#" sref="img/mm1-big.jpg">
+        <img src="img/mm1-sm.jpg" class="sm-img" alt=""/>
+    </a>
+
+    <a href="#" sref="img/mm2-big.jpg">
+        <img src="img/mm2-sm.jpg" class="sm-img" alt=""/>
+    </a>
+
+    <a href="#" sref="img/mm3-big.jpg">
+        <img src="img/mm3-sm.jpg" class="sm-img" alt=""/>
+    </a>
+
+    <a href="#" sref="img/mm4-big.jpg">
+        <img src="img/mm4-sm.jpg" class="sm-img" alt=""/>
+    </a>
+
+    <a href="#" sref="img/mm5-big.jpg">
+        <img src="img/mm5-sm.jpg" class="sm-img" alt=""/>
+    </a>
+
+    <a href="#" sref="img/mm6-big.jpg">
+        <img src="img/mm6-sm.jpg" class="sm-img" alt=""/>
+    </a>
+</div>
+<script src="js/jquery1.8.3-min.js"></script>
+<script src="js/jqzoom.js"></script>
+<script>
+    $(function(){
+        $('img.sm-img').jqzoom({
+            xzoom : 200,
+            yzoom : 200,
+            'position' : 'left'
+        });
+    });
+</script>
+</body>
+</html>

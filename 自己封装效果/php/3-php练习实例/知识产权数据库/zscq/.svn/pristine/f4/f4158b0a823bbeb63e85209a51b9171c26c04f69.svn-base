@@ -1,0 +1,121 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class BselectController extends AdminbaseController{
+	//待查询
+	public function waiting(){
+		$mobile = I("mobile");
+		$time11 = I("time1");
+		$time22 = I("time2");
+		$source = I("source");
+        $where =" 1 ";
+		if($mobile!=''){
+            $where.=" and customermobile='$mobile'";  
+			$con = "&mobile=$mobile";
+        }if($source!=''){
+			$where.=" and source={$source}";
+			$con .= "&source=$source";
+		}if($time11!='' && $time22!=''){
+			$where.=" and FROM_UNIXTIME(addtime,'%Y-%m-%d')>='$time11' and FROM_UNIXTIME(addtime,'%Y-%m-%d')<='$time22'";
+			$con .= "&time1=$time1&time2=$time2";
+		}else{
+			if($time11!=''){
+				$where.=" and FROM_UNIXTIME(addtime,'%Y-%m-%d')='$time11'";
+				$con .= "&time1=$time1";
+			}
+			if($time22!=''){
+				$where.=" and FROM_UNIXTIME(addtime,'%Y-%m-%d')='$time22'";
+				$con .= "&time2=$time2";
+			}
+		}
+
+		$count = M("inquire")->where("$where and state=0")->count();
+	//	echo M("inquire")->getlastsql();
+		$page = $this->page($count,10);
+
+		$res = M("inquire")->where("$where and state=0")
+			->limit("$page->firstRow,$page->listRows")
+			->order("queryid asc")
+			->select();
+		foreach($res as $k=>$v){
+			if($v["state"]==0){
+				$res[$k]["jie"]=0;//没有接单
+			}else{
+				$res[$k]["jie"]=1;
+				//接单 查询顾问信息
+				$r = M("adviser")->where("customerid=".$v["customerid"])->find();
+				$res[$k]["adname"] = $r["consultantname"];
+			}
+		}
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("time1",$time11);
+		$this->assign("time2",$time22);
+		$this->assign("mobile",$mobile);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//已查询
+	public function already(){
+		$mobile = I("mobile");
+		$time11 = I("time1");
+		$time22 = I("time2");
+
+		$source = I("source");
+        $where =" 1 ";
+		if($mobile!=''){
+            $where.=" and customermobile='$mobile'";  
+			$con = "&mobile=$mobile";
+        }if($source!=''){
+			$where.=" and source={$source}";
+			$con .= "&source=$source";
+		}if($time11!='' && $time22!=''){
+	
+			$where.=" and FROM_UNIXTIME(addtime,'%Y-%m-%d')>='$time11' and FROM_UNIXTIME(addtime,'%Y-%m-%d')<='$time22'";
+			$con .= "&time1=$time1&time2=$time2";
+		}else{
+			if($time11!=''){
+				$where.=" and FROM_UNIXTIME(addtime,'%Y-%m-%d')='$time11'";
+				$con .= "&time1=$time1";
+			}
+			if($time22!=''){
+				$where.=" and FROM_UNIXTIME(addtime,'%Y-%m-%d')='$time22'";
+				$con .= "&time2=$time2";
+			}
+		}		
+		$count = M("inquire")->where("$where and state!=0")->count();
+	//	echo M("inquire")->getlastsql();
+		$page = $this->page($count,10);
+
+		$res = M("inquire")->where("$where and state!=0")
+			->limit("$page->firstRow,$page->listRows")
+			->order("queryid asc")
+			->select();
+		foreach($res as $k=>$v){
+			if($v["state"]==0){
+				$res[$k]["jie"]=0;//没有接单
+			}else{
+				$res[$k]["jie"]=1;
+				//接单 查询顾问信息
+				$r = M("adviser")->where("customerid=".$v["customerid"])->find();
+				$res[$k]["adname"] = $r["consultantname"];
+			}
+		}
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("time1",$time11);
+		$this->assign("time2",$time22);
+		$this->assign("mobile",$mobile);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//待查询 详情
+	public function waiting_detail(){
+		$id = I("id");
+		$r = M("inquire")->where("queryid=$id")->find();
+		
+		$s = M("user")->where("id=".$r["customerid"])->find();
+	}
+}

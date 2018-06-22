@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>事物轮播</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        html,body{ background: #2dee60; width: 100%; height:100%; overflow: hidden;}
+        body {
+
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .swiper-container {
+            height: 0.3rem;
+            background: #fbb4ff;
+        }
+        .swiper-wrapper{ width: auto; height:auto; overflow:hidden; position:absolute; left:0; top:0;}
+        .swiper-slide {
+            width:auto;
+            text-align: center;
+            font-size: 18px;
+            overflow: hidden;
+            height:0.3rem;
+            line-height:0.3rem;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-slide-active{color:#000;}
+        .active{color: #0814ff;}
+        .mode{width:100%;height:1rem; margin-top:0.1rem; display: none;}
+        .mode img{width:100%; height:100%;}
+    </style>
+</head>
+<body>
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+        <div class="swiper-slide">Slide10</div>
+    </div>
+</div>
+<div class="mode"><img src="images/1.jpg" alt =""/></div>
+<div class="mode"><img src="images/2.jpg" alt =""/></div>
+<div class="mode"><img src="images/3.jpg" alt =""/></div>
+<div class="mode"><img src="images/4.jpg" alt =""/></div>
+<div class="mode"><img src="images/5.jpg" alt =""/></div>
+<div class="mode"><img src="images/6.jpg" alt =""/></div>
+<div class="mode"><img src="images/7.jpg" alt =""/></div>
+<div class="mode"><img src="images/8.jpg" alt =""/></div>
+<div class="mode"><img src="images/9.jpg" alt =""/></div>
+<div class="mode"><img src="images/10.jpg" alt =""/></div>
+<!-- Swiper JS -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.min.js"></script>
+
+<script>
+    //使屏幕大小 作为html的font-size  作为页面的root
+    var iWidth=document.documentElement.getBoundingClientRect().width;
+    document.getElementsByTagName("html")[0].style.fontSize=iWidth+"px";
+    //窗口变化,重新加载
+    window.onresize = function () {
+        window.location.href=window.location.href;
+    }
+
+    var hash = window.location.href.split('#')[1];
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 30,
+        preventClicks : false,
+        grabCursor: true,
+        initialSlide :hash
+    });
+    var aSwiperSlide = $(".swiper-slide");
+    var aMode = $(".mode");
+    if(hash){
+        //页面加载进来时  通过判断hash 来设定当前显示块
+        $('.swiper-slide').each(function(){
+            $(this).removeClass('swiper-slide-active active');
+        });
+        $('.swiper-slide').eq( hash ).addClass('swiper-slide-active active');
+        aMode.eq(hash).show().siblings(".mode").hide();
+    }else{
+        aMode.eq(0).show();
+        aSwiperSlide.eq(0).addClass("active swiper-slide-active");
+    };
+    aSwiperSlide.each(function(){
+        $(this).on("click",function(){
+            var i = $(this).index();
+            $(this).addClass("active").siblings().removeClass("active");
+            aMode.eq(i).show().siblings(".mode").hide();
+        })
+    });
+
+
+</script>
+</body>
+</html>

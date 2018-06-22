@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简单计算器</title>
+<style type="text/css">
+input {
+  height:32px;
+  width:45px;
+}
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+     <td scope="col"><input type="button" value="复位"  id = "c"></td>
+    <td scope="col"><input type="text" value="" id="msg" style="width:155px;"></td>
+ 
+  </tr>
+  <tr>
+      <td scope="col">结果:</th>
+    <td scope="col"><input type="text" value="" id="r" style="width:155px;"></td>
+
+  </tr>
+</table>
+<table width="16%" border="0">
+  <tr  style="text-align:left;">
+    <th width="25%" scope="col"><input type="button" value="1"></th>
+    <th width="25%" scope="col"><input type="button" value="2"></th>
+    <th width="25%" scope="col"><input type="button" value="3"></th>
+    <th width="25%" scope="col"><input type="button" value="+"></th>
+  </tr>
+  <tr>
+    <td><input type="button" value="4"></td>
+    <td><input type="button" value="5"></td>
+    <td><input type="button" value="6"></td>
+    <td><input type="button" value="-"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="7"></td>
+    <td><input type="button" value="8"></td>
+    <td><input type="button" value="9"></td>
+    <td><input type="button" value="*"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="0"></td>
+    <td><input type="button" value="."></td>
+    <td><input type="button" value="=" id="s"></td>
+    <td><input type="button" value="/"></td>
+  </tr>
+</table>
+<script type="text/javascript">
+var x=document.getElementsByTagName("input");
+for(var f1 in x){
+  x[f1].onclick = function(){
+    m(this.value)
+  }
+}
+document.getElementById("s").onclick = function(){
+  var ss = document.getElementById("msg").value;
+  document.getElementById("r").value = eval(ss);
+};
+document.getElementById("c").onclick = function(){
+  document.getElementById("msg").value="";
+  document.getElementById("r").value="";
+}
+function m(s){
+  var ss = document.getElementById("msg").value;
+  ss = ss || "";
+  ss = ""+ss + s;
+  document.getElementById("msg").value= ss;
+}
+</script>
+</body>
+</html>

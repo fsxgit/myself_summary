@@ -1,0 +1,35 @@
+
+@charset "utf-8";
+/*公共样式*/
+/*Css reset*/
+body, div,img, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0;}
+address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li {list-style:none;}
+a{ text-decoration:none;}
+th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before, q:after{content:' '}
+abbr,acronym{border:0;}
+img{max-width: 100%; max-height:100%;}
+button,input,select,option,textarea{margin:0px; padding: 0px; border: none;outline: none;}
+body{ font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+.box{width:100%; height:auto;overflow: hidden;}
+.boxLeft{width:25%; float:left; height:auto ; background: #f4f4f4;}
+.boxRight{width:75%; float:left; height:auto; }
+.boxLeft div{width:100%; height:1.444rem; line-height: 1.444rem; text-align: center; border-bottom:1px solid #000; background: #f4f4f4; font-size:0.39rem; border-right:1px solid #000;}
+.boxLeft div.active{background:#fff;color:#58ab22;}
+
+.boxRight{}
+.boxRight .TitRight{width:100%; height:1.444rem; line-height: 1.444rem;  font-size:0.39rem; border-bottom:1px solid #000; padding-left:0.63rem;}
+.boxRight .mode div{width:100%; height:1.444rem; line-height: 1.444rem;  font-size:0.39rem;border-left:1px solid #000; border-bottom:1px solid #000;background: #fff; padding-left:0.63rem;}
+.boxRight .mode span{ display:inline-block; width:0.407rem; height:0.407rem; line-height: 0.407rem;  font-size:0.3rem; text-align: center; color: #fff; border-radius:0.037rem; margin-right:0.407rem;}
+.boxRight .mode{display: none;}
+.boxRight .current{display:block;}
+.n1{background: #f05800;}
+.n2{background: #ffb700;}
+.n3{background: #38a4f3;}
+.n{background: #e2e2e2;}
+
+

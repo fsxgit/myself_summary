@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>填写报名信息</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/loading.css"/>
+    <link rel="stylesheet" href="css/liuyan.css"/>
+</head>
+<body>
+<!--loading -->
+<div class="lyhBackstrop" id="loading">
+    <div class="lyhLoading">
+        <div class="url-loading">
+            <i class="nth-4"></i>
+            <i class="nth-5"></i>
+            <i class="nth-6"></i>
+            <i class="nth-3"></i>
+            <i class="nth-2"></i>
+            <i class="nth-1"></i>
+        </div>
+        Loading...
+    </div>
+</div>
+<!--loading end-->
+
+<div class="bmBox">
+    <h1 class="xxTitle">爱心传递计划</h1>
+    <div class="xxTop">
+        <div class="bb xxMoreBox">
+            <div class="xxMoreMain oh">
+                <span class="xxName">活动地址</span>
+                <span class="xxTxt">海淀区上地西路8号院上地科技大厦4号楼3030</span>
+            </div>
+        </div>
+        <div class="xxMoreBox">
+            <div class="xxMoreMain oh">
+                <span class="xxName">活动时间</span>
+                <span class="xxTxt">2016-06-09 至 2016-06-13</span>
+            </div>
+        </div>
+        <div class="cb"></div>
+    </div>
+    <div class="xxSex">
+        <div class="styleTitle">
+            <h1 class="main">捐款方式</h1>
+        </div>
+        <!--长短行-->
+        <div class="cdBox oh">
+            <div class="cdCont">
+                <div class="cdhang">
+                    <span>姓名</span>
+                    <input type="text" placeholder="请输入报名人姓名"/>
+                </div>
+                <div class="cdhang bt sexChoose oh">
+                    <span class="fl">性别</span>
+                    <div class="sexBox fl">
+                        <label for="boy" class="active"><input type="radio" name="sex" id="boy" checked="checked"/>男</label>
+                        <label for="girl"><input type="radio" name="sex" id="girl"/>女</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cb"></div>
+        <div class="styleTitle">
+            <h1 class="main">报名须知</h1>
+        </div>
+        <div class="xzTxt main">
+            <p>1.报名后应该时刻保持手机畅通，方便及时联系</p>
+            <p>2.报名后应该时刻保持，手机畅通方便及时联系</p>
+            <p>3.报名后应该时刻保持手机畅通，方便及时联系</p>
+        </div>
+    </div>
+</div>
+<div class="btnBox main">
+    <input class="btnLg" type="submit" value="提交报名"/>
+</div>
+
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/loading.js"></script>
+<script src="js/js.js"></script>
+<script>
+    sexChoose();
+</script>
+</body>
+</html>

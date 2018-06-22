@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>杜西西小盆友，你好</title>
+	<link href="//gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="apple-touch-icon-precomposed">
+	<style>
+		body,button,input{font-size:20px;}
+		.spans span{display: inline-block; padding:4px; border:1px solid #ccc; cursor: pointer; }
+		.spans span.active{background: #ff14be; color: #fff; }
+
+	</style>
+</head>
+<body>
+<h1>时时彩，直选和值的算法：</h1>
+<p>三位数；个位数+十位数+百位数 = M; (0= < M <=27)，至少选择一个作为M
+<p>例如：3，可由 100；010；001；三个组成
+
+</p>
+<div class="spans na">
+
+	<span>0</span>
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>5</span>
+	<span>6</span>
+	<span>7</span>
+	<span>8</span>
+	<span>9</span>
+	<span>10</span>
+	<span>11</span>
+	<span>12</span>
+	<span>13</span>
+	<span>14</span>
+	<span>15</span>
+	<span>16</span>
+	<span>17</span>
+	<span>18</span>
+	<span>19</span>
+	<span>20</span>
+	<span>21</span>
+	<span>22</span>
+	<span>23</span>
+	<span>24</span>
+	<span>25</span>
+	<span>26</span>
+	<span>27</span>
+</div>
+</p>
+<button>获取结果</button>
+
+<script src="js/jquery.min.js"></script>
+<script>
+$(function(){
+
+
+	$(".spans span").click(function(){
+		$(this).toggleClass("active");
+	});
+
+
+
+
+	$("button").click(function(){
+
+		var naActives = $(".na span.active");
+
+		var aa = zhi1(naActives);
+		alert(aa);
+		
+		
+	});
+
+
+	function zhi1(obj1){
+		var n = 0;
+		var A = 0;
+		obj1.each(function(){
+			var M = $(this).text().replace(/\s/g,"");
+			if(M>9){
+				A = 9;
+			}else{
+				A = M;
+			}
+			//个位：
+			for (var i = 0 ;i <= A ; i++){
+				//十位：
+				for (var j = 0 ;j <= A ; j++){
+					//百位：
+					for (var k = 0 ;k <= A ; k++){
+						var he = i+j+k;
+						if(he == M){
+							n++;
+						}
+					}
+				}
+			}
+		});
+		return n;
+	}
+	
+	
+	
+})
+</script>
+</body>
+</html>

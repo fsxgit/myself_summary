@@ -1,0 +1,152 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<style>
+a{cursor: pointer;}
+
+.fl{float:left;}
+.mt2{margin-top:4px; margin-right:4px;}
+.btnfx{cursor: pointer; width:60px; height:28px;line-height:28px; border:1px solid #07a9ff; color: #07a9ff; border-radius: 4px; background: none; margin-left:4px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>已查询列表</a></li>
+    </ul>
+	<form method="post">
+	<span class="fl mt2">查询时间：</span>
+	<div id="div1" class="fl" style="display:inline-block;">
+		<div id="test1" class="laydate-icon" style="width:110px;  height:16px; padding:4px; margin-right:4px;"></div>
+	</div>
+	<span class="fl">~</span>
+	<div id="div2" class="fl" style="display:inline-block;">
+		<div id="test2" class="laydate-icon" style="width:110px;  height:16px; padding:4px;  margin-right:4px;"></div>
+	</div>
+	<!--
+	<span class="fl mt2">订单来源：</span><select name="source" class="fl" style="width:100px; margin-right:4px;" id="source">
+			<option value="">全部</option>
+			<option value="1">PC</option>
+			<option value="2">APP</option>
+		</select>  -->
+	<span class="fl mt2">联系人电话：</span><input type="text"  class="fl" name="mobile" id="mobile" style="width:100px; height:14px; margin-right:4px;" value="{$mobile}">
+	<input  class="btnfx" type="button" value="搜索" onclick="sear()">
+    </form>
+    <div id="mydiv">
+         <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>查询单号</th>
+                <th>商标图样</th>
+                <th>商标名称</th>
+				<th>查询时间</th>
+                <th>查询方式</th>
+				<th>用户联系方式</th>
+				<th>是否接单</th>
+				<th>接单顾问</th>
+				<th>订单来源</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="res" item="vo" key='k'>
+                <tr>
+                    <td>{$vo.queryid}</td>
+                    <td>{$vo.number}</td>
+                    <td>
+                      <img src="{$vo.markpicture}" width="50" height="50"/>
+					</td>
+                    <td>{$vo.markname}</td>
+					<td><?php echo date("Y-m-d",$vo["addtime"]);?></td>
+                    <td>
+					<?php
+					if($vo["type"]==1){
+						echo "智能推荐";
+					}if($vo["type"]==2){
+						echo "委托顾问查询";
+					}if($vo["type"]==3){
+						echo "自主选择类别";
+					}
+					?>
+					</td>
+					<td>{$vo.customermobile}</td>
+					<td>
+					<?php
+					if($vo["jie"]==1){
+						echo "是";					
+					}else{
+						echo "否";
+					}
+					?>
+					</td>
+                    <td>{$vo.adname}</td>
+					<td></td>
+                    <td><a onclick="show({$vo.queryid})">查看详情</a>
+                    </td> 
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+  <div class="c-pages tc">
+							<span>{$page}</span>
+						</div>
+</div>
+</body>
+</html>
+<script src="public/js/laydate/laydate.js"></script>
+<script src="publicml/js/js.js"></script>
+<script>
+function show(id){
+	window.location.href='index.php?g=Admin&m=Bselect&a=already_detail&id='+id;
+}
+var ti = "<?php echo $time1;?>";
+
+var ti2 = "<?php echo $time2;?>";
+
+$("#test1").html(ti);
+$("#test2").html(ti2);
+
+laydate({
+    elem: '#test1',
+    format: 'YYYY-MM-DD', // 分隔符可以任意定义，该例子表示只显示年月
+//	start: laydate.now(0, 'YYYY-MM-DD'),
+    festival: true, //显示节日
+    choose: function(datas){ //选择日期完毕的回调
+		$("#test1").html(datas);
+	//	window.location.href='index.php?g=Admin&m=Count&a=caigou&time='+datas+'&shop='+sid+'&time_type='+1;
+    }
+});
+
+laydate({
+    elem: '#test2',
+    format: 'YYYY-MM-DD', // 分隔符可以任意定义，该例子表示只显示年月
+    festival: true, //显示节日
+	istoday: false, //是否显示今天
+    choose: function(datas){ //选择日期完毕的回调
+   //     alert('得到：'+datas);
+		$("#test2").html(datas);
+	//	window.location.href='index.php?g=Admin&m=Count&a=caigou&time='+datas+'&shop='+sid+'&time_type='+2;
+    }
+});
+
+function sear(){
+	var mobile = $("#mobile").val();
+
+	var source = $("#source option:selected").val();
+	var time1 = $("#test1").html();
+	var time2 = $("#test2").html();
+
+	date1=new Date(time1);
+	date2=new Date(time2);
+	if(time1!="" && time2!=""){
+            if(Date.parse(date1)==Date.parse(date2)){
+                
+            }else if(Date.parse(date1)<Date.parse(date2)){
+		}else{
+			alert("时间不正确!");
+			return false;
+		}
+	}
+	window.location.href='index.php?g=Admin&m=Bselect&a=already&time1='+time1+'&mobile='+mobile+'&time2='+time2+'&source='+source;
+}
+</script>

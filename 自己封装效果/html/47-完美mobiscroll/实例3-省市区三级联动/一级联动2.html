@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+	<title> 一级联动-单选</title>
+
+	<link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/mobiscroll.custom-2.5.0.min.js"></script>
+
+
+
+	<style type="text/css">
+		input, select {
+			width: 100%;
+			padding: 5px;
+			margin: 5px 0;
+			border: 1px solid #aaa;
+			box-sizing: border-box;
+			border-radius: 5px;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-webkit-border-radius: 5px;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		$(function () {
+			$("#treelist").mobiscroll().treelist({
+				theme: "android-ics light",
+				lang: "zh",
+				defaultValue: [Math.floor($('#treelist li').length/2)],
+				cancelText: null,
+				headerText: function (valueText) { return "选择班级"; }
+			});
+			//			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+			$("#treelist_dummy").val("");
+			$("#treelist_dummy").attr("placeholder","请选择班级");
+
+		})
+	</script>
+</head>
+
+<body>
+	<div>
+		<label >单选</label>
+		<!--
+		控件自动生成的输入框
+		<input type="text" id="treelist_dummy" class="" readonly="" placeholder="请选择学历" >
+		-->
+		<ul id="treelist">
+			<li>普通班</li>
+			<li>VIP班</li>
+			<li>特色班</li>
+			<li>至尊班</li>
+			<li>女子特训班</li>
+		</ul>
+	</div>
+
+</body>
+</html>

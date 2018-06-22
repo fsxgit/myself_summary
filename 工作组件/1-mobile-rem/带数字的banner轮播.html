@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>详情</title>
+    <script src="js/f_js.js"></script>
+    <link rel="stylesheet" href="css/f_style.css"/>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <link rel="stylesheet" href="css/fn_tonghua_xq.css"/>
+</head>
+<body>
+<div class="Bbox">
+    <header class="XDheader">
+        <div class="main tc oh">
+            <a href="javascript:history.go(-1)" class="fl aBack"></a>
+            <span class="fcou">详情</span>
+            <a href="javascript:;" class="fr">主页</a>
+        </div>
+    </header>
+    <!--页头 结束-->
+    <!--banner 轮播 开始-->
+    <div class="pr swiper-container">
+        <div class="swiper-wrapper">
+            <div class="bannerimg fz0 swiper-slide"><img src="images/banner1_fx.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/tonghua_banner1.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/banner1_fx.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/tonghua_banner1.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/banner1_fx.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/tonghua_banner1.png" alt=""/></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <!--数字转换 开始-->
+        <div id="numBox"><span id="num">1</span>/<span id="tol"></span></div>
+        <!--数字转换 结束-->
+    </div>
+    <!--banner 轮播 结束-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script src="js/fx_tonghua.js"></script>
+<script>
+    bannerLunBo_xq();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+1.引入 html根元素js  使用rem
+ <script src="js/fx_common.js"></script>
+2.引入样式重置css
+<link rel="stylesheet" href="css/fx_base.css"/>
+3.声明
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+4.每页都要有加载动画  在加载完成后 消失
+5.

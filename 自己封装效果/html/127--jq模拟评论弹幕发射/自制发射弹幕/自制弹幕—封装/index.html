@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>模拟弹幕</title>
+    <style>
+        *{margin:0; padding:0;}
+        #dm_box{width: 100%; height: 300px; overflow: hidden; background: #eee; position: relative;}
+        #dm_btn{}
+        #dm_btn input[type="text"]{height:40px; padding:0 10px;}
+        #dm_btn input[type="button"]{height:44px; width: 80px;}
+        #dm_box span{ color: #fff; white-space:nowrap;  background: #0000ff; position: absolute; left:0; padding:2px 10px; border-radius: 14px; margin:0 10px;}
+        #dm_box .nspan{background: #c6158e; z-index: 12; }
+    </style>
+</head>
+<body>
+<div id="dm_box">
+
+</div>
+<div id="dm_btn"><input id="newText" type="text" placeholder="输入弹幕"/><input id="send" type="button" value="发送"/></div>
+
+<script src="jquery.min.js"></script>
+<script>
+    var data = ["平给陕西照金北梁红军小学学生的回信","以青春之我肩负起国家民族的希望","中方的这个声明亮了！","中央印发《关于加强科研诚信建设的若干意见》","：住房公积金缴存总额已超12万亿元","见镜头","气和水环境改善","山西等8省份将试点监狱巡回检察","范围下调日用消费品进口关税","稻” 最高亩产超500公斤","袁隆平团队迪拜沙漠种“海水稻” 最高亩产超500公斤","排行榜百强","张步伐加快","北京拟建立空气质量生态保护补偿机制","点滴爱心汇聚终成善行大海","自行成交二手房可网上申请购房资格审核","共同推进中印两军关系健康稳定发展","乌克兰总统接见“被暗杀”俄记者 还对他表示感谢","意大利两大反建制政党或重新寻求组建联合政府","被叫“老大哥” 普京：感觉很窘迫","这是要让掏钱？","罪 最高可判五年监禁处罚","那请看看这些孩子的十年","接警员 称“为了解闷”","民警用发红包“吊”出位置","6岁女孩离家出走到丹东见网友","挝国家主席本扬举行会谈","习近平十大关键词“大朋友”习近平","这样寄语少年儿童2022奥组委","建设世界科技强国","人才计划必看的6月新规九价HPV疫苗2018高考临近首座跨断裂带","分享新规儿童票收费新规首个DNA疫苗","大桥微信外链","获批","看","热搜新闻词HOT WORDS","习近平同老"," 1","离家出走流浪16年","名牌大学毕业生不满工作分配","酒中投冰毒兴奋剂实施抢劫","女子微信搭讪诱人入局","河南西华一男子酒后拨打110辱骂","女大学生深夜宿舍开直播","警方卧底后直呼“不堪入目”","丑化恶搞英雄烈士行为","文化和旅游部查处'暴走漫画'","女子骑电动三轮车抄近路上高速","自称有洁癖要请假"];
+
+
+/**
+ * sendBarrage(data,num,id):自制弹幕发射功能
+ * data ：弹幕数据 array
+ * num: 设定每次从数据中拿出的用来滚动的条数【因为如果数据量太大，一次滚动问题太大，而且要循环滚动的】，int
+ * count：统计次数，统计总共从数据中拿了多少次了，第一次是0； int
+ * id:弹幕相对滚动的父级的id;也就是存放每个弹幕span的父级id,必须是position:relative定位的
+ * speed:弹幕的速度，其实是弹幕从出现到消失的运动时间,单位毫秒
+ *
+ *
+ * ps:我这个是按照两排弹幕制作的，只使用于两排弹幕的，如果要制作更多排的需要再去修改方法，我这个新发的弹幕是显示在中间的;
+ * 父级必须超出隐藏：overflow:hidden;
+ *
+ *
+ * **/
+
+  sendBarrage(data,5,"#dm_box","5000");
+  function sendBarrage(data,num,id,speed){
+        var data = data; //总数据
+        var num = num; //设定一次滚动的条数20条
+        var count = 0; //计次//默认0
+        var id = id;
+        var speed = parseInt(speed);
+      danmu(data,num,count,id,speed);
+      function danmu(data,num,count,id,speed){
+          var start = count*num; //每次要取的值的开始位置
+          var end = start+num; //每次要取的值的结束位置
+           //console.log(start);
+           //console.log(end);
+           //console.log(data);
+          var dataNew = data.slice(start,end);
+          //console.log(dataNew);
+          if(dataNew.length == 0){
+              //console.log("新一轮开始了!");
+              count = 0;
+              danmu(data,num,count,id,speed);
+          }
+          $.each(dataNew,function(i,v){
+              var str = "<span>"+v+"</span>";
+              $(id).append(str);
+          });
+
+
+          var k = 1;
+          var $top = 100;
+          var ww = $(id).width();
+          //上一个span的最右边的位置
+          var $left1 = ww;
+          var $left2 = ww;
+          var aSpan = $(id).find(" span:not('.nspan')");
+          var len = aSpan.length;
+          var m = 0;
+          aSpan.each(function(){
+              var This = $(this);
+              //定义一个变量用来存储top值。最小值是20，最大值是80.
+
+              //设置的弹幕速度,
+              var $speed = speed;
+              //获取span的宽度
+              var $wid = This.width()+100;
+              //设置样式
+
+
+              //给每个span设定left位置
+              var lw = "";
+              if(k == 1){
+                  $top = 100;
+                  //给每个span设定left为屏幕宽度，也就是让每个span都跑到屏幕右边隐藏起来
+                  This.css({"top":$top,"left":$left1});
+                  $left1 = $left1 + $wid;
+                  lw = $left1;
+                  k = 2;
+              }else{
+                  $top = 200;
+                  //给每个span设定left为屏幕宽度，也就是让每个span都跑到屏幕右边隐藏起来
+                  This.css({"top":$top,"left":$left2});
+                  $left2 = $left2 + $wid;
+                  lw = $left2;
+                  k = 1;
+              }
+
+              //每个span要走过的距离
+              var gow = lw+ww;
+              //每个span要走的时间[为了保证匀速所以必须计算要走的时间]
+              var got = gow/$speed;
+
+              //设置目的地、速度、运动方式、回调函数。
+              //console.log("我的宽度="+$wid);
+              This.animate({"left":-$wid+50},Math.ceil(got*50000),function(){
+                  $(this).remove();
+                  m++;
+                  if(m == len){
+                      //也就是这一批走完的时候
+                      //console.log("一批走完了!");
+                      count++;
+                      danmu(data,num,count,id,speed);
+                  }
+              });
+          });
+      }
+  }
+
+    /**
+     * txt:发送的内容
+     * id:要显示位置的父级id
+     * $top:要显示的相对父级的top值
+     * **/
+    function newSendBarrage(txt,id,$top,$speed){
+        var nspan = "<span class='nspan'>"+txt+"</span>";
+        $(id).append(nspan);
+        var This = $(id).find("span.nspan:nth-last-of-type(1)");
+        var ww = $(id).width();
+        var $wid = This.width()+100;
+        This.css({"top":parseInt($top),"left":ww});
+        //每个span要走过的距离
+        var gow = ww+$wid;
+        //每个span要走的时间[为了保证匀速所以必须计算要走的时间]
+        var got = gow/$speed;
+        //设置目的地、速度、运动方式、回调函数。
+        //console.log("我的宽度="+$wid);
+        This.animate({"left":-$wid+50},Math.ceil(got*50000),function(){
+            $(this).remove();
+            //console.log("新弹幕走完了")
+        });
+    }
+
+    $("#send").click(function(){
+
+        var txt = $("#newText").val();
+        $("#newText").val("");
+        newSendBarrage(txt,"#dm_box","150","5000");
+
+    })
+</script>
+</body>
+</html>

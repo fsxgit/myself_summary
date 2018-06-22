@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3demo</title>
+    <style>
+        h1,h2,h3{padding:40px;}
+        body{background: #3ab6d9;}
+        #next{text-align: center;}
+        #next span{display: inline-block; width:40px; height: 60px; line-height: 60px; border:2px solid #fff; border-radius: 20px;}
+        #next span>img{display: inline-block; vertical-align: middle;}
+
+        .animate-bounce-up {
+            -webkit-animation: bounce-up 2s linear infinite;
+            animation: bounce-up 2s linear infinite
+        }
+
+        @-webkit-keyframes bounce-up {
+            25% {
+                -webkit-transform: translateY(5px)
+            }
+            50%, 100% {
+                -webkit-transform: translateY(0)
+            }
+            75% {
+                -webkit-transform: translateY(-5px)
+            }
+        }
+
+        @keyframes bounce-up {
+            25% {
+                transform: translateY(5px)
+            }
+            50%, 100% {
+                transform: translateY(0)
+            }
+            75% {
+                transform: translateY(-5px)
+            }
+        }
+    </style>
+</head>
+<body>
+<h3>上下晃动的提示特效</h3>
+<hr/>
+<div id="next" >
+    <span><img class="animate-bounce-up" src="./next.png" alt=""/></span>
+</div>
+<script src="js/jquery.2.11.1.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+/*登录页面 KuaiSuXiaDan.html css*/
+/*头部*/
+.KSheader{width:100%; height:auto; background:#49becd;}
+.KSheader div{ height:0.05rem;padding:0.04375rem 0; background:#49becd; font-size:0;}
+.KSheader div span{font-size:0.05rem; color:#fff;}
+.KSheader div span:nth-of-type(1){font-size:0.04rem; display: block;padding-right:0.05rem;background:url("../images/down.png") no-repeat right center; background-size:0.0375rem  0.040625rem;margin-left:0.03rem;}
+.KSheader div span:nth-of-type(3){width:0.0578125rem; height:0.0578125rem; margin-right:0.03rem;}
+/*banner*/
+body{ background: #f0eff5;}
+.KSbox{padding-bottom:0.16rem; background: #f0eff5;}
+.KSbanner{width:100%; padding:0.042rem 0; background:url("../images/banner.png") no-repeat 0 0; background-size: cover;}
+.bannerCenter{display: inline-block; width:0.74rem; height:auto;}
+.bannerCenter a{display:inline-block; text-align:center;}
+.bannerCenter a:nth-of-type(1){width:0.146875rem; height:0.146875rem; background:url("../images/ReNai.png") no-repeat 0 0; background-size: cover; margin-top:0.11rem;}
+.bannerCenter a:nth-of-type(2){width:0.35rem; height:0.35rem;background:url(../images/ksxd.png) no-repeat center; background-size: cover;}
+.bannerCenter a:nth-of-type(3){width:0.146875rem; height:0.146875rem;background:url("../images/QuanNai.png") no-repeat 0 0; background-size: cover; margin-top:0.11rem;}
+.ReMen h1{font-size:0.0375rem; background:url(../images/h1Bg.png) no-repeat center; background-size:0.917rem 0.02rem; padding:0.046rem 0; color:#313131;}
+.ReMen .imgBox{width:0.9375rem; height:auto; border:1px solid #f0eff5; font-size: 0; margin:0.02rem auto; background:#fff; padding-top:0.04rem;}
+.ReMen .img{width:100%; height:0.46875rem; }
+.ReMen .img span{width:0.084rem; height:0.104rem; display: block; position:absolute; right:0.04rem; top:0;background:url("../images/reXiao.png") no-repeat 0 0; background-size: cover;}
+.ReMen .imgtxt{width:100%; height:0.14rem; font-size:0.04rem;text-align:center;}
+.ReMen .imgtxt span{font-size:0.0375rem; line-height:0.06rem; display:inline-block; margin-top:0.03rem; color:#313131;}

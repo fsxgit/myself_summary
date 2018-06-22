@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>懒加载框架</title>
+    <style>
+        .lanbox{width: 1000px; margin:0 auto;}
+        .lanbox img{width: 100%; height: auto;}
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;"><a href="http://www.w3cways.com/1765.html">插件官网请访问http://www.w3cways.com/1765.html</a></h1>
+<div class="lanbox">
+    <img class="lazy" data-original="images/xy1_01.jpg" width="640" height="480" src="images/loading.gif"  alt=""/>
+    <img class="lazy" data-original="images/xy1_02.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_03.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_04.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_05.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_06.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_07.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_08.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_09.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_10.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_11.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_12.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+    <img class="lazy" data-original="images/xy1_13.jpg" width="640" height="480" src="images/loading.gif"   alt=""/>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.lazyload.min.js"></script>
+
+<script>
+    $(function(){
+        $("img.lazy").lazyload({
+            threshold : 200  //距离200px时加载
+//            属性
+//            effect : "fadeIn",  //出现的方式动画效果
+//            event : "click",     //点击才出现
+//            event: "scrollstop",  //当图片较多时，几百张时请选用这个属性
+//            container: $("#container"),  //父级容器，也就是滚动的容易，如果父级容器样式呈现水平滚动，图片水平放置，则是水平懒加载，否则是垂直懒加载
+
+        });
+    });
+
+</script>
+</body>
+</html>

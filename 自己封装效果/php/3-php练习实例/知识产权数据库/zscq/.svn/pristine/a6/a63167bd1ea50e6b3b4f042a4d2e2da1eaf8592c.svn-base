@@ -1,0 +1,25 @@
+/**
+ * Created by JinnyZh on 2015/11/19.
+ */
+//pc端每个页面必须引入此方法,不然页面缩放后 内容不会跟着变化
+$(function(){
+    window.onresize=function(){
+        location.reload();
+    };
+
+
+});
+
+//      二维码的显示隐藏
+function maTab(){
+    var barMa = $(".bar-ma");
+    var maIMg = $(".bar-ma-img");
+
+
+//      二维码的显示隐藏
+    barMa.hover(function(){
+        maIMg.show();
+    },function(){
+        maIMg.hide();
+    });
+}

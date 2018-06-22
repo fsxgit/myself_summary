@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>上传照片</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <style>
+        html{background: #f0f0f0;}
+        .upImgs_box{padding-top: 20px;}
+        .upImgs_top{ padding:0 10px; background: #fff; height:118px;}
+        .upImgs_top textarea{width: 100%; padding:6px 0; font-size: 14px;}
+        .upImgs_top_txt{font-size: 12px; padding:10px 0; color: #666;}
+        .upImgs_bot{padding:16px; background: #fff; overflow: hidden;}
+        .upImgs_bot img{width: 60px; height: 60px; float: left; margin:0 2px; border-radius: 2px;}
+        .upImgs_sub{text-align: center; padding:20px 0;}
+        .upImgs_sub input{width: 100%; height:40px; color: #fff; font-size: 14px; background: #ff5a5f;border-radius: 2px;}
+        .files{display: none;}
+    </style>
+</head>
+<body>
+<div class="fxBox ">
+   <div class="upImgs_box main">
+       <div class="upImgs_top">
+           <textarea name="" id="" placeholder="输入照片描述"></textarea>
+       </div>
+       <p class="upImgs_top_txt">请上传与技能相关的照片，或个人形象生活照</p>
+       <div class="upImgs_bot">
+           <img src="images/img1.png" alt=""/>
+           <img src="images/img2.png" alt=""/>
+
+
+
+           <img class="upImgs_btn" src="images/upImg.jpg" alt=""/>
+       </div>
+       <input type="file" class="files"/>
+       <div class="upImgs_sub"><input type="submit" value="提交"/></div>
+   </div>
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+$(".upImgs_btn").click(function(){
+    $(".files").click();
+})
+$(".files").change(function (e) {
+	var file = e.target.files[0];
+	var img = new Image();
+	console.log(img);
+	url = img.src = URL.createObjectURL(file);
+
+	var hm = "";
+	hm += '<img src="'+url+'" alt=""/>';
+
+	$(".upImgs_bot").prepend(hm);
+});
+</script>
+</body>
+</html>

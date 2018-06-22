@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title></title>
+    <script src="js/fx_common.js"></script>
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_css.css"/>
+    <style>
+        .shadowBoxS,.shadowBoxQ,.shadowBoxX{position:fixed; left:0; top:0; background:rgba(0,0,0,0.5); width:100%; height:100%; display: none;}
+        .shengbox,.qubox,.xianbox{width:0.9rem; height:100%; background: #fff; overflow: auto;}
+        .shadowBoxS h2,.shadowBoxQ h2,.shadowBoxX h2{width:0.9rem; font-size: 0.04rem; height:0.08rem; line-height: 0.08rem; text-align: center; background: #4f71ff; border-bottom:1px solid #ccc; color:#fff;}
+        .SCenter,.QCenter,.XCenter{width:0.9rem; height:1rem; background: #fff;position:absolute; left:0; top:0.08rem; z-index: 100;}
+    </style>
+</head>
+<body>
+
+<div class="citybox">
+    <div class="Fsheng">
+        <h1><span class="ftName">省/直辖市</span><span class="SValue">请选择省份/直辖市</span></h1>
+        <div class="shadowBoxS">
+            <div class="SCenter">
+                <h2>请选择省份/直辖市</h2>
+                <div class="shengbox">
+                    <p>请选择省份/直辖市</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Fqu">
+            <h1><span class="ftName">市/区</span><span class="QValue">请选择市/区</span></h1>
+            <div class="shadowBoxQ">
+                <div class="QCenter">
+                    <h2>请选择市/区</h2>
+                    <div class="qubox">
+                        <p>请选择市/区</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="Fxian">
+            <h1><span class="ftName">县</span><span class="XValue">请选择县</span></h1>
+            <div class="shadowBoxX">
+                <div class="XCenter">
+                    <h2>请选择县</h2>
+                    <div class="xianbox">
+                        <p>请选择县</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="tiJiao">
+    <input type="submit" class="tjbtn" value="提交"/>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/fx_js.js"></script>
+<script>
+ajaxData();
+SSQjs();
+quZhi();
+</script>
+</body>
+</html>

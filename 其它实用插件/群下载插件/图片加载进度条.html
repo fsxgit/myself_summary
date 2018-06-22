@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1{ position:relative;width:300px; height:30px; margin:20px auto; border:1px solid #ccc;}
+#bar {width:0;height:100%;background:green;}
+#div1 span{ position:absolute;left:0;top:0; width:100%;height:100%; line-height:30px; text-align:center; color:#c00;}
+
+</style>
+<script>
+window.onload = function(){
+	
+	var oSpan = document.getElementById("s1");
+	var oDiv  = document.getElementById("div1");
+	var oBar  = document.getElementById("bar");
+	
+	
+	var count = 0; 
+	for(var i = 0; i < 77; i++){
+		var oImg = new Image();
+		oImg.onload = function(){
+			count++;
+			
+			var scale = count/77; 
+			
+			oBar.style.width = parseInt(scale*100) + "%";
+			oSpan.innerHTML = (scale*100).toFixed(2) + "%";
+			
+			if(count == 77){
+				console.log("加载完成！");
+				oSpan.innerHTML = "100%";
+			}
+		
+		};
+		
+		oImg.src = "http://www.zhinengshe.com/works/3525/img/"+i+".jpg";
+		
+	}
+	
+	
+};
+
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<div id="bar"></div>
+    <span id="s1"></span>
+</div>
+
+</body>
+</html>

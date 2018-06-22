@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>费用中心-我的钱包-体现</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+
+    <!--公用右侧浮动导航 end-->
+
+
+<!--s-content内容存放的地方-->
+    <div class="s-content main-hou fy-center pr">
+		<div class="per-nav">我的钱包 > 开通钱包</div>
+		 <h1 class="c-h1">体现到银行卡</h1>
+        <!--公用结果 -->
+        <div class="sy-cont">
+            <!--订单详情-->
+            <div class="order-xq-box">
+                <div class="sy-order-xq oh">
+                    <div class="order-xq-suc order-xq-cz fl c333">体现到银行卡，我的神州钱包余额：<span class="fc8">￥5000.00</span></div>
+                </div>
+            </div>
+            <!--订单详情 end-->
+            <!--平台支付-->
+            <div class="pay-box">
+                <div class="ps-detail bc">
+                    <!--余额支付-->
+                    <div class="yue-box">
+                        <div class="yue-pay yin-pay">
+                            <div class="yue-pay-use fl">
+                                <span class="ps-choose">银 行 卡</span>
+                            </div>
+                            <div class="yin-choose  fl">
+                                <p class="yin-value"><span class="sel-img"><img src="../images/bank1.png" alt=""/></span><span class="sel-txt">中国工商银行（尾号7777）单笔限额5.0万，单日限额5.0万</span></p>
+                                <div class="select-box">
+                                    <p class="active"><span class="sel-img"><img src="../images/bank1.png" alt=""/></span><span class="sel-txt">中国工商银行（尾号7777）单笔限额5.0万，单日限额5.0万</span></p>
+                                    <p><span class="sel-img"><img src="../images/bank1.png" alt=""/></span><span class="sel-txt">中国工商银行（尾号7777）单笔限额5.0万，单日限额5.0万</span></p>
+                                    <p><span class="sel-img"><img src="../images/bank1.png" alt=""/></span><span class="sel-txt">中国工商银行（尾号7777）单笔限额5.0万，单日限额5.0万</span></p>
+                                    <p><span class="sel-img"><img src="../images/bank1.png" alt=""/></span><span class="sel-txt">中国工商银行（尾号7777）单笔限额5.0万，单日限额5.0万</span></p>
+                                    <p><span class="sel-img"><img src="../images/bank1.png" alt=""/></span><span class="sel-txt">中国工商银行（尾号7777）单笔限额5.0万，单日限额5.0万</span></p>
+                                </div>
+                            </div>
+                            <span class="add-new fc1">添加新的银行卡</span>
+                            <div class="yue-pay-zhi fr">支付：<span class="fc8">￥23000.00</span></div>
+                        </div>
+                        <!--选择银行卡 end-->
+                        <div class="cb"></div>
+                        <div class="jy-pw">
+                            <span class="jy-name">交易密码</span>
+                            <input type="text" placeholder="请输入交易密码"/>
+                            <span class="fpw c999">忘记密码?</span>
+                        </div>
+                        <div class="jy-pay">
+                            <input type="submit" class="blue-big-btn" value="确认支付"/>
+							<a class="back-xg" href="JavaScript:;">返回修改</a>
+                        </div>
+
+                    </div>
+                    <!--余额支付 end-->
+                    <!--未开通-->
+                    <div class="wei-box">
+                        <div class="res-wei-cont tc bc">
+                            <div class="wei-cont-top oh">
+                                <img src="../images/icon2.png" width="52"  height="80" class="fl" alt=""/>
+                                <span class="res-wei-txt c333 f14 fl">抱歉，您尚未开通神州钱包，请点击开通</span>
+                            </div>
+                            <input class="wei-cont-btn tan-btn cp" type="button" value="开通钱包" />
+
+                        </div>
+                    </div>
+                    <!--未开通 end-->
+                </div>
+            </div>
+            <!--平台支付 end-->
+        </div>
+
+        <!--公用结果 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+
+
+
+<!--公用底部-->
+
+<!--公用底部 end-->
+
+</div>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        $(".order-xq-select").click(function(){
+            $(".order-xq-select").toggleClass("active");
+            $(".sh-box").slideToggle();
+        })
+        $(".ps-mode").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+
+
+        $(".yin-choose").click(function(){
+            $(this).toggleClass("active");
+            $(".select-box").slideToggle();
+        })
+        $(".select-box p").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            var src = $(this).find("img").attr("src");
+            var txt = $(this).find(".sel-txt").text();
+//            alert(src);
+//            alert(txt);
+            $(".yin-value img").attr("src",src);
+            $(".yin-value .sel-txt").text(txt);
+        })
+
+    });
+
+</script>
+</body>
+</html>

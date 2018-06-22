@@ -1,0 +1,29 @@
+
+/*底部版本号*/
+.main{width:1000px; margin:0 auto;}
+.footer{width:100%; height:82px; line-height: 82px; font-size:14px; color:#a7a8a8; border-top:1px solid #ebebeb;}
+.navbox{height:46px; font-size:16px; line-height:46px;padding:16px 0;}
+.navbox a,.navbox a:link,.navbox a:visited,.navbox a:hover{color:#666; }
+.box{width:100%; height:auto; background: #fff;}
+/*index.html*/
+/*banner 轮播开始*/
+.Index .swiper-pagination-bullet-active{background: #fff !important;  }
+.Index .swiper-pagination-bullet{width:8px; height:8px; border:2px solid #fff; border-radius: 50%; background: none; opacity: 0.8;}
+.Index .swiper-slide{height:512px;}
+.Index .swiper-slideBg1{background: url("../images/bg1.jpg") no-repeat 0 0; background-size:100% 100%;}
+.Index .swiper-slideBg2{background: url("../images/bg1.jpg") no-repeat 0 0; background-size:100% 100%;}
+.Index .swiper-slideBg3{background: url("../images/bg1.jpg") no-repeat 0 0; background-size:100% 100%;}
+.Index .swiper-slide .main img{margin-top: 120px;}
+
+.imgShow{width:1294px; height:auto; margin:0 auto; padding:14px 0; font-size: 0; overflow: hidden;}
+.showMode{width:318px; height:158px; float: left; margin:0 2px;}
+.showMode .name{font-size: 20px; color: #757575; padding-top: 56px; padding-bottom: 4px; margin-left: 22px;}
+.showMode .more a{font-size: 12px; padding-right:12px; display: inline-block; background: url("../images/h1Bg.png") no-repeat right center; color: #33b257;  margin-left: 22px; cursor: pointer; }
+.more a,.more a:link,.more a:visited,.more a:hover{color:#33b257; }
+a:hover{text-decoration:underline;}
+.mode1{background: url("../images/sbg1.jpg") no-repeat 0 0;}
+.mode2{background: url("../images/sbg2.jpg") no-repeat 0 0;}
+.mode3{background: url("../images/sbg3.jpg") no-repeat 0 0;}
+.mode4{background: url("../images/sbg4.jpg") no-repeat 0 0;}
+/*banner轮播结束*/
+/*index.html end*/

@@ -1,0 +1,23 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class GunwenController extends AdminbaseController{
+	//顾问
+	public function lst(){
+		$count = M("adviser")->count();
+		$page = $this->page($count,10);
+
+		$res = M("adviser")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//详情
+	public function detail(){
+	
+	}
+}

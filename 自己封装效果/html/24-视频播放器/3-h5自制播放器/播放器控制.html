@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<script type="text/javascript">
+
+
+//    控制视频暂停/播放按钮的方法
+    function vidplay() {
+        var myVid = document.getElementById("Video1");
+        var button = document.getElementById("play");
+        if (myVid.paused) {
+            myVid.play();
+            button.textContent = "||";
+        } else {
+            myVid.pause();
+            button.textContent = ">";
+        }
+    }
+
+//控制视频从头播放 的按钮
+    function restart() {
+        var myVid = document.getElementById("Video1");
+        myVid.currentTime = 0;
+    }
+
+//控制快进/快退  的按钮
+    function skip(value) {
+        var myVid = document.getElementById("Video1");
+        myVid.currentTime += value;
+//        问题1:不起作用
+    }
+
+//控制播放器的大小
+    function changeScreen(){
+        var myVid = document.getElementById("Video1");
+
+        myVid.width = '100%';
+        myVid.height = '100%';
+    }
+
+//    设置静音按钮
+//开启静音
+    function enableMute() {
+        var myVid = document.getElementById("Video1");
+        myVid.muted=true;
+
+    }
+//关闭静音
+    function disableMute()
+    {
+        var myVid = document.getElementById("Video1");
+        myVid.muted=false;
+    }
+
+//获取当前视频的长度
+    function getVidDur()
+    {
+        var myVid = document.getElementById("Video1");
+        alert(myVid.duration);
+//        问题2:弹出长度之后 自动停止播放了
+    }
+
+//    设置音量
+function setHalfVolume(value)
+{
+    var myVid = document.getElementById("Video1");
+    myVid.volume +=value;
+}
+</script>
+    <style>
+        #Video1{width:500px; height:300px; background:#000; padding:10px;}
+    </style>
+</head>
+<body>
+
+<video id="Video1"   controls  >
+    <!--//  Replace these with your own video files.-->
+    <source src="mp4/xunpai.mp4" type="video/mp4"/>
+</video>
+
+<div id="buttonbar">
+    <button id="restart" onclick="restart();">[]</button>
+    <button id="rew" onclick="skip(-10)">&lt;&lt;</button>
+    <button id="play" onclick="vidplay()">&gt;</button>
+    <button id="fastFwd" onclick="skip(10)">&gt;&gt;</button>
+    <button id="changebig" onclick="">放大</button>
+    <button id="changesmall" onclick="">缩小</button>
+    <button id="fullScreen">全屏</button>
+    <button id="loudNo" onclick="enableMute()">静音</button>
+    <button id="loudYes" onclick="disableMute()">声音</button>
+    <button id="vedioLength" onclick="getVidDur()">长度</button>
+    <button id="AddVolume" onclick="setHalfVolume(0.2)">加声音</button>
+    <button id="reduceVolume" onclick="setHalfVolume(-0.2)">减声音</button>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

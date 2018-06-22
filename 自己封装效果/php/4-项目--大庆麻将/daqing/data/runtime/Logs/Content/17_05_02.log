@@ -1,0 +1,3 @@
+[ 2017-05-02T14:49:36+08:00 ] 127.0.0.1 /index.php?g=content&m=benji&a=search
+ERR: 无法加载控制器:Benji
+

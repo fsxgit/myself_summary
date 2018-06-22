@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>添加成功</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        html,body{overflow: auto; cursor:pointer; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color:transparent;}
+        .rooms{max-height:140px;  position: relative;}
+        .fangjsxz{max-height:110px; padding-bottom: 29px; overflow: auto; overflow-x:hidden;  border-left: 1px solid #c7c7c7;
+            border-right: 1px solid #c7c7c7;}
+        .rooms .fangjsxz p{border-right:none; border-left:none;}
+        .fangjsxz::-webkit-scrollbar{
+            width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+            height: 4px;
+        }
+        .fangjsxz::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 5px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.2);
+        }
+        .fangjsxz::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+            border-radius: 0;
+            background: rgba(0,0,0,0.1);
+        }
+        .rooms .zdy{position: absolute; left:0; bottom:0; background: #fff; border-top: 1px solid #c7c7c7;}
+    </style>
+</head>
+<body>
+<header>
+    <a class="left" id="addSuccess"></a>
+    <div class="tit">添加成功</div>
+</header>
+<div class="fxBox pb50">
+    <h2>设置滚动条的宽度，高度，轨迹，移动块样式</h2>
+    <!--content-->
+    <div class="wifi_cont">
+        <div class="wifi_success">
+            <img src="images/logo.png" alt=""/>
+            <p class="tit" id="gadgetName">联想空气净化器</p>
+            <div class="xzroom">
+                <p class="xz_tit"><span data-room="0">选择所在房间</span></p>
+                <div class="rooms none">
+                   <div class="fangjsxz">
+                       <p>客厅</p>
+                       <p>主卧</p>
+                       <p>次卧</p>
+                       <p>厨房</p>
+                       <p>洗手间</p>
+                       <p>客厅</p>
+                       <p>主卧</p>
+                       <p>次卧</p>
+                       <p>厨房</p>
+                       <p>洗手间</p>
+                   </div>
+                    <p class="zdy">自定义</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="remove_gad" id="roomOk">完成</div>
+    <!--content end-->
+</div>
+<!--alert-->
+<div class="setRoomName_shadow none"></div>
+<!--设置房间名-->
+<div class="setRoomName none">
+    <h2>输入房间名称</h2>
+    <input id="setInput" type="text"/>
+    <div class="btns">
+        <p class="zdy_qx">取消</p>
+        <p class="zdy_sure">确认</p>
+    </div>
+</div>
+<!--设置房间名提示-->
+<div class="setRoomNameTs none">该房间名已存在</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/lenovoSmartJsSdk.js" ></script>
+<script src="js/js.js" type="text/javascript"></script>
+<script>
+    /**
+     * 全局变量
+     *  Gname：设备名称
+     *  GroomId:房间id
+     *  Ghome_id：home id
+     *
+     *  gadgetName:设备名字
+     **/
+
+    var Gname;
+    var gadgetId;
+    var gadgetName;
+    var GroomId;
+    var GclientData;
+    var Gpush_msg_flag;
+    var Ghome_id;
+    var reRoom = 1;
+
+   $(function(){
+       //房间下拉
+       $(".xz_tit").click(function(e){
+           $(this).toggleClass("on");
+           if($(this).hasClass("on")){
+               $(".rooms").slideDown();
+           }else{
+               $(".rooms").slideUp();
+           }
+           e.stopPropagation();
+       });
+       $("body").on("click",function(){
+           $(".xz_tit").removeClass("on");
+           $(".rooms").slideUp();
+       });
+       //修改房间名字
+       $(".fangjsxz").on("click","p",function(e){
+           $(this).addClass("on").siblings().removeClass("on");
+           var txt = $(this).text();
+           $(".xz_tit").removeClass("on");
+           $(".xz_tit span").text(txt);
+           $(".xz_tit span").data("room",1);
+           $(".rooms").slideUp();
+           e.stopPropagation();
+       });
+       $(".zdy").click(function(e){
+           $("#setInput").val("");
+           $(".setRoomName_shadow").show();
+           $(".setRoomName").show();
+           $("#setInput").focus();
+
+          $(".xz_tit").removeClass("on");
+          $(".rooms").slideUp();
+           e.stopPropagation();
+       });
+       $(".zdy_sure").click(function(e){
+           $("#setInput").blur();
+           var txt = $("#setInput").val();
+           txt = $.trim(txt);
+           if(txt && txt != ""){
+               var b = 0;
+               $(".fangjsxz p").each(function(){
+                   if(txt == $(this).text()){
+                       b = 1;
+                   }
+               });
+               if(b == 0){
+                   //没有同名字房间
+                   $(".xz_tit span").text(txt);
+                   $(".xz_tit span").data("room",1);
+                   $(".setRoomName").hide();
+                   $(".setRoomName_shadow").hide();
+                   //【接口2：提交新增添加的房间】
+                   $("#setInput").val("");
+                   //var home_id = $(".fangjsxz p:nth-of-type(1)").data("homeid");
+                   var room_name = txt;
+                   //[step4]新增房间
+                   LenSmJs.AddRoomWithName_h5(room_name,Ghome_id);
+               }else{
+                   $(".setRoomName").hide();
+                   //房间已存在
+                   window.setTimeout(function(){
+                       $(".setRoomNameTs").show();
+                       $("#setInput").val("");
+                       reRoom = 0;
+                   },200);
+                   LenSmJs.timingDevice_h5("300","timerSetNameTs");
+
+                   window.setTimeout(function(){
+                       $(".setRoomNameTs").hide();
+                       $(".setRoomName_shadow").hide();
+                   },2000);
+                   LenSmJs.timingDevice_h5("2300","timerSetNameHide");
+               }
+           }else{
+               $(".setRoomName").hide();
+               $(".setRoomName_shadow").hide();
+           }
+           e.stopPropagation();
+       });
+       $(".zdy_qx").click(function(e){
+           $("#setInput").blur();
+           $(".setRoomName").hide();
+           $(".setRoomName_shadow").hide();
+           e.stopPropagation();
+       });
+
+       //选择房间完成
+       $("#roomOk").one("click",function(){
+           var roomId = $(".fangjsxz p.on").data("roomid");
+           LenSmJs.h5log("H5点击了一次选择房间完成，roomid为="+roomId);
+           //[step2]修改房间
+           if(roomId){
+               console.log("点击了一次，roomid为="+roomId);
+               LenSmJs.ModifyGagdgetInfoWithId_h5(gadgetId, Gname, roomId, GclientData, Gpush_msg_flag,"xgRoomName");
+           }
+           //不管修改成功与否，跳转页面
+           LenSmJs.initFinish_h5();
+           // 移除监听
+           LenSmJs.getRemoveListener_h5();
+       });
+
+   });
+
+    //刷新当前页面
+    /**
+     * app回调数据：
+     */
+    function callbackdata(id,name,data){
+        //初始化获取设备信息： GetGagdgetInfoWithId
+        if(name == "GetGagdgetInfoWithId"){
+            var data = eval('(' + data + ')');
+            //Gname = data.gadget_name;
+            //GroomId = data.room_id;
+            GclientData = data.client_data;
+            Gpush_msg_flag = data.push_msg_flag;
+        }
+        //获取房间列表:QueryDataHomeAndRoomList
+        if(name == "QueryDataHomeAndRoomList"){
+            data = eval('('+data+')');
+            var roomList="";
+            $.each(data,function(i,v){
+                if(v){
+                    if(GroomId){
+                        if(GroomId == v.room_id){
+                            roomList += "<p class='on' data-roomid='"+ v.room_id+"' data-homeid='"+ v.home_id+"'  >"+nameCut8(v.room_name)+"</p>";
+                        }else{
+                            roomList += "<p data-roomid='"+ v.room_id+"' data-homeid='"+ v.home_id+"'  >"+nameCut8(v.room_name)+"</p>";
+                        }
+                    }else{
+                        if(i == 0){
+                            roomList += "<p class='on' data-roomid='"+ v.room_id+"' data-homeid='"+ v.home_id+"'  >"+nameCut8(v.room_name)+"</p>";
+                        }else{
+                            roomList += "<p data-roomid='"+ v.room_id+"' data-homeid='"+ v.home_id+"'  >"+nameCut8(v.room_name)+"</p>";
+                        }
+                    }
+                }
+
+            });
+            $(".fangjsxz").html(roomList);
+            var txt = $(".fangjsxz p.on").text();
+            if(txt){
+                $(".xz_tit span").text(txt);
+            }
+        }
+        //选择修改房间
+        if(name == "ModifyGagdgetInfoWithId"){
+            var data = eval('('+data+')');
+            if(data.state == 1){
+                //LenSmJs.initFinish_h5();
+            }
+
+        }
+        //获取homeid
+        if(name == "GetHomeList"){
+            var data = eval('('+data+')');
+            Ghome_id = data[0].home_id;
+        }
+        //添加room:AddRoomWithName
+        if(name=="AddRoomWithName"){
+            var data = eval('('+data+')');
+            if(data.room_id){
+                GroomId = data.room_id;
+                LenSmJs.QueryDataHomeAndRoomList_h5();
+            }
+        }
+        //android定时器 接口
+        if(name == "timingDevice"){
+            var data = eval('('+data+')');
+            if(data.key == "timerSetNameHide"){
+                LenSmJs.h5log("走Android定时器接口了_添加房间提示_绑定");
+                $(".setRoomName").hide();
+                $(".setRoomNameTs").hide();
+                $(".setRoomName_shadow").hide();
+
+            }
+            if(data.key == "timerSetNameTs"){
+                if(reRoom == 1){
+                    LenSmJs.h5log("走Android定时器接口了_添加房间重复提示_绑定");
+                    $(".setRoomNameTs").show();
+                }
+            }
+
+        }
+    }
+
+    $("#addSuccess").on("click",function(){
+        LenSmJs.initFinish_h5();
+        // 移除监听
+        LenSmJs.getRemoveListener_h5();
+    });
+
+    //安卓点击物理返回键调用
+    function androidCellBack(){
+        if(LenSmJs.isAndroid == true){
+            LenSmJs.initFinish_h5();
+            // 移除监听
+            LenSmJs.getRemoveListener_h5();
+        }
+    }
+</script>
+</body>
+</html>

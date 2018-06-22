@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>知识产权</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <style>
+        html,body{width:100%; height:100%;}
+    </style>
+</head>
+<body>
+<!--公用header-->
+    <div class="c-top-nav bg9 cfff f14">
+        <div class="top-left-logo fl"><img src="public/html/images/logo3.png" alt=""/></div>
+        <div class="top-right-mode fr fc11">
+            <div class="top-nav-search  hover fl">
+				<form action="index.php?g=Portal&m=Userinfo&a=search" method='post' id='form'>
+				<input type="hidden" name="ty" value="1">
+                <div class="top-search-input fl">
+                    <input  type="text" placeholder="请输入企业名称或者商标名称" name="business_name"/>
+                </div>
+                <input type="submit" class="top-search-btn fl" value="搜索" />
+				</form>
+            </div>
+            <div class="top-nav-xj hover fl">新建</div>
+            <div class="top-nav-xx hover fl"><span>{$sum}</span></div>
+            <div class="top-nav-img header-search fl pr">
+                <img src="public/html/images/img3.png" alt=""/>
+                <div class="sy-img-nav f12 c333">
+                    <div class="p-box">
+                        <p class="p2"><span>个人中心</span></p>
+
+                        <p class="p4"><span onclick = "outlogin()">退出登录</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cb"></div>
+    </div>
+<!--公用header end-->
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+
+    $(function(){
+        $(".top-nav-img").hover(function(){
+            $(".sy-img-nav").show();
+        },function(){
+            $(".sy-img-nav").hide();
+        });
+
+		$(".p-box p").hover(function(){
+			$(this).addClass("active");
+		},function(){
+			$(this).removeClass("active");
+		});
+    })
+
+	function outlogin(){
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			data:{"tel":tel},
+			url:'{:U('Portal/register/outlogin')}',
+		});
+	}
+</script>
+</body>
+</html>

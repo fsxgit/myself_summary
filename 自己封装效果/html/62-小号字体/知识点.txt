@@ -1,0 +1,4 @@
+小于12号字体的字
+	p span{font-size:10px;-webkit-transform:scale(0.8); display:inline-block;}
+	<font size="2">我字体大小为2</font> 
+	解释：直接使用font标签内设置size设置字体大小，需要注意不能带单位，一般2相当于12px，3相当于14px大小以此类推。

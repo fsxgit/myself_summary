@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>H5和Android/IOS交互</title>
+    <style>
+        *{margin:0; padding:0;}
+        html,body{background: #000;  height: 100%; overflow: hidden;}
+        .box{width:70%; margin:0 auto; background:#fff; padding:50px; height: 100%;}
+        button{padding:4px 10px; cursor: pointer;}
+        h4{color: red; margin:6px 0;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>H5和Android/IOS交互</h1>
+    <div style="padding:30px 0;">
+        姓名：<input id="name" type="text" placeholder="请输入姓名"/><br /><br />
+        电话：<input id="tel" type="text" placeholder="请输入电话"/>
+    </div>
+    <button id="btn">点我开始向app传值</button>
+    <h4>注意1：这些方法的实现是必需在app中调用才能看到效果的，直接在页面使用是会报错的。</h4>
+    <h4>注意2：如果这些H5页面是要内嵌到Android本地的而不是放在服务器上的，那么使用cookie传值的方法是走不通的(安卓环境不支持cookie)(cookie是要走服务器的)。所以简单的传值就可能需要通过链接来进行字符串截取了。</h4>
+    <h4>注意3：如果一些方法需要初始化调用app，则直接放在JS初始化调用即可。</h4>
+    <h4>注意4：app回调页面的方法的时候，页面是不刷新的，所以，一些好几个方法都可能用到的变量，可以通过全局变量实现。</h4>
+</div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    /**
+     *
+     * 【1】JS调用app的方法，并把值传递给app
+     *
+     *  根据浏览器内核判断是Android/IOS，以便于使用不同的方式调用Android/IOS对应的方法。
+     *
+     */
+    $("#btn").click(function(){
+        var a = $("#name").val();
+        var b = $("#tel").val();
+
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isAndroid==true){
+            /**
+             * 这是向安卓传值的方法：
+             * toandroid：声明安卓关键字，必须和安卓里面接收方法的名字的关键字保持一致；
+             * funName：方法名。
+             * a，b：要传递的参数
+             *
+             */
+            toandroid.funName(a,b);
+        }
+        if(isiOS==true){
+            /**
+             * 这是向IOS传值的方法：
+             * funName：方法名。
+             * a，b：要传递的参数
+             *
+             */
+            funName(a,b);
+        }
+    });
+
+
+    /**
+     *
+     * 【2】app调用JS的方法，并传递值给JS.
+     *
+     * 下面的方法是js的方法，但是是让app(Android/IOS)来调用的，自己不主动调用
+     * 只用写一个方法，app就可以通过方法名来调用，并传递参数给JS。然后用JS来做处理
+     * c,d：参数
+     *
+     */
+
+
+    function appbackfun(c,d){
+
+        alert(c);
+        alert(d);
+    }
+</script>
+</body>
+</html>

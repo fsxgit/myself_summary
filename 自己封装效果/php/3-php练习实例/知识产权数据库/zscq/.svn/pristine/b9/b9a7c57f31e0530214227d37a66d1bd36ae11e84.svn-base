@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜索页-未注册</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+    
+    <!--公用右侧浮动导航 end-->
+
+<!--公用企业搜索输入框-->
+    <div class="search-box main-hou">
+        <div class="s-bar f12 c333 mt20">
+            首页>搜索结果
+        </div>
+        <div class="search oh bc">
+            <input type="text" class="s-in fl f14" placeholder="请输入您的企业名称"/>
+            <input type="button" class="s-btn fl f16 cp cfff bg1" value="企业查询"/>
+        </div>
+    </div>
+<!--公用企业搜索输入框 end-->
+<!--公用企业搜索输入框 end-->
+
+</div>
+</body>
+</html>

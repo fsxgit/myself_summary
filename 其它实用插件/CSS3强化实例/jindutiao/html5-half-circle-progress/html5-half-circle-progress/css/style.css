@@ -1,0 +1,1286 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+#progressContainer {
+  text-align: center;
+  position: relative;
+}
+#progressContainer:before, #progressContainer:after {
+  position: absolute;
+  top: 80%;
+  width: 1em;
+  height: 1em;
+}
+#progressContainer:before {
+  content: '0%';
+  left: calc(50% - 110px );
+}
+#progressContainer:after {
+  content: '100%';
+  right: calc(50% - 105px );
+}
+
+progress {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  -webkit-appearance: none;
+}
+progress[value="100"]:before {
+  position: absolute;
+  content: "Loaded!!!";
+  top: 100%;
+  left: 50%;
+  width: 100px;
+  height: 10px;
+}
+progress::-webkit-progress-bar {
+  background: white;
+}
+progress::-webkit-progress-value {
+  position: absolute;
+  background-color: transparent;
+  width: 200px !important;
+  height: 100px !important;
+  overflow: hidden;
+}
+progress::-webkit-progress-value:before {
+  content: '';
+  width: 200px !important;
+  height: 100px !important;
+  border-radius: 0 0 200px 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: blue;
+  -moz-box-shadow: inset 0 -25px 50px rgba(60, 60, 60, 0.5);
+  -webkit-box-shadow: inset 0 -25px 50px rgba(60, 60, 60, 0.5);
+  box-shadow: inset 0 -25px 50px rgba(60, 60, 60, 0.5);
+  -moz-transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+}
+
+progress[value="0"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(0deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #dc0000;
+}
+
+progress[value="1"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(1.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(1.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(1.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(1.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #d90100;
+}
+
+progress[value="2"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(3.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(3.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(3.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(3.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #d70300;
+}
+
+progress[value="3"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(5.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(5.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(5.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(5.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #d50500;
+}
+
+progress[value="4"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(7.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(7.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(7.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(7.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #d30700;
+}
+
+progress[value="5"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(9deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(9deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(9deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(9deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #d10900;
+}
+
+progress[value="6"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(10.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(10.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(10.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(10.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #ce0a00;
+}
+
+progress[value="7"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(12.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(12.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(12.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(12.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #cc0c00;
+}
+
+progress[value="8"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(14.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(14.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(14.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(14.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #ca0e00;
+}
+
+progress[value="9"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(16.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(16.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(16.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(16.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #c81000;
+}
+
+progress[value="10"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(18deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(18deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(18deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(18deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #c61200;
+}
+
+progress[value="11"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(19.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(19.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(19.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(19.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #c31300;
+}
+
+progress[value="12"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(21.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(21.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(21.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(21.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #c11500;
+}
+
+progress[value="13"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(23.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(23.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(23.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(23.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #bf1700;
+}
+
+progress[value="14"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(25.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(25.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(25.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(25.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #bd1900;
+}
+
+progress[value="15"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(27deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(27deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(27deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(27deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #bb1b00;
+}
+
+progress[value="16"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(28.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(28.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(28.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(28.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #b81c00;
+}
+
+progress[value="17"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(30.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(30.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(30.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(30.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #b61e00;
+}
+
+progress[value="18"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(32.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(32.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(32.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(32.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #b42000;
+}
+
+progress[value="19"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(34.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(34.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(34.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(34.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #b22200;
+}
+
+progress[value="20"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(36deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(36deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(36deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(36deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #b02400;
+}
+
+progress[value="21"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(37.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(37.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(37.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(37.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #ad2500;
+}
+
+progress[value="22"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(39.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(39.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(39.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(39.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #ab2700;
+}
+
+progress[value="23"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(41.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(41.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(41.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(41.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #a92900;
+}
+
+progress[value="24"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(43.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(43.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(43.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(43.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #a72b00;
+}
+
+progress[value="25"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(45deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(45deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(45deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(45deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #a52d00;
+}
+
+progress[value="26"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(46.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(46.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(46.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(46.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #a22e00;
+}
+
+progress[value="27"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(48.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(48.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(48.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(48.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #a03000;
+}
+
+progress[value="28"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(50.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(50.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(50.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(50.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #9e3200;
+}
+
+progress[value="29"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(52.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(52.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(52.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(52.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #9c3400;
+}
+
+progress[value="30"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(54deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(54deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(54deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(54deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #9a3600;
+}
+
+progress[value="31"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(55.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(55.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(55.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(55.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #973700;
+}
+
+progress[value="32"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(57.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(57.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(57.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(57.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #953900;
+}
+
+progress[value="33"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(59.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(59.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(59.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(59.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #933b00;
+}
+
+progress[value="34"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(61.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(61.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(61.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(61.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #913d00;
+}
+
+progress[value="35"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(63deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(63deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(63deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(63deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #8f3f00;
+}
+
+progress[value="36"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(64.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(64.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(64.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(64.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #8c4000;
+}
+
+progress[value="37"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(66.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(66.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(66.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(66.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #8a4200;
+}
+
+progress[value="38"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(68.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(68.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(68.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(68.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #884400;
+}
+
+progress[value="39"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(70.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(70.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(70.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(70.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #864600;
+}
+
+progress[value="40"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(72deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(72deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(72deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(72deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #844800;
+}
+
+progress[value="41"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(73.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(73.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(73.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(73.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #814900;
+}
+
+progress[value="42"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(75.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(75.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(75.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(75.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #7f4b00;
+}
+
+progress[value="43"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(77.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(77.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(77.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(77.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #7d4d00;
+}
+
+progress[value="44"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(79.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(79.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(79.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(79.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #7b4f00;
+}
+
+progress[value="45"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(81deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(81deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(81deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(81deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #785100;
+}
+
+progress[value="46"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(82.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(82.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(82.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(82.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #765200;
+}
+
+progress[value="47"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(84.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(84.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(84.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(84.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #745400;
+}
+
+progress[value="48"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(86.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(86.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(86.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(86.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #725600;
+}
+
+progress[value="49"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(88.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(88.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(88.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(88.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #705800;
+}
+
+progress[value="50"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(90deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(90deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(90deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(90deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #6d5a00;
+}
+
+progress[value="51"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(91.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(91.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(91.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(91.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #6b5b00;
+}
+
+progress[value="52"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(93.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(93.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(93.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(93.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #695d00;
+}
+
+progress[value="53"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(95.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(95.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(95.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(95.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #675f00;
+}
+
+progress[value="54"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(97.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(97.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(97.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(97.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #656100;
+}
+
+progress[value="55"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(99deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(99deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(99deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(99deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #626300;
+}
+
+progress[value="56"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(100.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(100.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(100.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(100.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #606400;
+}
+
+progress[value="57"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(102.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(102.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(102.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(102.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #5e6600;
+}
+
+progress[value="58"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(104.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(104.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(104.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(104.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #5c6800;
+}
+
+progress[value="59"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(106.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(106.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(106.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(106.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #5a6a00;
+}
+
+progress[value="60"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(108deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(108deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(108deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(108deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #586c00;
+}
+
+progress[value="61"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(109.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(109.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(109.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(109.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #556d00;
+}
+
+progress[value="62"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(111.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(111.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(111.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(111.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #536f00;
+}
+
+progress[value="63"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(113.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(113.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(113.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(113.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #517100;
+}
+
+progress[value="64"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(115.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(115.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(115.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(115.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #4f7300;
+}
+
+progress[value="65"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(117deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(117deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(117deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(117deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #4d7500;
+}
+
+progress[value="66"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(118.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(118.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(118.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(118.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #4a7600;
+}
+
+progress[value="67"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(120.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(120.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(120.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(120.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #487800;
+}
+
+progress[value="68"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(122.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(122.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(122.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(122.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #467a00;
+}
+
+progress[value="69"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(124.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(124.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(124.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(124.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #447c00;
+}
+
+progress[value="70"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(126deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(126deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(126deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(126deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #427e00;
+}
+
+progress[value="71"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(127.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(127.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(127.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(127.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #3f7f00;
+}
+
+progress[value="72"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(129.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(129.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(129.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(129.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #3d8100;
+}
+
+progress[value="73"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(131.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(131.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(131.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(131.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #3b8300;
+}
+
+progress[value="74"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(133.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(133.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(133.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(133.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #398500;
+}
+
+progress[value="75"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(135deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(135deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(135deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(135deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #378700;
+}
+
+progress[value="76"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(136.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(136.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(136.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(136.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #348800;
+}
+
+progress[value="77"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(138.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(138.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(138.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(138.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #328a00;
+}
+
+progress[value="78"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(140.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(140.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(140.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(140.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #308c00;
+}
+
+progress[value="79"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(142.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(142.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(142.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(142.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #2e8e00;
+}
+
+progress[value="80"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(144deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(144deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(144deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(144deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #2c9000;
+}
+
+progress[value="81"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(145.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(145.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(145.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(145.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #299100;
+}
+
+progress[value="82"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(147.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(147.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(147.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(147.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #279300;
+}
+
+progress[value="83"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(149.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(149.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(149.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(149.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #259500;
+}
+
+progress[value="84"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(151.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(151.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(151.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(151.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #239700;
+}
+
+progress[value="85"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(153deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(153deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(153deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(153deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #209900;
+}
+
+progress[value="86"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(154.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(154.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(154.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(154.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #1e9a00;
+}
+
+progress[value="87"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(156.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(156.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(156.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(156.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #1c9c00;
+}
+
+progress[value="88"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(158.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(158.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(158.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(158.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #1a9e00;
+}
+
+progress[value="89"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(160.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(160.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(160.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(160.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #18a000;
+}
+
+progress[value="90"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(162deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(162deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(162deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(162deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #15a200;
+}
+
+progress[value="91"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(163.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(163.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(163.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(163.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #13a300;
+}
+
+progress[value="92"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(165.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(165.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(165.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(165.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #11a500;
+}
+
+progress[value="93"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(167.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(167.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(167.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(167.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #0fa700;
+}
+
+progress[value="94"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(169.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(169.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(169.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(169.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #0da900;
+}
+
+progress[value="95"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(171deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(171deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(171deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(171deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #0aab00;
+}
+
+progress[value="96"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(172.8deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(172.8deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(172.8deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(172.8deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #08ac00;
+}
+
+progress[value="97"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(174.6deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(174.6deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(174.6deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(174.6deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #06ae00;
+}
+
+progress[value="98"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(176.4deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(176.4deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(176.4deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(176.4deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #04b000;
+}
+
+progress[value="99"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(178.2deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(178.2deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(178.2deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(178.2deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #02b200;
+}
+
+progress[value="100"]::-webkit-progress-value:before {
+  -moz-transform:  scale(1, 1) rotateZ(180deg) translate(0, 100%) skew(0, 0);
+  -ms-transform:  scale(1, 1) rotateZ(180deg) translate(0, 100%) skew(0, 0);
+  -webkit-transform:  scale(1, 1) rotateZ(180deg) translate(0, 100%) skew(0, 0);
+  transform:  scale(1, 1) rotateZ(180deg) translate(0, 100%) skew(0, 0);
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  background: #00b400;
+}

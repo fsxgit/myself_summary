@@ -1,0 +1,62 @@
+html,body{background: #fff;}
+.swiper-wrapper{width:100%; height:3.74rem;}
+.swiper-container-horizontal .swiper-pagination{bottom:0;}
+.swiper-pagination-bullet{}
+.swiper-pagination-bullet-active{background: #fff;}
+.bIndex{display: block; position:absolute; left:0.4rem; top:0; z-index:10; padding-left:0.5rem; height:1rem;  line-height: 1rem; background: url("../images/bIndex.png") no-repeat 0 center; background-size:0.493rem 0.494rem;  font-size:0.4rem; color:#575757;}
+.bHelp{display: block;  position:absolute; right:0.4rem; top:0; z-index:10; padding-left:0.6rem; height:1rem;   line-height: 1rem; background: url("../images/bHelp.png") no-repeat 0 center; background-size:0.493rem 0.494rem; font-size:0.4rem;}
+.bIndex,.bIndex:link,.bIndex:visited,.bIndex:active,.bHelp,.bHelp:link,.bHelp:visited,.bHelp:active{ color:#575757;}
+.fxGap{height:0.5rem; background: #f1f2f3;}
+/*Ç©µ½*/
+.QDbox{border-bottom:1px solid #ccc; font-size: 0.4rem;}
+.QDleft{padding:0.3rem  0.2rem 0 0.2rem;}
+.QDleft_qd{width:2rem; height:0.666rem; line-height: 0.7rem; background: #58ab22 url("../images/qiandao.png") no-repeat 0.2rem center; background-size:0.48rem ; border-radius: 4px; color:#fff; font-size: 0.3rem; margin-bottom:0.8rem; padding-left:0.48rem; }
+.QDleft_lf{width:2.8rem; margin-right:0.3rem;}
+.ImgBox{height:3rem; width:2.8rem; margin: 0 auto; background: url("../images/photoBg.png") no-repeat 0 bottom; background-size: cover;}
+.touxiang{width:1.7rem; height:1.7rem; border-radius: 50%; margin: 0 auto; background: #ccc;}
+.chenghu{font-size: 0.3rem; text-align: center; padding-top:0.1rem; color: #58ab22;}
+.lingnum{font-size: 0.35rem; text-align: center; width:0.55rem; height: 0.55rem; line-height: 0.55rem; color:#58ab22; border-radius: 50%; margin:0 auto; position: relative; margin-top:0.16rem;}
+.chengzhang{position: absolute; color:#fff; right:-2rem; bottom: -1.5rem; background:#58ab22; width:2.8rem; height:1.5rem; background: url("../images/ling.png") no-repeat 0 0; background-size:100% 100%; font-size: 0.3rem; text-align: left; display: none;}
+.num1{padding-top:0.25rem; padding-left:0.2rem;}
+.num2{padding-left:0.2rem;}
+
+.QDleft_name{ margin-top:0.2rem;}
+.QDleft_tx{width:1.5rem; border-radius: 4px; height:0.6rem; line-height: 0.6rem; margin:0 auto; border:1px solid #ccc;  font-size: 0.4rem; margin-top:0.2rem;}
+
+.c888{color:#888;}
+.QDright{width:3.2rem; padding-top:1.2rem; margin:0 auto; border-left:1px solid #ccc; height:100%;}
+.THImgBox{width:1.96rem; height:2.226rem; margin:0 auto;}
+.QDright .cheng{font-size: 0.4rem; color: #f75e25; margin-top:0.3rem;}
+.QDright .duihuan{font-size: 0.3rem; padding-bottom: 0.4rem;}
+
+.QDleft_rt{font-size: 0.3rem;  padding-top:0.8rem;}
+.QDleft_rt p{margin-top:0.2rem;}
+.QDleft_rt .spanL{display: inline-block; width:1.8rem; }
+
+
+.dongTai{height:0.6rem; line-height: 0.6rem; padding:0.3rem 0;  font-size: 0;}
+.dongTai span{font-size: 0.35rem; margin:0 0.05rem;}
+.spantou{padding-left:0.4rem; width:2rem; font-size: 0.45rem; font-weight: bold;}
+.swiper-container2{width:7.6rem; height:0.7rem; line-height: 0.7rem; font-size: 0.45rem;}
+.swiper-container2 p.swiper-slide{ font-size: 0;}
+.spanwei{}
+.spanjiao{display: inline-block; width:1rem; height:0.5rem; line-height: 0.5rem; background:#f75e25; text-align: center; color: #fff; border-radius: 4px; margin:0 0.1rem;}
+
+.renwu{width:92%; margin:0 auto; height:1.2rem; line-height: 1.3rem; background: url("../images/flborder.png") no-repeat 0 center; background-size: 0.1rem 0.53rem; }
+.renwu span.fl{font-size: 0.45rem; font-weight: bold; padding-left:0.3rem;}
+.renwu span.fr{font-size: 0.35rem;}
+.renwu span.fr em{font-size: 0.3rem; color:#00911c;}
+
+
+.renwuBox,.renwuMode{background: #f1f2f3; width: 100%;}
+.LImg{width: 1.6rem; height:1.6rem; border-radius: 4px; overflow: hidden; margin-left:0.4rem;padding:0.3rem 0;}
+.RTxt{width:8rem; font-size: 0.3rem; border-bottom: 1px solid #ccc; padding:0.3rem 0;}
+.RTxt .fl{padding-left:0.3rem;}
+.RTxt .fr{padding-right:0.4rem;}
+.RTxt .p1{font-size: 0.45rem;}
+.RTxt .goBtn{width:1.61rem; height:0.72rem; line-height: 0.72rem; background: url("../images/goBtn.png") no-repeat 0 center; background-size: cover; padding-left:0.2rem; color: #fff; margin-top:0.5rem;}
+.RTxt .goBtnNo{width:1.61rem; height:0.72rem; line-height: 0.72rem; background: url("../images/goBtnNo.png") no-repeat 0 center; background-size: cover; padding-left:0.2rem; color: #fff; margin-top:0.5rem;}
+
+.gengxin{width:100%; text-align: center; height: 1.6rem; line-height: 1.6rem; font-size: 0.5rem; background: #f1f2f3; padding-bottom:0.6rem;}
+
+.loading{width:100%; text-align: center; height: 1.2rem; line-height: 1.2rem; font-size: 0.5rem; display: none;}

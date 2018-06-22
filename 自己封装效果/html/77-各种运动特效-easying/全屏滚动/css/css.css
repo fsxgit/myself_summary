@@ -1,0 +1,48 @@
+*{margin:0; padding:0;}
+
+body{margin:0; padding:0; overflow-y: hidden; color:#fff;}
+li{list-style-type:none;}
+
+/* styled just for clear visual division of each areas */
+.op-section{background-color:#1abc9c;}
+.second{background-color:#3598db;}
+.third{background-color:#34495e;}
+.fourth{background-color:#2ecc71;}
+.fifth{background-color:#8e44ad;}
+.last{background-color:#f39c12;}
+
+
+/*这里的样式 决定导航点的位置 和显示的个数*/
+#radioWrap{
+    width:20px;
+    height:180px;
+    position:absolute;
+    right:5%;
+    top:50%;
+    margin-top: -90px;}
+
+#radio{width:100%; height:100%; overflow: hidden;}
+
+#radio li{
+    width:20px;
+    height:20px;
+    background-color: rgba(255,255,255, 0.5);
+    text-indent: -10000px;
+    border-radius: 50%;
+    margin-top: 12px;
+    cursor:pointer;}
+#radio li:first-child{margin-top:0;}
+
+/*
+    set position to absolute(essential).
+    use margin to adjust gaps between LIs because ApplikeOnePage.js uses .outerHeight(true) method
+    to measure the interval gap to which each radio buttons are placed.
+*/
+#radioOn{
+    width:20px;
+    height:20px;
+    margin-bottom:12px;
+    position: absolute;
+    top:0; left:0;
+    background-color: #ff0039;
+    border-radius: 50%;}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>费用中心-我的钱包-提现</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/search.css"/>
+	<link rel="stylesheet" href="public/html/css/wrong.css"/>
+	<style type="text/css">
+		#moneyts{ padding-top:10px;}
+		.warn-txt{ height:14px; line-height: 14px; color: #cc0000; display: inline-block; padding-left:16px; background: url("public/html/images/icon30.png") no-repeat 0 center; margin-left: 96px; }
+	 </style>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+
+    <!--公用右侧浮动导航 end-->
+
+
+<!--s-content内容存放的地方-->
+    <div class="s-content main-hou fy-center pr">
+		<div class="per-nav">我的钱包 > 开通钱包</div>
+		 <h1 class="c-h1">提现到银行卡</h1>
+        <!--公用结果 -->
+        <div class="sy-cont">
+            <!--订单详情-->
+            <div class="order-xq-box">
+                <div class="sy-order-xq oh">
+                    <div class="order-xq-suc order-xq-cz fl c333">提现到银行卡，我的神州钱包余额：￥<span class="fc8" id = "yue">{$yue}</span></div>
+                </div>
+            </div>
+            <!--订单详情 end-->
+            <!--平台支付-->
+            <div class="pay-box">
+                <div class="ps-detail bc">
+                    <!--余额支付-->
+                    <div class="yue-box">
+                        <div class="yue-pay yin-pay">
+                            <div class="yue-pay-use fl">
+                                <span class="ps-choose">银 行 卡</span>
+                            </div>
+                            <div class="yin-choose  fl">
+                                <p class="yin-value">
+									<span class="sel-img">
+										<img src="" width="20" height="20" alt=""/>
+									</span>
+									<span class="sel-txt"></span>
+								</p>
+                                <div class="select-box">
+								<foreach name="kalist" item="vo" key='k'>
+                                    <p>
+										<span class="sel-img">
+											<img src="{$vo.bankpicUrl}" width="20" height="20" alt=""/>
+										</span>
+										<span class="sel-txt" id = "ka">{$vo.bankCardNo} </span>
+									</p>
+								</foreach>
+                                </div>
+                            </div>
+                            <span class="add-new fc1">添加新的银行卡</span>
+                        </div>
+                        <!--选择银行卡 end-->
+                        <div class="cb"></div>
+                        <div class="jy-pw">
+                            <span class="jy-name">提现金额</span>
+                            <input type="text" class = "ggg" id = "money" placeholder="输入提现金额"/> 
+							<p class="warn-box" id = "moneyts"></p>
+                        </div>
+                        <div class="jy-pay">
+                            <input type="button" onclick = "formck()" class="blue-big-btn" value="下一步"/>
+                        </div>
+
+                    </div>
+                    <!--余额支付 end-->
+                </div>
+            </div>
+            <!--平台支付 end-->
+        </div>
+
+        <!--公用结果 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+
+
+
+<!--公用底部-->
+
+<!--公用底部 end-->
+
+</div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+<script>
+    $(function(){
+		//银行默认显示第一个
+		$(".select-box p").eq(0).addClass("active").siblings().removeClass("active");
+		var src1 = $(".select-box p").eq(0).find("img").attr("src");
+		var txt1 = $(".select-box p").eq(0).find(".sel-txt").text();
+		$(".yin-value img").attr("src",src1);
+		$(".yin-value .sel-txt").text(txt1);
+		//银行默认显示第一个 end
+
+        $(".order-xq-select").click(function(){
+            $(".order-xq-select").toggleClass("active");
+            $(".sh-box").slideToggle();
+        })
+        $(".ps-mode").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+        $(".yin-choose").click(function(){
+            $(this).toggleClass("active");
+            $(".select-box").slideToggle();
+        })
+		
+
+        $(".select-box p").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            var src = $(this).find("img").attr("src");
+            var txt = $(this).find(".sel-txt").text();
+            $(".yin-value img").attr("src",src);
+            $(".yin-value .sel-txt").text(txt);
+        })
+    });
+
+	//提示错误后，再获取焦点是，提示隐藏
+	$(".ggg").focus(function(){
+			$("#moneyts").hide().html("");
+		})
+	
+	function formck(){
+		var money = $("#money").val();
+		var yue = $("#yue").html();
+		var ka = $("#ka").html();
+		if(money == ""){
+			$("#moneyts").show();
+			$("#moneyts").html("<span class='warn-txt'>请输入金额</span>");
+			return false;
+		}else if(eval(money) > eval(yue)){
+			$("#moneyts").show();
+			$("#moneyts").html("<span class='warn-txt'>输入的金额大于余额</span>");
+			return false;
+		}
+		
+		window.location.href='index.php?g=Portal&m=Oneroadpay&a=tixian1&amount='+money+'&bankCardNo='+ka;
+	}
+</script>
+</body>
+</html>

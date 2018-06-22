@@ -1,0 +1,139 @@
+<?php
+namespace Portal\Controller;
+use Common\Controller\CommonController;
+class BrandController extends CommonController {
+		/*
+	*  商标预览图片
+	*/
+	function preview(){
+		$str = I('post.markname'); 
+        $sum = mb_strlen($str,"utf-8");
+		$url = "public/shagnbiao_logo/".md5($str).createKey(time()).".jpg";
+        if($sum>20){
+            echo 1;die;
+        }
+		$fontarea = ImageTTFBBox(15,0,"C:\windows\Fonts\simhei.ttf",$str);
+		$width = $fontarea['2']+43;
+		$im = imagecreate($width,200);
+		$white = imagecolorallocate($im,0xFF,0xFF,0xFF);//图片大小和颜色
+		imagecolortransparent($im,$white);
+		$black = imagecolorallocate($im,0x00,0x00,0x00);
+		imagettftext($im,15,0,20,105,$black,"C:\windows\Fonts\simhei.ttf",$str);
+		header("Content-type:image/jpg");
+		imagejpeg($im,$url);
+		echo $url;die;
+	}
+	/**
+	* 上传图片
+	*/
+	function sheng(){
+		$img = I('post.img'); 
+        $url = "public/shagnbiao_logo/".md5($img).createKey(time()).".jpg";
+		if(preg_match('/^(data:\s*image\/(\w+);base64,)/', $img, $result)){
+		$image_name = uniqid().'.jpg';
+        $image_file = "./upload/test/{$image_name}";
+        //服务器文件存储路径
+        file_put_contents($url,base64_decode(str_replace($result[1],'',$img)));
+         echo $url;die; 
+	    }
+	}
+	/*
+	*	 商标管理
+	*/
+	function brand_lst(){
+		 $this->display();
+	}
+	/*
+	*    商标查询
+	*/
+	function brand_query(){
+		if($_POST){
+			$user_id = $_COOKIE['zsid'];
+			$user = M("user")->where("id = {$user_id}")->find();
+			$arr = $_POST;
+			$arr['markpicture'] = $arr['image'];
+			unset($arr['image']);
+			$arr['customerid'] = $user['id'];
+			$arr['customername'] = $user['loginname'];
+			$arr['customermobile'] = $user['phone'];
+			$arr['addtime'] = time();
+			$time = date("YmdHis");
+			$arr['number'] = "c".$time.createKey($user['id']);
+			$id = M("inquire")->add($arr);
+			M("user")->where("id = {$user_id}")->setInc('chasum');
+			echo $id;die;
+		}else{
+			$this->display();
+		}
+	}
+	/**
+	* 商标查询列表
+	*/
+	function brand_query_lst(){
+		$state = I('post.state');
+		$number = I('post.number');
+		$start_time = I('post.start_time');
+		$end_time = I('post.end_time');
+		$page = I('post.page','1');
+        $laiyuan = I('post.laiyuan'); 		
+		$page_size = '3'; 
+		$user_id = $_COOKIE['zsid'];
+		$where = "customerid = {$user_id}";
+		if($state!=''){
+			$where .=" and state={$state}";
+		}
+		if($number!=''){
+			$where .=" and number like '%$number%'";
+		}
+		if($start_time!=''&&$end_time!=''){
+			$start_time = strtotime($start_time);
+			$end_time = strtotime($end_time);
+			$where .=" and addtime>{$start_time} and addtime<{$end_time}";
+		}
+		
+		$count = M("inquire")->where($where)->count();
+		$sum = ($page-1)*$page_size;
+		$arr = M("inquire")->where($where)->order("addtime desc")->limit($sum,$page_size)->select();
+		$user = M("user")->where("id = {$user_id}")->find();
+		$this->assign('arr',$arr);
+		$this->assign("count",$count);
+		$this->assign("user",$user);
+		$this->assign("page",$page);
+		$this->assign("num",ceil($count/$page_size));
+		$this->assign("state",$state);
+		$this->assign("number",$number);
+		$this->assign("start_time",$start_time);
+		$this->assign("end_time",$end_time);
+		if($laiyuan=='1'){
+			$this->display("brand_query_lsts");
+		}else{
+			$this->display();
+		}
+		
+	}
+	/**
+	*  商标查询详情
+	*/
+	function brand_query_details(){
+		$queryid = I('get.queryid');
+		$user_id = $_COOKIE['zsid'];
+		$arr = M("inquire")->where("queryid = {$queryid} and customerid={$user_id}")->find();
+		$user = M("user")->where("id = {$user_id}")->find();
+		$user = M("user")->where("id = {$user_id}")->find();
+		if($user['isclaimed']=='1'){
+			$enterprise = M("enterprise")->where("user_id = {$user_id}")->find();
+		    $user['dom'] = $enterprise['dom'];
+		}
+		if($user['adviser']=='1'){
+			$adviser = M("adviser")->where("customerid = {$user_id}")->find();
+		    $user['consultantid'] = $adviser['consultantid'];
+			$user['consultantname'] = $adviser['consultantname'];
+			$user['consultantmobile'] = $adviser['consultantmobile'];
+			$user['consultantimage'] = '';
+		}
+		$this->assign("arr",$arr);
+		$this->assign("user",$user);
+		$this->display();
+	}
+
+}

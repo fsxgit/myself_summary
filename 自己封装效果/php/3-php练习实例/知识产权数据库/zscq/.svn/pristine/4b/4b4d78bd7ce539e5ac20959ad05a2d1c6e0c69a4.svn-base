@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>公用底部</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+</head>
+<body>
+<!--公用底部-->
+    <div class="c-bot">
+        <div class="c-bot-top">
+           <div class="oh main">
+               <div class="bot-img img1">
+                   <a href="javascript:;"><img src="public/html/images/bot1.png" width="252" height="60" alt=""/></a>
+               </div>
+               <div class="bot-img img2">
+                   <a href="javascript:;"><img src="public/html/images/bot2.png" width="252" height="60" alt=""/></a>
+               </div>
+               <div class="bot-img img3">
+                   <a href="javascript:;"><img src="public/html/images/bot3.png" width="252" height="60" alt=""/></a>
+               </div>
+               <div class="bot-img">
+                   <a href="javascript:;"><img src="public/html/images/bot4.png" width="252" height="60" alt=""/></a>
+               </div>
+           </div>
+        </div>
+        <div class="c-bot-bot">
+            <div class="main">
+                <div class="c-bot-copy  fl">
+                    <div class="copy1">
+                        <a href="javascript:;">神州易桥集团</a>
+                        <a href="javascript:;">企博士</a>
+                        <a href="javascript:;">企采团</a>
+                        <a href="javascript:;">应用云</a>
+                        <a href="javascript:;">商学院</a>
+                        <a href="javascript:;">积分宝</a>
+                    </div>
+                    <div class="copy2">
+                        Copyright © 1998 - 2016 All Rights Reserved. 神州网版权所有  京ICP备10028182号 京公网安备110108400735号
+                    </div>
+                </div>
+                <div class="c-bot-tel fr"><img src="public/html/images/tel2.png" alt=""/></div>
+            </div>
+        </div>
+    </div>
+<!--公用底部 end-->
+</body>
+</html>

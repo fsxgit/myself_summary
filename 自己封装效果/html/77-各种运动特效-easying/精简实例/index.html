@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>easing精简实例</title>
+    <style>
+        *{margin:0 ;padding:0;}
+        button{margin:20px; width: 100px; height: 30px; font-size: 20px; cursor: pointer;}
+        .box{width: 100px; height:100px; background: #ff0039; line-height: 100px; text-align: center; font-size: 50px; color: #fffa7c; border-radius:50%; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+
+<button>点我</button>
+
+<div class="box">
+    心
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script>
+    $("button").click(function(){
+        var L = $(window).width()-$(".box").width();
+        $(".box").animate({marginLeft:L},4000,"easeInCirc");
+    });
+
+    //可选参数
+    //		linear[匀速]、swing、easeInQuad、easeOutQuad、easeInOutQuad、easeInCubic、easeOutCubic[快出慢贴]、easeInOutCubic、easeInQuart、easeOutQuart、easeInOutQuart、easeInQuint、easeOutQuint、easeInOutQuint、easeInExpo、easeOutExpo、easeInOutExpo、easeInSine、easeOutSine、easeInOutSine、easeInCirc、easeOutCirc、easeInOutCirc、easeInElastic、easeOutElastic、easeInOutElastic、easeInBack、easeOutBack、easeInOutBack、easeInBounce、easeOutBounce、easeInOutBounce
+
+//    linear
+//    swing
+//    ease
+//    Quad
+//    In
+//    Out
+//    Cubic
+//    Quart
+//    Circ
+//    Quint
+//    Expo
+//    Sine
+//    Bounce
+//    Back
+</script>
+</body>
+</html>

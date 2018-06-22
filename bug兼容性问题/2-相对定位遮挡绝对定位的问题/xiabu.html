@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        a{text-decoration: none;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .pr{position: relative; }
+        .oh{overflow: hidden;}
+        .xbox{width:1000px; margin-left:auto; margin-right:auto;}
+        .xtop{padding:20px 0; border-bottom: 1px solid #ccc;}
+        .limgBox{width:82px; height:82px; margin-right:30px;}
+        .limg{width:80px; height:80px; overflow: hidden; border-radius: 50%;}
+        .xstar{position:absolute; bottom:-10px; left:6px; font-size: 12px; display: block; width:66px; height:20px; line-height: 20px; text-align: center; background: #fff; border:1px solid #ccc; border-radius: 6px;}
+        .lqian{}
+        .lqian h2{font-size: 16px;}
+        .lqian .bqs{font-size: 0;}
+        .lqian .bqs span{font-size:12px; display: inline-block; width:auto; padding:4px 10px; background: #fff;  border:1px solid #ccc; margin-right:6px;}
+        .lset{width:80px; height:30px; line-height: 30px; text-align: center; background: #fff; border:1px solid #ccc; border-radius: 6px; margin-top:30px; margin-left:30px;}
+        .xtable{padding-top: 30px;}
+        .xtable thead td{background: #e3e3e3;}
+        .xtable td{border:none; background: #f3f3f3; text-align: center; padding:20px 0;}
+        .xbot{margin-top: 30px; font-size: 0;}
+        .xbot span{display: inline-block; padding:10px 30px; border:1px solid #ccc; margin-right: 80px; font-size: 14px; border-radius: 4px;}
+        .xbot span.bn{ border:none; margin-right:0;}
+        .xbot span.gong{}
+
+
+        .yd{position: absolute; left:60px; bottom:-20px; width:240px;padding:10px 20px; background: #fff; border:1px solid #ccc; border-radius: 4px; display: none;  z-index: 10;}
+    </style>
+</head>
+<body>
+    <div class="xbox">
+        <div class="xtop oh">
+            <div class="limgBox pr fl" >
+                <div class="limg">
+                    <img src="images/xb.png" width="80px" height="80px;" alt=""/>
+                </div>
+                <span class="xstar">档口商户</span>
+            </div>
+            <div class="lqian fl">
+                <h2>呷哺呷哺北辰店</h2>
+                <div class="bqs">
+                    <span>火锅</span>
+                    <span>源自台湾</span>
+                </div>
+            </div>
+            <div class="lset fl">设置</div>
+        </div>
+        <div class="xtable">
+            <table>
+                <thead>
+                    <tr>
+                        <td width="300px">分类名称</td>
+                        <td width="300px">菜品数量</td>
+                        <td width="400px">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>显示特价</td>
+                        <td>2</td>
+                        <td class="pr">
+                            <span>查看菜品</span>
+                            |
+                            <span class="xg">修改次序</span>
+                            |
+                            <span>修改</span>
+                            |
+                            <span>删除</span>
+                            <div class="yd">
+                                <span>首行</span>
+                                |
+                                <span>上移</span>
+                                |
+                                <span>下移</span>
+                                |
+                                <span>尾行</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>显示特价</td>
+                        <td>2</td>
+                        <td class="pr">
+                            <span>查看菜品</span>
+                            |
+                            <span class="xg">修改次序</span>
+                            |
+                            <span>修改</span>
+                            |
+                            <span>删除</span>
+                            <div class="yd">
+                                <span>首行</span>
+                                |
+                                <span>上移</span>
+                                |
+                                <span>下移</span>
+                                |
+                                <span>尾行</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>显示特价</td>
+                        <td>2</td>
+                        <td class="pr">
+                            <span>查看菜品</span>
+                            |
+                            <span class="xg">修改次序</span>
+                            |
+                            <span>修改</span>
+                            |
+                            <span>删除</span>
+                            <div class="yd">
+                                <span>首行</span>
+                                |
+                                <span>上移</span>
+                                |
+                                <span>下移</span>
+                                |
+                                <span>尾行</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="xbot">
+            <span>添加分类</span>
+            <span>添加菜品</span>
+            <span class="bn gong">共8个分类，24个菜品</span>
+            <span class="bn"><a href="javascript:;">查看所有菜品</a></span>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script>
+        $(".xg").hover(function(){
+            $(this).siblings(".yd").show();
+        },function(){
+            $(this).siblings(".yd").hide();
+        })
+    </script>
+</body>
+</html>

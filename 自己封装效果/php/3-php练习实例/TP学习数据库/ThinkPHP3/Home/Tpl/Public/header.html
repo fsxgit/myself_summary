@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>城市切换</title>
+    <style>
+        .nav{height:60px; line-height: 60px; font-size: 50px; padding:10px; background: #42e9ef;}
+        .nav a{border:1px solid #f00ebf; margin:0 10px; color: #ff0c1c; text-decoration: none; }
+    </style>
+</head>
+<body>
+<h1>hello，这里是我的城市切换的练习页面</h1>
+<div class="nav">
+    <foreach name="list" item="v">
+        <a href="__APP__/City/{$v.name}">{$v.fullname}</a>
+    </foreach>
+    <!--<a href="__APP__/City/bj">北京</a>-->
+    <!--<a href="__APP__/City/sh">上海</a>-->
+    <!--<a href="__APP__/City/gz">广州</a>-->
+    <!--<a href="__APP__/City/xj">新疆</a>-->
+</div>

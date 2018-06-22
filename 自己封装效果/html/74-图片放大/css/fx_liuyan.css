@@ -1,0 +1,70 @@
+body{background: #fff; padding-bottom: 200px;}
+.main{width:1000px; margin-left:auto; margin-right:auto;}
+.conLiuyan{overflow: hidden;}
+/*内容上面部分*/
+.conTop{padding-top:20px; border-bottom:1px solid #f1f1f1;}
+.topSpan span{display: inline-block; width:98px; height:40px; line-height: 40px; font-size: 14px; color: #fff; background:#8bbf5d ; text-align: center;  cursor: pointer;}
+.topSpan span.active{background: #5ea51b;}
+.topTxt{font-size: 14px; color:#adadad; width:380px;  height:40px; line-height: 40px; }
+
+<!--/*内容下面部分*/-->
+.conBot{padding-top:20px;}
+/*下面的左边*/
+.conLeft{width:690px;}
+.dingBox{padding:10px 0; }
+.dingTil{height:32px; line-height:32px; font-size: 14px; background: #f7f7f7; border-top:1px solid #ccc;  border-bottom:1px solid #ccc; text-indent:10px; }
+.pingMode{padding:14px 0; border-bottom:1px solid #ccc; width: 100%; height: auto; }
+.pingL{margin:0 10px;}
+.imgPhoto{width:50px; height: 50px; border-radius: 4px; overflow: hidden;}
+.imgPhoto img{width:100%; height: 100%;}
+
+.pingR{ width: 620px;}
+.pingName{ font-size: 16px; color:#ff0039;}
+.pingTxt{ font-size: 14px; color: #000; line-height: 18px; padding:6px 0;}
+.pBtn span{ font-size: 12px; display: inline-block; color: #adadad; height:14px; line-height: 14px; margin-right:10px;  cursor: pointer;}
+.pingTime{}
+.pingHui{padding-left:18px; background: url("../images/hui.png") no-repeat 0 center;}
+.pingDing{padding-left:14px; background: url("../images/ding.png") no-repeat 0 center;}
+.pingFa{padding-left:18px; background: url("../images/fa.png") no-repeat 0 center;}
+
+
+.midBox{padding:16px 0 12px; border-bottom:1px solid #ccc;}
+.midLeft span{ cursor: pointer;}
+.midLeft span em{color: #ff0039;}
+.midRight span{ cursor: pointer;}
+.midRight span.active{color: #ff0039;}
+
+
+/*翻页 按钮*/
+.fanye{padding:14px 0;  border-bottom:1px solid #ccc;}
+.fanyeLi{width:auto; float: right;}
+.fanyeLi li{height:16px; line-height: 16px; font-size: 12px; margin:0 5px; float: left; padding:0 10px; border:1px solid #fff; cursor: pointer;}
+.fanyeLi li.active{border:1px solid #ccc; background: #f1f1f1; color: #ff0039; cursor: pointer;}
+
+
+/*发布信息*/
+.fabu{font-size: 12px ;}
+.logStyle{padding:14px 0; font-size: 12px ;}
+.fabu span{display: inline-block;}
+.Sweixin{padding-left: 20px; height: 16px; line-height: 16px; background: url("../images/weixin.png") no-repeat 0 center; margin-right:14px; cursor: pointer;}
+.Sweibo{padding-left: 20px; height: 16px; line-height: 16px; background: url("../images/weibo.png") no-repeat 0 center; margin-right:14px;  cursor: pointer;}
+.Sqq{padding-left: 20px; height: 16px; line-height: 16px; background: url("../images/qq.png") no-repeat 0 center; margin-right:14px;  cursor: pointer;}
+.Srenren{padding-left: 20px; height: 16px; line-height: 16px; background: url("../images/renren.png") no-repeat 0 center; margin-right:14px;  cursor: pointer;}
+.Smore{ cursor: pointer; color: #ff0039;}
+
+.fabuTxt{ background: #fdfdfd;}
+.faImg{width:50px; height:50px; overflow: hidden; border-radius: 4px; margin-right:10px;}
+.faImg img{width:50px; height:50px; }
+.faWrit{width:628px; border:1px solid #ccc; }
+.shouTxt{width: 600px; padding: 14px; height: 56px; font-size: 12px; line-height: 16px; }
+
+.writTxt{width: 628px; border-top:1px solid #ccc; font-size: 0;}
+.shuru{width:480px; height:30px; border-right:1px solid #ccc; padding-left:48px; background: url("../images/xiao.png") no-repeat 10px center; }
+.tijiao{width: 99px; text-align: center; height: 30px; line-height: 30px; cursor: pointer;}
+.sayIng{text-align: right; height:46px; line-height: 46px; color: #adadad; font-size: 12px;}
+/*下面的右边*/
+.conRight{width:244px; height: 992px; padding-left:28px; background: url("../images/rigthBg.png") no-repeat 0 0; background-size:10px 100%; padding-top:26px; }
+.conRight p{padding-bottom:12px; font-size: 14px; line-height: 26px;  color: #adadad;}
+.conRight p.jiaqun{ padding-bottom:6px; line-height: 0; cursor: pointer;}
+.conRight p.jiayou{  cursor: pointer;}
+.conRight p.girl{padding-left:60px;}

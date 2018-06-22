@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上下左右居中的方法</title>
+    <style>
+        .box{width: 500px; height: 300px; border:1px solid #ccc; position: relative;}
+        .box img{height:200px; width: 133px; position: absolute; display: block;}
+        .box1 img{left:50%; margin-left:-66px; top:50%; margin-top:-100px;}
+        .box2 img{position: absolute; left:0; top:0; right:0; bottom:0; margin:auto;}
+    </style>
+</head>
+<body>
+<h1>方法1：略微计算</h1>
+<h3>这种方法需要知道对应元素宽高</h3>
+    <div class="box box1">
+        <img src="8.jpg" alt=""/>
+    </div>
+
+<h1>方法2：不计算</h1>
+<h3>这种方法可以自适应父级及对应元素的变化而始终居中</h3>
+<div class="box box2">
+    <img src="8.jpg" alt=""/>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>css3鼠标滑过放大缩小过渡特效 - 站长素材</title>
+<style type="text/css">
+/*全局定义*/
+*{margin:0;/*外边距*/padding:0;/*内边距，填充*/}
+ul{list-style:none}
+.html5{width:860px;height:450px;background:#666;margin:80px auto 0;/*80px上边距，auto右边边距，居中，0下边距*/}
+/*ul图片展示*/
+.html5 ul li{float:left;margin-left:25px;/*左边距离*/margin-top:20px;cursor:pointer}
+.html5 ul li img{width:255px;height:195px;/* width属性：255px值单位*/opacity:0.5}
+.html5 ul li:hover img{
+	transform:scale(0.5,0.5);
+	-webkit-transform:scale(0.5,0.5);
+	-o-transform:scale(0.5,0.5);
+	/*x,y值，*/
+	transition:all 1s;
+	-webkit-transition:all 1s;
+	-o-transition:all 1s;
+	/*对前效果的过度*/
+	opacity:1;z-index:1
+}
+</style>
+</head>
+<body>
+
+<div class="html5">
+	<ul><!--无序列表标签-->
+		<li><img src="images/1.jpg"/></li>
+		<li><img src="images/2.jpg"/></li>
+		<li><img src="images/3.jpg"/></li>
+		<li><img src="images/4.jpg"/></li>
+		<li><img src="images/5.jpg"/></li>
+		<li><img src="images/6.jpg"/></li>
+	</ul>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

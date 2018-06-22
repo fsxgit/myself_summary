@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>墨迹天气中文官方网站 - 墨迹因您而精彩！</title>
+<meta name="baidu-site-verification" content="fmADvr1NSK" />
+<meta name="description" content="墨迹天气官方网站，手机天气网站，手机天气软件，天气软件" />
+
+<!--[if !(lt IE 9)]><!-->
+	<link type="text/css" rel="stylesheet" href="css/head.css?v=20170407">
+<!--<![endif]-->
+<!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="css/head_ie8.css?v=20170407">
+<![endif]-->
+
+<!--[if !(lt IE 9)]><!-->
+	<link type="text/css" rel="stylesheet" href="css/foot.css?v=20161105">
+<!--<![endif]-->
+<!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="css/foot_ie8.css?v=20161105">
+<![endif]-->
+
+<link type="text/css" rel="stylesheet" href="css/jquery.fullpage.min.css?v=20161105">
+
+<!--[if !(lt IE 9)]><!-->
+	<script src="js/jquery.min.js"></script>
+<!--<![endif]-->
+
+<!--[if lt IE 9]>
+    <script src="js/jquery-1.9.1.min.js"></script>
+<![endif]-->
+<script src="js/jquery.fullpage.min.js"></script>
+ 
+<!--[if !(lt IE 9)]><!-->
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+<!-- <![endif]-->
+<!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="css/index_ie8.css">
+<![endif]-->
+
+</head>
+<body>
+ <div class="box" id="fullpage"> 
+    <div class="top_weather">
+    <div class="top_weather_brief clearfix" id="head_weather_city">
+        
+    </div>
+    <div class="top_weather_hid">
+        <div class="top_forecast_title" id="head_weather_title">    
+        </div>
+        <div class="top_forecast_list">
+            <ul class="clearfix" id="head_weather_forecast">
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="top_menu clearfix" id="top_menu">
+    <div class="top_icon clearfix">
+        <div class="top_icon_home">
+            <a href="" target="_blank">
+                <img src="images/icon/top_icon_03.png">
+            </a>
+        </div>
+        <div class="top_icon_download">
+            <a href="mjsoft/" target="_blank">
+                <img src="images/icon/top_icon_05.png">
+            </a>
+        </div>
+        <div class="top_icon_qrcode">
+            <img src="images/icon/top_icon_07.png">
+            <div class="qrcode_hide">
+                <i><img src="images/icon/qrcode.jpg" alt="二维码"></i>
+                <span>扫码下载APP</span>
+            </div>
+        </div>
+    </div>
+    <div class="top_button">
+        <div class="top_more">
+            <img src="images/icon/menu_03.png">
+        </div>
+        <div class="top_menu_hid">
+            <ul>
+                <li>
+                    <a href="">首页</a>
+                </li>
+                <li>
+                    <a href="mjsoft/">下载</a>
+                </li>
+                <li>
+                    <a href="tob/">天气服务</a>
+                </li>
+                <!--<li>
+                    <a href="https://mall.moji.com">商城</a>
+                </li>-->
+                <li>
+                    <a href="news/">资讯</a>
+                </li>
+                <li>
+                    <a href="about/">关于墨迹</a>
+                </li>
+                <div class="menu_qrcode">
+                    <i><img src="images/icon/qrcode.jpg"></i>
+                    <span>扫一扫<br/>下载客户端</span>
+                </div>
+                <div class="wechat_qrcode">
+                    <i><img src="images/icon/qrcode2.png"></i>
+                    <span>扫一扫<br/>关注墨迹天气</span>
+                </div>
+            </ul>
+
+        </div>
+    </div>
+</div>
+    <div class="index section" id="index">
+    <div class="scrollblock">
+        <div class="head clearfix">
+            <a href="#" class="logo"><img src="images/icon/logo.png"></a>
+        </div>
+        <!-- <ul class="index_banner_btn">
+            <li class="index_banner_cur"><p></p></li>
+            <li><p></p></li>
+        </ul> -->
+        <div class="index_banner_content">
+            <div class="index_banner_video">
+                <div class="index_bg"></div>
+                <div class="index_info">
+                    <div class="index_text"><img src="images/index/index_15.png"></div>
+                    <div class="index_download_btn">
+                        <div class="index_iphone clearfix">
+                            <a href="http://mojichina.com/mjchann/channel.php?url=http://itunes.apple.com/cn/app/mo-ji-tian-qi-guan-fang/id434209233?mt=8&channelid=9001&userid=">
+                                <i><img src="images/icon/index_23.png"></i>
+                                <p>
+                                    <span>客户端下载</span>
+                                    <b>iPhone 6.3.0</b>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="index_android clearfix">
+                            <a href="http://download.moji001.com/download/MojiWeather-V6.0301.02-release-c8888.apk">
+                                <i><img src="images/icon/index_26.png"></i>
+                                <p>
+                                    <span>客户端下载</span>
+                                    <b>Android 6.3.1</b>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="index_download_icon">
+                        <a href="http://mojichina.com/mjchann/channel.php?url=http://itunes.apple.com/cn/app//id487161848?mt=8&channelid=10001&userid=">
+                            <img src="images/icon/index_31.png">
+                        </a>
+                        <a href="http://download.moji001.com/download/MoWeatherInstall_2.0.1.3.exe">
+                            <img src="images/icon/index_33.png">
+                        </a>
+                        <a href="mjsoft/" target="_blank">
+                            <img src="images/icon/index_35.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="index_banner_pic">
+                <div class="air_box">
+                    <div class="air_text">
+                        <a href="http://item.jd.com/2537619.html">
+                            <img src="images/index/air_text_0725.png" alt="空气果">
+                        </a>
+                    </div>
+                    <div class="airnut">
+                        <img src="images/index/air_1s_0725.png" alt="空气果">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="index_next"><img src="images/icon/demo_next.png"></div>
+    </div>
+</div>   
+    <div class="weather section" id="weather">
+    <div class="weather_phone" id="weather_phone">
+        <div class="phone_bg"><img src="images/index/phone_bg.png"></div>
+        <div class="phone_wea" id="phone_wea"><img src="images/index/phone_wea.png"></div>
+        <div class="phone_forecast" id="phone_forecast"><img src="images/index/phone_forecast.png"></div>
+    </div>
+    <div class="weather_text">
+        <div class="weather_text_title">
+            <i><img src="images/index/mainpagex2_07.png"></i>
+            <!--<a href="#" class="more"> 短时预报网页版</a>-->
+            <span>一款使用雷达图像显示的短时临近预报</span>
+        </div>
+        <div class="weather_text_list">
+            <div class="weather_text_minute clearfix">
+                <i><img src="images/icon/index_41.png"></i>
+                <p>
+                    <b>分钟级</b>
+                    <span>短时预报精准到1分钟</span>
+                </p>
+            </div>
+            <div class="weather_text_kilo clearfix">
+                <i><img src="images/icon/index_44.png"></i>
+                <p>
+                    <b>公里级</b>
+                    <span>预报范围缩小到1公里</span>
+                </p>
+            </div>
+            <div class="weather_text_smart clearfix">
+                <i><img src="images/icon/index_47.png"></i>
+                <p>
+                    <b>AI智能</b>
+                    <span>机器学习技术结合<br/>传统数值模式系统</span>
+                </p>
+            </div>
+            <div class="weather_text_radar clearfix">
+                <i><img src="images/icon/index_50.png"></i>
+                <p>
+                    <b>可视化</b>
+                    <span>全球数据预报可视化<br/>世界领先模式同化系统</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="weather_next"><img src="images/icon/demo_next.png"></div>
+    <div class="toTop"></div>
+</div>
+    <div class="info section" id="info">
+    <div class="scrollblock" >
+        <div class="info_text">
+            <i><img src="images/index/mainpagex2_11.png"></i>
+            <a href="https://tianqi.moji.com/news/index"  target="_blank" class="more">更多资讯</a>
+        </div>
+        <div class="index_news" id="index_news">
+            <div class="info_img info_img_1">
+                <i><img src="images/icon/img1.jpg" alt=""/></i>
+                <h2>G20杭州峰会</h2>
+                <span>2016-09-19</span>
+                <p>G20杭州峰会是今年中国最重要的主场外交，也是近年来中国主办的级别最高G20杭州峰会是今年中国最重要的主场外交，也是近年来中国主办的级别最高 </p>
+            </div>
+            <div class="info_img info_img_2">
+                <i><img src="images/icon/img2.jpg" alt=""/></i>
+                <h2>中国主办G200杭州峰会</h2>
+                <span>2016-09-20</span>
+                <p>G20杭州峰会是今年中国最重要的主场外交，也是近年来中国主办的级别最高... </p>
+            </div>
+            <div class="info_img info_img_3">
+                <i><img src="images/icon/img3.jpg" alt=""/></i>
+                <h2>G20杭州峰会</h2>
+                <span>2016-09-19</span>
+                <p>G20杭州峰会是今年中国最重要的主场外交，也是近年来中国主办的级别最高... </p>
+            </div>
+        </div>
+        <div class="info_next"><img src="images/icon/demo_next.png"></div>
+        <div class="toTop"></div>
+    </div>
+</div>
+    <div class="download section" id="download">
+        <div class="download_title">
+            <h2>点击图标下载相应客户端</h2>
+            <a href="mjsoft/" class="more more_grey" target="_blank">更多版本</a>
+        </div> 
+        <div class="download_list">
+      <a href="http://download.moji001.com/download/MojiWeather-V6.0301.02-release-c8888.apk">
+         <i><img src="images/icon/index_68.png"></i>
+         <span>Android 6.3.1</span> 
+      </a>
+      <a href="http://mojichina.com/mjchann/channel.php?url=http://itunes.apple.com/cn/app/mo-ji-tian-qi-guan-fang/id434209233?mt=8&channelid=9001&userid=">
+         <i><img src="images/icon/index_65.png"></i>
+         <span>iPhone 6.3.0</span> 
+      </a>
+      <a href="http://download.moji001.com/mojiapp/windoz/MoWeatherInstall_2.2.1.1.exe">
+         <i><img src="images/icon/index_74.png"></i>
+         <span>WP 1.8</span> 
+      </a>
+      <a href="http://download.moji001.com/download/MJTVWeather-mojiweb-release.apk">
+         <i><img src="images/icon/index_71.png"></i>
+         <span>TV 1.1.1</span> 
+      </a>
+      <a href="http://apps.microsoft.com/windows/zh-cn/app/hd/ef4bd620-b81b-486e-8cb7-c818677402d3">
+         <i><img src="images/icon/windows_03.png"></i>
+         <span>Windows 2.0</span> 
+      </a>
+      <a href="http://mojichina.com/mjchann/channel.php?url=http://itunes.apple.com/cn/app//id487161848?mt=8&channelid=10001&userid=">
+         <i><img src="images/icon/index_81.png"></i>
+         <span>iPad 2.8.1</span> 
+      </a>
+      <a href="javascript:void(0);">
+         <i><img src="images/icon/index_84.png"></i>
+         <span>扫描下载</span> 
+      </a>
+      <a href="mjsoft/">
+         <i><img src="images/icon/index_86.png"></i>
+         <span>更多版本</span> 
+      </a>
+</div>
+        <div class="foot">
+    <div class="foot_logo">
+        <a href="">
+            <img src="images/icon/index_95.png">
+        </a>
+    </div>
+    <div class="foot_nav">
+        <a href="updata/android/">升级日志</a>
+        <a href="faq/android/">常见问题</a>
+        <a href="http://designer.moji.com">设计师平台</a>
+        <a href="about/agreement/">服务协议</a>
+        <!-- <a href="javascript:void(0);" id="feedback_click">意见反馈</a> -->
+    </div>
+    <div class="foot_info">
+        <p>公司地址：北京市朝阳区酒仙桥路14号兆维华灯大厦A1区3门A216 联系电话：400-880-0599</p>
+        <p>Copyright © 2009-2016北京墨迹风云科技股份有限公司 All Right Reserved </p>
+        <p>©2016墨迹风云 京ICP备10021324号 互联网药品信息服务资格证书（京）非经营性-2016-0053<i><img src="images/icon/index_99.png">
+        </i>京公网安备 11010502030670号</p>
+    </div>
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f943519a2c87edfe58584a4a20bc11bb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script src="js/new_common.js?v=1"></script>
+
+
+
+
+
+        <div class="toTop"></div>
+    </div>
+</div>     
+</body> 
+<script src="js/new_news.js?v=2"></script>
+<!--[if !(lt IE 9)]><!-->
+    <script src="js/index.js?v=1"></script>
+<!-- <![endif]-->
+<!--[if lt IE 9]>
+    <script src="js/index_ie8.js?v=1"></script>
+<![endif]-->
+</body>
+</html>
+

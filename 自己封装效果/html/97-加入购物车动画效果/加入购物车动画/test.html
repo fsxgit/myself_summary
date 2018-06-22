@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery.min.js"></script>
+  <script src="parabola.js"></script>
+  <style>
+	 .boll{position:absolute;left:100px;top:350px;border-radius:50px;width:50px;height:50px;background:red;}
+	 .target{position:absolute;left:1000px;top:350px;border-radius:50px;width:50px;height:50px;background:#CDCDCD;}
+  </style>
+ </head>
+ <body>
+	<div class="btns" style="margin-top:20px">
+		<a href="#" id="run">开始运动</a>
+	</div>
+	<div id="boll" class="boll"></div>
+	<div id="target" class="target"></div>
+
+	<script>
+		//    加入购物车动画效果
+		var bool = new Parabola({
+			el: "#boll", //起始元素位置
+			targetEl: $("#target"), //目标元素位置
+			duration: 1000, //运动时间
+			curvature: 0.001, //运动弧度
+			callback:function(){//回调方法
+				alert("完成后回调");
+			},
+			stepCallback:function(x,y){
+
+			}
+		});
+		$("#run").click(function (event) {
+			event.preventDefault();
+			bool.start();
+		});
+</script>
+ </body>
+</html>

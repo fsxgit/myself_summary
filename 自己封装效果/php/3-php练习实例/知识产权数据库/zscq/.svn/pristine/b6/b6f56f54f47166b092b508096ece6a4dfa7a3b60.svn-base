@@ -1,0 +1,212 @@
+
+<!--4.许可备案-->
+                <div class="div4 div_tab">
+                    <!--右边的完成步骤部分-->
+                    <div class="list-gk-cont-right fr">
+                        <!--自增长步骤-->
+                        <div class="step-tree pr">
+                            <div class="fl pa">
+                                <div class="step-mode fl">
+                                    <div class="step-dot first fl">
+                                        <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                        <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                    </div>
+                                    <div class="step-txt  fl">
+                                        <p class="txt">等待下发《商标注册证》</p>
+                                    </div>
+                                </div>
+                                <div class="step-mode active fl">
+                                    <div class="step-dot fl">
+                                        <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                        <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                    </div>
+                                    <div class="step-txt fl">
+                                        <p class="txt">公告期结束，注册成功</p>
+                                        <p class="time">2016.09.09 12:34:36</p>
+                                    </div>
+                                </div>
+                                <div class="step-mode active fl">
+                                    <div class="step-dot fl">
+                                        <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                        <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                    </div>
+                                    <div class="step-txt fl">
+                                        <p class="txt">第三人提出异议，商标注册终止</p>
+                                        <p class="time">2016.09.09 12:34:36</p>
+                                    </div>
+                                </div>
+                                <div class="step-mode active fl">
+                                    <div class="step-dot fl">
+                                        <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                        <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                                    </div>
+                                    <div class="step-txt fl">
+                                        <p class="txt">资料已下载</p>
+                                        <p class="time">2016.09.09 12:34:36</p>
+                                    </div>
+                                </div>
+                                <div class="step-mode active fl">
+                                    <div class="step-dot fl">
+                                        <img src="public/html/images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                        <img src="public/html/images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                                    </div>
+                                    <div class="step-txt fl">
+                                        <p class="txt">第三人提出异议，商标注册终止</p>
+                                        <p class="time">2016.09.09 12:34:36</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--自增长步骤 end-->
+                    </div>
+                    <!--右边的完成步骤部分 end-->
+                    <!--上面切换模块 索要改变的部分-->
+                    <div class="list-gk-cont-left">
+                        <!--/*提示说明*//-->
+                        <div class="c-ts-common ">
+                            <p>商标注册人可以通过签订商标使用许可合同，许可他人使用其注册商标时，许可人必须在许可合同有效期内向商标局备案并报送备案材料。备案材料应当说明注册商标许可人、被许可人、许可期限、许可使用的商标或者服务范围等事项。</p>
+                        </div>
+                        <!--/*提示说明* end//-->
+                        <div class="bgl-mode mt20">
+                            <h1 class="c-h1">注册步骤</h1>
+                            <div class="bgl-cont bgl-steps">
+                                <span class="bgl-step">1</span>
+                                <span>用户支付订单</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">2</span>
+                                <span>整理资料快递给顾问</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">3</span>
+                                <span>顾问接收资料并办理</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">4</span>
+                                <span>许可成功</span>
+                            </div>
+                        </div>
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">新增许可备案</h1>
+                            <div class="bgl-cont">
+                                <div class="xk-xinzeng">
+                                    <input type="button" class="blue-small-btn" value="新增" onclick="xinzeng({$mark.id});"/>
+                                    <div class="mt10 f12 c999">
+                                        <p>1：商标局大约 1-2个月发出受理通知书，申请完成整个时间大约需要12个月左右。</p>
+                                        <p>2：您已许可给3家企业使用您的商标，1家企业在许可中。商标许可完成大约需要12个月，具体以官方时间为准。</p>
+                                    </div>
+                                </div>
+								<form method="post" action="{:U('Brand/xukexiadans')}">
+								<input type="hidden" name="markid" value="{$mark.id}">
+                                <table class="bg-table xzbeian  mt20">
+								
+								<foreach name="permit" item="vo" >
+                                    <tr id="{$vo.id}">
+									    <input type="hidden" name="xkid[]" value="{$vo.id}">
+                                        <td style="width: 48%;">{$vo.applicantname}</td>
+                                        <td style="width: 23%;">{$vo.applicantaddress}</td>
+                                        <td style="width: 14%;">
+										<if condition="$vo.type eq '1'">
+										普通许可
+										<elseif condition="$vo.type eq '2'"/>
+                                        排他许可
+										<elseif condition="$vo.type eq '3'"/>
+										独占许可
+										</if>
+										</td>
+                                        <td style="width: 14%;" class="xk-hand"><a href="javascript:;" onclick="delxk({$vo.id})">删除</a><a href="javascript:;" onclick="beian({$vo.id});">详情</a></td>
+                                    </tr>
+								</foreach>
+                                </table>
+                                <div class="f12 tr">
+                                    <p class="mt30 mb30"><input type="submit" class="blue-big-btn" value="立即办理"/></p>
+                                </div>
+								</form>
+                            </div>
+                        </div>
+
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">许可办理中</h1>
+                            <div class="bgl-cont">
+                                <table class="bg-table mt20">
+                                    <tr class="tr1">
+                                        <td style="width: 30%;">被许可人</td>
+                                        <td style="width: 21%;">被许期限</td>
+                                        <td style="width: 11%;">被许类型</td>
+                                        <td style="width: 12%;">开始办理时间</td>
+                                        <td style="width: 14%;">预计完成时间</td>
+                                        <td  style="width: 10%;">操作</td>
+                                    </tr>
+                                    <tr>
+                                        <td>神州易桥信息股份</td>
+                                        <td>2016.09.09-2017.08.31</td>
+                                        <td>普通许可</td>
+                                        <td>2016.09.09</td>
+                                        <td>2017.09.09</td>
+                                        <td class="xk-hand"><a href="javascript:;">查看进度</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>神州易桥信息股份</td>
+                                        <td>2016.09.09-2017.08.31</td>
+                                        <td rowspan="3">普通许可</td>
+                                        <td rowspan="3">2016.09.09</td>
+                                        <td rowspan="3">2017.09.09</td>
+                                        <td rowspan="3" class="xk-hand"><a href="javascript:;">查看进度</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>神州易桥信息股份</td>
+                                        <td>2016.09.09-2017.08.31</td>
+                                    </tr>
+                                    <tr>
+                                        <td>神州易桥信息股份</td>
+                                        <td>2016.09.09-2017.08.31</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="bgl-mode mb50">
+                            <h1 class="c-h1">已许可企业</h1>
+                            <div class="bgl-cont">
+                                <div class="mb20 f12 c999">您已许可给3家企业使用您的商标，一家企业在许可中。商标许可完成大约需要12个月，具体以官方时间为准。</div>
+                                <table class="bg-table">
+                                    <tr class="tr1">
+                                        <td style="width: 27%;">公司名称</td>
+                                        <td style="width: 10%;">许可期限</td>
+                                        <td  style="width: 28%;">许可时间段</td>
+                                        <td  style="width: 11%;">剩余期限</td>
+                                        <td  style="width: 12%;">许可类型</td>
+                                        <td  style="width: 12%;">操作</td>
+                                    </tr>
+                                    <tr>
+                                        <td>神州顺利办</td>
+                                        <td>3年</td>
+                                        <td>自2015年5月1日到2018年4月30日</td>
+                                        <td>1031天</td>
+                                        <td>普通许可</td>
+                                        <td class="xk-hand"><a href="javascript:;" onclick="beian();">详情</a></td>
+                                    </tr>
+                                    <tr class="zhong">
+                                        <td>神州顺利办</td>
+                                        <td>3年</td>
+                                        <td>自2015年5月1日到2018年4月30日</td>
+                                        <td>1031天</td>
+                                        <td>普通许可</td>
+                                        <td class="xk-hand"><a href="javascript:;" onclick="beian();">详情</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>神州顺利办</td>
+                                        <td>3年</td>
+                                        <td>自2015年5月1日到2018年4月30日</td>
+                                        <td>1031天</td>
+                                        <td>普通许可</td>
+                                        <td class="xk-hand"><a href="javascript:;" onclick="beian();">详情</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--上面切换模块 索要改变的部分 end-->
+                </div>
+                <!--4.许可备案 end-->
+				    <!--许可备案详情5 end-->
+    
+<!--弹出框 end-->
+

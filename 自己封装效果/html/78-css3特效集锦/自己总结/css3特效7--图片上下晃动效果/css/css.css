@@ -1,0 +1,167 @@
+
+/*css3 图片上下晃动的效果*/
+.img_move1 {
+    -webkit-animation: img_move4 5s ease-out infinite;
+    animation: img_move4 5s ease-out infinite
+}
+
+.img_move2 {
+    -webkit-animation: img_move3 5s ease-out infinite;
+    animation: img_move3 5s ease-out infinite
+}
+
+.img_move3 {
+    -webkit-animation: img_move2 5s ease-out infinite;
+    animation: img_move2 5s ease-out infinite
+}
+
+.img_move4 {
+    -webkit-animation: img_move1 5s ease-out infinite;
+    animation: img_move1 5s ease-out infinite
+}
+
+@-webkit-keyframes img_move4 {
+    0% {
+        trasnform: translateY(0)
+    }
+    25% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    75% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes img_move4 {
+    0% {
+        trasnform: translateY(0)
+    }
+    25% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    75% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-webkit-keyframes img_move3 {
+    0% {
+        trasnform: translateY(0)
+    }
+    25% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    75% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes img_move3 {
+    0% {
+        trasnform: translateY(0)
+    }
+    25% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    75% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-webkit-keyframes img_move2 {
+    0% {
+        trasnform: translateY(0)
+    }
+    20% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    80% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes img_move2 {
+    0% {
+        trasnform: translateY(0)
+    }
+    20% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    80% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@-webkit-keyframes img_move1 {
+    0% {
+        trasnform: translateY(0)
+    }
+    30% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    70% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes img_move1 {
+    0% {
+        trasnform: translateY(0)
+    }
+    30% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px)
+    }
+    70% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+/*css3 图片上下晃动的效果 end*/

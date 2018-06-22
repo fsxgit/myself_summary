@@ -1,0 +1,560 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: Dean <zxxjjforever@163.com>
+// +----------------------------------------------------------------------
+namespace Portal\Controller;
+use Common\Controller\HomebaseController; 
+header("content-type:text/html;charset=utf-8");
+/**
+ *  协同接口对接
+ */
+class ApiController extends HomebaseController {
+
+    /*
+    *  驳回订单详情
+    **/
+    function order_information(){
+        $key = "fde37affb714df9241fd661b676dd6c3";
+        $pc_key = I('get.pc_key');
+        $param = I('get.param');
+        $param = str_replace(" ", "+",$param);
+        $sign = I('get.sign');
+        $ysign = md5($pc_key.$param);
+        if(empty($pc_key)||empty($param)||empty($sign)){
+            json('10002','参数缺少');
+        }
+        if($sign!=$ysign){
+            json('10003','签名错误');
+        }
+        if($key!=$pc_key){
+            json('10004','秘钥错误');
+        }
+        $param = base64_decode($param);
+        $param = json_decode($param,true);
+        $order_no = $param['order_no'];
+        if($order_no==''){
+            json('10002','参数缺少');
+        }
+       try {
+            $arr = M("zcorder")->where("order_no ='$order_no'")->field("orderid,customerid,query_no,type,applicantname,applicantaddress,order_no,customername,customermobile,paytime,markid")->find();
+            $data = M("mark")->where("id in({$arr['markid']})")->select();
+            $mark = array();
+            foreach($data as $k=>$v){
+                $mark['markname'] = $v['markname'];
+                $mark['begindate'] = $v['begindate'];
+                $mark['enddate'] = $v['enddate'];
+                $mark['enddate_address'] = '';//$v['enddate_address'];
+                $mark['entname'] = $v['entname'];
+                if($v['marklogo']==''){
+                    $mark['markimage'] = $v['markimage'];
+                    $mark['imagetype'] = '1';
+                    $mark['leibie'][] = array('typedetaildes'=>$v['typedetaildes'],);
+                }
+                if($v['markimage']==''){
+                    $mark['markimage'] = $v['marklogo'];
+                    $mark['imagetype'] = '2';
+                    $mark['leibie'][] = array('typedetaildes'=>$v['registetype'],);
+                }
+            }
+           $info['mark'] = $mark;
+           if($arr['type']=='3'){//转让
+               $detail = M("zcorder_detail")->where("orderid ={$arr['orderid']}")->find();
+               $info['info']['order_no'] = $arr['order_no'];
+               $info['info']['applicantname'] = $detail['applicantname'];
+               $info['info']['applicantaddress'] = $detail['applicantaddress'];
+               $info['info']['code'] = $detail['code'];
+               $info['info']['customername'] = $detail['customername'];
+               $info['info']['customermobile'] = $detail['customermobile'];
+           }
+           if($arr['type']=='4'){//变更
+               $detail = M("zcorder_detail")->where("orderid ={$arr['orderid']}")->find();
+               $info['info']['order_no'] = $arr['order_no'];
+               $info['info']['applicantname'] = $detail['applicantname'];
+               $info['info']['applicantaddress'] = $detail['applicantaddress'];
+           }
+        if($arr['type']=='2'||$arr['type']=='5'){//变更
+            $info['info']['order_no'] = $arr['order_no'];
+            $info['info']['file'][] = array('filename'=>'材料一','fileurl'=>'www.baidu.com');
+            $info['info']['file'][] = array('filename'=>'材料二','fileurl'=>'www.baidu.com');
+        }
+        $mark_zc_state = M("mark_zc_state")->where("orderid = {$arr['orderid']}")->find();
+           $info['info']['state'] = $mark_zc_state['zhucestate'];
+           json('10001',$info);
+        } catch (\Exception $e) {
+            json('10009',"程序异常出错！！！未知原因");
+        }
+
+    }
+    /*
+     *   其他订单状态的修改
+     * */
+    function ortherorderstatesave(){
+        $key = "fde37affb714df9241fd661b676dd6c3";
+        $pc_key = I('get.pc_key');
+        $param = I('get.param');
+        $param = str_replace(" ", "+",$param);
+        $sign = I('get.sign');
+        $ysign = md5($pc_key.$param);
+        if(empty($pc_key)||empty($param)||empty($sign)){
+            json('10002','参数缺少');
+        }
+        if($sign!=$ysign){
+            json('10003','签名错误');
+        }
+        if($key!=$pc_key){
+            json('10004','秘钥错误');
+        }
+        $param = base64_decode($param);
+        $param = json_decode($param,true);
+        $order_no = $param['order_no'];
+        $currentstep = $param['currentstep'];
+        $upperstep = $param['upperstep'];
+        if($order_no==''){
+            json('10002','参数缺少');
+        }
+        try {
+            $arr = M("zcorder")->where("order_no ='$order_no'")->find();
+            if(empty($arr)){
+                json('10005','没有该订单');
+            }
+            if($currentstep=='2'){
+                M("mark_zc_state")->where("orderid={$arr['orderid']}")->save(array('zhucestate'=>'2','zlqb'=>time()));
+            }
+            if($currentstep=='3'){
+                M("mark_zc_state")->where("orderid={$arr['orderid']}")->save(array('zhucestate'=>'3','tjsb'=>time()));
+            }
+            if($currentstep=='4'){
+                M("mark_zc_state")->where("orderid={$arr['orderid']}")->save(array('zhucestate'=>'4','sltz'=>time()));
+            }
+            json('10001',"SUCCESS");
+        } catch (\Exception $e) {
+            json('10009',"程序异常出错！！！未知原因");
+        }
+
+    }
+	/**
+	*  下载页面
+	*/
+	function download(){
+		/*$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$order_no = $param['order_no'];
+		if($order_no==''){
+			json('10002','参数缺少');
+		}*/
+		$this->display("");
+	}
+	/**
+	*  订单状态的改变
+	*/
+	function order_state_save(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$order_no = $param['order_no'];
+		$currentstep = $param['currentstep'];
+		$upperstep = $param['upperstep'];
+		if($order_no==''){
+			json('10002','参数缺少');
+		}
+		$zcorder = M("zcorder")->where("order_no='$order_no'")->find();
+		if(empty($zcorder)){
+			json('10005','没有该订单');
+		}
+		if($currentstep=='2'){
+			M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'3','zlqb'=>time()));
+		}
+		if($currentstep=='3'){
+			M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'4','tjsb'=>time()));
+		}
+		if($currentstep=='4'){
+			M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'5','sltz'=>time()));
+		}
+		if($currentstep=='5'){
+			M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'6','sctg'=>time()));
+		}
+        if($currentstep=='573'){
+            M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'6','sctg'=>time()));
+            M("zcorder")->where("porder={$zcorder['orderid']}")->save(array('zhucestate'=>'3'));
+        }
+        if($currentstep=='55'){
+            M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'7','sctg'=>time()));
+        }
+		if($currentstep=='99'){
+			M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'9','zctg'=>time()));
+		}
+		if($currentstep=='100'){
+			M("mark_zc_state")->where("orderid={$zcorder['orderid']}")->save(array('zhucestate'=>'10','xfzs'=>time()));
+		}
+		json('10001','SUCCESS');
+	}
+	/**
+	*   注册订单按照订单号查询数据
+	*/
+	function order_no_query(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$order_no = $param['order_no'];
+		if($order_no==''){
+			json('10002','参数缺少');
+		}
+		try {
+		 $arr = M("zcorder")->where("order_no ='$order_no'")->field("customerid,query_no,applicantname,applicantaddress,order_no,customername,customermobile,paytime,markid")->find();
+		 $mark = M("mark")->where("id in({$arr['markid']})")->select();
+		 foreach($mark as $k=>$v){
+			 $markname = $v['markname'];
+			 $markpicture = $v['marklogo'];
+			 $marktype[] = $v['registetype'];
+		 }
+		 $arr['registetype'] = implode(",",$marktype);
+		 $arr['markname'] = $markname;
+		 $arr['markpicture'] = $markpicture;
+		 json('10001',$arr);
+		} catch (\Exception $e) {   
+		    json('10009',"程序异常出错！！！未知原因");
+        }
+	}
+	/**
+	*  按照查询单id查询数据
+	*/
+	function inquire_details(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$number = $param['query_no'];
+		if($number==''){
+			json('10002','参数缺少');
+		}
+		
+		try {
+		    $arr = M("inquire")->where("number ='$number'")->field("queryid,field_id,industry_id",true)->find();
+		    json('10001',$arr);
+		} catch (\Exception $e) {   
+		    json('10009',"程序异常出错！！！未知原因");
+        }
+	}
+	/**
+	*  请求尼斯分类接口按照code查询
+	*/
+	function nice_calss(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$code = $param['code'];
+		if($code==''){
+			json('10002','参数缺少');
+		}
+		try {
+		    $arr = M("nice_first")->where("pid ={$code}")->select();
+			json('10001',$arr);
+		} catch (\Exception $e) {   
+		    json('10009',"程序异常出错！！！未知原因");
+        }
+	}
+	/**
+	*  请求尼斯分类接口按照级别查询
+	*/
+	function nice_level(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$code = $param['code'];
+		try {
+		if($code=='1'){
+			$arr = M("nice_first")->where("level='1'")->field("id,describe",true)->select();
+		}
+		if($code=='2'){
+			$arr = M("nice_first")->where("level='1'")->field("id,describe",true)->select();
+			$two = M("nice_first")->where("level='2'")->field("id,describe",true)->select();
+			foreach($arr as $k=>$v){
+				foreach($two as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$arr[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+		}
+		if($code=='3'){
+			$arr = M("nice_first")->where("level='1'")->field("id,describe",true)->select();
+			$two = M("nice_first")->where("level='2'")->field("id,describe",true)->select();
+			$three = M("nice_first")->where("level='3'")->field("id,describe",true)->select();
+			foreach($two as $k=>$v){
+				foreach($three as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$two[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+			foreach($arr as $k=>$v){
+				foreach($two as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$arr[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+		}
+		    json('10001',$arr);
+		} catch (\Exception $e) {   
+		    json('10009',"程序异常出错！！！未知原因");
+        }
+	}
+	/**
+	*   尼斯分类批量查询
+	*/
+	function nice_piliang(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$code = $param['code'];
+		$level = $param['level'];
+		if($code==''||$level==''){
+			 json('10002','参数缺少');
+		}
+		try {
+		if($level=='2'){
+			$nicef = M("nice_first")->where("id in($code)")->field("describe,level",true)->select();
+			$one = array();
+			foreach($nicef as $k=>$v){
+				if(!in_array($v['pid'], $one)){
+					$one[] = $v['pid'];
+				}
+				
+			}
+			$one = implode(',',$one);
+			$nicecalss = M("nice_first")->where("code in($one)")->field("describe,level",true)->select();
+			foreach($nicecalss as $k=>$v){
+				foreach($nicef as $ks=>$vs){
+					if($v['code']==$vs['pid']){
+						$nicecalss[$k]['items'][] = $vs;
+					}
+				}
+			}
+		}
+		if($level=='3'){
+			$nice = M("nice_first")->where("id in($code)")->field("describe,level",true)->select();
+			$two = array();
+			foreach($nice as $k=>$v){
+				if(!in_array($v['pid'], $two)){
+					$two[] = $v['pid'];
+				}
+			}
+			$two = implode(',',$two); 
+			$nicef = M("nice_first")->where("code in($two)")->field("describe,level",true)->select();
+			$one = array();
+			foreach($nicef as $k=>$v){
+				if(!in_array($v['pid'], $one)){
+					$one[] = $v['pid'];
+				}
+				foreach($nice as $ks=>$vs){
+					if($v['code']==$vs['pid']){
+						$nicef[$k]['items'][] = $vs;
+					}
+				}
+			}
+			$one = implode(',',$one);
+			$nicecalss = M("nice_first")->where("code in($one)")->field("describe,level",true)->select();
+			foreach($nicecalss as $k=>$v){
+				foreach($nicef as $ks=>$vs){
+					if($v['code']==$vs['pid']){
+						$nicecalss[$k]['items'][] = $vs;
+					}
+				}
+			}
+		}
+		
+		json('10001',$nicecalss);
+		} catch (\Exception $e) {   
+		    json('10009',"程序异常出错！！！未知原因");
+        }
+	}
+    /**
+	*  更换顾问
+	*/
+    public function replace_adviser(){
+	    $key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		try {
+		
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$id = $param['customerid'];
+		$oldconsultantid = $param['oldconsultantid'];
+		$adviser = M("adviser")->where("customerid={$id} and consultantid={$oldconsultantid}")->find();
+        if(!empty($adviser)){
+			$info['consultantid'] = $param['consultantid'];
+			$info['consultantname'] = $param['consultantname'];
+			$info['consultantmobile'] = $param['consultantmobile'];
+			$info['consultantdept'] = $param['consultantdept'];
+			$info['consultantaddress'] = $param['consultantaddress'];
+			M("adviser")->where("customerid={$id}")->save($info);
+			json('10001','成功');
+		}
+		json('10005','没有该用户');
+		} catch (\Exception $e) {   
+		    json('10009',"程序异常出错！！！未知原因");
+        }
+		
+    }
+	/**
+	*  查询单查询结果返回
+	*/
+	function query_result(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$param = str_replace(" ", "+",$param);
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		try {
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$query_no = $param['query_no'];
+		$customerid = $param['customerid'];
+		$inquire = M("inquire")->where("number='$query_no' and customerid={$customerid}")->find();
+        if(empty($inquire)){
+			json('10005','没有该查询单');
+		}
+		if($inquire['state']!='0'){
+			json('10005','该查询单已有查询结果');
+		}
+		$info['endtime'] = time();
+		$info['newmarkname'] = $param['newmarkname'];
+		$info['suggestedtype'] = $param['suggestedtype'];
+		$info['okquerytype'] = $param['querytype'];
+		$info['state'] = "1";
+		M("inquire")->where("number='$query_no' and customerid={$customerid}")->save($info);
+		json('10001','成功');
+		} catch (\Exception $e) {   
+		    json('10009',"程序异常出错！！！未知原因");
+        }
+	}
+}
+
+

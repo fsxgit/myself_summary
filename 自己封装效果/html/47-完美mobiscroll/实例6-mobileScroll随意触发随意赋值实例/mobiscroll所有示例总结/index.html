@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Mobiscroll插件</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>
+    <link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        *{margin: 0; padding:0;}
+        html,body{width: 100%;}
+        .fx_box{max-width:520px; margin:0 auto; width: 90%; background: #ccc; padding:0 15px; }
+        h1{font-size: 20px; padding:10px 0; text-align: center;}
+        h2{font-size: 16px; padding:10px 0;}
+        .red{color: red;}
+        i.red{font-size: 20px;}
+        .blue{color: blue;}
+        .demos{padding:20px;}
+        p{padding:4px 0;}
+        .btn{width:100px; height:30px; line-height: 30px; text-align: center; color: #fff; font-size: 14px;background: blue; display: inline-block;}
+
+
+        /*需要隐藏的input*/
+        #select_dummy{display: none;}
+        #date1{display: none;}
+        #time{display: none;}
+        #scroller{display: none;}
+        #scroller_dummy{display: none;}
+    </style>
+</head>
+
+<body>
+<div class="fx_box">
+    <div class="header">
+        <h1>Mobiscroll精简示例</h1>
+        <div class="red">
+            <p>注意：</p>
+            <p>这里是我使用多次，总结的避开一切bug问题，满足ios和安卓手机的Mobiscroll选择的案例，基本上是覆盖了所有</p>
+            <p>建议触发事件勿用input来触发，因为这样在ios上会出现问题，但是也要写触发事件的input，因为传值方便，但是要隐藏这个input</p>
+            <p>input触发的，会有这个问题：在input框里面会出现焦点，进而会调用手机的输入键盘，会遮挡弹出的选择插件，</p>
+            <p>解决方法：隐藏input框，使用其他标签调用插件</p>
+        </div>
+    </div>
+    <br />
+
+    <div class="content">
+        <h1>时间插件</h1>
+
+
+        <div class="demos">
+            <h2>插件1-年月日时分秒</h2>
+            <p>调用方法1： <span class="blue btn" id="btn1">点我选择1</span></p>
+            <br />
+            <p><input value="" class="" readonly="readonly" name="scroller" id="scroller" type="text"></p>
+            <p>显示结果：<i class="res1 red"></i></p>
+        </div>
+
+
+        <div class="demos">
+            <h2>插件2-年月日</h2>
+            <p>调用方法： <label for="date1"> <span class="blue btn" id="btn2">点我选择2</span></label></p>
+
+            <p>显示结果：<i class="res2 red"></i><input value="" class="" readonly="readonly" id="date1" type="text"></p>
+        </div>
+
+        <div class="demos">
+            <h2>插件3-时分秒</h2>
+            <p>调用方法： <label for="time"> <span class="blue btn" id="btn3">点我选择3</span></label></p>
+
+            <p>显示结果：<i class="res3 red"></i><input value="" class="" readonly="readonly" id="time" type="text"></p>
+        </div>
+
+
+        <div class="demos">
+            <h2>插件4-单项选择</h2>
+            <div id="btn" class="blue btn">点我选择4</div>
+            <p>显示结果：<i class="res4 red"></i></p>
+            <select  id="select" style="display: none;">
+                <option value="1">大专</option>
+                <option value="2">本科</option>
+                <option value="3">高中</option>
+                <option value="4">初中</option>
+                <option value="5">小学</option>
+            </select>
+        </div>
+
+        <div class="demos">
+            <h2>插件5-省市区</h2>
+            <div id="btn5" class="blue btn">点我选择5</div>
+            <p>显示结果：<i class="res5 red"></i></p>
+            <label for="treelist">省市区三级联动</label>
+            <ul id="treelist">
+                <li>
+                    <span class="sheng">广东省</span><!-- 第一层 省 -->
+                    <ul>
+                        <li>
+                            <span class="shi">广州市</span><!-- 第二层 市 -->
+                            <ul class="qu">
+                                <li>白云区</li>    <!-- 第三层 区 -->
+                                <li>天河区</li>
+                                <li>番禺区</li>
+                                <li>花都区</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="shi">佛山市</span>
+                            <ul class="qu">
+                                <li>南海区</li>
+                                <li>禅城区</li>
+                                <li>顺德区</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="sheng">湖北省</span>
+                    <ul>
+                        <li>
+                            <span class="shi">武汉市</span>
+                            <ul class="qu">
+                                <li>汉口市</li>
+                                <li>南昌市</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="sheng">陕西省</span>
+                    <ul>
+                        <li>
+                            <span class="shi">西安市</span>
+                            <ul class="qu">
+                                <li>未央区</li>
+                                <li>钟楼</li>
+                                <li>高薪区</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="shi">咸阳市</span>
+                            <ul class="qu">
+                                <li>xx1区</li>
+                                <li>xx2区</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    mob1();
+//    年月日是分秒选择  1
+    function mob1(){
+        //        触发条件
+        $("#btn1").click(function(){
+            $("#scroller").mobiscroll("show");
+        });
+
+
+        $("#scroller").mobiscroll().date();
+
+        var currYear = (new Date()).getFullYear();
+
+        //初始化日期控件
+        var opt = {
+            preset: 'datetime',
+            theme: 'android-ics light',
+            display: 'bottom',
+            mode: 'scroller',
+            dateFormat: 'yyyy-mm-dd',
+            lang:'zh',
+            setText: '确定',
+            cancelText: '取消',
+            headerText: function (valueText) { return "选择年月日时分秒";},
+            dateOrder: 'yyyymmdd',
+            timeFormat: 'HH:ii',
+            timeWheels: 'HHii',
+            stepMinute: 5,
+            dayText: '日', monthText: '月', yearText: '年',
+            showNow: false,
+            nowText: "今",
+            startYear:currYear,
+            endYear:currYear + 100,
+            minDate: new Date(),
+            onSelect:function(array,inst){
+//                alert(array);
+                $(".res1").html(array);
+            }
+
+        };
+
+        $("#scroller").mobiscroll(opt);
+    }
+//    年月日选择  2
+    mob2();
+    function mob2(){
+        //        触发条件
+        $("#btn2").click(function(){
+            $("#date1").mobiscroll("show");
+        });
+
+        $("#date1").mobiscroll().date();
+
+        var currYear = (new Date()).getFullYear();
+
+        //初始化日期控件
+        var opt = {
+            preset: 'date',
+            theme: 'android-ics light',
+            display: 'bottom',
+            mode: 'scroller',
+            dateFormat: 'yyyy-mm-dd',
+            lang:'zh',
+            setText: '确定',
+            cancelText: '取消',
+            headerText: function (valueText) { return "选择年月日";},
+//            fixedWidth:[100,100], //2组滚动框的宽度
+//            placeholder:"请选择时间", //触发input框内的placeholder的设置
+            rows:5, //滚动区域内的行数 最好是基数1 3 5  7
+//            input:"fx_input",//为插件生成的input添加样式
+            labels:['省','市','区'],
+
+            dateOrder: 'yyyymmdd',
+            timeFormat: 'HH:ii',
+            timeWheels: 'HHii',
+            stepMinute: 5,
+            dayText: '日', monthText: '月', yearText: '年',
+            showNow: false,
+            nowText: "今",
+            startYear:currYear,
+            endYear:currYear + 100,
+            minDate: new Date(),
+            onSelect:function(array,inst){
+//                alert(array);
+                $(".res2").html(array);
+            }
+
+        };
+
+        $("#date1").mobiscroll(opt);
+    }
+    //    时分秒选择  3
+    mob3();
+    function mob3(){
+        //        触发条件
+        $("#btn3").click(function(){
+            $("#time").mobiscroll("show");
+        });
+
+        $("#time").mobiscroll().date();
+
+        var currYear = (new Date()).getFullYear();
+
+        //初始化日期控件
+        var opt = {
+            preset: 'time',
+            theme: 'android-ics light',
+            display: 'bottom',
+            mode: 'scroller',
+            dateFormat: 'yyyy-mm-dd',
+            lang:'zh',
+            setText: '确定',
+            cancelText: '取消',
+            headerText: function (valueText) { return "选择时间";},
+
+            dateOrder: 'yyyymmdd',
+            timeFormat: 'HH:ii',
+            timeWheels: 'HHii',
+            stepMinute: 5,
+            dayText: '日', monthText: '月', yearText: '年',
+            showNow: false,
+            nowText: "今",
+            startYear:currYear,
+            endYear:currYear + 100,
+            minDate: new Date(),
+            onSelect:function(array,inst){
+//                alert(array);
+                $(".res3").html(array);
+            }
+
+        };
+
+        $("#time").mobiscroll(opt);
+    }
+
+
+    mob4();
+//    单选选择 4
+    function mob4(){
+        //        触发条件
+        $("#btn").click(function(){
+            $("#select").mobiscroll("show");
+        });
+
+        $('#select').mobiscroll().select({
+            preset: 'select',
+            theme: 'android-ics light',
+            lang: 'zh',
+            setText: '确定',
+            cancelText: '取消',
+            headerText: function (valueText) { return "选择学历";},
+            minWidth: 200,
+            mode: 'scroller',
+            display: 'bottom',
+//            defaultValue:[5,1], //设置初始值
+            onSelect: function (array,inst) {
+//            console.log(inst);
+//            点击确定按钮触发 弹出选中的文字
+//            alert(array);
+//            点击确定按钮触发 弹出选中的文字的value
+//            alert($('#state').mobiscroll('getValue'));
+                $(".res4").html(array);
+            }
+//            formatResult:function(array){//返回自定义格式结果,当打开时，onSelect返回结果出现问题，所以，这两个勿同时使用
+//                alert(array);
+//            }
+        });
+//
+//        //			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+//        $("#select_dummy").val("");
+//        $("#select_dummy").attr("placeholder","请选择选项");
+    }
+
+
+    mod5();
+    function mod5(){
+//        触发条件
+        $("#btn5").click(function(){
+            $("#treelist").mobiscroll("show");
+        })
+
+//			初始化控件
+        var opt = { };
+
+//			控件配置
+        opt.tree_list = {
+            preset : 'list',
+            labels: ['Region', 'Country', 'City'] //省市区
+        };
+
+        <!-- 固定写法 -->
+        $('#treelist').val('').scroller('destroy').scroller(
+                $.extend(opt['tree_list'],
+                        {
+                            theme: 'android-ics light',
+                            mode: 'scroller',
+                            display: 'bottom',
+                            setText: '确定', //确认按钮名称
+                            cancelText: '取消',//取消按钮名籍我
+                            lang: 'zh',
+                            headerText: function (valueText) { return "选择地址";}, 	//弹出窗Title
+                            formatResult: function (array) {
+                                //alert(array);//返回自定义格式结果
+                                //return $('#treelist>li').eq(array[0]).find(".sheng").text();	//第一级文字
+                                //return $('#treelist>li').eq(array[0]).find('.shi').eq(array[1]).text();	//第二级文字
+                                //return $('#treelist>li').eq(array[0]).find('.qu').eq(array[1]).find('li').eq(array[2]).text();	//第三级文字
+
+
+                                var fir = $('#treelist>li').eq(array[0]).find(".sheng").text();	//第一级文字
+                                var sec = $('#treelist>li').eq(array[0]).find('.shi').eq(array[1]).text();	//第二级文字
+                                var tir = $('#treelist>li').eq(array[0]).find('.qu').eq(array[1]).find('li').eq(array[2]).text();	//第三级文字
+//                                var tir = $('#treelist>li').eq(array[0]).find('.shi').eq(array[1]).siblings("ul").find('.qu').eq(array[2]).text();	//第三级文字
+
+
+                                //开启默认选中第一个
+//                                    $("#treelist_dummy").val(fir+" "+sec+" "+tir);
+
+                                return fir+" "+sec+" "+tir;
+                            },
+                            onSelect:function(valueText){
+                                //点击确定按钮触发事件
+//                            alert(valueText);
+                                $(".res5").html(valueText);
+                            },
+                            onCancel: function (valueText, inst) {
+                                //点击取消按钮触发
+//                            alert(valueText);
+                            },
+                            onChange: function (valueText, inst) {
+                                //当值变化时触发
+//                            alert(valueText);
+                            }
+
+                        }
+                )
+        );
+
+
+        //【自己修改的】修改控件自己生成的输入框，来改变初始状态，
+        $("#treelist_dummy").val("");
+        $("#treelist_dummy").attr("placeholder","请选择地区");
+    }
+</script>
+</body>
+</html>

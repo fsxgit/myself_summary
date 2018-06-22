@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/wrong.css"/>
+</head>
+<body>
+    <div class="fp-box main c333 f12">
+        <div class="per-nav">我的钱包 > 充值</div>
+        <h1 class="c-h1">支付密码找回</h1>
+        <div class="fp-step">
+			<img src="public/html/images/fp6.png" width="480" height="55" alt=""/>
+		</div>
+        <div class="fp-input-box bc">
+            <p>
+				<span class="tit">新密码</span>
+				<span class="pasIE-box">
+					<input type="text" class = "ggg pasIE-bg" placeholder="请输入新密码"/>
+					<input type="password" id = "pass"  name = "pass" class = "ggg pasIE" placeholder="请输入新密码"/>
+				</span>
+			</p>
+            <p class="warn-box" id = "passts"></p>
+            <p>
+				<span class="tit">确认新密码</span>
+				<span class="pasIE-box">
+					<input type="text" class = "pasIE-bg" placeholder="请再次输入新密码"/>
+					<input type="password" id = "pass1"  name = "pass1" class = "ggg pasIE" placeholder="请再次输入新密码"/>
+				</span>
+			</p>
+			<p class="warn-box" id = "pass1ts"></p>
+            <p>
+				<input type="button" onclick = "formck()" class="next bg1 cfff" value="下一步"/>
+			</p>
+			<p class="warn-box"></p>
+        </div>
+    </div>
+</body>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+<script>
+	$(".ggg").each(function(){
+		$(this).focus(function(){
+			$(this).parents("p").siblings(".warn-box").hide().html("");
+		})
+	});
+	function formck(){
+		var pass = $("#pass").val();
+		var pass1 = $("#pass1").val();
+		if(pass == ""){
+			$("#passts").show();
+			$("#passts").html("<span class='warn-txt'>请输入密码</span>");
+			return false;
+		}else if(pass1 == ""){
+			$("#pass1ts").show();
+			$("#pass1ts").html("<span class='warn-txt'>请输入确认密码</span>");
+			return false;
+		}else if(pass != pass1){
+			$("#pass1ts").show();
+			$("#pass1ts").html("<span class='warn-txt'>两次密码输入不一致</span>");
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			data:{"pass":pass},
+			url:'{:U('Portal/oneroadpay/czpass4')}',//目标地址
+			success: function(msg){
+				if(msg == 1){
+					window.location.href='index.php?g=Portal&m=Oneroadpay&a=czpass5';
+				}else if(msg == 2){
+					$("#formts").show();
+					$("#formts").html("<span class='warn-txt'>修改密码失败</span>");
+					return false;
+				}
+			}
+		});
+	}
+</script>
+</html>

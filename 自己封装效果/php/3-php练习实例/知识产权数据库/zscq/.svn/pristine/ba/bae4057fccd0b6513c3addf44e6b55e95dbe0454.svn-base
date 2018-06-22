@@ -1,0 +1,238 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: Dean <zxxjjforever@163.com>
+// +----------------------------------------------------------------------
+namespace Portal\Controller;
+use Common\Controller\HomebaseController; 
+header("content-type:text/html;charset=utf-8");
+/**
+ *  协同接口对接
+ */
+class ApiController extends HomebaseController {
+	/**
+	*  请求尼斯分类接口按照code查询
+	*/
+	function nice_calss(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$code = $param['code'];
+		$arr = M("nice_first")->where("pid ={$code}")->select();
+		json('10001',$arr);
+	}
+	/**
+	*  请求尼斯分类接口按照级别查询
+	*/
+	function nice_level(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$code = $param['code'];
+		if($code=='1'){
+			$arr = M("nice_first")->where("level='1'")->field("id,describe",true)->select();
+		}
+		if($code=='2'){
+			$arr = M("nice_first")->where("level='1'")->field("id,describe",true)->select();
+			$two = M("nice_first")->where("level='2'")->field("id,describe",true)->select();
+			foreach($arr as $k=>$v){
+				foreach($two as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$arr[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+		}
+		if($code=='3'){
+			$arr = M("nice_first")->where("level='1'")->field("id,describe",true)->select();
+			$two = M("nice_first")->where("level='2'")->field("id,describe",true)->select();
+			$three = M("nice_first")->where("level='3'")->field("id,describe",true)->select();
+			foreach($two as $k=>$v){
+				foreach($three as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$two[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+			foreach($arr as $k=>$v){
+				foreach($two as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$arr[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+		}
+		json('10001',$arr);
+	}
+    /**
+	*  更换顾问
+	*/
+    public function replace_adviser(){
+	    $key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$id = $param['customerid'];
+		$oldconsultantid = $param['oldconsultantid'];
+		$adviser = M("adviser")->where("customerid={$id} and consultantid={$oldconsultantid}")->find();
+        if(!empty($adviser)){
+			$info['consultantid'] = $param['consultantid'];
+			$info['consultantname'] = $param['consultantname'];
+			$info['consultantmobile'] = $param['consultantmobile'];
+			$info['consultantdept'] = $param['consultantdept'];
+			$info['consultantaddress'] = $param['consultantaddress'];
+			M("adviser")->where("customerid={$id}")->save($info);
+			json('10001','成功');
+		}
+		json('10005','没有该用户');
+		
+    }
+	/**
+	*  查询单查询结果返回
+	*/
+	function query_result(){
+		$key = "fde37affb714df9241fd661b676dd6c3";
+		$pc_key = I('get.pc_key');
+		$param = I('get.param');
+		$sign = I('get.sign');
+		$ysign = md5($pc_key.$param);
+		if(empty($pc_key)||empty($param)||empty($sign)){
+			 json('10002','参数缺少');
+		}
+		if($sign!=$ysign){
+			 json('10003','签名错误');
+		}
+		if($key!=$pc_key){
+			 json('10004','秘钥错误');
+		}
+		$param = base64_decode($param);
+		$param = json_decode($param,true);
+		$queryid = $param['queryid'];
+		$customerid = $param['customerid'];
+		$inquire = M("inquire")->where("queryid={$queryid} and customerid={$customerid}")->find();
+        if(empty($inquire)){
+			json('10005','没有该查询单');
+		}
+		if($inquire['state']!='0'){
+			json('10005','该查询单已有查询结果');
+		}
+		$info['endtime'] = time();
+		$info['newmarkname'] = $param['newmarkname'];
+		$info['suggestedtype'] = $param['suggestedtype'];
+		$info['okquerytype'] = $param['querytype'];
+		$querytype = json_decode($inquire['querytype'],true);
+		$okquerytype = json_decode($info['okquerytype'],true);
+		$arr = array();
+		foreach($okquerytype as $k=>$v){
+			foreach($v['items'] as $ks=>$vs){
+			   foreach($vs['items'] as $ki=>$vi){
+			       $arr[] = $vi;
+		       }
+		    }   
+		}
+		foreach($querytype as $k=>$v){
+			foreach($v as $ks=>$vs){
+			   foreach($vs as $ki=>$vi){
+			        foreach($arr as $ko=>$vo){
+			           if($vi['id']==$vo['id']){
+						   unset($querytype[$k][$ks][$ki]);
+					   }
+		            }
+		       }
+		    }
+		}
+		foreach($querytype as $k=>$v){
+			foreach($v as $ks=>$vs){
+			     if(empty($vs)){
+					unset($querytype[$k][$ks]);
+		        }
+		    }
+		}
+		foreach($querytype as $k=>$v){
+			if(empty($v)){
+				unset($querytype[$k]);
+		    }
+		}
+		if($info['okquerytype']==''){
+			$info['state'] = "3";
+		}else{
+			if(empty($querytype)){
+			     $info['state'] = "1";
+		    }else{
+			     $info['noquerytype'] = json_encode($querytype);
+			     $info['state'] = "2";
+		    }
+		}
+		
+		M("inquire")->where("queryid={$queryid} and customerid={$customerid}")->save($info);
+		json('10001','成功');
+	}
+	function ass(){
+		$data = array(
+				              "customerid"=>'662357',
+							  "customername"=>'18518472310',
+							  "customermobile"=>'18518472310',
+							  "customerentname"=>'12'
+				              );
+				$guwen = request_api_xt("intel_property/auto_fenpei_guwen",$data);
+				print_R($guwen);
+	}
+	function ceshi(){
+		$a ="锕010018， 镅010054， 原子堆用燃料010087， 锫010115， 锎010142， 镄010159， 核反应堆减速材料010179， 可裂变化学元素010180， 锔010226， 重水010253， 核能用可裂变物质010297， 钫010314， 工业用同位素010369， 镎010402， 钚010442， 钋010443， 钷010450， 镤010451， 科学用放射性元素010456， 科学用镭010458， 钍010535， 铀010542， 氧化铀010543";
+		$a = str_replace(' ', '',$a);
+	    $a = str_replace("，",',',$a);
+	    $b = explode(",",$a);
+		$c = array();
+	   foreach($b as $k=>$v){
+		   $d = preg_split("/([a-zA-Z0-9]+)/", $v, 0, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE); 
+           $c[$k]['name'] = $d['0'];
+           $c[$k]['code'] = $d['1'];
+           $c[$k]['pid'] = "0103";		   
+	   }
+        M("nice_first")->addAll($c);
+		//json($c);
+	}
+}
+
+

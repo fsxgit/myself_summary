@@ -1,0 +1,99 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class UserinfoController extends AdminbaseController{
+	public function index(){
+		$count = M("user")->count();
+		$page = $this->page($count,10);
+
+		$res = M("user")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+		$this->assign("res",$res);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+
+	public function userinfo_list(){
+		$where = I("where");
+		if($where == 1){
+			$isClaimed = 1;
+		}else if($where == 2){
+			$isClaimed = 0;
+		}
+		$count = M("user")
+			->where("isClaimed = $isClaimed")
+			->count();
+		$page = $this->page($count,10);
+		$res = M("user")
+			->where("isClaimed = $isClaimed")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+		//echo "<pre>";print_r($res);
+		$this->assign("res",$res);
+		$this->assign("page",$page->show());
+		$this->display("index");
+	}
+
+	public function user_info(){
+		$username = I("username");
+		$company = I("company");
+		$where = "1";
+		if($username!=""){
+			$where.=" and linkMan=".$username;
+			$con="&linkMan=".$username;
+		}
+		if($company!=""){
+			$where .=" and companyName like '%$company%'";  
+			$con.="&companyName=".$company;
+		}
+		$count = M("user")
+			->where($where)
+			->count();
+		$page = $this->page($count,10);
+		$res = M("user")
+			->where($where)
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+		//echo "<pre>";print_r($res);
+		$this->assign("page",$page->show("admin",$con));
+		$this->assign("res",$res);
+		$this->display("index");
+	}
+
+	//详情页
+	public function userinfo_content(){
+		$id = I("id");
+		//$id = 662253;
+		$userinfo = M("user")
+			->where("id = $id")
+			->find();
+		$infolist = M('enterprise')
+			->where("user_id = $id")
+			->find();
+		
+		$markcount = M('mark')
+			->where("customerid = $id")
+			->count();
+		$page = $this->page($markcount,5);
+
+		$marklist = M('mark')
+			->where("customerid = $id")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+		$this->assign("page",$page->show());
+		//用户信息表
+		$this->assign("userinfo",$userinfo);
+		//企业信息表
+		$this->assign("infolist",$infolist);
+		//商标表的每一个企业的商标总数
+		$this->assign("markcount",$markcount);
+		//商标信息表
+		$this->assign("marklist",$marklist);
+		$this->display();
+	}
+}

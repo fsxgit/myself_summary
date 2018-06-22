@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>费用中心-我的钱包-体现</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/search.css"/>
+	<style type="text/css">
+		#moneyts{ padding-top:10px;}
+		.warn-txt{ height:14px; line-height: 14px; color: #cc0000; display: inline-block; padding-left:16px; background: url("public/html/images/icon30.png") no-repeat 0 center; margin-left: 96px; }
+	 </style>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+
+    <!--公用右侧浮动导航 end-->
+
+
+    <!--s-content内容存放的地方-->
+    <div class="s-content main-hou fy-center pr">
+        <div class="per-nav">我的钱包 > 充值</div>
+        <h1 class="c-h1">提现到银行卡</h1>
+        <div class="bgl-cont tx-mm">
+            <div class="">
+				<span class="tit w3">银 行 卡：</span>
+				<span id = "ka">{$bankCardNo}</span>
+			</div>
+            <div class="">
+				<span class="tit">提现金额：</span>
+				<span>
+					￥<span class="fc8 fb" id = "money">{$amount}</span>元
+				</span>
+			</div>
+            <div class="">
+				<span class="tit">到账时间：</span>
+				<span>预计两个工作日之内</span>
+			</div>
+            <div class="mt10">
+				<span class="tit">支付密码：</span>
+				<span> 
+					<input type="password" id = "pass" class="srmm ggg" placeholder="请输入6位数密码"/>
+				</span>
+				<a href="javascript:;" class="wjmm">忘记密码</a>
+			</div>
+			<p class="warn-box" id = "moneyts"></p>
+            <div class="mt20">
+				<span class="tit"></span>
+				<input type="button" onclick = "formck()" class="tx-btn blue-big-btn" value="确认提现"/>
+				<a href="javascript:;" class="bk-xg">返回修改</a>
+			</div>
+        </div>
+    </div>
+    <!--s-content内容存放的地方-->
+
+
+
+
+    <!--公用底部-->
+
+    <!--公用底部 end-->
+
+</div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        $(".order-xq-select").click(function(){
+            $(".order-xq-select").toggleClass("active");
+            $(".sh-box").slideToggle();
+        })
+        $(".ps-mode").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+        $(".yin-choose").click(function(){
+            $(this).toggleClass("active");
+            $(".select-box").slideToggle();
+        })
+        $(".select-box p").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            var src = $(this).find("img").attr("src");
+            var txt = $(this).find(".sel-txt").text();
+            $(".yin-value img").attr("src",src);
+            $(".yin-value .sel-txt").text(txt);
+        })
+    });
+	//提示错误后，再获取焦点是，提示隐藏
+	$(".ggg").focus(function(){
+		$("#moneyts").hide().html("");
+	})
+	
+	function formck(){
+		var ka = $("#ka").html();
+		var money = $("#money").html();
+		var pass = $("#pass").val();
+		if(pass == ""){
+			$("#moneyts").show();
+			$("#moneyts").html("<span class='warn-txt'>请输入密码</span>");
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			data:{"amount":money,"tranPassword":pass,"bankCardNo":ka},
+			url:'{:U('Portal/oneroadpay/tixian2')}',
+			success: function(msg){
+				alert(msg);
+				return false;
+				if(msg == 1){
+					//跳转到成功页面
+					window.location.href='index.php?g=Portal&m=Oneroadpay&a=tixian3';
+				}else if(msg == 2){
+					//跳转到失败提示页
+					window.location.href='index.php?g=Portal&m=Oneroadpay&a=tixian4';
+				}
+			}
+		});
+	}
+</script>
+</body>
+</html>

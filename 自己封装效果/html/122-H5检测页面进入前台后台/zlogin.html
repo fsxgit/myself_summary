@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>设备入网</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        /*#wifi5g.red{color:red;}*/
+        #noUseWifiBox{position: fixed; left:0; top:0; width: 100%; height: 100%; overflow: auto; background: #fff; display: none; z-index: 30;}
+    </style>
+</head>
+<body>
+<div class="fxBox pb50">
+    <h2 style="text-align: center;">切换页面看看下面的文字和本页的标题</h2>
+    <!--content-->
+        <div id="notUseWifi2" style="text-align: center; color: red;">？</div>
+        <div id="notUseWifi3" style="text-align: center; color: blue;">？</div>
+    <!--content end-->
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    /**
+     *全局变量：
+     * Gis5g：判断当前是不是5G网络; 0 不是; 1 是
+     *
+     */
+    var Gis5g = 0;
+
+    //页面从后台进入前台时，触发
+    document.addEventListener("visibilitychange", function() {
+        if(document.visibilityState == "visible"){
+            $("#notUseWifi2").text("这一刻更清晰");
+        }
+    });
+    document.addEventListener('visibilitychange', function() {
+         var isHidden = document.hidden;
+        if (isHidden) {
+                document.title = '当焦点不在当前窗口时的网页标题';
+            } else {
+                document.title = '再变回来或者做点其他的';
+            $("#notUseWifi3").text("下一刻最清晰");
+        }
+    });
+</script>
+</body>
+</html>

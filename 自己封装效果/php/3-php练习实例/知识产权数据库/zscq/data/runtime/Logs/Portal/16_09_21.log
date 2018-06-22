@@ -1,0 +1,912 @@
+[ 2016-09-21T10:40:35+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0100s ]
+
+[ 2016-09-21T10:41:07+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0080s ]
+
+[ 2016-09-21T10:50:02+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+
+[ 2016-09-21T10:50:25+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+
+[ 2016-09-21T10:50:26+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0120s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0090s ]
+
+[ 2016-09-21T10:50:37+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0090s ]
+
+[ 2016-09-21T10:51:14+08:00 ] 127.0.0.1 /index.php?g=Portal&m=pinfo&a=telcode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\PinfoController.class.php 第 46 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T10:52:37+08:00 ] 127.0.0.1 /index.php?g=Portal&m=pinfo&a=telcode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\PinfoController.class.php 第 46 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-09-21T10:53:00+08:00 ] 127.0.0.1 /index.php?g=Portal&m=pinfo&a=telcode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\PinfoController.class.php 第 46 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-09-21T11:14:06+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0090s ]
+
+[ 2016-09-21T11:59:24+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0120s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0090s ]
+
+[ 2016-09-21T12:02:29+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0080s ]
+
+[ 2016-09-21T14:10:10+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T14:10:58+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T14:11:25+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T14:16:00+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T14:16:35+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T14:24:44+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0170s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0080s ]
+
+[ 2016-09-21T15:31:18+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T15:34:34+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=telcode
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 46 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:34:52+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 261 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 261 行.
+NOTIC: [8] Use of undefined constant code - assumed 'code' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 261 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+
+[ 2016-09-21T15:34:52+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: zsid F:\fsx20160321\xm\zscq\application\Portal\Controller\UserinfoController.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `zs_information` [ RunTime:0.0110s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:34:56+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+
+[ 2016-09-21T15:35:03+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:35:04+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:35:04+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:35:04+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:07+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:07+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:07+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:10+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:35:11+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:11+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:12+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:12+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:15+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:35:16+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:35:16+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:16+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:46+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:47+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:35:47+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:35+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:36:35+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:36+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:36+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:38+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:38+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:39+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+
+[ 2016-09-21T15:36:39+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:39+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:36:42+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:43+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+
+[ 2016-09-21T15:36:43+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:36:43+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-09-21T15:36:44+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:44+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:36:46+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:36:46+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:47+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:36:47+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:47+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:36:48+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:08+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:37:09+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:37:09+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T15:37:09+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=regem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:37:12+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:14+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:17+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:18+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:23+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:30+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:31+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:32+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:32+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:32+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:35+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:41+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:37:51+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:38:00+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:38:10+08:00 ] 127.0.0.1 /index.php?g=Portal&m=Userinfo&a=index
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and state = 0 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zs_information` WHERE ( userid =  and state = 0 ) LIMIT 1  
+
+[ 2016-09-21T15:38:59+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0090s ]
+
+[ 2016-09-21T15:39:02+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T15:39:42+08:00 ] 127.0.0.1 /js/jquery-1.9.1.min.js
+ERR: 无法加载控制器:Js
+
+[ 2016-09-21T15:42:12+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0120s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662253 ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='15901388096',`phone`='15901388096',`email`='czw_ln@sina.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662253 [ RunTime:0.0090s ]
+
+[ 2016-09-21T15:44:56+08:00 ] 127.0.0.1 /index.php?g=Portal&m=register&a=loginem
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant phone - assumed 'phone' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [8] Use of undefined constant pwd - assumed 'pwd' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 133 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Use of undefined constant token - assumed 'token' F:\fsx20160321\xm\zscq\application\Portal\Controller\RegisterController.class.php 第 141 行.
+NOTIC: [2] stream_context_create() [<a href='function.stream-context-create'>function.stream-context-create</a>]: options should have the form [&quot;wrappername&quot;][&quot;optionname&quot;] = $value F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 102 行.
+NOTIC: [8] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Content-type not specified assuming application/x-www-form-urlencoded F:\fsx20160321\xm\zscq\application\Common\Common\function.php 第 103 行.
+SQL: SHOW COLUMNS FROM `zs_user` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zs_user` WHERE ( id=662241 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_user` WHERE ( id=662241 ) LIMIT 1   [ RunTime:0.0100s ]
+SQL: UPDATE `zs_user` SET `imgPath`='',`loginName`='18511939314',`phone`='18511939314',`email`='875985666@qq.com',`kyjf`='0',`djjf`='0',`lsdjjf`='0',`ljxfjf`='0',`emailBindFlag`='1',`phoneBindFlag`='1',`safetyLevel`='2' WHERE `id` = 662241 [ RunTime:0.0090s ]
+
+[ 2016-09-21T15:52:37+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:53:15+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:55:56+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T15:56:48+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T15:58:26+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:58:51+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0110s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T15:59:36+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0410s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0430s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T16:01:50+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T16:02:28+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-09-21T16:05:50+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:06:29+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T16:09:43+08:00 ] 127.0.0.1 /index.php?g=Portal&m=brand&a=brand_register_show&key=143
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2016-09-21T16:11:54+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=order_info_save
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:11:56+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T16:12:19+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=order_info_save
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy` [ RunTime:0.0100s ]
+SQL: UPDATE `zs_zcorder_copy` SET `customername`='ooooooouu' WHERE ( orderid=143 ) [ RunTime:0.0080s ]
+
+[ 2016-09-21T16:12:22+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=order_info_save
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-09-21T16:12:23+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:12:34+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:16:18+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T16:17:02+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:17:08+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:17:59+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:19:49+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:19:57+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-21T16:21:27+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:22:00+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T16:23:40+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=order_info_save
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-09-21T17:21:24+08:00 ] 127.0.0.1 /index.php?g=&m=Brand&a=brand_register_show_details
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zs_zcorder_copy_copy` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zs_zcorder_copy_copy` WHERE ( orderid =143 and one_id=1 ) LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

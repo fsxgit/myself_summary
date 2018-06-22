@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>Document</title>
+	<style>
+		.box{width:300px; border:1px solid #000;margin-left:30px; padding:20px; border-radius: 30px; float:left;}
+	</style>
+</head>
+<body>
+<div class="box">
+	<h1>品牌</h1>
+	<div id="bandbox"></div>
+</div>
+<div class="box">
+	<h1>类型</h1>
+	<div id="typebox"></div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			url:"data.json",
+			type:"POST",
+			dataType:"json",
+			async:false,
+			data:"",
+			success:function(res){
+				//品牌数据
+				var band = res.data.band;
+				var arr = "";
+				for(var x in band){
+
+					arr = arr+ "<span style='font-size:30px; background:red; color:#fff;border-radius:20px;'>"+band[x].id+":</span>&nbsp" + "<span style='font-size:24px;'>"+band[x].name+"</span>&nbsp&nbsp&nbsp"+'<br/>';
+					$("#bandbox").html(arr);
+//						alert(band[x].id);
+//						alert(band[x].name);
+				};
+
+				//类型数据
+				var dataType = res.data.type;
+				var arr_type = "";
+				for(var i in dataType){
+
+					arr_type = arr_type+ "<span style='font-size:30px; background:red; color:#fff;'>"+dataType[i].id+":</span>&nbsp" + "<span style='font-size:24px;'>"+dataType[i].name+"</span>&nbsp&nbsp&nbsp"+'<br/>';
+					$("#typebox").html(arr_type);
+				};
+				/*
+				 #类别
+				 $this->assign("type",$array["data"]["type"]);
+				 #品牌
+				 $this->assign("band",$array["data"]["band"]);
+				 #性别
+				 $this->assign("sex",$array["data"]["sex"]);
+				 #使用痕迹
+				 $this->assign("used_make",$array["data"]["used_make"]);
+				 #材质
+				 $this->assign("material",$array["data"]["material"]);
+				 #成色
+				 $this->assign("used_degree",$array["data"]["used_degree"]);
+				 #物品属性
+				 $this->assign("oather",$array["data"]["oather"]);
+				 */
+
+			},
+
+			error:function(msg){
+				console.log(msg);
+			}
+		});
+	});
+</script>
+
+</body>
+</html>
+
+<!--
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>  
+	<script>
+		var xhrurl = 'http://localhost/ceshi/jsonp/index.php';
+		$.ajax({
+			type : "get",
+			async : false,
+			url :xhrurl, 
+			cache : false,
+			dataType : "jsonp",
+			jsonp: "callback",
+			//jsonpCallback:"jsonpCallback",
+			success : function(json){
+				alert(json);
+			},
+			error:function(e){
+				alert("error");
+			}
+		 });
+	</script>
+	<script type="text/javascript">  
+	$(function(){  
+		$.ajax(  
+			{  
+				type:'get',  
+				async:false,
+				url : 'http://test.recytl.com/index.php/nonstandard/option/clothes_types',  
+				dataType : 'jsonp',  
+				jsonp:"callback",  
+				success  : function(data) {  
+					$("#jsondata").html(data.status);  
+				}
+			}
+		);  
+	})  
+	</script> 
+
+	
+	
+	<iframe src="http://test.recytl.com/index.php/nonstandard/option/clothes_types" style="display:none;" id="iframe" onload="test()"></iframe>
+    <script type="text/javascript">  
+		document.domain = "test.recytl.com";
+		function test(){
+			var c = document.getElementById("iframe").contentWindow;
+			
+			//document.getElementById("jsondata").innerHTML = c.status;
+		}
+       
+		
+    </script>
+	<div id="jsondata"></div>
+		-->

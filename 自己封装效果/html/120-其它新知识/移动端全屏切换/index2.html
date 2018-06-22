@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>跨越大半个地球去睡你</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+        Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/main.css"/>-->
+    <style>
+        /* ==== 页面容器样式开始{{{ ==== */
+        #page1{background:url(http://y1.ifengimg.com/l/2015/52/7a6a9014b0658e0/page1_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page2{background:url(http://y2.ifengimg.com/l/2015/52/7a6a9014b0658e0/page2_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page3{background:url(http://y2.ifengimg.com/l/2015/52/7a6a9014b0658e0/page3_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page4{background:url(http://y3.ifengimg.com/l/2015/52/7a6a9014b0658e0/page4_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page5{background:url(http://y0.ifengimg.com/l/2015/52/7a6a9014b0658e0/page5_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page6{background:url(http://y3.ifengimg.com/l/2015/52/7a6a9014b0658e0/page6_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page7{background:url(http://y0.ifengimg.com/l/2015/52/7a6a9014b0658e0/page7_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page8{background:url(http://y2.ifengimg.com/l/2015/52/7a6a9014b0658e0/page8_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page9{background:url(http://y3.ifengimg.com/l/2015/52/7a6a9014b0658e0/page9_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page10{background:url(http://y0.ifengimg.com/l/2015/52/7a6a9014b0658e0/page10_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+</head>
+<body><a class="mscBtn" id="audioBtn"></a>
+<!--播放器-->
+<!-- //滚屏操作-->
+<div id="dowebok">
+    <div class="section" id="page1">
+
+    </div>
+    <div class="section" id="page2">
+
+    </div>
+    <div class="section" id="page3">
+
+    </div>
+    <div class="section" id="page4">
+
+    </div>
+    <div class="section" id="page5">
+
+    </div>
+    <div class="section" id="page6">
+
+    </div>
+    <div class="section" id="page7">
+
+    </div>
+    <div class="section" id="page8">
+
+    </div>
+    <div class="section" id="page9">
+
+    </div>
+    <div class="section" id="page10">
+
+    </div>
+</div>
+<script type="text/javascript">
+    var audio;
+$(function () {
+    audio = new Audio("images/text.mp3");
+    audio.play();
+    audio.autoplay = true;
+    audio.loop = true;
+
+    $('#dowebok').fullpage({
+        afterLoad: function (anchorLink, index) {
+            //第一屏
+            if (index == 1) {
+
+            }
+            if (index == 2) {
+
+            }
+            if (index == 3) {
+
+            }
+            if (index == 4) {
+
+            }
+            if (index == 5) {
+
+            }
+            if (index == 6) {
+
+            }
+            if (index == 7) {
+
+            }
+            if (index == 8) {
+
+            }
+            if (index == 9) {
+
+            }
+            if (index == 10) {
+
+            }
+        },
+        onLeave: function (index, direction) {
+            if (index == 1) {
+
+            }
+            if (index == 2) {
+
+            }
+            if (index == 3) {
+
+            }
+            if (index == 4) {
+
+            }
+            if (index == 5) {
+
+            }
+            if (index == 6) {
+
+            }
+            if (index == 7) {
+
+            }
+            if (index == 8) {
+
+            }
+            if (index == 9) {
+
+            }
+            if (index == 10) {
+
+            }
+        }
+    });
+});
+
+//跳转指定屏
+$(".btn_moveTo").click(function () {
+    $.fn.fullpage.moveTo(2, 0);
+});
+
+//播放-暂停
+$("#audioBtn").click(function () {
+    if (audio.paused) {
+        audio.play();
+        $("#audioBtn").removeClass("mscBtn_stop").addClass("mscBtn");
+    } else {
+        audio.pause();
+        $("#audioBtn").removeClass("mscBtn").addClass("mscBtn_stop");
+    }
+});</script>
+<!-- 页尾通栏  --></body>
+</html>

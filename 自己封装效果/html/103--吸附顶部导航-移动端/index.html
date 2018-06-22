@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>吸附导航自己制作</title>
+    <style>
+        *{margin:0; padding:0;}
+        .top{height:300px;  width:100%; background: #ff14be;}
+
+        .navFixedBox{height: 40px; }
+        .navFixed{height:40px; line-height: 40px;text-align: center; background: #878787;}
+        .navFixed span{display: block; width: 33.3%; float: left; height: 40px; font-size: 16px; color: #fff;}
+        .navFixed span.on{color: #3dfff8;}
+        .navFixed.active{position: fixed; left:0; top:0; width: 100%;}
+
+        .pr{position: relative;}
+
+        .cont{ width:100%; background: #5aff10;}
+        .cont1{height:500px;  background: #fff113;}
+        .cont2{height:500px;  background: #ff5b0f;}
+        .cont3{height:1000px;  background: #0b1eff;}
+    </style>
+</head>
+<body>
+<div class="box">
+
+    <div class="top"></div>
+
+    <div class="navFixedBox">
+        <div class="navFixed pr">
+            <span class="on">导航1</span>
+            <span>导航2</span>
+            <span>导航3</span>
+        </div>
+    </div>
+
+    <div class="cont">
+        <div class="contMode navCont">
+            <h2>导航一</h2>
+            <div class="cont1"></div>
+        </div>
+        <div class="contMode navCont">
+            <h2>导航二</h2>
+            <div class="cont2"></div>
+        </div>
+        <div class="contMode navCont">
+            <h2>导航三</h2>
+            <div class="cont3"></div>
+        </div>
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    var nav = $(".navFixed");
+    var hei = nav.height();
+    var navBox = $(".navFixedBox");
+
+    var a = 1;
+
+    function upFun(){
+        var navTop = navBox.offset().top - $(window).scrollTop();
+        if(navTop <= 0){
+            nav.addClass("active");
+        }else{
+            nav.removeClass("active");
+        }
+
+        var cont1top = $(".navCont:nth-of-type(1)").offset().top - hei - $(window).scrollTop();
+        var cont2top = $(".navCont:nth-of-type(2)").offset().top - hei - $(window).scrollTop();
+        var cont3top = $(".navCont:nth-of-type(3)").offset().top - hei - $(window).scrollTop();
+
+        if(cont1top <= 0 && cont2top >= 0){
+            $(".navFixed span:nth-of-type(1)").addClass("on").siblings().removeClass("on");
+        }
+        if(cont2top <= 0 && cont3top >= 0 && a == 1){
+            $(".navFixed span:nth-of-type(2)").addClass("on").siblings().removeClass("on");
+        }
+        if(cont3top <= 0 || a == 2 ){
+            $(".navFixed span:nth-of-type(3)").addClass("on").siblings().removeClass("on");
+        }
+    }
+
+
+    function toEnd(){
+        var h1 = $(window).height(); //窗口可视高度也即分辨率高度
+        var h2 = $("body").height();  //body高度，也即文档总高度
+        var h3 = $(window).scrollTop();   //滚动条滚动高度
+    //    判断滚动条是否到达底部
+        if(h2-h3 <= h1+10){
+           a = 2;
+        }else{
+            a = 1;
+        }
+    }
+
+    $(function(){
+//        加载页面时加载
+        toEnd();
+        upFun();
+    });
+    $(window).scroll(function(){
+//        页面滚动时加载
+        toEnd();
+        upFun();
+    });
+    $(".navFixed span").click(function(){
+        var i = $(this).index();
+        $(this).addClass("on").siblings().removeClass("on");
+        var toSite = $(".contMode").eq(i).offset().top-hei;
+        $(window).scrollTop(toSite);
+    });
+
+</script>
+</body>
+</html>

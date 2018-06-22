@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小数乘法</title>
+</head>
+<body>
+<h1 style="color:red;">不完美，有BUG</h1>
+<h2>BUG问题：例如：1.1725*10000 就有问题</h2>
+<input type="text" class="put1" value="1.1725" /> x
+<input type="text" class="put2" value="10000" /><button>等于</button>
+<input type="text" class="res"  />
+
+<script src="jquery.min.js"></script>
+<script>
+
+$("button").click(function(){
+    var V1 = $(".put1").val();
+	var V2 = $(".put2").val();
+	
+	var res = cfa(V1,V2);
+	console.log(res);
+	
+	$(".res").val(res);
+
+})
+function cfa(a,b){
+	var oStr1 = a.toString();
+	var oStr2 = b.toString();
+	var k1 = 1;
+	var k2 = 1;
+	if(oStr1.indexOf(".")==-1){
+		k1 = 1; 
+	}else{
+		k1 = Math.pow(10,parseInt(oStr1.length-oStr1.indexOf(".")-1)); 
+	}
+	if(oStr2.indexOf(".")==-1){
+		k2 = 1; 
+	}else{
+		k2 = Math.pow(10,parseInt(oStr2.length-oStr2.indexOf(".")-1)); 
+	}
+	return (a*k1)*(b*k2)/(k1*k2);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>阴影遮罩 上下左右移动</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style>
+		/*遮罩滚动案例css 开始*/
+		html,body,div,img,ul,li{ margin:0; padding:0; border:0; vertical-align:baseline; }
+		ol,ul { list-style:none; }
+		.solution-show{width:1000px;margin:50px auto;overflow: hidden;  }
+		.solution-show ul li{position: relative;overflow: hidden;float:left;margin:5px;cursor: pointer;}
+		.solution-show ul li span{position:absolute ;top: 0px;left: -235px; cursor: pointer;  }
+		/*遮罩滚动案例css 结束*/
+	</style>
+</head>
+<body>
+<!--阴影遮罩 移动-->
+<div class="solution-show">
+	<ul>
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-1-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-1.jpg" alt="移动营销">
+		</li>
+
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-2-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-2.jpg" alt="O2O">
+		</li>
+
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-3-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-3.jpg" alt="电子商务">
+		</li>
+
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-4-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-4.jpg" alt="移动政务">
+		</li>
+
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-5-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-5.jpg" alt="医疗健康">
+		</li>
+
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-6-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-6.jpg" alt="智能终端">
+		</li>
+
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-7-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-7.jpg" alt="教育培训">
+		</li>
+
+		<li>
+			<span class="selected">
+				<a href="javascript:;">
+					<img src="img/solution/solution-8-mask.png" alt="">
+				</a>
+			</span>
+			<img src="img/solution/solution-8.jpg" alt="移动金融">
+		</li>
+	</ul>
+</div>
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script>
+	/**
+	 * 上下左右遮罩*/
+
+	$(function () {
+		$(".solution-show ul li").hover(function (e) {
+			var _this  = $(this), //闭包
+					_desc  = _this.find(".selected").stop(true),
+					width  = _this.width(), //取得元素宽
+					height = _this.height(), //取得元素高
+					left   = e.offsetX || e.originalEvent.layerX, //得到左边界
+					top    = e.offsetY || e.originalEvent.layerY, //得到上边界
+					right  = width - left, //计算出右边界
+					bottom = height - top, //计算出下边界
+					rect   = {}, //坐标对象，用于执行对应方法。
+					_min   = Math.min(left, top, right, bottom), //得到最小值
+					_out   = e.type == "mouseleave", //是否是离开事件
+					spos   = {}; //起始位置
+
+			rect[left] = function (epos) { //鼠从标左侧进入和离开事件
+				spos = {"left": -width, "top": 0};
+				if (_out) {
+					_desc.animate(spos, "normal"); //从左侧离开
+				} else {
+					_desc.css(spos).animate(epos, "normal"); //从左侧进入
+				}
+			};
+
+			rect[top] = function (epos) { //鼠从标上边界进入和离开事件
+				spos = {"top": -height, "left": 0};
+				if (_out) {
+					_desc.animate(spos, "normal"); //从上面离开
+				} else {
+					_desc.css(spos).animate(epos, "normal"); //从上面进入
+				}
+			};
+
+			rect[right] = function (epos) { //鼠从标右侧进入和离开事件
+				spos = {"left": "235px","top": 0};
+				if (_out) {
+					_desc.animate(spos, "normal"); //从右侧成离开
+				} else {
+					_desc.css(spos).animate(epos, "normal"); //从右侧进入
+				}
+			};
+
+			rect[bottom] = function (epos) { //鼠从标下边界进入和离开事件
+				spos = {"top": height, "left": 0};
+				if (_out) {
+					_desc.animate(spos, "normal"); //从底部离开
+				} else {
+					_desc.css(spos).animate(epos, "normal"); //从底部进入
+				}
+			};
+
+			rect[_min]({"left":0, "top":0}); // 执行对应边界 进入/离开 的方法
+		});
+
+	});
+
+	/**
+	 * by SX
+	 * 功能：
+	 * 服务平台模块动画*/
+
+</script>
+</body>
+</html>

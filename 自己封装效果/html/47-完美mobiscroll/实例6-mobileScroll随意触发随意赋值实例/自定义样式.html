@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>联想选择房间使用</title>
+    <link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>
+    <style>
+        *{margin:0; padding:0;}
+        .red{color: #ff2f15; text-align: center;}
+        .btnbox{width: 100%; overflow: hidden;}
+        .cho-mode{float: left; width: 50% ;text-align: center; height:60px; line-height: 60px;}
+        .cho-mode span{display:inline-block; text-align: center; height:40px; width: 80px; border:1px solid #ccc; border-radius: 4px; line-height: 40px; background: #eee;}
+
+        /*/!*固定三级联动中的每一行的宽度，防止过长分为上下的*!/*/
+        /*.dwhl{padding:1px 0 !important;}*/
+        /*/!*.dw-ul{width:80px; overflow: hidden;}*!/*/
+
+        /*/!*这个是框架生成的触发条件的输入框*!/*/
+        #active_dummy{width:80%; border-radius: 4px; height:20px; padding:2px 6px; margin:10px 5%;}
+
+        /*修改自带样式*/
+        .dwb-s{float: right; border-left:1px solid #ccc; box-sizing: border-box;}
+        .dwb-s .dwb{color: #2ea0f7 !important; font-size: 15px  !important; font-family: "PingFangSC-Semibold", sans-serif; }
+        .dwb-c .dwb{color: #222 !important; font-size: 15px  !important; font-family: "PingFangSC-Semibold", sans-serif; }
+        .dwb-c .dwb-a,.dwb-s .dwb-a{background: #eee !important;}
+        .android-ics .dw .dwwol{width: 100%; left: 0; border-color:#e6e6e6;}
+        .android-ics .dwhl{padding:0 !important; width: 100%; padding-bottom: 10px;}
+        .android-ics .dwv{border:none; padding-bottom: 30px; line-height: 56px; font-size: 18px; color: #333; font-family: "PingFangSC-Semibold", sans-serif;  font-weight: 600;}
+        .android-ics .dw .dwb{height: 45px; line-height: 45px;}
+        .dwbg{border-radius: 8px; overflow: hidden;}
+        .dwo{opacity: 0.4;}
+        .dwbc{margin-top: 10px;}
+    </style>
+</head>
+<body>
+
+
+<div class="btnbox">
+    <div class="cho-mode">
+        <span  id="btn2">选择2</span>
+    </div>
+</div>
+
+<div id="none">
+    <!--选择2-->
+    <select  id="active">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+</div>
+
+
+
+
+<script>
+$("#btn2").click(function(){
+    $("#active").mobiscroll("show");
+});
+
+//选择2
+$(function () {
+    $('#active').mobiscroll().select({
+        preset: 'select',
+        theme: 'android-ics light',
+        lang: 'zh',
+        setText: '确认',
+        cancelText: '取消',
+        width:270,
+        minWidth: 500,
+        headerText: function (valueText) { return "定时关机";},
+        mode: 'scroller',
+        display: 'modal',
+        onSelect: function (array,inst) {
+//            console.log(inst);
+//            点击确定按钮触发 弹出选中的文字
+//            alert(array);
+//            点击确定按钮触发 弹出选中的文字的value
+//            alert($('#state').mobiscroll('getValue'));
+        }
+    });
+
+    //			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+    $("#active_dummy").val("");
+    $("#active_dummy").attr("placeholder","请选择选项");
+});
+
+</script>
+</body>
+</html>

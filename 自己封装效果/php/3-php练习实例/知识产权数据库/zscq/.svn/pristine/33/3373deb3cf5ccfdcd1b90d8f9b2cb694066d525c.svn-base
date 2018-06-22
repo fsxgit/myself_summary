@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>左侧主导航</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <style>
+        html,body{width:100%; height:100%;}
+    </style>
+</head>
+<body>
+<!--公用左侧主导航-->
+    <div class="c-top-nav bg9 cfff f14">
+        <div class="top-left-logo fl"><img src="public/html/images/logo3.png" alt=""/></div>
+        <div class="top-right-mode fr fc11">
+            <div class="top-nav-ss hover fl">搜索</div>
+            <div class="top-nav-xj hover fl">新建</div>
+            <div class="top-nav-xx hover fl"><span>14</span></div>
+            <div class="top-nav-img fl"><img src="public/html/images/img3.png" alt=""/></div>
+        </div>
+        <div class="cb"></div>
+    </div>
+<!--公用左侧主导航 end-->
+</body>
+</html>

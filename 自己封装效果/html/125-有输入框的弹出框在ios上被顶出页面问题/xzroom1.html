@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="html2">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>选择房间</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        html,body,.fxBox{width:100%; height:100%; padding:0;}
+        .xz_fangjs{ width:100%; height:100%; position: fixed; left:0; top:64px; padding-bottom: 114px; box-sizing: border-box; overflow: auto; }
+        /*.xz_fangjs{ width:100%; height:100%; margin-top:64px; padding-bottom: 114px; box-sizing: border-box; overflow: auto; }*/
+        .xz_fangjs::-webkit-scrollbar{width:0;}
+        /*html{position: relative;}*/
+        .setRoomName_shadow{position: absolute;}
+        .setRoomName{position: absolute;}
+        .setRoomNameTs{position: absolute;}
+        .setRoomName_shadow{background: rgba(0,0,0,0.7);}
+    </style>
+</head>
+<body>
+<header>
+    <a href="set.html" class="left"></a>
+    <div class="tit">选择房间</div>
+</header>
+<div class="fxBox">
+    <!--content-->
+   <div class="xz_fangjs">
+       <div class="fangjs fangjsxz">
+           <p>主卧</p>
+           <p>次卧</p>
+           <p>厨房</p>
+           <p>洗手间</p>
+           <p>客厅</p>
+       </div>
+       <div class="fangjs fangjsadd">
+           <p>新增房间</p>
+       </div>
+   </div>
+    <div class="remove_gad" >完成</div>
+    <!--content end-->
+</div>
+<!--alert-->
+<div class="setRoomName_shadow none"></div>
+<!--设置房间名-->
+<div class="setRoomName none">
+    <h2>输入房间名称</h2>
+    <input id="setInput" type="text"/>
+    <div class="btns">
+        <p class="zdy_qx">取消</p>
+        <p class="zdy_sure">确认</p>
+    </div>
+</div>
+<!--设置房间名提示-->
+
+<div class="setRoomNameTs none">该房间名已存在</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/js.js" type="text/javascript"></script>
+<script>
+    /**
+     * 全局变量
+     *  Gname：设备名称
+     *  GroomId:房间id
+     *  Ghome_id：home id
+     **/
+    var Gname;
+    var gadgetId;
+    var GroomId;
+    var GclientData;
+    var Gpush_msg_flag;
+    var Ghome_id;
+    var Groom_name;
+    var stopMoreClick = 1;
+    var reRoom = 1;
+
+
+   $(function(){
+       //当键盘弹出时，隐藏固定在底部的// 避免固定底部的“开始设置”按钮随着上移
+       var wh1 = $(window).height(); //窗口变化时的高度
+       $(window).resize(function() {
+           var wh2 = $(window).height(); //窗口变化时的高度
+           if(wh1 > wh2+100){
+               //键盘弹出
+               $(".remove_gad").hide();
+           }else{
+               //键盘收起
+               $(".remove_gad").show();
+           }
+           var top = (wh2-$(".setRoomName").height())/2;
+           $(".setRoomName").css("top",top);
+       });
+
+       //房间下拉
+       $(".fangjsxz").on("click","p",function(){
+           $(this).addClass("on").siblings().removeClass("on");
+       });
+
+       //新增房间
+       $(".fangjsadd").click(function(){
+           $("#setInput").val("");
+           $(".setRoomName_shadow").show();
+           $(".setRoomName").show();
+           $("#setInput").focus();
+       });
+
+
+       $(".zdy_sure").on("click",function(){
+           $("#setInput").blur();
+           var txt = $("#setInput").val();
+           txt = $.trim(txt);
+           console.log(1);
+           if(txt && txt != ""){
+               console.log(2);
+               var b = 0;
+               $(".fangjsxz p").each(function(){
+                   if(txt == $(this).text()){
+                       b = 1;
+                   }
+               });
+               if(b == 0){
+                   console.log(5);
+                   //没有同名字房间
+                   //【接口2：提交新增添加的房间】
+                   setTimeout(function(){
+                       $(".setRoomName").hide();
+                       $(".setRoomName_shadow").hide();
+                   },30);
+               }else{
+                   console.log(4);
+                   $(".setRoomName").hide();
+                   //房间已存在
+                   window.setTimeout(function(){
+                       $(".setRoomNameTs").show();
+                       reRoom = 0;
+                   },100);
+
+
+                   window.setTimeout(function(){
+                       $(".setRoomNameTs").hide();
+                       $(".setRoomName_shadow").hide();
+                   },2000);
+               }
+           }else{
+               console.log(3);
+               setTimeout(function(){
+                   $(".setRoomName").hide();
+                   $(".setRoomName_shadow").hide();
+               },30);
+
+           }
+       });
+       $(".zdy_qx").click(function(){
+           $("#setInput").blur();
+           setTimeout(function(){
+               $(".setRoomName").hide();
+               $(".setRoomName_shadow").hide();
+           },30);
+
+       });
+   });
+
+
+    /**
+     * app回调数据：
+     */
+    function callbackdata(id,name,data){
+
+        //初始化获取设备信息
+        if(name == "GetGagdgetInfoWithId"){
+            var data = eval('(' + data + ')');
+            Gname = data.gadget_name;
+            GroomId = data.room_id;
+            GclientData = data.client_data;
+            Gpush_msg_flag = data.push_msg_flag;
+
+        }
+        //初始化获取房间列表
+        if(name == "QueryDataHomeAndRoomList"){
+            data = eval('('+data+')');
+            var roomList="";
+            $.each(data,function(i,v){
+                if(GroomId == v.room_id){
+                    roomList += "<p class='on' data-roomid='"+ v.room_id+"' data-homeid='"+ v.home_id+"'  >"+nameCut(v.room_name)+"</p>";
+                }else{
+                    roomList += "<p data-roomid='"+ v.room_id+"' data-homeid='"+ v.home_id+"'  >"+nameCut(v.room_name)+"</p>";
+                }
+            });
+            $(".fangjsxz").html(roomList);
+        }
+
+        //选择修改房间 ：ModifyGagdgetInfoWithId
+        if(name=="ModifyGagdgetInfoWithId"){
+            var data = eval('('+data+')');
+            if(data.state == 1){
+                location.href='set.html';
+            }
+        }
+
+        //获取homeid
+        if(name == "GetHomeList"){
+            var data = eval('('+data+')');
+            Ghome_id = data[0].home_id;
+        }
+        //添加room
+        if(name=="AddRoomWithName"){
+            var data = eval('('+data+')');
+            if(data.room_id){
+                GroomId = data.room_id;
+                $(".fangjsxz p").removeClass("on");
+                var newroom = "<p class='on' data-roomid='"+ GroomId+"' data-homeid='"+ Ghome_id+"'>"+nameCut(Groom_name)+"</p>";
+                $(".fangjsxz").prepend(newroom);
+                setTimeout(function(){
+                    $(".setRoomName").hide();
+                    $(".setRoomName_shadow").hide();
+                },30);
+                LenSmJs.timingDevice_h5("30","timerSetNameHide");
+            }
+        }
+
+        //android定时器 接口
+        if(name == "timingDevice"){
+            var data = eval('('+data+')');
+            if(data.key == "timerSetNameHide"){
+                LenSmJs.h5log("走Android定时器接口了_添加房间提示");
+                $(".setRoomName").hide();
+                $(".setRoomNameTs").hide();
+                $(".setRoomName_shadow").hide();
+            }
+            if(data.key == "timerSetNameTs"){
+                if(reRoom == 1){
+                    LenSmJs.h5log("走Android定时器接口了_添加房间重复提示");
+                    $(".setRoomNameTs").show();
+                }
+            }
+        }
+    }
+
+    //安卓点击物理返回键调用
+    function androidCellBack(){
+        if(LenSmJs.isAndroid == true){
+            location.href='set.html';
+        }
+    }
+</script>
+<script>
+   $(".setInput").on("focus",function(){
+       setTimeout(function(){
+//           $(".setRoomName").scrollIntoViewIfNeeded();
+           $(".setRoomName").scrollIntoView(true);
+       },30)
+   })
+</script>
+</body>
+</html>

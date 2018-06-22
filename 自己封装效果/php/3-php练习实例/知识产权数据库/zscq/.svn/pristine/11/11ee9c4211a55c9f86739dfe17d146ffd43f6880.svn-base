@@ -1,0 +1,42 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: Dean <zxxjjforever@163.com>
+// +----------------------------------------------------------------------
+namespace Portal\Controller;
+use Common\Controller\HomebaseController; 
+header("content-type:text/html;charset=utf-8");
+/**
+ * 首页
+ */
+class IndexController extends HomebaseController {
+    //首页
+    public function index(){
+    	$this->display(":index");
+    }
+    //搜索页
+    public function search(){
+    //    var_dump($_POST);
+        $name = I("business_name");
+   //    var_dump(request_api_xt($name));die;
+        $this->assign("name",$name);
+        $this->display();
+    }
+    //头部
+    public function header(){
+        $this->display();
+    }
+    //尾部
+    public function footer(){
+        $this->display();
+    }
+    //企业详情
+    public function qiye_detail(){
+        $this->display();
+    }
+}
+
+

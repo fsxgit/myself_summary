@@ -1,0 +1,41 @@
+$(function(){
+
+    //所有弹出框的删除按钮的hover事件
+    $(".c-tan-close").hover(function(){
+        $(this).addClass("active");
+    },function(){
+        $(this).removeClass("active");
+    })
+
+    //所有input的palceholder的兼容ie的方法
+    //判断浏览器是否支持placeholder属性
+    var supportPlaceholder='placeholder'in document.createElement('input');
+    if( !supportPlaceholder ) // 如果不支持placeholder属性
+    {
+        $('input').each(function(  )
+        {
+            var ph = $(this).attr('placeholder');
+
+            if( ph && !$(this).val() )
+            {
+                $(this).val(ph).css('color', '#aaa').css('line-height', $(this).css('height'));
+            }
+
+            $(this).on('focus', function()
+            {
+                if( $(this).val() === ph)
+                {
+                    $(this).val(null).css('color', '');
+                }
+
+            }).on('blur', function()
+            {
+                if( !$(this).val() )
+                {
+                    $(this).val(ph).css('color', '#aaa').css('line-height', $(this).css('height'));
+                }
+            });
+        });
+    }
+
+})

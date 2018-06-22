@@ -1,0 +1,139 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+    margin-bottom: 5px;
+}
+</style>
+<script type="text/html" id="photos-item-wrapper">
+    <li id="savedimage{id}">
+        <input id="photo-{id}" type="hidden" name="photos_url[]" value="{preview_url}"> 
+        <input id="photo-{id}-name" type="text" name="photos_alt[]" value="{preview_url}" style="width: 400px;" title="图片名称">
+        <img id="photo-{id}-preview" src="{url}" style="height:36px;width: 36px;" onclick="parent.image_preview_dialog(this.src);">
+        <a href="javascript:upload_one_image('图片上传','#photo-{id}');">替换</a>
+        <a href="javascript:$('#savedimage{id}').remove();">移除</a>
+    </li>
+</script>
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">图书列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+    <form name="myform" action="{:U('update')}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+        <input name="id" type="hidden" value="{$info['id']|default=''}"/>
+        <table class="table table-hover table-bordered">
+            
+            <tr>
+                <th width="100">标题</th>
+                <td>
+                    <input type="text" style="width:400px;" name="title" id="title" placeholder="请输入标题" value="{$info.title|default=''}"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <th>封面</th>
+                <td>
+                    <input type="hidden" name="cover" id="thumb" value="{$info.cover|default=''}">
+                    <a href="javascript:upload_one_image('图片上传','#thumb');">
+                        <if condition="isset($info['cover'])">
+                            <img src="{$info.cover}" id="thumb-preview" width="135" style="cursor: hand" />
+                            <else />
+                            <img src="__TMPL__Public/assets/images/default-thumbnail.png" id="thumb-preview" width="135" style="cursor: hand" />
+                        </if>
+                    </a>
+                    <input type="button" class="btn btn-small" onclick="$('#thumb-preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;" value="取消图片">支持jpg,png,gif,图片小于2MB。</td>
+            </tr>
+            <tr>
+                <th>市场价</th>
+                <td>
+                    <input type="text" style="width:400px;" name="market_price" id="market_price" placeholder="请输入市场价" value="{$info.market_price|default=''}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>现价</th>
+                <td>
+                    <input type="text" style="width:400px;" name="price" id="price" placeholder="请输入现价" value="{$info.price|default=''}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>运费</th>
+                <td>
+                    <input type="text" style="width:400px;" name="freight" id="freight" placeholder="请输入运费" value="{$info.freight|default=''}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>库存</th>
+                <td>
+                    <input type="text" style="width:400px;" name="stock" id="stock" placeholder="请输入库存" value="{$info.stock|default=''}"/>单位:本
+                </td>
+            </tr>
+            <tr>
+                <th>供货商</th>
+                <td>
+                    <input type="text" style="width:400px;" name="supplier" id="supplier" placeholder="请输入供货商" value="{$info.supplier|default=''}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>内容</th>
+                <td>
+                    <script type="text/plain" id="content" name="content">{$info.content|default=''}</script>
+                </td>
+            </tr>
+            <tr>
+                <th>轮播图</th>
+                <td>
+                    <ul id="photos" class="pic-list unstyled">
+                        <php>
+                            if(isset($info['photos_url'])){
+                            $photo = str2arr($info['photos_url']);
+                        </php>
+                        <volist name="photo" id="vo">
+                            <li>
+                                <input id="photo-{$key}" type="hidden" name="photos_url[]" value="{$vo}">
+                                <input id="photo-{$key}-name" type="text" name="photos_alt[]" value="{$vo}" style="width: 400px;" title="图片名称">
+                                <img id="photo-{$key}-preview" src="{$vo}" style="height:36px;width: 36px;" onclick="parent.image_preview_dialog(this.src);">
+                                <a href="javascript:upload_one_image('图片上传','#photo-{$key}');">替换</a>
+                                <a href="javascript:$('#savedimage{$key}').remove();">移除</a>
+                            </li>
+                        </volist>
+                        <php>}</php>
+                    </ul>
+                    <a href="javascript:upload_multi_image('图片上传','#photos','photos-item-wrapper');" class="btn btn-small">选择图片</a>
+                </td>
+            </tr>
+        </table>
+        <div class="form-actions">
+            <button class="btn btn-primary btn_submit ajax-post" type="submit" target-form="form-horizontal">提交</button>
+            <a class="btn" href="{$backUrl}">返回</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript">
+        //编辑器路径定义
+        var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        editorcontent =  new baidu.editor.ui.Editor({'initialFrameHeight':400});
+        editorcontent.render('content');
+        try {
+            editorcontent.sync();
+        } catch (err) {
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>帮帮使用</title>
+</head>
+<style>
+    .wrap_box{width:38px; height:38px; border-radius: 50%; padding:4px; background: #999;  margin: 50px auto;}
+    .circleProgress_wrapper{
+        width: 38px;
+        height: 38px;
+        position: relative;
+        font-size: 12px;
+        text-align: center;
+        line-height: 38px;
+        color: #e50065;
+    }
+    .wrapper{
+        width: 19px; /*  宽度等于 最外层盒子宽度的一半 */
+        height: 38px; /*  高度等于 最外层盒子的高度 */
+        position: absolute;
+        top:0;
+        overflow: hidden;
+    }
+    .right{
+        right:0;
+    }
+    .left{
+        left:0;
+    }
+
+    .circleProgress3{
+        width: 30px; /* 加上 border 宽度等于 最外层盒子宽度 */
+        height: 30px; /* 加上 border 高度等于 最外层盒子高度 */
+        border:4px solid transparent;
+        border-radius: 50%;
+        position: absolute;
+        top:0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .rightcircle{
+        border-top:4px solid #e50065;
+        border-right:4px solid #e50065;
+        -webkit-transform: rotate(225deg);
+        transform: rotate(225deg);
+        right:0;
+    }
+    .leftcircle{
+        border-bottom:4px solid #e50065;
+        border-left:4px solid #e50065;
+        -webkit-transform: rotate(225deg);
+        transform: rotate(225deg);
+        left:0;
+    }
+</style>
+<body>
+<div class="wrap_box">
+    <!--3.随意圆形进度条-->
+    <div class="circleProgress_wrapper">
+        <span class="percentage">75</span>%
+        <div class="wrapper right">
+            <div class="circleProgress3 rightcircle"></div>
+        </div>
+        <div class="wrapper left">
+            <div class="circleProgress3 leftcircle"></div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var rc = $(".rightcircle");
+    var lc = $(".leftcircle");
+    var per = $(".percentage").text();
+//    alert(per);
+//    百分一就是：3.6
+    var d;
+    if(per <= 50){
+        d = Math.floor(3.6*per) + 225;
+//        alert(d);
+//        alert("1");
+        rc.css({"-webkit-transform":"rotate("+ d +"deg)"});
+        rc.css({"transform":"rotate("+ d +"deg)"});
+    }else{
+        d = Math.floor(3.6*(per-50)) + 225;
+//        alert(d);
+//        alert("2");
+        rc.css({"-webkit-transform":"rotate(405deg)"});
+        rc.css({"transform":"rotate(405deg)"});
+        lc.css({"-webkit-transform":"rotate("+ d +"deg)"});
+        lc.css({"transform":"rotate("+ d +"deg)"});
+    }
+
+
+
+</script>
+</body>
+</html>

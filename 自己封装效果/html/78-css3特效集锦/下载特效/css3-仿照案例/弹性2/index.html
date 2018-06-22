@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<title>jQuery横向弹性图片切换 - 站长素材</title>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="jquery.carouFredSel-6.0.4-packed.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var defaultCss = {
+					width: 240,
+					height: 150,
+					marginTop: 50,
+					marginRight: 25,
+					marginLeft: 25,
+					opacity: 0.5
+				};
+				var selectedCss = {
+					width: 400,
+					height: 260,
+					marginTop: 0,
+					marginRight: -25,
+					marginLeft: -25,
+					opacity: 1
+				};
+				var aniOpts = {
+					queue: false,
+					duration: 1000,
+					easing: 'elastic'
+				};
+				var $car = $('#carousel');
+				for ( var a = 0; a < 3; a++ ) {
+					$car.prepend( '<div />' );
+				}
+				for ( var a = 0; a < 3; a++ ) {
+					$car.append( '<div />' );
+				}
+				$car.find('img').css('zIndex', 1).css( defaultCss );
+				$car.find('img').eq(0).css('zIndex', 2).css( selectedCss );
+				$car.carouFredSel({
+					circular: false,
+					infinite: false,
+					width: '100%',
+					height: 250,
+					items: 7,
+					prev: '#prev',
+					next: '#next',
+					auto: false,
+					scroll: {
+						items: 1,
+						duration: 1000,
+						easing: 'elastic',
+						onBefore: function( data ) {
+							data.items.old.eq(3).find('img').css('zIndex', 1).animate( defaultCss, aniOpts );
+							data.items.visible.eq(3).find('img').css('zIndex', 2).animate( selectedCss, aniOpts );
+						}
+					}
+				});
+			});
+		</script>
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				background-color: #754;
+				min-height: 400px;
+			}
+			body * {
+				font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+				font-size: 14px;
+				color: #b98;
+				line-height: 22px;
+			}
+
+			#wrapper {
+				background-color: #643;
+				border-top: 1px solid #532;
+				border-bottom: 1px solid #532;
+				width: 100%;
+				height: 200px;
+				margin-top: -100px;
+				position: absolute;
+				top: 50%;
+				left: 0;
+			}
+			.caroufredsel_wrapper {
+				margin-top: -25px !important;
+				padding-top: 20px !important;
+				padding-bottom: 20px !important;
+			}
+			#carousel {
+
+			}
+			#carousel div {
+				float: left;
+				width: 290px;
+				height: 150px;
+			}
+			#carousel img {
+				border: none;
+				position: relative;
+				box-shadow: 0 0 10px #000;
+			}
+			#nav {
+				width: 520px;
+				margin-left: -230px;
+				position: absolute;
+				bottom: -30px;
+				left: 50%;
+			}
+			#next {
+				float: right;
+			}
+			#prev, #next {
+				text-decoration: none;
+				color: #b98;
+			}
+			#prev:hover, #next:hover {
+				text-decoration: none;
+				color: #fff;
+			}
+			#prev.disabled, #next.disabled {
+				color: #865;
+				cursor: default;
+			}
+			
+			#donate-spacer {
+				height: 100%;
+			}
+			#donate {
+				border-top: 1px solid #ccc;
+				width: 750px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 650px;
+			}
+			#donate form {
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="carousel">
+				<div><img src="img/fw1.jpg" width="240" height="150" /></div>
+				<div><img src="img/fw2.jpg" width="240" height="150" /></div>
+				<div><img src="img/fw3.jpg" width="400" height="250" /></div>
+				<div><img src="img/fw4.jpg" width="400" height="250" /></div>
+				<div><img src="img/fw5.jpg" width="400" height="250" /></div>
+			</div>
+			<div id="nav">
+				<a id="prev" href="#">&laquo; prev</a>
+				<a id="next" href="#">next &raquo;</a>
+			</div>
+		</div>
+<div style="text-align:center;clear:both">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+	</body>
+</html>

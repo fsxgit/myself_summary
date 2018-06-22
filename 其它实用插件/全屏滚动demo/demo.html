@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="js-no-overflow-scrolling">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="max-age=0"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>demo</title>
+    <link rel="stylesheet" type="text/css" href="css/slidePage.css">
+    <link rel="stylesheet" type="text/css" href="css/page-animation.css">
+</head>
+<body ontouchstart="">
+<div class="slidePage-container" id="slidePage-container">
+
+    <div class="item item1">
+
+    </div>
+    <div class="item item2">
+
+    </div>
+    <div class="item item3">
+
+    </div>
+    <div class="item item4">
+    </div>
+    <div class="item item5">
+
+    </div>
+    <div class="item item6">
+
+    </div>
+    <a href="javascript:slidePage.index(1)" class="goto">跳转到page1</a>
+    <!--通过slidePage.prev()、slidePage.next()和slidePage.index()可以对页面跳转操作，可以自定义分页组件-->
+    <nav class="pagination" id="pagination">
+        <div class="prev-page" onclick="slidePage.prev()">&Lambda;</div>
+        <a onclick="slidePage.index(1)"></a>
+        <a onclick="slidePage.index(2)"></a>
+        <a onclick="slidePage.index(3)"></a>
+        <a onclick="slidePage.index(4)"></a>
+        <a onclick="slidePage.index(5)"></a>
+        <a onclick="slidePage.index(6)"></a>
+        <div class="next-page" onclick="slidePage.next()">V</div>
+    </nav>
+</div>
+<script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+<script type="text/javascript" src="js/slidePage.min.js"></script>
+
+<script type="text/javascript">
+    $('#pagination').find('a').eq(0).addClass('active');
+    slidePage.init({
+        /*'index': 1,*/
+        before:function(index,direction,target){
+            if(direction=='next'){
+                if(target==1){
+                    slidePage.fire(2);   //-- 手动控制播放第几页的lazy动画
+                }
+                $('#pagination').find('a').removeClass('active').eq(index).addClass('active')
+            }else if(direction=='prev'){
+                $('#pagination').find('a').removeClass('active').eq(target-1).addClass('active')
+            }
+        },
+        after:function(index,direction,target){
+        },
+        'useAnimation': true,
+        'refresh': true,
+        'speed': false
+    });
+</script>
+</body>
+</html>

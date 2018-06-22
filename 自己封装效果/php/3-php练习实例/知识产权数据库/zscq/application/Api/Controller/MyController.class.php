@@ -1,0 +1,247 @@
+<?php
+namespace Api\Controller;
+use Common\Controller\AppframeController;
+header("content-type:text/html;charset=utf-8");
+class MyController extends AppframeController{
+    //企业认领
+    public function qiye_add(){
+        $name = I("name");//企业名称
+        $uid = I("uid");
+		if($name=='' || $uid==''){
+           json('10003','参数缺少');
+		}
+        $data["companyName"] = $name;
+        $data["isClaimed"] = 1;
+        M("user")->where("id=$uid")->save($data);
+
+        $d["entname"] = $name;//公司名称
+        $d["regno"] = I("regno");
+        $d["frdb"] = I("frdb");//法定代表人
+        $d["esdate"] = I("esdate");
+        $d["entstatus"] = I("entstatus");
+        $d["regcap"] = I("regcap");
+        $d["enttype"] = I("enttype");//企业类型
+        $d["dom"] = I("dom");//注册地址
+        $d["opscope"] = I("opscope");
+        $d["regorg"] = I("regorg");
+        $d["regcapcur"] = I("regcapcur");
+        $d["shxydm"] = I("shxydm"); 
+		$d["creationTimestamp"] = I("creationTimestamp");
+        $d["modificationTimestamp"] = I("modificationTimestamp");
+        $d["user_id"] = $uid;
+		M("enterprise")->add($d);
+		
+        $p=0;
+        $pageSize = 10000;
+        $ar = array('entName'=>$name,'page'=>$p,'pageSize'=>$pageSize);
+        $ls = request_api_xt('api/findTrademarkList.do',$ar);//商标信息
+        foreach($ls["data"]["data"] as $k=>$v){
+			unset($ls["data"]["data"][$k]["id"]);
+			$ls["data"]["data"][$k]["customerid"] = $uid;
+		}
+		M("mark")->addAll($ls["data"]["data"]);
+		json(10001);
+    }
+	//已认领
+   function already(){
+       $uid = I("uid");
+       if($uid==''){
+           json('10003','参数缺少');
+       }
+       $info = M("enterprise")->where("user_id=$uid")->find();//企业信息
+		$name = $info["entname"];
+	   $mark = M("mark")->where("customerid=$uid")->field("markimage")->select();//商标
+
+		$card = array_slice($mark,0,8);
+	//	var_dump($card);
+       json(10001,array("info"=>$info,"mark"=>$card));
+   }
+	//认领后 商标信息更多 已注册
+	public function already_reg(){
+		$uid = I("uid");
+
+		$page = I('page');
+        $pagesize = I('page_size');
+        if($page<=1){
+            $page = 1;
+        }
+        if($pagesize<=1){
+            $pagesize = 10;
+        }
+       if($uid==''){
+           json('10003','参数缺少');
+       }
+       $info = M("enterprise")->where("user_id=$uid")->find();//企业信息
+		$name = $info["entname"];
+	   $mark1 = M("mark")->where("customerid=$uid and markstate=0")->select();
+	   $mark = M("mark")->where("customerid=$uid and markstate=0")->limit(($page-1)*$pagesize,$pagesize)->select();//商标
+	   $count = count($mark1);
+       json(10001,array("mark"=>$mark,"count"=>$count));
+	}
+
+	//认领后 商标信息更多 注册中
+	public function reging(){
+		$uid = I("uid");
+
+		$page = I('page');
+        $pagesize = I('page_size');
+        if($page<=1){
+            $page = 1;
+        }
+        if($pagesize<=1){
+            $pagesize = 10;
+        }
+       if($uid==''){
+           json('10003','参数缺少');
+       }
+       $info = M("enterprise")->where("user_id=$uid")->find();//企业信息
+		$name = $info["entname"];
+	   $mark1 = M("mark")->where("customerid=$uid and markstate=1")->select();
+	   $mark = M("mark")->where("customerid=$uid and markstate=1")->limit(($page-1)*$pagesize,$pagesize)->select();//商标
+	   $count = count($mark1);
+       json(10001,array("mark"=>$mark,"count"=>$count));
+	}
+
+	//认领后 商标信息更多 注册失败
+	public function fail_reg(){
+		$uid = I("uid");
+
+		$page = I('page');
+        $pagesize = I('page_size');
+        if($page<=1){
+            $page = 1;
+        }
+        if($pagesize<=1){
+            $pagesize = 10;
+        }
+       if($uid==''){
+           json('10003','参数缺少');
+       }
+       $info = M("enterprise")->where("user_id=$uid")->find();//企业信息
+		$name = $info["entname"];
+	   $mark1 = M("mark")->where("customerid=$uid and markstate=2")->select();
+	   $mark = M("mark")->where("customerid=$uid and markstate=2")->limit(($page-1)*$pagesize,$pagesize)->select();//商标
+	   $count = count($mark1);
+       json(10001,array("mark"=>$mark,"count"=>$count));
+	}
+	
+	//认领后 商标信息更多 已失效
+	public function out_reg(){
+		$uid = I("uid");
+
+		$page = I('page');
+        $pagesize = I('page_size');
+        if($page<=1){
+            $page = 1;
+        }
+        if($pagesize<=1){
+            $pagesize = 10;
+        }
+       if($uid==''){
+           json('10003','参数缺少');
+       }
+       $info = M("enterprise")->where("user_id=$uid")->find();//企业信息
+		$name = $info["entname"];
+	   $mark1 = M("mark")->where("customerid=$uid and markstate=3")->select();
+	   $mark = M("mark")->where("customerid=$uid and markstate=3")->limit(($page-1)*$pagesize,$pagesize)->select();//商标
+	   $count = count($mark1);
+       json(10001,array("mark"=>$mark,"count"=>$count));
+	}
+
+	private function ceshi($sid,$data){
+	  $rs = request_api_xlb($sid,$data);//接口请求
+	  return $rs;
+	}
+	//获取个人信息
+	public function info(){
+		$token = I("token");
+		if($token==''){
+           json('10003','参数缺少');
+		}
+		$data = array(token=>$token);
+		$arrinfo = $this->ceshi(1522,$data);
+		$datainfo = array(
+			'id' =>$arrinfo['RESULT']['result']['id'],
+			'imgPath' =>$arrinfo['RESULT']['result']['imgPath'],
+			'loginName' =>$arrinfo['RESULT']['result']['loginName'],
+			'phone' =>$arrinfo['RESULT']['result']['phone'],
+			'email' =>$arrinfo['RESULT']['result']['email'],
+			'kyjf' =>$arrinfo['RESULT']['result']['kyjf'],
+			'djjf' =>$arrinfo['RESULT']['result']['djjf'],
+			'lsdjjf' =>$arrinfo['RESULT']['result']['lsdjjf'],
+			'ljxfjf' =>$arrinfo['RESULT']['result']['ljxfjf'],
+			'companyName' =>$arrinfo['RESULT']['result']['companyName'],
+            'linkMan' =>$arrinfo['RESULT']['result']['linkMan'],
+            'isClaimed' =>$arrinfo['RESULT']['result']['isClaimed'],
+		);
+		$dd = $arrinfo['RESULT']['result']['id'];
+		$users_model = M("user");
+		$resu = $users_model->where("id=$dd")->find();
+		$result = $users_model->where("id=$dd")->count();
+		if($result>0){
+			if($resu["isclaimed"]==1){
+				unset($datainfo['isClaimed']);
+				unset($datainfo['companyName']);
+			}
+			$users_model->save($datainfo);
+		}else{
+            $infoys = $users_model->add($datainfo);
+			if($arrinfo['RESULT']['result']['isClaimed'] == 1){
+				$arr = array('entName'=>$arrinfo['RESULT']['result']['companyName']);
+				$rs = request_api_xt('api/findEnterpersInfo.do',$arr);
+				
+				$d["entname"] = $rs["data"]["entname"];
+				$d["regno"] = $rs["data"]["regno"];
+				$d["frdb"] = $rs["data"]["frdb"];
+				$d["esdate"] = $rs["data"]["esdate"];
+				$d["entstatus"] = $rs["data"]["entstatus"];
+				$d["regcap"] = $rs["data"]["regcap"];
+				$d["enttype"] = $rs["data"]["enttype"];
+				$d["dom"] = $rs["data"]["dom"];
+				$d["opscope"] = $rs["data"]["opscope"];
+				$d["regorg"] = $rs["data"]["regorg"];
+				$d["regcapcur"] = $rs["data"]["regcapcur"];
+				$d["shxydm"] = $rs["data"]["shxydm"];  
+				$d["user_id"] = $arrinfo['RESULT']['result']['id'];
+		//		M("enterprise")->add($d);
+				
+				$p=0;
+				$pageSize = 10000;
+				$ar = array('entName'=>$name,'page'=>$p,'pageSize'=>$pageSize);
+				$ls = request_api_xt('api/findTrademarkList.do',$ar);//商标信息
+				foreach($ls["data"]["data"] as $k=>$v){
+					$ls["data"]["data"][$k]["customerid"] = $arrinfo['RESULT']['result']['id'];
+				}
+			//	M("mark")->addAll($ls["data"]["data"]);
+			}
+		}
+		
+		$uid = $resu["id"];
+		$isclaimed = $resu["isclaimed"];
+		$companyname = $resu["companyname"];
+		if($isclaimed==1){
+			
+			$info = M("enterprise")->where("user_id=$uid")->find();//企业信息
+		
+			$mark = M("mark")->where("customerid={$uid}")->count();//商标
+			json(10001,array("isclaimed"=>$isclaimed,"companyname"=>$companyname,"uid"=>$uid,"info"=>$info,"mark"=>$mark));
+		}else{
+			json(10001,array("isclaimed"=>$isclaimed,"companyname"=>$companyname,"uid"=>$uid));
+		}
+	}
+	//商标详情
+	public function detail(){
+		$id = I("id");
+
+		
+       if($id==''){
+           json('10003','参数缺少');
+       }
+       $info = M("mark")->where("id=$id")->find();//企业信息
+	   $n = $info["entname"];
+	   $r = M("enterprise")->where("entname='$n'")->field("dom")->find();
+
+	   $info["dom"] = $r["dom"];
+       json(10001,array("info"=>$info));
+	}
+}

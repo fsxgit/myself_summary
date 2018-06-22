@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两个不挨着的盒子实现移入显示、移出隐藏</title>
+    <style>
+        body{margin:50px;}
+        .wrap{height: 350px;}
+        .btn,.btn1{width:200px; height:40px; line-height: 40px; border:1px solid #f0080b; text-align: center; margin-bottom: 20px;}
+        .box,.box1{width: 200px; height: 200px; border:2px solid #ccc; text-align: center; line-height: 200px; font-size: 20px;  color: #f00ebf; display: none;}
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>错误演示</h1>
+    <div class="btn1">移入显示，移出隐藏</div>
+    <div class="box1">
+       急死你，就不让你摸！
+    </div>
+</div>
+
+
+<hr/>
+
+<div class="wrap">
+    <h1>正确演示</h1>
+    <div class="btn">移入显示，移出隐藏</div>
+    <div class="box">
+        我是盒子
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    hover1();
+    //错误演示
+    function hover1(){
+        $(".btn1").hover(function(){
+            $(".box1").show();
+        },function(){
+            $(".box1").hide();
+        });
+        $(".box1").hover(function(){
+            $(".box1").show();
+        },function(){
+            $(".box1").hide();
+        })
+    }
+
+
+    hover2();
+    //正确演示
+    function hover2(){
+        var k = 2;
+        $(".btn").hover(function(){
+            $(".box").show();
+        },function(){
+
+            setTimeout(function(){
+                if(k == 1){
+                    $(".box").show();
+                }else{
+                    $(".box").hide();
+                }
+            },100)
+        });
+        $(".box").hover(function(){
+            k = 1;
+        },function(){
+            $(".box").hide();
+            k = 2;
+        })
+    }
+</script>
+</body>
+</html>

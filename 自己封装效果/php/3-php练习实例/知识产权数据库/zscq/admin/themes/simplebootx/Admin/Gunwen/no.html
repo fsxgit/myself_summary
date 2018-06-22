@@ -1,0 +1,39 @@
+<admintpl file="header" />
+<head lang="en">
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <style type="text/css">
+		.bg-table{width: 100%; }
+		.bg-table td{border:1px solid #eee;width:auto; padding:18px 12px; font-size: 12px;  text-align: center; ;}
+		.bg-table td.bg-neirong{text-align: left;}
+		.bg-table .tr1 td{background: #f5fafd; color: #999;}
+		.bg-table .zhong td{background: #fef8df;}
+		.xk-hand a{display: inline-block; margin:0 10px;}
+		.xk-hand a,.xk-hand a:link,.xk-hand a:visited,.xk-hand a:hover,.xk-hand a:active{color: #157efb;}
+		DIV.digg .pager{font-size:0;}
+		DIV.digg .pager a,DIV.digg .pager span{font-size:12px;}
+
+    </style>
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+    <ul class="nav nav-tabs">
+		<li class="active"><a>用户详情</a></li>
+    </ul>
+
+	<div id="mydiv">
+	 <!--上面 公用-->
+        <div style="text-align:center;">
+                <p><img src="{$userinfo.imgpath}" width="50" height="50"/></p>
+           
+                <p><span class="c999">{$userinfo.loginname}</span></p>
+                <p><span class="c999">{$userinfo.phone}</p>
+                <p><span class="c999">{$$userinfo.email}</p>
+        </div>
+        <!--上面 公用 end-->
+		<font color="red">未认领企业</font>
+    </div>
+</div>
+</body>
+</html>

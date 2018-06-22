@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/loading.css"/>
+    <link rel="stylesheet" href="css/css.css"/>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <title>从下向上滚动</title>
+    <style>
+        html,body{width: 100%; height: 100%;}
+        .active_box{width: 100%; height: 100%; background: url("./images/active.jpg") no-repeat center 0; background-size:100% 100%; }
+        .active_top{height:40.50%;}
+        .active_bot{width: 96%; margin:0 auto; position: fixed; left:0; right:0; bottom:10px; height:50.29%;  background: url("./images/active_msg.png") no-repeat center 0; background-size:100% 100%; }
+        .active_btn0{width: 100%; text-align: center;  position: absolute; bottom:-30px;  left:0;}
+        .active_btn0 img{width: 76%; height: auto; margin:0 auto;}
+        .active_bis{position: absolute; left:0; top:40%; width: 100%;}
+        .active_bis img{width: 40%; height:  auto; margin:0 auto; padding-left: 20px;}
+        .active_bot_center{width: 93%; margin:0 auto; padding-right: 3px; }
+        .active_bot_zongs{padding-top: 20px;}
+        .active_bot_zongs .yu{display: inline-block; height: 34px; line-height: 34px; background: #f84e25; border-bottom-right-radius: 17px; border-top-right-radius: 17px; font-size: 16px; color: #fff; padding-left:10px; padding-right: 20px;}
+        .active_bot_zongs .yi{display: inline-block; height: 34px; line-height: 34px; color: #f84e25; padding-right: 10px; padding-left:14px; background: url("./images/man.png") no-repeat 0 center; background-size: 14px 13px; font-size: 14px;}
+        .active_bot_zongs .yi i{color: #999; font-size: 14px;}
+        .active_bot_center{height: 100%;}
+        .active_news{margin-top: 10px; height: 68%; overflow: hidden;  -webkit-overflow-scrolling: touch; position: relative;}
+        .active_news ul{position: absolute; left:0; top:0; width: 100%;}
+        .active_news::-webkit-scrollbar{width:0;}
+        .active_news li{height: 40px; line-height: 40px;}
+        .active_news li:nth-of-type(2n+1){background: #fff2f2;}
+        .active_news li>span{font-size: 10px; color: #f7475d;}
+        .active_news li>span:nth-of-type(1){padding-left: 10px;}
+        .active_news li>span:nth-of-type(2){padding-right: 10px;}
+        .ling_shadow{position: fixed; left:0; top:0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none;}
+        .ling_shadow img{position: fixed; left:0; top:0; right:0; bottom:0; width: 85%; height: auto; margin:auto;}
+    </style>
+</head>
+<body>
+<!--loading -->
+<div class="lyhBackstrop" id="loading">
+    <div class="lyhLoading">
+        <div class="url-loading">
+            <i class="nth-4"></i>
+            <i class="nth-5"></i>
+            <i class="nth-6"></i>
+            <i class="nth-3"></i>
+            <i class="nth-2"></i>
+            <i class="nth-1"></i>
+        </div>
+        Loading...
+    </div>
+</div>
+<!--loading end-->
+<!--content-->
+<div class="active_box">
+    <div class="active_top pr">
+        <div class="active_bis">
+            <img src="images/888.png" alt=""/>
+        </div>
+        <div class="active_btn0"><img src="images/active_btn.png" alt=""/></div>
+    </div>
+    <div class="active_bot pr">
+        <div class="active_bot_center">
+            <div class="active_bot_zongs oh"><span class="yu fl">剩余29918个</span><span class="yi fr">123546<i>人已领取</i></span></div>
+            <div class="active_news" id="box">
+                <ul>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                    <li class="oh">
+                        <span class="fl">188****6789 领取了8888个币</span>
+                        <span class="fr">2017.04.15 15:42:56</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ling_shadow">
+    <img src="images/ling.png" alt=""/>
+</div>
+<!--content end-->
+<script src="js/jquery.min.js"></script>
+<script src="js/loading.js"></script>
+<script type="text/javascript">
+    var toh = 0;
+    setInterval(function(){
+        toh -= 40;
+        var str ="";
+        str+='<li class="oh">';
+        str+='<span class="fl">188****6789 领取了8888个币</span>';
+        str+='<span class="fr">2017.04.15 15:42:56</span>';
+        str+='</li>';
+        $(".active_news ul").append(str);
+        $(".active_news").animate({"top":toh});
+
+    },2000);
+</script>
+</body>
+</html>

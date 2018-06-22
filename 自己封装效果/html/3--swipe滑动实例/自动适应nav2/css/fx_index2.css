@@ -1,0 +1,33 @@
+/*登录页面 KuaiSuXiaDan.html css*/
+/*头部*/
+.KSheader{width:100%; height:auto; background:#fff;}
+.KSheader div{ height:0.05rem;padding:0.04375rem 0; font-size:0;}
+.KSheader div span{font-size:0.05rem; color:#7e7e7e;}
+.KSheader div span:nth-of-type(1){font-size:0.04rem; display: block;padding-right:0.05rem;background:url("../images/downH.png") no-repeat right center; background-size:0.0375rem  0.040625rem;margin-left:0.03rem;}
+.KSheader div span:nth-of-type(3){width:0.0578125rem; height:0.0578125rem; margin-right:0.03rem;}
+/*banner*/
+body{ background: #fff;}
+.KSheader div.logoImg{background:#fff url("../images/logoDN.png") no-repeat center; background-size:0.259rem  0.079rem;}
+/*banner轮播css 开始*/
+.swiper-container{width:100%;height:0.46rem;}
+.swiper-wrapper{width:auto; height: 100%;}
+.bannerImg{width:1rem;}
+.swiper-pagination{height:10px; font-size: 0;}
+.swiper-pagination-bullet{background:#fff; opacity:0.7;}
+.swiper-pagination-bullet-active{background: #fff; opacity:1;}
+/*banner轮播css 结束*/
+/*内容*/
+.huiGap{height:0.04rem; background:#f6f5fb;}
+.contBox{padding-bottom:0.17rem;}
+.youzhi_h1{font-size: 0; padding:0.05rem 0; height:0.05rem; line-height:0.05rem;}
+.youzhi_h1 span{font-size: 0.045rem; display: inline-block;}
+.youzhi_h1 span:nth-of-type(1){padding-left:0.02rem; border-left:0.01rem solid #49becd;  }
+.youzhi_h1 span:nth-of-type(2){padding-right:0.05rem; background: url("../images/right.png") no-repeat right center; background-size: 0.023rem 0.0375rem; color:#636363;}
+
+.naiMode{ float: left; width:0.29rem; margin-right:0.03rem; padding-top: 0.02rem;}
+.naiMode:nth-of-type(3n){margin:0;}
+.naiImg{width:0.2875rem; height:0.240625rem; border:1px solid #e4e4e4;}
+.naiTxt{width:0.2875rem; height:0.114rem; line-height:0.114rem; font-size: 0.04rem; color:#636363; text-align: center;}
+
+.midBox{width: 100%;}
+.imgshow{width:100%; height:0.196rem;}

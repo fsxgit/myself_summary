@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>页面加载完成后执行</title>
+    <style>
+        h1{text-align: center;}
+        .box{width:960px; height:800px; border:1px solid #e50065;margin-right: auto; margin-left: auto;}
+        .f20{font-size: 20px;}
+        .f12{font-size: 12px;}
+        .f10 span{font-size: 10px; -webkit-transform:scale(1); transform:scale(1); display: inline-block;}
+        .f8 span{font-size: 10px; -webkit-transform:scale(0.8); transform:scale(0.8); display: inline-block;}
+        .f6 span{font-size: 10px; -webkit-transform:scale(0.6); transform:scale(0.6); display: inline-block;}
+        .f4 span{font-size: 10px; -webkit-transform:scale(0.4); transform:scale(0.4); display: inline-block;}
+
+    </style>
+</head>
+<body>
+<h1>当字体小于12px时实现的方法</h1>
+<div class="box">
+    <p class="f20">我是20号字体</p>
+    <p class="f12">我是12号字体</p>
+    <p class="f10"><span>我是10号字体</span></p>
+    <p class="f8"><span>我是8号字体</span></p>
+    <p class="f6"><span>我是6号字体</span></p>
+    <p class="f4"><span>我是4号字体</span></p>
+</div>
+
+</body>
+</html>

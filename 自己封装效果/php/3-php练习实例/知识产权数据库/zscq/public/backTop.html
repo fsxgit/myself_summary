@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+</head>
+<body>
+<!--返回顶部-->
+<div class="backTop">
+    <div class="backTop-msg"><a onclick="NTKF.im_openInPageChat('kf_9328_1467084789257')"><img src="public/html/images/msg.png" width="50" height="50" alt=""/></a></div>
+    <div class="backTop-top"><a href="javascript:window.scrollTo( 0, 0 );" ><img src="public/html/images/top.png" width="50" height="50" alt=""/></a></div>
+</div>
+<!--返回顶部 end-->
+
+</body>
+</html>
+
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".backTop-msg,.backTop-top").hover(function(){
+        $(this).css("background","#157efb");
+    },function(){
+        $(this).css("background","#456588");
+    })
+
+	NTKF_PARAM = {
+		siteid:"kf_9328",		            //企业ID，为固定值，必填
+		settingid:"kf_9328_1467084789257",	//接待组ID，为固定值，必填
+		uid:"12323",		                //用户ID，未登录可以为空，但不能给null，uid赋予的值显示到小能客户端上
+		uname:"eminyli@163.com",		    //用户名，未登录可以为空，但不能给null，uname赋予的值显示到小能客户端上
+		isvip:"0",                          //是否为vip用户，0代表非会员，1代表会员，取值显示到小能客户端上
+		userlevel:"1",		                //网站自定义会员级别，0-N，可根据选择判断，取值显示到小能客户端上
+		erpparam:"abc"                      //erpparam为erp功能的扩展字段，可选，购买erp功能后用于erp功能集成
+	}
+</script>
+<script type="text/javascript" src="http://dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9328" charset="utf-8"></script>

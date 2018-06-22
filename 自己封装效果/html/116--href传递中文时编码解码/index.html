@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>href传递参数值为中文时乱码的解决方法</title>
+</head>
+<body>
+<h1>这个页面进行传递参数：先编码再传递【也可以不编码，直接传递，浏览器会自动转码】</h1>
+<div style="padding:50px;">等待3秒跳转</div>
+
+<script>
+    var gadgetId = "123456";
+    var gadgetName = "联想智能空气净化器";
+    setTimeout(function(){
+      location.href='ceshi.html?gdname='+encodeURI(gadgetName)+'&gdid='+gadgetId;
+        //location.href='ceshi.html?gdname='+gadgetName+'&gdid='+gadgetId;
+    },3000);
+</script>
+</body>
+</html>
+     

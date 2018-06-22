@@ -1,0 +1,62 @@
+.xBox{background: #fff; margin-top:16px;}
+.liuyan{width:90%; height:104px; margin:0 5%; padding:10px 0; font-size: 14px;}
+
+.pbBox{}
+.pbBox .leftBox{float: left; width:49%; overflow: hidden;}
+.pbBox .rightBox{float: right; width:49%; overflow: hidden;}
+.pbBox img{width:100%; height:auto; display:inline-block;  float: left; margin:2px 0;}
+
+
+
+.spBox{background: #fff; width: 100%; height:auto;}
+.playerBox{position: relative;}
+.playerBox .playerShadow{position: absolute; left:0; bottom:0; width: 100%; height:38px; line-height: 38px; font-size: 14px; color: #fff;
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,1)); /* Safari 5.1 - 6 */
+    background: -o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,1)); /* Opera 11.1 - 12*/
+    background: -moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,1)); /* Firefox 3.6 - 15*/
+    background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,1)); /* 标准的语法 */
+}
+.playerShadow span{margin:0 10px;}
+.playerBtn{position: absolute; width: 100%; height: 100%; left:0; top:0;  text-align: center;}
+.playerBtn img{width:48px; height: 48px;}
+
+.xmVideoTitle{height:44px; line-height: 44px;}
+
+
+.xqTxt{display: flex;  display: -webkit-flex; /* Safari */ padding:12px 0;}
+.dtImg{flex: 1;  -webkit-flex:1; text-align: center; }
+.xqTxt img{width:96px; height:96px;}
+.xqTitle{font-size: 14px;  padding-top: 10px; color:#333; }
+.dtDetail{border-bottom:1px solid #bdbdbd;}
+.dtDetail:nth-last-of-type(1){border:none;}
+
+
+.bmBox{background: #fff;}
+.w95{width:95%; float:right; padding:10px 0; border-bottom: 1px solid #d5d5d5;}
+.w967{width:96.7%;}
+.bmMode:nth-last-of-type(1) .w95{border:none;}
+.bmImg{width:40px; height: 40px;}
+.bmName{ height: 40px; line-height: 40px; margin-left: 6px;}
+.bmQG{font-size: 0; margin-top:7px;}
+.bmQG span{height:26px; line-height: 26px; display: inline-block; font-size: 12px; border-radius: 4px; }
+.bmQG span.qd{width:48px; text-align: center; color: #fff; background: #e50065;  border:1px solid #e50065; margin-right: 10px;}
+.bmQG span.gz{height:26px; line-height: 26px; display: inline-block; font-size: 12px; border-radius: 4px; width:48px; text-align: center; color: #e50065; background: #fff; border:1px solid #e50065; }
+
+
+.xxTitle{width:100%;  background: #f2f2f6; font-size: 16px; height:48px; line-height: 48px; color: #a3a3a3; text-align: center; }
+.xxMoreBox{padding:14px 0; float: right; overflow: hidden; width:96%; }
+.xxMoreMain{font-size: 0; width:94.06%; overflow: hidden;}
+.xxMoreMain span{display: inline-block; font-size: 14px; float: left;}
+.xxName{width:27%; }
+.xxTxt{width:73%; color: #545454;}
+.styleTitle{width: 100%; background: #f2f2f6; padding:16px 0 10px; }
+.styleTitle h1{font-size: 14px; height:16px; line-height: 16px; color: #a3a3a3; text-indent:8px; background: url("../images/icon45.png") no-repeat 0 center; background-size:4px 4px; }
+.sexChoose{padding:16px 0;}
+.sexBox{width:236px;}
+.sexBox label{font-size: 14px; display: inline-block; height:22px; line-height: 22px; padding-left: 30px; margin-right: 42px;}
+.sexBox input{width:0; height:0;}
+.sexBox label{background: url("../images/sex1.png") no-repeat 0 center; background-size:22px 22px; }
+.sexBox label.active{background: url("../images/sex2.png") no-repeat 0 center; background-size:22px 22px; }
+
+.xzTxt{font-size: 14px; padding:16px 0; color: #7c7c7c;}
+.btnBox{padding-bottom: 40px;}

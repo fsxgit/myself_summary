@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/wrong.css"/>
+</head>
+<body>
+    <div class="fp-box main c333 f12">
+        <div class="fp-step"><img src="public/html/images/fp2.png" width="640" height="54" alt=""/></div>
+        <div class="fp-input-box bc">
+            <div class="fp-sel-wrap">
+                <span class="tit">验证方式</span>
+                <div class="fp-sel-box">
+                    <span class="fp-sel-value"></span>
+                    <div class="fp-sel-p">
+                        <P class="active">手机</P>
+                    </div>
+                </div>
+                <div class="cb"></div>
+            </div>
+			<form class="form-horizontal js-ajax-form" action="{:U('Portal/pinfo/uppass4')}" id="formreg" method="post">
+            <p>
+				<span class="tit">用户账号</span>
+				<input type="text" class = "gggx" id = "tel" placeholder="请输入用户名或手机号"/>
+			</p>
+            <p class="warn-box" id = "telts"></p>
+            <p>
+				<span class="tit">验证码</span>
+				<input type="text" class="fp2-ma  gggx" id = "code" placeholder="请输入验证码"/>
+				<input type="button" onClick="telcode()" class="maBtn2 fr cfff" value="获取短信验证码"/>
+			</p>
+			<p class="warn-box" id = "codets"></p>
+            <p>
+				<input type="submit" class="next bg1 cfff" value="下一步"/>
+			</p>
+			</form>
+        </div>
+    </div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        var txt = $(".fp-sel-p p").eq(0).text();
+        $(".fp-sel-value").text(txt);
+        $(".fp-sel-box").click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                $(".fp-sel-p").slideDown();
+            }else{
+                $(".fp-sel-p").slideUp();
+            }
+        })
+        $(".fp-sel-p p").click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            $(".fp-sel-value").text(val);
+            $(".fp-sel-box").removeClass("active");
+            $(".fp-sel-p").slideUp();
+            event.stopPropagation();
+        })
+    })
+	//提示错误后，再获取焦点是，提示隐藏
+	$(".gggx").each(function(){
+		$(this).focus(function(){
+			$(this).parents("p").siblings(".warn-box").hide().html("");
+		})
+	});
+
+	function telcode(){
+		var tel = document.getElementById("tel").value;
+		if(tel == ""){
+			$("#telts").show();
+			$("#telts").html("<span class='warn-txt'>手机号码不能为空</span>");
+			return false;
+		}else if(!/^(13[0-9]|17[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(tel)){
+			$("#telts").show();
+			$("#telts").html("<span class='warn-txt'>请输入正确的手机号</span>");
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			data:{"tel":tel},
+			url:'{:U('Portal/pinfo/telcode1')}',
+			success: function(msg){
+				if(msg == 100){
+					$("#telts").show();
+					$("#telts").html("<span class='warn-txt'>手机号不能为空</span>");
+					return false;
+				}else if(msg == 222){
+					$("#telts").show();
+					$("#telts").html("<span class='warn-txt'>手机号码不正确</span>");
+					return false;
+				}
+		});
+	}
+
+	function ckform(){
+		var code = $("#code").val();
+	}
+</script>
+</body>
+</html>

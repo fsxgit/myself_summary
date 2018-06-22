@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery仿QQ音乐大转盘抽奖代码 - 【科e互联】</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body class="keBody">
+<h1 class="keTitle">jQuery仿QQ音乐大转盘抽奖代码</h1>
+<div class="kePublic">
+<!--效果html开始-->
+<div class="dowebok">
+  <div class="rotary"> <img class="hand" src="images/z.png" alt=""> </div>
+  <div class="list"> <strong>100%中奖</strong>
+    <h4>中奖用户名单</h4>
+    <ul>
+      <li> <span>154**88</span> <span>获得1个月绿钻</span> </li>
+      <li> <span>6161***034</span> <span>获得11个月绿钻</span> </li>
+      <li> <span>2349***224</span> <span>获得1个月绿钻</span> </li>
+      <li> <span>433***54</span> <span>获得2个月绿钻</span> </li>
+      <li> <span>5154***234</span> <span>获得4个月绿钻</span> </li>
+      <li> <span>3213***123</span> <span>获得2个月绿钻</span> </li>
+      <li> <span>898****362</span> <span>获得9个月绿钻</span> </li>
+    </ul>
+  </div>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script> 
+<script src="js/jquery.rotate.min.js"></script> 
+<script>
+$(function(){
+	var $hand = $('.hand');
+
+	$hand.click(function(){
+		var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+		data = data[Math.floor(Math.random()*data.length)];
+		switch(data){
+			case 1:
+				rotateFunc(1,16,'恭喜你抽中了1个月绿钻');
+				break;
+			case 2:
+				rotateFunc(2,47,'恭喜你抽中了2个月绿钻');
+				break;
+			case 3:
+				rotateFunc(3,76,'恭喜你抽中了3个月绿钻');
+				break;
+			case 4:
+				rotateFunc(4,106,'恭喜你抽中了4个月绿钻');
+				break;
+			case 5:
+				rotateFunc(5,135,'恭喜你抽中了5个月绿钻');
+				break;
+			case 6:
+				rotateFunc(6,164,'恭喜你抽中了6个月绿钻');
+				break;
+			case 7:
+				rotateFunc(7,193,'恭喜你抽中了7个月绿钻');
+				break;
+			case 8:
+				rotateFunc(7,223,'恭喜你抽中了8个月绿钻');
+				break;
+			case 9:
+				rotateFunc(7,252,'恭喜你抽中了9个月绿钻');
+				break;
+			case 10:
+				rotateFunc(7,284,'恭喜你抽中了10个月绿钻');
+				break;
+			case 11:
+				rotateFunc(7,314,'恭喜你抽中了11个月绿钻');
+				break;
+			case 12:
+				rotateFunc(7,345,'恭喜你抽中了12个月绿钻');
+				break;
+		}
+	});
+
+	var rotateFunc = function(awards,angle,text){
+		$hand.stopRotate();
+		$hand.rotate({
+			angle: 0,
+			duration: 5000,
+			animateTo: angle + 1440,
+			callback: function(){
+				alert(text);
+			}
+		});
+	};
+});
+</script>
+<!--效果html结束-->
+<div class="clear"></div>
+</div>
+<div class="keBottom">
+<p class="keTxtP">科e互联网页特效集锦---更多特效请访问 <a class="keUrl" href="http://www.internetke.com" target="_blank">www.internetke.com</a></p>
+<p class="keTxtP">本站导航：
+<a href="http://www.internetke.com/" target="_blank" class="cor_bs">网站建设</a> | 
+<a href="http://www.internetke.com/material/" target="_blank" class="cor_bs">网页素材</a> | 
+<a href="http://www.internetke.com/effects/" target="_blank" class="cor_bs">网页特效</a> | 
+<a href="http://www.internetke.com/share/" target="_blank" class="cor_bs">设计分享</a> | 
+<a href="http://www.internetke.com/tutorial/" target="_blank" class="cor_bs">建站教程</a> | 
+<a href="http://www.internetke.com/model/" target="_blank" class="cor_bs">网站模版</a> | 
+<a href="http://www.internetke.com/appreciate/" target="_blank" class="cor_bs">酷站赏析</a>
+</p>
+<p class="keTxtP">＊尊重他人劳动成果，转载请自觉注明出处！注：此代码为【科e整理/原创特效】仅供学习交流，请勿用于商业用途。
+<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=a7df3558c291e0407375b9ad649d96a6e507286ffeb0650c65a221d1500a0779" class="button red" title="北京网站建设,网页特效QQ交流群-科e互联">加入QQ交流群</a></p>
+</div>
+</body>
+</html>

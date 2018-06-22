@@ -1,0 +1,298 @@
+<?php
+/**
+ * 一路支付16个接口
+ */
+namespace Portal\Controller;
+use Common\Controller\HomebaseController; 
+header("content-type:text/html;charset=utf-8");
+class OneroadpayController extends HomebaseController{
+
+	//调用公共方法
+	private function ceshi($sid,$data){
+            $rs = request_api_xlb($sid,$data);//接口请求
+            return $rs;
+        }
+
+	//一路财富支付接口秘钥 1800
+	private function token(){
+            $token = $_COOKIE['code'];
+            $data = array(token => $token);
+            return $this->ceshi(1800,$data);
+	}
+        
+        //D15 一路财富支付接口 1587
+        public function oneroad(){
+            $totalOrdersNo = I('totalOrdersNo');
+            $tranPassword = I('tranPassword');
+            $bankCardNo = I('bankCardNo');
+            //支付类型   0 是余额   1是银行卡
+            $payType = I('payType');
+            $data = array(
+                totalOrdersNo => $totalOrdersNo,
+                tranPassword => $tranPassword,
+                bankCardNo => $bankCardNo,
+                payType => $payType
+            );
+            $arr_info = $this->ceshi(1587,$data);
+            return $arr_info;
+        }
+        //D19 一路财富钱包创建申请 1591
+        public function shenqing(){
+            $token = $_COOKIE['code'];
+            $realName = I('realName');
+            $identityNo = I('identityNo');
+            $mobileNo = I('mobileNo');
+            $bankNo = I('bankNo');
+            $code = I('code');
+            $bankCardNo = I('bankCardNo');
+            $pass = I('pass');
+            
+            $data = array(
+                token => $token,
+                realName => $realName,
+                identityNo => $identityNo,
+                mobileNo => $mobileNo,
+                bankCardNo => $bankCardNo,
+                bankNo => $bankNo
+            );
+            $arr_info = $this->ceshi(1591,$data);
+            print_r($arr_info);
+            if(!empty($arr_info['RESULT']['result']['data']['mobileToken'])){
+                $mobileToken = $arr_info['RESULT']['result']['data']['mobileToken'];
+                //D20 一路财富钱包创建提交 1592
+                $data = array(
+                    token => $token,
+                    phoneCode => $code,
+                    mobileToken => $mobileToken
+                );
+                $arr_info = $this->ceshi(1592,$data);
+                print_r($arr_info);
+                //判断返回的code 0成功，1失败
+               if($arr_info['RESULT']['result']['code'] == 0){
+                   //D24 一路财富设置交易密码 1596
+                   $data = array(
+                        token => $token,
+                        tranPassword => $pass
+                    );
+                   $arr_info = $this->ceshi(1596,$data);
+                   print_r($arr_info);
+                   exit;
+                   if($arr_info['RESULT']['result']['code'] == 0){
+                       //创建成功跳转到什么地方
+                       redirect(U("Portal/oneroadpay/qianbao")); 
+                   }else{
+                       //密码设置失败
+                       echo 4;
+                       exit;
+                   }
+               }else{
+                   //开通失败
+                   echo 3;
+                   exit;
+               }
+            }else{
+                //银行卡信息有问题
+                echo 2;
+                exit;
+            }
+        }
+        
+        //我的钱包
+        function qianbao(){
+            
+            $token = $_COOKIE['code'];
+            //D18 一路财富用户银行卡列表 1590
+            $kalistdata = array(
+                token => $token,
+            );
+            $kalist = $this->ceshi(1590,$yuedata);
+            if(!$kalist['RESULT']['result']['accountList'] == ""){
+                //D21 一路财富钱包余额 1593
+                $yuedata = array(
+                    token => $token,
+                );
+                //钱包余额
+                $yue = $this->ceshi(1593,$yuedata);
+                //D28 一路财富用户交易记录 1556
+                $jiludata = array(
+                    token => $token,
+                    startDate =>"",
+                    endDate => ""
+                );
+                $jilulist = $this->ceshi(1556,$jiludata);
+                $this->assign("jilulist",$jilulist);
+                $this->assign("yue",$yue);
+                $this->assign("kalist",$kalist);
+                $this->display("my_qianbao");
+            }else{
+                $this->display("my-qianbao-hy");
+            }
+        }
+
+        //D17 一路财富银行卡列表 1589
+        public function roadlist(){
+            $token = $_COOKIE['code'];
+            $data = array(token => $token);
+            $arr_info = $this->ceshi(1589,$data);
+            //支持的银行卡
+            $arr_list = $arr_info['RESULT']['result']['bankList'];
+            $this->assign("arrlist",$arr_list);
+            $this->display("my_qianbao_kt");
+        }
+        
+        //D22 一路财富钱包充值 1594
+        public function chongzhi(){
+            $this->display("my-qianbao-cz1");
+        }
+        public function chongzhi1(){
+            $amount = I('money');
+            $token = $_COOKIE['code'];
+            $id = $_COOKIE['zsid'];
+            $custOrderNo = $id.time();
+            $time = date("Y-m-d H:i:s",time());
+            //用户的银行卡列表1590
+            $kalistdata = array(
+                token => $token,
+            );
+            $kalist = $this->ceshi(1590,$yuedata);
+            $this->assign("amount",$amount);
+            $this->assign("custOrderNo",$custOrderNo);
+            $this->assign("time",$time);
+            $this->display("my-qianbao-cz2");
+        }
+        public function chongzhi2(){
+            $token = $_COOKIE['code'];
+            $amount = I('amount');
+            $custOrderNo = I('custOrderNo');
+            $tranPassword = I('tranPassword');
+            $bankCardNo = I('bankCardNo');
+            ////D22 一路财富钱包充值 1594
+            $data = array(
+                token => $token,
+                amount => $amount,
+                custOrderNo => $custOrderNo,
+                tranPassword => $tranPassword,
+                bankCardNo => $bankCardNo
+            );
+            $arr_info = $this->ceshi(1594,$data);
+            if($arr_info['RESULT']['result']['code'] == 0){
+                //重置成功的跳转
+                $this->display("my-qianbao-cz3");
+            }else{
+                //重置失败的跳转
+                $this->display("my-qianbao-cz4");
+            }
+        }
+        
+        //D23 一路财富钱包提现 1595
+        public function tixian(){
+            $token = $_COOKIE['code'];
+            //D21 一路财富钱包余额 1593
+            $yuedata = array(
+                token => $token,
+            );
+            //钱包余额
+            $yue = $this->ceshi(1593,$yuedata);
+            //D18 一路财富用户银行卡列表 1590
+            $kalistdata = array(
+                token => $token,
+            );
+            $kalist = $this->ceshi(1590,$yuedata);
+            $this->display("my-qianbao-tx");
+        }
+        public function tixian1(){
+            $amount = I('amount');
+            $bankCardNo = I('bankCardNo');
+            $this->assign("amount",$amount);
+            $this->assign("bankCardNo",$bankCardNo);
+            $this->display("my-qianbao-tx2");
+        }
+        public function tixian2(){
+            $token = $_COOKIE['code'];
+            $amount = $I('amount');
+            $custOrderNo = $_COOKIE['zsid'].time();
+            $tranPassword = I('tranPassword');
+            $bankCardNo = I('bankCardNo');
+            //D23 一路财富钱包提现 1595
+            $data = array(
+                token => $token,
+                amount => $amount,
+                custOrderNo => $custOrderNo,
+                tranPassword => $tranPassword,
+                bankCardNo => $bankCardNo
+            );
+            $arr_info = $this->ceshi(1595,$data);
+            if($arr_info['RESULT']['result']['code'] == 0){
+                //提现成功
+                echo 1;
+                exit;
+            }else{
+                //提现失败
+                echo 2;
+                exit;
+            }
+        }
+        
+        //D25 一路财富钱包重置密码第一步 1597
+        public function czpass(){
+            $this->display("find-pass1");
+        }
+        public function czpass1(){
+            $token = $_COOKIE['code'];
+            $realName = I('realName');
+            $identityNo = I('identityNo');
+            $mobileNo = I('mobileNo');
+            $code = I('code');
+            ////D25 一路财富钱包重置密码第一步 1597
+            $data = array(
+                token => $token,
+                realName => $realName,
+                identityNo => $identityNo,
+                mobileNo => $mobileNo
+            );
+            $arr_info = $this->ceshi(1597,$data);
+        }
+
+
+        /**
+		*  收银台支付页面
+		*/
+		function shoupay(){
+			$orderid = I('post.orderid');
+			$arr = M("zcorder")->where("orderid = {$orderid}")->find();
+			M("mark")->where("id in({$arr['markid']})")->save(array('entname'=>$zcorder['applicantname']));
+			$this->assign("arr",$arr);
+			$this->display("shoyintai");
+		}
+		/**
+		*  支付订单
+		*/
+		function payorder(){
+			$orderid = I('post.orderid');
+			$arr = M("zcorder")->where("orderid = {$orderid}")->find();
+			M("zcorder")->where("orderid = {$orderid}")->save(array('state'=>'1','actual_price'=>$arr['summary_price']));
+			M("mark_zc_state")->add(array('orderid'=>$orderid,'zhucestate'=>'1','add_time'=>time()));
+			M("mark")->where("FIND_IN_SET($id,$arr['markid'])")->save(array('state'=>'1'));
+			/*
+			    推送注册单
+			*/
+			$zcorder = M("zcorder")->where("orderid = {$orderid}")->find();
+			$mark = M("mark")->where("id in({$zcorder['markid']})")->select();
+			$info['query_no'] = $zcorder['query_no'];
+			$info['order_no'] = $zcorder['order_no'];
+			$info['customerid'] = $zcorder['customerid'];
+			$info['customername'] = $zcorder['customername'];
+			$info['customermobile'] = $zcorder['customermobile'];
+			$info['applicantname'] = $zcorder['applicantname'];
+			$info['applicantaddress'] = $zcorder['applicantaddress'];
+			foreach($mark as $k=>$v){
+				$info['markname'] = $v['markname'];
+			    $info['markpicture'] = $v['marklogo'];
+				$registetype[] = $v['registetype'];
+			}
+			$info['registetype'] = implode(',',$registetype);
+		    request_api_xt("intel_property/trademark_regist_order_to_xtpt",$info);
+			$this->assign("orderid",$orderid);
+			$this->display("shoyintai-suc");
+		}
+}

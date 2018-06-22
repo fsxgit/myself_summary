@@ -1,0 +1,102 @@
+<admintpl file="header" />
+<style>
+a{cursor: pointer;}
+DIV.digg A,DIV.digg span{
+	BORDER-RIGHT: #aaaadd 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #aaaadd 1px solid; PADDING-LEFT: 8px; PADDING-BOTTOM: 4px; MARGIN: 0px; BORDER-LEFT: #aaaadd 1px solid; COLOR: #000099; PADDING-TOP: 4px; BORDER-BOTTOM: #aaaadd 1px solid; TEXT-DECORATION: none
+}
+DIV.digg A:hover {
+	BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; BORDER-LEFT: #000099 1px solid; COLOR: #000; BORDER-BOTTOM: #000099 1px solid
+}
+DIV.digg A:active {
+	BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid; BORDER-LEFT: #000099 1px solid; COLOR: #000; BORDER-BOTTOM: #000099 1px solid
+}
+DIV.digg SPAN.current {
+	BORDER-RIGHT: #000099 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #000099 1px solid; PADDING-LEFT: 8px; FONT-WEIGHT: bold; PADDING-BOTTOM: 4px; MARGIN: 0px; BORDER-LEFT: #000099 1px solid; COLOR: red; PADDING-TOP: 4px; BORDER-BOTTOM: #000099 1px solid; 
+	
+}
+DIV.digg SPAN.disabled {
+	BORDER-RIGHT: #eee 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #eee 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 0px; BORDER-LEFT: #eee 1px solid; COLOR: #ddd; PADDING-TOP: 2px; BORDER-BOTTOM: #eee 1px solid
+}
+DIV.digg .pager{font-size:0;}
+DIV.digg .pager a,DIV.digg .pager span{font-size:12px;}
+
+.btnfx{cursor: pointer; width:70px; height:28px;line-height:28px; border:1px solid #07a9ff; color: #07a9ff; border-radius: 4px; background: none; margin-left:20px;float:left;margin-top:2px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>注册中</a></li>
+    </ul>
+	<form method="post" action="{:U('Brand/zing')}">
+	<div style="float:left;">
+		<input type="text" name="bname" placeholder="商标名称" value="{$name}">
+		<select id="state" name="state" style="width:150px;height:38px;">
+					<option value="" <?php if($state=="")echo "selected";?>>状态</option>
+					<option value="资料准备">资料准备</option>
+					<option value="资料审查">资料审查</option>
+					<option value="提交申请">提交申请</option>
+					<option value="受理">受理</option>
+					<option value="实质审查">实质审查</option>
+					<option value="驳回">驳回</option>
+					<option value="驳回复审">驳回复审</option>
+					<option value="公告">公告</option>
+					<option value="异议">异议</option>
+					<option value="异议答辩">异议答辩</option>
+					<option value="寄送注册证">寄送注册证</option>
+					<option value="变更中">变更中</option>
+					<option value="转让中">转让中</option>
+					<option value="已转让">已转让</option>
+				</select>
+	</div>
+        <input type="submit" value="搜索" class="btnfx">
+    </form>
+    <div id="mydiv">
+         <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>服务单号</th>
+                <th>商标图样</th>
+                <th>商标名称</th>
+				<th>分类</th>
+                <th>申请号</th>
+				<th>当前状态</th>
+				<th>服务顾问</th>
+				<th>订单来源</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="res" item="vo" key='k'>
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td></td>
+                    <td>
+					<if condition=" $vo.marklogo eq '' ">
+						<img src="data:png;base64,{$vo.markimage}" width="50" height="50"/>
+					<elseif condition=" $vo.marking eq '' "/>
+                      <img src="{$vo.marklogo}" width="50" height="50"/>
+					</if>
+					</td>
+                    <td>{$vo.markname}</td>
+					<td>{$vo.uniontypecode}</td>
+                    <td></td>
+					<td>{$vo.markstate}</td>
+					<td></td>
+                    <td></td>
+                    <td><a onclick="show({$vo.id})">查看详情</a>
+                    </td> 
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+   <div class="digg">{$page}</div>
+</div>
+</body>
+</html>
+<script>
+function show(id){
+	window.location.href='index.php?g=Admin&m=Brand&a=detail&id='+id;
+}
+</script>

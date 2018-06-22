@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title></title>
+    <script src="js/fx_common.js"></script>
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_css.css"/>
+</head>
+<body>
+<div class="citybox">
+    <div class="Fsheng">
+        <h1><span class="ftName">省</span><span class="SValue">请选择省份</span></h1>
+        <div class="shengbox  fpBox">
+            <p>请选择市/区</p>
+        </div>
+    </div>
+    <div class="Fqu">
+        <h1><span class="ftName">市/区</span><span class="QValue">请选择市/区</span></h1>
+        <div class="qubox fpBox">
+            <p>请选择市/区</p>
+        </div>
+    </div>
+    <div class="Fxian">
+        <h1><span class="ftName">县</span><span class="XValue">请选择县</span></h1>
+        <div class="xianbox fpBox">
+            <p>请选择市/区</p>
+        </div>
+    </div>
+</div>
+<div class="tiJiao">
+    <input type="submit" class="tjbtn" value="提交"/>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/fx_js.js"></script>
+<script>
+ajaxData();
+SSQjs();
+quZhi();
+</script>
+</body>
+</html>

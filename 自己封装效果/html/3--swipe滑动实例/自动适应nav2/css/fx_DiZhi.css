@@ -1,0 +1,13 @@
+/*内容*/
+body{background:#f0eff5;}
+.DZbox{background: #fff; width:100%; height:auto; padding-bottom:0.2rem;}
+.DZbox .Ren{ width:100%; height:auto; padding:0.04rem 0; border-bottom:1px solid #ccc;}
+.DZbox .RenXin{ width:0.921rem; margin: 0 auto; height:auto;}
+.DZbox .DiZhi{ width:0.8rem; height:auto;}
+.DZbox .DiZhi .name{display: inline-block; padding-right:0.0375rem; margin-right:0.04rem; background: url("../images/borderLeftBg.png") no-repeat right center; background-size: 1px 0.04rem; }
+.DZbox .DiZhi p:nth-of-type(1){font-size:0.04375rem;}
+.DZbox .DiZhi p:nth-of-type(2){font-size:0.04rem; color:#999; height:auto; line-height:0.06rem; margin-top:0.02rem;}
+.DZbox .DZchoose{width:0.065625rem; height:0.065625rem; background: url("../images/XuanY.png") no-repeat center; background-size: cover; margin-top:0.03rem; display: none;}
+.DZbox .fxActive{display: block;}
+.DZBot{width:100%; height:0.15rem; line-height: 0.15rem; position:fixed; left:0; bottom:0; background: #fff; border-top:1px solid #ccc;}
+.DZBot a{display: inline-block; width:0.31rem; padding-left:0.08rem; font-size: 0.05rem; color:#49becd; background:url("../images/TianJia.png") no-repeat left center; background-size:0.05625rem; }

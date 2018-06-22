@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>页面加载完成后执行</title>
+    <style>
+        h1{text-align: center;}
+        .box{width:960px; height:800px; border:1px solid #e50065;margin-right: auto; margin-left: auto;}
+        .imgBox{width:400px; height:auto;margin-right: auto; margin-left: auto;}
+        .imgBox img{width:100%; height:auto; display: block;}
+    </style>
+</head>
+<body>
+<h1>实现图片上下居中</h1>
+<div class="box">
+    <div class="imgBox"><img src="images/img.png" alt=""/></div>
+</div>
+
+
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+//    页面加载完成后执行
+    $(window).load(function(){
+        var obj1 = $(".box");
+        var obj2 = $(".imgBox");
+        var H1 = obj1.height();
+        var H2 = obj2.height();
+        var MT = (H1 - H2)/2;
+        obj2.css("marginTop",MT);
+    })
+
+</script>
+</body>
+</html>

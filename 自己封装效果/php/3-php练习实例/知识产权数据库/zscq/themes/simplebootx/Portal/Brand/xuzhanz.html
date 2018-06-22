@@ -1,0 +1,321 @@
+<if condition="$markstate eq '1' ">
+                            <div class="list-gk-cont-left">
+                               
+                                <div class="bgl-mode mt20">
+                                    <h1 class="c-h1">注册步骤</h1>
+                                    <div class="bgl-cont bgl-steps">
+                                        <span class="bgl-step">1</span>
+                                        <span>用户支付订单</span>
+                                        <span class="bgl-point"></span>
+                                        <span class="bgl-step">2</span>
+                                        <span>整理资料快递给顾问</span>
+                                        <span class="bgl-point"></span>
+                                        <span class="bgl-step">3</span>
+                                        <span>顾问接收资料并办理</span>
+                                        <span class="bgl-point"></span>
+                                        <span class="bgl-step">4</span>
+                                        <span>转让成功</span>
+                                    </div>
+                                </div>
+                                <div class="bgl-mode">
+                                    <h1 class="c-h1">填写受让人信息</h1>
+                                    <div class="bgl-cont tc">
+                                        <div class="shixiao mt40">
+                            <span class="oh">
+                                <span class="fl mr10"><img src="public/html/images/icon2.png" width="52" height="80" alt=""/></span>
+                                 <span class="fl">商标已失效。</span>
+                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                </div>     
+<elseif condition="$markstate eq '2'"/>
+                            <div class="list-gk-cont-left">
+                               
+                                <div class="bgl-mode mt20">
+                                    <h1 class="c-h1">注册步骤</h1>
+                                    <div class="bgl-cont bgl-steps">
+                                        <span class="bgl-step">1</span>
+                                        <span>用户支付订单</span>
+                                        <span class="bgl-point"></span>
+                                        <span class="bgl-step">2</span>
+                                        <span>整理资料快递给顾问</span>
+                                        <span class="bgl-point"></span>
+                                        <span class="bgl-step">3</span>
+                                        <span>顾问接收资料并办理</span>
+                                        <span class="bgl-point"></span>
+                                        <span class="bgl-step">4</span>
+                                        <span>转让成功</span>
+                                    </div>
+                                </div>
+                                <div class="bgl-mode">
+                                    <h1 class="c-h1">填写受让人信息</h1>
+                                    <div class="bgl-cont tc">
+                                        <div class="shixiao mt40">
+                            <span class="oh">
+                                <span class="fl mr10"><img src="public/html/images/icon2.png" width="52" height="80" alt=""/></span>
+                                 <span class="fl">商标注册成功后，方可享受续展服务。</span>
+                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                </div>
+<elseif condition="$markstate eq '3'"/>
+<div class="div5 div_tab">
+                   
+                    <!--上面切换模块 索要改变的部分-->
+                    <div class="list-gk-cont-left">
+                        <!--/*提示说明*//-->
+                        <div class="c-ts-common ">
+                            <p>注册商标的有效期是10年，有效期满后需要继续使用的，必须在期满前的十二个月内办理续展手续；在此期间未能办理的，可以给予六个月的宽展期期满未办理续展手续的，注消其注册商标。</p>
+                        </div>
+                        <!--/*提示说明* end//-->
+                        <div class="bgl-mode mt20">
+                            <h1 class="c-h1">注册步骤</h1>
+                            <div class="bgl-cont bgl-steps">
+                                <span class="bgl-step">1</span>
+                                <span>用户支付订单</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">2</span>
+                                <span>整理资料快递给顾问</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">3</span>
+                                <span>顾问接收资料并办理</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">4</span>
+                                <span>续展成功</span>
+                            </div>
+                        </div>
+                   
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">商标剩余时间</h1>
+                            <div class="bgl-cont tc">
+                                <div class=" mt40">
+                                    <div class="oh">
+                                        <div class="fl mr20"><img src="public/html/images/icon2.png" width="52" height="80" alt=""/></div>
+                                        <div class="fl pt20 tl">
+                                            <p class="pb10">商标还可继续使用：
+											<if condition="$shijiancha.1 neq '' "><span class="xz-big2">{$shijiancha.1}</span>个月</if>
+											
+											<span class="xz-big2">{$shijiancha.2}</span>天</p>
+                                            <p>请尽快办理续展，逾期未办理的，注册商标会被商标局注销掉！</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bgl-mode bt pb30">
+                            <div class="bgl-cont tr">
+							<form method="post" action="{:U('Brand/xuzhanxiadan')}">
+							     <input type="hidden" name="markid" value="{$markid}">
+								 <input type="submit" class="blue-big-btn" value="立即续展"/>
+							</form>
+                               
+                                <p class="tr f12 pt5 c999">续展成功后，商标的有小区将延长至 <span class="c333"><?php echo date('Y年m月d日',$mtime);?></span></p>
+                            </div>
+
+                        </div>
+                    </div>
+<elseif condition="$markstate eq '4'"/>
+<div class="div5 div_tab">
+                   
+                    <!--上面切换模块 索要改变的部分-->
+                    <div class="list-gk-cont-left">
+                        <!--/*提示说明*//-->
+                        <div class="c-ts-common ">
+                            <p>注册商标的有效期是10年，有效期满后需要继续使用的，必须在期满前的十二个月内办理续展手续；在此期间未能办理的，可以给予六个月的宽展期期满未办理续展手续的，注消其注册商标。</p>
+                        </div>
+                        <!--/*提示说明* end//-->
+                        <div class="bgl-mode mt20">
+                            <h1 class="c-h1">注册步骤</h1>
+                            <div class="bgl-cont bgl-steps">
+                                <span class="bgl-step">1</span>
+                                <span>用户支付订单</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">2</span>
+                                <span>整理资料快递给顾问</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">3</span>
+                                <span>顾问接收资料并办理</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">4</span>
+                                <span>续展成功</span>
+                            </div>
+                        </div>
+                   
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">商标剩余时间</h1>
+                            <div class="bgl-cont tc">
+                                <div class=" mt40">
+                                    <div class="oh">
+                                        <div class="fl mr20"><img src="public/html/images/pet4.png" width="65" height="81" alt=""/></div>
+                                        <div class="fl pt20 tl">
+                                            <p class="pb10">商标还可继续使用：<span class="xz-big">{$shijiancha.0}</span>年<span class="xz-big">{$shijiancha.1}</span>个月<span class="xz-big">{$shijiancha.2}</span>天</p>
+                                            <p>不需要办理续展，请放心使用！</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<elseif condition="$markstate eq '5'"/>
+ <!--续展中-->
+                    <div class="xz-zhong">
+                        <!--右边的完成步骤部分-->
+                        <div class="list-gk-cont-right fr">
+                       <!--自增长步骤-->
+                        <div class="step-tree pr">
+                            <div class="fl pa">
+							<if condition="$ornew.state eq 4 ">
+
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">本次服务结束，转让失败</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$ornew['time4']);?></p>
+                            </div>
+                        </div>
+						</if>
+							<if condition="$ornew.state eq 3">
+
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">本次服务结束，转让成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$ornew['time3']);?></p>
+                            </div>
+                        </div>
+						</if>
+							<if condition="$ornew.state eq 2">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >请等候办理结果</p>
+                            </div>
+                        </div>
+						</if>
+                               <if condition="($ornew.state eq 2) or ($ornew.state gt 1)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">顾问已收到资料，办理中</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$ornew['time2']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$ornew.state eq 1">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >请填写资料并快递给顾问</p>
+                            </div>
+                        </div>
+						</if>
+                       <if condition="($ornew.state eq 1) or ($ornew.state gt 0)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">请根据要求准备材料，并发给顾问</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$ornew['time1']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$ornew.state eq '0' ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" onclick="xiazai();">请根据要求准备材料，并发给顾问</p>
+                            </div>
+                        </div>
+						</if>
+                         <if condition="$statetime['state'] eq '1' ">
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">用户下单并支付成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$statetime['paytime']);?></p>
+                            </div>
+                        </div>
+						</if>
+                            </div>
+                        </div>
+                        <!--自增长步骤 end-->
+                            <!--自增长步骤 end-->
+                        </div>
+                        <!--右边的完成步骤部分 end-->
+                        <!--上面切换模块 索要改变的部分-->
+                        <div class="list-gk-cont-left">
+                            <!--/*提示说明*//-->
+                            <div class="c-ts-common ">
+                                <p>注册商标的有效期是10年，有效期满后需要继续使用的，必须在期满前的十二个月内办理续展手续；在此期间未能办理的，可以给予六个月的宽展期期满未办理续展手续的，注消其注册商标。</p>
+                            </div>
+                            <!--/*提示说明* end//-->
+                            <div class="bgl-mode mt20">
+                                <h1 class="c-h1">注册步骤</h1>
+                                <div class="bgl-cont bgl-steps">
+                                    <span class="bgl-step">1</span>
+                                    <span>用户支付订单</span>
+                                    <span class="bgl-point"></span>
+                                    <span class="bgl-step">2</span>
+                                    <span>整理资料快递给顾问</span>
+                                    <span class="bgl-point"></span>
+                                    <span class="bgl-step">3</span>
+                                    <span>顾问接收资料并办理</span>
+                                    <span class="bgl-point"></span>
+                                    <span class="bgl-step">4</span>
+                                    <span>续展成功</span>
+                                </div>
+                            </div>
+                            <div class="bgl-mode">
+                                <h1 class="c-h1">续展办理中...</h1>
+                                <div class="bgl-cont tc">
+                                    <div class=" mt40">
+                                        <div class="oh">
+                                            <div class="fl mr20"><img src="public/html/images/pet3.png" width="45" height="81" alt=""/></div>
+                                            <div class="fl pt20 tl">
+                                                <p class="pb10">开始办理时间：{$ymd}，预计完成时间：<span class="fc1">{$ymd2}</span></p>
+                                                <p>商标续展完成大约需要12个月，具体以官方时间为准。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--上面切换模块 索要改变的部分 end-->
+                    </div>
+                    <!--续展中 end-->
+                </div>
+</if>
+  

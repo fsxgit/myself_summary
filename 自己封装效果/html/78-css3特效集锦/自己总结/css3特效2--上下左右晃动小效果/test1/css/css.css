@@ -1,0 +1,84 @@
+body{background: #ccc;}
+h1{text-align: center; color: #ff0039;}
+.btn{cursor: pointer; width: 100%; background: #000000; color: #fff; height: 40px; line-height: 40px; font-size: 20px; text-align: center;}
+.mode{width: 200px; height: 100px; margin:20px auto; background: #ff0039; line-height: 100px; text-align: center; font-size: 30px; color: #f6ff29;}
+
+
+.bounceInUp{
+    position: relative;
+    animation: bounceInUp 1s ease-out;
+    -webkit-animation: bounceInUp 1s ease-out; /* Safari ”Î Chrome */
+
+}
+@keyframes  bounceInUp{
+    0%{background: #000000;   transform: translateY(-1000px)}
+    80%{background: #ef1676;  transform: translateY(-20px)}
+    85%{background: #eaefce;  transform: translateY(10px)}
+    90%{background: #eaefce;  transform: translateY(-5px)}
+    95%{background: #eaefce;  transform: translateY(3px)}
+    100%{background: #ff07d3; transform: translateY(0)}
+}
+
+
+
+
+
+.btnHover{width: 200px; height: 60px; line-height: 60px; margin:20px auto; border:2px solid #000000; color: #000; text-align: center; font-size: 30px; cursor: pointer; position: relative;}
+.btnHover:hover{color: #fff; }
+.btnHover:before{
+    content: " ";
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    -webkit-transform: scaleX(0);
+    -webkit-transition-duration: .3s;
+}
+.btnHover:hover:before{
+    -webkit-transform: scaleX(1);
+    -webkit-transition-duration: .3s;
+}
+
+.btnHover2{width: 200px; height: 60px; line-height: 60px; margin:20px auto; border:2px solid #ff0cd4; color: #f2ff0d; text-align: center; font-size: 30px; cursor: pointer; position: relative;}
+.btnHover2:hover{color: #fff; }
+.btnHover2:before{
+    content: " ";
+    background: #ff0cd4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    -webkit-transform: scaleY(0);
+    -webkit-transition-duration: .3s;
+}
+.btnHover2:hover:before{
+    -webkit-transform: scaleY(1);
+    -webkit-transition-duration: .3s;
+}
+
+.btnHover3{width: 200px; height: 60px; line-height: 60px; margin:20px auto; border:2px solid #ff0cd4; color: #f2ff0d; text-align: center; font-size: 30px; cursor: pointer; position: relative; background: #ed6d00;}
+.btnHover3:hover{color: #fff;  background: none;}
+.btnHover3:before{
+    content: " ";
+    background: #ff0cd4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    -webkit-transform: scaleY(0);
+    -webkit-transition-duration: .3s;
+}
+.btnHover3:hover:before{
+    -webkit-transform: scaleY(1);
+    -webkit-transition-duration: .3s;
+}
+
+
+

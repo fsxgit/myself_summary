@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>可以重叠的鼠标点击图片放大，再次点击关闭</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.magnifier.js"></script>
+</head>
+<body>
+
+<div style="width:500px; text-align:center; margin:0 auto">
+<img src="img/1.jpg" class="magnify" style="width:200px; height:150px" />
+<img src="img/2.jpg" class="magnify" style="width:200px; height:150px" />
+<img src="img/3.jpg" class="magnify" style="width:200px; height:150px" />
+<img src="img/4.jpg" class="magnify" style="width:200px; height:150px" />
+</div>
+
+<form>
+<select id="imageselect">
+<option>选择一张图片点击放大</option>
+<option>图 1</option>
+<option>图 2</option>
+<option>图 3</option>
+<option>图 4</option>
+</select>
+</form>
+
+<img id="imagebox" src="img/1.jpg" class="magnify" data-magnifyby="2" style="width:200px" />
+<script type="text/javascript">
+var imagebox=document.getElementById("imagebox")
+var imageselect=document.getElementById("imageselect")
+var imagelist=["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg"]
+imageselect.onchange=function(){
+if (this.selectedIndex!=0){
+imagebox.src=imagelist[this.selectedIndex-1]
+jQuery(imagebox).imageMagnify({
+magnifyby: 2
+})
+}
+}
+</script>
+
+
+
+</body>
+</html>

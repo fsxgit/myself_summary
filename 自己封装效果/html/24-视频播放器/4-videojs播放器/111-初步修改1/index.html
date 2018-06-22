@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>如何使用VideoJS</title>
+  <!-- 加载 VideoJS js -->
+  <script src="video.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    // 这段代码必须放在video.js后面
+ 
+    // 页面加载完成  才加载VideoJS的标签
+    VideoJS.setupAllWhenReady();
+  </script>
+  <!-- 皮肤 -->
+  <link rel="stylesheet" href="video-js.css" type="text/css" media="screen" title="Video JS">
+</head>
+<body>
+  <!-- Begin VideoJS -->
+
+  <div class="video-js-box" style="margin:20px auto">
+    <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
+    <video id="example_video_1" class="video-js" width="640" height="264" controls="controls" preload="auto"  autoplay poster="poster.jpg">
+      <source src="mp4/mv1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+      <!--<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm; codecs="vp8, vorbis"' />-->
+      <!--<source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg; codecs="theora, vorbis"' />-->
+
+      <!-- 如果浏览器不兼容HTML5则使用flash播放 -->
+      <!--<object id="flash_fallback_1" class="vjs-flash-fallback" width="640" height="264" type="application/x-shockwave-flash"-->
+        <!--data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">-->
+        <!--<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />-->
+        <!--<param name="allowfullscreen" value="true" />-->
+        <!--<param name="flashvars" value='config={"playlist":["http://video-js.zencoder.com/oceans-clip.png", {"url": "http://video-js.zencoder.com/oceans-clip.mp4","autoPlay":false,"autoBuffering":true}]}' />-->
+        <!--&lt;!&ndash; 视频图片. &ndash;&gt;-->
+        <!--<img src="http://video-js.zencoder.com/oceans-clip.png" width="640" height="264" alt="Poster Image"-->
+          <!--title="No video playback capabilities." />-->
+      <!--</object>-->
+    </video>
+  </div>
+
+  <!-- End VideoJS -->
+ 
+</body>
+</html>

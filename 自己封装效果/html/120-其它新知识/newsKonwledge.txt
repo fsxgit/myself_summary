@@ -1,0 +1,35 @@
+1、webp文件：
+webp文件由谷歌推出的新一代图片格式，在压缩方面比当前JPEG格式更优越。
+使用网站：蘑菇街--http://www.mogujie.com/
+
+2、根据像素比来使用不同倍数的图片
+
+3、vue单页面的制作【实现具有切换效果的页面】
+
+4、JS打印错误日志的方法：
+【方法1】
+//js抛出异常
+window.onerror = function(msg, url, line, col, error) {
+    // Note that col & error are new to the HTML 5 spec and may not be
+    // supported in every browser.  It worked for me in Chrome.
+    var extra = !col ? '' : '\ncolumn: ' + col;
+    extra += !error ? '' : '\nerror: ' + error;
+
+    // You can view the information in an alert to see things working like this:
+    LenSmJs.h5log("JsError: " + msg + "\nurl: " + url + "\nline: " + line + extra);
+
+    // TODO: Report this error via ajax so you can keep track
+    //       of what pages have JS issues
+
+    var suppressErrorAlert = true;
+    // If you return true, then error alerts (like in older versions of
+    // Internet Explorer) will be suppressed.
+    return suppressErrorAlert;
+};
+【方法2】：
+try catch预防错误，否则错误发生后面的语句没有得到执行。
+
+
+
+
+

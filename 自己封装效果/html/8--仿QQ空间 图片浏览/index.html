@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线选片-我的底片</title>
+    <link type="text/css" rel="stylesheet" href="css/fx_base.css" />
+    <link type="text/css" rel="stylesheet" href="css/fx_common.css" />
+    <link type="text/css" rel="stylesheet" href="css/fx_zxxp--fu.css" />
+</head>
+
+<body>
+
+    <!--content start-->
+    <div class="main pb100">
+        <div class="fx_header">
+            <span>
+                <a href="javascript:;">首页</a>
+                <span class="bg">&nbsp></span>
+                <a href="javascript:;">在线服务</a>
+                <span class="bg">&nbsp></span>
+                <a href="javascript:;">在线选片</a>
+            </span>
+        </div>
+
+        <div class="fx_photo">
+            <a class="active" href="javascript:;">我的底片</a>
+            <a href="javascript:;">我的精修照</a>
+        </div>
+
+        <div class="fx_choose">
+            <ul class="oh">
+                <li >
+                    <img src="images/photo.png" width="140px" height="91px" alt=""/>
+                    <span>P1</span>
+                    <span class="p1218 f12">200张</span>
+                    <span id="fxChooseBtn1"><a href="javascript:;">选择精修</a></span>
+                </li>
+                <li >
+                    <img src="images/photo.png" width="140px" height="91px" alt=""/>
+                    <span>P1</span>
+                    <span class="p1218 f12">200张</span>
+                    <span id="fxChooseBtn2"><a href="javascript:;">选择精修</a></span>
+                </li>
+                <li class="mr_none" >
+                    <img src="images/photo.png" width="140px" height="91px" alt=""/>
+                    <span>P1</span>
+                    <span class="p1218 f12">200张</span>
+                    <span id="fxChooseBtn3"><a href="javascript:;">选择精修</a></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!--content end-->
+
+    <!--选择精修照弹出层 start-->
+    <div id="fxchBoxAlert">
+        <!--content start-->
+        <div class="photosBox pr" id="choosephotosBox">
+            <span class="imgClose pa" id="choosePhotosClose"><a href="choosePhoto--fu.html"><img src="images/close.png" width="30px"  height="30px" alt=""/></a></span>
+            <div class="box_left fl" id="B1">
+                <div class="imgBox pr">
+                    <span class="B_imgLeft pa"><img src="images/B_imgLeft.png" width="50%" height="50%" alt=""/></span>
+                    <span class="B_imgRight pa"><img src="images/B_imgRight.png" width="50%" height="50%"alt=""/></span>
+                    <!--大图片 盒子 开始-->
+                    <div class="img">
+                        <img  id="imgShow" src="" width="100%" height="100%" alt=""/>
+                    </div>
+                    <!--大图片 盒子 结束-->
+                    <div class="shdowTxt oh f14">
+                        <div class="imgNum fl f12"><span>名称/编号1</span></div>
+                        <div class="imgChoose fr">选择精修</div>
+                        <div class="imgShare fr">分享</div>
+
+                    </div>
+                </div>
+                <div class="pr" id="B2" style="width:100%; height:8.33%;">
+                    <span class="S_imgLeft pa"><img src="images/S_imgLeft.png" width="80%" height="80%"alt=""/></span>
+                    <span class="S_imgRight pa"><img src="images/S_imgRight.png"width="80%" height="80%" alt=""/></span>
+                    <!--小图片列表 start-->
+                    <div class="imgs pr" id="Simgs">
+                        <ul class="pa oh" id="choosePhotoList">
+                            <li id="f1">
+                                <img src="images/photos/photo1.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f2">
+                                <img src="images/photos/photo2.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f3">
+                                <img src="images/photos/photo3.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f4">
+                                <img src="images/photos/photo4.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f5">
+                                <img src="images/photos/photo5.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f6">
+                                <img src="images/photos/photo6.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f7">
+                                <img src="images/photos/photo7.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f8">
+                                <img src="images/photos/photo8.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f9">
+                                <img src="images/photos/photo9.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f10">
+                                <img src="images/photos/photo10.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f11">
+                                <img src="images/photos/photo11.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f12">
+                                <img src="images/photos/photo12.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f13">
+                                <img src="images/photos/photo13.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f14">
+                                <img src="images/photos/photo14.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f15">
+                                <img src="images/photos/photo15.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                            <li id="f16">
+                                <img src="images/photos/photo16.png" width="100%"  height="100%" alt=""/>
+                                <span class="RedBg"><img src="images/chooseRedBtn.png" width="15px" height="15px" alt=""/></span>
+                                <span class="choosePhotoShdow"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--小图片列表 end-->
+                </div>
+            </div>
+            <div class="box_right fr">
+                <h2 class="f14">已选（<span id="num">0</span>/<span id="numTol">5</span>）</h2>
+                <!--已选择精修图片的盒子 start-->
+                <div class="choosePhotos">
+                    <ul id="choosedImg">
+
+                    </ul>
+                </div>
+                <!--选择精修图片的盒子 end-->
+                <span class="photoConfirm f14" id="photoConfirm"><a href="#">确认精修</a></span>
+            </div>
+        </div>
+        <div class="photosBg"></div>
+        <!--content end-->
+        </div>
+    <!--选择精修照弹出层 end-->
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/fx_zxxp--fu.js"></script>
+    <script>
+        $("#fxChooseBtn1,#fxChooseBtn2,#fxChooseBtn3").click(function(){
+                    $("#choosephotosBox,.photosBg").show();
+                })
+        zxxpChooseClothes();
+    </script>
+</body>
+</html>

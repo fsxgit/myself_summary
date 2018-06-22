@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="../flowplayer-3.2.13.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title></title>
+
+</head>
+<body>
+	<div id="page">
+		<a href="../mp4/mv3.mp4" style="display:block;width:520px;height:330px" id="player"></a>
+	</div>
+
+</body>
+<script>
+	flowplayer("player", "../flowplayer-3.2.18.swf"
+			,
+//		下面全是控制的参数
+	{
+		onLoad: function() { // called when player has finished loading
+			this.setVolume(30); // set volume property
+		},
+		clip: { // Clip is an object, hence '{...}'
+			autoPlay: false,
+			autoBuffering: true,
+			baseUrl: 'http://stream.flowplayer.org/'
+		},
+		playlist: [ // playlist is an array of Clips, hence [...]
+			'KimAronson-TwentySeconds58192.flv', // simple playlist entry: video
+			'KimAronson-TwentySeconds59483.flv',
+			{ // small object as entry
+				url: "/media/data/fake_empire.mp3",
+				duration: 25
+			}
+		],
+		plugins: { // load one or more plugins
+			controls: { // load the controls plugin
+
+				// always: where to find the Flash object
+				url: '../flowplayer.controls-3.2.16.swf',
+
+				// now the custom options of the Flash object
+				playlist: true,
+				backgroundColor: '#aedaff',
+				tooltips: { // this plugin object exposes a 'tooltips' object
+					buttons: true,
+					fullscreen: 'Enter Fullscreen mode'
+				}
+			}
+		},
+
+		// 播放结束时的事件
+		onFinish: function() {
+			alert("Click Player to start video again");
+		}
+	}
+	);
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>漫画原创时间日期Jquery插件manhuaDate</title>
+<meta name="author" content="Jquery-School" />
+<meta name="Copyright" content="Jquery-School,www.jq-school.com" />
+<meta name="Keywords" content="漫画原创时间日期Jquery插件manhuaDate,Jquery资源,Jquery插件,Jquery特效,Jquery开发,js特效" />
+<meta name="description" content="JquerySchool是一个专门分享jquery资源、jquery插件、jquery特效的一个网站,完全开放源代码,把实际开发中应用最多、最实用的Jquery资源抽取出来再加以精心编排,让广大网友能以最短的时间、花最少的精力去真正掌握jQuery开发的知识。" />
+
+<link rel="stylesheet" type="text/css" href="css/manhuaDate.1.0.css">
+<script type="text/javascript" src="js/jquery1.8.3-min.js"></script>
+<script type="text/javascript" src="js/manhuaDate.1.0.js"></script>
+<script type="text/javascript">
+$(function (){
+	$("input.mh_date").manhuaDate({					       
+		Event : "click",//可选				       
+		Left : 0,//弹出时间停靠的左边位置
+		Top : -16,//弹出时间停靠的顶部边位置
+		fuhao : "-",//日期连接符默认为-
+		isTime : false,//是否开启时间值默认为false
+		beginY : 2010,//年份的开始默认为1949
+		endY :2015//年份的结束默认为2049
+	});
+	
+});
+</script>
+
+</head>
+<body>
+<center>
+  <div style="font-size:15px; font-weight:bold; text-align:center; line-height:25px; clear:both;">漫画原创时间日期Jquery插件manhuaDate<br />
+    JquerySchool网站出品（<a href="http://www.jq-school.com" target="_blank">http://www.jq-school.com</a>）<br />
+    官方网站学习交流QQ群<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=47d9817e9e09f61b288b8ad6d33fb18cbd659ca6773f663918d6e5d3a2981a12"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Jquery学堂③群" title="Jquery学堂③群"></a> </div>
+</center>
+<pre>
+
+								&lt;script type="text/javascript"&gt;
+								$(function (){
+									$("input.mh_date").manhuaDate({					       
+										Event : "click",//可选				       
+										Left : 0,//弹出时间停靠的左边位置
+										Top : -16,//弹出时间停靠的顶部边位置
+										fuhao : "-",//日期连接符默认为-
+										isTime : false,//是否开启时间值默认为false
+										beginY : 2010,//年份的开始默认为1949
+										endY :2015//年份的结束默认为2049
+									});
+								});
+								&lt;/script&gt;
+								用法如下：
+								&lt;input type="text" class="mh_date" readonly="true" /&gt;
+</pre>
+<br /><br />
+<div style="width:600px; margin:20px auto;">
+<h1>demo</h1>
+<input type="text" class="mh_date" readonly="true" />&nbsp;<input type="text" class="mh_date" readonly="true" />
+</div>
+
+
+</body>
+</html>

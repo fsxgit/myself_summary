@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<a href="index.html?id=123&name=nimei#">点击我弹出href中传递的值</a>
+<script>
+
+    /**
+     * 获取href的参数值
+     * name：所要获取的参数的名字
+     * **/
+
+    function GetHrefVal(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    alert("name值为："+GetHrefVal("name"));
+    alert("id值为："+GetHrefVal("id"));
+</script>
+</body>
+</html>

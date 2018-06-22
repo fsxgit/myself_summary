@@ -1,0 +1,44 @@
+.box{width:100%; height:auto; background: #fff;}
+.navbox{height:78px; font-size:16px; line-height:78px;}
+.nav li{float:left; height:100%; padding:0 34px; }
+.nav li.active{background:#4291e3;}
+.nav li.active a{background:#4291e3;color:#fff;}
+.nav li a{color:#666;}
+/*banner 轮播*/
+.Tabbox{width:100%; height:738px; border-top:1px solid #4291e3; overflow: hidden;  }
+.bannerList{width:400%; height:100%; position:absolute; left:0; top:0; }
+.bannerList li{float:left; width:25%; height:100%; background: url("../images/bannerBg2.jpg") no-repeat 0 0; background-size:cover;}
+.liContent{height:100%;}
+.bannerList .phone{position:absolute; right:0; top:90px;}
+.bannerList .load{position:absolute; left:0; top:376px;}
+.bannerList .txt{position:absolute; left:0; top:176px; color:#fff;}
+.bannerList .txt p:nth-of-type(1){font-size: 38px; line-height: 50px;}
+.bannerList .txt p:nth-of-type(2){font-size: 18px; line-height: 38px;}
+.indexBox{height:100%;}
+.indexBox .indexDot{width:auto; height:auto; position:absolute; right:40px; bottom:30px; z-index:8; }
+.indexBox .indexDot span{display: inline-block; width:14px; height:14px; background: #ff0039; margin:0 7px; border-radius: 7px; cursor:pointer;}
+.indexBox .indexDot span.active{background: #000;}
+.indexBox .btn{display: block; width:60px; height:80px; cursor:pointer;}
+.indexBox .btnleft{position:absolute; left:-78px; top:352px; }
+.indexBox .btnright{position:absolute; right:-78px; top:352px;}
+.indexBox .btn:hover{background:rgba(0,0,0,0.2);}
+
+.teacherBg{background: #fff; width:100%; height:490px;}
+.teacherBox{height:100%;}
+.teacherBox h1{width:100%; height:26px; line-height: 26px; font-size: 26px; text-align: center; background: url("../images/lineBg.png") no-repeat 0 center;  margin-top:74px; }
+.ysBox{width:100%; height:194px; margin-top:100px;}
+.iconbox{width:162px; height:194px; margin:0 44px; float:left;}
+.ystxt{margin-top:36px; color: #404040;}
+
+
+
+.yuekeBg{background: #f8f8f8; width:100%; height:600px;   padding-top:60px; }
+.yuekeBox{height:100%;}
+.yuekeBox h1{width:100%; height:26px; line-height: 26px; font-size: 26px; text-align: center; background: url("../images/lineBg.png") no-repeat 0 center;}
+.guoBox{width:100%; height:504px; background: url("../images/guoBg.png") no-repeat 280px 0; margin-top:70px;}
+.lefttit{width:250px; height:100%; text-align: right;}
+.lefttit p{font-size:16px; height:73px; line-height: 73px;}
+.righttxt{width:640px; height:100%; text-align:left; color:#acacac;}
+.righttxt p{font-size:16px; height:73px; line-height: 73px;}
+
+.footer{width:100%; height:82px; line-height: 82px; font-size:14px; color:#a7a8a8; border-top: 1px solid #ccc;}

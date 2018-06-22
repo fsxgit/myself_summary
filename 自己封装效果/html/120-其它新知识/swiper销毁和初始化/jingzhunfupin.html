@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>精准扶贫</title>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/loading.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        html,body{width:100%; height:100%; background: #fff;}
+        header{position: relative;z-index: 6;}
+    </style>
+</head>
+<body>
+<!--loading -->
+<div class="lyhBackstrop" id="loading">
+    <div class="lyhLoading">
+        <div class="url-loading">
+            <i class="nth-4"></i>
+            <i class="nth-5"></i>
+            <i class="nth-6"></i>
+            <i class="nth-3"></i>
+            <i class="nth-2"></i>
+            <i class="nth-1"></i>
+        </div>
+        Loading...
+    </div>
+</div>
+<!--loading end-->
+<div class="gyBox" style="padding-top: 50px;">
+<!--hot active-->
+    <!--tab-->
+    <div class="qyTab qyTab2">
+        <div class="active">
+            <span>扶贫项目</span>
+        </div>
+        <div>
+            <span>政策信息</span>
+        </div>
+    </div>
+    <!--tab end-->
+    <div class="jz_tab_box">
+        <div class="tab_mode bb oh">
+            <div class="hotCont oh">
+                <div class="contMode ">
+                    <div class="hotImg">
+                        <img src="images/img10.png" alt=""/>
+                    </div>
+                    <div class="hotRight">
+                        <p class="gyTitle ellipsis">爱心捐赠计划爱心捐赠计划爱心捐赠计划</p>
+                        <div class="name_site"><span class="hotName hotName2">天使妈妈基金会</span><span class="gySite">云南</span></div>
+                        <p class="gySpan oh">
+                            <span class="qian fl">10000</span>
+                            <span class="ren"><span>100</span></span>
+                            <span class="bi fr">95%</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="contMode">
+                    <div class="hotImg">
+                        <img src="images/img10.png" alt=""/>
+                    </div>
+                    <div class="hotRight">
+                        <p class="gyTitle ellipsis">爱心捐赠计划</p>
+                        <p class="name_site"><span class="hotName hotName2">天使妈妈基金会</span><span class="gySite">云南</span></p>
+                        <p class="gySpan oh">
+                            <span class="qian fl">10000</span>
+                            <span class="ren"><span>100</span></span>
+                            <span class="bi fr">95%</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div class="tab_mode none">
+            <div class="swiper-container" id="swiper-container-banner">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/img1.png" alt=""/></div>
+                    <div class="swiper-slide"><img src="images/img2.png" alt=""/></div>
+                    <div class="swiper-slide"><img src="images/img3.png" alt=""/></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+<!--hot active end-->
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script src="js/loading.js"></script>
+<script src="js/js.js"></script>
+<script>
+var myswiperk = new Swiper('#swiper-container-banner', {
+    autoplay:3000,
+    slidesPerView: 1,
+    pagination:'#swiper-container-banner .swiper-pagination',
+    loop:true,
+    autoplayDisableOnInteraction : false
+});
+$(".qyTab div").click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+    var i = $(this).index();
+    $(".jz_tab_box .tab_mode").eq(i).show().siblings("").hide();
+    if(i == 0){
+        myswiperk.destroy(false);
+    }else{
+        //    轮播
+        myswiperk.init();
+    }
+
+});
+</script>
+</body>
+</html>

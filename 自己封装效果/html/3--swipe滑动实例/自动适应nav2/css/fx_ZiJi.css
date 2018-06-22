@@ -1,0 +1,26 @@
+body{background:#f0eff5;}
+.ZJbox{width:100%; height:auto; background: #f0eff5; padding-bottom:0.16rem;}
+.ZJbanner{width:100%; height:auto;padding:0.065rem 0; background: url("../images/bannerBg.png") left top; background-size: cover;}
+.bannerBox{width:0.921rem;  height:0.216rem;}
+.ZJphoto{width:0.209rem; height:0.209rem; margin-right:0.04375rem;}
+.ZJname p:nth-of-type(1){color:#fff; font-size:0.04rem; padding:0.04rem 0;}
+.ZJname p:nth-of-type(2){color: #fff; font-size:0.0375rem;}
+.rightBtn{display:block; width:0.03rem; height:100%; background: url("../images/rightB.png") no-repeat center; background-size:0.0265rem  0.0468rem;}
+.ZJtop{width:100%; height:auto; padding:0.0375rem 0; background:#fff url("../images/borderBg.png") no-repeat center; background-size: 1px 0.13rem; border-bottom: 1px solid #ccc; margin-bottom:0.046875rem;}
+.ZJtop .iconBox{width:50%; height:auto;}
+.ZJtop .iconBox span{font-size:0.034rem;}
+.ZJtop .BgBox{width:0.134rem; height:0.081rem; margin:0 auto; padding-top:0.01rem;  padding-bottom:0.02rem;}
+.ZJtop .BgBox .dotRed{width:0.01875rem; height:0.01875rem;position:absolute; right:0.01rem; top:0; }
+.ZJtop .BgBox a{display: block; width:0.06875rem; height:0.068rem; margin:0 auto;}
+.ZJTiaobox{background: #fff; width:100%; height:auto; border-top: 1px solid #ccc; border-bottom:1px solid #ccc; margin-bottom:0.046875rem;}
+.ZJTiao{margin-left:0.04rem; background: #fff;}
+.ZJTiao p{border-bottom:1px solid #ccc;  height:0.15rem; line-height: 0.15rem;}
+.ZJTiao p span{margin-left:0.134rem; font-size:0.04375rem; color:#6a6a6a;}
+.ZJTiao p a{display: block;  margin-right:0.04rem; width:0.0375rem;height:100%; background: url("../images/right.png") no-repeat center; background-size:0.0234rem 0.0375rem; }
+.ZJTiao .pYou .YoudotRed{display: block;  margin-right:0.04rem; width:0.01875rem; height:100%; background: url("../images/dotRed.png") no-repeat center; background-size:0.01875rem;}
+.ZJTiao .pLi{background:url("../images/LiShi.png") no-repeat left center; background-size: 0.067rem;}
+.ZJTiao .pYou{background:url("../images/You.png") no-repeat left center; background-size: 0.067rem;}
+.ZJTiao .pYi{background:url("../images/YiJian.png") no-repeat left center; background-size: 0.067rem; border:none;}
+.ZJTiao .pWo{background:url("../images/wo.png") no-repeat left center; background-size: 0.067rem;}
+.ZJTiao .pFen{background:url("../images/fen.png") no-repeat left center; background-size: 0.067rem;}
+.ZJTiao .pShe{background:url("../images/she.png") no-repeat left center; background-size: 0.067rem; border:none;}

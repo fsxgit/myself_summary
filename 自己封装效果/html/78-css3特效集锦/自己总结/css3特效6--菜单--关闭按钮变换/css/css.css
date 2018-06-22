@@ -1,0 +1,218 @@
+
+/*meau*/
+.menu-open #menu-btn {
+    -webkit-transform: translate3d(-20px, -50%, 0) rotateZ(45deg);
+    transform: translate3d(-20px, -50%, 0) rotateZ(45deg);
+    -webkit-transition: -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms
+}
+
+.menu-open #menu-btn:before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms;
+    transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms;
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms;
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms, -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms
+}
+
+.menu-open #menu-btn:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms
+}
+
+.menu-open #menu-btn #menu-btn-icon:after, .menu-open #menu-btn #menu-btn-icon:before {
+    background-color: #fff;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: background-color 333ms linear 333ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1);
+    transition: background-color 333ms linear 333ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1);
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1), background-color 333ms linear 333ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1), background-color 333ms linear 333ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1)
+}
+
+ #menu-btn {
+    cursor: pointer;
+    height: 12px;
+    left: 0px;
+    padding: 20px;
+    position: absolute;
+    top: 0px;
+    -webkit-transform: translate3d(-20px, -50%, 0);
+    transform: translate3d(-20px, -50%, 0);
+    -webkit-transition: -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    width: 18px;
+    z-index: 2
+}
+
+ #menu-btn:after,  #menu-btn:before {
+    content: "";
+    position: absolute
+}
+
+ #menu-btn:before {
+    background-color: #fff;
+    height: 18px;
+    left: 28px;
+    top: 17px;
+    -webkit-transform: scale3d(1, 0, 1);
+    transform: scale3d(1, 0, 1);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1);
+    transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1);
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1);
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1), -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1);
+    width: 2px
+}
+
+ #menu-btn:after {
+    border-radius: 100%;
+    border: 2px solid #14c3d7;
+    height: 40px;
+    left: 7px;
+    opacity: 0;
+    top: 4px;
+    -webkit-transform: scale(.72);
+    transform: scale(.72);
+    -webkit-transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 333ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 333ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 333ms, transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 333ms, transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    width: 40px
+}
+
+ #menu-btn #menu-btn-icon {
+    background-color: #fff;
+    height: 2px;
+    left: 20px;
+    position: absolute;
+    top: 25px;
+    -webkit-transition: background-color 333ms linear;
+    transition: background-color 333ms linear;
+    width: 18px
+}
+
+ #menu-btn #menu-btn-icon:after, #menu-btn #menu-btn-icon:before {
+    background-color: #fff;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transition: background-color 333ms linear, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 999ms;
+    transition: background-color 333ms linear, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 999ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 999ms, background-color 333ms linear;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 999ms, background-color 333ms linear, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 999ms;
+    width: 100%
+}
+
+ #menu-btn #menu-btn-icon:before {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0)
+}
+
+ #menu-btn #menu-btn-icon:after {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0)
+}
+/*meau end*/
+/*close btn*/
+#request-demo-wrapper{
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+#request-demo-wrapper.on  #request-demo-close-btn {
+    opacity: 1;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    -webkit-transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1) 666ms, transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms
+}
+
+#request-demo-wrapper.on  #request-demo-close-btn:before {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms;
+    transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms;
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms;
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms, -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 1332ms
+}
+
+#request-demo-wrapper.on  #request-demo-close-btn:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms;
+    transition: transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms, -webkit-transform 666ms cubic-bezier(.666, 0, .333, 1) 666ms
+}
+
+#request-demo-wrapper  #request-demo-close-btn {
+    background-color: #fff;
+    cursor: pointer;
+    height: 2px;
+    margin-top: 21px;
+    opacity: 0;
+    position: absolute;
+    right: 8.333%;
+    top: 14px;
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
+    -webkit-transition: opacity 666ms cubic-bezier(.666, 0, .333, 1), -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1), -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1), transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: opacity 666ms cubic-bezier(.666, 0, .333, 1), transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms, -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    width: 18px
+}
+
+#request-demo-wrapper  #request-demo-close-btn:after, #request-demo-wrapper  #request-demo-close-btn:before {
+    content: "";
+    position: absolute
+}
+
+#request-demo-wrapper  #request-demo-close-btn:before {
+    background-color: #fff;
+    height: 18px;
+    left: 8px;
+    top: -8px;
+    -webkit-transform: scale3d(1, 0, 1);
+    transform: scale3d(1, 0, 1);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1);
+    transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1);
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1);
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1), -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1);
+    width: 2px
+}
+
+#request-demo-wrapper  #request-demo-close-btn:after {
+    border-radius: 100%;
+    border: 2px solid #336f80;
+    height: 40px;
+    left: -13px;
+    top: -21px;
+    -webkit-transform: scale(.72);
+    transform: scale(.72);
+    -webkit-transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    transition: transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms, -webkit-transform 333ms cubic-bezier(.666, 0, .333, 1) 333ms;
+    width: 40px
+}
+/*close btn end*/

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上传</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <style>
+        .blue-big-btn{width:100px; height:34px; line-height: 34px; text-align: center; background: #157efb; color: #fff; font-size:14px; cursor: pointer; border-radius: 2px; display: inline-block;}
+        /*弹出框*/
+        .c-tan-shadow{position: fixed;width:100%; height:100%; background: #000; opacity: 0.1;  filter:alpha(opacity=20);  left:0; top:0;  display: none;  z-index: 10;}
+        .c-tan-cont{position: fixed; left:20%; top:20%; background: #fff; width:502px;  border:4px solid #cecece; display: none; z-index: 12;}
+        .c-tan-top{width:100%; border-bottom:1px solid #eee; background: #f5fafd;}
+        .c-tan-Title{height:50px; line-height: 50px; font-size: 14px; margin-left: 20px; }
+        .c-tan-close{height:50px;width:50px; cursor: pointer;}
+        .c-tan-close img{margin-left:19px; margin-top:19px;}
+        .c-tan-close .img1{display: block;}
+        .c-tan-close .img2{display: none;}
+        .c-tan-close.active .img1{display: none;}
+        .c-tan-close.active .img2{display: block;}
+
+        .c-tan-input span{color: #333; margin-right:46px; font-size:12px;}
+        .c-tan-input input{height:32px; border:1px solid #ccc; width:298px; font-size:12px; border-radius: 2px; text-indent: 10px;}
+        .c-tan-bot{height:74px; line-height: 74px; width:420px; border-top: 1px solid #eee; text-align: right;}
+        .c-tan-bot input{height:32px;  width:98px; background: #157efb; color: #fff; border-radius: 2px; font-size: 14px;}
+        /*第二个弹出框不同部分*/
+        .xg-ren{padding:40px 0; width:420px;}
+        .xg-ren input{ width:418px; border:1px solid #eee; font-size: 12px; height: 32px; text-indent:10px; }
+        /*公用输入框样式*/
+        .c-fp-sel-wrap{ margin:5px 0; cursor: pointer; font-size: 12px;}
+        .c-fp-sel-box{  height: 32px;  line-height: 32px;  border: 1px solid #ccc;  display: inline-block; border-radius: 2px; cursor: pointer; position: relative; float: left; }
+        .c-fp-sel-box .downUp{ width: 20px; height: 32px;  line-height: 32px; display: inline-block; background: url("images/down.png") no-repeat 0 center;  float: right;}
+        .c-fp-sel-p{ height: auto;  line-height: 32px;cursor: pointer; position: absolute; left:-1px; top:32px;  border: 1px solid #eee;  background: #fff; display: none;}
+        .c-fp-sel-box.active .downUp{background: url("images/up.png") no-repeat 0 center;  float: right;}
+        .c-fp-sel-value{padding-left: 8px; height:32px; line-height:32px;  cursor: pointer;}
+        .c-fp-sel-p p{text-indent: 10px; margin:0; width: 100%;}
+        .c-fp-sel-p p.active{background:#f9f9f9;}
+        /*公用输入框样式 end*/
+        .xg-ren .chuan{width: 422px; height: 34px; background: none; color: #999;}
+        .c-fp-sel-box{ border-color: #eee;}
+        .xg-ren .c-fp-sel-value{padding-left: 0; width: 300px; border: none;}
+        .c-tan-width{width: 100%;}
+        .c-fp-sel-p{ border-color: #eee;}
+    </style>
+</head>
+<body>
+<div id="wrap">
+<div class="btn-box"><button class="blue-big-btn" onclick="xgName();">修改名字</button></div>
+<!--弹出框 -->
+    <!--弹出框遮罩-->
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-cont xg-tan-cont bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">修改购买人</div>
+            <div class="c-tan-close fr"><img src="images/close.png" class="img1" width="12" height="12" alt=""/><img src="images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <div class="xg-ren bc">
+            <!--/*下拉选择框 */-->
+            <div class="c-fp-sel-wrap">
+                <div class="c-fp-sel-box c-tan-width">
+                    <input type="text" readonly="readonly" class="c-fp-sel-value" placeholder="选择所在领域"/>
+                    <span class="downUp"></span>
+                    <div class="c-fp-sel-p c-tan-width">
+                        <P class="active">手机</P>
+                        <P>密保</P>
+                        <P>密保</P>
+                        <P>密保</P>
+                        <P>密保</P>
+                        <P>密保</P>
+                    </div>
+                </div>
+                <div class="cb"></div>
+            </div>
+            <!--/*下拉选择框 end*/-->
+            <input type="button" class="chuan" value="上传文件"/>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="xg-sure" value="确定"/>
+        </div>
+    </div>
+<!--弹出框 end-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+
+//    修改名字弹出框
+    function xgName(){
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".xg-tan-cont"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".xg-sure");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+    }
+
+
+
+$(function(){
+    var aP = $(".c-fp-sel-p p"); //下拉的p
+    var apBox = $(".c-fp-sel-p"); //下拉的盒子
+    var oValue = $(".c-fp-sel-value"); //选中值存放的地方
+    var oBox = $(".c-fp-sel-box"); //最外层的盒子
+    var txt = aP.eq(0).text();
+    oValue.text(txt);
+    oBox.click(function(){
+        $(this).toggleClass("active");
+        if($(this).hasClass("active")){
+            apBox.slideDown();
+        }else{
+            apBox.slideUp();
+        }
+    });
+
+    aP.click(function(event){
+        $(this).addClass("active").siblings().removeClass("active");
+        var val = $(this).text();
+        oValue.val(val);
+        oBox.removeClass("active");
+        apBox.slideUp();
+        event.stopPropagation();
+    });
+
+    $(".c-tan-close").hover(function(){
+        $(this).addClass("active");
+    },function(){
+        $(this).removeClass("active");
+    })
+})
+</script>
+</body>
+</html>

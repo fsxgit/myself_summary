@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        body{font-family: "Microsoft YaHei", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+        .fx_box{width:20px; height:auto; background: #ccc; margin:30px auto;}
+
+
+
+    </style>
+</head>
+<body>
+<div class="fx_box">
+   请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑,请继续向下面滑,请向下面滑
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+scrollBottom();
+function scrollBottom(){
+    $(window).scroll(function () {
+        if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
+            alert("哈哈,到底了.");
+            alert("哈哈,滑不动了.");
+        }
+    });
+}
+</script>
+</body>
+</html>

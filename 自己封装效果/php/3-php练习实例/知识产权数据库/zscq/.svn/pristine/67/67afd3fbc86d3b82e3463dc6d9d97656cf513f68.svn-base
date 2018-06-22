@@ -1,0 +1,46 @@
+用户管理>>
+<a href="{:U('Userinfo/index')}">用户列表</a>>>
+<a href="">用户详情</a>
+<admintpl file="header" />
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <style>
+        *{margin:0; padding:0;}
+        .mt20{margin-top: 20px;}
+        .c009{color: #009900;}
+        .c999{color: #999;}
+        .main{margin-left:40px; margin-right: 40px; width:auto; min-width:920px; font-size: 14px;}
+        .sl-tit{border-bottom:1px dotted #ccc; margin-top: 20px; }
+
+        .yh-box{font-size: 14px;}
+        .yh-box .top{text-align: center;}
+        .yh-box .top .img img{width: 100px; height: 100px; border-radius: 50%;}
+        .yh-box .top p{margin:10px 0;}
+        .yh-table{ border-collapse:collapse; margin-top:20px; width: 100%;}
+        .yh-table td{border: 1px solid #ccc;padding:10px 20px; text-align: left; }
+        .yh-table td.tit{background: #f7fbfd; color: #999;}
+        .jb_btn{width: 140px; margin-left: 20px; display: inline-block; background: #169bd5; color: #fff; text-align: center; border-radius: 4px; padding: 4px 0; cursor: pointer;}
+    </style>
+</head>
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<body>
+<div class="yh-box main">
+    <div class="top mt20">
+        <p class="img"><img src="{$userinfo.imgpath}"  alt=""/></p>
+        <p>{$userinfo.loginname}</p>
+        <p>{$userinfo.phone}</p>
+        <p>{$userinfo.email}</p>
+        <p class="c999">最近3小时前登陆过</p>
+    </div>
+&nbsp;<br>
+&nbsp;<br>
+    <div class="yh-bg">
+        <div class="sl-tit">
+            <span class="c009"><font color="red">未认领企业</font></span>
+        </div>
+ </div>
+</div>
+
+</body>
+</html> 

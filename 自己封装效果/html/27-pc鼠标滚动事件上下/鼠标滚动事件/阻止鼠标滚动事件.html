@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 组织鼠标滚动事件</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{width: 400px; margin:0 auto;}
+        ul,li{list-style: none;}
+        li{width:100px; height:100px; border:1px solid #999; background: #ccc;  margin: 20px;}
+        div{width:100px; height:100px; cursor:pointer;}
+        .active{border: 1px solid #ac2925; background: #0000FF;}
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <div class="box">我们以成本价啊，难看就回家ODM都是</div>
+    </li>
+    <li>
+        <div class="box">年车辆可每次擦破瑟吉欧v肉in哦让你 </div>
+    </li>
+    <li>
+        <div class="box">才能看穿才看看买材料</div>
+    </li>
+    <li>
+        <div class="box">深v日日本</div>
+    </li>
+    <li>
+        <div class="box">的vsDV</div>
+    </li>
+    <li>
+        <div class="box">我们的爱大米出口了吗</div>
+    </li>
+    <li>
+        <div class="box">我们以成本价啊，难看就回家ODM都是</div>
+    </li>
+    <li>
+        <div class="box">年车辆可每次擦破瑟吉欧v肉in哦让你 </div>
+    </li>
+    <li>
+        <div class="box">才能看穿才看看买材料</div>
+    </li>
+    <li>
+        <div class="box">深v日日本</div>
+    </li>
+    <li>
+        <div class="box">的vsDV</div>
+    </li>
+    <li>
+        <div class="box">我们的爱大米出口了吗</div>
+    </li>
+</ul>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+        $(".box").click(function(){
+            $(this).parent().addClass('active').siblings().removeClass('active');
+        })
+        /** Event handler for mouse wheel event.
+         *鼠标滚动事件
+         */
+        var wheel = function(event) {
+            var delta = 0;
+            if (!event) /* For IE. */
+                event = window.event;
+            if (event.wheelDelta) { /* IE/Opera. */
+                delta = event.wheelDelta / 120;
+            } else if (event.detail) {
+                /** Mozilla case. */
+                /** In Mozilla, sign of delta is different than in IE.
+                 * Also, delta is multiple of 3.
+                 */
+                delta = -event.detail / 3;
+            }
+            /** If delta is nonzero, handle it.
+             * Basically, delta is now positive if wheel was scrolled up,
+             * and negative, if wheel was scrolled down.
+             */
+
+
+//            组织鼠标滚动事件
+            if (delta)
+                handle(delta);
+            /** Prevent default actions caused by mouse wheel.
+             * That might be ugly, but we handle scrolls somehow
+             * anyway, so don't bother here..
+             */
+            if (event.preventDefault)
+                event.preventDefault();
+            event.returnValue = false;
+        }
+
+        /** Initialization code.
+         * If you use your own event management code, change it as required.
+         */
+        if (window.addEventListener) {
+            /** DOMMouseScroll is for mozilla. */
+            window.addEventListener('DOMMouseScroll', wheel, false);
+        }
+        /** IE/Opera. */
+        window.onmousewheel = document.onmousewheel = wheel;
+
+        /** This is high-level function.
+         * It must react to delta being more/less than zero.
+         */
+        var handle = function(delta) {
+            var random_num = Math.floor((Math.random() * 100) + 50);
+            if (delta < 0) {
+                // alert("鼠标滑轮向下滚动：" + delta + "次！"); // 1
+                $("btn_next_pic").click(random_num);
+                return;
+            } else {
+                // alert("鼠标滑轮向上滚动：" + delta + "次！"); // -1
+                $("btn_last_pic").click(random_num);
+                return;
+            }
+        }
+
+</script>
+
+</body>
+</html>

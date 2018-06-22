@@ -1,0 +1,92 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/css/slb.css"/>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>详情页</a></li>
+    </ul>
+  <style>
+        .sl-logo .tit{width:80px; margin-right: 0;}
+        .c999{color:#999; font-size: 12px;}
+        .gw-search input{width: 200px; padding-left: 10px; margin-right: 10px;}
+        .gw-search .gw-btn{margin-top:-10px;width:100px; height: 34px;background: none; outline: none; border: 1px solid #ccc; padding-left: 0;cursor: pointer; margin-left: 10px;}
+        table{ border-collapse:collapse; margin-top:20px;}
+        td{border: 1px solid #ccc;padding:7px 6px; text-align: center; }
+</style>
+<div class="sl-xq main">
+    <div class="sl-logo mt20">
+        <div class="oh">
+            <div class="txt fl">
+                <p><span class="tit">顾问姓名：</span>{$r.consultantname}</p>
+                <p><span class="tit">手 机 号：</span>{$r.consultantmobile}</p>
+                <p><span class="tit">邮　　箱：</span><span class="mr20">mtf1888@163.com</span><span class="c999">最近3小时前登陆过</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">服务过的客户</span>
+    </div>
+    <div class="sl-cont">
+        <div class="gw-search mt20">
+            <input type="text" placeholder="姓名"/>
+            <input type="text" placeholder="企业"/>
+            <input type="button" class="gw-btn" value="搜索"/>
+        </div>
+        <table>
+            <tr>
+                <td>序号</td>
+                <td>用户名</td>
+                <td>昵称</td>
+                <td>联系方式</td>
+                <td>邮箱</td>
+                <td>认证企业</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td class="hand">操作详情</td>
+            </tr>
+        </table>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">商标信息</span>
+    </div>
+    <div class="sl-cont">
+        <table>
+            <tr>
+                <td>序号</td>
+                <td>服务单号</td>
+                <td>商标图样</td>
+                <td>商标名称</td>
+                <td>分类</td>
+                <td>商标类型</td>
+                <td>申请号</td>
+                <td>注册号</td>
+                <td>当前状态</td>
+                <td>订单来源</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>18611804309</td>
+                <td><img src="img/img1.png"  alt=""/></td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td>18611804309</td>
+                <td class="hand">操作详情</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+</body>
+</html>

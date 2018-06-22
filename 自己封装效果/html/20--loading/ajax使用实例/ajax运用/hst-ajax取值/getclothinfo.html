@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>旧衣产品</title>
+    <!--
+	<script src="js/diyUpload/jquery.js"></script>
+    -->
+    <!--<script src="js/cxselect/jquery.min.js"></script> -->
+    <!--<script src="js/cxselect/jquery.cxselect.js"></script>-->
+	
+
+    <script>
+        var iWidth=document.documentElement.getBoundingClientRect().width;
+        document.getElementsByTagName("html")[0].style.fontSize=iWidth/10+"px";
+        window.onresize = function () {
+            window.location.href=window.location.href;
+        }
+    </script>
+    <style>
+        /*保证绝对定位样式 start*/
+        html{height:100%;overflow:hidden;}
+        body{height:100%;overflow:auto;margin:0; background: #fff;}
+        /*保证绝对定位样式 end*/
+
+        .nnnbtn{background: none;border: none;outline: none; font-size: 0.466rem; color:#58ab22;}
+        .nnnbtn1{background: none;border: none;outline: none; font-size: 0.466rem; color:#fff;}
+
+        #box{ margin:50px auto; width:370px; min-height:400px; background:#FF9}
+    </style>
+    <link rel="stylesheet" href="css/OldCloth.css"/>
+
+	 <link rel="stylesheet" href="css/citychoose.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/webuploader.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/diyUpload.css">-->
+</head>
+<body>
+<div class="box">
+    <form id="myform" >
+
+    <header class=" header">
+        <div class="main">
+            <div class="headerBg">
+                 <img src="images/warn.png" alt=""/>
+            </div>
+            <p>亲，您的信息填的越全，报价越高。信息太少大家<br/>不敢报价哟~</p>
+        </div>
+    </header>
+    
+    <!--地址 开始-->
+    <div class="mode1" id="element_id">
+        <div class="tit">
+            <h1 class="h1">地址</h1>
+        </div>
+        <div style="clear: both;"></div>
+        <div id="sjld">
+            <div class="m_zlxg bg3" id="shenfen">
+                <p title="">选择省份</p>
+                <div class="m_zlxg2">
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="m_zlxg bg3" id="chengshi">
+                <p title="">选择城市</p>
+                <div class="m_zlxg2">
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="m_zlxg bg3" id="quyu">
+                <p title="">选择区域</p>
+                <div class="m_zlxg2">
+                    <ul></ul>
+                </div>
+            </div>
+            <input id="sfdq_num" type="hidden" value="" />
+            <input id="csdq_num" type="hidden" value="" />
+            <input id="sfdq_tj" type="hidden" value="" />
+            <input id="csdq_tj" type="hidden" value="" />
+            <input id="qydq_tj" type="hidden" value="" />
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <!--地址 结束-->
+    <!--楼门牌号 开始-->
+    <div class="mode2">
+        <div class="tit2"></div>
+        <div class="mode2Box">
+            <div class="h2Box oh">
+                <div class="Txt TxtBg"><span>小区名称</span><input name="residential_quarters"  class="TxtBox" type="text" placeholder="请输入小区名称"/></div>
+                <div class="Txt "><span>楼门房号</span><input name="house_number" class="TxtBox" type="text" placeholder="请输入楼门房号"/></div>
+            </div>
+        </div>
+    </div>
+    <!--楼门牌号 结束-->
+    <!--物品属性 开始-->
+    <div class="mode1">
+        <div class="tit">
+            <h1 class="h1">物品属性</h1>
+        </div>
+        <div class="modeBox selects">
+            <div class="hBox oh">
+                <div class="fl">种类</div>
+                <div class="fr pr16 cf fx_btn">
+                    <span class="fx_value">请选择</span><span class="bg bg1 fx_bg"></span>
+                </div>
+            </div>
+            <div class="selectBox  fx_options" id="type_data"></div>
+        </div>
+        <div class="modeBox selects">
+            <div class="hBox oh noBorder">
+                <div class="fl">品牌</div>
+                <div class="fr pr16 cf fx_btn"><span class="fx_value">请选择</span><span class="bg bg1 fx_bg"></span></div>
+            </div>
+            <div class="selectBox  fx_options" id="band_data"></div>
+        </div>
+    </div>
+    <!--物品属性 结束-->
+    <!--性别 尺寸 开始-->
+    <div class="mode1">
+        <div class="tit2"></div>
+        <div class="modeBox selects">
+            <div class="hBox oh">
+                <div class="fl">性别</div>
+                <div class="fr pr16 cf fx_btn"><span class="fx_value">请选择</span><span class="bg bg1 fx_bg"></span></div>
+            </div>
+            <div class="selectBox  fx_options" id="sex_data">
+            </div>
+        </div>
+        <div class="modeBox selects">
+            <div class="hBox oh">
+                <div class="fl">使用痕迹</div>
+                <div class="fr pr16 cf fx_btn"><span class="fx_value">请选择</span><span class="bg bg1 fx_bg"></span></div>
+            </div>
+            <div class="selectBox  fx_options" id="used_make_data"></div>
+        </div>
+        <div class="modeBox selects">
+            <div class="hBox oh">
+                <div class="fl">材质</div>
+                <div class="fr pr16 cf fx_btn"><span class="fx_value">请选择</span><span class="bg bg1 fx_bg"></span></div>
+            </div>
+            <div class="selectBox  fx_options" id="material_data"></div>
+        </div>
+        <div class="modeBox selects">
+            <div class="hBox oh noBorder">
+                <div class="fl">成色</div>
+                <div class="fr pr16 cf fx_btn"><span class="fx_value">请选择</span><span class="bg bg1 fx_bg"></span></div>
+            </div>
+            <div class="selectBox  fx_options" id="used_degree_data"></div>
+        </div>
+        <div class="modeBox selects">
+            <div class="hBox oh">
+                <div class="fl"><span>尺码</span><input  class="TxtBox" type="text" name="size" placeholder="请输入尺码"/></div>
+            </div>
+        </div>
+    </div>
+    <!--性别 尺寸 结束-->
+    <!--价格 开始-->
+    <div class="mode2">
+        <div class="tit2"></div>
+        <div class="mode2Box">
+            <div class="h2Box oh">
+                <div class="Txt TxtBg" id="Bao">
+                    <span>是否在保</span>
+                    <label class="btnY choose active"><input type="radio" value="1" name="warranty" checked="checked" class="fhide">是</label>
+                    <label class="btnN choose"><input type="radio" value="0" name="warranty" class="fhide">否</label>
+                
+                </div>
+                <div class="Txt "><span>原价</span><input  class="TxtBox" type="text" name="original_price" placeholder="请输入原价"/></div>
+            </div>
+        </div>
+    </div>
+    <!--价格 结束-->
+
+    <!--第二个物品属性 开始-->
+    <div class="mode3">
+        <div class="tit">
+            <h1 class="h1">物品属性</h1>
+        </div>
+        <div class="mode3Box">
+            <div class="h2Box oh"  id="Duo">
+                <div class="mode3block oh" id="oather_data"></div>
+            </div>
+        </div>
+    </div>
+    <!--第二个物品属性 结束-->
+
+
+    <!--更多信息 开始-->
+    <div class="mode1 oh">
+        <div class="tit">
+            <h1 class="h1">更多信息</h1>
+        </div>
+        <div class="modeBox">
+            <div class="">
+                <div class="Txt desc">
+                    照片(3-10张):如果您的产品有破损请对破损处单独拍照
+                </div>
+                <div class="imgBox">
+                    <div id="box">
+                        <div id="test" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--更多信息 结束-->
+
+    <!--出售价格 开始-->
+    <div class="mode2 mt">
+        <div class="tit2"></div>
+        <div class="mode2Box">
+            <div class="h2Box oh">
+                <div class="Txt TxtBg" id="Ture">
+                    <span>保证真品</span>
+                    <label class="btnY choose active"><input type="radio" value="1" name="real" checked="checked" class="fhide">是</label>
+                    <label class="btnN choose"><input type="radio" value="0" name="real" class="fhide">否</label>
+                    
+                </div>
+                <div class="Txt "><span>出售价格</span><input  class="TxtBox" type="text" name="selling_price" placeholder="请输入出售价格"/></div>
+            </div>
+        </div>
+    </div>
+    <!--出售价格 结束-->
+
+    <!--更多信息 开始-->
+    <div class="mode1 oh">
+        <div class="tit">
+            <h1 class="h1">补充描述</h1>
+        </div>
+        <div class="modeBox">
+            <textarea id="textarea" cols="30" rows="10" name="make"></textarea>
+        </div>
+    </div>
+    <!--更多信息 结束-->
+    <!--提交 开始-->
+    <div class="mode1">
+        <div class="tit2"></div>
+        <div class="botBox">
+            <span>
+                <input class="nnnbtn" type="button" id="saveorder" name="orderstatus" value="保存订单">
+            </span>
+            <span class="active">
+                <input class="nnnbtn1" type="button" id="suborder" name="orderstatus" value="提交订单">
+            </span>
+        </div>
+    </div>
+    <!--提交 结束-->
+</form>
+<!-- 表单提交 结束-->
+</div>
+    <!--<script>-->
+        <!--$.cxSelect.defaults.url = 'js/cxselect/cityData.min.json'; -->
+        <!--$.cxSelect.defaults.nodata = 'none';-->
+        <!--/*城市三级联动*/-->
+        <!--$('#element_id').cxSelect({ -->
+          <!--url: 'js/cxselect/cityData.min.json',-->
+          <!--selects: ['province', 'city', 'area'], -->
+          <!--nodata: 'none'-->
+        <!--}); -->
+    <!--</script>-->
+    <!--
+    <script src="js/diyUpload/webuploader.html5only.min.js"></script>
+    <script src="js/diyUpload/diyUpload.js"></script>
+    -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/fxjs.js"></script>
+	<script type="text/javascript" src="js/address.js"></script>
+	<script type="text/javascript">
+        
+        //获取服务器数据        
+        $(document).ready(function(){
+            $.ajax({
+                url:"http://www.wlyx366.cn/yslm_web/MobileApi/public/json_demo/index.php",
+                type:"POST",
+                dataType:"json",
+                data:"",
+                success:function(res){
+                    //品牌
+                    var band = res.data.band;
+                    var band_str = "";
+                    for(var x in band){
+                        band_str = band_str + '<input type="hidden" name="brandid" value="'+band[x].id+'" ><p>'+band[x].name+'</p>';
+                    }
+                    $("#band_data").html(band_str);
+
+                    //类别
+                    var type = res.data.type;
+                    var type_str = "";
+                    for(var x in type){
+                        type_str = type_str + '<input type="hidden" name="type" value="'+type[x].id+'" ><p>'+type[x].name+'</p>';
+                    }
+                    $("#type_data").html(type_str);
+
+                    //性别
+                    var sex = res.data.sex;
+                    var sex_str = "";
+                    for(var x in sex){
+                        sex_str = sex_str + '<input type="hidden" name="sex" value="'+x+'" ><p>'+sex[x]+'</p>';
+                    }
+                    $("#sex_data").html(sex_str);
+
+                    //使用痕迹
+                    var used_make = res.data.used_make;
+                    var used_make_str = "";
+                    for(var x in used_make){
+                        used_make_str = used_make_str + '<input type="hidden" name="used_make" value="'+x+'" ><p>'+used_make[x]+'</p>';
+                    }
+                    $("#used_make_data").html(used_make_str);
+
+                    //材质
+                    var material = res.data.material;
+                    var material_str = "";
+                    for(var x in material){
+                        material_str = material_str + '<input type="hidden" name="material" value="'+x+'" ><p>'+material[x]+'</p>';
+                    }
+                    $("#material_data").html(material_str);
+
+                    //成色
+                    var used_degree = res.data.used_degree;
+                    var used_degree_str = "";
+                    for(var x in used_degree){
+                        used_degree_str = used_degree_str + '<input type="hidden" name="used_degree" value="'+x+'" ><p>'+used_degree[x]+'</p>';
+                    }
+                    $("#used_degree_data").html(used_degree_str);
+
+                    //物品属性
+                    var oather = res.data.oather;
+                    var oather_str = "";
+                    for(var x in oather){
+                        /*
+                        if ( x == 1) {
+                            oather_str = oather_str + '<div class="active  ddd"><label for="ff_'+x+'"><span>'+oather[x]+'</span></label><input type="checkbox" checkbox="checkbox" value="'+x+'" name="oather"  id="ff_'+x+'" class="fhide"></div>';
+                        }else{
+                            
+                        } */
+                        oather_str = oather_str + '<div><label for="ff_'+x+'"><span>'+oather[x]+'</span></label><input type="checkbox" value="'+x+'"  id="ff_'+x+'" class="fhide"></div>';
+                    }
+                          OC();
+                    $("#oather_data").html(oather_str);
+                    
+                    //是否 选择  js  结束
+                    var $Duo = $("#Duo");
+                    var $aDuo = $("#Duo label");
+
+                    $aDuo.each(function(){
+                    $(this).click(function(){
+                    $(this).parent().toggleClass("active");
+                         })
+                    }) 
+                   
+                },
+
+                error:function(msg){
+                    console.log(msg);
+                }
+            });
+        });
+		
+		$(function(){
+
+			$("#sjld").sjld("#shenfen","#chengshi","#quyu");
+			$(".m_zlxg").click(function(){
+				$(this).find(".m_zlxg2").slideToggle();
+				$(this).toggleClass("bg4");
+			})
+
+		});
+
+        //提交表单
+        $(function(){
+            $("#saveorder").click(function(){
+                //物品属性的值
+                var student = "";
+                $("input[type='checkbox']:checked").each(function (i, n) {
+                    student = student + n.value + ',' ;
+                });
+                oather=student.substring(0,student.length-1);
+                var data = $("#myform").serialize() + "&oather="+oather;
+
+                alert(data);
+            });
+        });
+	</script>
+    <!-- 表单提交 开始  http://test.recytl.com/nonstandard/submitorder/submitorder_clothes-->
+</body>
+</html>

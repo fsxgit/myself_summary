@@ -1,0 +1,28 @@
+/*登录页面 KuaiSuXiaDan.html css*/
+/*头部*/
+.KSheader{width:100%; height:auto; background:#fff;}
+.KSheader div{ height:0.05rem;padding:0.04375rem 0; font-size:0;}
+.KSheader div span{font-size:0.05rem; color:#7e7e7e;}
+.KSheader div span:nth-of-type(1){font-size:0.04rem; display: block;padding-right:0.05rem;background:url("../images/downH.png") no-repeat right center; background-size:0.0375rem  0.040625rem;margin-left:0.03rem;}
+.KSheader div span:nth-of-type(3){width:0.0578125rem; height:0.0578125rem; margin-right:0.03rem;}
+/*banner*/
+body{ background: #fff;}
+
+/*内容*/
+.huiGap{height:0.04rem; background:#f6f5fb;}
+.contBox{padding-bottom:0.17rem;}
+.huo_title{color:#6a6a6a; background:url("../images/js_bg.png") no-repeat center center; background-size:0.68rem 2px; font-size:0.045rem; text-align:center; padding:0.0375rem 0;}
+
+.naiMode{ float: left; width:0.29rem; margin-right:0.03rem; padding-top: 0.02rem;}
+.naiMode:nth-of-type(3n){margin:0;}
+.naiImg{width:0.2875rem; height:0.240625rem; border:1px solid #e4e4e4;}
+.naiTxt{width:0.2875rem; height:0.114rem; line-height:0.114rem; font-size: 0.04rem; color:#636363; text-align: center;}
+
+.midBox{width: 100%;}
+.imgshow{width:100%; height:0.196rem;}
+
+
+.js_nav{font-size:14px; width:100%; overflow: hidden;}
+.js_nav ul{}
+.js_nav li{padding:14px 8px; width:auto; text-align: center;}
+.js_nav li.active{border-bottom:2px solid #49becd; color:#49becd; }

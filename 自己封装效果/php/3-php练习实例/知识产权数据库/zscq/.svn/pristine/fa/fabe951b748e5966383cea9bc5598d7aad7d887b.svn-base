@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>费用中心-我的钱包-充值</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/brand.css"/>
+</head>
+<body>
+    <div class="main-hou">
+        <div class="per-nav">我的钱包 > 开通钱包</div>
+        <div class="bgl-mode mt20">
+            <h1 class="c-h1">充值到神州钱包</h1>
+            <div class="bgl-cont">
+                 <div class="c-pet-suc tc">
+					<span class="oh">
+						<span class="fl mr10"><img src="public/html/images/sBg.png" width="54" height="60" alt=""/></span>
+						 <span class="fl">恭喜您，充值成功！</span>
+					</span>
+                 </div>
+				 <div class="fh-qb mt20 tc">
+					<a href="javascript:;" class="blue-big-btn">返回我的钱包</a>
+				 </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

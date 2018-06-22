@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_common.css"/>
+    <style>
+        h1{text-align: center; font-size: 40px; padding:20px 0; width: 100%;}
+        body,html{width:100%; height:100%;}
+        .imgs{width:1000px; margin:40px auto;}
+        .imgs  img{width:200px; height:200px; margin:10px; cursor: pointer;}
+
+
+        .imgShodaw{width:100%; height:100%; background: rgba(0,0,0,0.7); position:fixed; left:0; top:0; display: none;}
+        .imgBoxNei{width:600px; height:400px;  text-align: center;  display: table-cell;  vertical-align:middle; font-size: 0;}
+        .imgBoxNei img{max-width:100%; height:auto; max-height:100%;}
+        .imgBoxWai{width:600px; height:400px;  margin:0 auto; border:1px solid #ccc; background: #000;}
+
+        .btnPrev{width: 100px; height: 30px; line-height: 30px; text-align: center; border: 1px solid #fff; color: #fff; font-size: 18px; cursor: pointer; position: absolute; left:40px; top:400px;}
+        .btnNext{width: 100px; height: 30px; line-height: 30px; text-align: center; border: 1px solid #fff; color: #fff; font-size: 18px;  cursor: pointer; position: absolute; right:40px; top:400px;}
+
+    </style>
+</head>
+<body>
+<h1>图片放大并且保证垂直 水平居中</h1>
+<div class="imgs">
+    <img src="images/1.jpg" alt=""/>
+    <img src="images/6.jpg" alt=""/>
+    <img src="images/2.jpg" alt=""/>
+    <img src="images/4.jpg" alt=""/>
+    <img src="images/5.jpg" alt=""/>
+    <img src="images/3.jpg" alt=""/>
+    <img src="images/7.jpg" alt=""/>
+    <img src="images/9.jpg" alt=""/>
+    <img src="images/10.jpg" alt=""/>
+    <img src="images/11.jpg" alt=""/>
+    <img src="images/8.jpg" alt=""/>
+    <img src="images/12.jpg" alt=""/>
+</div>
+
+
+<div class="imgShodaw">
+    <div class="btnPrev">前进</div>
+    <div class="btnNext">后退</div>
+    <div class="imgBoxWai">
+        <div class="imgBoxNei"><img src="images/1.jpg" alt=""/></div>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script >
+  var oShodaw = $(".imgShodaw");
+  var oWai = $(".imgBoxWai");
+  var oImg = $(".imgBoxNei img");
+  var aImgs = $(".imgs img");
+  var oPrev = $(".btnPrev");
+  var oNext = $(".btnNext");
+  var oMT = ($(window).height()- oWai.height())/2;
+//  alert(oMT);
+
+  oWai.css("marginTop",oMT);
+  var len = aImgs.length-1;
+  var ii = 0;
+  aImgs.on("click",function(){
+      ii = $(this).index();
+      var src = $(this).attr("src");
+      oImg.attr("src",src);
+      oShodaw.show();
+
+  })
+//  oShodaw.on("click",function(){
+//      oShodaw.hide();
+//  })
+
+
+  oPrev.click(function(){
+      if(ii == 0){
+          alert("hello,到第一张了！！")
+      }else{
+          ii = ii-1;
+      }
+
+      var src;
+      aImgs.each(function(){
+          if($(this).index() == ii){
+              src = $(this).attr("src");
+          }
+
+      });
+      oImg.attr("src",src);
+  });
+  oNext.click(function(){
+
+      if(ii == len){
+          alert("hello,到最后一张了！！")
+      }else{
+          ii += 1;
+      }
+
+      var src;
+      aImgs.each(function(){
+          if($(this).index() == ii){
+              src = $(this).attr("src");
+          }
+
+      });
+      oImg.attr("src",src);
+  })
+</script>
+</body>
+</html>

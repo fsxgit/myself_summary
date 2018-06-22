@@ -1,0 +1,19 @@
+.main{width:1000px; margin:0 auto;}
+a{color:#666;}
+a:link,a:visited,a:hover{color:#666; text-decoration:none;}
+a:hover{text-decoration:underline;}
+/*	a:link:   连接时的状态
+
+	a:visited:连接被访问过之后的状态
+
+	a:hover:鼠标放到连接上的时候的状态
+
+	a:active:连接被按下的时候的状态
+*/
+html,body{width:100%; height:100%;}
+.fx_box{background: url("../images/loginBg.png") no-repeat 0 0; background-size: cover; width:100%; height:100%; position: fixed;}
+.fx_login{width:443px; height:349px; background:  url("../images/inputBg.png") no-repeat 0 0; background-size: cover; text-align: center; position:absolute;left:0; top:0;}
+.fx_login h1{font-size: 22px; padding:102px 0 32px; text-align: center; color: #313131;}
+.fx_login .username{font-size: 14px; color: #000; width:262px; height:44px;line-height:44px;border:1px solid #dadada; padding-left:36px; background: url("../images/userBg.png") no-repeat 10px 15px;}
+.fx_login .password{font-size: 14px; color: #000; width:262px; height:44px;line-height:44px;border:1px solid #dadada; border-top: 0;  padding-left:36px; background: url("../images/passBg.png") no-repeat 10px 15px;}
+.fx_login .sub{margin-top:14px; width: 300px; height:44px; font-size: 16px; border-radius: 2px; color: #fff; background: #2abc69; cursor: pointer; }

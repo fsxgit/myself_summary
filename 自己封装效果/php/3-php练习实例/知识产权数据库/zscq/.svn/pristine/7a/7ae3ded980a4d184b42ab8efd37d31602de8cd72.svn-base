@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>顶部导航</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+</head>
+<body>
+<!--公用header-->
+<div class="c-header-3 ">
+    <div class="main oh">
+        <div class="fl c-logo-3"><img src="public/html/images/logo4.png" width="142" height="40" alt=""/></div>
+		<div class="fr c-right-3 oh">
+			<input class="c-log-3 fl" type="button" value="登录" onclick='login()'/>
+            <input class="c-reg-3 fl" type="button" value="免费注册" onclick='reg()'/>
+        </div>
+        <div class="c-search-3 oh">
+			 <form action="index.php?g=Portal&m=Index&a=search" method='post' id='form'>
+
+             <input type="hidden" name="money" value="{$money}">
+            <input type="hidden" name="year" value="{$year}">
+            <input type="text" class="srInput" placeholder="" name='business_name' value='{$name}' id='business_name'/>
+             <span class="srBtn"><input type="button"  value="搜索" onclick="aa()"/></span>
+            </form>
+        </div>
+        
+    </div>
+</div>
+<!--公用header end-->
+</body>
+</html>
+<script>
+    function aa(){
+        var name=$("#business_name").val();
+        $("#form").submit();
+    }
+
+
+    function login(){
+        window.location.href='index.php?g=Portal&m=Register&a=index';
+    }
+    function reg(){
+        window.location.href='index.php?g=Portal&m=Register&a=register';
+    }
+</script>

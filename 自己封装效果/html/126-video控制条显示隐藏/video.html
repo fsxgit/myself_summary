@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频</title>
+</head>
+<body>
+<video controls >
+    <source src="http://www.w3school.com.cn/i/movie.ogg" type="video/mp4">
+    <source src="http://www.w3school.com.cn/i/movie.ogg" type="video/ogg">
+    您的浏览器不支持 video 标签。
+</video>
+<button>点我</button>
+<script src="jquery.min.js"></script>
+<script>
+
+    $(document).on('mouseover','video',function(){
+        $(this).attr("controls",true);
+    });
+    $(document).on('mouseout','video',function(){
+        $(this).attr("controls",false);
+    });
+    $("button").click(function(){
+        $("body").append('<video controls ><source src="http://www.w3school.com.cn/i/movie.ogg" type="video/mp4"><source src="http://www.w3school.com.cn/i/movie.ogg" type="video/ogg">您的浏览器不支持 video 标签。</video>')
+    })
+</script>
+</body>
+</html>

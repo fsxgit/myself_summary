@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document  product FanShixiao 2015.6.20 */
+
+
+/* 产品介绍页样式 */
+.w1180{width: 1180px; margin-left: auto;margin-right: auto;}
+body{margin: 0; padding:0;overflow-x: hidden;}
+.pro_content{font-size: 20px; color: #333333; text-align: center;}
+.pro_content h1,h2,h3{margin:0; padding:0; font-weight: normal;}
+.pro_content h1{font-size: 48px;}
+dl,dt,dd{margin:0; padding:0; list-style: none;}
+.pro_content a:link{color:#0088CC}
+
+
+.pro_content .F_P1{text-align: center; padding-top: 116px; height: 768px; }
+.pro_content .F_P1 .h3{margin-top: 30px;}
+.pro_content .P1_btn{margin-top: 36px;}
+.pro_content .P1_btn span{display: inline-block; overflow: hidden; margin-left: 74px;}
+.pro_content .F_P1 .photo{margin-top: 24px;}
+.P1_btn_fl a{float:left;}
+.P1_btn_fl img{float: left; margin-top: 2px; margin-left: 16px;}
+.P1_btn_fr a{float:left;}
+.P1_btn_fr img{float:left;  margin-top: 2px; margin-left: 16px; }
+
+.pro_content .dress{background:#f8f8f8; height:565px;padding-top: 108px; }
+.pro_content .F_dress{width:1168px; height:auto; overflow:hidden; margin:0 auto;}
+.pro_content .F_dress .dressTitle{}
+.pro_content .F_dress .txt{margin-top:42px;}
+.pro_content .F_dress .txt p{font-size: 20px; line-height: 36px; margin: 0;}
+.pro_content .F_dress .dressLiu{margin-top: 72px;}
+
+.pro_content .car{margin-top:160px;}
+.pro_content .spCar{ overflow: hidden;}
+.pro_content .spCar img{float:left;}
+.pro_content .spCar .carTxt{padding-top: 70px; float: left;}
+.pro_content .spCar .carTxt div{display: block; overflow: hidden;}
+.pro_content .spCar .carTxt p{ text-align: left; font-size: 20px; line-height: 36px; margin: 0;}
+.pro_content .spCar .carTxt_p{margin-top:42px; }
+
+.pro_content .spFood{margin-top:60px; overflow: hidden;  margin: 0 auto;}
+.pro_content .spFood .spFood_cont{float: left; text-align: left;}
+.pro_content .spFood .spFood_txt{margin-top: 42px;}
+.pro_content .spFood .spFood_txt p{font-size: 20px; line-height: 36px; margin: 0;}
+.pro_content .spFood ul{padding-left: 160px; overflow: hidden; float: left;}
+.pro_content .spFood li{float: left; padding-right: 30px;}
+.pro_content .spFood li.pdr_none{ padding-right:0;}
+
+.pro_content .cameraman{background: #f8f8f8; margin-top: 60px;}
+.pro_content .cman_cont{width:1162px; margin: 0 auto; overflow: hidden;}
+.pro_content .cman_cont img{float:left;}
+.pro_content .cman_cont div{text-align: left; padding-top:226px;}
+.pro_content .cman_cont div p{line-height:38px;}
+
+.pro_content .scene_cont{width:1162px; margin: 0 auto; margin-top: 116px; }
+.pro_content .scene{padding-bottom: 134px; }
+.pro_content .imgTab{position: relative; }
+.pro_content .imgTab .btnLeft{position: absolute; left:38px; top:296px;}
+.pro_content .imgTab .btnRight{position: absolute; right:38px; top:296px;}
+.pro_content .scene .imgBox{width:924px; height: 640px; margin: 0 auto; }
+
+.pro_content .scene dl{overflow: hidden;margin-top: 20px;}
+.pro_content .scene dt{float:left;height:60px; line-height: 60px;margin-right: 38px;}
+.pro_content .scene dd{float:left;width:160px;height:60px; border:1px solid #D6D6D6; text-align: center; line-height: 60px; margin-right: 20px; border-radius: 6px;}
+.pro_content .scene a:link{color:#8C8C91;}
+.pro_content .scene .active{background:#0188cc; color:#fff;}
+.pro_content .scene .active a:link{ color:#fff;}
+/*其他效果是什么*/
+
+.pro_content .wedding{background: #f8f8f8; margin-top: 60px;}
+.pro_content .wedding_cont{width:1162px; margin: 0 auto; overflow: hidden;}
+.pro_content .wedding img{float: right;}
+.pro_content .wedding_cont div{text-align: left; padding-top:226px; float: left;}
+.pro_content .wedding_cont div p{line-height:38px;}
+
+
+.pro_content .vip{margin-top:116px;}
+.pro_content .vip_cont{margin-top:80px;}
+.pro_content .vip_cont .iPadRed{color:red;}
+
+
+.pro_content .m499{padding-top:36px; color: red; font-weight: bold; background: #f8f8f8; padding-bottom: 10px;}
+.pro_content .m499 h1{margin-top:-20px; text-align: center;}
+.pro_content .m499 h1 span{font-size: 28px;}
+.pro_content .m499 .boot{margin-top:10px; font-size: 20px; display:inline-block; color:#fff; background:#0188cc; width:143px; height:46px;text-align: center; line-height: 46px; border-radius: 6px;}
+.pro_content .m499 p{font-size: 28px;}
+.pro_content .m499 a:link{color:#fff;}
+/*其他效果是什么*/
+.pro_content .m499 a:visited{color:#fff;}
+.pro_content .m499 a:hover{text-decoration: underline;}
+.pro_content .m499 a:active{}
+
+.pro_content .remain{height:126px; margin-top: 40px;  }
+.pro_content .remain p{height:60px; line-height:60px; font-size: 38px;margin-bottom: 0; }
+.pro_content .remain span{height:60px; line-height:60px;width:150px; background: #333;  font-size: 32px; color: #fff; display: inline-block;border-radius: 6px; }
+
+
+
+

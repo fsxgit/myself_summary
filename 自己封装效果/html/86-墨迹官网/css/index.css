@@ -1,0 +1,545 @@
+body,
+ul,
+li,
+p {
+    padding: 0;
+    margin: 0;
+}
+body,
+html {
+    font-size: .625rem;
+    font-family: "寰蒋闆呴粦";
+    height: 100%;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after { clear: both; }
+.scrollblock {
+    width: 100%;
+    height: 100%;
+}
+.box {
+    position: relative;
+    height: 100%;
+}
+.index,
+.weather,
+.info,
+.download {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+}
+.index {
+    z-index: 4;
+}
+.weather {
+    z-index: 3;
+    background: url(../images/index/weather_bg.jpg) no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+.weather_bg {
+    animation: mymove infinite;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+@keyframes mymove
+{
+    from {background-size: 130% 130%;}
+    to {background-size: 100% 100%;}
+}
+
+.info {
+    z-index: 2;
+    background: url(../images/index/info_bg.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.download {
+    z-index: 1;
+}
+.index_bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    text-align: center;
+    overflow: hidden;
+    background: url(../images/video/index_bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.index_banner_btn {
+    display: block;
+    position: absolute;
+    width: 40%;
+    left: 50%;
+    bottom: 0;
+    margin: 0 0 0 -20%;
+    text-align: center;
+    z-index: 2;
+}
+.index_banner_btn li {
+    display: inline-block;
+    position: relative;
+    width: 45px;
+    height: 2px;
+    margin: 20px 5px;
+    background: rgba(170, 174, 183, .5);
+    cursor: pointer;
+}
+.index_banner_cur p {
+    display: inline-block;
+    width: 0px;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(170, 174, 183, 1);
+    cursor: default;
+    animation: btnWidth 4s linear 0s 1;
+}
+.index_banner_cur:nth-child(1) p {
+    animation: btnWidth 16s linear 0s 1;
+}
+.air_box {
+    width: 872px;
+    height: 475px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -238px 0 0 -436px;
+}
+.air_box .air_text {
+    position: absolute;
+    padding: 50px 0 0 0;
+    left: -150px;
+}
+.air_box .airnut {
+    position: absolute;
+    top: 50px;
+    right: -250px;
+}
+.index_banner_pic {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(../images/index/air_bg_0725.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+@keyframes btnWidth {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width:45px;
+    }
+}
+.index_banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.index_info {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10% 0 0 -20%;
+    z-index: 3;
+}
+.index_text {
+    width: 70%;
+    margin: 0 15%;
+}
+.index_text img {
+    width: 100%;
+}
+.index_download_btn img {
+    height: 100%;
+}
+.index_iphone,
+.index_android {
+    display: inline-block;
+    height: 40px;
+    padding: 10px 15px;
+    margin: 40px 5px 30px 5px;
+
+    border-radius: 15px;
+    line-height: 1;
+
+    background: #000;
+    text-align: left;
+}
+.index_iphone {
+    padding: 10px 20px;
+}
+.index_download_btn a {
+    color: #fff;
+}
+.index_download_btn i {
+    display: block;
+    float: left;
+}
+.index_download_btn i img {
+    height: 40px;
+}
+.index_download_btn p {
+    float: left;
+    margin: 0 0 0 10px;
+    font-family: Helvetica;
+}
+.index_download_btn span {
+    display: block;
+    margin: 0 0 5px 0;
+    font-size: 1.4rem;
+    opacity: .7;
+}
+.index_download_btn b {
+    font-size: 2.2rem;
+}
+.index_download_icon a {
+    margin: 0 12px;
+    text-decoration: none;
+}
+.index_download_icon img {
+    height: 40px;
+}
+
+
+.weather_phone {
+    position: relative;
+    left: 18%;
+    width: 33%;
+    height: 60%;
+    z-index: 3;
+    text-align: left;
+}
+.weather_phone img {
+    width: 100%;
+}
+.phone_bg {
+    height: 100%;
+    position: absolute;
+    z-index: 4;
+}
+.phone_wea {
+    display: none;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+}
+.phone_forecast {
+    display: none;
+    height: 100%;
+    position: absolute;
+    z-index: 6;
+}
+.weather_text {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    margin: 0 0 0 0;
+    z-index: 3;
+    text-align: left;
+    color: #fff;
+}
+.weather_text_title {
+    font-size: 1.6rem;
+}
+.weather_text_title i {
+    display: block;
+}
+.weather_text_title img {
+    width: 60%;
+}
+.weather_text_title a {
+    display: inline-block;
+    margin: 15px 0;
+
+    color: rgba(255, 255, 255, .5);
+    text-decoration: none;
+}
+.weather_text_title span {
+    display: block;
+    margin: 0 0 40px 0;
+}
+.weather_text_list i {
+
+    position: absolute;
+    left: 0;
+    height: 100%;
+}
+.weather_text_list i img {
+    height: 100%;
+}
+.weather_text_list p {
+    float: left;
+    padding: 5px 0;
+}
+.weather_text_list b {
+    font-size: 1.8rem;
+}
+.weather_text_list span {
+    display: block;
+    margin: 10px 0 0 0;
+
+    line-height: 1.5;
+    font-size: 1.4rem;
+}
+.weather_text_minute,
+.weather_text_kilo,
+.weather_text_smart,
+.weather_text_radar {
+    position: relative;
+    margin: 30px 0 0 0;
+    padding: 0 0 0 100px;
+}
+.weather_text_radar i img,
+.weather_text_smart i img {
+    height: 70%;
+    margin: 20% 0 0 0;
+}
+.info_text {
+    width: 15%;
+    position: absolute;
+    top: 5%;
+    right: 50%;
+    z-index: 2;
+    transition: right .9s;
+}
+.info_text img{
+    width: 100%;
+}
+.info_text a {
+    display: inline-block;
+    margin: 20px 0 0 0;
+
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+.info_img {
+    width: 17%;
+    float: left;
+    position: absolute;
+    top: 25%;
+    color: #fff;
+    z-index: 2;
+}
+.info_img h2 {
+    height: 20px;
+    margin: 30px 0 15px 0;
+
+    font-size: 2rem;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.info_img span {
+    font-size: 1.6rem;
+    opacity: .5;
+}
+.info_img p {
+    height: 42px;
+    margin: 10px 0 0 0;
+    line-height: 1.5;
+    text-align: left;
+    font-size: 1.4rem;
+    opacity: .5;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.info_img_1 {
+    transition: right .6s;
+}
+.info_img_2 {
+    transition: right 1s;
+}
+.info_img_3 {
+    transition: right 1.4s;
+}
+.info_img img {
+    width: 100%;
+}
+
+
+.download_title {
+    margin: 0 auto;
+}
+.download_title h2 {
+    font-size: 4rem;
+}
+.download_title a {
+    margin: 20px 0 0 0;
+
+    font-size: 1.8rem;
+    line-height: 1;
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+}
+.download_title img {
+    height: 100%;
+}
+.download_list {
+    margin: 0 5% 0px 5%;
+    padding: 0 0 60px 0;
+    border-bottom: 1px solid #ddd;
+}
+.download_list a {
+    display: inline-block;
+    width: 24.5%;
+    margin: 40px 0 0 0;
+
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #30343f;
+}
+.download_list span {
+    display: block;
+    margin: 15px 0 0 0;
+}
+.download_list img {
+    width: 20%;
+}
+
+
+.more {
+    display: inline-block;
+    padding: 0 15px 0 0;
+    background: url(../images/icon/more.png) no-repeat center right;
+    background-size: auto 80%;
+    opacity: .5;
+}
+.more:hover {
+    opacity: 1;
+}
+.more_grey {
+    background: url(../images/icon/more_grey.png) no-repeat center right;
+    background-size: auto 80%;
+}
+.index_next,
+.weather_next,
+.info_next {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    margin: 0 0 0 -33px;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.toTop {
+    width: 52px;
+    height: 52px;
+    right: 50px;
+    bottom: 50px;
+    position: absolute;
+    background: url(../images/icon/icon_top01.png) no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    cursor: pointer;
+}
+.toTop:hover {
+    background: url(../images/icon/icon_top02.png) no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+
+
+
+
+@media screen and (max-width: 1700px) {
+}
+@media screen and (max-width: 1500px) {
+    html,
+    body {
+        font-size: .5rem;
+    }
+    .top_weather {
+        min-width: 260px;
+    }
+    .top_weather_brief {
+        height: 24px;
+        margin-right: 1.5rem;
+        padding: 7px 10px;
+    }
+
+    .top_icon_home,
+    .top_icon_download,
+    .top_icon_qrcode {
+        height: 28px;
+    }
+    .top_button {
+        width: 100px;
+        margin-left: 1.5rem;
+    }
+    .top_weather_brief {
+        height: 24px;
+        margin-right: 1.5rem;
+        padding: 7px 10px;
+    }
+    .top_icon_home,
+    .top_icon_download,
+    .top_icon_qrcode {
+        height: 28px;
+    }
+    .index_download_btn i img {
+        height: 35px;
+    }
+    .index_iphone,
+    .index_android {
+        height: 35px;
+    }
+    .index_download_icon img {
+        height: 35px;
+    }
+    .weather_text {
+        top: 15%;
+    }
+    .weather_text_title img {
+        width: 50%;
+    }
+    .weather_text_minute,
+    .weather_text_kilo,
+    .weather_text_smart,
+    .weather_text_radar {
+        margin: 20px 0 0 0;
+        padding: 0 0 0 80px;
+    }
+    .info_img p {
+        height: 35px;
+    }
+    .download_list {
+        padding-bottom: 40px;
+    }
+    .foot_logo {
+        padding-top: 40px;
+    }
+    .index_next img,
+    .weather_next img,
+    .info_next img{
+        width: 70%;
+    }
+}

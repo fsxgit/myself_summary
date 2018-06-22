@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>联动demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 40px 200px;
+            background: #ccc;
+        }
+
+        h1, h2 {
+            background: #f8ff4c;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 50px;
+            cursor: pointer;
+        }
+
+        p {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 80px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .kinds, .represent {
+            padding-bottom: 30px;
+            background: #fff;
+        }
+
+        .KindsTit {
+            font-size: 20px;
+            color: #FF0000;
+            padding: 5px 20px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<h1>种类 <span class="KindsTit" data_kinds="">铺货</span></h1>
+
+<div class="kinds">
+
+</div>
+
+<h2>代表</h2>
+
+<div class="represent">
+
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var oKinds = $(".kinds");
+    var oKP = $(".kinds p");
+    var oPresent = $(".represent");
+    var oPP = $(".represent p");
+
+    function changeTit() {
+        oKP.each(function () {
+            $(this).click(function () {
+                alert($(this).index());
+            })
+        })
+    }
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "data.json",
+            type: "post",
+            dataype: "json",
+            data: "",
+            async: false,
+            success: function (data) {
+                var kinds = data.kinds;
+                var arr = "";
+                for (var i in kinds) {
+                    arr = arr + "<p data_kinds=" + kinds[i].id + ">" + kinds[i].name + "</p>"
+                    oKinds.html(arr);
+
+                    var oKP = $(".kinds p");
+                    var oPP = $(".represent p");
+                    var oKindsTit = $(".KindsTit");
+                    var $represent = $('.represent');
+                    var representHtml = "";
+                    function changeTit() {
+                        oKP.each(function () {
+                            $(this).click(function () {
+                                var dataKind = $(this).attr("data_kinds");
+                                oKindsTit.text($(this).text()).attr("data_kinds", dataKind);
+                                var dataName = oKindsTit.attr("data_kinds");
+//alert(dataName);
+                                $.each(data.represent,function(index,val){
+                                    if(val[dataName])
+                                    {
+                                        representHtml = "";
+                                        $.each(val[dataName],function(i,d){
+                                            representHtml += "<p>"+ d +"</p>";
+                                        });
+                                        $represent.html(representHtml);
+                                    }
+                                });
+                            })
+                        })
+                    }
+
+                    changeTit();
+                }
+                ;
+
+
+            },
+            error: function () {
+                alert("why");
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标概况-转让</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main-hou c333">
+        <div class="bread-nav">
+            商标列表 > 商标详情
+        </div>
+        <div class="list-gk-top oh">
+            <div class="logo fl">
+                <img src="../images/img1.png" alt=""/>
+            </div>
+            <div class="logo-txt fl f12">
+                <p><span class="fb f16">神州易桥信息科技</span><span class="xuzhan">续展中</span></p>
+                <p><span class="c999">商标类型：</span><span>文字商标</span></p>
+                <p><span class="c999">商标类别：</span><span>25</span></p>
+                <div class="oh">
+                    <div class="fl c999">小　　类：</div>
+                    <div class="xlei fl">
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span class="zhankai">展开更多</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-gk-tab">
+            <a href="javascript:;">商标概况</a>
+            <a class="active" href="javascript:;">转让</a>
+            <a href="javascript:;">变更</a>
+            <a href="javascript:;">许可备案</a>
+            <a href="javascript:;">续展</a>
+            <a href="javascript:;">资料列表</a>
+        </div>
+        <div class="list-gk-cont">
+            <!--右边的完成步骤部分-->
+            <div class="list-gk-cont-right fr">
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                        <div class="step-mode fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">等待下发《商标注册证》</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">公告期结束，注册成功</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">资料已下载</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zhou"><img src="../images/zhu.png" width="1"   alt=""/></div>
+                </div>
+            </div>
+            <!--右边的完成步骤部分 end-->
+            <!--上面切换模块 索要改变的部分-->
+            <div class="list-gk-cont-left">
+                <!--/*提示说明*//-->
+                <div class="c-ts-common ">
+                    <p>转让人和受让人必须签订《转让协议》，且经过商标局审核后，转让注册商标的行为才能生效。否则将受到行政处罚，严重时还可能导致注册商标被撤销。</p>
+                </div>
+                <!--/*提示说明* end//-->
+                <div class="bgl-mode mt20">
+                    <h1 class="c-h1">注册步骤</h1>
+                    <div class="bgl-cont bgl-steps">
+                        <span class="bgl-step">1</span>
+                        <span>用户支付订单</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">2</span>
+                        <span>整理资料快递给顾问</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">3</span>
+                        <span>顾问接收资料并办理</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">4</span>
+                        <span>转让成功</span>
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">填写受让人信息</h1>
+                    <div class="bgl-cont shourang">
+                        <p><span class="tit">受让人名称（中文）</span><input type="text" placeholder="需与营业执照上的名称完全一致"/></p>
+                        <p><span class="tit">受让人地址（中文）</span><input type="text" placeholder="需与营业执照上的地址完全一致"/></p>
+                        <p><span class="tit">邮政编码</span><input type="text" placeholder="请输入邮政编码"/></p>
+                        <p><span class="tit">联系人</span><input type="text" placeholder="请输入联系人姓名"/></p>
+                        <p><span class="tit">电话</span><input type="text" placeholder="请输入联系电话"/></p>
+                    </div>
+                </div>
+                <div class="zr-jieshou f12 bt tr">
+                    <p class="mt20"><span class="jieshou">我已阅读理解并接受《神州易桥转让服务协议》</span></p>
+                    <p class="mt10"><input type="button" class="blue-big-btn" value="立即办理"/></p>
+                    <p class="c999 mt10">商标转让完成整个时间大约需要10个月左右</p>
+                </div>
+
+            </div>
+            <!--上面切换模块 索要改变的部分 end-->
+        </div>
+    </div>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".jieshou").click(function(){
+        $(this).toggleClass("active");
+    })
+</script>
+</body>
+</html>

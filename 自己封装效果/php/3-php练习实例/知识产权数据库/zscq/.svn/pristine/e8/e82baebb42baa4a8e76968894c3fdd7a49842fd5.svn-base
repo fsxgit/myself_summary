@@ -1,0 +1,79 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<style>
+a{cursor: pointer;}
+.btnfx{cursor: pointer; width:70px; height:28px;line-height:28px; border:1px solid #07a9ff; color: #07a9ff; border-radius: 4px; background: none; margin-left:20px;float:left;margin-top:2px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>注册成功</a></li>
+    </ul>
+	<form method="post" action="{:U('Brand/zsuccess')}">
+	<div style="float:left;">
+		<input type="text" name="bname" placeholder="商标名称" value="{$name}">
+		<select id="state" name="state" style="width:150px;height:38px;">
+					<option value="" <?php if($state=="")echo "selected";?>>状态</option>
+					<option value="待续展">待续展</option>
+					  <option value="续展中">续展中</option>
+					  <option value="变更中">变更中</option>
+					  <option value="许可中">许可中</option>
+					  <option value="转让中">转让中</option>
+					  <option value="已转让">已转让</option>
+					  <option value="正常">正常</option>
+				</select>
+	</div>
+        <input type="submit" value="搜索" class="btnfx">
+    </form>
+    <div id="mydiv">
+         <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>服务单号</th>
+                <th>商标图样</th>
+                <th>商标名称</th>
+				<th>分类</th>
+                <th>注册号</th>
+				<th>当前状态</th>
+				<th>服务顾问</th>
+				<th>订单来源</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="res" item="vo" key='k'>
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td></td>
+                    <td>
+					<if condition=" $vo.marklogo eq '' ">
+						<img src="data:png;base64,{$vo.markimage}" width="50" height="50"/>
+					<elseif condition=" $vo.marking eq '' "/>
+                      <img src="{$vo.marklogo}" width="50" height="50"/>
+					</if>
+					</td>
+                    <td>{$vo.markname}</td>
+					<td>{$vo.uniontypecode}</td>
+                    <td></td>
+					<td>{$vo.markstate}</td>
+					<td></td>
+                    <td></td>
+                    <td><a onclick="show({$vo.id})">查看详情</a>
+                    </td> 
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+   <div class="c-pages tc">
+							<span>{$page}</span>
+						</div>
+</div>
+</body>
+</html>
+<script>
+function show(id){
+	window.location.href='index.php?g=Admin&m=Brand&a=detail&id='+id;
+}
+</script>

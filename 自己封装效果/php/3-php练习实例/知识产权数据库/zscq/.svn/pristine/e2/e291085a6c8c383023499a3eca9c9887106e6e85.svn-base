@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标查询</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/brand.css"/>
+</head>
+<body>
+    <div class="main-hou">
+        <div class="brand-gl c333">
+           <div class="bgl-nav bb">
+                <a href="{:U('Brand/brand_lst')}">商标列表</a>
+                <a href="{:U('Brand/brand_query')}">商标查询</a>
+                <a href="{:U('Brand/brand_query_lst')}" class="active">查询列表</a>
+            </div>
+
+        </div>
+        <div class="tiaojian-box">
+            <div class="sel-mode">
+                <input type="text" class="fw-input" placeholder="服务单"/>
+            </div>
+            <!--/*公用输入框样式 */-->
+            <div class="sel-mode c-fp-sel-wrap statusSelect">
+                <div class="c-fp-sel-box c-cx-width">
+                    <input type="text" readonly="readonly" class="c-fp-sel-value" placeholder="状态"/>
+                    <span class="downUp"></span>
+                    <div class="c-fp-sel-p c-cx-width">
+                        <P class="active">手机</P>
+                        <P>密保</P>
+                    </div>
+                </div>
+                <div class="cb"></div>
+            </div>
+            <!--/*公用输入框样式 end*/-->
+       
+            <!--日期-->
+            <div class="sel-mode">
+                <input type="text" class="time-input" placeholder="开始日期"/>
+            </div>
+            <div class="sel-mode">
+                <div class="jie">-</div>
+            </div>
+            <div class="sel-mode">
+                <input type="text" class="time-input" placeholder="结束日期"/>
+            </div>
+            <!--日期 end-->
+            <div class="sel-mode">
+                <input type="button" class="blue-big-btn" value="搜索"/>
+            </div>
+            <div class="cb"></div>
+        </div>
+		<div id="mydiv">
+        <!--/*提示说明*//-->  
+		<if condition=" $user.isclaimed eq 0 "> 
+        <div class="c-rl-cont-ts cx-list-ts">
+			 <p>您还没有认领公司，最多可免费查询三次，认领公司后不限制 查询次数{$user.chasum}。<a class="kan fc1 fb">去认领公司</a></p>
+        </div>
+		</if>
+        <!--/*提示说明* end//-->
+        <!--商标-->
+        <div class="brand-box">
+            <table class="brand-table c333">
+                <tr class="bt-tr1 bg5 c999">
+                    <td style="width:5%;">序号</td>
+                    <td style="width:16.6%;">名称</td>
+                    <td style="width:8.3%;">图标样式</td>
+                    <td style="width:13.1%;">商标名称</td>
+                    <td style="width:10.6%;">查询方式</td>
+                    <td style="width:12.5%;">查询日期</td>
+                    <td style="width:12.5%;">查询状态</td>
+                    <td style="width:21.3%;">操作</td>
+                </tr>
+				<foreach name="arr" item="vo" >
+                <tr>
+                    <td>{$key+1}</td>
+                    <td>{$vo.number}</td>
+                    <td class="brand-logo"><img src="{$vo.markpicture}" alt=""/></td>
+                    <td>{$vo.markname}</td>
+                    <td><if condition="$vo.type eq 1">智能推荐<elseif condition="$vo.type eq 2"/>委托顾问查询<elseif condition="$vo.type eq 3"/>自主选择类别</if></td>
+                    <td><?php echo date('Y-m-d H:i:s',$vo['addtime']);?></td>
+                    <td><if condition="$vo.state eq 0">查询中<elseif condition="$vo.state eq 1"/>全部可注册<elseif condition="$vo.state eq 2"/>部分可注册<elseif condition="$vo.state eq 3"/>全部不可注册<elseif condition="$vo.state eq 4"/>查询失败</if></td>
+                    <td><a href="javascript:;">查看</a></td>
+                </tr>
+               </foreach>
+
+            </table>
+            <!--翻页按钮"javascript:void(0);" onclick="js_method()"-->
+            <div class="c-pages mb50">
+			<if condition=" $user.isclaimed eq 0 "></if>
+                <span>共{$count}条记录，{$num}页</span>
+                <span>
+                    <a href="javascript:void(0);" onclick="page(1)">首页</a>
+                    <a href="javascript:void(0);" onclick="page({$page-1})">上一页</a>
+                    <if condition="$num lt 6">
+					  <for start="1" end="$num+1">
+					  <a href="javascript:void(0);"  onclick="page({$i})" 
+					  <if condition=" $i eq $page ">class="active"</if>
+					  >{$i}</a>
+					  </for>
+					</if>
+					<if condition="($num gt 5) and ($page lt 3)">
+							  <for start="1" end="6">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+					<if condition="($num gt 5) and ($page eq 3)">
+							  <for start="2" end="7">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+                   <if condition="($num gt 5) and ($page lt $num-1) and ($page gt 3)">
+							  <for start="$page-2" end="$page+3">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+					<if condition="($num gt 5) and ($page gt 3) and ($page eq $num)">
+							  <for start="$page-4" end="$page+1">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+					<if condition="($num gt 5) and ($page gt 3) and ($page eq $num-1)">
+							  <for start="$page-3" end="$page+2">
+							  <a href="javascript:void(0);"  onclick="page({$i})" 
+							  <if condition=" $i eq $page ">class="active"</if>
+							  >{$i}</a>
+					          </for>
+					</if>
+                    <a href="javascript:void(0);" onclick="page({$page+1})">下一页</a>
+                    <a href="javascript:void(0);" onclick="page({$num})">末页</a>
+                </span>
+            </div>
+            <!--翻页按钮 end-->
+			</div>
+        </div>
+        <!--商标 end-->
+    </div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+function page(e){
+ $.ajax({
+   type: "POST",
+   url: "{:U('brand/brand_query_lst')}",
+   data: {'page':e,'laiyuan':'1'},
+     success: function(msg){
+       $('#mydiv').html(msg)
+     }
+  });
+}
+    $(".bgl-nav a").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+
+//    状态下拉
+    statusSelect();
+    function statusSelect(){
+        var aP = $(".statusSelect .c-fp-sel-p p"); //下拉的p
+        var apBox = $(".statusSelect .c-fp-sel-p"); //下拉的盒子
+        var oValue = $(".statusSelect .c-fp-sel-value"); //选中值存放的地方
+        var oBox = $(".statusSelect .c-fp-sel-box"); //最外层的盒子
+        oBox.click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                apBox.slideDown();
+            }else{
+                apBox.slideUp();
+            }
+        })
+        aP.click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            oValue.val(val);
+            oBox.removeClass("active");
+            apBox.slideUp();
+            event.stopPropagation();
+        })
+    }
+
+    sbLei();
+    function sbLei(){
+        var aP = $(".sbLei .c-fp-sel-p p"); //下拉的p
+        var apBox = $(".sbLei .c-fp-sel-p"); //下拉的盒子
+        var oValue = $(".sbLei .c-fp-sel-value"); //选中值存放的地方
+        var oBox = $(".sbLei .c-fp-sel-box"); //最外层的盒子
+        oBox.click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                apBox.slideDown();
+            }else{
+                apBox.slideUp();
+            }
+        })
+        aP.click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            oValue.val(val);
+            oBox.removeClass("active");
+            apBox.slideUp();
+            event.stopPropagation();
+        })
+    }
+</script>
+</body>
+</html>

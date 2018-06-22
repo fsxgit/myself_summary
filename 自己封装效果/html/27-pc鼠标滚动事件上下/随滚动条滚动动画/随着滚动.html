@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动事件</title>
+    <style>
+        *{margin:0 padding:0;}
+        body{height: 3000px; background: #06c2e9;  }
+        .rular{position:absolute; left:100px; top:0; width: 300px; height: 3000px; background: url("rular.jpg") no-repeat 0 0;}
+        .dong{width:100px; height: 100px; background: #007aff; position: absolute; text-align: center; line-height: 100px; color: #ffff00;font-size: 40px;}
+        .don1{left:10px; top:10px;}
+        .don2{left:100px; top:400px;}
+        .don3{left:200px; top:800px; background: #ff6666; width: 800px;}
+        .don4{left:300px; top:1200px;}
+        .don5{left:400px; top:1600px;}
+        .don6{left:500px; top:2000px;}
+        .don7{left:600px; top:2400px;}
+        .don8{left:700px; top:2800px;}
+
+
+
+        .don3{left:200px; top:800px;}
+    </style>
+</head>
+<body>
+<div class="rular"></div>
+<div class="dong don1">10</div>
+<div class="dong don2">400</div>
+<div class="dong don3">800</div>
+<div class="dong don32">800</div>
+<div class="dong don33">800</div>
+<div class="dong don34">800</div>
+<div class="dong don35">800</div>
+<div class="dong don4">1200</div>
+<div class="dong don5">1600</div>
+<div class="dong don6">2000</div>
+<div class="dong don7">2400</div>
+<div class="dong don8">2800</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script>
+
+    var scrollFunc = function (e) {
+        var direct = 0;
+        e = e || window.event;
+        if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
+            if (e.wheelDelta > 0) { //当滑轮向上滚动时
+//                alert("滑轮向上滚动11");
+                dong1();
+            }
+            if (e.wheelDelta < 0) { //当滑轮向下滚动时
+//                alert("滑轮向下滚动22");
+//                console.log(scrHei);
+
+                dong1();
+
+            }
+        } else if (e.detail) {  //Firefox滑轮事件
+            if (e.detail> 0) { //当滑轮向下滚动时
+//                alert("滑轮向下滚动33");
+                console.log(scrHei);
+            }
+            if (e.detail< 0) { //当滑轮向上滚动时
+//                alert("滑轮向上滚动44");
+                console.log(scrHei);
+            }
+        }
+    };
+    //给页面绑定滑轮滚动事件
+    if (document.addEventListener) {
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }
+    //滚动滑轮触发scrollFunc方法
+    window.onmousewheel = document.onmousewheel = scrollFunc;
+
+
+    function dong1(){
+        var scrHei = $(document).scrollTop();
+//        对象开始滚动时滚动条的位置
+        var start = 400;
+//        对象停止滚动时滚动条的位置
+        var end = 1000;
+
+//        对象开始滚动时的初始位置
+        var startSite = 800;
+//        对象停止滚动时的最终位置
+        var endSite = 1600;
+        if(scrHei >= start && scrHei <= end){
+            var guo = (scrHei - 400);//鼠标滚过的距离
+
+            var yao1 = (end - start); //鼠标要移动的总位置
+
+            var yao2 = (endSite - startSite); //对象要滚过的总长度
+
+//                    鼠标每滚动一像素，对象要移动的距离
+            var pri = yao2/yao1;
+//                    console.log(pri);
+
+
+            $(".don3").css({top:(guo*pri+800)});
+            console.log(guo*pri);
+
+
+        }
+    }
+
+
+</script>
+</body>
+</html>

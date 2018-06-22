@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里是头部</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div class="header">
+        <div class="main">
+            <span>首页</span>
+            <span>产品</span>
+            <span>关于</span>
+            <span>电话</span>
+            <span>城市</span>
+            <div class="sel-box">
+                分类
+                <div class="sel-item">
+                    <p>手机</p>
+                    <p>电脑</p>
+                    <p>电视</p>
+                    <p>洗衣机</p>
+                    <p>电饭锅</p>
+                    <p>电磁炉</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+$(".sel-box").hover(function(){
+    $(".sel-item").slideDown("slow");
+},function(){
+    $(".sel-item").slideUp("slow");
+})
+</script>
+</body>
+</html>

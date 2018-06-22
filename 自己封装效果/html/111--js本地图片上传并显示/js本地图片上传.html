@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>select</title>
+	<style>
+		#file{display:none;}
+		#img{}
+		#img img{width:200px; height:200px;}
+	</style>
+</head>
+<body>
+<div id="img">
+	<img src="img/img5.jpg" width="200" height="200">
+</div>
+<input type="file" id="file" >
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$("#img").click(function(){
+	$("#file").click();
+});
+
+$("#file").on("change",function(){
+	var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
+	if (objUrl) {
+		$("#img img").attr("src", objUrl) ; //将图片路径存入src中，显示出图片
+	}
+});
+function getObjectURL(file) {
+  var url = null ;
+  if (window.createObjectURL!=undefined) { 
+	//basic
+	url = window.createObjectURL(file);
+  } else if (window.URL!=undefined) { 
+	// mozilla(firefox)
+	url = window.URL.createObjectURL(file);
+  } else if (window.webkitURL!=undefined) {
+	// webkit or chrome
+	url = window.webkitURL.createObjectURL(file);
+  }
+  return url;
+} 
+</script>
+</body>
+</html>

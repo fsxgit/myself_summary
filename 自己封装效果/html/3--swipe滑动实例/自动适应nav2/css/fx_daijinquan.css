@@ -1,0 +1,42 @@
+/*头部*/
+.XDheader{width:100%; height:auto; background:#db3d3c;}
+.XDheader div{ height:0.05rem;padding:0.04375rem 0;font-size:0.05rem; background:#db3d3c; color:#fff;}
+.ff5{width:100%; height:0.046875rem; border-bottom:1px solid #ccc; background:#f0eff5;}
+.ffborTop{ border-top:1px solid #ccc;}
+/*内容*/
+.bc{margin-right:auto; margin-left:auto;}
+html,body{width:100%; height:auto;}
+.daibox{width:100%; height:auto; text-align: center; background:#d4312f; padding-bottom:0.08rem;  font-size: 0.05rem;}
+.huiBox{width:100%; height:0.979rem; background: url("../images/daiBoxBg.jpg") no-repeat center; background-size:100% 100%; padding-top:0.146rem;}
+
+/*翻转样式 开始*/
+#huidiv{width:0.3rem; height:0.3rem; background: url("../images/hui.png") no-repeat center; background-size:cover; margin-right:auto; margin-left:auto; text-align: center; line-height: 0.3rem;}
+#mspan{font-size: 0.07rem; display: none; width:100%; height:100%;background: url("../images/huikai.png") no-repeat center; background-size:cover;text-align:center; line-height:0.3rem; border-radius: 50%; color:#d93f41; font-weight:bold; }
+#mspan em{font-size: 0.08rem;}
+/*翻转样式 结束*/
+
+.inputBox{width:0.8rem; height:0.146rem; line-height: 0.146rem; margin-right:auto; margin-left:auto; margin-top:0.259rem; background:#fff ;  border-radius:0.01rem; text-align: left; overflow: hidden; }
+.inputBox input.num{padding-left:0.04rem; font-size: 0.045rem; float:left;margin-top:0.05rem;}
+.inputBox input.fxbtn{width:0.107rem; height:0.107rem; background:#fff url("../images/qiang.png") no-repeat center; background-size:0.107rem; float:right; margin-top:0.02rem; margin-right:0.02rem;}
+
+.qiangImg{width:0.7875rem; height:0.118rem;  margin-right:auto; margin-left:auto; margin-top:0.1rem;}
+.qiangImg{width:0.7875rem; height:0.118rem;  margin-right:auto; margin-left:auto; margin-top:0.1rem;}
+
+.zuiWai{width:1rem;  margin-right:auto; margin-left:auto; background: url("../images/toubg.png") no-repeat center 0; background-size: 100% 0.028rem; padding-top:0.014rem; }
+.ciWai{width:0.91rem;  margin-right:auto; margin-left:auto; background: #fff;padding-top:0.08rem; border-bottom-left-radius:0.02rem;  border-bottom-right-radius:0.02rem;  opacity:0.9;}
+.neiBox{width:0.875rem;  margin-right:auto; margin-left:auto; font-size: 0.04rem; }
+.neiBox h1.guiH1{width:100%; height:0.05rem; font-size: 0.045rem; line-height: 0.05rem; background: url("../images/headLine2.png") no-repeat center; background-size: 100% 0.025rem;}
+.guize{margin-top:0.02rem;}
+.guize p{text-align: left;padding:0.014rem 0; width:88%;  margin-right:auto; margin-left:auto; line-height: 0.07rem;}
+.neiBox h1.qiH1{width:100%; height:0.05rem; font-size: 0.045rem; line-height: 0.05rem; background: url("../images/headLine.png") no-repeat center; background-size: 100% 0.025rem; margin-top:0.04rem;}
+.shouqi{margin-top:0.02rem;}
+.shouqi .mode{text-align: left;padding:0.03rem 0; width:100%; overflow: hidden; border-bottom: 1px dotted #ccc; }
+.shouqi .flImg{width:0.1rem;height:0.1rem; margin-right:0.03rem; border-radius: 50%; overflow: hidden;}
+.shouqi .txtBox{width:0.7rem;}
+.shouqi .topMoney{height:0.06rem; overflow: hidden; font-size: 0.05rem; padding-bottom:0.03rem;}
+.shouqi .name{font-size: 0.055rem; margin-right:0.03rem; font-weight: 200;}
+.shouqi .time{font-size: 0.045rem; color:#a0a0a0;}
+.shouqi .money{font-size: 0.05rem; color:#d4312f;}
+.shouqi .botTxt{color:#333; font-size: 0.04rem; line-height: 0.07rem}
+
+

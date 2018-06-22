@@ -1,0 +1,75 @@
+/*头部*/
+.XDheader{width:100%; height:auto; background:#49becd;}
+.XDheader div{ height:0.05rem;padding:0.04375rem 0;font-size:0.05rem; color:#fff;}
+/*内容*/
+body{width:100%; height:auto; background:#f0eff5; padding-bottom:0.15rem;}
+.DDbox{width:100%; height:auto; overflow: hidden; background:#fff;}
+.DDmain{width:0.92rem; height:0.0875rem;  margin:0 auto;}
+.DDmain{width:0.92rem; height:0.0875rem;  margin:0 auto;}
+.DDTab{border:1px solid #49becd; height:0.0875rem; line-height: 0.0875rem; border-radius: 4px;margin:0.01875rem auto;}
+.DDTab span{font-size: 0.04rem; color:#49becd; display: inline-block; text-align: center; border-right:1px solid #49becd;width:24.7%;}
+.DDTab span:nth-last-of-type(1){border:none; }
+.DDTab .active{color:#fff; background:#49becd;}
+.TabMode{width:100%; height:auto; display: none; background:#f0eff5;  padding-top:0.001rem;}
+.DingDanHaoBox{width:100%; height:auto; margin-top:0.046875rem;  border-bottom: 1px solid #ccc; background: #fff;}
+.DingDanHao{margin-left:0.04rem;}
+.HaoTop{border-bottom: 1px solid #ccc; padding:0.0375rem 0;}
+
+.HaoTop span.Dai{font-size:0.035rem;}
+.HaoBotDai{color:#49becd; padding:0.02rem 0;}
+.HaoBotDai .fl{ font-size:0.0375rem; line-height: 0.078rem; color:#999;}
+.HaoBotDai .fr{ font-size:0.0375rem; margin-right:0.04rem; width:auto; height:0.078rem; line-height: 0.078rem; color:#999;  }
+.HaoBotDai .Z000{ color:#000;  }
+
+
+.HaoTop .img{width:0.276rem; height:0.193rem;}
+.HaoTop .detail{width:0.573rem; margin-left:0.03rem;}
+.HaoTop .detail p{height:auto;}
+.HaoTop .detail p span{word-break:break-all; word-wrap:break-word;}
+.HaoTop .detail p:nth-of-type(1){line-height:0.05rem;font-size:0.03rem;}
+.HaoTop .detail p:nth-of-type(2){ line-height:0.05rem;font-size:0.03rem; color:#999;}
+.HaoTop .detail p:nth-of-type(3){line-height:0.05rem;font-size:0.03rem; color:#999;}
+.HaoBot{color:#49becd; padding:0.02rem 0;}
+.HaoBot .fl{ font-size:0.0375rem; line-height: 0.078rem;}
+.HaoBot .fr{ font-size:0.0375rem; margin-right:0.04rem; width:0.16875rem; height:0.078rem; line-height: 0.078rem; text-align: center; display: block; border:1px solid #49becd; border-radius: 4px; }
+/*切换2*/
+.DingdanMode{width:100%; height:auto; background: #fff; border-top: 1px solid #ccc; margin-top:0.046875rem;}
+.peiSongBox{margin-left:0.04rem;}
+.peiSongBox .shiFou{padding:0.04rem 0; color:#999; border-bottom: 1px solid #ccc;}
+.peiSongBox .shiFou em{font-size:0.0375rem; color:#333;}
+.peiSongBox .shiFou span{font-size:0.0343rem;  line-height:0.071rem;}
+.peiSongBox .shiFou span.zanTingK{display: block; width:0.101rem; height:0.071rem; background:url("../images/zanTingK.png") no-repeat left center; background-size: cover; margin-right: 0.04rem; margin-left:0.03rem; }
+.peiSongBox .shiFou span.zanTingG{display: block; width:0.101rem; height:0.071rem; background:url("../images/zanTingG.png") no-repeat left center; background-size: cover; margin-right: 0.04rem; margin-left:0.03rem; }
+.peiSongBox .naiImgBox{padding:0.0375rem 0;}
+.peiSongBox .naiImgBox .ImgTxt{padding-top:0.01rem;}
+.peiSongBox .naiImgBox .ImgTxt p:nth-of-type(3){padding-top:0.01rem;}
+.peiSongBox .naiImgBox .img{width:0.276rem; height:0.193rem; margin-right:0.04rem;}
+.peiSongBox .naiImgBox .detail{width:0.276rem; height:0.193rem;}
+.peiSongBox  .ImgTxt p{height:auto; line-height: 0.0593rem; font-size: 0; width:0.5rem;}
+.peiSongBox  .ImgTxt span{height:0.0593rem; line-height: 0.0593rem; font-size: 0.04rem;}
+.peiSongBox  .song{width:42%; height:0.193rem; font-size: 0.04rem; background: url("../images/borderLeftBg.png") no-repeat left center; background-size:1px 0.13rem;  padding-left:0.04rem; text-align: center;}
+.peiSongBox  .song p{ font-size: 0.03rem; color: #999;}
+.peiSongBox  .song .day{height:0.1rem; line-height: 0.1rem; color:#ff8c31; }
+.peiSongBox  .song .day em{ font-size: 0.05rem; }
+.c99{color:#999;}
+.peiBtn{width:100%; height:auto; padding:0.025rem 0;  border-top:1px solid #ccc; }
+.peiBtn a{display: inline-block; width:0.228rem; height:0.0875rem; line-height: 0.0875rem; text-align: center; font-size: 0.04rem; border:1px solid #999; color:#999; border-radius:4px; margin:0 0.032rem;}
+.peiBtn a.active{border:1px solid #49becd; color:#49becd;}
+/*续单弹出框*/
+.BgShodaw{position:fixed;left:0; top:0;width:100%; height:100%;background: rgba(0,0,0,0.5); z-index: 10;  display: none;}
+.XuBox{font-size: 0; border-bottom: 1px solid #ccc; background: #fff; border-radius: 4px; position:fixed; left:0; top:0; z-index: 11;}
+.XuBox h1{border-bottom: 1px solid #ccc; width: 100%; text-align: center; font-size: 0.04rem; color:#49becd; height: 0.14rem; line-height: 0.14rem; }
+.XuBox .PaiDay{ font-size: 0;  width:0.818rem; margin: 0 auto; border-bottom: 1px solid #ccc;  height:0.15rem; line-height:0.15rem;}
+.XuBox .PaiName{ font-size: 0.03rem; color: #999;}
+.XuBox .BiaoQian{ font-size:0; padding:0.03125rem 0; width:0.84rem; margin: 0 auto;}
+.XuBox .BiaoQian span{ font-size:0.03rem; width:0.18rem; height:0.06rem;line-height: 0.06rem; border:1px solid #ccc; border-radius: 0.041rem; display: inline-block; margin:0 0.01rem; text-align: center;}
+.XuBox .BiaoQian span.fxActive{ border:1px solid #49becd; background:#49becd; color: #fff;}
+.XuBtn{width:100%; height:auto; border-top:1px solid #ccc;padding:0.03rem 0;}
+.XuBtn span{display: inline-block; width: 50%;height:0.071rem; line-height: 0.071rem; color:#a0a0a0; font-size:0.04rem; text-align: center;}
+.XuBtn span:nth-of-type(2){color:#49becd; background: url("../images/borderLeftBg.png") no-repeat left center; background-size:1px 0.071rem;}
+.c49{color:#49becd;}
+.zantingTime{font-size: 0.04rem;  text-align: right; height:0.1rem; line-height: 0.1rem; border-top: 1px solid #ccc; display: none;}
+.zantingTime span{ padding-right:0.06rem ;}
+.timehas{display:block;}
+
+

@@ -1,0 +1,93 @@
+<admintpl file="header" />
+<style>
+	label,.controls{display: inline-block;}
+	.input{height:15px !important;}
+	.fx_pr{position:relative;}
+	.mapBox{position: absolute; left:478px; top:80px; width:400px; height:320px;}
+	a{cursor:pointer;text-decoration:none;}
+</style>
+
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>添加分类</a></li>
+		<li><a href="{:U('Markname/nice_lst')}">分类列表</a></li>
+    </ul>
+    <div style="margin-left:100px;">
+        <form method="post" action="{:U('Markname/nice_add')}" id="form" enctype="multipart/form-data">
+			<input type="text" name="class_name" id="class_name">
+			<div class="control-group">
+                <label class="control-label">&nbsp;一&nbsp;&nbsp;级&nbsp;&nbsp;类&nbsp;&nbsp;目：</label>
+                <div class="controls">
+                    <select name="first_name" id="first_name">
+					<foreach name="res" item="vo">
+					<option value="{$vo.id}">{$vo.class_name}</option>
+					</foreach>
+					</select>
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">二级类目编码：</label>
+                <div class="controls">
+                    <input type="text" name="second_num" id="second_num" class="input" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">&nbsp;二&nbsp;&nbsp;级&nbsp;&nbsp;类&nbsp;&nbsp;目：</label>
+                <div class="controls">
+                    <input type="text" name="second_name" id="second_name" class="input">
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">已添加三级类别：</label>
+                <div class="controls ff">
+                    
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">三级类别编码：</label>
+                <div class="controls">
+					<input type="text" name="third_num" id="third_num" class="input" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">	
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">三级类别名称：</label>
+                <div class="controls">
+					<input type="text" name="third_name" id="third_name" class="input" placeholder="长度50个字符">
+					<input type="button" value="保存" onclick="sav()">	
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+    </div>
+    <div  style="text-align:center; background:#ccc; width:100%;">
+        <button type="button" class="btn btn-primary btn_submit" style="margin:0 20px;" onclick="sb()">添加</button>
+        <a class="btn" href="{:U('markname/class_name')}"  style="margin:0 20px;">返回</a>
+    </div>
+</form>
+</div>
+</body>
+</html>
+<script>
+function sav(){
+	var num = $("#third_num").val();
+	var name = $("#third_name").val();
+	html='<span style="border:1px solid #ccc;margin-left:3px;margin-right:7px;" class="spanname">'+'&nbsp;'+num+'&nbsp;'+name+'&nbsp;'+'<a id="rem">'+'x'+'</a>'+'&nbsp;'+'</span>';
+
+	$(".ff").append(html);
+}
+
+$("#rem").live("click",function(){
+	$(this).parent().remove();
+});
+
+
+function sb(){
+	var span = $(".spanname").html();
+	
+	$.each(span,function(i,e){
+	//	alert(e);
+	})
+	
+//	$("#form").submit();
+}
+</script>

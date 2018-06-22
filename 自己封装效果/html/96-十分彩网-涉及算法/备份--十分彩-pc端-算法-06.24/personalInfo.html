@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://www.dfa05.com/personalInfo -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="./css/normalize.min.css" rel="stylesheet">
+    <script>(function () {
+        var IEvar = '9',
+                IEnum = navigator.userAgent.toLowerCase();
+        if (IEnum.indexOf("msie") > -1) {
+            if (Number(IEnum.match(/msie ([\d.]+)/)[1]) < IEvar) {
+                location.href = '/updateBrowser.html';
+            }
+        } else {
+            if (window.localStorage && window.sessionStorage) {
+                try {
+                    sessionStorage.setItem('TextLocalStorage', 'hello world');
+                    sessionStorage.removeItem('TextLocalStorage');
+                    localStorage.setItem('TextLocalStorage', 'hello world');
+                    localStorage.removeItem('TextLocalStorage');
+                } catch (e) {
+                    alert('您的浏览器太旧或者开启了隐私模式/无痕模式，无法浏览网页，请更换浏览器或使用常规模式，给您带来的不便，表示抱歉！')
+                }
+            } else {
+                location.href = '/updateBrowser.html';
+            }
+            ;
+        }
+    })();
+    ;
+    (function () {
+        if (location.href.search('CanPc') > -1) {
+            sessionStorage.setItem('CanPc', 1);
+        }
+        var u = navigator.userAgent;
+        if (!!u.match(/AppleWebKit.*Mobile.*/) && !sessionStorage.getItem('CanPc')) {
+            location.href = location.href.replace('www.', '').replace('http://', 'http://m.').replace(".html", '');
+        }
+    })();
+    (function () {
+        if ("undefined" === typeof(Promise)) {
+            document.write('<script src="//cdn.bootcss.com/es6-promise/4.0.5/es6-promise.auto.min.js"><\/script>');
+        }
+        ;
+        if ("undefined" === typeof(fetch)) {
+            document.write('<script src="//cdn.bootcss.com/fetch/2.0.1/fetch.min.js"><\/script>');
+        }
+    })()</script>
+    <script src="js/layer.m.js"></script>
+    <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script src="js/xss.min.js"></script>
+    <link href="./css/app.0503.css" rel="stylesheet">
+    <title>十分彩网</title>
+    <link type="image/x-icon" rel="shortcut icon" href="./images/dafa.ico">
+</head>
+<body>
+<div id="app" class="personalInfo">
+    <div class="header head3">
+        <div data-v-420a60cc="" id="HeaderTop" class="">
+            <div data-v-420a60cc="" class="snav">
+                <div data-v-420a60cc="" class="container">
+                    <div data-v-420a60cc="" class="snavAll"><a href="./index" class=""
+                                                               data-v-420a60cc="">Hi，欢迎来到十分彩网！</a>
+                        <ins data-v-420a60cc=""> |</ins>
+                        <a data-v-420a60cc="" class="betNavMore">全部彩票</a></div>
+                    <ul data-v-420a60cc="" class="snavInfo">
+                        <li data-v-420a60cc="" class="userName MsgShow"><a data-v-420a60cc="" class="_personalInfo"><img
+                                data-v-420a60cc="" alt="" src="./images/C6021F3486D2B2DB.jpg"> <i
+                                data-v-420a60cc="">tt1122</i></a> <span data-v-420a60cc="" id="unreadMsgNum"
+                                                                        onclick="window.location=&#39;letter&#39;">0</span>
+                            <!----></li>
+                        <li data-v-420a60cc="" class="HoverShow"><a href="./securityCenter.html" class=""
+                                                                    data-v-420a60cc="">我的账户 <i data-v-420a60cc=""
+                                                                                               class="iconfont"></i></a>
+
+                            <div data-v-420a60cc="" class="accountList HoverShowContent" style="display: none; margin-top: -1px;"><i
+                                    data-v-420a60cc=""></i>
+                                <a href="./BetRecord.html" class="" data-v-420a60cc="">投注记录</a>
+                                <a href="./BillRecord.html" class="" data-v-420a60cc="">交易记录</a>
+                                <a href="./personalInfo.html" class="curr" data-v-420a60cc="">个人信息</a>
+                                <a href="./securityCenter.html" class="" data-v-420a60cc="">安全中心</a>
+                            </div>
+                        </li>
+                        <li data-v-420a60cc="">余额：
+                            <!----> <span data-v-420a60cc="" class="ShowMoney showMoney">已隐藏
+            <i data-v-420a60cc="">显示</i></span></li>
+                        <li data-v-420a60cc=""><a href="./ebankPay.html" class=""
+                                                  data-v-420a60cc="">充值</a></li>
+                        <li data-v-420a60cc=""><a href="./withdraw.html" class=""
+                                                  data-v-420a60cc="">提现</a></li>
+                        <li data-v-420a60cc="" class="LoginOut">退出</li>
+                        <a data-v-420a60cc="" class="serviceLink ServiceBtn"><i data-v-420a60cc="" class="iconfont"></i><span
+                                data-v-420a60cc=""></span></a></ul>
+                </div>
+                <!--个人的信息-->
+                <div data-v-3191fb32="" class="cardBox fx_cardBox" style="display: none;" >
+                    <div data-v-3191fb32="" class="card fix"><div data-v-3191fb32="" class="cardLeft"><img data-v-3191fb32="" src="./images/C6021F3486D2B2DB.jpg" alt="" width="80" height="80"> <h6 data-v-3191fb32="">昵称未设置</h6></div> <div data-v-3191fb32="" class="cardInfo"><ul data-v-3191fb32=""><li data-v-3191fb32="">性别：男</li> <li data-v-3191fb32="">账号：tt***2</li> <li data-v-3191fb32="">等级：VIP1</li> <li data-v-3191fb32="">头衔：农民</li> <li data-v-3191fb32="">累计中奖：0.00</li></ul></div> <ul data-v-3191fb32="" class="cardIcon fix"><li data-v-3191fb32="" id="1"><a data-v-3191fb32=""><i data-v-3191fb32="" class="iconfont L_K3"></i></a></li><li data-v-3191fb32="" id="B"><a data-v-3191fb32=""><i data-v-3191fb32="" class="iconfont noActive L_SSC"></i></a></li><li data-v-3191fb32="" id="B"><a data-v-3191fb32=""><i data-v-3191fb32="" class="iconfont noActive L_SYX5"></i></a></li><li data-v-3191fb32="" id="B"><a data-v-3191fb32=""><i data-v-3191fb32="" class="iconfont noActive L_PK10"></i></a></li><li data-v-3191fb32="" id="B"><a data-v-3191fb32=""><i data-v-3191fb32="" class="iconfont noActive L_KL8"></i></a></li><li data-v-3191fb32="" id="1"><a data-v-3191fb32=""><i data-v-3191fb32="" class="iconfont L_FC3D"></i></a></li><li data-v-3191fb32="" id="B"><a data-v-3191fb32=""><i data-v-3191fb32="" class="iconfont noActive L_PL35"></i></a></li></ul></div>
+                </div>
+                <!--个人的信息 弹出框 end-->
+            </div>
+        </div>
+        <!---->
+        <div class="nav">
+            <div class="container fix"><h3><a href="./index.html"><img src="./images/logo1.png"></a></h3>
+                <!---->
+                <ul class="navItem fix flr">
+                    <li class="curr" id="navIndex"><a href="./index.html">首页</a></li>
+                    <li class="" id="navLottery"><a href="./lotteryHall.html">购彩大厅</a></li>
+                    <li class="" id="navActivity"><a href="./activity.html">活动中心</a></li>
+                    <li class="" id="navMobile"><a href="./mobile.html">手机购彩</a></li>
+                    <li class="" id="navSecurityCenter"><a href="./securityCenter.html">我的账户</a></li>
+                    <li class="" id="navHelp"><a href="./helpCenter.html">帮助指南</a></li>
+                    <span></span>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-v-98161034="" class="container containerUser fix pt15" s="[object Object]">
+        <div class="slideUser">
+            <ul class="sildeSession"><h3><span></span>账号管理</h3>
+                <li class=""><a href="./personalInfo.html">个人信息</a></li>
+                <li class="curr"><a href="./securityCenter.html">安全中心</a></li>
+                <li class=""><a href="./manageBankcard.html">银行卡管理</a></li>
+            </ul>
+            <ul class="sildeSession"><h3><span></span>投注管理</h3>
+                <li><a href="./BetRecord.html" class="">投注记录</a></li>
+                <li><a href="./seekOrder.html" class="">追号记录</a></li>
+            </ul>
+            <ul class="sildeSession"><h3><span></span>资金管理</h3>
+                <li><a href="./BillRecord.html" class="">交易记录</a></li>
+                <li class=""><a href="./PLstatement.html">今日盈亏</a></li>
+            </ul>
+            <!---->
+            <ul class="sildeSession"><h3><span></span>消息管理</h3>
+                <li><a href="./letter.html" class="">站内信</a></li>
+                <li><a href="./Notice.html" class="">网站公告</a></li>
+            </ul>
+        </div>
+        <div data-v-98161034="" class="userRight">
+            <div data-v-98161034="" class="userTitle mgb10">个人信息</div>
+            <div data-v-98161034="" class="userMain mgb10">
+                <div data-v-98161034="" id="newTab" class="newTab"><a href="./personalInfo.html"
+                                                                      class="curr curr" data-v-98161034="">个人资料</a> <a
+                        href="./personalLevel.html" class="" data-v-98161034="">等级头衔</a></div>
+                <div data-v-98161034="" class="fix tapli">
+                    <div data-v-98161034="" class="selectHeadImg"><img data-v-98161034=""
+                                                                       src="./images/C6021F3486D2B2DB.jpg"
+                                                                       width="100" height="100" alt="" class="headImg">
+                        <a data-v-98161034="">修改头像</a></div>
+                    <ul data-v-98161034="" class="personalInfo submitContent">
+                        <li data-v-98161034=""><span data-v-98161034="">账号：</span>
+                            <ins data-v-98161034="">tt1122</ins>
+                        </li>
+                        <li data-v-98161034=""><span data-v-98161034="">等级：</span>
+                            <ins data-v-98161034="">VIP1</ins>
+                        </li>
+                        <li data-v-98161034=""><span data-v-98161034="">头衔：</span>
+                            <ins data-v-98161034="">农民</ins>
+                        </li>
+                        <li data-v-98161034=""><span data-v-98161034="">昵称：</span> <input data-v-98161034=""
+                                                                                          regmsg="请使用五位以内的汉字" tag="昵称"
+                                                                                          placeholder="昵称为1-5位汉字，设置后不能修改"
+                                                                                          type="text" class="userInput">
+                            <!----></li>
+                        <li data-v-98161034=""><span data-v-98161034="">手机：</span> <input data-v-98161034="" type="text"
+                                                                                          disabled="disabled"
+                                                                                          class="userInput"> <a
+                                href="./setMobile" class="" notsubmit="yes" data-v-98161034="">绑定</a>
+                        </li>
+                        <li data-v-98161034=""><span data-v-98161034="">邮箱：</span> <input data-v-98161034="" type="text"
+                                                                                          disabled="disabled"
+                                                                                          class="userInput"> <a
+                                href="./setMail" class="" notsubmit="yes" data-v-98161034="">绑定</a>
+                        </li>
+                        <li data-v-98161034=""><span data-v-98161034="">QQ：</span> <input data-v-98161034=""
+                                                                                          regmsg="QQ号为5-12位数字"
+                                                                                          tag="QQ号码" type="text"
+                                                                                          class="userInput"> <!---->
+                        </li>
+                        <li data-v-98161034=""><span data-v-98161034="">性别：</span> <label data-v-98161034=""
+                                                                                          class="radio_box checked"><i
+                                data-v-98161034=""></i>男</label> <label data-v-98161034="" class="radio_box"><i
+                                data-v-98161034=""></i>女</label> <label data-v-98161034="" class="radio_box"><i
+                                data-v-98161034=""></i>保密</label></li>
+                        <li data-v-98161034=""><span data-v-98161034="">生日：</span>
+
+                            <div data-v-98161034="" name="Year" type="selectbox" class="diyselect">
+                                <div data-v-98161034="" class="selected">1900</div>
+                                <div class="opts" data-v-98161034=""
+                                     style="display: none; width: 73px; top: 30px; left: -1px;"><a href="javascript:;"
+                                                                                                   value="0">2017</a><a
+                                        href="javascript:;" value="1">2016</a><a href="javascript:;"
+                                                                                 value="2">2015</a><a
+                                        href="javascript:;" value="3">2014</a><a href="javascript:;"
+                                                                                 value="4">2013</a><a
+                                        href="javascript:;" value="5">2012</a><a href="javascript:;"
+                                                                                 value="6">2011</a><a
+                                        href="javascript:;" value="7">2010</a><a href="javascript:;"
+                                                                                 value="8">2009</a><a
+                                        href="javascript:;" value="9">2008</a><a href="javascript:;" value="10">2007</a><a
+                                        href="javascript:;" value="11">2006</a><a href="javascript:;"
+                                                                                  value="12">2005</a><a
+                                        href="javascript:;" value="13">2004</a><a href="javascript:;"
+                                                                                  value="14">2003</a><a
+                                        href="javascript:;" value="15">2002</a><a href="javascript:;"
+                                                                                  value="16">2001</a><a
+                                        href="javascript:;" value="17">2000</a><a href="javascript:;"
+                                                                                  value="18">1999</a><a
+                                        href="javascript:;" value="19">1998</a><a href="javascript:;"
+                                                                                  value="20">1997</a><a
+                                        href="javascript:;" value="21">1996</a><a href="javascript:;"
+                                                                                  value="22">1995</a><a
+                                        href="javascript:;" value="23">1994</a><a href="javascript:;"
+                                                                                  value="24">1993</a><a
+                                        href="javascript:;" value="25">1992</a><a href="javascript:;"
+                                                                                  value="26">1991</a><a
+                                        href="javascript:;" value="27">1990</a><a href="javascript:;"
+                                                                                  value="28">1989</a><a
+                                        href="javascript:;" value="29">1988</a><a href="javascript:;"
+                                                                                  value="30">1987</a><a
+                                        href="javascript:;" value="31">1986</a><a href="javascript:;"
+                                                                                  value="32">1985</a><a
+                                        href="javascript:;" value="33">1984</a><a href="javascript:;"
+                                                                                  value="34">1983</a><a
+                                        href="javascript:;" value="35">1982</a><a href="javascript:;"
+                                                                                  value="36">1981</a><a
+                                        href="javascript:;" value="37">1980</a><a href="javascript:;"
+                                                                                  value="38">1979</a><a
+                                        href="javascript:;" value="39">1978</a><a href="javascript:;"
+                                                                                  value="40">1977</a><a
+                                        href="javascript:;" value="41">1976</a><a href="javascript:;"
+                                                                                  value="42">1975</a><a
+                                        href="javascript:;" value="43">1974</a><a href="javascript:;"
+                                                                                  value="44">1973</a><a
+                                        href="javascript:;" value="45">1972</a><a href="javascript:;"
+                                                                                  value="46">1971</a><a
+                                        href="javascript:;" value="47">1970</a><a href="javascript:;"
+                                                                                  value="48">1969</a><a
+                                        href="javascript:;" value="49">1968</a><a href="javascript:;"
+                                                                                  value="50">1967</a><a
+                                        href="javascript:;" value="51">1966</a><a href="javascript:;"
+                                                                                  value="52">1965</a><a
+                                        href="javascript:;" value="53">1964</a><a href="javascript:;"
+                                                                                  value="54">1963</a><a
+                                        href="javascript:;" value="55">1962</a><a href="javascript:;"
+                                                                                  value="56">1961</a><a
+                                        href="javascript:;" value="57">1960</a><a href="javascript:;"
+                                                                                  value="58">1959</a><a
+                                        href="javascript:;" value="59">1958</a><a href="javascript:;"
+                                                                                  value="60">1957</a><a
+                                        href="javascript:;" value="61">1956</a><a href="javascript:;"
+                                                                                  value="62">1955</a><a
+                                        href="javascript:;" value="63">1954</a><a href="javascript:;"
+                                                                                  value="64">1953</a><a
+                                        href="javascript:;" value="65">1952</a><a href="javascript:;"
+                                                                                  value="66">1951</a><a
+                                        href="javascript:;" value="67">1950</a><a href="javascript:;"
+                                                                                  value="68">1949</a><a
+                                        href="javascript:;" value="69">1948</a><a href="javascript:;"
+                                                                                  value="70">1947</a></div>
+                                <div data-v-98161034="" class="sb_icon arrow" style="top: 15px;"></div>
+                            </div>
+                            <div data-v-98161034="" name="Month" type="selectbox" class="diyselect">
+                                <div data-v-98161034="" class="selected">1</div>
+                                <div class="opts" data-v-98161034=""
+                                     style="display: none; width: 73px; top: 30px; left: -1px;"><a href="javascript:;"
+                                                                                                   value="0">1</a><a
+                                        href="javascript:;" value="1">2</a><a href="javascript:;" value="2">3</a><a
+                                        href="javascript:;" value="3">4</a><a href="javascript:;" value="4">5</a><a
+                                        href="javascript:;" value="5">6</a><a href="javascript:;" value="6">7</a><a
+                                        href="javascript:;" value="7">8</a><a href="javascript:;" value="8">9</a><a
+                                        href="javascript:;" value="9">10</a><a href="javascript:;" value="10">11</a><a
+                                        href="javascript:;" value="11">12</a></div>
+                                <div data-v-98161034="" class="sb_icon arrow" style="top: 15px;"></div>
+                            </div>
+                            <div data-v-98161034="" name="Date" type="selectbox" class="diyselect">
+                                <div data-v-98161034="" class="selected">1</div>
+                                <div class="opts" data-v-98161034=""
+                                     style="display: none; width: 73px; top: 30px; left: -1px;"><a href="javascript:;"
+                                                                                                   value="0">1</a><a
+                                        href="javascript:;" value="1">2</a><a href="javascript:;" value="2">3</a><a
+                                        href="javascript:;" value="3">4</a><a href="javascript:;" value="4">5</a><a
+                                        href="javascript:;" value="5">6</a><a href="javascript:;" value="6">7</a><a
+                                        href="javascript:;" value="7">8</a><a href="javascript:;" value="8">9</a><a
+                                        href="javascript:;" value="9">10</a><a href="javascript:;" value="10">11</a><a
+                                        href="javascript:;" value="11">12</a><a href="javascript:;" value="12">13</a><a
+                                        href="javascript:;" value="13">14</a><a href="javascript:;" value="14">15</a><a
+                                        href="javascript:;" value="15">16</a><a href="javascript:;" value="16">17</a><a
+                                        href="javascript:;" value="17">18</a><a href="javascript:;" value="18">19</a><a
+                                        href="javascript:;" value="19">20</a><a href="javascript:;" value="20">21</a><a
+                                        href="javascript:;" value="21">22</a><a href="javascript:;" value="22">23</a><a
+                                        href="javascript:;" value="23">24</a><a href="javascript:;" value="24">25</a><a
+                                        href="javascript:;" value="25">26</a><a href="javascript:;" value="26">27</a><a
+                                        href="javascript:;" value="27">28</a><a href="javascript:;" value="28">29</a><a
+                                        href="javascript:;" value="29">30</a><a href="javascript:;" value="30">31</a>
+                                </div>
+                                <div data-v-98161034="" class="sb_icon arrow" style="top: 15px;"></div>
+                            </div>
+                        </li>
+                        <li data-v-98161034=""><span data-v-98161034=""></span> <a data-v-98161034=""
+                                                                                   href="javascript:;"
+                                                                                   class="submitBtn">保存</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-v-3d78d95d=""  style="display: none;">
+            <div data-v-3d78d95d="" class="layerBg"></div>
+            <div data-v-3d78d95d="" class="layerBox">
+                <div data-v-3d78d95d="" class="headImgList">
+                    <div data-v-3d78d95d="" class="headImgListTitle">修改头像 <a data-v-3d78d95d="" class="close"></a></div>
+                    <div data-v-3d78d95d="" class="headImgContent"><a data-v-3d78d95d="" title="奥巴马" class=""><img
+                            data-v-3d78d95d="" src="./images/0A472675E5E5AF50.jpg" alt=""
+                            class="headImg"></a><a data-v-3d78d95d="" title="比尔盖茨" class=""><img data-v-3d78d95d=""
+                                                                                                 src="./images/A9734CC321C8B363.jpg"
+                                                                                                 alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="本拉登" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/9A9C9E1A719CE536.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="普京" class=""><img data-v-3d78d95d=""
+                                                                        src="./images/EED50A5799E76E58.jpg"
+                                                                        alt="" class="headImg"></a><a data-v-3d78d95d=""
+                                                                                                      title="贝克汉姆"
+                                                                                                      class=""><img
+                            data-v-3d78d95d="" src="./images/F0E57CF931E45118.jpg" alt=""
+                            class="headImg"></a><a data-v-3d78d95d="" title="苍井空" class=""><img data-v-3d78d95d=""
+                                                                                                src="./images/F95FE943163DAF92.jpg"
+                                                                                                alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="泷泽萝拉" class=""><img data-v-3d78d95d=""
+                                                                          src="./images/1EF6FC3ACCBCD762.jpg"
+                                                                          alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="波多野结衣" class=""><img data-v-3d78d95d=""
+                                                                           src="./images/EF01C8BED7B70053.jpg"
+                                                                           alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="希拉里" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/CA64E00C3F9FD5F3.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="范冰冰" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/6F1A99A3D02A6DEC.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="小男孩" class="curr"><img data-v-3d78d95d=""
+                                                                             src="./images/C6021F3486D2B2DB.jpg"
+                                                                             alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="小女孩" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/1B6A214FF62BD91F.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="李敏镐" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/9816F54B27A9BF48.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="梅西" class=""><img data-v-3d78d95d=""
+                                                                        src="./images/6EC9EDCC7B3BD70D.jpg"
+                                                                        alt="" class="headImg"></a><a data-v-3d78d95d=""
+                                                                                                      title="罗纳尔多"
+                                                                                                      class=""><img
+                            data-v-3d78d95d="" src="./images/C7BB5088540C8040.jpg" alt=""
+                            class="headImg"></a><a data-v-3d78d95d="" title="萨达姆" class=""><img data-v-3d78d95d=""
+                                                                                                src="./images/831CA133362DE10D.jpg"
+                                                                                                alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="金正恩" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/4D73D09EC5D7BFE3.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="科比" class=""><img data-v-3d78d95d=""
+                                                                        src="./images/4A2E3EA214381904.jpg"
+                                                                        alt="" class="headImg"></a><a data-v-3d78d95d=""
+                                                                                                      title="全智贤"
+                                                                                                      class=""><img
+                            data-v-3d78d95d="" src="./images/D38F599DF12CD206.jpg" alt=""
+                            class="headImg"></a><a data-v-3d78d95d="" title="林允儿" class=""><img data-v-3d78d95d=""
+                                                                                                src="./images/E6CA6EB9F492879E.jpg"
+                                                                                                alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="宋慧乔" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/3578E1EB410B49C7.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="朴信惠" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/C707188A6E10AED4.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="宋承宪" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/C362F2B1E0EA389A.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="宋仲基" class=""><img data-v-3d78d95d=""
+                                                                         src="./images/367498B6A748D910.jpg"
+                                                                         alt="" class="headImg"></a><a
+                            data-v-3d78d95d="" title="杰森斯坦森" class=""><img data-v-3d78d95d=""
+                                                                           src="./images/5C5A53823438F2CD.jpg"
+                                                                           alt="" class="headImg"></a></div>
+                    <div data-v-3d78d95d="" class="headImgView"><h5 data-v-3d78d95d="">预览</h5>
+
+                        <p data-v-3d78d95d="">100x100</p> <img data-v-3d78d95d=""
+                                                               src="./images/C6021F3486D2B2DB.jpg" alt="">
+                        <h5 data-v-3d78d95d="" class="theName" style="color: rgb(83, 168, 241);">小男孩</h5>
+
+                        <div data-v-3d78d95d="" class="button"><a data-v-3d78d95d="" class="submitBtn">保存头像</a> <a
+                                data-v-3d78d95d="" class="submitBtn cancel">取消</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-v-d0cd27ac="" class="footer mgt40">
+        <div data-v-d0cd27ac="" class="ftadCon">
+            <div data-v-d0cd27ac="" class="container">
+                <ul data-v-d0cd27ac="" class="ftad fix">
+                    <li data-v-d0cd27ac=""><a data-v-d0cd27ac="" id="dafaCloud" href="http://www.dafacloud.com/"
+                                              target="_blank"><p data-v-d0cd27ac="">技术支持<i data-v-d0cd27ac="">Technical
+                        support</i></p>
+
+                        <div data-v-d0cd27ac="" class="technicalSupport fix"><img data-v-d0cd27ac=""
+                                                                                  src="./images/dafayun.png"
+                                                                                  alt="大发云">
+
+                            <p data-v-d0cd27ac="">
+                                大发云系统
+                                <br data-v-d0cd27ac=""> 专业的彩票系统平台
+                            </p> <i data-v-d0cd27ac=""></i></div>
+                    </a></li>
+                    <li data-v-d0cd27ac=""><p data-v-d0cd27ac="">服务体验<i data-v-d0cd27ac="">Service experience</i></p>
+                        <ul data-v-d0cd27ac="" class="serviceExperience">
+                            <li data-v-d0cd27ac="">昨日充值到账平均时间
+                                <p data-v-d0cd27ac="" class="footBar"><span data-v-d0cd27ac="" class="s1"
+                                                                            style="width: 38.8889%;"></span></p> <em
+                                        data-v-d0cd27ac="">1'10</em><i data-v-d0cd27ac="">秒</i></li>
+                            <li data-v-d0cd27ac="">昨日提现到账平均时间
+                                <p data-v-d0cd27ac="" class="footBar"><span data-v-d0cd27ac="" class="s2"
+                                                                            style="width: 55.5556%;"></span></p> <em
+                                        data-v-d0cd27ac="" id="timer">1'40</em><i data-v-d0cd27ac="">秒</i></li>
+                        </ul>
+                    </li>
+                    <li data-v-d0cd27ac=""><p data-v-d0cd27ac="">充值方式<i data-v-d0cd27ac="">Recharge method</i></p>
+
+                        <div data-v-d0cd27ac="" class="rechargeMethod"><i data-v-d0cd27ac="" class="wechat"></i><i
+                                data-v-d0cd27ac="" class="alipay"></i><i data-v-d0cd27ac="" class="cup"></i></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-v-270904ef="" class="container _about aboutText"><p data-v-270904ef="" class="fix"><a
+                data-v-270904ef="">关于我们</a>|<a data-v-270904ef="">联系我们</a>|<a data-v-270904ef="">商务合作</a>|<a
+                data-v-270904ef="">法律声明</a>|<a data-v-270904ef="">隐私声明</a>|</p>
+
+            <p data-v-270904ef="" class="copyright">Copyright © <span data-v-270904ef="" class="siteName">十分彩网</span>
+                Reserved | 18+</p></div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/fx.js"></script>
+<script>
+   $(function(){
+       personalInfo();
+   })
+</script>
+</body>
+</html>

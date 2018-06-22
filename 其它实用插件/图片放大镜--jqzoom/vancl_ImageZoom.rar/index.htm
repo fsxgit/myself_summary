@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<script src="CJL.0.1.min.js"></script>
+<script src="ImageZoom.js"></script>
+	<style>
+		.list{ padding:0 10px;}
+		.list img{ cursor:pointer; padding:1px; border:1px solid #cdcdcd; margin-bottom:10px; display:block;}
+		.list img.onzoom, .list img.on{padding:0px; border:2px solid #336699;}
+
+		.container{ position:relative;}
+
+		.izImage{border:0;width:400px;}
+		.izViewer{width:360px;height:300px;position:absolute;left:420px;top:0;display:none; border:1px solid #999;}
+
+		.handle{display:none;opacity:0.6;filter:alpha(opacity=60);background:#E6EAF3; cursor:crosshair;}
+
+	</style>
+</head>
+<body>
+
+<table>
+	<tr>
+		<td valign="top"><div id="idList" class="list"> </div></td>
+		<td><div class="container"> <img id="idImage" class="izImage" />
+				<div id="idViewer" class="izViewer"></div>
+			</div></td>
+	</tr>
+</table>
+<br><br><br>
+
+<script>
+
+(function(){
+
+var iz = new ImageZoom( "idImage", "idViewer", {
+	mode: "handle", handle: "idHandle", scale: 2, delay: 0
+});
+
+var arrPic = [], list = $$("idList"), image = $$("idImage");
+
+arrPic.push({ smallPic: "pic/s_1.jpg", originPic: "pic/m_1.jpg", zoomPic: "pic/b_1.jpg" });
+arrPic.push({ smallPic: "pic/s_2.jpg", originPic: "pic/m_2.jpg", zoomPic: "pic/b_2.jpg" });
+
+$$A.forEach(arrPic, function(o, i){
+	var img = list.appendChild(document.createElement("img"));
+	img.src = o.smallPic;
+	img.onclick = function(){
+		iz.reset({ originPic: o.originPic, zoomPic: o.zoomPic });
+		$$A.forEach(list.getElementsByTagName("img"), function(img){  img.className = ""; });
+		img.className = "onzoom";
+	}
+	
+	var temp;
+	img.onmouseover = function(){ if( !this.className ){ this.className = "on"; temp = image.src; image.src = o.originPic; } }
+	img.onmouseout = function(){ if( this.className == "on" ){ this.className = ""; image.src = temp; } }
+	
+	if(!i){ img.onclick(); }
+})
+
+
+})()
+
+</script>
+</body>
+</html>

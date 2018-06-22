@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>杜西西小盆友，你好</title>
+	<link href="//gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="apple-touch-icon-precomposed">
+	<style>
+		body,button,input{font-size:20px;}
+		.spans span{display: inline-block; padding:4px; border:1px solid #ccc; cursor: pointer; }
+		.spans span.active{background: #ff14be; color: #fff; }
+		.red{color: red;}
+
+	</style>
+</head>
+<body>
+<h1>时时彩，跨度的算法：<span class="red">暂时还未解决</span></h1>
+<p>三位数；个位数+十位数+百位数 = M; (0= < M <=27)，至少选择一个作为M
+<p>例如：3，可由 100；010；001；三个组成
+
+</p>
+<div class="spans na">
+
+	<span>0</span>
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+	<span>5</span>
+	<span>6</span>
+	<span>7</span>
+	<span>8</span>
+	<span>9</span>
+</div>
+</p>
+<button>获取结果</button>
+
+<script src="js/jquery.min.js"></script>
+<script>
+$(function(){
+
+
+	$(".spans span").click(function(){
+		$(this).toggleClass("active");
+	});
+
+
+
+
+	$("button").click(function(){
+
+		var naActives = $(".na span.active");
+
+		var aa = kua1(naActives);
+		alert(aa);
+		
+		
+	});
+
+
+	function kua1(obj1){
+		var n = 0;
+		obj1.each(function(){
+			var M = $(this).text().replace(/\s/g,"");
+
+			//中间值
+			for(var i = 0; i <= 9 ; i++ ){
+				//最小值
+				for(var j = 0; j <= 9 ; j++ ){
+					//最大值
+					for(var k = 0; k <= 9 ; k++ ){
+						var cha = k-j;
+						if( cha == M ){
+							n++;
+							console.log(i+""+j+""+k);
+						}
+					}
+				}
+			}
+		});
+		return n;
+	}
+	
+	
+	
+})
+</script>
+</body>
+</html>

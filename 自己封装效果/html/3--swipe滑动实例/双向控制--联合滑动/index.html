@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动漫购</title>
+    <link rel="stylesheet" href="js/css.css"/>
+    <link rel="stylesheet" href="js/swiper-3.4.2.min.css"/>
+</head>
+<body>
+    <div class="header">
+       <div class="main pr header_center">
+           <div class="header_left">
+               <div class="swiper1_box">
+                   <div class="swiper1_center">
+                       <div class="swiper-container" id="swiper-container1">
+                           <div class="swiper-wrapper">
+                               <div class="swiper-slide">
+                                   <img src="images/img11.jpg" alt=""/>
+                               </div>
+                               <div class="swiper-slide">
+                                   <img src="images/img12.png" alt=""/>
+                               </div>
+                               <div class="swiper-slide">
+                                   <img src="images/img13.png" alt=""/>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="swiper2_box">
+                   <div class="swiper2_center">
+                       <div class="swiper-container" id="swiper-container2">
+                           <div class="swiper-wrapper">
+                               <div class="swiper-slide">
+                                   <img src="images/img21.jpg" alt=""/>
+                               </div>
+                               <div class="swiper-slide">
+                                   <img src="images/img22.png" alt=""/>
+                               </div>
+                               <div class="swiper-slide">
+                                   <img src="images/img23.png" alt=""/>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="header_right">
+               <div class="img"><img src="images/img1.png" alt=""/></div>
+               <div class="down">
+                   <a class="down1" href="javascript:;"><img src="images/down1.png" alt=""/></a>
+                   <a class="down2" href="javascript:;"><img src="images/down2.png" alt=""/></a>
+               </div>
+               <div class="ma">
+                   <img class="ma1" src="images/ma1.png" alt=""/>
+                   <img class="ma2" src="images/ma2.png" alt=""/>
+               </div>
+           </div>
+       </div>
+    </div>
+    <div class="pro_txt main mt145">
+        <div class="tit"><img src="images/tit1.png" alt=""/></div>
+        <div class="txt">
+            <p class="mb16">《动漫购》APP是一款综合销售平台，线下线上有机融合，实行互联网+</p>
+            <p>主要产品：杂志、少儿、图书、教辅以及动漫衍生品。产品精选 <span class="namered">知名出版社</span>及出版单位的</p>
+            <p>正规合法出版物。印刷装帧精美，内容健康，物廉价美，使用方便快捷</p>
+        </div>
+    </div>
+    <div class="pro_txt main">
+        <div class="tit"><img src="images/tit2.png" alt=""/></div>
+        <div class="txt">
+            <p>省+地市+县+终端形成物联网+用户形成物联网数据链。颠覆传统，<span class="namered">重组网络</span>，实行定制化管理，形</p>
+            <p>成全新的销售模式</p>
+        </div>
+    </div>
+    <div class="fun_box">
+       <div class="main">
+           <div class="tit">功能</div>
+           <div class="txt">
+                <p>漫画，童书，教辅，免费电子读物，尽在动漫购物，</p>
+                <p>欢迎下载体验</p>
+           </div>
+           <div class="img"><img src="images/img.jpg" alt=""/></div>
+       </div>
+    </div>
+    <div class="bot_box">
+        <p>网址：<a href="http://www.dongmango.cn/">http://www.dongmango.cn/</a></p>
+        <p>2016动漫购科技有限公司 ICP备16003080号　Copyright@2016-2017.All Rights Reserved.</p>
+    </div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper-3.4.2.jquery.min.js"></script>
+    <script>
+        var Swiper1 = new Swiper('#swiper-container1',{
+            autoplay: 4000,
+            loop:true,
+            autoplayDisableOnInteraction : false
+        });
+        var Swiper2 = new Swiper('#swiper-container2',{
+            loop:true
+
+        });
+        Swiper1.params.control = Swiper2;
+        Swiper2.params.control = Swiper1;
+    </script>
+</body>
+</html>

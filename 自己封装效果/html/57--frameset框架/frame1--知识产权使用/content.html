@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里是内容区域</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        html,body{height:100%; width: 100%;}
+    </style>
+</head>
+<body>
+<div class="cont">
+    <div class="img">
+        <h1>哇咔咔，我是笨笨</h1>
+        <img src="images/1.jpg" alt=""/>
+        <div class="btn"><button onclick="parent.a();">点击调用父页面的a方法1</button></div>
+        <div class="btn"><button onclick="window.parent.a();">点击调用父页面的a方法2</button></div>
+        <h1>淅沥沥，我是涵涵</h1>
+        <img src="images/9.jpg" alt=""/>
+        <h1>嘟噜噜，我是楠楠</h1>
+        <img src="images/2.jpg" alt=""/>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    function b(){
+        alert("哈哈哈，我是子页面，是通过父页面调用出来的。");
+    }
+</script>
+</body>
+</html>

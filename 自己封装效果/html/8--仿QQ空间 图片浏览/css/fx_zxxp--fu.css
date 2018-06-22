@@ -1,0 +1,103 @@
+/*2015.6.21  ����ѡƬ*/
+body{overflow-x: hidden;}
+a:link{color:#666;}
+a:hover{text-decoration: underline;}
+
+.fx_head{width:990px; height:48px; border-bottom:1px solid #f4f4f4;  margin:0 auto;}
+
+.fx_subList li{float:left; margin-left: 22px;}
+.fx_subList .fx_quit{margin-right: 24px; margin-left:10px;}
+#fx_serve{position:absolute; border: 1px solid #979797;  width:53px; height: 56px; left:-28%; top:48px; background: #fff;  text-align: center; padding:10px; padding-left: 12px; }
+#fx_serve .zxxy-topBg{display: block;width:12px; height: 11px;position: absolute; left: 42%;top:-10px;  background:#fff url("../images/zxxp/zxxp-top.png") no-repeat 0 1px;}
+#fx_serve span a{height: 30px; margin: 0; line-height: 30px; display: block;}
+
+.fx_header{height:74px;line-height: 74px; font-size: 22px; border-bottom: 2px solid #ccc;}
+.fx_photo{margin-top: 30px;font-size: 18px; border-bottom: 1px solid #ccc; }
+.fx_photo a{display: inline-block; height:46px; line-height: 46px; text-align: center; padding-left:26px; padding-right: 26px; text-decoration: none;  color: #999;}
+
+.fx_photo .active{background: #f1f1f1; border: 1px solid #D8D8D8;}
+
+.fx_choose {margin-top: 30px;}
+.fx_choose .p1218{margin-top: 12px; padding-bottom: 12px; color:#ccc;}
+.fx_choose li{float: left; width:288px ; height: 90px; border: 1px solid #d8d8d8;padding-left:10px; padding-bottom: 15px; padding-top: 15px;margin-right: 45px;}
+.fx_choose li.mr_none{margin-right:0px;}
+.fx_choose img{border: 1px solid #d8d8d8; float: left;margin-right: 18px;}
+.fx_choose span{display: block;}
+.fx_choose a{display: block; width:118px ; height:30px ; color: #fff; background: #e63736; border-radius: 6px; margin: 0px; float: left;text-align: center; line-height: 30px; text-decoration: none;}
+
+.fx_chooseEnd{width:1000px; margin: 0 auto;}
+.fx_chooseEnd span{margin-top:100px; display: inline-block;}
+.fx_chooseEnd .fx_chooseEnd_left{width:345px; height:300px;}
+.fx_chooseEnd .fx_chooseEnd_right{width:345px; height:300px;}
+
+/* 选择精修照 start*/
+.photosBg{width:100%;height:100%; background:#000;filter:alpha(opacity=60);background: rgba(0,0,0,0.6); position: fixed; z-index:0; left: 0; top:0; display: none;}
+#choosephotosBox{width:66.61%; height:100%; background:#000;  color:#fff; position:absolute;z-index: 4;top:0;  min-width:624px; min-height: 420px; display: none; }
+#choosephotosBox .imgClose{display:block; right:0; top:0;}
+#choosephotosBox .imgBox{width:100%; height:78.08%; padding-top: 4.46%;}
+#choosephotosBox .img{width:52.09%;height:100%; margin-left: 23.74%;}
+#choosephotosBox .shdowTxt{ display: none; width:87.68%;height:30px; background: rgba(0,0,0,0.6); position: absolute; left:0px; bottom:0px; padding-left: 6.16%; padding-right: 6.16%; padding-top:10px;}
+.imgShare{width:50px;height:26px; line-height: 26px; border:1px solid #fff; text-align: center;border-radius:4px;cursor:pointer; }
+.imgChoose{width:60px; height:26px; line-height: 26px; border:1px solid #ff0039; text-align: center; margin-left:10px; border-radius:4px; cursor:pointer; color:#ff0039;}
+#choosephotosBox .imgs{width:82%; height:100%;margin-top:2.79%; margin-left:9.33%;  margin-right:9.33%;   overflow: hidden;}
+#choosephotosBox .imgs ul{height: 56px;left:0;}
+#choosephotosBox .imgs li{width:50px; height:50px; margin-right: 4px; float: left; position: relative; border: 2px solid #000;}
+
+/*照片未选中时状态*/
+#choosephotosBox .RedBg img{display: none; position:absolute; right:0; bottom:0; }
+#choosephotosBox .imgs li span.choosePhotoShdow{position:absolute; left:0; top:0; width:100%; height:100%; background: #000; opacity:0.5; filter:alpha(opacity=50); display: block;z-index: 2;}
+/*照片选中时状态*/
+/*#choosephotosBox .imgs .choosePhotoActive,#choosephotosBox .imgs .choosePhotoActive2{border: 2px solid #e63736;}*/
+#choosephotosBox .imgs .choosePhotoActive2{border: 2px solid #e63736;}
+#choosephotosBox .imgs .choosePhotoActive .RedBg img{display: block; position:absolute; right:0; bottom:0; z-index: 3;}
+#choosephotosBox .imgs .choosePhotoActive2 .choosePhotoShdow{display: none;}
+#choosephotosBox .box_left{width:78.68%; height: 100%;}
+#choosephotosBox .B_imgLeft{left:6.16%; top:45.44%; display: none; cursor: pointer;}
+#choosephotosBox .B_imgRight{right:6.16%; top:45.44%; display: none; cursor: pointer;}
+#choosephotosBox .S_imgLeft{left:6.16%; top:35%; cursor: pointer; z-index: 6; display: block;}
+#choosephotosBox .S_imgRight{right:6.16%; top:35%; cursor: pointer; z-index: 6; display: block;}
+#choosephotosBox .box_right{width:21.32%; height: 96%; background: #fff; padding-top: 2.72%; }
+#choosephotosBox .box_right h2{color:#666;margin-left:3.11%; padding-bottom: 3%;}
+#choosephotosBox .choosePhotos{width:90%;height:78%;margin-left:3.11%; overflow-y: auto; -padding-left:6%;}
+#choosedImg{min-width:172px;}
+#choosephotosBox .choosePhotos li{width:50px; height:50px; margin-right: 4px; margin-top: 3%; float: left; position:relative;}
+#choosephotosBox .choosePhotos li img{width: 100%; height:100%;}
+/*鼠标未移入时*/
+#choosephotosBox .choosePhotos li .shdow{ position:absolute; left:0; top:0; width:100%; height:100%; background: #000; filter:alpha(opacity=60); opacity:0.6; display: none;}
+#choosephotosBox .choosePhotos li span{ display: none; position:absolute; left:20%; top:30%; background: #000;}
+/*鼠标移入时*/
+#choosedImg li.fx_hover .shdow{ display: block; }
+#choosedImg li.fx_hover span{display:block; cursor: pointer;}
+
+#choosephotosBox .photoConfirm{width:65.97%;height:4.32%; text-align: center; border-radius: 4px; display: block; background:#666; padding-top:4.15%; margin-left:15%; margin-top: 14%; }
+#choosephotosBox .hover{cursor:pointer;}
+#choosephotosBox .photoConfirm a{text-decoration: none; color:#fff; cursor:default;}
+#choosephotosBox .hover a{cursor:pointer;}
+/*选择精修照 end*/
+
+
+/* 查看精修照 start*/
+#Check_photosBox{width:66.61%; height:100%; background:#000;  color:#fff; position:absolute;z-index: 4;top:0; display: none;}
+#Check_photosBox .imgClose{display:block; right:0; top:0;}
+#Check_photosBox #imgsShow{width:100%; height:83%; }
+#Check_photosBox .imgBox{width:100%; height:70%; padding-top: 5.46%; margin-top: 4%;}
+#Check_photosBox .img{width:36%; height:100%; margin-left: 32%; position: absolute; bottom: 0px; }
+#Check_photosBox .shdow{display:none; width:87.68%;height:7.0%; background: rgba(0,0,0,0.6); position: absolute; left:0px; bottom:0px; padding-left: 6.16%; padding-right: 6.16%;}
+#Check_photosBox .imgs{width:78%; height:54px; margin-left:12%;  overflow: hidden;}
+#Check_photosBox .imgs ul#Check_photosBoxImgs{height:54px;left:0; overflow: hidden; width: 100%;}
+
+#Check_photosBox .imgs li{height:50px; width:50px;margin-right:4px; float: left; position: relative;border: 2px solid #000;}
+/*照片未选中时状态*/
+#Check_photosBox .RedBg img{display: none; position:absolute; right:0; bottom:0; }
+#Check_photosBox .imgs li span.choosePhotoShdow{position:absolute; left:0; top:0; width:100%; height:100%; background: #000; opacity:0.5; filter:alpha(opacity=50); display: none;z-index: 2;}
+/*照片选中时状态*/
+#Check_photosBox .imgs .choosePhotoActive{border: 2px solid #e63736;}
+/*#Check_photosBox .imgs .choosePhotoActive .RedBg img{display:block; position:absolute; right:0; bottom:0; }*/
+#Check_photosBox .imgs .choosePhotoActive span.choosePhotoShdow{display: none;}
+
+
+#Check_photosBox .box_left{width:78.68%; height: 100%;}
+#Check_photosBox .B_imgLeft{ display:block; left:6.16%; top:45.44%;  cursor: pointer;}
+#Check_photosBox .B_imgRight{  display:block; right:6.16%; top:45.44%;  cursor: pointer;}
+#Check_photosBox .S_imgLeft{left:6.16%; top:35%;  cursor: pointer;}
+#Check_photosBox .S_imgRight{right:6.16%; top:35%;  cursor: pointer;}

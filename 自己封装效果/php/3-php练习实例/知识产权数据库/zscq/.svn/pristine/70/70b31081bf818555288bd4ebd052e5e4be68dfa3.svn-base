@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜索页-无结果</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/qiye.css"/>
+    <style>
+        html,body{background: #f5f5f5;}
+        #wrap{background:#f5f5f5; }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+<include file="public/header3.html" />
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+
+    <!--公用右侧浮动导航 end-->
+<!--s-content内容存放的地方-->
+    <div class="search-cont main oh">
+        <div class="search-cont-left fl">
+            <div class="qiye-search-box  pr">
+                <div class="zhn-search bb">智能筛选</div>
+                <!--公用结果 查询列表-->
+                <div class="res-list-choose">
+                    <div class="choose-mode c333 oh">
+                        <div class="choose-title fl">注册成本</div>
+                        <div class="choose-item fl">
+                            <span>全部</span>
+                            <span>0-100万</span>
+                            <span class="active">100-200万</span>
+                            <span>200-500万</span>
+                            <span>500-1000万</span>
+                            <span>1000万以上</span>
+                        </div>
+                    </div>
+                    <div class="choose-mode choose-year c333 oh">
+                        <div class="choose-title fl">成立年限</div>
+                        <div class="choose-item fl">
+                            <span>全部</span>
+                            <span>成立1年内</span>
+                            <span>成立1-5年</span>
+                            <span class="active">成立5-10年</span>
+                            <span>成立10-15年</span>
+                            <span>成立15年以上</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="s-result-list">
+                    <div class="res-list-Title bc c333 f12">为您搜索到<span class="c333">{$count}</span>家符合条件的企业， 用时 <span>{$time}</span>秒</div>
+                    <!--搜索到的企业-->
+                    <div class="res-list-mode c333">
+
+                       <div class="search-wu-show">
+                           <p><img src="public/html/images/pet.png" alt=""/></p>
+                           <p class="txt">您所搜索的企业正在收录中或企业尚未注册</p>
+                           <p><input class="wei-cont-btn" type="button" onclick="regCompany();" value="立即注册公司" /></p>
+                       </div>
+
+                    </div>
+
+                    <!--搜索到的企业-->
+                </div>
+                <!--公用结果 end-->
+
+            </div>
+        </div>
+        <div class="search-cont-right fr">
+            <img src="public/html/images/img13.png" width="100%" alt=""/>
+            <div class="qita">看看其他公司</div>
+            <div class="qita-gs">
+                <p>杭州铂零科技有限公司</p>
+                <p class="name">张勇</p>
+            </div>
+            <div class="qita-gs">
+                <p>杭州铂零科技有限公司</p>
+                <p class="name">张勇</p>
+            </div>
+            <div class="qita-gs">
+                <p>杭州铂零科技有限公司</p>
+                <p class="name">张勇</p>
+            </div>
+            <div class="qita-gs">
+                <p>杭州铂零科技有限公司</p>
+                <p class="name">张勇</p>
+            </div>
+            <div class="qita-gs">
+                <p>杭州铂零科技有限公司</p>
+                <p class="name">张勇</p>
+            </div>
+        </div>
+    </div>
+
+<!--s-content内容存放的地方-->
+    <!--页面的弹出框-->
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-cont">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">免费电话</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <div class="c-tan-center bc">
+            <div class="c-tan-input mb10"><span>您的公司名称</span><input type="text" placeholder="请输入您的公司名称" name="company_name" id="company_name"/></div>
+            <div class="c-tan-input"><span>您的联系方式</span><input type="text" placeholder="请输入您的联系方式" name="mobile" id="mobile"/></div>
+        </div>
+        <div class="c-tan-bot bc">
+            <input type="button" class="btn-qu write-big-btn" value="取消"/>
+            <input type="submit" class="btn-ding blue-big-btn" value="确定" onclick="adds()"/>
+        </div>
+    </div>
+
+    <!--页面的弹出框 end-->
+
+
+<!--公用底部-->
+<include file="public/footer.html" />
+<!--公用底部 end-->
+
+</div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+<script>
+    //    立即注册公司弹出框
+    function regCompany(){
+        /*
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".c-tan-cont"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".btn-ding");  //弹出框确定按钮
+        var oQu = $(".btn-qu");  //弹出框取消按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+		
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oQu.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });*/
+        window.open("http://www.12366.com/search/search.do?productTypeId=195", "_blank");
+    }
+
+    $(function(){
+//      二维码的显示隐藏
+        maTab();
+
+        var itemSpan = $(".choose-item span");
+        itemSpan.each(function(){
+            $(this).click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+            })
+        })
+
+    })
+
+	function adds(){
+		var c_name = $("#company_name").val();
+		var mobile = $("#mobile").val();
+		alert(c_name);
+		alert(mobile);
+	}
+</script>
+</body>
+</html>

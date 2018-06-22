@@ -1,0 +1,16 @@
+@charset "utf-8";
+.block_mess_each {
+    height: 120px;
+}
+/*  btn img  */
+.img_outer {
+    width: 610%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img_outer img {
+    width:222px;
+
+}

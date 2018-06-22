@@ -1,0 +1,143 @@
+<admintpl file="header" />
+<style>
+	label,.controls{display: inline-block;}
+	.input{height:15px !important;}
+	.fx_pr{position:relative;}
+	.mapBox{position: absolute; left:478px; top:80px; width:400px; height:320px;}
+</style>
+
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+	商品管理 >>
+
+<a href="{:U('Goods/goods_lst')}">商品列表</a>>>
+
+<a href="">修改商品</a>
+&nbsp;<br>
+&nbsp;<br>
+    <div style="margin-left:100px;">
+        <form method="post" action="{:U('Goods/upd_act')}" id="form" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="{$res.id}">
+			<div class="control-group">
+                <label class="control-label">业务名称：</label>
+                <div class="controls">
+                    <input type="text" name="goods_name" id="goods_name" class="input" value="{$res.service_name}">
+                </div>
+                &nbsp;&nbsp;&nbsp;<font color="red">*</font>
+            </div>
+            <div class="control-group">
+                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型：</label>
+                <div class="controls">
+                    <select name="type" id="type">
+                        <option value="" <?php if($res["type"]=="")echo "selected";?>>请选择</option>
+                        <option value="111222" <?php if($res["type"]=="111222")echo "selected";?>>注册</option>
+                        <option value="111333" <?php if($res["type"]=="111333")echo "selected";?>>转让</option>
+                        <option value="111444" <?php if($res["type"]=="111444")echo "selected";?>>许可备案</option>
+                        <option value="111555" <?php if($res["type"]=="111555")echo "selected";?>>变更</option>
+                        <option value="111666" <?php if($res["type"]=="111666")echo "selected";?>>驳回</option>
+                        <option value="111888" <?php if($res["type"]=="111888")echo "selected";?>>异议</option>
+                        <option value="111777" <?php if($res["type"]=="111777")echo "selected";?>>续展</option>
+                    </select>
+                </div>
+                &nbsp;&nbsp;&nbsp;<font color="red">*</font>
+            </div>          
+			<div class="control-group">
+                <label class="control-label">大类官费：</label>
+                <div class="controls">
+                    <input type="text" name="large" id="large" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')" value="{$res.price_large}">元
+                </div>
+                <font color="red">*</font>
+            </div>
+			<div class="control-group">
+                <label class="control-label">小类官费：</label>
+                <div class="controls">
+                    <input type="text" name="small" id="small" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')" value="{$res.price_small}">元
+                </div>
+                <font color="red">*</font>
+            </div>
+			<div class="control-group">
+                <label class="control-label">&nbsp;&nbsp;&nbsp;服务费：</label>
+                <div class="controls">
+                    <input type="text" name="service" id="service" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')" value="{$res.price_service}">元
+                </div>
+                <font color="red">*</font>
+            </div>
+			<div class="control-group">
+                <label class="control-label">&nbsp;&nbsp;&nbsp;市场价：</label>
+                <div class="controls">
+                    <input type="text" name="market" id="market" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')" value="{$res.price_market}">元
+                </div>
+                <font color="red">*</font>
+            </div>
+            <div class="control-group">
+                <label class="control-label">商品描述：</label>
+                <div class="controls">
+                <!--    <script type="text/plain" id="editor" name="area" style="width:700px;height:200px;"></script>  -->
+					<textarea name="area" id="area">{$res.describe}</textarea>
+                </div>
+                &nbsp;&nbsp;&nbsp;<font color="red">*</font>
+            </div>
+            <font color="red">*为必填项</font>
+            <div style="clear:both;"></div>
+    </div>
+    <div  style="text-align:center; background:#ccc; width:100%;">
+        <button type="button" class="btn btn-primary btn_submit" style="margin:0 20px;" onclick="sb()">保存</button>
+        <a class="btn" href="{:U('goods/goods_lst')}"  style="margin:0 20px;">返回</a>
+    </div>
+</form>
+</div>
+</body>
+</html>
+<script src="publicml/js/js.js"></script>
+<script>
+    var tt = "<?php echo $res['type'];?>";
+ 
+function sb(){
+	var goods_name = $('#goods_name').val().replace(/\s+/g,"");
+    var type = $('#type option:selected').val();
+	var large = $('#large').val().replace(/\s+/g,"");
+	var small = $('#small').val().replace(/\s+/g,"");
+	var service = $('#service').val().replace(/\s+/g,"");
+	var market = $('#market').val().replace(/\s+/g,"");
+	var area = $('#area').val().replace(/\s+/g,"");
+	if(goods_name==""){
+		alert("请输入商品名称!");
+		return false;
+	}if(type==""){
+            alert("请选择类型!");
+            return false;  
+        }if(large==""){
+		alert("请输入大类官费!");
+		return false;
+	}if(small==""){
+		alert("请输入小类官费!");
+		return false;
+	}if(service==""){
+		alert("请输入服务费!");
+		return false;
+	}if(market==""){
+		alert("请输入市场价!");
+		return false;
+	}if(area==""){
+		alert("请输入描述信息!");
+		return false;
+	}if(type==tt){
+            $("#form").submit();
+        }else{
+            $.ajax({
+                type: "POST",
+                url: "index.php?g=Admin&m=Goods&a=check",
+                data: {type:type},
+
+                success: function(data){
+                      if(data==1){
+                          alert("该类型已经存在!");
+                          return false;
+                      }else{
+                         $("#form").submit(); 
+                      }   
+                }
+            });
+        }	
+}
+</script>

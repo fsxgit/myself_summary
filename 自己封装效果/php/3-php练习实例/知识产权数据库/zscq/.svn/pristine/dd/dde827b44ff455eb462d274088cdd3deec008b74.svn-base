@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标概况-许可备案</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main-hou c333">
+        <div class="bread-nav">
+            商标列表 > 商标详情
+        </div>
+        <div class="list-gk-top oh">
+            <div class="logo fl">
+                <img src="../images/img1.png" alt=""/>
+            </div>
+            <div class="logo-txt fl f12">
+                <p><span class="fb f16">神州易桥信息科技</span><span class="xuzhan">续展中</span></p>
+                <p><span class="c999">商标类型：</span><span>文字商标</span></p>
+                <p><span class="c999">商标类别：</span><span>25</span></p>
+                <div class="oh">
+                    <div class="fl c999">小　　类：</div>
+                    <div class="xlei fl">
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span class="zhankai">展开更多</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-gk-tab">
+            <a href="javascript:;">商标概况</a>
+            <a href="javascript:;">转让</a>
+            <a href="javascript:;">变更</a>
+            <a class="active" href="javascript:;">许可备案</a>
+            <a href="javascript:;">续展</a>
+            <a href="javascript:;">资料列表</a>
+        </div>
+        <div class="list-gk-cont">
+            <!--右边的完成步骤部分-->
+            <div class="list-gk-cont-right fr">
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                        <div class="step-mode fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">等待下发《商标注册证》</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">公告期结束，注册成功</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">资料已下载</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zhou"><img src="../images/zhu.png" width="1"   alt=""/></div>
+                </div>
+            </div>
+            <!--右边的完成步骤部分 end-->
+            <!--上面切换模块 索要改变的部分-->
+            <div class="list-gk-cont-left">
+                <!--/*提示说明*//-->
+                <div class="c-ts-common ">
+                    <p>商标注册人可以通过签订商标使用许可合同，许可他人使用其注册商标时，许可人必须在许可合同有效期内向商标局备案并报送备案材料。备案材料应当说明注册商标许可人、被许可人、许可期限、许可使用的商标或者服务范围等事项。</p>
+                </div>
+                <!--/*提示说明* end//-->
+                <div class="bgl-mode mt20">
+                    <h1 class="c-h1">注册步骤</h1>
+                    <div class="bgl-cont bgl-steps">
+                        <span class="bgl-step">1</span>
+                        <span>用户支付订单</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">2</span>
+                        <span>整理资料快递给顾问</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">3</span>
+                        <span>顾问接收资料并办理</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">4</span>
+                        <span>许可成功</span>
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">新增许可备案</h1>
+                    <div class="bgl-cont">
+                        <div class="xk-xinzeng">
+                            <input type="button" class="blue-small-btn" value="新增" onclick="xinzeng();"/>
+                            <span class="ml10 f12 c999">1、商标局大约1-2个月发出受理通知书；2、审理完成整个时间大约需要6个月左右。</span>
+                        </div>
+                        <table class="bg-table mt20">
+                            <tr class="tr1">
+                                <td style="width: 10%;">序号</td>
+                                <td style="width: 53%;">被许可人名称（中文）</td>
+                                <td  style="width: 37%;">操作</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="">神州顺利办</td>
+                                <td class="xk-hand"><a href="javascript:;">删除</a><a href="javascript:;" onclick="beian();">详情</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="f12 bt  tr">
+                    <p class="mt30 mb30"><input type="button" class="blue-big-btn" value="立即办理"/></p>
+                </div>
+                <div class="bgl-mode mb50">
+                    <h1 class="c-h1">已许可企业</h1>
+                    <div class="bgl-cont">
+                        <div class="mb20 f12 c999">您已许可给3家企业使用您的商标，一家企业在许可中。商标许可完成大约需要12个月，具体以官方时间为准。</div>
+                       <table class="bg-table">
+                           <tr class="tr1">
+                               <td style="width: 27%;">公司名称</td>
+                               <td style="width: 10%;">许可期限</td>
+                               <td  style="width: 28%;">许可时间段</td>
+                               <td  style="width: 11%;">剩余期限</td>
+                               <td  style="width: 12%;">许可类型</td>
+                               <td  style="width: 12%;">操作</td>
+                           </tr>
+                           <tr>
+                               <td>神州顺利办</td>
+                               <td>3年</td>
+                               <td>自2015年5月1日到2018年4月30日</td>
+                               <td>1031天</td>
+                               <td>普通许可</td>
+                               <td class="xk-hand"><a href="javascript:;" onclick="beian();">详情</a></td>
+                           </tr>
+                           <tr class="zhong">
+                               <td>神州顺利办</td>
+                               <td>3年</td>
+                               <td>自2015年5月1日到2018年4月30日</td>
+                               <td>1031天</td>
+                               <td>普通许可</td>
+                               <td class="xk-hand"><a href="javascript:;" onclick="beian();">详情</a></td>
+                           </tr>
+                           <tr>
+                               <td>神州顺利办</td>
+                               <td>3年</td>
+                               <td>自2015年5月1日到2018年4月30日</td>
+                               <td>1031天</td>
+                               <td>普通许可</td>
+                               <td class="xk-hand"><a href="javascript:;" onclick="beian();">详情</a></td>
+                           </tr>
+                       </table>
+                    </div>
+                </div>
+
+            </div>
+            <!--上面切换模块 索要改变的部分 end-->
+        </div>
+    </div>
+
+<!--弹出框-->
+    <!--弹出框遮罩-->
+    <div class="c-tan-shadow"></div>
+    <!--许可备案详情5 --->
+    <div class="c-tan-cont beian-alert-box bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">许可备案详情</div>
+            <div class="c-tan-close fr"><img src="../images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail brand-cha bc">
+            <p><span class="bd-tit">被许可人名称（中文）</span><span>神州易桥（北京）财税科技有限公司</span></p>
+            <p><span class="bd-tit">被许可人地址（中文）</span><span>北京市昌平区回龙观镇西大街118号1幢905室</span></p>
+            <p><span class="bd-tit">被许可人邮编</span><span>100000</span></p>
+            <p><span class="bd-tit">联系人</span><span>马小亮</span></p>
+            <p><span class="bd-tit">电话</span><span>18899875467</span></p>
+            <p><span class="bd-tit">商标注册号</span><span>23423550099</span></p>
+            <p><span class="bd-tit">是否共有商标</span><span>否</span></p>
+            <p><span class="bd-tit">再许可</span><span>否</span></p>
+            <p><span class="bd-tit">许可类型</span><span>普通许可</span></p>
+            <p><span class="bd-tit">许可期限</span><span>2016年7月1日至2017年6月30日</span></p>
+            <div class="oh">
+                <span class="bd-tit fl">许可使用的商品/服务项目</span>
+                <div class="fl">
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                </div>
+            </div>
+
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!--许可备案详情5 end-->
+    <!--新增许可备案6 --->
+    <div class="c-tan-cont xz-alert-box bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">新增许可备案</div>
+            <div class="c-tan-close fr"><img src="images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail brand-cha xz-beian bc">
+            <p><span class="bd-tit">被许可人名称（中文）</span><span><input type="text" placeholder="需与营业执照上的名称完全一致"/></span></p>
+            <p><span class="bd-tit">被许可人地址（中文）</span><span><input type="text" placeholder="需与营业执照上的地址完全一致"/></span></p>
+            <p><span class="bd-tit">被许可人邮编</span><span><input type="text" placeholder="需与营业执照上的邮编完全一致"/></span></p>
+            <p><span class="bd-tit">联系人</span><span><input type="text" placeholder="请输入联系人"/></span></p>
+            <p><span class="bd-tit">电话</span><span><input type="text" placeholder="请输入联系电话"/></span></p>
+            <p><span class="bd-tit">商标注册号</span><span>23423550099</span></p>
+            <p><span class="bd-tit">是否共有商标</span><span>否</span></p>
+            <p><span class="bd-tit">再许可</span><span>是</span></p>
+            <div class="oh">
+                <span class="bd-tit fl">许可类型</span>
+                <div class="fl">
+                    <p><span class="lei-xk active">普通许可</span><span class="lei-xk">排他许可</span><span class="lei-xk">独占许可</span></p>
+                    <p><span class="c999">可以许可给多人，商标持有人和被许可人均可使用。</span></p>
+                </div>
+            </div>
+            <div class="oh xk-qixian">
+                <span class="bd-tit fl">许可期限</span>
+                <div class="fl">
+                    <p><input type="text" class="date" placeholder="开始日期"/>-<input type="text" class="date"  placeholder="结束日期"/></p>
+                    <p><span class="c999">不能大于商标有效期2012-07-14至2022-07-13</span></p>
+                </div>
+            </div>
+            <div class="oh">
+                <span class="bd-tit fl">许可使用的商品/服务项目</span>
+                <div class=" fl">
+                    <p class="choose-xk"><span>090373 已录制的计算机程序</span></p>
+                    <p class="choose-xk"><span>090373 已录制的计算机程序</span></p>
+                    <p class="choose-xk"><span>090373 已录制的计算机程序</span></p>
+                    <p class="choose-xk"><span>090373 已录制的计算机程序</span></p>
+                    <p><span class="choose-xk-quan">全选/全不选</span></p>
+                </div>
+            </div>
+
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!--新增许可备案6 end-->
+<!--弹出框 end-->
+
+
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".c-gou").click(function(){
+        $(this).toggleClass("active");
+    })
+    $(".jieshou").click(function(){
+        $(this).toggleClass("active");
+    })
+
+//    许可备案弹出框
+    function beian(){
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".beian-alert-box"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".alert-sure");  //弹出框确定按钮
+        var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oXiao.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+    }
+
+    //    新增许可备案
+    function xinzeng(){
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".xz-alert-box"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".alert-sure");  //弹出框确定按钮
+        var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oXiao.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+
+        $(".lei-xk").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+    }
+    //    单选
+    $(".choose-xk").click(function(){
+        $(this).toggleClass("active");
+        var is = 1;
+        $(".choose-xk").each(function(){
+            if($(this).hasClass("active")){
+                is = 1;
+            }else{
+                is = 2;
+                return false;
+            }
+        });
+        if(is == 1){
+            $(".choose-xk-quan").addClass("active");
+        }else{
+            $(".choose-xk-quan").removeClass("active");
+        }
+    });
+    //    全选
+    $(".choose-xk-quan").click(function(){
+        $(this).toggleClass("active");
+        if($(this).hasClass("active")){
+            $(".choose-xk").each(function(){
+                $(this).addClass("active");
+            })
+        }else{
+            $(".choose-xk").each(function(){
+                $(this).removeClass("active");
+            })
+        }
+    })
+</script>
+</body>
+</html>

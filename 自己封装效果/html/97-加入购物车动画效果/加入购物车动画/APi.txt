@@ -1,0 +1,4 @@
+http://www.cnblogs.com/tugenhua0707/p/4802738.html
+
+好逗比的东西，起始位置，和目标定位必须都是一样的：
+两个都要是：left:px; top:px;

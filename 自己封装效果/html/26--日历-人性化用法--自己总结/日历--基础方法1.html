@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        ul,li{list-style: none;}
+        .box{width:90%; height:auto; margin:0 auto; color:#000;}
+        .ulList{}
+        .ulList li{border:1px solid #ccc; width:200px; text-align: center; color:#000; float: left; margin:10px;}
+        .ulList li p{height:50px; line-height: 50px;;}
+        .ulList li p:nth-of-type(1){background: #FF0000; color: #aaffad;}
+        .ulList li p:nth-of-type(2){background: #3447ff; color:#fff;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="ulList">
+        <li>
+            <p>呵呵呵呵</p>
+            <p>哈哈哈哈</p>
+        </li>
+    </ul>
+</div>
+<!--<script src="js/jquery-1.9.1.min.js"></script>-->
+<script>
+//111111************************************************
+//    获取当前天数 判断当前的星期
+   var myDate = new Date();
+    var day = myDate.getDate(); //日期
+    var week = myDate.getDay();
+    var x;
+    switch(week){
+        case 0:
+            x="周日";
+            break;
+        case 1:
+            x="周一";
+            break;
+        case 2:
+            x="周二";
+            break;
+        case 3:
+            x="周三";
+            break;
+        case 4:
+            x="周四";
+            break;
+        case 5:
+            x="周五";
+            break;
+        case 6:
+            x="周六";
+            break;
+    }
+//弹出星期数
+    alert(x);
+
+
+
+//22222********************************************************
+// 日期减去天数等于第二个日期
+    function cc(dd,dadd)
+//    dd结束时间;    dadd 相差天数后的时间
+    {
+//可以加上错误处理
+        var a = new Date(dd)
+        a = a.valueOf()
+        a = a - dadd * 24 * 60 * 60 * 1000
+        a = new Date(a)
+        alert(a.getFullYear() + "年" + (a.getMonth() + 1) + "月" + a.getDate() + "日")
+    }
+//弹出新日期
+    cc("1/1/2016",1);
+
+//33333333******************************************************
+//    三、应用：
+
+    var flag = Array();//全局变量
+
+    var start = "2015-12-30";
+    var end = "2016-01-03";
+    SetFlag(start,end);
+
+
+//4444444**********************************************************
+//设置周期内的日期(数组)
+//参数格式var start = "2016-01-01";   var end = "2016-01-03";
+//返回的时两个日期之间的 所有日期
+    function SetFlag(start,end){
+        var cdate = Array();
+        cdate = start.split("-");
+        var cd = cdate[1]+"/"+cdate[2]+"/"+cdate[0];
+        var dayNum = DateDiff(end,start);
+        alert(cd);
+        for(var i=0; i<=dayNum; i++){
+            flag.push(AddDays(cd,i));
+        }
+        document.write("<div style='padding:4px; width:100%; background: #ccc;'>"+flag+"</div>");
+    }//end fun
+
+//555555**************************************************************
+    //打印出数组的数据
+    for(var i=0; i<flag.length; i++){
+        document.write("<p style='padding:4px;'>"+flag[i]+"\n\r</p>");
+
+    }
+
+//6666666666****************************************************************
+    //日期加上天数后的新日期.
+//参数格式 var date = 12/30/2015; var days = 3 返回的是 var d2 = 2016-01-02;
+  function AddDays(date,days){
+        var nd = new Date(date);
+        nd = nd.valueOf();
+        nd = nd + days * 24 * 60 * 60 * 1000;
+        nd = new Date(nd);
+//        alert(nd.getFullYear() + "年" + (nd.getMonth() + 1) + "月" + nd.getDate() + "日");
+        var y = nd.getFullYear();
+        var m = nd.getMonth()+1;
+        var d = nd.getDate();
+        if(m <= 9) m = "0"+m;
+        if(d <= 9) d = "0"+d;
+//      返回年月日
+        var cdate = y+"-"+m+"-"+d;
+//      返回日
+//        var cdate =d;
+
+        return cdate;
+    }
+
+
+//77777777777777**************************************************************
+//两个日期的差值(d1 - d2).
+//参数格式 var d1 = 12/30/2015;  var d2 = 12/31/2015;  返回的是天数差值 1
+    function DateDiff(d1,d2){
+        var day = 24 * 60 * 60 *1000;
+        try{
+            var dateArr = d1.split("-");
+            var checkDate = new Date();
+            checkDate.setFullYear(dateArr[0], dateArr[1]-1, dateArr[2]);
+            var checkTime = checkDate.getTime();
+
+            var dateArr2 = d2.split("-");
+            var checkDate2 = new Date();
+            checkDate2.setFullYear(dateArr2[0], dateArr2[1]-1, dateArr2[2]);
+            var checkTime2 = checkDate2.getTime();
+
+            var cha = (checkTime - checkTime2)/day;
+            return cha;
+        }catch(e){
+            return false;
+        }
+    }//end fun
+
+</script>
+</body>
+</html>

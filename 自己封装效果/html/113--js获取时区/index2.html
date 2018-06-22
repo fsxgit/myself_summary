@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js获取时区的简写</title>
+</head>
+<body>
+    <h1 style="text-align: center;">js获取当前时区的简写</h1>
+    <h1 style="text-align: center;">格式：GMT+0800</h1>
+</body>
+<script>
+    var d = new Date();
+    var reg =/GMT[\+-]\d*/g;
+    var res = reg.exec(d);
+    alert(res);
+</script>
+</html>

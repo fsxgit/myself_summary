@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>Document</title>
+	<style>
+		.box{width:300px; border:1px solid #000;margin-left:30px; padding:20px; border-radius: 30px; float:left;}
+		#bandbox span{cursor:pointer; background: #ff0039; display: inline-block; margin:20px;}
+	</style>
+</head>
+<body>
+<div class="box">
+	<h1>品牌</h1>
+	<div id="bandbox">
+		<span>请点击我们</span>
+		<span>这些</span>
+		<span>是ajax</span>
+		<span>加载</span>
+		<span>之前</span>
+		<span>搞测试的js点击效果</span>
+	</div>
+
+
+</div>
+<div class="box">
+	<h1>类型</h1>
+	<button class="aJax">点击加载</button>
+	<div id="typebox"></div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script>
+	function alertTxt(){
+		$("#bandbox span").each(function(){
+			$(this).on("click",function(){
+				alert($(this).text());
+			})
+
+		})
+
+	}
+
+
+$(".aJax").on("click",function(){
+	$.ajax({
+		url:"data.json",
+		type:"POST",
+		dataType:"json",
+	//	async:false,//同步,也就是各部分相继执行 (会等待执行)(按从上到下的顺序一个一个来执行,这样则执行alert("1111");,后执行alert("2222"),按顺序来)
+		async:true,//异步,也就是各部分一起完成(同时执行,不等待),这样则执行alert("2222");,后执行alert("1111");
+
+//		有待考究 的问题
+//		async:false,也就是是平等的关系,谁都可以用谁的,故所以之前加在ajax执行结果上面的js效果可以执行,即上面的alertTxt();可以执行;;;;;
+//	async:true,所以之前加在ajax执行结果上面的js效果无法执行,即上面的alertTxt();无法执行;;;;;
+		data:"",
+		success:function(res){
+			//品牌数据
+			var band = res.data.band;
+			var arr = "";
+
+//普通笨方法
+//			for(var x in band){
+//
+//				arr = arr+ "<span style='font-size:30px; background:red; color:#fff;border-radius:20px;'>"+band[x].id+":</span>&nbsp" + "<span style='font-size:24px;'>"+band[x].name+"</span>&nbsp&nbsp&nbsp"+'<br/>';
+//				$("#bandbox").html(arr);
+//// 非要再次引用才能够有效果吗?
+//				alertTxt();
+//			};
+
+
+//ajax专用遍历方法
+			$.each(res.data.band,function(i,val){
+				arr = arr+ "<span style='font-size:30px; background:red; color:#fff;border-radius:20px;'>"+band[i].id+":</span>&nbsp" + "<span style='font-size:24px;'>"+val.name+"</span>&nbsp&nbsp&nbsp"+'<br/>';
+				$("#bandbox").html(arr);
+			})
+
+//			和alert("2222");一起测试执行的先后顺序的
+			alert("1111");
+
+		},
+
+		error:function(msg){
+			console.log(msg);
+		}
+	});
+//	和alert("1111");一起测试执行的先后顺序的
+	alert("2222");
+
+})
+	alertTxt();
+	</script>
+
+</body>
+</html>

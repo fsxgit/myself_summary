@@ -1,0 +1,33 @@
+html,body{width:100%; height:100%;}
+#sy-wrap{width: 100%; height:100%; background: url("../images/indexBg.jpg") no-repeat 0 0; background-size:100% 100%; }
+
+.sy-header{padding-top:18px;}
+.sy-header-left{margin-left: 78px;}
+.sy-header-right{margin-right: 78px;}
+.sy-header-right .tel{margin-right: 30px; padding-left:20px; margin-top: 14px; height:14px; line-height: 14px; background: url("../images/icon1.png") no-repeat 0 center; font-style: italic;}
+.sy-header-right .name{ height:14px; line-height: 14px; margin-right: 10px;  margin-top: 14px; }
+.sy-header-right .img{ height:40px; width: 40px;}
+.sy-header-right .img img{ height:40px; width: 40px; border-radius: 50%;}
+.sy-input{margin-top: 260px;}
+.sy-input-txt{height:50px; line-height: 50px; padding-top: 20px;}
+.sy-input-txt span{margin-right: 20px;}
+.sy-input .chaxun{width:800px; padding:4px;}
+.sy-input .chaxun .txt{width:640px;padding-left:10px; height:34px; line-height:34px; padding-top: 2px; margin-right: 40px;}
+.sy-lianjie{margin-top: 110px;}
+.sy-lianjie .lj-mode{display: inline-block; margin:0 50px; cursor: pointer;}
+.sy-lianjie .txt{height: 30px; line-height: 30px;}
+.sy-bot{position: absolute; width: 100%; left: 0; bottom:26px;}
+.sy-bot span{margin-right: 10px;}
+.sy-bot a,.sy-bot a:link,.sy-bot a:visited,.sy-bot a:hover{ text-decoration:none; font-size: 12px;color: #a6a7b3;}
+.sy-bot a:hover{text-decoration:underline;}
+
+.ts-num{background: #f82a2a; padding:0 4px; height: 14px; line-height: 14px; border-radius: 2px; position: absolute; right:-10px; top:-4px;}
+.sy-img-nav{position: absolute; background: url("../images/bg8.png") no-repeat 0 0; width: 100px; height: 144px; left:-30px; top:44px; display: none;}
+.sy-img-nav p{width:48px; height:30px; line-height: 30px; margin-right: auto; margin-left: auto; padding-left: 16px; cursor: pointer;}
+.sy-img-nav .p1{background: url("../images/icon8.png")no-repeat 0 center; margin-top:14px; position: relative;}
+.sy-img-nav .p2{background: url("../images/icon9.png")no-repeat 0 center;}
+.sy-img-nav .p3{background: url("../images/icon10.png")no-repeat 0 center;}
+.sy-img-nav .p4{background: url("../images/icon11.png")no-repeat 0 center;}
+
+
+

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.ajax使用</title>
+    <style>
+        *{margin:0; padding: 0;}
+        input{border:none; background: none; outline: none;}
+        .box{padding:40px;}
+        .xx_box{margin-top: 40px;}
+        .xx_box .name{font-size: 24px; color: #f0080b;}
+        .xx_box .email{font-size: 24px; color: #04f02c;}
+        .xx_box img{width: 100px; height:auto;}
+        .btn_box{text-align: center; margin:40px 0; }
+        .sj_btn{width:80%; height:40px; background: #0066FF; color: #fff; font-size: 26px; cursor: pointer;}
+        h1,h2{text-align: center;}
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>$.ajax使用</h1>
+    <h2>循环获取名字地址</h2>
+
+    <div class="box">
+        <div class="xx_box">大家好，我的名字是:<span class="name"></span>我的邮箱是:<span class="email"></span>，我的照片是: <img src="" alt=""/></div>
+    </div>
+    <div class="btn_box">
+        <input type="button" class="sj_btn" value="获取数据"/>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".sj_btn").click(function(){
+        $.ajax({
+            url:"localhost",
+            type:"POST",
+            dataType:"json",
+            async:false,
+            data:"",
+            success:function(res){
+//            console.log(res);
+
+                var band = res.data.band;
+                var arr = "";
+                for(var x in band){
+//                console.log(band[x].id + band[x].name);
+                    arr += '<div class="xx_box">大家好，我的名字是:<span class="name">'+band[x].name+'</span>我是<span class="email">'+band[x].id+'</span>号</div>'
+                }
+
+                $(".box").html(arr);
+            },
+
+            error:function(msg){
+                alert(msg);
+                console.log(msg);
+            }
+        });
+    })
+</script>
+</body>
+</html>

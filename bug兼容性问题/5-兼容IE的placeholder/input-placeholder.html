@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .main{text-align: center;}
+        h1,h2{margin:20px 0;}
+        *{margin:0; padding:0;}
+        input{  outline: none; background: none; border: none;}
+
+        .main input{width: 200px;padding:10px 0 10px 10px;  font-size: 14px; border:1px solid #ccc;}
+
+        /*针对IE的css的设置*/
+        .pasIE-box{position: relative;}
+        .pasIE-box input{color: #333; background: none; margin-top: 10px;}
+        .pasIE-bg{display: none;}
+        .pasIE{}
+    </style>
+</head>
+
+<body>
+
+<div class="main">
+    <h1>兼容IE的placeholder 的 input[type="text"] 和 input[type="password"] 的写法：</h1>
+    <input type="text" placeholder="是否支持我？？？"/>
+    <h2>兼容IE的placeholder 的input[type="password"] 的写法</h2>
+   <div class="pasIE-box">
+       <!--针对IE9及以下浏览器设置的兼容placeholder的方法：其他浏览器不显示-->
+       <input type="text" class="pasIE-bg" placeholder="我是密码？？？"/>
+       <!--针对IE9及以下浏览器设置的兼容placeholder的方法：其他浏览器不显示 end-->
+       <input type="password" class="pasIE"  placeholder="我是密码？？？"/>
+   </div>
+</div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+    $(function(){
+//        针对IE浏览器不支持placeholder属性的解决方法
+        //判断浏览器是否支持placeholder属性
+        var supportPlaceholder='placeholder'in document.createElement('input');
+        if( !supportPlaceholder ) // 如果不支持placeholder属性
+        {
+            $('input').each(function(  )
+            {
+//                如果input的 type = "text" 时
+                if($(this).attr("type") == "text"){
+                    var ph = $(this).attr('placeholder');
+
+                    if( ph && !$(this).val() )
+                    {
+                        $(this).val(ph).css('color', '#aaa').css('line-height', $(this).css('height'));
+                    }
+
+                    $(this).on('focus', function()
+                    {
+                        if( $(this).val() === ph)
+                        {
+                            $(this).val(null).css('color', '');
+                        }
+
+                    }).on('blur', function()
+                    {
+                        if( !$(this).val() )
+                        {
+                            $(this).val(ph).css('color', '#aaa').css('line-height', $(this).css('height'));
+                        }
+                    });
+                }else if($(this).attr("type") == "password"){
+
+                    $(".pasIE-bg").show();
+                    $(".pasIE").hide();
+                    //                如果input的 type = "password" 时
+                    $(".pasIE-bg").focus(function(){
+                        $(this).hide();
+                        $(this).siblings(".pasIE").show().focus();
+                        $(this).siblings(".pasIE").focus(function(){
+                            $(this).siblings(".pasIE-bg").hide();
+                        }).blur(function(){
+                            if(!$(this).val()){
+                                $(this).siblings(".pasIE-bg").show();
+                                $(this).hide();
+                            }
+                        })
+                    });
+
+                }
+            });
+        }
+    });
+
+
+
+
+
+
+</script>
+</body>
+</html>

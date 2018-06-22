@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标概况-许可备案</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main-hou c333">
+        <div class="bread-nav">
+            商标列表 > 商标详情
+        </div>
+        <!--上面 公用-->
+        <div class="list-gk-top oh">
+            <div class="logo fl">
+                <img src="../images/img1.png" alt=""/>
+            </div>
+            <div class="logo-txt f12">
+                <p><span class="fb f16">神州易桥信息科技</span><span class="xuzhan">续展中</span></p>
+                <p><span class="c999">商标类型：</span><span>文字商标</span></p>
+                <p><span class="c999">商标类别：</span><span>25</span></p>
+                <div class="oh">
+                    <div class="fl c999">小　　类：</div>
+                    <div class="xlei " >
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span class="zhankai">展开更多</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--上面 公用 end-->
+        <div class="list-gk-tab">
+            <a href="javascript:;">商标概况</a>
+            <a href="javascript:;">转让</a>
+            <a href="javascript:;">变更</a>
+            <a href="javascript:;">许可备案</a>
+            <a href="javascript:;">续展</a>
+            <a class="active" href="javascript:;">资料列表</a>
+        </div>
+        <div class="list-gk-cont">
+            <!--右边的完成步骤部分-->
+            <div class="list-gk-cont-right fr">
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                        <div class="step-mode fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">等待下发《商标注册证》</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">公告期结束，注册成功</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">资料已下载</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl oh">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="11" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="11" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zhou"><img src="../images/zhu.png" width="1"   alt=""/></div>
+                </div>
+            </div>
+            <!--右边的完成步骤部分 end-->
+            <!--上面切换模块 索要改变的部分-->
+            <div class="list-gk-cont-left">
+
+                <div class="bgl-mode">
+                    <h1 class="c-h1">资料列表</h1>
+                    <div class="bgl-cont">
+                        <div class="zl-list-tab oh">
+                            <span class="active">顾问上传</span>
+                            <span>用户上传</span>
+                            <input type="button" class="ml20 blue-big-btn fr" value="上传资料"/>
+                            <input type="button" class="write-big-btn fr" value="全部下载"/>
+                        </div>
+                        <table class="bg-table mt20">
+                            <tr class="tr1">
+                                <td style="width: 5%;">序号</td>
+                                <td style="width: 29%;">文件名称</td>
+                                <td style="width: 9%;">业务类型</td>
+                                <td style="width: 12%;">文件大小</td>
+                                <td style="width: 19%;">更新时间</td>
+                                <td  style="width: 37%;">操作</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="">神州顺利办.jpg</td>
+                                <td>转让</td>
+                                <td>24k</td>
+                                <td>2016.08.09 23:45</td>
+                                <td class="xk-hand"><a href="javascript:;">下载</a><a href="javascript:;" >删除</a></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="">神州顺利办.jpg</td>
+                                <td>转让</td>
+                                <td>24k</td>
+                                <td>2016.08.09 23:45</td>
+                                <td class="xk-hand"><a href="javascript:;">下载</a><a href="javascript:;" >删除</a></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="">神州顺利办.jpg</td>
+                                <td>转让</td>
+                                <td>24k</td>
+                                <td>2016.08.09 23:45</td>
+                                <td class="xk-hand"><a href="javascript:;">下载</a><a href="javascript:;" >删除</a></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="">神州顺利办.jpg</td>
+                                <td>转让</td>
+                                <td>24k</td>
+                                <td>2016.08.09 23:45</td>
+                                <td class="xk-hand"><a href="javascript:;">下载</a><a href="javascript:;" >删除</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!--翻页按钮-->
+                <div class="c-pages pb30">
+                    <span>共100条记录，20页</span>
+    <span>
+        <a href="#">首页</a>
+        <a href="#">上一页</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#" class="active">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">下一页</a>
+        <a href="#">末页</a>
+    </span>
+                </div>
+                <!--翻页按钮 end-->
+            </div>
+            <!--上面切换模块 索要改变的部分 end-->
+        </div>
+    </div>
+
+
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".zl-list-tab span").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+
+</script>
+</body>
+</html>

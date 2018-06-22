@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>集市</title>
+    <script src="js/fx_common.js"></script>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_JS.css"/>
+</head>
+<body>
+<!--内容-->
+<div class="contBox ">
+    <!--nav-->
+    <div class="js_nav  swiper-container">
+        <ul class="swiper-wrapper" id="fx_nav">
+            <li class="swiper-slide active">今日上新</li>
+            <li class="swiper-slide">米</li>
+            <li class="swiper-slide">面</li>
+            <li class="swiper-slide">油</li>
+            <li class="swiper-slide">水果</li>
+            <li class="swiper-slide">最后疯抢</li>
+            <li class="swiper-slide">最后疯抢</li>
+            <li class="swiper-slide">最后疯抢</li>
+        </ul>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script>
+    var myswiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto'
+    })
+
+    $("#fx_nav li").on("click",function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+</script>
+</body>
+</html>

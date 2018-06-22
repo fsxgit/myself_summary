@@ -1,0 +1,312 @@
+
+body{background: #99211f;}
+.l-box{width: 100px; height: 200px; background: #08ef0f; margin:50px 60px; cursor: pointer;}
+.l-box3{width: 150px; height: 150px; border-radius: 50%;  background: #08ef0f; margin:50px 60px; cursor: pointer; }
+.l-box2{width: 200px; height: auto; margin:50px 60px; cursor: pointer; }
+.l-box2 .yuan{width: 100px; height: 100px; background: #3fef08; border-radius: 50%; }
+.l-box2 p{font-size: 20px; color: #fff;}
+h1{color:#fff; font-size: 30px;}
+
+a{text-decoration: none;}
+.tc{text-align: center;}
+
+/*按钮移入移出特效 开始*/
+
+.scale-hzt:hover, .scale-rht:hover, .scale-vtl:hover{
+    cursor: pointer
+}
+
+
+.btn {
+    margin-right: 22px;
+    width: 128px;
+    height: 38px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 38px;
+}
+
+.btn:hover{
+    color: #00a0e9;
+}
+
+
+.scale-hzt, .scale-hzt-blue, .scale-rht, .scale-vtl {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    transition-duration: .3s;
+    backface-visibility: hidden;
+    -o-transform: translateZ(0);
+    -o-transition-duration: .3s;
+    -o-backface-visibility: hidden;
+    -ms-transform: translateZ(0);
+    -ms-transition-duration: .3s;
+    -ms-backface-visibility: hidden;
+    -moz-transform: translateZ(0);
+    -moz-transition-duration: .3s;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -webkit-transition-duration: .3s;
+    -webkit-backface-visibility: hidden
+}
+
+
+/*第一种状态 左右*/
+.scale-hzt:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: 50%;
+    transition-property: transform;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    -o-transform: scaleX(0);
+    -o-transform-origin: 50%;
+    -o-transition-property: transform;
+    -o-transition-duration: .3s;
+    -o-transition-timing-function: ease-out;
+    -ms-transform: scaleX(0);
+    -ms-transform-origin: 50%;
+    -ms-transition-property: transform;
+    -ms-transition-duration: .3s;
+    -ms-transition-timing-function: ease-out;
+    -moz-transform: scaleX(0);
+    -moz-transform-origin: 50%;
+    -moz-transition-property: transform;
+    -moz-transition-duration: .3s;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transform: scaleX(0);
+    -webkit-transform-origin: 50%;
+    -webkit-transition-property: transform;
+    -webkit-transition-duration: .3s;
+    -webkit-transition-timing-function: ease-out
+}
+
+.scale-hzt:hover:before {
+    transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -webkit-transform: scaleX(1)
+}
+
+
+/*第二种状态 上下*/
+.scale-vtl:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    z-index: -10;
+    transform: scaleY(0);
+    transform-origin: 50%;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    -o-transform: scaleY(0);
+    -o-transform-origin: 50%;
+    -o-transition-property: transform;
+    -o-transition-duration: .3s;
+    -o-transition-timing-function: ease-out;
+    -ms-transform: scaleY(0);
+    -ms-transform-origin: 50%;
+    -ms-transition-property: transform;
+    -ms-transition-duration: .3s;
+    -ms-transition-timing-function: ease-out;
+    -moz-transform: scaleY(0);
+    -moz-transform-origin: 50%;
+    -moz-transition-property: transform;
+    -moz-transition-duration: .3s;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transform: scaleY(0);
+    -webkit-transform-origin: 50%;
+    -webkit-transition-duration: .3s;
+    -webkit-transition-timing-function: ease-out
+}
+
+.scale-vtl:hover:before {
+    transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -webkit-transform: scaleY(1)
+}
+
+
+/*第三种状态*/
+.scale-vtl:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    z-index: -10;
+    transform: scaleY(0);
+    transform-origin: 50%;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    -o-transform: scaleY(0);
+    -o-transform-origin: 50%;
+    -o-transition-property: transform;
+    -o-transition-duration: .3s;
+    -o-transition-timing-function: ease-out;
+    -ms-transform: scaleY(0);
+    -ms-transform-origin: 50%;
+    -ms-transition-property: transform;
+    -ms-transition-duration: .3s;
+    -ms-transition-timing-function: ease-out;
+    -moz-transform: scaleY(0);
+    -moz-transform-origin: 50%;
+    -moz-transition-property: transform;
+    -moz-transition-duration: .3s;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transform: scaleY(0);
+    -webkit-transform-origin: 50%;
+    -webkit-transition-duration: .3s;
+    -webkit-transition-timing-function: ease-out
+}
+
+.scale-vtl:hover:before {
+    transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -webkit-transform: scaleY(1)
+}
+
+/*按钮移入移出特效 end*/
+
+
+/*物体左右摇晃 开始*/
+/*向右摇晃*/
+.hvr-skew-forward:hover, .hvr-skew-forward:focus, .hvr-skew-forward:active {
+    -webkit-transform: skew(-10deg);
+    transform: skew(-10deg)
+}
+
+
+
+.hvr-skew-forward {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%
+}
+
+/*向左摇晃*/
+.hvr-skew-backward {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%
+}
+
+.hvr-skew-backward:hover, .hvr-skew-backward:focus, .hvr-skew-backward:active {
+    -webkit-transform: skew(10deg);
+    transform: skew(10deg)
+}
+
+/*物体左右摇晃 end*/
+/*向右晃动效果*/
+.hvr-grow-rotate {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform
+}
+
+.hvr-grow-rotate:hover{
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transform: scale(1.1) rotate(4deg);
+    transform: scale(1.1) rotate(4deg)
+}
+/*向右晃动效果 end*/
+/*跳动阴影 效果 开始*/
+
+.hvr-float-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform
+}
+
+.hvr-float-shadow:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 80px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, .35) 0, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, .35) 0, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity
+}
+
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px)
+}
+
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px)
+}
+/*跳动阴影 效果 end*/

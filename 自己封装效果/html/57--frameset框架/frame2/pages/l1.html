@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0; padding:0;}
+        .topMeau{font-size: 0; margin-left:auto; margin-right:auto; width:810px;padding:20px 0;}
+        .topMeau span{display: block; border:1px solid #ccc; border-radius: 4px;width:160px; font-size: 14px; text-align: center; height: 30px; line-height: 30px;}
+        .topMeau span a{color: #666; text-decoration: none; display: inline-block; width: 100%; height: 100%;}
+        .topMeau span.active a{color: #f7f7e5; background: #151cff;}
+    </style>
+</head>
+<body>
+<h1>我是菜单111111</h1>
+    <div class="topMeau">
+        <span class="active"><a href="1.html" target="content">限时特价</a></span>
+        <span><a href="2.html" target="content">每日特价</a></span>
+        <span><a href="3.html" target="content">热销菜品</a></span>
+        <span><a href="4.html" target="content">特色推荐</a></span>
+        <span><a href="5.html" target="content">新上菜品</a></span>
+    </div>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(".topMeau span").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    </script>
+</body>
+</html>

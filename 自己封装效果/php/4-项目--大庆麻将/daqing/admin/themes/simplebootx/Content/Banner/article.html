@@ -1,0 +1,44 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr>
+				<th>标题</th>
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="listData" item="vo">
+				<tr>
+					<td><label class="radio inline"><input type="radio" name="id" value="{$vo.id}"><span>{$vo.title}</span></label></td>
+				</tr>
+			</foreach>
+		</tbody>
+	</table>
+	<div class="pagination  pagination-centered">{$page}</div>
+	<div class="form-actions">
+    <button class="btn btn-primary btn_submit ajax-post" type="submit" onclick="closelayer()" target-form="form-horizontal">确定</button>
+</div>
+</div>
+<script type="text/javascript">
+	var index = parent.layer.getFrameIndex(window.name); 	
+	function closelayer()
+	{
+		Wind.css('layer');
+        Wind.use("layer",
+        function() {
+        	var obj = $("input[name='id']:checked");
+        	if( obj.val() == undefined)
+        	{
+        		alert('请选择跳转的内容');
+        		return false;
+        	}
+        	parent.$("#to_infoid").val(obj.val())
+        	parent.$("#title").val(obj.next('span').html())
+            parent.layer.close(index);
+        });
+	}
+</script>
+</body>
+</html>

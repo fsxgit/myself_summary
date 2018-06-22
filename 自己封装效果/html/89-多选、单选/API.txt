@@ -1,0 +1,16 @@
+包含的知识点
+1.jq控制input 选中/取消选中的方法
+$(".class").prop("checked",true);
+$(".class").prop("checked",false);
+
+2.超出省略号显示，鼠标移入显示完整的
+.ellipsis{width: 300px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+
+3.弹出框垂直上下居中
+
+4.jq判断input是否选中
+$(".class").is(":checked");
+
+5.最核心的最重要的 是
+全选、单选、多选的相互嵌套的实现。
+其中的$(this)的理解，可谓深刻，值得去好好学习，理解。

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>监听手机物理返回键</title>
+</head>
+<body>
+<h1>监听手机物理返回键</h1>
+<script>
+    pushHistory();
+    window.addEventListener("popstate", function(e) {
+        alert("返回百度首页");
+        window.location = 'http://www.baidu.com';
+    }, false);
+    function pushHistory() {
+        var state = {
+            title: "title",
+            url: "#"
+        };
+        window.history.pushState(state, "title", "#");
+    }
+</script>
+</body>
+</html>

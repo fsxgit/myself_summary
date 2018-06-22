@@ -1,0 +1,260 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>树状菜单</title>
+    <style>
+        *{margin:0; padding:0;}
+        html,body{height: 100%; font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .fp_box{height: 100%;}
+        .fp_left{width: 300px; height: 100%; float: left; border-right: 2px solid #c1d5ee; overflow: auto;}
+        .fp_right{margin-left: 302px; height: 100%;  overflow: auto; }
+        .fb_left_select{width:100%; height: 40px; border-color:#c1d5ee;}
+        .fp_left_meau{padding:10px;}
+        .fp_left_meau input[type='checkbox']{margin-right:4px;}
+        .fp_left_meau ul{padding:10px 0 0 10px;}
+        .fp_left_meau li{padding:10px 0; list-style: none;}
+        .fp_left_meau span{cursor: pointer;}
+        .meau_mode{padding:10px;}
+        .meau_mode span{color: #999;}
+        .meau_mode ul{display: none;}
+        .fb_table{padding-bottom: 50px; box-sizing: border-box;}
+        .fb_table table{width: 100%; border-collapse: collapse; color: #333; }
+        .fb_table table tr:nth-of-type(even){background: #f5f5f5;}
+        .fb_table table td,.fb_table table th{border:1px solid #c1d5ee; padding:4px 10px; height: 22px; text-align: center;}
+        .fb_table table th{background: #c1dbfb; font-size: 14px;}
+        .fb_right_tit{border-bottom: 1px solid #c1d5ee; height: 40px; line-height: 40px; padding-left: 20px; color: #344266; font-weight: 600; font-size: 16px;}
+        .fb_right_txt{border-bottom: 1px solid #c1d5ee; height: 40px; line-height: 40px; padding-left: 20px; color: #333;  font-size: 16px;}
+        .fb_right_txt span{display: inline-block; padding:2px 10px; margin-right:20px; cursor: pointer; border:1px solid #ccc; line-height: 24px; border-radius: 2px; background: #eee;}
+        .fb_right_txt span:hover{background: #ccc;}
+    </style>
+</head>
+<body>
+<div class="fp_box">
+    <div class="fp_left">
+        <select class="fb_left_select" name="" id="">
+            <option value="">测试1</option>
+            <option value="">测试2</option>
+            <option value="">测试3</option>
+            <option value="">测试4</option>
+            <option value="">测试5</option>
+        </select>
+        <div class="fp_left_meau">
+            <div class="meau_mode">
+                <input  data-state="1" type="checkbox"/><span data-state="1" >菜单1</span>
+                <ul>
+                    <li>
+                        <input data-state="1"  type="checkbox"/><span data-state="1" >菜单21</span>
+                        <ul class="ul2">
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span data-state="1" >菜单31</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >黄瓜黄瓜黄瓜</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >西红柿西红柿西红柿</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >茄子茄子茄子茄子</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >萝卜萝卜萝卜萝卜</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >韭菜韭菜韭菜韭菜</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span data-state="1" >菜单32</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >土豆土豆土豆土豆土豆</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >菠菜菠菜菠菜菠菜</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >紫菜紫菜紫菜</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >豆角豆角豆角</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >花菜花菜花菜</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input data-state="1"  type="checkbox"/><span data-state="1" >菜单22</span>
+                        <ul class="ul2">
+                            <li><input data-state="1"  type="checkbox"/><span data-state="1" >洋白菜洋白菜</span></li>
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span data-state="1" >菜单32</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >宫保鸡丁</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input data-state="1"  type="checkbox"/><span data-state="1" >菜单23</span>
+                        <ul class="ul2">
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span data-state="1" >菜单31</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >红烧狮子头</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >清蒸大鲤鱼</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span data-state="1" >菜单32</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >青椒肉丝鸡蛋面</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >胡辣汤</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="meau_mode">
+                <input  data-state="1" type="checkbox"/><span data-state="1" >菜单2</span>
+                <ul >
+                    <li>
+                        <input data-state="1"  type="checkbox"/><span data-state="1" >菜单21</span>
+                        <ul class="ul2">
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span data-state="1" >菜单31</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >米线</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >面条</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >米饭</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span data-state="1" >菜单32</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >盖浇饭</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span data-state="1" >炒面</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="fp_right">
+        <div class="fb_right_tit">费用分配信息</div>
+        <div class="fb_right_txt"><span>分配</span><span>删除</span></div>
+        <div class="fb_table">
+            <table>
+                <thead>
+                    <th>小区</th>
+                    <th>楼层</th>
+                    <th>物业</th>
+                    <th>琼姐</th>
+                    <th>上课</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+    $(function() {
+//    改变有没有子级元素的颜色【由于css不知道怎么区分，所以只能通过js来设置了】
+        $(".meau_mode ul").prev("span").css("color","#333");
+//    点击菜单标题折叠菜单
+        $(".meau_mode span").click(function () {
+            if ($(this).data("state") == 1) {
+                var hasUl = $(this).siblings("ul");
+                if(hasUl.length != 0){
+                    hasUl.show();
+                    $(this).data("state", 2);
+                }else{
+                    //最底层进行操作
+                    alert(2);
+                }
+            } else {
+                $(this).siblings("ul").hide();
+                $(this).data("state", 1);
+            }
+
+        });
+
+//点击菜单标题旁边的总的选择框，选中此标题下面的所有的菜单
+        //state： 1 未选中；2 选中
+        $("input[type='checkbox']").click(function(){
+            var state = $(this).data("state");
+            var fus = $(this).parents("ul");
+            var zis = $(this).siblings("ul").find("input[type='checkbox']");
+            if( state == 1){
+                //当前点击的选择框未被选中
+
+                //修改此选择框的状态  变为 选中状态
+                $(this).prop("checked",true);
+                $(this).data("state",2);
+
+                //修改所有下级选择框的状态  变为 选中状态
+                zis.prop("checked",true);
+                zis.data("state",2);
+
+                //修改父级选择框的状态 【这要根据当前的同一父级的下面的所有选择框来决定】
+                fus.each(function(){
+                    //遍历父级，如果父级下面的所有选择框都被选中，则父级的兄弟选择框被选中
+                    var Thats = $(this).find("input[type='checkbox']");
+                    var a = 1; //父级下面没有未被选中的
+                    //遍历父级下面的选择框是否被全部选中
+                    Thats.each(function(){
+                        if($(this).data("state") == 1){
+                            //父级下面有未被选中的
+                            a = 2;
+                        }
+                    });
+                    if(a == 1){
+                        //如果父级下面的选择框被全部选中，则父级兄弟的选择框被选中
+                        $(this).siblings("input[type='checkbox']").prop("checked",true);
+                        $(this).siblings("input[type='checkbox']").data("state",2);
+                    }else{
+                        //如果父级下面的选择框未被全部选中，则父级兄弟的选择框不被选中
+                        $(this).siblings("input[type='checkbox']").prop("checked",false);
+                        $(this).siblings("input[type='checkbox']").data("state",1);
+                    }
+                    //修改父级的上一级
+                })
+            }else{
+                //当前点击的选择框已被选中
+
+                //修改此选择框的状态 变为 未选中状态
+                $(this).prop("checked",false);
+                $(this).data("state",1);
+
+                //修改所有下级选择框的状态 变为 未选中状态
+                zis.prop("checked",false);
+                zis.data("state",1);
+                //修改父级选择框的状态  变为 未选中状态
+                fus.siblings("input[type='checkbox']").prop("checked",false);
+                fus.siblings("input[type='checkbox']").data("state",1);
+            }
+        })
+
+
+    });
+</script>
+</body>
+</html>

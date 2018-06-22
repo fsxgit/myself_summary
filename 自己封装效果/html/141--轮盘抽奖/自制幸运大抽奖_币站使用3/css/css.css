@@ -1,0 +1,29 @@
+*{margin:0; padding:0;}
+.zpBox{padding: 50px 0 30px;}
+.zpWrap{width: 300px; height: 300px; margin:0 auto; position: relative; }
+.zpWrap .leave1{width:46px; height:auto ; position: absolute; left:-2px; bottom:60px; z-index: 9;}
+.zpWrap .leave2{width:54px; height:auto ; position: absolute; right:1px; top:58px; z-index: 9;}
+.zpWrap .leave3{width:34px; height:auto ; position: absolute; left:25px; bottom:0; z-index: 9;}
+.zpWrap .leave4{width:38px; height:auto ; position: absolute; right:0; bottom:24px; z-index: 9;}
+.zpBox .zpCenter{width: 100%; height: 100%; position: relative; z-index: 10;
+
+}
+.zpBox .zpCenter img{display: block; width: 100%; height: 100%; }
+.zpBox .zpPointer{
+    width: 100%; height: 100%; position: absolute; left:0; top:0; z-index: 10;
+    transition: all 3s;
+    -moz-transition: all 3s; /* Firefox 4 */
+    -webkit-transition: all 3s; /* Safari ºÍ Chrome */
+    -o-transition: all 3s; /* Opera */
+    transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+}
+.zpBox .zpPointer img{display: block; width: 90px; height: 114px; position: absolute; left:104px; top:80px; z-index: 11;}
+.zpBox .lpshadow{width: 250px; margin:0 auto; position: relative; top:-16px;}
+.zpBox .lpshadow img{width: 100%; height: auto;}
+.zpBox .lpbtn{width: 300px; margin:0 auto; padding-top: 30px;}
+.zpBox .lpbtn img{display: block; width: 100%; height: auto;}
+.zpBox .lpts{text-align: center; font-size: 14px; color: #fff; }
+.zpBox .lpts span{display: inline-block; background: rgba(0,0,0,0.3); height:25px; line-height: 25px; border-radius: 13px; padding:0 16px; font-size: 12px;}

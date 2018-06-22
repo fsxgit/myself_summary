@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3动画效果测试2</title>
+	<link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+<div class="btn1">点我触发左右动画效果</div>
+<div class="box">
+	<div class="top1">
+		11111111111
+	</div>
+	<div class="bot1">
+		222222222222
+	</div>
+</div>
+
+
+
+<div class="btn2">点我触发上下动画效果</div>
+<div class="box2">
+	<div class="top2">
+		3333
+	</div>
+	<div class="line"></div>
+	<div class="bot2">
+		5555
+	</div>
+</div>
+
+
+<div class="btn3">点我触发淡入动画效果</div>
+<div class="box3">
+	<div class="top3">
+		6666666666
+	</div>
+	<div class="bot3">
+		7777777777
+	</div>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+//	左右css3动画触发开始
+	$(".btn1").click(function(){
+		$(".top1").addClass("bounceInLeft");
+		$(".bot1").addClass("bounceInRight");
+	})
+
+	//捕捉webkitAnimationEnd事件  动画
+	//$(".top").addEventListener('webkitAnimationEnd', end, false);
+	//捕捉webkitTransitionEnd事件
+	//$(".top").addEventListener('webkitTransitionEnd', end, false);
+
+	//捕捉webkitAnimationEnd事件  css3动画开始时执行
+	$(".top1").on("webkitAnimationStart", function () {
+		console.log("嘻嘻嘻，我要开始了！！1111")
+	})
+	//捕捉webkitAnimationEnd事件  css3动画结束时执行
+	$(".top1").on("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
+		console.log("哈哈哈，我已经结束了！！1111")
+	});
+
+
+
+//	上下css3动画触发开始
+	$(".btn2").click(function(){
+		$(".top2").addClass("bounceInDown");
+		$(".bot2").addClass("bounceInUp");
+	})
+
+
+	//捕捉webkitAnimationEnd事件  css3动画开始时执行
+	$(".top2").on("webkitAnimationStart", function () {
+		console.log("嘻嘻嘻，我又开始了！！2222")
+	})
+	//捕捉webkitAnimationEnd事件  css3动画结束时执行
+	$(".top2").on("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
+		console.log("哈哈哈，我又结束了！！2222");
+		$(".line").css("opacity",1);
+	});
+
+
+//	淡入css3动画触发开始
+$(".btn3").click(function(){
+	$(".top3").addClass("fadeInDown");
+	$(".bot3").addClass("fadeInUp");
+})
+
+
+//捕捉webkitAnimationEnd事件  css3动画开始时执行
+$(".top3").on("webkitAnimationStart", function () {
+	console.log("嘻嘻嘻，我又开始了！！333");
+})
+//捕捉webkitAnimationEnd事件  css3动画结束时执行
+$(".top3").on("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
+	console.log("哈哈哈，我又结束了！！3333");
+});
+</script>
+</body>
+</html>

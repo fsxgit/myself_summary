@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>联动demo</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 40px 200px;
+            background: #ccc;
+        }
+        h1, h2 {
+            background: #f8ff4c;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 50px;
+            cursor: pointer;
+        }
+        p {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 80px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .kinds, .represent {
+            padding-bottom: 30px;
+            background: #fff;
+        }
+        .KindsTit {
+            font-size: 20px;
+            color: #FF0000;
+            padding: 5px 20px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<h2>种类 <span class="KindsTit" dataKinds="">铺货</span></h2>
+<div class="kinds"></div>
+<h2>代表</h2>
+<div class="represent"></div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var oKindsTit = $(".KindsTit");
+    var $kinds = $(".kinds");
+    var $kinds_list = "";
+    var $represent = $(".represent");
+    var $dataKind = null;
+    var $dataRep = "";
+    $.ajax({
+        url:"./data.json",//数据接口
+        type:"GET",//传值方式
+        dataType:"json",//数据类型
+        async:false,//关闭异步
+        //data 是代表传进来的数据的形参
+        success:function(data){
+            //$.each()也是ajax的专有遍历 方法
+            $.each(data.kinds,function(index,val){
+                $kinds_list += "<p data-kind="+ val.id +">"+ val.name +"</p>";
+            });
+            //插入
+            $kinds.html($kinds_list);
+
+            //click
+            $kinds.find("p").on('click',function(){
+                $dataKind = $(this).data("kind");//ajax专有针对data-xxx自定义属性的方法data(xxx);
+                oKindsTit.text($(this).text());
+                //取二级数据
+                $.each(data.represent,function(i,d){
+                    $dataRep = "";
+                    if(d[$dataKind])
+                    {
+                        $.each(d[$dataKind],function(ix,data){
+                            $dataRep += "<p>"+ data +"</p>";
+                        });
+                        $represent.html($dataRep);
+                    };
+                });
+            });
+        },
+        error:function()
+        {
+            console.log("This is error!");
+        }
+    });
+</script>
+</body>
+</html>

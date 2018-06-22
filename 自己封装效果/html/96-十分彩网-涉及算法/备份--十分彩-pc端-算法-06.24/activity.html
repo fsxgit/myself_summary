@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://www.dfa05.com/activity -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="./css/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/fx.css"/>
+    <style>
+        .floorDetail{display: none;}
+    </style>
+    <script>(function () {
+        var IEvar = '9',
+                IEnum = navigator.userAgent.toLowerCase();
+        if (IEnum.indexOf("msie") > -1) {
+            if (Number(IEnum.match(/msie ([\d.]+)/)[1]) < IEvar) {
+                location.href = '/updateBrowser.html';
+            }
+        } else {
+            if (window.localStorage && window.sessionStorage) {
+                try {
+                    sessionStorage.setItem('TextLocalStorage', 'hello world');
+                    sessionStorage.removeItem('TextLocalStorage');
+                    localStorage.setItem('TextLocalStorage', 'hello world');
+                    localStorage.removeItem('TextLocalStorage');
+                } catch (e) {
+                    alert('您的浏览器太旧或者开启了隐私模式/无痕模式，无法浏览网页，请更换浏览器或使用常规模式，给您带来的不便，表示抱歉！')
+                }
+            } else {
+                location.href = '/updateBrowser.html';
+            }
+            ;
+        }
+    })();
+    ;
+    (function () {
+        if (location.href.search('CanPc') > -1) {
+            sessionStorage.setItem('CanPc', 1);
+        }
+        var u = navigator.userAgent;
+        if (!!u.match(/AppleWebKit.*Mobile.*/) && !sessionStorage.getItem('CanPc')) {
+            location.href = location.href.replace('www.', '').replace('http://', 'http://m.').replace(".html", '');
+        }
+    })();
+    (function () {
+        if ("undefined" === typeof(Promise)) {
+            document.write('<script src="//cdn.bootcss.com/es6-promise/4.0.5/es6-promise.auto.min.js"><\/script>');
+        }
+        ;
+        if ("undefined" === typeof(fetch)) {
+            document.write('<script src="//cdn.bootcss.com/fetch/2.0.1/fetch.min.js"><\/script>');
+        }
+    })()</script>
+    <script src="./js/layer.m.js"></script>
+    <link href="./css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script src="./js/xss.min.js"></script>
+    <link href="./css/app.css1.css" rel="stylesheet">
+    <title>十分彩网</title>
+    <link type="image/x-icon" rel="shortcut icon" href="./images/dafa.ico">
+</head>
+<body>
+<div id="app" class="activity">
+    <div class="header head3">
+        <div data-v-5d0c0cde="" id="HeaderTop" class="">
+            <div data-v-5d0c0cde="" class="snav">
+                <div data-v-5d0c0cde="" class="container">
+                    <div data-v-5d0c0cde="" class="snavAll"><a data-v-5d0c0cde="" href="./index.html"
+                                                               class="">Hi，欢迎来到十分彩网！</a>
+                        <ins data-v-5d0c0cde=""> |</ins>
+                        <a data-v-5d0c0cde="" class="betNavMore">全部彩票</a></div>
+                    <ul data-v-5d0c0cde="" class="snavInfo">
+                        <li data-v-5d0c0cde=""><a data-v-5d0c0cde="" href="./login.html"
+                                                  class="curr">亲，请登录</a><i data-v-5d0c0cde="" class="vertical"></i></li>
+                        <li data-v-5d0c0cde=""><a data-v-5d0c0cde="" href="./register.html"
+                                                  class="">用户注册</a></li>
+                        <a data-v-5d0c0cde="" class="serviceLink ServiceBtn"><i data-v-5d0c0cde="" class="iconfont"></i><span
+                                data-v-5d0c0cde=""></span></a></ul>
+                </div>
+                <div data-v-ee8285fc="" data-v-5d0c0cde="" class="cardBox" style="display: none;"><!----></div>
+            </div>
+        </div>
+        <!---->
+        <div class="nav">
+            <div class="container fix"><h3><a href="http://www.dfa05.com/"><img src="./images/logo1.png"></a></h3>
+                <!---->
+                <ul class="navItem fix flr">
+                    <li class="" id="navIndex"><a href="./index.html">首页</a></li>
+                    <li class="" id="navLottery"><a href="./lotteryHall.html">购彩大厅</a></li>
+                    <li class="curr" id="navActivity"><a href="./activity.html">活动中心</a></li>
+                    <li class="" id="navMobile"><a href="./mobile.html">手机购彩</a></li>
+                    <li class="" id="navSecurityCenter"><a href="./securityCenter.html">我的账户</a></li>
+                    <li class="" id="navHelp"><a href="./helpCenter.html">帮助指南</a></li>
+                    <span>
+
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-v-1c2493ec="" id="ActivityBox" class="container activity" s="[object Object]">
+        <div data-v-1c2493ec="" class="floor fix">
+            <div data-v-1c2493ec="" class="showDetail fix"><img data-v-1c2493ec=""
+                                                                src="./images/20160924084334202069.png" alt=""
+                                                                class="ImgLI floorTitleImg defaultImg">
+
+                <div data-v-1c2493ec="" class="floorRright"><h2 data-v-1c2493ec="">晋级奖励</h2>
+
+                    <p data-v-1c2493ec="">会员每晋升一个等级，都能获得奖励，最高可达38888元。</p> <a  class="fx_floor1" href="javascript:;">查看详情<i
+                            data-v-1c2493ec=""></i></a>
+                </div>
+            </div>
+            <div data-v-5be8b080="" class="floorDetail fx_floorDetail1"  data-v-3df5c367="">
+                <div data-v-5be8b080="" class="inHtml"><h3 data-v-5be8b080="">每日加奖<i data-v-5be8b080=""></i></h3> <em
+                        data-v-5be8b080="">昨日投注：<i data-v-5be8b080="">0</i></em> <em data-v-5be8b080="">当前等级：<i
+                        data-v-5be8b080="">未登录</i></em> <em data-v-5be8b080="">加奖比例：<i data-v-5be8b080="">0</i></em> <em
+                        data-v-5be8b080="">可得加奖：<i data-v-5be8b080="">0</i></em> <a data-v-5be8b080=""
+                                                                                    href="javascript:;"
+                                                                                    class="getBtn disable">不可领取</a>
+
+                    <h3 data-v-5be8b080="">加奖比例<i data-v-5be8b080=""></i></h3>
+                    <table data-v-5be8b080="" width="60%">
+                        <tbody data-v-5be8b080="">
+                        <tr data-v-5be8b080="">
+                            <th data-v-5be8b080="" class="tbplus"><i data-v-5be8b080="">等级</i>
+                                <ins data-v-5be8b080=""></ins>
+                                <em data-v-5be8b080="">昨日投注</em></th>
+                            <th data-v-5be8b080="">100+</th>
+                            <th data-v-5be8b080="">10000+</th>
+                            <th data-v-5be8b080="">200000+</th>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP3</td>
+                            <td data-v-5be8b080="">0.1%</td>
+                            <td data-v-5be8b080="">0.2%</td>
+                            <td data-v-5be8b080="">0.3%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP4</td>
+                            <td data-v-5be8b080="">0.2%</td>
+                            <td data-v-5be8b080="">0.3%</td>
+                            <td data-v-5be8b080="">0.4%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP5</td>
+                            <td data-v-5be8b080="">0.3%</td>
+                            <td data-v-5be8b080="">0.4%</td>
+                            <td data-v-5be8b080="">0.5%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP6</td>
+                            <td data-v-5be8b080="">0.4%</td>
+                            <td data-v-5be8b080="">0.5%</td>
+                            <td data-v-5be8b080="">0.6%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP7</td>
+                            <td data-v-5be8b080="">0.5%</td>
+                            <td data-v-5be8b080="">0.6%</td>
+                            <td data-v-5be8b080="">0.7%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP8</td>
+                            <td data-v-5be8b080="">0.6%</td>
+                            <td data-v-5be8b080="">0.7%</td>
+                            <td data-v-5be8b080="">0.8%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP9</td>
+                            <td data-v-5be8b080="">0.7%</td>
+                            <td data-v-5be8b080="">0.8%</td>
+                            <td data-v-5be8b080="">0.9%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h3 data-v-5be8b080="">活动说明<i data-v-5be8b080=""></i></h3></div>
+                <!---->
+                <div data-v-5be8b080="" class="activityCon"><p>
+                    1、每日加奖在每日凌晨00:20后开放领取；
+                </p>
+
+                    <p>
+                        2、加奖比例是根据会员等级以及昨日累计投注金额进行一定比例的加奖；
+                    </p>
+
+                    <p>
+                        3、需Vip3以上且昨日投注额大于或等于100才能获得加奖；
+                    </p>
+
+                    <p>
+                        4、撤单和其他无效投注将不计算在内；
+                    </p>
+
+                    <p>
+                        5、活动奖金逾期未领取，视为自动放弃活动资格。
+                    </p></div>
+            </div>
+        </div>
+        <div data-v-1c2493ec="" class="floorLine"></div>
+        <div data-v-1c2493ec="" class="floor fix">
+            <div data-v-1c2493ec="" class="showDetail fix"><img data-v-1c2493ec=""
+                                                                src="./images/20160924082726681336.png" alt=""
+                                                                class="ImgLI floorTitleImg defaultImg">
+
+                <div data-v-1c2493ec="" class="floorRright"><h2 data-v-1c2493ec="">每日加奖</h2>
+
+                    <p data-v-1c2493ec="">每日加奖是根据会员昨日投注金额进行加奖，奖金无上限。</p> <a class="fx_floor2"
+                                                                            href="javascript:;">查看详情<i
+                            data-v-1c2493ec=""></i></a></div>
+            </div>
+            <div data-v-5be8b080="" class="floorDetail fx_floorDetail2"  data-v-3df5c367="">
+                <div data-v-5be8b080="" class="inHtml"><h3 data-v-5be8b080="">每日加奖<i data-v-5be8b080=""></i></h3> <em
+                        data-v-5be8b080="">昨日投注：<i data-v-5be8b080="">0</i></em> <em data-v-5be8b080="">当前等级：<i
+                        data-v-5be8b080="">未登录</i></em> <em data-v-5be8b080="">加奖比例：<i data-v-5be8b080="">0</i></em> <em
+                        data-v-5be8b080="">可得加奖：<i data-v-5be8b080="">0</i></em> <a data-v-5be8b080=""
+                                                                                    href="javascript:;"
+                                                                                    class="getBtn disable">不可领取</a>
+
+                    <h3 data-v-5be8b080="">加奖比例<i data-v-5be8b080=""></i></h3>
+                    <table data-v-5be8b080="" width="60%">
+                        <tbody data-v-5be8b080="">
+                        <tr data-v-5be8b080="">
+                            <th data-v-5be8b080="" class="tbplus"><i data-v-5be8b080="">等级</i>
+                                <ins data-v-5be8b080=""></ins>
+                                <em data-v-5be8b080="">昨日投注</em></th>
+                            <th data-v-5be8b080="">100+</th>
+                            <th data-v-5be8b080="">10000+</th>
+                            <th data-v-5be8b080="">200000+</th>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP3</td>
+                            <td data-v-5be8b080="">0.1%</td>
+                            <td data-v-5be8b080="">0.2%</td>
+                            <td data-v-5be8b080="">0.3%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP4</td>
+                            <td data-v-5be8b080="">0.2%</td>
+                            <td data-v-5be8b080="">0.3%</td>
+                            <td data-v-5be8b080="">0.4%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP5</td>
+                            <td data-v-5be8b080="">0.3%</td>
+                            <td data-v-5be8b080="">0.4%</td>
+                            <td data-v-5be8b080="">0.5%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP6</td>
+                            <td data-v-5be8b080="">0.4%</td>
+                            <td data-v-5be8b080="">0.5%</td>
+                            <td data-v-5be8b080="">0.6%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP7</td>
+                            <td data-v-5be8b080="">0.5%</td>
+                            <td data-v-5be8b080="">0.6%</td>
+                            <td data-v-5be8b080="">0.7%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP8</td>
+                            <td data-v-5be8b080="">0.6%</td>
+                            <td data-v-5be8b080="">0.7%</td>
+                            <td data-v-5be8b080="">0.8%</td>
+                        </tr>
+                        <tr data-v-5be8b080="">
+                            <td data-v-5be8b080="">VIP9</td>
+                            <td data-v-5be8b080="">0.7%</td>
+                            <td data-v-5be8b080="">0.8%</td>
+                            <td data-v-5be8b080="">0.9%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h3 data-v-5be8b080="">活动说明<i data-v-5be8b080=""></i></h3></div>
+                <!---->
+                <div data-v-5be8b080="" class="activityCon"><p>
+                    1、每日加奖在每日凌晨00:20后开放领取；
+                </p>
+
+                    <p>
+                        2、加奖比例是根据会员等级以及昨日累计投注金额进行一定比例的加奖；
+                    </p>
+
+                    <p>
+                        3、需Vip3以上且昨日投注额大于或等于100才能获得加奖；
+                    </p>
+
+                    <p>
+                        4、撤单和其他无效投注将不计算在内；
+                    </p>
+
+                    <p>
+                        5、活动奖金逾期未领取，视为自动放弃活动资格。
+                    </p></div>
+            </div>
+        </div>
+        <div data-v-1c2493ec="" class="floorLine"></div>
+    </div>
+    <div data-v-270904ef="" class="footer mgt40">
+        <div data-v-270904ef="" class="ftadCon">
+            <div data-v-270904ef="" class="container">
+                <ul data-v-270904ef="" class="ftad fix">
+                    <li data-v-270904ef=""><a data-v-270904ef="" id="dafaCloud" href="http://www.dafacloud.com/"
+                                              target="_blank"><p data-v-270904ef="">技术支持<i data-v-270904ef="">Technical
+                        support</i></p>
+
+                        <div data-v-270904ef="" class="technicalSupport fix"><img data-v-270904ef=""
+                                                                                  src="./images/dafayun.png"
+                                                                                  alt="大发云">
+
+                            <p data-v-270904ef="">
+                                大发云系统
+                                <br data-v-270904ef=""> 专业的彩票系统平台
+                            </p> <i data-v-270904ef=""></i></div>
+                    </a></li>
+                    <li data-v-270904ef=""><p data-v-270904ef="">服务体验<i data-v-270904ef="">Service experience</i></p>
+                        <ul data-v-270904ef="" class="serviceExperience">
+                            <li data-v-270904ef="">昨日充值到账平均时间
+                                <p data-v-270904ef="" class="footBar"><span data-v-270904ef="" class="s1"
+                                                                            style="width: 30%;"></span></p> <em
+                                        data-v-270904ef="">1'12</em><i data-v-270904ef="">秒</i></li>
+                            <li data-v-270904ef="">昨日提现到账平均时间
+                                <p data-v-270904ef="" class="footBar"><span data-v-270904ef="" class="s2"
+                                                                            style="width: 64.1667%;"></span></p> <em
+                                        data-v-270904ef="" id="timer">2'34</em><i data-v-270904ef="">秒</i></li>
+                        </ul>
+                    </li>
+                    <li data-v-270904ef=""><p data-v-270904ef="">充值方式<i data-v-270904ef="">Recharge method</i></p>
+
+                        <div data-v-270904ef="" class="rechargeMethod"><i data-v-270904ef="" class="wechat"></i><i
+                                data-v-270904ef="" class="alipay"></i><i data-v-270904ef="" class="cup"></i></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-v-270904ef="" class="container _about aboutText"><p data-v-270904ef="" class="fix"><a
+                data-v-270904ef="">关于我们</a>|<a data-v-270904ef="">联系我们</a>|<a data-v-270904ef="">商务合作</a>|<a
+                data-v-270904ef="">法律声明</a>|<a data-v-270904ef="">隐私声明</a>|</p>
+
+            <p data-v-270904ef="" class="copyright">Copyright © <span data-v-270904ef="" class="siteName">十分彩网</span>
+                Reserved | 18+</p></div>
+    </div>
+    <!---->
+    <div data-v-0835e1db="" class="layermbox layermbox2 layermshow" style="display: none;">
+        <div data-v-0835e1db="" class="laymshade"></div>
+        <div data-v-0835e1db="" class="layermmain">
+            <div data-v-0835e1db="" class="section">
+                <div data-v-0835e1db="" class="layermchild  layermanim">
+                    <div data-v-0835e1db="" class="layermcont"><i data-v-0835e1db=""></i> <i data-v-0835e1db=""
+                                                                                             class="laymloadtwo"></i> <i
+                            data-v-0835e1db=""></i>
+
+                        <div data-v-0835e1db=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/fx.js"></script>
+<script>
+    $(".fx_floor2").click(function(){
+        $(".fx_floorDetail2").toggle();
+        $(this).toggleClass("active");
+    });
+    $(".fx_floor1").click(function(){
+        $(".fx_floorDetail1").toggle();
+        $(this).toggleClass("active");
+    })
+</script>
+</body>
+</html>

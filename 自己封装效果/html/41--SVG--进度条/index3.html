@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVG轻量级JS圆形进度条代码 - 【科e互联】</title>
+<meta name="keywords" content="jQuery插件,圆形Loading,进度条动画,SVG动画,圆形动画" />
+<meta name="description" content="一款SVG轻量级JS圆形进度条代码下载，该SVG代码是一款基于HTML5+SVG实现的圆形动画进度条circles.min.js插件。" />
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<style>
+	.container{
+		margin: 2em auto;
+		max-width: 32em;
+		font-size: 1em;
+		line-height: 2;
+	}
+	#canvas .circle {
+		display: inline-block;
+		margin: 1em;
+	}
+
+	.circles-decimals {
+		font-size: .4em;
+	}
+</style>
+</head>
+<body class="keBody">
+<h1 class="keTitle">SVG轻量级JS圆形进度条代码</h1>
+<div class="kePublic">
+<!--效果html开始-->
+<article class="htmleaf-container">
+	<header class="htmleaf-header">
+		<div class="htmleaf-demo center">
+		  <a href="index.html">基本例子</a>
+		  <a href="index2.html">响应式</a>
+		  <a href="index3.html" class="current">Viewport</a>
+		</div>
+	</header>
+	<div class="container">
+	<h1>圆形进度条在进入视口时才开始动画</h1>
+	<h2>往下滚动页面查看效果</h2>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim eleifend justo a vestibulum. Quisque rutrum nec magna sit amet tristique. Donec magna magna, faucibus in enim id, malesuada volutpat justo. Etiam tellus tortor, aliquet vitae vestibulum quis, commodo auctor justo. Suspendisse pharetra egestas tempor. Ut tempus metus vel tincidunt mattis. Aliquam quis odio volutpat, interdum ante in, pulvinar purus. Aliquam auctor libero vitae ante vehicula efficitur. Integer eros nisi, dapibus eget varius in, aliquet finibus nisi. Phasellus tempus mauris ligula, ut luctus dolor volutpat id. Praesent lobortis nisl quam, a vehicula nibh malesuada quis. Curabitur malesuada sed metus ut pretium. Morbi commodo mauris nec fermentum tristique. Morbi pharetra rhoncus diam, ut gravida est laoreet maximus.
+	</p>
+	<p>
+		Maecenas tellus metus, ultricies non ultrices vel, suscipit ac enim. Maecenas luctus molestie massa, id consequat lacus tempus vitae. In hac habitasse platea dictumst. Mauris hendrerit, tellus in cursus bibendum, nulla felis blandit erat, id sodales neque odio non tortor. Pellentesque a auctor leo. Mauris in velit nec est varius dignissim. Suspendisse eget ligula non lectus convallis imperdiet ut nec magna. Nam cursus odio non tortor tempor, at fermentum arcu tempus. Proin vitae laoreet nibh. In ullamcorper sem quis luctus sagittis. In consequat iaculis augue, ut consequat odio eleifend a. Duis imperdiet varius urna id faucibus. Curabitur suscipit purus vel sem sollicitudin, id dignissim dui consequat.
+	</p>
+	<p>
+		Suspendisse nec velit viverra, pretium leo a, malesuada enim. Phasellus scelerisque ultricies tortor, eu faucibus leo laoreet eget. Morbi urna mi, tincidunt nec libero vitae, tempor hendrerit nisi. Nunc sed risus ipsum. Integer porttitor, nunc vitae vestibulum blandit, neque dolor consectetur mi, gravida euismod sem arcu eu elit. Praesent pretium odio id ipsum convallis, ut convallis est lobortis. In porttitor vulputate est ultricies volutpat. Mauris ornare eget nulla in gravida. Nunc laoreet fermentum risus, et fermentum leo suscipit vitae. Praesent tincidunt ligula eget quam pulvinar maximus. Maecenas at mollis nisi, non sagittis erat.
+	</p>
+	<p>
+		Mauris quis vestibulum quam. Duis consequat sollicitudin tempor. Pellentesque cursus lacus ipsum, ut dictum nisl eleifend id. Nam quis nisl sodales, sodales nulla eu, placerat quam. Sed posuere mattis quam non condimentum. Pellentesque ut egestas nisl. Sed orci ante, laoreet quis sollicitudin sit amet, hendrerit at nisl. Curabitur vel dolor non nulla condimentum varius non nec orci. Sed tempor nisi erat, quis egestas enim tempor a.
+	</p>
+	<div id="canvas">
+		<div class="circle" id="circles-1"></div>
+		<div class="circle" id="circles-2"></div>
+		<div class="circle" id="circles-3"></div>
+	</div>
+	<p>
+		Sed aliquam felis nisl, elementum vehicula ipsum congue quis. Aenean sem sapien, rutrum et tincidunt sed, porta lacinia arcu. Nunc ut justo vel mi pharetra laoreet. Ut ornare ultrices pharetra. Ut rutrum orci pretium quam efficitur hendrerit. In aliquet laoreet est, non suscipit erat consequat eget. Quisque mollis rutrum tortor eget rutrum. Vivamus eu consequat diam, id lobortis justo. Phasellus tincidunt vel libero id pellentesque. Etiam leo justo, rhoncus ac mollis id, suscipit ac libero.
+	</p>
+	</div>
+</article>
+
+<script src="js/circles.js"></script>
+<script>
+	(function() {
+		var canvas = document.getElementById('canvas'),
+			circlesCreated = false;
+
+		function onScroll() {
+			if (!circlesCreated && elementInViewport(canvas)) {
+				circlesCreated = true;
+				createCircles();
+			}
+		}
+
+		function elementInViewport(el) {
+		var rect = el.getBoundingClientRect();
+
+		return (
+		  rect.top  >= 0 &&
+		  rect.left >= 0 &&
+		  rect.top  <= (window.innerHeight || document.documentElement.clientHeight)
+		);
+	  }
+
+		function createCircles() {
+			var colors = [
+					['#D3B6C6', '#4B253A'], ['#FCE6A4', '#EFB917'], ['#BEE3F7', '#45AEEA']
+				],
+				circles = [];
+
+			for (var i = 1; i <= colors.length; i++) {
+				var child = document.getElementById('circles-' + i),
+					percentage = 31.42 + (i * 9.84),
+
+					circle = Circles.create({
+						id:         child.id,
+						value:      percentage,
+						radius:     70,
+						width:      10,
+						colors:     colors[i - 1]
+					});
+
+				circles.push(circle);
+			}
+		}
+
+	  window.onscroll = onScroll;
+
+	})();
+
+</script>
+<!--效果html结束-->
+<div class="clear"></div>
+</div>
+<div class="keBottom">
+<p class="keTxtP">科e互联网页特效集锦---更多特效请访问 <a class="keUrl" href="http://www.internetke.com" target="_blank">www.internetke.com</a></p>
+<p class="keTxtP">本站导航：
+<a href="http://www.internetke.com/" target="_blank" class="cor_bs">网站建设</a> | 
+<a href="http://www.internetke.com/material/" target="_blank" class="cor_bs">网页素材</a> | 
+<a href="http://www.internetke.com/effects/" target="_blank" class="cor_bs">网页特效</a> | 
+<a href="http://www.internetke.com/share/" target="_blank" class="cor_bs">设计分享</a> | 
+<a href="http://www.internetke.com/tutorial/" target="_blank" class="cor_bs">建站教程</a> | 
+<a href="http://www.internetke.com/model/" target="_blank" class="cor_bs">网站模版</a> | 
+<a href="http://www.internetke.com/appreciate/" target="_blank" class="cor_bs">酷站赏析</a>
+</p>
+<p class="keTxtP">＊尊重他人劳动成果，转载请自觉注明出处！注：此代码为【科e整理/原创特效】仅供学习交流，请勿用于商业用途。
+<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=a7df3558c291e0407375b9ad649d96a6e507286ffeb0650c65a221d1500a0779" class="button red" title="北京网站建设,网页特效QQ交流群-科e互联">加入QQ交流群</a></p>
+</div>
+<div class="mKeBanner"><script src='/plus/ad_js.php?aid=22' language='javascript'></script></div>
+</body>
+</html>

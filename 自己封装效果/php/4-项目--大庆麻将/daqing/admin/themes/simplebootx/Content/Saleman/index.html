@@ -1,0 +1,55 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">{$meta_title}</a></li>
+			<li><a href="{:U('add')}">添加销售员</a></li>
+		</ul>
+			<!-- 搜索 -->
+				<!--信息提示-->
+	<div id="top-alert" class="fixed alert alert-error">
+		<button class="close fixed" style="margin-top: 4px;">&times;</button>
+		<div class="alert-content">{$meta_title}</div>
+	</div>
+	<!--信息提示-->
+	<php>$sex=array(1=>'男',0=>'女');$lock=array(1=>'已冻结',0=>'正常');</php>
+		<form class="js-ajax-form" method="post">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th width="50">ID</th>
+					<th>姓名</th>
+					<th>电话</th>
+					<th>服务码</th>
+					<th>他的会员</th>
+					<th>他的订单</th>
+					<th width="120">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<foreach name="listData" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.realname}</td>
+					<td>{$vo.phone}</td>
+					<td>{$vo.code}</td>
+					<td><a href="{:U('member/index',array('sid'=>$vo['id']))}">查看</a></td>
+					<td><a href="{:U('orders/index',array('sid'=>$vo['id']))}">查看</a></td>
+					<td>
+						<a href="{:U('edit',array('id'=>$vo['id']))}">修改</a> | 
+						<a class="ajax-get confirm" href="{:U('del',array('id'=>$vo['id']))}" data-tips='确定要删除吗?'>删除</a>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="table-actions">
+
+			</div>
+		</form>
+		<div class="pagination  pagination-centered">{$page}</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	</body>
+	</html>

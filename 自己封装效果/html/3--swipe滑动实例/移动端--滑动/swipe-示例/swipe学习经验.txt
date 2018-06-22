@@ -1,0 +1,59 @@
+基本 写法:
+ <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+        <!-- 导航 点 -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+属性介绍:http://www.swiper.com.cn/api/basic/2015/0327/263.html
+
+
+     <script>
+    var swiper = new Swiper('.swiper-container', {
+  //一般选项:
+        pagination: '.swiper-pagination',//分页
+        paginationClickable: true, //点击导航点是否切换  true/false
+	autoplay: 5000,//可选选项，自动切换
+	loop : true,  //反方向自动切换简单示例
+	autoplayDisableOnInteraction : false, //用户操作swiper之后，是否禁止autoplay。默认为true：停止。
+						如果设置为false，用户操作swiper之后自动切换不会停止，
+						每次都会重新启动autoplay。操作包括触碰，拖动，
+						点击pagination等。
+	initialSlide :2,//设定初始化时slide的索引0/1/2/3/...
+	direction : 'vertical',//Slides的滑动方向，可设置水平(horizontal)或垂直(vertical)。
+	speed:300, //滑动速度，即slider自动滑动开始到结束的时间（单位ms）。
+	grabCursor : true, //设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，
+				拖动时指针会变成抓手形状。（根据浏览器形状有所不同）
+	parallax  //视觉效果差
+	hashnav   //hash导航
+	setWrapperSize   //flexbox布局
+	virtualTranslate //虚拟位移
+	a11y // 辅助，无障碍阅读。开启本参数为屏幕阅读器添加语音提示等信息，方便视觉障碍者。基于ARIA标准。
+	width : 800, //你的slide宽度//全屏  width : window.innerWidth,
+		//强制Swiper的宽度，当你的Swiper在隐藏状态下初始化时才用得上。这个参数会使自适应失效。
+	heigth: 300,//你的slide高度//全屏  height : window.innerHeight,
+			强制Swiper的高度，当你的Swiper在隐藏状态下初始化时才用得上。这个参数会使自适应失效。
+	roundLengths : true,  //设定为true将slide的宽和高取整(四舍五入)以防止某些分辨率的屏幕上文字模糊。
+	slidesOffsetBefore : 100, //设定slide与左边框的预设偏移量（单位px）。
+	slidesOffsetAfter : 100, //设定slide与右边框的预设偏移量（单位px）
+
+	watchSlidesProgress: //开启这个参数来计算每个slide的progress(进度)，Swiper的progress无需设置即开启
+	watchSlidesVisibility : true,//开启watchSlidesVisibility选项前需要先开启watchSlidesProgress，
+				如果开启了watchSlidesVisibility，则会在每个可见slide增加一个classname，
+	freeMode : true,//默认为false，普通模式：slide滑动时只滑动一格，并自动贴合wrapper，
+			设置为true则变为free模式，slide会根据惯性滑动且不会贴合。默认为'swiper-slide-visible'。
+
+    });
+    </script>

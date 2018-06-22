@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>2.1.5图片懒加载</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li{list-style: none;}
+        img{border:0;}
+        #ul1{width: 980px;margin:20px auto 0;}
+        #ul1>li{float:left;margin: 0 0 10px 10px;width:233px;height:146px;overflow: hidden;border:1px solid #d5d5d5;text-align: center;}
+        #ul1>li>img{max-width: 100%;vertical-align:middle;}
+    </style>
+</head>
+<body>
+<ul id="ul1">
+    <li><img _src="images/1.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/2.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/3.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/4.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/5.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/6.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/7.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/8.jpg" src="images/loading.gif" alt=""/></li>
+
+    <li><img _src="images/9.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/10.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/11.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/12.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/13.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/14.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/14.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/16.jpg" src="images/loading.gif" alt=""/></li>
+
+    <li><img _src="images/17.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/18.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/19.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/20.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/21.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/22.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/23.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/24.jpg" src="images/loading.gif" alt=""/></li>
+
+    <li><img _src="images/25.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/26.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/27.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/28.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/29.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/30.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/31.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/32.jpg" src="images/loading.gif" alt=""/></li>
+
+    <li><img _src="images/33.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/34.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/35.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/36.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/37.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/38.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/39.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/40.jpg" src="images/loading.gif" alt=""/></li>
+
+    <li><img _src="images/41.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/42.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/43.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/44.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/45.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/46.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/47.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/48.jpg" src="images/loading.gif" alt=""/></li>
+
+    <li><img _src="images/49.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/50.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/51.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/52.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/53.jpg" src="images/loading.gif" alt=""/></li>
+    <li><img _src="images/54.jpg" src="images/loading.gif" alt=""/></li>
+</ul>
+<script src="js/tools.js"></script>
+<script>
+    window.onload = function()
+    {
+        var aImage = getEle("ul1","img");
+        /*
+         * 计算图片是否进入到可视区 = 滚动条高度 + 可视区高度 > 物体距离文档顶部的高度
+         * */
+
+        /*
+         * 问题：以下两种获取问题距离文档顶部距离的方式有什么区别*/
+        window.onscroll = showImage;
+        showImage();
+        function showImage()
+        {
+            for(var i=0;i<aImage.length;i++)
+            {
+                //方式1：
+                //console.log(getTop(aImage[i]));
+                //方式2：
+                //console.log(aImage[i].offsetTop);
+                if(!aImage[i].bOff && getTop(aImage[i]) < ( scrollTop() + clientHeight() ) )
+                {
+                    aImage[i].src = aImage[i].getAttribute("_src");
+                    aImage[i].bOff = true;
+                    console.log(i);
+                };
+            };
+        };
+    };
+</script>
+</body>
+</html>

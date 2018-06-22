@@ -1,0 +1,53 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">视频列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!-- 搜索 -->
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+    <php></php>
+    <form class="js-ajax-form" method="post">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th width="50">ID</th>
+                    <th width="120">用户</th>
+                    <th>评论</th>
+                    <th width="120">评论时间</th>
+                    <th width="80">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <foreach name="listData" item="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.nickname}</td>
+                        <td>
+                           {$vo.content}
+                        </td>
+                        <td>{$vo.add_time|time_format}</td>
+                        <td>
+                            <a class="ajax-get confirm" href="{:U('commentdel',array('id'=>$vo['id']))}" data-tips='确定要删除吗?'>删除</a>
+                        </td>
+                    </tr>
+                </foreach>
+            </tbody>
+        </table>
+    </form>
+    <div class="pagination  pagination-centered">{$page}</div>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html><html><head lang="en"><meta charset="UTF-8"><title>城市切换</title><style>        .nav{height:60px; line-height: 60px; font-size: 50px; padding:10px; background: #42e9ef;}
+        .nav a{border:1px solid #f00ebf; margin:0 10px; color: #ff0c1c; text-decoration: none; }
+    </style></head><body><h1>hello，这里是我的城市切换的练习页面</h1><div class="nav"><?php if(is_array($list)): foreach($list as $key=>$v): ?><a href="__APP__/City/<?php echo ($v["name"]); ?>"><?php echo ($v["fullname"]); ?></a><?php endforeach; endif; ?><!--<a href="__APP__/City/bj">北京</a>--><!--<a href="__APP__/City/sh">上海</a>--><!--<a href="__APP__/City/gz">广州</a>--><!--<a href="__APP__/City/xj">新疆</a>--></div></body></html>

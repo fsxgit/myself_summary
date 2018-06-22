@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标续展</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main c333">
+        <div class="bread-nav">
+            商标列表 > 商标续展
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1">续展步骤</h1>
+            <div class="bgl-cont bgl-steps">
+                <span class="bgl-step">1</span>
+                <span>提交订单并支付</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">2</span>
+                <span>下载并填写资料</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">3</span>
+                <span>快递资料给顾问</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">4</span>
+                <span>顾问接收资料并办理</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">5</span>
+                <span>变更成功</span>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1">准备续展的商标</h1>
+            <div class="bgl-cont">
+                <div class="bgl-sb">
+                    <div class="close"><img src="../images/close2.png" width="14" height="14" alt=""/></div>
+                    <div class="limg">
+                        <img src="../images/img1.png" alt=""/>
+                    </div>
+                    <div class="rtxt">
+                        <p class="bname">易桥积分宝www.12366.com</p>
+                        <p class="blei">第35类</p>
+                    </div>
+                    <div class="cb"></div>
+                </div>
+                <div class="bgl-sb">
+                    <div class="close"><img src="../images/close2.png" width="14" height="14" alt=""/></div>
+                    <div class="limg">
+                        <img src="../images/img1.png" alt=""/>
+                    </div>
+                    <div class="rtxt">
+                        <p class="bname">易桥积分宝www.12366.com</p>
+                        <p class="blei">第35类</p>
+                    </div>
+                    <div class="cb"></div>
+                </div>
+                <div class="bgl-sb">
+                    <div class="close"><img src="../images/close2.png" width="14" height="14" alt=""/></div>
+                    <div class="limg">
+                        <img src="../images/img1.png" alt=""/>
+                    </div>
+                    <div class="rtxt">
+                        <p class="bname">易桥积分宝www.12366.com</p>
+                        <p class="blei">第35类</p>
+                    </div>
+                    <div class="cb"></div>
+                </div>
+                <div class="addImg" onclick="xzAdd();"><img src="../images/add.png" width="80" height="80" alt=""/></div>
+            </div>
+
+        </div>
+        <div class="bgl-mode bt">
+            <div class="bgl-cont tr">
+                <input type="button" class="blue-big-btn" value="立即办理"/>
+            </div>
+        </div>
+    </div>
+
+
+<!--弹出框 -->
+    <div class="c-tan-shadow"></div>
+    <!--修改名字弹出框1-->
+    <div class="c-tan-cont xz-add bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">续展添加</div>
+            <div class="c-tan-close fr"><img src="../images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="xz-add-cont bc">
+            <table class="xz-table">
+                <tr class="tr1">
+                    <td style="width: 60px;"></td>
+                    <td style="width: 60px;"></td>
+                    <td style="width: 100px;"></td>
+                    <td style="width: 112px;"></td>
+                    <td style="width: 80px;"></td>
+                    <td style="width: 78px;"></td>
+                    <td style="width: 100px;"></td>
+                    <td style="width: 110px;"></td>
+                </tr>
+                <tr>
+                    <td ></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="blue-big-btn  xg-sure" value="确定续展"/>
+        </div>
+    </div>
+<!--弹出框 end-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".c-gou").click(function(){
+        $(this).toggleClass("active");
+    })
+
+
+    //    添加商标
+    function xzAdd(){
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".xz-add"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".xg-sure");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH-oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+    }
+
+    //查看详情弹出框
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+*,
+h1, /* see normalize.css */
+figure /* see normalize.css */
+{
+	font-size: 100%;
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	line-height: inherit;
+	vertical-align: baseline;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+
+html{}
+	body
+	{
+		font-family: Roboto, sans-serif;
+		padding: 5rem 1.25rem; /* 80 20 */
+	}
+
+	.container
+	{
+		width: 100%;
+		max-width: 640px; /* 960 */
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.container h1
+	{
+		font-size: 42px;
+		font-weight: 300;
+		margin-bottom: 40px;
+	}
+		.container h1 a:hover,
+		.container h1 a:focus
+		{
+			color: #c92020;
+		}
+
+	.container button
+	{
+		width: 48%;
+		height: 200px;
+		color: #fff;
+		box-shadow: 0 2px 6px rgba( 0, 0, 0, .3 );
+	}
+	.container button:hover,
+	.container button:focus
+	{
+		box-shadow: 0 6px 20px rgba( 0, 0, 0, .4 );
+	}
+	.button-animation
+	{
+		background-color: #ff9900;
+		float: left;
+	}
+	.button-transition
+	{
+		background-color: #3299bb;
+		float: right;
+	}
+	.button-animation.do-it
+	{
+		color: transparent;
+		-webkit-animation: animate-it 2s;
+		animation: animate-it 2s;
+	}
+		@-webkit-keyframes animate-it
+		{
+			from	{ -webkit-transform: scale( 1 ); }
+			25%		{ -webkit-transform: scale( 2 ); }
+			44%		{ -webkit-transform: scale( 2 ) rotate( 0 ); }
+			46%		{ -webkit-transform: scale( 2 ) rotate( 10deg ); }
+			50%		{ -webkit-transform: scale( 2 ) rotate( -10deg ); }
+			54%		{ -webkit-transform: scale( 2 ) rotate( 10deg ); }
+			58%		{ -webkit-transform: scale( 2 ) rotate( -10deg ); }
+			62%		{ -webkit-transform: scale( 2 ) rotate( 10deg ); }
+			64%		{ -webkit-transform: scale( 2 ) rotate( 0 ); }
+			75%		{ -webkit-transform: scale( 2 ); }
+			to		{ -webkit-transform: scale( 0 ); }
+		}
+		@keyframes animate-it
+		{
+			from	{ transform: scale( 1 ); }
+			25%		{ transform: scale( 2 ); }
+			44%		{ transform: scale( 2 ) rotate( 0 ); }
+			46%		{ transform: scale( 2 ) rotate( 10deg ); }
+			50%		{ transform: scale( 2 ) rotate( -10deg ); }
+			54%		{ transform: scale( 2 ) rotate( 10deg ); }
+			58%		{ transform: scale( 2 ) rotate( -10deg ); }
+			62%		{ transform: scale( 2 ) rotate( 10deg ); }
+			64%		{ transform: scale( 2 ) rotate( 0 ); }
+			75%		{ transform: scale( 2 ); }
+			to		{ transform: scale( 0 ); }
+		}
+
+	.button-transition.do-it
+	{
+		opacity: 0;
+		-webkit-transition: opacity 2s;
+		transition: opacity 2s;
+	}

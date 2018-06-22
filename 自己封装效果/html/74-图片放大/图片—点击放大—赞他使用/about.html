@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片点击放大</title>
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+
+        .photos_box{overflow: hidden; width: 1000px; margin:0 auto;}
+        .photos_box img{float: left; width: 320px; height:292px; display: block; margin:6px; }
+        /* 代码整理：懒人之家 www.lanrenzhijia.com */
+        #content{ width:500px; height:170px; margin:100px auto;}
+        #imgbox-loading {position: absolute;top: 0;left: 0;	cursor: pointer;display: none;z-index: 90;}
+        #imgbox-loading div {background: #FFF;width: 100%;height : 100%;}
+        #imgbox-overlay {position: absolute;top: 0;	left: 0;width: 100%;height: 100%;background: #000;display: none;z-index: 80;}
+        .imgbox-wrap {position: absolute;top: 0;left: 0;background: #FFF;display: none;	z-index: 90;}
+        .imgbox-img {padding: 0;margin: 0;border: none;width: 100%;	height: 100%;vertical-align: top;}
+        .imgbox-title {	padding-top: 10px;font-size: 11px;text-align: center;font-family: Arial;color: #333;display: none;}
+        .imgbox-bg-wrap {position: absolute;padding: 0;margin: 0;display: none;}
+        .imgbox-bg {position: absolute;width: 20px;	height: 20px;}
+    </style>
+</head>
+<body>
+<div class="photos_box">
+    <a class="example2" href="images/img1.jpg"><img src="images/img1.jpg" /></a>
+    <a class="example2" href="images/img2.jpg"><img src="images/img2.jpg" /></a>
+    <a class="example2" href="images/img3.jpg"><img src="images/img3.jpg" /></a>
+    <a class="example2" href="images/img4.jpg"><img src="images/img4.jpg" /></a>
+    <a class="example2" href="images/img5.jpg"><img src="images/img5.jpg" /></a>
+    <a class="example2" href="images/img6.jpg"><img src="images/img6.jpg" /></a>
+</div>
+
+
+<script src="js/imgs.jquery.js"></script>
+<script src="js/jquery.imgbox.pack.js"></script>
+<script>
+    $(function(){
+        $(".example2").imgbox({
+            'speedIn'		: 0,
+            'speedOut'		: 0,
+            'alignment'		: 'center',
+            'overlayShow'	: true,
+            'allowMultiple'	: false
+        });
+    });
+</script>
+</body>
+</html>

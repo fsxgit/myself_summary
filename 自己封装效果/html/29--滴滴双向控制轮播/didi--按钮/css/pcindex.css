@@ -1,0 +1,425 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, input, textarea, p, th, td {
+	margin:0;
+	padding:0;
+}
+img {
+  vertical-align: middle;
+  border: 0;
+}
+a{
+	text-decoration:none;
+}
+
+.didi_footer{
+	position:absolute;
+	left:0;
+	bottom:50px;
+	top:auto;
+	width:100%;
+	max-width:100%;
+	overflow:hidden;
+	text-align:center;
+	font-size:12px;
+	line-height:60px;
+	color:#c3c3c3;
+	background-image:url(../images/footer-line.png);
+	background-position:top left;
+	background-repeat:no-repeat;
+	background-size:980px 1px;
+ }
+.ih-item a{
+	cursor:default;
+	}
+.didi_mess_block{
+	margin-top:-60px;
+	padding:0 0 0 0;
+}
+.last_mes_block{
+	margin-top:0px;
+}
+.intro .pt30{
+	padding:0;
+	margin-top:50px;
+}
+.intro .step_btn_outer{
+	margin-top:0;
+}
+.sec_sreen_check{
+	padding:0 0 0 0;
+}
+.table-bordered  thead  tr  th{
+	color:#666;
+	}
+.table-bordered  tbody  tr  th{
+	color:#333;
+	}
+.table thead > tr.active > th{
+	background-color:#fbfbfb;
+	}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th{
+	background-color:#fbfbfb;
+	}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
+	border:1px solid #dfdfdf;
+	}
+.table > thead > tr > th:last-child{
+	padding-left:15px;
+	}
+.table > tbody > tr > td:last-child{
+	padding-left:15px;
+	}
+.didi_background_img{
+	margin-top:50px;
+	}
+/**@media screen and (max-width: 640px){
+	.last_mes_block{
+		padding-bottom:0;
+		padding-top:40px;
+	}
+	.sec_sreen_check{
+		padding:70px 0 100px 0;
+	}	
+}*/
+	
+.fullpage{
+	width: 100%;
+	height: 100%;
+	margin-top:50px;
+	margin-top:0\0;
+}
+.section {
+	background-size: cover;
+	text-align: center;
+	position: relative;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 100%;
+	height: 100%;
+}
+#section0{
+	position: relative;
+	background-image: url('../images/header_bg.jpg');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/header_bg.jpg',sizingMethod='scale');
+	-moz-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/header_bg.jpg',sizingMethod='scale');
+	background-position: center\0;
+}
+#section0 .fp-tableCell{
+	vertical-align:top;
+}
+#section0 .intro {
+	height: 100%;
+}
+.s0left{
+	width: 100%;
+	position: relative;
+	text-align: left;
+	color: #fff;
+	max-width: 980px;
+	margin: 0 auto;
+	font-family: "宋体";
+}
+.basebg{
+	background-color:#f16f3e;
+}
+.s0left .stop{
+	padding-top: 8%;
+}
+.s0left .stop img{
+	width:305px;
+}
+.s0tt{
+	font-size: 48px;
+	padding: 5px;
+	margin-bottom: 2px;
+	display: inline-block;
+}
+.s0tc{
+	color:#A59F9F;
+	font-size:32px;
+}
+.sbottom{
+	margin-top:20px;
+}
+.sbottom img{
+	width:140px;
+}
+.sbtc{
+	padding: 2px;
+	letter-spacing: 1px;
+}
+
+.input,.butt{
+	font-size:42px;
+}
+.input optgroup{
+	font-size:36px;
+}
+.confirm img {
+	padding-top: 40px;
+	width:100px;
+	height:auto;
+}
+.confirm .qr {
+	font-size: 18px;
+	color: #333;
+	line-height: 42px;
+	display: block;
+}
+.confirm h2 {
+	position: relative;
+	color: #999;
+	text-align: center;
+	line-height: 36px;
+	width: 92%;
+	margin: 19px auto 12px;
+	font-size: 1.2rem;
+}
+.confirm .line-between .hr {
+	position: relative;
+	border-bottom: 1px solid #ccc;
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	top: 18px;
+}
+.confirm .line-between span {
+	background: #fff;
+	padding: 0 15px;
+	position: relative;
+	font-weight: normal;
+	font-size: 15px;
+	color: #333;
+}
+.confirm p {
+	font-size: 15px;
+	line-height: 1.5em;
+	color: #333;
+	text-align: left;
+	position: relative;
+	margin: 0 10px 20px 40px;
+}
+.confirm em {
+	position: absolute;
+	left: -35px;
+	font-size: 14px;
+	font-family: bold;
+	display: block;
+	width: 20px;
+	line-height: 20px;
+	border-radius: 10px;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	top: 1px;
+	background-color: #ffbd66;
+}
+/*confirm*/
+.wrap{
+	position: absolute;
+	width: 100%;
+	bottom: 70px;
+	padding: 22px 0 0;
+	padding:22px 0\0;
+	background-color: rgb(247,247,247);
+}	
+.intro{
+	width: 100%;
+	position: relative;
+}
+.content {
+	position: relative;
+	text-align: left;
+	width: 100%;
+	margin: 0 auto;
+	max-width: 980px;
+	min-width:680px;
+}
+.content li {
+	list-style: none;
+	position: relative;
+	float:left;
+	line-height: 20px;
+	padding: 0 0 0 100px;
+	cursor: pointer;
+}
+.content .creg{
+	border-right: 1px solid #d9d9d9;
+	padding-right:18%;
+	margin-right:18%;
+}
+.content .crec{
+	
+}
+.content .name {
+	font-size: 18px;
+	color: #333333;
+	display: block;
+}
+.content .intr {
+	font-size: 12px;
+	color: #878787;
+	display: block;
+}
+.content .intr .em{
+	color:#ff8a01;
+}
+.content .knows {
+	color: #ff8811;
+	font-size: 12px;
+	display: inline-block;
+}
+.content img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height:70px;
+}
+
+
+
+#d-wall {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	z-index: 9998;
+	opacity: .3;
+	width: 100%;
+	height: 100%;
+	background-color: #000
+}
+
+#d-wrap {
+	position: fixed;
+	z-index: 9999;
+	border-radius: 5px;
+	padding: 0;
+	text-align: center
+}
+
+#d-wrap .alert,#d-wrap .confirm {
+	padding: 0 6%
+}
+
+#d-wrap .title {
+	margin-bottom: 5px;
+	color: #ff8a01;
+	font-size: 1.8rem
+}
+
+#d-wrap .tip {
+	line-height: 1.9rem
+}
+
+#d-wrap .loading .tip {
+	text-align: center
+}
+
+#d-wrap .icon {
+	margin: 36px 0 10px;
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	background-color: #f0f0f0;
+	background-size: 60px 60px;
+	border-radius: 50%;
+	line-height: 60px
+}
+
+#d-wrap .loading .icon {
+	margin: 24px 0 12px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: 0 0
+}
+
+#d-wrap .btns {
+	padding: 16px 0
+}
+
+#d-wrap a[class^=btn-] {
+	margin: 5px 0
+}
+
+#d-wrap .alert a[class^=btn-] {
+	margin: 0
+}
+
+#d-wrap .confirm a[class^=btn-] {
+	width: 46.6%
+}
+
+#d-wrap .confirm a[class^=btn-]:first-child {
+	float: left
+}
+
+#d-wrap .confirm a[class^=btn-]:last-child {
+	float: right
+}
+
+#d-wrap .close {
+	display: block;
+	position: absolute;
+	top: -3px;
+	right: -3px;
+	width: 20px;
+	height: 20px;
+	padding: 10px;
+	background-image: url(../images/i-close.png);
+	background-repeat: no-repeat;
+	background-size: 10px auto;
+	background-position: center center
+}
+
+#d-wrap {
+	padding-bottom: 20px;
+}
+#d-wrap .close {
+	background: url(../images/close.png) no-repeat;
+	width: 23px;
+	height: 23px;
+	background-size: 23px auto;
+	background-position: center;
+	right: 10px;
+	top: 10px;
+}
+
+
+/*bootstrap*/
+.text-center{
+	text-align:center;
+}
+.float-left{
+	float:left;
+}
+.each-step{
+	position: relative;
+	min-height: 1px;
+	width: 33.33333333333333%;
+	vertical-align:middle;
+}
+.phone-driver-check{
+	position: relative;
+	min-height: 1px;
+	width: 50%;
+	vertical-align:middle;
+}
+.block-mess-cheked-side{
+	text-align: left;
+	overflow: hidden;
+	width: 50%;
+	padding-top: 104px;
+}
+.btn_download {
+	line-height: 62px;
+	padding: 0;
+}
+.btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 4px;
+}

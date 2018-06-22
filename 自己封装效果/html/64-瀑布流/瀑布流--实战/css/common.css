@@ -1,0 +1,71 @@
+html,body{overflow: auto;}
+.main{width:1000px; margin:0 auto; }
+html,body{background: #f0f0f0; color: #171717; font-size: 14px;}
+.c1{color: #929292;}
+.c2{color: #527ead;}
+.c3{color: #171717;}
+.c4{color: #e50065;}
+.c5{ color: #909090;}
+.c6{ color: #fc474b;}
+.c-txt1{font-size: 12px; color: #676767;}
+.bgfff{background: #fff;}
+/*公共头部*/
+.c-header{background: #fff; height: 68px; line-height: 68px; font-size: 14px; color: #626262; border-bottom: 1px solid #e3e7e8;}
+.c-header .c-logo{cursor: pointer; display: block;}
+.c-header .c-logo,.c-header .c-logo:link{ color: #626262;}
+.c-header .logo-img{padding-top: 13px; margin-right:10px;}
+.logo-name{font-family: SimHei; font-size: 22px;}
+.c-header-right{}
+.user-img{margin-top: 17px; cursor: pointer;}
+.user-img img{width: 35px; height: 35px; border-radius: 50%; }
+.user-img .tuic{position: absolute; background: url("../images/icon39.png") no-repeat 0 bottom; width: 118px; height: 90px;   text-align: center; left:-44px; top:0;  display: none;}
+.user-img .tuic a{display:inline-block;  background: url("../images/icon38.png") no-repeat 0 center; padding-left: 18px; height:45px; line-height: 45px; margin-top:46px;  }
+.user-img .tuic a,.user-img .tuic a:link{color: #171717;}
+.user-name{margin-right: 20px;}
+.user-btn{display: block; margin-right: 20px; cursor: pointer; width:76px; height: 26px; line-height: 26px; text-align: center; border-radius: 2px; background: #2295e0; color: #fff; margin-top: 22px;}
+.log-reg{margin-right: 28px; margin-left: 32px; padding-left: 24px; background: url("../images/icon2.png") no-repeat left center; }
+.log-reg a,.log-reg a:link{color: #626262;}
+.log-reg .log{background: url("../images/icon3.png") no-repeat right center; padding-right: 6px; }
+.cel-dload{padding-left: 18px; background: url("../images/icon1.png") no-repeat left center; z-index: 10;}
+.dload-ma{position: absolute; left:-28px; top:46px;  background: url("../images/bg1.jpg") no-repeat left center; width: 182px; height: 242px; text-align: center; display: none;}
+.dload-ma .logo{width: 41px; height: 41px; margin:0 auto; padding-top: 34px;}
+.dload-ma .txt{height: 30px; line-height: 30px; font-size: 12px;}
+.dload-ma .ma{height: 107px; width: 107px; padding-top: 8px; margin:0 auto;}
+.dload-ma .ma img{height: 107px; width: 107px;}
+/*公共头部 end*/
+/*公共底部 end*/
+.c-footer{background: #2b2d2e; }
+.c-footer .c-logo{height:90px; line-height: 90px; color: #e0e0e0; width: 160px; margin:0 auto; cursor: pointer; display: block;}
+.c-footer .c-logo,.c-footer .c-logo:link{ color: #e0e0e0;}
+.c-footer .logo-img{padding-top: 26px; margin-right: 16px;}
+.c-footer .site{padding:20px 0; font-size: 14px; color: #6e6e6e; text-align: center; border-top: 1px solid #555758;}
+/*公共底部 end*/
+
+/*公用翻页*/
+.c-pages{overflow: hidden; text-align: center; padding:40px 0; width: 100%;}
+
+.c-pages a{display: inline-block; width: 30px; height: 30px; text-align: center; line-height: 30px; margin:0 2px;}
+.c-pages a.active{color: #fff; background: #e50065;}
+.c-pages a,.c-pages a:link,.c-pages a:visited{color: #828a92; text-decoration: none;}
+.c-pages a.active,.c-pages a.active:link,.c-pages a.active:visited{color: #fff; text-decoration: none;}
+
+
+.c-pages a.dotted:hover{color: #828a92;}
+.c-pages span{display: inline-block;  height: 30px;  line-height: 30px; color: #828a92; margin:0 10px; cursor: pointer; }
+
+/*.c-pages li{display: inline-block;}*/
+/*.c-pages li a{display: inline-block;  height: 30px; text-align: center; line-height: 30px; margin:0 2px; padding:0 10px;}*/
+/*.c-pages a,.c-pages a:link,.c-pages a:visited{color: #828a92; text-decoration: none;}*/
+/*.c-pages a:hover{color: #e50065;}*/
+/*.c-pages li.current{color: #fff; background: #e50065;}*/
+/*.c-pages li.current a:link,.c-pages li.current a:visited{color: #fff; text-decoration: none;}*/
+/*公用翻页 end*/
+/*返回顶部*/
+.c-backTop{border:1px solid #ccc; position: fixed; right:20px; bottom:50px; background: #fff; display: none;}
+.c-backTop a{width:60px; height:60px; display: block; text-align: center; line-height: 80px;}
+.c-backTop a,.c-backTop a:link{color: #919191;}
+.c-backTop a.indexback{background: url("../images/bc1.png") no-repeat center 10px; border-bottom: 1px solid #ccc; }
+.c-backTop a.topback{background: url("../images/bc2.png") no-repeat center 10px;}
+.c-backTop a.indexback:hover{background: #e50065 url("../images/bc1r.png") no-repeat center 10px; border-bottom: 1px solid #fff; color: #fff;}
+.c-backTop a.topback:hover{background: #e50065 url("../images/bc2r.png") no-repeat center 10px; color: #fff;}
+/*返回顶部 end*/

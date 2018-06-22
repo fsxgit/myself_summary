@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.ajax使用2</title>
+    <style>
+        *{margin:0; padding: 0;}
+        input{border:none; background: none; outline: none;}
+        .box{padding:40px;}
+        .xx_box{margin-top: 40px;}
+        .xx_box .name{font-size: 24px; color: #f0080b; cursor: pointer;}
+        .xx_box .email{font-size: 28px; color: #f006ac; cursor: pointer;}
+        .xx_box img{width: 100px; height:auto;}
+        .btn_box{text-align: center; margin:40px 0; }
+        .sj_btn{width:80%; height:40px; background: #0066FF; color: #fff; font-size: 26px; cursor: pointer;}
+        h1,h2{text-align: center;}
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>$.ajax使用</h1>
+    <h2>循环获取名字地址</h2>
+
+    <div class="box">
+        <div class="xx_box">大家好，我的名字是:<span class="name"></span>，我是<span class="email"></span>号</div>
+    </div>
+    <div class="btn_box">
+        <input type="button" class="sj_btn" value="获取数据"/>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+$(".sj_btn").click(function(){
+    $.ajax({
+        url:"js/data.json",
+        type:"POST",
+        dataType:"json",
+        async:false,
+        data:"",
+        success:function(res){
+//            console.log(res);
+
+            var band = res.data.band;
+            var arr = "";
+            for(var x in band){
+//                console.log(band[x].id + band[x].name);
+                arr += '<div class="xx_box">大家好，我的名字是:<span class="name">'+band[x].name+'</span>，我是<span class="email" onclick="num(this)">'+band[x].id+'</span>号。</div>'
+            }
+
+            $(".box").html(arr);
+        },
+
+        error:function(msg){
+            alert(msg);
+            console.log(msg);
+        }
+    });
+});
+
+//***************************************************************************
+//ajax新生成html不能用的写法
+//【1】这样的写法，为什么在ajax里面生成的html里无法调用？？
+$(".xx_box .name").click(function(){
+    alert(222);
+    alert($(this).text());
+});
+//【2】这样的写法，为什么在ajax里面生成的html里无法调用？？
+$(".xx_box .name").on("click",function(){
+    alert(3333);
+    alert($(this).text());
+});
+//****************************************
+//                ***完美解决***
+// ***************************************
+//【3】这样的写法，完美解决了在ajax里面生成的html里无法调用已写好方法的问题？？
+$("body").on("click",".xx_box .name",function(){
+    alert(5555);
+    alert($(this).text());
+});
+//***************************************************************************
+
+
+//这样的话可以写在外面使用
+function num(obj){
+    alert(111);
+    console.log(obj);
+    var This = $(obj);
+    alert(This.text());
+}
+
+</script>
+</body>
+</html>

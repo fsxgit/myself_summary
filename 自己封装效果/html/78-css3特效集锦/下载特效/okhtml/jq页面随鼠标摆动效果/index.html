@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>鼠标移上去图片摆动</title>
+<meta charset="utf-8" />
+<script src="js/jquery-1.9.1.min.js"></script>
+<style type="text/css">
+	.warp .top{position: absolute;width: 1920px;left: 50%;margin-left: -960px;height: 582px;overflow: hidden;}
+	.box{position: relative;width: 1000px;height: 582px;overflow: hidden;margin:0 auto;background:#ff6a00;}
+	.pic1{width: 1000px;height: 300px;position: absolute;left: 0;top: 282px;z-index: 114;}
+	.pic2{width: 1022px;height: 473px;position: absolute;right: 439px;top: 109px;z-index: 113;}
+	.pic3{width: 928px;height: 582px;position: absolute;left: 380px;top: 0;z-index: 112;}
+	img{vertical-align: top;}
+	.pic4{width: 1000px;height: 300px;position: absolute;left: 0;top: 282px;z-index: 113;}
+	.pic5{width: 1000px;height: 300px;position: absolute;left: 0;top: 282px;z-index: 999;}
+	.main{width: 1000px;margin: 0 auto;position: relative;}
+</style>
+</head>
+<body>
+<div class="top">
+	<div class="pic2" >
+		<img src="images/02.png">
+	</div>
+	<div class="pic3">
+		<img src="images/03a.png">
+	</div>
+</div>
+<div class="main">
+	<div class="box">
+		<div class="pic1">
+			<img src="images/01_BG.png">
+		</div>
+
+		<div class="pic4">
+			<img src="images/04.png">
+		</div>
+		<div class="pic5">
+			<img src="images/05.png">
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+    var positionX = 0;
+    var positionY = 0;
+
+    $('.pic5').mousemove(function(e) {
+        var x = e.clientX, y = e.clientY;
+        if(positionX === 0 && positionY === 0){
+            positionX = x;
+            positionY = y;
+        }
+        if(x > positionX && y < positionY){
+            $('.pic1').stop().animate({'left':50,'top':300},'800',"easeOutCubic");
+//            $('.pic2').stop().animate({'right':449,'top':114},'800',"easeOutCubic");
+//            $('.pic3').stop().animate({'left':375,'top':5},'800',"easeOutCubic");
+//            $('.pic4').stop().animate({'left':-20,'top':300},'800',"easeOutCubic");
+            positionX = x;
+            positionY = y;
+        }else if(x > positionX && y > positionY){
+            $('.pic1').stop().animate({'left':-10,'top':280},'800',"easeOutCubic");
+//            $('.pic2').stop().animate({'right':429,'top':104},'800',"easeOutCubic");
+//            $('.pic3').stop().animate({'left':375,'top':-5},'800',"easeOutCubic");
+//            $('.pic4').stop().animate({'left':-20,'top':278},'800',"easeOutCubic");
+            positionX = x;
+            positionY = y;
+        }else if(x < positionX && y < positionY){
+            $('.pic1').stop().animate({'left':10,'top':292},'800',"easeOutCubic");
+//            $('.pic2').stop().animate({'right':449,'top':114},'800',"easeOutCubic");
+//            $('.pic3').stop().animate({'left':385,'top':5},'800',"easeOutCubic");
+//            $('.pic4').stop().animate({'left':20,'top':300},'800',"easeOutCubic");
+            positionX = x;
+            positionY = y;
+        }else if(x < positionX && y > positionY){
+            $('.pic1').stop().animate({'left':-10,'top':280},'800',"easeOutCubic");
+//            $('.pic2').stop().animate({'right':429,'top':104},'800',"easeOutCubic");
+//            $('.pic3').stop().animate({'left':385,'top':-5},'800',"easeOutCubic");
+//            $('.pic4').stop().animate({'left':20,'top':278},'800',"easeOutCubic");
+            positionX = x;
+            positionY = y;
+        }
+
+    })
+
+    $.extend($.easing,{
+        easeOutBack:function(x,t,b,c,d,s){
+            if (s == undefined) s = 1.70158;
+            return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+        },
+        easeOutCubic: function (x, t, b, c, d) {
+            return c * ((t = t / d - 1) * t * t + 1) + b;
+        }
+    });
+})
+</script>
+</div>
+</body>
+</html>

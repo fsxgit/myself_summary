@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里是左边导航</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+        html,body{height:100%;}
+    </style>
+</head>
+<body>
+    <div class="left">
+       <p>手机</p>
+       <p>电脑</p>
+       <p>电视</p>
+       <p>洗衣机</p>
+       <p>电饭锅</p>
+       <p>电磁炉</p>
+    </div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+$(".sel-box").hover(function(){
+    $(".sel-item").slideDown("slow");
+},function(){
+    $(".sel-item").slideUp("slow");
+})
+</script>
+</body>
+</html>

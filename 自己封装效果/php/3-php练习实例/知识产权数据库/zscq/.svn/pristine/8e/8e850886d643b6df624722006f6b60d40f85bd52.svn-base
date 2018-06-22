@@ -1,0 +1,40 @@
+<?php
+namespace Portal\Controller;
+use Common\Controller\CommonController;
+header("content-type:text/html;charset=utf-8");
+class CostController extends CommonController {
+	/*
+	*  我的订单列表
+	*/
+	function orderlst(){
+		$user_id = $_COOKIE['zsid'];
+		$zcorder = M("zcorder")->where("customerid={$user_id}")->select();
+		foreach($zcorder as $k=>$v){
+			$orderid[] = $v['orderid'];
+		}
+		$orderid = implode(',',$orderid);
+	    $mark = M("mark")->where("orderid in($orderid)")->select();
+		foreach($zcorder as $k=>$v){
+			foreach($mark as $ki=>$vi){
+			    if($v['orderid']==$vi['orderid']){
+					$zcorder[$k]['mark'][] = $vi;
+				}
+		    }
+		}	
+		$this->assign("zcorder",$zcorder);
+		$this->display("my-dingdan");
+	}
+	/**
+	*   支付后查看订单详情
+	*/
+	function orderpay_details(){
+		$orderid = I('get.orderid');
+		$zcorder = M("zcorder")->where("orderid={$orderid}")->find();
+	    $mark = M("mark")->where("orderid ={$orderid}")->select();
+		$zcorder['mark'] = $mark;
+		$nice_first = M("nice_first")->where("id in({$mark['0']['registetype']})")->select();
+		$this->assign("zcorder",$zcorder);
+		$this->assign("nice",$nice_first);
+		$this->display("xq-order");
+	}
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{width:300px; height:100px; position:absolute; left:500px; top:200px; background: #ffff00; display: none; font-size:20px; line-height:100px; text-align: center;}
+    </style>
+</head>
+<body>
+<button id="btn">点点</button>
+<div id="box">
+德玛西亚
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var timer = null;
+    $("#btn").click(function(){
+        alt();
+        timer = setTimeout(alt2,1000);
+    });
+    function alt(){
+        $("#box").fadeIn();
+    }
+    function alt2(){
+        $("#box").fadeOut();
+    }
+</script>
+</body>
+</html>

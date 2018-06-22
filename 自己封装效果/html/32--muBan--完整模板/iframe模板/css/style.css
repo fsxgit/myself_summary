@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document  width:px; height:px; overflow:hidden; float:left;*/
+
+/*公共样式*/
+*{ margin:0; padding:0;}
+ul{ margin:0; padding:0;}
+body{ font-family:微软雅黑;}
+.main{ width:990px; height:auto; overflow:hidden; margin:0 auto;}
+a{ text-decoration:none;}
+li{ list-style:none;}
+
+/*头部样式*/
+.head{ width:990px; height:70px; overflow:hidden; margin:0 auto;}
+.head_nav{ width:100%; height:auto; margin-top:22px;}
+.xp_logo{ width:87px; height:35px; overflow:hidden; float:left;}
+.logo_01{ width:148px; height:26px; overflow:hidden; float:left; margin-left:22px;}
+.head_right{ width:530px; height:26px; line-height:26px; overflow:hidden; float:right; margin-top:4px; }
+.head_right a{ display:block; height:26px; line-height:26px; float:left; text-align:center; font-size:14px; margin-right:66px; color:#666666;}
+.yuding{ width:80px;  overflow:hidden; background:#0188cc; border-radius:5px;}
+.both_xian{ width:100%; height:auto; border:1px solid #e6e6e6;}
+
+/*登录与注册*/
+.head_fot{ width:990px; height:48px; border-bottom:1px solid #f4f4f4; overflow:hidden; margin:0 auto;}
+.hf_right{ width:auto; height:auto; float:right;}
+.hf_right a{ display:block; font-size:12px;height:15px; line-height:15px; float:left; overflow:hidden; color:#666666; margin-top:18px;}
+.login{ width:auto; margin-right:16px;}
+.shuxian{ width:auto; height:15px; border:1px solid #f4f4f4; float:left;margin-top:18px;}
+.zhuce{width:auto; margin-left:16px;}
+
+/*登录信息显示*/
+
+
+/*底部样式*/
+.footer{ width:100%; height:200px; overflow:hidden;  background:#fbfbfb; border-top:1px solid #f1f1f0; border-bottom:1px solid #f1f1f0;}
+.footer_left{ width:860px; height:20px; margin-top:40px; overflow:hidden;float:left;}
+.footer_left li{ width:auto; height:20px; line-height:20px; text-align:left; margin-right:85px; font-size:18px; color:#333333; float:left; font-weight:bold; overflow:hidden;}
+.footer_right{ width:130px; height:38px; overflow:hidden; float:left; background:#0188cc; border-radius:5px; margin-top:40px;}
+.baiyuan{ width:20px; height:20px; border-radius:10px; overflow:hidden; background-color:#fff; color:#0188cc; text-align:center; float:left; margin:8px 0 0 15px;}
+.baitext{ width:auto; height:20px; line-height:20px; font-size:14px; color:#fff;margin:8px 0 0 10px; float:left; overflow:hidden;}
+.fot_left2{ width:835px; height:auto; overflow:hidden; float:left; margin-top:10px;}
+.fot_nav{ width:50px; height:auto; overflow:hidden; float:left;}
+.fot_nav li{ width:100%; height:20px; line-height:20px; font-size:12px; color:#666666;}
+.fot_right2{ width:155px; height:auto; overflow:hidden; float:left; margin-top:14px;}
+.fot_topimg{ width:152px; height:22px; overflow:hidden;margin-left:3px;}
+.fot_time{width:100%; height:auto; overflow:hidden; font-size:14px; color:#666666; margin-top:14px; text-align:right; }
+.bot{ width:990px; height:auto; font-size:12px; text-align:center; overflow:hidden; color:#7d7d7d;}
+.bot1{ margin-top:30px;}
+.bot2{ margin-top:12px;}
+
+/* 首页中间内容*/
+.cont{width:990px; overflow:hidden; text-align: center;}
+.cont_logo{ height:55px;  margin-top:104px;}
+.cont_logo2{ height:37px; margin-top:30px;}
+.cont_logo3{ height:566px;  margin-top:30px; margin-bottom:90px;}
+
+

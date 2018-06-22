@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标概况</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main-hou c333">
+        <div class="bread-nav">
+            <a href="{:U('Brand/brand_query_lst')}">商标列表</a> > 商标详情
+        </div>
+        <!--上面 公用-->
+        <div class="list-gk-top oh">
+            <div class="logo fl">
+                <img src="public/html/images/img1.png" alt=""/>
+            </div>
+            <div class="logo-txt f12">
+                <p><span class="fb f16">{$res.entname}</span><span class="xuzhan">
+				<if condition=" $zhu eq 1 ">
+                  已注册
+			   <elseif condition=" $zhu eq 2 "/>
+				  注册失败
+				<elseif condition=" $zhu eq 3 "/>
+				  已无效
+				 <elseif condition=" $zhu eq '' "/>
+				注册中
+				</if>
+				</span></p>
+                <p><span class="c999">商标类型：</span><span>{$res.marktype}</span></p>
+                <p><span class="c999">商标类别：</span><span>{$res.uniontypecode}</span></p>
+                <div class="oh">
+                    <div class="fl c999">小　　类：</div>
+                    <div class="xlei " >
+					<foreach name="nice" item="vo" >
+					<span>{$vo.code} {$vo.name}</span>
+                    </foreach>
+                       
+                      <!--  <span class="zhankai">展开更多</span>!-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--上面 公用 end-->
+        <div class="list-gk-tab">
+            <a class="active" href="javascript:;">商标概况</a>
+            <a href='javascript:zhuan({$res.id},{$zhu});'>转让</a>
+            <a href="javascript:geng();">变更</a>
+            <a href="javascript:beian();">许可备案</a>
+            <a href="javascript:xuzhan();">续展</a>
+            <a href="javascript:ziliao();">资料列表</a>
+        </div>
+        <div class="list-gk-cont">
+            <!--右边的完成步骤部分-->
+            <div class="list-gk-cont-right fr">
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                        <!--<div class="step-mode fl">
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">等待下发《商标注册证》</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">公告期结束，注册成功</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>!-->
+                        <if condition="($state.tijiaozhuce eq '') and ($state.zhucestate eq 3) ">
+						 <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">进入实质审查阶段</p>
+                            </div>
+                        </div>
+						<elseif condition="($state.tijiaozhuce neq '') and ($state.zhucestate gt 4) "/>
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">已提交注册申请</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['tijiaozhuce']);?></p>
+                            </div>
+                        </div>
+					   </if>
+                       <if condition="($state.tijiaozhuce eq '') and ($state.zhucestate eq 2) ">
+						 <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">进入实质审查阶段</p>
+                            </div>
+                        </div>
+						<elseif condition="($state.tijiaozhuce neq '') and ($state.zhucestate gt 2) "/>
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">已提交注册申请</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['tijiaozhuce']);?></p>
+                            </div>
+                        </div>
+					   </if>
+
+                        <if condition="($state.ziliao eq '') and ($state.zhucestate eq 1) ">
+						 <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">请根据要求准备材料，并发给顾问</p>
+                            </div>
+                        </div>
+						<elseif condition="($state.ziliao neq '') and ($state.zhucestate gt 1) "/>
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">进入提交申请阶段</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['ziliao']);?></p>
+                            </div>
+                        </div>
+					   </if>
+
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">用户下单并支付成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$state['addtime']);?></p>
+                            </div>
+                        </div>
+                    </div>
+              
+                </div>
+
+                 
+            </div>
+            <!--右边的完成步骤部分 end-->
+            <!--上面切换模块 索要改变的部分-->
+            <div class="list-gk-cont-left">
+                <div class="bgl-mode">
+                    <h1 class="c-h1">注册步骤</h1>
+                    <div class="bgl-cont bgl-steps">
+                        <span class="bgl-step">1</span>
+                        <span>开始申报</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">2</span>
+                        <span>形式审查</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">3</span>
+                        <span>实质审查</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">4</span>
+                        <span>公告商标</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">5</span>
+                        <span>注册成功</span>
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">商标信息</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">申请人姓名:</span><span class="fl">{$res.entname}</span></p>
+                        <p class="oh"><span class="tit fl">申请人地址：</span><span class="fl">{$res.dom}</span></p>
+                        <p class="oh"><span class="tit fl">申请/注册号：</span><span class="fl">{$res.markcode_key}<span class="c999">（申请日期：{$res.appdate}）</span></span></p>
+                        <p class="oh"><span class="tit fl">初审公告期号：</span><span class="fl">1231344 <span class="c999">（初审公告日期：{$res.checkdate}）</span></span></p>
+                        <p class="oh"><span class="tit fl">注册公告期号：</span><span class="fl">1231344 <span class="c999">（注册公告日期：{$res.regdate}）</span></span></p>
+                        <p class="oh"><span class="tit fl">专用权有效期：</span><span class="fl">{$res.begindate}-{$res.enddate}</span></p>
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">联系人信息</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">联系人:</span><span class="fl">{$res.linkman}</span></p>
+                        <p class="oh"><span class="tit fl">联系电话：</span><span class="fl">{$res.phone}</span></p>
+                        <p class="oh"><span class="tit fl">联系人地址：</span><span class="fl">北京市朝阳区东四环中路</span></p>
+
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">服务顾问</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">律师:</span><span class="fl">{$gu.consultantname}</span></p>
+                        <p class="oh"><span class="tit fl">联系电话：</span><span class="fl">{$gu.consultantmobile}</span></p>
+                        <p class="oh"><span class="tit fl">代理机构：</span><span class="fl">{$gu.consultantdept}</span></p>
+                        <p class="oh"><span class="tit fl">代理机构地址：</span><span class="fl">{$gu.consultantaddress}</span></p>
+
+                    </div>
+                </div>
+            </div>
+            <!--上面切换模块 索要改变的部分 end-->
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+function zhuan(id,zhu){
+	
+	window.location.href="index.php?g=Portal&m=Brand&a=zhuan&id="+id+"&zhu="+zhu;
+}
+function geng(){
+	window.location.href="index.php?g=Portal&m=Brand&a=geng";
+}
+function xuzhan(){
+	window.location.href="index.php?g=Portal&m=Brand&a=xuzhan";
+}
+function ziliao(){
+	window.location.href="index.php?g=Portal&m=Brand&a=ziliao";
+}
+function beian(){
+	window.location.href="index.php?g=Portal&m=Brand&a=beian";
+}
+</script>

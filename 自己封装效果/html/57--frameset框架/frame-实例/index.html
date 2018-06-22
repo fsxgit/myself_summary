@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="font4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font4.2.0/css/font-awesome-ie7.min.css">
+    <link rel="stylesheet" href="css/theme.min.css"/>
+    <link rel="stylesheet" href="css/simplebootadminindex.min.css"/>
+    <link rel="stylesheet" href="css/fcss.css"/>
+</head>
+<body>
+<div class="frame-header">
+    <div class="header_box">
+        <h1 style="font-size: 16px;">这里是框架的头部</h1>
+    </div>
+</div>
+<div class="frame-side">
+    <div class="left_side_Nav">
+        <ul class="nv-ul1">
+            <li><a href="javascript:;" class="na_tit1" target="myFrame">第一级第一级第一级第一级</a>
+                <ul class="nv-ul2">
+                    <li class="hasCont"><a href="javascript:;" class="na_tit2"  target="myFrame">第二级第二级</a>
+                        <ul class="nv-ul3">
+                            <li><a href="javascript:;" target="myFrame" >第三级第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:;" class="na_tit2"  target="myFrame">第二级第二级</a>
+                        <ul class="nv-ul3">
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="javascript:;" class="na_tit1"  target="myFrame">第一级第一级</a>
+                <ul class="nv-ul2">
+                    <li><a href="javascript:;" class="na_tit2 no_cont"  target="myFrame">第2级</a></li>
+                    <li><a href="javascript:;" class="na_tit2 no_cont"  target="myFrame">第2级</a></li>
+                    <li><a href="javascript:;" class="na_tit2 no_cont"  target="myFrame">第2级</a></li>
+                    <li><a href="javascript:;" class="na_tit2 no_cont"  target="myFrame">第2级</a></li>
+                    <li><a href="javascript:;" class="na_tit2 no_cont"  target="myFrame">第2级</a></li>
+                    <li><a href="javascript:;" class="na_tit2"  target="myFrame">第2级</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:;" class="na_tit1"  target="myFrame">第一级第一级</a>
+                <ul class="nv-ul2">
+                    <li><a href="javascript:;" class="na_tit2"  target="myFrame">第二级</a>
+                        <ul class="nv-ul3">
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="javascript:;" class="na_tit1"  target="myFrame">第一级第一级</a>
+                <ul class="nv-ul2">
+                    <li><a href="javascript:;" class="na_tit2"  target="myFrame">第二级</a>
+                        <ul class="nv-ul3">
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                            <li><a href="javascript:;" target="myFrame" >第三级</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="frame-contents">
+    <iframe id="frameSrc" name="myFrame"  src="https://11www.hao123.com/" frameborder="0" ></iframe>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+$(".na_tit1").each(function(){
+    var str = $(this).text();
+    if(str.length >= 7){
+        var txt = str.slice(0,6);
+        $(this).text(txt+"...");
+    }
+
+    $(this).click(function(){
+        if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $(this).siblings("ul").removeClass("open");
+        }else{
+            $(this).addClass("active");
+            $(this).parents("li").siblings("li").find("a").removeClass("active");
+            $(this).siblings(".nv-ul2").addClass("open");
+            $(this).parents("li").siblings("li").find(".nv-ul2").removeClass("open");
+        }
+    });
+
+});
+
+$(".na_tit2").each(function() {
+    var str = $(this).text();
+    if (str.length >= 6) {
+        var txt = str.slice(0, 6);
+        $(this).text(txt + "...");
+    }
+
+    $(this).click(function(){
+
+        if($(this).siblings(".nv-ul3").hasClass("open")){
+            $(this).siblings(".nv-ul3").removeClass("open");
+        }else{
+            $(this).siblings(".nv-ul3").addClass("open");
+            $(this).parents("li").siblings("li").find(".nv-ul3").removeClass("open");
+        }
+
+    });
+
+});
+
+
+$(".nv-ul3 li").each(function() {
+
+    var str = $(this).find("a").text();
+    if (str.length >= 7) {
+        var txt = str.slice(0, 6);
+        $(this).find("a").text(txt + "...");
+    }
+})
+</script>
+</body>
+</html>

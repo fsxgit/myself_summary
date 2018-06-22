@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>抽奖游戏</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.prize_wrap {
+				width: 300px;
+				height: 150px;
+			}
+			
+			.prize_wrap .active {
+				position: absolute;
+				width: 100px;
+				height: 50px;
+				background: #f00;
+				line-height: 50px;
+				text-align: center;
+				border: solid 1px #999;
+				margin: -1px;
+			}
+			
+			.prize_cell,
+			.prize_btn {
+				position: absolute;
+				background: #ccc;
+				width: 100px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+			}
+			
+			.prize_btn {
+				background: #f0f;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//构造函数
+			var prizeScroll = (function(doc) {
+				function _getItemsFilterCls(cls, items) {
+					var ret = [];
+					for (var i = 0, len = items.length; i < len; i++) {
+						if (items[i].className.indexOf(cls) > -1) {
+							ret.push(items[i]);
+						}
+					}
+					return ret;
+				}
+				return function(opt) {
+					this.wrap = doc.getElementById(opt.id) || doc.body;
+					this.items = opt.items || _getItemsFilterCls(opt.id.replace('_wrap', '') + '_cell', this.wrap.getElementsByTagName('*'));
+					this.btn = doc.getElementById(opt.btn);
+					this.curClass = opt.curClass || 'active';
+					this.prizeNum = -1;
+					this.curIdx = 0;
+					this.interval = null;
+					this.queue = [100, 50, 30, 50, 100, 150]; //转速
+					this.queue.gid = 0; //转圈数
+					this.callBack = opt.callBack || function() {};
+					this.init();
+				}
+			})(document);
+			//工具方法
+			prizeScroll.log = function(msg) {
+				if (console && console.log) {
+					console.log(msg);
+				} else {
+					alert(msg);
+				}
+			}
+			prizeScroll.prototype.init = function() {
+				//初始化
+				//prizeScroll.log('init');
+			}
+			prizeScroll.prototype._setInterval = function(timer, stopNum) {
+				//滚动动画
+				var _self = this,
+					len = stopNum || _self.items.length;
+				_self._clearInterval();
+				_self.interval = setInterval(function() {
+					if (_self.curIdx > len - 1) {
+						_self._clearInterval();
+						_self._next();
+						return;
+					}
+					_self._setActive(_self.curIdx);
+					_self.curIdx++;
+				}, timer);
+			}
+			prizeScroll.prototype._setActive = function(idx) {
+				//设置中奖状态
+				for (var i = 0, len = this.items.length; i < len; i++) {
+					this.items[i].className = 'prize_cell';
+				}
+				this.items[idx].className = 'active';
+			}
+			prizeScroll.prototype._clearInterval = function() {
+				//清除动画
+				var _self = this;
+				_self.interval && clearInterval(_self.interval);
+			}
+			prizeScroll.prototype.start = function() {
+				//开始
+				this._next();
+			}
+			prizeScroll.prototype._next = function() {
+				//动画排序
+				this.curIdx = 0;
+				this.interval = null;
+				var time = this.queue[this.queue.gid];
+				if (this.queue.gid > this.queue.length - 1) {
+					this.callBack(this.prizeNum);
+					return;
+				}
+				if (this.queue.gid === this.queue.length - 1) {
+					this._setInterval(time, this.getPrizeNum()); //奖品设置
+					this.queue.gid++;
+					return;
+				}
+				this._setInterval(time);
+				this.queue.gid++;
+			}
+			prizeScroll.prototype.reset = function() {
+				//重置重新开始
+				this.stop();
+				this.queue.gid = 0;
+			}
+			prizeScroll.prototype.getPrizeNum = function() {
+				//获取奖品号
+				return this.prizeNum;
+			}
+			prizeScroll.prototype.setPrizeNum = function(prizeNum) {
+				//设置奖品号
+				this.prizeNum = prizeNum;
+			}
+			prizeScroll.prototype.stop = function() {
+				//停止
+				//prizeScroll.log('stop');
+				this._clearInterval();
+			}
+			var prizeAssembly = {
+				"1": "1亿现金",
+				"2": "10亿冥币，您可以去死了",
+				"3": "女优一枚",
+				"4": "女优N枚",
+				"5": "给你放个屁，下次再来",
+				"6": "转的很6",
+				"7": "萝莉小美眉",
+				"8": "学生妹大长腿"
+			}
+			var m = new prizeScroll({
+				id: 'prize_wrap',
+				callBack: function(prizeNum) {
+					alert("您中了 " + prizeAssembly[prizeNum] + " ");
+				}
+			})
+			var prizeNum
+			document.getElementById('prize_start').onclick = function() {
+				prizeNum = parseInt(Math.random() * 7) + 1
+				m.reset();
+				m.setPrizeNum(prizeNum);
+				m.start();
+			}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="prize_wrap" id="prize_wrap">
+			<div class="prize_cell" style="left:0;top:0">1亿现金</div>
+			<div class="prize_cell" style="left:100px;top:0">10亿冥币</div>
+			<div class="prize_cell" style="left:200px;top:0">女优一枚</div>
+			<div class="prize_cell" style="left:200px;top:50px">女优N枚</div>
+			<div class="prize_btn" style="left:100px;top:50px" id="prize_start">抽奖开始</div>
+			<div class="prize_cell" style="left:200px;top:100px">谢谢</div>
+			<div class="prize_cell" style="left:100px;top:100px">666</div>
+			<div class="prize_cell" style="left:0;top:100px">萝莉</div>
+			<div class="prize_cell" style="left:0;top:50px">学生妹</div>
+
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/wrong.css"/>
+</head>
+<body>
+    <div class="fp-box main c333 f12">
+        <div class="fp-step">
+			<img src="public/html/images/fp3.png" width="640" height="54" alt=""/>
+		</div>
+        <div class="fp-input-box bc">
+            <p>
+				<span class="tit">旧密码</span>
+				<input type="password" id = "oldpass" class = "ggg" placeholder="请输入旧密码"/>
+			</p>
+			<p class="warn-box" id = "pass1"></p>
+            <p>
+				<span class="tit">新密码</span>
+				<input type="password" id = "newpass" class = "ggg" placeholder="请输入新密码"/>
+			</p>
+            <p class="warn-box" id = "pass2"></p>
+            <p>
+				<span class="tit">确认新密码</span>
+				<input type="password" id = "newpass1" class = "ggg" placeholder="请再次输入新密码"/>
+			</p>
+			<p class="warn-box" id = "pass3"></p>
+            <p>
+				<input type="button" onclick = "ckform()" class="next bg1 cfff" value="下一步"/>
+			</p>
+        </div>
+    </div>
+</body>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+//提示错误后，再获取焦点是，提示隐藏
+	$(".gggx").each(function(){
+		$(this).focus(function(){
+			$(this).parents("p").siblings(".warn-box").hide().html("");
+		})
+	});
+	function ckform(){
+		var oldpass = $("#oldpass").val();
+		var newpass = $("#newpass").val();
+		var newpass1 = $("#newpass1").val();
+		if(oldpass == ""){
+			$("#pass1").show();
+			$("#pass1").html("<span class='warn-txt'>旧密码不能为空</span>");
+			return false;
+		}else if(newpass == ""){
+			$("#pass2").show();
+			$("#pass2").html("<span class='warn-txt'>新密码不能为空</span>");
+			return false;
+		}else if(newpass1 == ""){
+			$("#pass3").show();
+			$("#pass3").html("<span class='warn-txt'>确认密码不能为空</span>");
+			return false;
+		}else if(newpass != newpass1){
+			$("#pass3").show();
+			$("#pass3").html("<span class='warn-txt'>两次新密码输入不一致</span>");
+			return false;
+		}
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			data:{"oldpass":oldpass,"newpass":newpass},
+			url:'{:U('Portal/pinfo/uppass5')}',
+			success: function(msg){
+				if(msg == 1){
+					window.location.href='index.php?g=Portal&m=pinfo&a=uppass6';
+					return false;
+				}else{
+					$("#pass3").show();
+					$("#pass3").html("<span class='warn-txt'>密码修改失败</span>");
+					return false;
+				}
+			}
+		});
+	}
+</script>
+</html>

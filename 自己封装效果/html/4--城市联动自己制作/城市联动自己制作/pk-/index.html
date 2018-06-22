@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>手机品牌</title>
+    <script src="js/f_js.js"></script>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css"/>
+    <link rel="stylesheet" href="css/f_style.css"/>
+    <link rel="stylesheet" href="css/cloth.css"/>
+</head>
+<body>
+<div class="header">
+    <span class="oleftImg"><img src="images/oLeft.png" alt=""/></span>
+    <span class="KindTitle"><em class="Kindname">手机</em><i class="jiaobiao"><img src="images/down.png" alt=""/></i></span>
+    <div class="kinds">
+        <!--<p>笔记本</p>-->
+        <!--<p>平板电脑</p>-->
+        <!--<p>单反相机</p>-->
+        <!--<p>数码相机</p>-->
+        <!--<p>镜头</p>-->
+        <!--<p>微单相机</p>-->
+    </div>
+</div>
+<div class="box">
+    <div class="boxRight">
+            <div class="swiper-container">
+                <div class="mode current swiper-wrapper">
+                    <div class="swiper-slide"><span class="n"></span>iPhone 5S</div>
+                    <div class="swiper-slide"><span class="n"></span>iPhone 4S</div>
+                    <div class="swiper-slide"><span class="n"></span>红米 Note</div>
+                    <div class="swiper-slide"><span class="n"></span>小米 3</div>
+                    <div class="swiper-slide"><span class="n"></span>iPhone 4</div>
+                    <div class="swiper-slide"><span class="n"></span>iPhone 5</div>
+                    <div class="swiper-slide"><span class="n"></span>三星 GALAXY Note 2</div>
+                    <div class="swiper-slide"><span class="n"></span>iPhone 6</div>
+                    <div class="swiper-slide"><span class="n"></span>三星 GALAXY S4</div>
+                    <div class="swiper-slide"><span class="n"></span>iPhone 6Plus</div>
+                    <div class="swiper-slide"><span class="n"></span>iPhone 6</div>
+                    <div class="swiper-slide"><span class="n"></span>三星 GALAXY S4</div>
+                    <div class="swiper-slide"><span class="n"></span>iPhone 6Plus</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script src="js/fxcloth.js"></script>
+<script src="js/ajax.js"></script>
+<script>
+    getData();
+    mySwiperPK();
+    PK();
+FenLeiSelect();
+function FenLeiSelect(){
+    var oKindTitle = $(".KindTitle");
+    var oKinds = $(".kinds");
+    var aP = $(".kinds p");
+    var oImg =$(".jiaobiao img");
+    var oKindName =$(".Kindname");
+
+    oKindTitle.on("click",function(){
+        var imgSrc =  oImg.attr("src");
+        if(imgSrc == "images/down.png"){
+            oKinds.slideDown();
+            oImg.attr("src","images/up.png");
+        }else{
+            oKinds.slideUp();
+            oImg.attr("src","images/down.png");
+        }
+        aP.each(function(){
+            $(this).on("click",function(){
+                oKinds.slideUp();
+                oKindName.text($(this).text());
+                oImg.attr("src","images/down.png");
+                var L2 = ($(".header").width()- oKindTitle.width())/2;
+                var T2 = ($(".header").height()- oKindTitle.height())/2;
+                oKindTitle.css({"left":L2,"top":T2,"display":"block"});
+            });
+        })
+
+    })
+    var L = ($(".header").width()- oKindTitle.width())/2;
+    var T = ($(".header").height()- oKindTitle.height())/2;
+    oKindTitle.css({"left":L,"top":T,"display":"block"});
+
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: Dean <zxxjjforever@163.com>
+// +----------------------------------------------------------------------
+namespace Portal\Controller;
+use Common\Controller\Common1Controller; 
+header("content-type:text/html;charset=utf-8");
+/**
+ * 首页
+ */
+class IndexController extends Common1Controller {
+    //首页
+    public function index(){
+    	$this->display("index");
+    }
+    function getmicrotime(){ 
+        list($usec, $sec) = explode(" ",microtime()); 
+        return ((float)$usec + (float)$sec); 
+    }
+    //搜索页
+    public function search(){
+    //    var_dump($_POST);
+	$ty = I("ty");
+        $name = I("business_name");
+        $money = I("money");
+        $year = I("year");
+        if($money!=""){
+           
+        }if($year!=""){
+            
+        }
+        $time_start = self::getmicrotime();
+        $arr = array('entName'=>$name);
+	$rs = request_api_xt('api/findEnterpriseList.do',$arr);
+    //    var_dump($rs);
+        $time_end = self::getmicrotime();//结束计时, 放在尾部 
+        $time = $time_end - $time_start; 
+        $t = number_format($time,5);
+        $count = count($rs["data"]);
+        foreach($rs["data"] as $k=>$v){
+            $n = $v["ENTNAME"];
+            $ar = array('entName'=>$n);
+            $r = request_api_xt('api/findEnterpersInfo.do',$ar);
+            $arr = request_api_xt('api/findTrademarkList.do',$ar);//商标信息
+            $c = $arr['data']["totalSize"];
+            
+            $rs["data"][$k]["frdb"] = $r["data"]["frdb"];//法定代表人
+            $rs["data"][$k]["regcap"] = $r["data"]["regcap"];//注册资本
+            $rs["data"][$k]["dom"] = $r["data"]["dom"];//企业地址
+            $rs["data"][$k]["esdate"] = $r["data"]["esdate"];//成了日期
+            $rs["data"][$k]["regcapcur"] = $r["data"]["regcapcur"];//成了日期
+            $rs["data"][$k]["shangbiao"] = $c;//商标
+        }
+    //    var_dump($rs["data"]);die;
+        $this->assign("time",$t);
+        $this->assign("name",$name);
+  //      $this->assign("year",$year);
+  //      $this->assign("money",$money);
+        $this->assign("count",$count);
+	//	var_dump($rs);
+		if($ty){
+			if($rs["data"]){
+				$this->assign("re",$rs["data"]);
+				$this->display("search2");
+			}else{
+				$this->display("search-wu2");
+			}
+		}else{
+			if($rs["data"]){
+				$this->assign("re",$rs["data"]);
+				$this->display();
+			}else{
+				$this->display("search-wu");
+			}
+		}
+
+    }
+    //企业详情
+    public function qiye_detail(){
+    //    $url = $_SERVER["REQUEST_URI"];
+    //    setcookie("url",$url,time()+3600*24);
+	$ty = I("ty");
+        $name = I("name");
+        $names = I("names");
+       
+     
+        $p = I("p");
+        if(empty($p)){
+             $p=0;
+        }else{
+			$p = $p-1;
+		}
+        $pageSize = 10;
+  
+        $array = array('entName'=>$names);
+  
+        $ar = array('entName'=>$names,'page'=>$p,'pageSize'=>$pageSize);
+		$rs = request_api_xt('api/findEnterpersInfo.do',$array);//企业信息
+ //       var_dump($rs["data"]);
+
+		$start_time = $rs["data"]["esdate"];
+		$end_time = '2016-01';
+		//下面计算出的是秒
+		$time = strtotime($end_time )-strtotime($start_time);
+		$years = floor($time/31556926);
+
+
+        $rs["data"]["esdate"] = str_replace("-", ".",$rs["data"]["esdate"]);
+      
+
+
+
+        $arr = request_api_xt('api/findTrademarkList.do',$ar);//商标信息
+   //     var_dump($arr["data"]);die;
+        $cou = $arr["data"]["totalSize"];//总条数
+  //      echo $cou;
+        $totalpage = ceil($cou/$pageSize);
+
+        $page = $this->page($cou,$pageSize);
+        $this->assign("rs",$rs["data"]);
+        $this->assign("name",$name);
+		$this->assign("year",$years);
+        $this->assign('arr1',$arr["data"]["data"]);
+        $this->assign("count",$cou);
+        $this->assign("totalpage",$totalpage);
+        $this->assign("page",$page->show());
+		if($ty){
+			$this->display("qiye_detail2");
+		}else{
+			 $this->display();
+		}
+       
+    }
+	//判断是否认领
+	public function is_renling(){
+		if($_COOKIE["zsid"]){
+			$zid = $_COOKIE["zsid"];
+			$re = M("user")->where("id=$zid")->field("isClaimed,companyName")->find();
+	   //     var_dump($re);
+			if($re["isclaimed"]==1){
+				echo json_encode($re);
+			}else{
+				echo 0;
+			}
+		}else{
+			echo 2;
+		}
+	}
+
+    //企业认领
+    public function qiye_renling(){
+        if(empty($_COOKIE['code'])){
+            $url = $_SERVER["REQUEST_URI"];
+            setcookie("url",$url,time()+3600*24);
+            $this->redirect('Portal/Register/index');     
+        }else{
+            //判断是否认领过
+            $name = I("name");//企业
+            $names = I("names");//公司
+                
+            $zid = $_COOKIE["zsid"];
+            $re = M("user")->where("id=$zid")->field("isClaimed,companyName")->find();
+       //     var_dump($re);
+            if($re["isclaimed"]==1){
+				$n = $re["companyname"];
+				echo "<script>alert('你已经认领了".$re['companyname']."企业');window.history.back(-1);</script>";
+            }else{  
+                $arr = array('entName'=>$names);
+                $rs = request_api_xt('api/findEnterpersInfo.do',$arr);
+		//		var_dump($rs);die;
+                $this->assign("name",$name);
+                $this->assign("rs",$rs["data"]);
+                $this->display();
+            }
+        }
+    }
+	//企业认领
+    public function qiye_renling2(){
+		$name = I("name");//企业
+		$names = I("names");//公司
+			
+		$zid = $_COOKIE["zsid"];
+		$re = M("user")->where("id=$zid")->find();
+   //     var_dump($re);
+		if($re["isclaimed"]==1){
+			$n = $re["companyname"];
+			echo "<script>alert('你已经认领了".$re['companyname']."企业');window.history.back(-1);</script>";
+		}else{  
+			$arr = array('entName'=>$names);
+			$rs = request_api_xt('api/findEnterpersInfo.do',$arr);
+		//  var_dump($rs);die;
+
+			$this->assign("name",$name);
+			$this->assign("rs",$rs["data"]);
+			$this->display();
+		}
+    }
+    public function qiye_add(){
+		$ty = I("ty");
+        $name = I("names");
+   
+        $id = $_COOKIE["zsid"];
+        $data["companyName"] = $name;
+        $data["isClaimed"] = 1;
+        M("user")->where("id=$id")->save($data);
+
+        $arr = array('entName'=>$name);
+        $rs = request_api_xt('api/findEnterpersInfo.do',$arr);
+   //   var_dump($rs["data"]);
+        $d["entname"] = $rs["data"]["entname"];
+        $d["regno"] = $rs["data"]["regno"];
+        $d["frdb"] = $rs["data"]["frdb"];
+        $d["esdate"] = $rs["data"]["esdate"];
+        $d["entstatus"] = $rs["data"]["entstatus"];
+        $d["regcap"] = $rs["data"]["regcap"];
+        $d["enttype"] = $rs["data"]["enttype"];
+        $d["dom"] = $rs["data"]["dom"];
+        $d["opscope"] = $rs["data"]["opscope"];
+        $d["regorg"] = $rs["data"]["regorg"];
+        $d["regcapcur"] = $rs["data"]["regcapcur"];
+        $d["shxydm"] = $rs["data"]["shxydm"];  
+        $d["user_id"] = $id;
+	M("enterprise")->add($d);
+		
+        $p=0;
+        $pageSize = 10000;
+        $ar = array('entName'=>$name,'page'=>$p,'pageSize'=>$pageSize);
+        $ls = request_api_xt('api/findTrademarkList.do',$ar);//商标信息
+	//	var_dump($ls["data"]["data"]);die;
+        foreach($ls["data"]["data"] as $k=>$v){
+            unset($ls["data"]["data"][$k]["id"]);
+            $ls["data"]["data"][$k]["customerid"] = $_COOKIE["zsid"];
+            $ls["data"]["data"][$k]["entnameaddress"] = $rs["data"]["dom"];
+	}
+		M("mark")->addAll($ls["data"]["data"]);
+
+		$zid = $_COOKIE["zsid"];
+		$re = M("user")->where("id=$zid")->find();
+		if($re['adviser']=='0'){
+				$data = array(
+				              "customerid"=>$re['id'],
+							  "customername"=>$re['loginname'],
+							  "customermobile"=>$re['phone'],
+							  "customerentname"=>$re['companyname']
+				              );
+				$guwen = request_api_xt("intel_property/auto_fenpei_guwen",$data);
+				M("adviser")->add($guwen['data']);
+				M("user")->where("id = {$re['id']}")->save(array('adviser'=>'1'));
+			
+		}
+
+
+		if($ty){
+			echo("<script language='javascript'>window.top.location.href='index.php?g=Portal&m=Userinfo&a=index'</script>");
+		}else{
+			$this->redirect('Portal/Userinfo/index');
+		}
+		
+    }
+}
+
+

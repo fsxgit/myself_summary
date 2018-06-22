@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>loading</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        var iWidth=document.documentElement.getBoundingClientRect().width;
+        document.getElementsByTagName("html")[0].style.fontSize=iWidth+"px";
+        $(function(){
+            // 页面加载完成，移除进度图片
+//            $("#turn_gif").remove();
+             $("body").eq(0).css({"overflow":"auto"});
+        });
+        $("body").eq(0).css({"overflow":"hidden"});
+    </script>
+    <style>
+        *{margin:0; padding:0;}
+        html{width: 100%; height:100%; overflow: hidden;}
+        body{width: 100%; height:100%; margin:0;}
+        #turn_gif{width:100%; height:100%;  background:#fff; display: table; position:fixed; left:0; top:0; z-index: 10;}
+        #turn_gif span{display: table-cell; vertical-align: middle; text-align: center;font-size: 0; }
+    </style>
+</head>
+<body>
+<div id="turn_gif">
+    <span>
+        <img src="images/loading.gif" alt=" "/>
+    </span>
+</div>
+<div style="height:1000px;  background: #000;">
+    <div style="height:200px; background: #FF0000;"></div>
+    <div style="height:200px; background: #7170ff;"></div>
+    <div style="height:200px; background: #19ff56;"></div>
+    <div style="height:200px; background: #fe35ff;"></div>
+    <div style="height:200px; background: #0afff3;"></div>
+</div>
+</body>
+</html>

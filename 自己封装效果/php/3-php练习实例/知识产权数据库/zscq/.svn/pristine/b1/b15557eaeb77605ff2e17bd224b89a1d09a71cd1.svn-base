@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<!--公用header-->
+<div class="c-header-3 ">
+    <div class="main oh">
+        <div class="fl c-logo-3"><img src="images/logo4.png" width="142" height="40" alt=""/></div>
+        <div class="fr c-right-3 oh">
+            <input class="c-log-3 fl" type="button" value="登录" />
+            <input class="c-reg-3 fl" type="button" value="免费注册" />
+        </div>
+    </div>
+</div>
+<!--公用header end-->
+<!--公用右侧浮动导航-->
+<div class="f-bar">
+    <div class="bar-ma">
+        <div class="bar-ma-img"><img src="images/ma.png" width="100" height="100" alt=""/></div>
+    </div>
+    <div class="bar-msg"></div>
+    <div class="bar-top"><a href="javascript:window.scrollTo( 0, 0 );" ></a></div>
+</div>
+<!--公用右侧浮动导航 end-->
+<div class="index-search-box">
+    <div class="main">
+        <div class="is-h1">
+            <img src="images/h1.png" width="502" height="107" alt=""/>
+        </div>
+        <!--公用企业搜索输入框-->
+        <div class="search oh bc">
+            <input type="text" class="s-in fl f14" placeholder="请输入您的企业名称"/>
+            <span class="s-btn f16 cfff">
+                <span>企业查询</span>
+            </span>
+        </div>
+        <!--公用企业搜索输入框 end-->
+        <div class="is-step">
+            <img src="images/img11.png" width="1198" height="141" alt=""/>
+        </div>
+    </div>
+</div>
+<div class="index-gl-box main">
+    <h1 class="ig-h1">在这里，管理您的商标</h1>
+    <h2 class="ig-h2">时刻帮您检测企业商标信息情况</h2>
+    <div class="ig-mode-box">
+        <div class="ig-mode active">
+            <p class="img"><img src="images/ig1.png" width="142" height="142" alt=""/></p>
+            <p class="name">专属顾问</p>
+            <p class="txt">登录系统，认领您的企业，我们会为您分配一个专属顾问</p>
+        </div>
+        <div class="ig-mode">
+            <p class="img"><img src="images/ig2.png" width="142" height="142" alt=""/></p>
+            <p class="name">极速查询</p>
+            <p class="txt">专属顾问电脑前待命，实时查询，3分钟内可出结果</p>
+        </div>
+        <div class="ig-mode">
+            <p class="img"><img src="images/ig3.png" width="142" height="142" alt=""/></p>
+            <p class="name">流程可视化</p>
+            <p class="txt">办理流程全部可视化，并有消息提醒，让您清晰的知悉业务办理到哪一步</p>
+        </div>
+        <div class="ig-mode">
+            <p class="img"><img src="images/ig4.png" width="142" height="142" alt=""/></p>
+            <p class="name">商标检测</p>
+            <p class="txt">续展监测，侵权监测，撤三监测，竞争对手监测，为您提供更好保护</p>
+        </div>
+
+    </div>
+</div>
+<div class="index-reg-box">
+    <div class="main tc">
+        <h1 class="ir-h1">商标注册流程</h1>
+        <div class="ir-img"><img src="images/img12.png" width="1008" height="508" alt=""/></div>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+    $(function(){
+//        二维码的显示隐藏
+        maTab();
+        $(".ig-mode").hover(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        })
+    })
+</script>
+</body>
+</html>

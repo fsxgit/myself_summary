@@ -1,0 +1,17 @@
+﻿
+
+//1：在hosts文件中建立域名ip对应关系：
+127.0.0.1   www.liuyanban.com
+
+//2：在apache配置文件中建立新站点：
+<VirtualHost *:80>
+    ServerName www.liuyanban.com
+    DocumentRoot "E:\.......\guestbook-html"
+    <Directory "E:\.......\guestbook-html">
+        Options Indexes
+        Order deny,allow
+        allow from all
+    </Directory>
+</VirtualHost>
+
+//3：重启wamp所有服务。

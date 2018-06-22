@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标概况-变更</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main-hou c333">
+        <div class="bread-nav">
+            商标列表 > 商标详情
+        </div>
+        <!--上面 公用-->
+        <div class="list-gk-top oh">
+            <div class="logo fl">
+                <img src="../images/img1.png" alt=""/>
+            </div>
+            <div class="logo-txt f12">
+                <p><span class="fb f16">神州易桥信息科技</span><span class="xuzhan">续展中</span></p>
+                <p><span class="c999">商标类型：</span><span>文字商标</span></p>
+                <p><span class="c999">商标类别：</span><span>25</span></p>
+                <div class="oh">
+                    <div class="fl c999">小　　类：</div>
+                    <div class="xlei " >
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span>3501 已录制的计算机程序</span>
+                        <span class="zhankai">展开更多</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--上面 公用 end-->
+        <div class="list-gk-tab">
+            <a href="javascript:;">商标概况</a>
+            <a href="javascript:;">转让</a>
+            <a href="javascript:;">变更</a>
+            <a href="javascript:;">许可备案</a>
+            <a class="active" href="javascript:;">续展</a>
+            <a href="javascript:;">资料列表</a>
+        </div>
+        <div class="list-gk-cont">
+            <!--右边的完成步骤部分-->
+            <div class="list-gk-cont-right fr">
+                <!--自增长步骤-->
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                        <div class="step-mode fl">
+                            <div class="step-dot first fl">
+                                <img src="../images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="../images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">等待下发《商标注册证》</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="../images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="../images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">公告期结束，注册成功</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="../images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="../images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="../images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="../images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">资料已下载</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="../images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="../images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--自增长步骤 end-->
+            </div>
+            <!--右边的完成步骤部分 end-->
+            <!--上面切换模块 索要改变的部分-->
+            <div class="list-gk-cont-left">
+                <!--/*提示说明*//-->
+                <div class="c-ts-common ">
+                    <p>注册商标的有效期是10年，有效期满后需要继续使用的，必须在期满前的十二个月内办理续展手续；在此期间未能办理的，可以给予六个月的宽展期期满未办理续展手续的，注消其注册商标。</p>
+                </div>
+                <!--/*提示说明* end//-->
+                <div class="bgl-mode mt20">
+                    <h1 class="c-h1">注册步骤</h1>
+                    <div class="bgl-cont bgl-steps">
+                        <span class="bgl-step">1</span>
+                        <span>用户支付订单</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">2</span>
+                        <span>整理资料快递给顾问</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">3</span>
+                        <span>顾问接收资料并办理</span>
+                        <span class="bgl-point"></span>
+                        <span class="bgl-step">4</span>
+                        <span>续展成功</span>
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">续展办理中...</h1>
+                    <div class="bgl-cont tc">
+                        <div class=" mt40">
+                            <div class="oh">
+                                <div class="fl mr20"><img src="../images/pet3.png" width="45" height="81" alt=""/></div>
+                                 <div class="fl pt20 tl">
+                                     <p class="pb10">开始办理时间：2016.08.09，预计完成时间：<span class="fc1">2017.09.23</span></p>
+                                     <p>商标续展完成大约需要12个月，具体以官方时间为准。</p>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--上面切换模块 索要改变的部分 end-->
+        </div>
+    </div>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".c-gou").click(function(){
+        $(this).toggleClass("active");
+    })
+    $(".jieshou").click(function(){
+        $(this).toggleClass("active");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+html{ overflow:hidden; background:#fff; width:100%; height:100%;}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0;padding:0;}
+body{font-family: "微软雅黑"; font-size:12px; color:#000; background:#fff;overflow-x:hidden; width:100%; height:100%;}
+button,input,select,textarea{ font:12px/1.5  Arial, "宋体", Helvetica,  Verdana, sans-serif; word-wrap:break-word; color:#565756;}
+ul,li{ list-style:none; margin:0; padding:0;}
+h1, h2, h3, h4, h5, h6{font-weight:normal; font-size:100%;}
+img{ border:none; border:0; vertical-align:middle;}
+a{ text-decoration:none; outline:none;}
+p{ margin:0; padding:0;}
+input,select,textarea{vertical-align:middle; *font-size:100%;}
+input{ margin:0;outline:none; padding:0;}
+input::-ms-clear{display:none;}
+.clearfix:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+
+}
+.clearfix{*zoom:1}
+/* m_zlxg */
+.m_zlxg{ cursor:pointer;float:left;display:inline;width:9.7rem; height:1.37rem; border-bottom:1px solid #ccc;position:relative; margin-left:0.398rem;  }
+.bg3{background: url(../images/downBg.png) no-repeat 8.8rem center; background-size:0.472rem 0.240rem;}
+.bg4{background: url(../images/upBg.png) no-repeat 8.8rem center; background-size:0.472rem 0.240rem;}
+.m_zlxg p{ overflow:hidden;  color:#333;text-overflow:ellipsis; white-space:nowrap; width:9.8rem; font-size:0.426rem; height:1.37rem; line-height:1.37rem;}
+.m_zlxg2{ width:100%; height:auto; background: #fff;z-index: 10;position:absolute; top:1.37rem; left:-0.3rem; border-top:1px solid #ccc;  display:none; max-height:5rem; overflow-x:hidden; overflow-y:auto;white-space:nowrap; padding-left:0.3rem; padding-bottom: 0.8rem; }
+.m_zlxg2 ul{width:100%; height:auto; padding-bottom: 0.2rem;}
+.m_zlxg2 li{margin-top:0.2rem; white-space:nowrap;width:100%; height:0.6rem;font-size:0.426rem; text-align:center;}
+.m_zlxg p:nth-of-type(1){text-align: left;}
+.m_zlxg:nth-of-type(3){border:none;}

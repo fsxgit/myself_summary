@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>详情</title>
+    <script src="js/f_js.js"></script>
+    <link rel="stylesheet" href="css/f_style.css"/>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <link rel="stylesheet" href="css/fn_tonghua_xq2.css"/>
+</head>
+<body>
+<div class="Bbox">
+    <header class="XDheader">
+        <div class="main tc oh">
+            <a href="javascript:history.go(-1)" class="fl aBack"></a>
+            <span class="fcou">详情</span>
+            <a href="javascript:;" class="fr">主页</a>
+        </div>
+    </header>
+    <!--页头 结束-->
+    <!--banner 轮播 开始-->
+    <div class="pr swiper-container">
+        <div class="swiper-wrapper">
+            <div class="bannerimg fz0 swiper-slide"><img src="images/banner1_fx.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/tonghua_banner1.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/banner1_fx.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/tonghua_banner1.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/banner1_fx.png" alt=""/></div>
+            <div class="bannerimg fz0 swiper-slide"><img src="images/tonghua_banner1.png" alt=""/></div>
+        </div>
+        <!--数字转换 开始-->
+        <div id="numBox"><span id="num">1</span>/<span id="tol"></span></div>
+        <!--数字转换 结束-->
+    </div>
+    <!--banner 轮播 结束-->
+    <div class="banner_txtBox">
+        <div class="txtBox">
+            <h1>天津巧克力糖果 果仁 牛奶</h1>
+            <p class="oh">
+                <span class="fl priceTxt">&nbsp￥138.00</span>
+                <span class="fr">通花: <em class="priceTong">40</em></span>
+            </p>
+        </div>
+    </div>
+    <!--加减 开始-->
+    <div class="ff5"></div>
+    <div class="PaiDay oh">
+        <span class="PaiName fl">数量</span>
+        <div class="fr addBox oh">
+            <a class="reduce fl freduce" onClick="setAmount.reduce('#TxtBox')" href="javascript:void(0)"></a>
+            <input type="text" name="qty_item_1" value="1" id="TxtBox" onKeyUp="setAmount.modify('#TxtBox')" class="text fl ftolDay" />
+            <a class="add fr fadd" onClick="setAmount.add('#TxtBox')" href="javascript:void(0)"></a>
+        </div>
+    </div>
+    <div class="ff5"></div>
+    <!--加减 结束-->
+    <!--跳转 通花商城 开始-->
+    <a href="javascript:;" class="aTH">
+        <div class="tonghuahref">
+            <span class="fl tonghuaIcon"><img src="images/tonghuaIcon.png" alt=""/></span>
+            <span class="fl">回收通-通花商城</span>
+            <span class="fr tonghuaRight"><img src="images/right.png" alt=""/></span>
+        </div>
+    </a>
+    <!--跳转 通花商城 结束-->
+    <!--图片盒子 开始-->
+    <div class="imgBoxs">
+        <div><img src="images/imgsxq.png" alt=""/></div>
+    </div>
+    <!--图片盒子 结束-->
+    <!--固定底部 开始-->
+    <div class="botBox">
+        <span class="fl "><em class="priceColor">￥138.00</em> + 通花:40</span>
+        <span class="fr goumai">立即购买</span>
+    </div>
+    <!--固定底部 结束-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script src="js/payfor.js"></script>
+<script src="js/fx_tonghua.js"></script>
+<script>
+    bannerLunBo_xq();
+</script>
+</body>
+</html>

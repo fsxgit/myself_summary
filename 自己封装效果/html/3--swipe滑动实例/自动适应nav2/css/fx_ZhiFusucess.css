@@ -1,0 +1,9 @@
+/*登录页面 XiaDingDan.html css*/
+.paySucess{background:url(../images/paySucess.png) no-repeat left center; background-size:0.065rem 0.065rem; font-size:0.054rem; width:0.232rem; margin:0 auto; padding:0.065rem 0 0.065rem  0.1rem;}
+.payQuan{width:100%; font-size:0.04rem; padding:0.078rem 0;border-top:1px solid #ccc;}
+.payQuan p{line-height:0.073rem; color:#999;}
+.payQuan .Quanmoney{color:#49becd;}
+body{background: #f0eff5;}
+.btnBox{width:100%; height:auto; text-align: center; padding-top:0.11rem; font-size:0; background: #f0eff5;}
+.btnBox input{width:0.91rem;height:0.13rem; line-height:0.13rem; color:#49becd; border:1px solid #49becd; border-radius: 2px; font-size:0.03rem ; background: #fff;}
+.payContent{background: #fff;}

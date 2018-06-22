@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟下拉菜单</title>
+    <style>
+        *{margin:0; padding:0;}
+        ul,li{list-style: none;}
+        li{width:100px; height:40px;}
+        #box{width:600px; height: auto; margin:60px auto;}
+        #select{width:120px; height:30px; border:1px solid #ccc; position:relative;line-height: 30px; padding-left: 20px;}
+        .bg1{background: url("images/up.png") no-repeat 114px 11px;}
+        .bg2{background: url("images/down.png") no-repeat 114px 11px;}
+        #option{width:140px; height:300px; border:1px solid #ccc; position: absolute; left:-1px; top:30px; background: #fff; overflow: auto;display: none;}
+        #option li{width:auto; height:30px; line-height: 30px; text-align: left; padding-left:20px; cursor: pointer;}
+        #option li.active{background: #d24a67; color:#fff;}
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="select" class="bg1">
+        <span id="country" value="">国家</span>
+        <ul id="option">
+            <li class="selected">中国</li>
+            <li>美国</li>
+            <li>日本</li>
+            <li>韩国</li>
+            <li>朝鲜</li>
+            <li>俄罗斯</li>
+            <li>菲律宾</li>
+            <li>尼泊尔</li>
+            <li>伊拉克</li>
+            <li>澳大利亚</li>
+            <li>尼桑比克</li>
+        </ul>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var $aLi = $("#option li");
+    var $country = $("#country");
+    var $select = $("#select");
+    var $option = $("#option");
+
+    $select.click(function(){
+        $select.stop().toggleClass("bg2");
+        $option.stop().slideToggle();
+    })
+    $aLi.each(function(){
+        $(this).hover(function(){
+            $(this).css({backgroundColor:"#d24a67",color:"#fff"})
+        },function(){
+            $(this).css({backgroundColor:"#fff",color:"#000"})
+        })
+        $(this).click(function(){
+            $country.text($(this).text());
+            $country.attr("value",$(this).text());
+//            alert($country.attr("value"));
+        })
+    })
+</script>
+</body>
+</html>

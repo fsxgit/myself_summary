@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.input-order{width:30px;}
+.wrap {
+padding: 20px 20px 70px;
+}
+.table td {font-size:12px;}
+#top-alert{position: fixed; left: 20px; right: 20px; bottom: 10px; display: none;z-index:99999}
+.blank20{height: 15px; overflow: hidden; clear: both}
+
+.col-auto { overflow: hidden; _zoom: 1; _float: left;  }
+.txt100{ width: 99%; height: 80px;}
+
+.pagination{}
+.pagination div{}
+.pagination div a{ padding: 5px;}
+
+#loadBar{ width: 100%; height: 100%; background: rgba(0,0,0,.60); position: absolute;top: 0;left: 0;right: 0; color: #fff; text-align: center; display: none;}
+
+.table .label{padding: 3px;}
+.m10{margin: 10px; overflow: hidden;}
+
+.txt100{ width: 99%; height: 80px;}

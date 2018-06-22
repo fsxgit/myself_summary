@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ZeroClipboard Test</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.zclip.js"></script>
+</head>
+<body>
+<div class="line">
+	<h2>demo2 点击复制表单中的文本</h2>
+	<a href="#none" class="copy-input">点击复制单中的文本</a>
+	<input type="text" class="input" value="输入要复制的内容" />
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$(".copy-input").zclip({
+		path: "ZeroClipboard.swf",
+		copy: function(){
+			return $(".input").val();
+		},
+		afterCopy:function(){/* 复制成功后的操作 */
+
+        }
+	});
+});
+</script>

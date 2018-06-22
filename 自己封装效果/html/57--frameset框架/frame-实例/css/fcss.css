@@ -1,0 +1,109 @@
+*{margin:0; padding:0;}
+html,body{ font-family:"Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; width: 100%; height:auto; overflow-x:hidden; background: #f5f5f5;}
+a{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+input{outline: none; border:none; margin:0; padding:0; background: none;}
+
+
+/*frame*/
+.frame-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 11;
+    min-width: 960px;
+    height: 50px;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+    background: #f5f7f7;
+    overflow: hidden;
+    font-size: 16px;
+    _position: absolute;
+    _width: 100%;
+}
+.frame-side {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 190px;
+    background: #f5f7f7;
+    _height: 100%;
+}
+.frame-contents {
+    position: absolute;
+    top: 50px;
+    left: 190px;
+    bottom: 0;
+    right:0;
+    min-width: 760px;
+    background: #f5f7f7;
+}
+.frame-contents iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.frame-side{overflow: auto; overflow-x: hidden;border-right:1px solid #e9e9e9; padding-bottom:30px;}
+.frame-side .nv{height:40px; line-height: 40px; text-align: center; cursor: pointer; background: #fff; border-bottom: 1px solid #e9e9e9;}
+.frame-side .nv a{color: #333; text-decoration: none;}
+.frame-side .nv.active{background: #f5f5f5; }
+/*frame end*/
+/*left nav*/
+@font-face {
+    font-family: 'fontawesome';
+    src: url('../font4.2.0/fonts/fontawesome-webfont.eot'); /* IE9 Compat Modes */
+    src: url('../font4.2.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font4.2.0/fonts/fontawesome-webfont.woff') format('woff'), /* Modern Browsers */
+    url('../font4.2.0/fonts/fontawesome-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../font4.2.0/fonts/fontawesome-webfont.svg#fontawesome-webfont') format('svg'); /* Legacy iOS */
+}
+.header_box{text-align: center;}
+.left_side_Nav{width:100%;}
+.left_side_Nav ul{width:100%;}
+.left_side_Nav li{width:100%;  border-bottom:1px solid #e5e5e5;  border-top:1px solid #e5e5e5;}
+.left_side_Nav a{display:block; height:38px; line-height: 38px; text-decoration: none; padding:0 20px 0 30px;}
+.left_side_Nav a:hover{color: #1abc9c; background: #fff;}
+
+.nv-ul1{}
+.nv-ul1>li>a{ font-size: 14px; color: #616161;}
+.na_tit1.active{color: #1abc9c;}
+.na_tit1:after,.na_tit2:after{
+    content: "\f105";
+    display:inline-block; font:normal normal normal 20px/1 FontAwesome;text-rendering:auto;-webkit-font-smoothing:antialiased;          -moz-osx-font-smoothing:grayscale;  position:absolute; height:38px; line-height: 38px; right:30px;
+}
+.left_side_Nav li a.no_cont:after{content: "";}
+.na_tit1:before{
+    content: "\f114";
+    display:inline-block; font:normal normal normal 14px/1 FontAwesome;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;  position:absolute; height:38px; line-height: 38px; left:12px;
+}
+.na_tit1.active:before{
+    content: "\f07c";
+    display:inline-block; font:normal normal normal 14px/1 FontAwesome;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;  position:absolute; height:38px; line-height: 38px; left:12px;
+}
+.na_tit2:before{
+    content: "\f0da";
+    display:inline-block; font:normal normal normal 14px/1 FontAwesome;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;  position:absolute; height:38px; line-height: 38px; left:30px;
+}
+.nv-ul2{display: none;}
+.nv-ul2.open{display: block; background: #fff;}
+.nv-ul2>li>a{padding-left:40px;   font-size: 14px; color: #616161;}
+.nv-ul3{display: none;}
+.nv-ul3.open{display: block;}
+.nv-ul3>li>a{padding-left:60px;   font-size: 14px; color: #616161;;}
+.nv-ul3>li>a:before{
+    content: "\f101";
+    display:inline-block; font:normal normal normal 14px/1 FontAwesome;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;  position:absolute; height:38px; line-height: 38px; left:46px;
+}
+
+/*left nav end*/

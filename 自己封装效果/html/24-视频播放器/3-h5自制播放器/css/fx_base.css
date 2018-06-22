@@ -1,0 +1,60 @@
+@charset "utf-8";
+/*
+***移动端样式重置
+全局引用***
+ */
+*{margin: 0; padding: 0;}
+/*
+html {font-size:640px; }先设定一个根元素标注,防止设定根元素标准的js没加载进来时页面布局混乱的现象以rem为单位,此标准与设计稿相同尺寸
+*/
+html {font-size:640px; }
+body{ font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+body,div,a,span,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl.dt.dd.form,button,input,textarea,th,td,img{margin: 0; padding: 0; outline:0; font-style:normal; border:none;}
+table {border-collapse:collapse;border-spacing: 0}
+caption, th, td { text-align: left; font-weight: normal}
+a{ text-decoration:none;cursor:pointer;color:#999;}
+input{ border:none;}
+ol, ul ,li{list-style: none;}
+i,em,strong{font-style:normal;}
+img{ width:100%; height:100%; max-width: 100%;vertical-align: middle;border:none; display: block;}
+input,select:focus{
+    border-width:0;
+    border-color:white;
+    border-style:none;
+    background:none;
+    border:none;
+    outline:medium;
+    alpha:0;
+    appearance:none;
+    -webkit-appearance:none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-modify:read-write-plaintext-only;
+}
+input,button,select,textarea{outline:none}
+textarea{resize:none}
+/*修改input的placeholder的默认颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #999;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #999;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #999;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #999;
+}
+html,body{width:100%; height:auto; overflow-x:hidden;}
+/*公共样式  开始*/
+.fl{float:left;}
+.fr{float:right;}
+.oh{overflow:hidden;}
+.cb{clear:both;}
+.tc{text-align:center;}
+.bc{margin-left:auto; margin-right:auto;}
+.fz0{font-size:0;}
+.pr{position:relative;}
+/*main的宽度是由页面来决定的*/
+.main{width:0.9375rem; margin:0 auto;}
+/*公共样式  结束*/

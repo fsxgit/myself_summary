@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>全屏滚动布局</title>
+	<link rel="stylesheet" href="css/css.css"/>
+	<!--[if IE]>
+		<script src="js/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="view">
+		<div id="frame">
+			<div class="op-section first">section0</div>
+			<div class="op-section second">section1</div>
+			<div class="op-section third">section2</div>
+			<div class="op-section fourth">section3</div>
+			<div class="op-section fifth">section4</div>
+			<div class="op-section sixth">section5</div>
+		</div>
+	</div>
+	<div id="radioWrap">
+		<!--导航点-->
+		<ul id="radio">
+			<li>section0</li>
+			<li>section1</li>
+			<li>section2</li>
+			<li>section3</li>
+			<li>section4</li>
+			<li>section5</li>
+		</ul>
+		<!--当前导航点-->
+		<span id="radioOn"></span>
+	</div>
+
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script src="js/onepage.js"></script>
+	<script>
+		$(document).ready(function(){
+			startOnePage({
+				frame: "#view",
+				container: "#frame",
+				sections: ".op-section",
+				radio: "#radio",
+				radioOn: "#radioOn",
+				speed: 500,
+				easing: "easeInCirc"
+//easing可选参数：
+//		linear、swing、easeInQuad、easeOutQuad、easeInOutQuad、easeInCubic、easeOutCubic、easeInOutCubic、easeInQuart、easeOutQuart、easeInOutQuart、
+//		easeInQuint、easeOutQuint、easeInOutQuint、easeInExpo、easeOutExpo、easeInOutExpo、easeInSine、easeOutSine、easeInOutSine、easeInCirc、easeOutCirc、
+//		easeInOutCirc、easeInElastic、easeOutElastic、easeInOutElastic、easeInBack、easeOutBack、easeInOutBack、easeInBounce、easeOutBounce、easeInOutBounce
+
+			});
+		});
+	</script>
+</body>
+</html>

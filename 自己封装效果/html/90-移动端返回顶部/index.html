@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>移动端返回顶部</title>
+    <style>
+
+        .goTop{position: fixed; right:0; bottom:20px; display: none;}
+        .goTop img{width: 30px; height: 30px;}
+    </style>
+</head>
+<body>
+<div style="height: 1000px; width: 50px; margin:0 auto; background: #ff14be;"></div>
+
+<!--返回顶部-->
+<div class="goTop">
+    <img src="cet2.png" alt=""/>
+</div>
+<!--返回顶部 end-->
+
+
+<script src="jquery.min.js"></script>
+<script>
+    //返回顶部动画
+
+    $(document).ready(function(){
+        /**
+         * 返回顶部处理
+         */
+        var _objscroll = {
+            win:$(window),
+            doc:$(document),
+            gotopdiv:$('.goTop')
+        };
+
+        _objscroll.win.scroll(function(){
+            if(_objscroll.win.scrollTop() > _objscroll.win.height()/2){
+                _objscroll.gotopdiv.show();
+            }else{
+                _objscroll.gotopdiv.hide();
+            }
+
+        });
+
+        //返回顶部点击
+        _objscroll.gotopdiv.click(function(){//控制返回顶部
+//            _objscroll.win.scrollTop(0);
+            $("html, body").animate({
+                scrollTop: 0 }, {duration: 500,easing: "swing"});
+            return false;
+
+        });
+
+    });
+
+</script>
+</body>
+</html>

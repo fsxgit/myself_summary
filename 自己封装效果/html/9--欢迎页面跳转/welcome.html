@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载完成6s后跳转</title>
+    <style>
+        *{margin:0; padding:0;}
+        #welcome{width:100%; height:500px; background: #FF0000; position: relative;}
+        #timer{display: block; position: absolute; left:10px; top:20px; width:60px; height:60px; background: #000000; color: #fff; text-align: center; line-height: 60px;}
+    </style>
+</head>
+<body>
+<div id="welcome">
+  <span id="timer">6s</span>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var timer = null;
+    $(function(){
+//        alert("hello world!");
+        var i = 6;
+
+        timer = setInterval(function(){
+            if(i>=1){
+                i--;
+                $("#timer").text(i+"s");
+            }else{
+
+//                jquery 实现跳转的两种方法
+                location.href='welcome2.html';
+//                window.open('http://www.baidu.com');
+//                window.open('http://welcome2.html');
+//                location.href = "welcome2.html"
+//                location.href = "http://www.baidu.com";//跳转到在线网页中
+//                $("#myId").attr("href","welcome2.html");//改变某个a标签的href值
+
+                clearInterval(timer);
+            }
+        },1000)
+    })
+</script>
+</body>
+</html>

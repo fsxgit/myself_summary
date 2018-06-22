@@ -1,0 +1,74 @@
+html,body{background: #fff;}
+/*选择地址*/
+.xdz-box{}
+.xdz-box .xdz-sear{padding:15px 0;}
+.xdz-box .xdz-sear input{}
+.xdz-sear .input{padding-left:50px; height: 34px; background: url("../images/icon54.png") no-repeat 0 center; background-size:32px 32px;  }
+.xdz-sear .input input{ height: 34px; width: 100%; font-size: 14px;}
+.xdz-box .xdz-img{width: 100%; height: 170px;}
+.xdz-box .xdz-cont{}
+.xdz-box .xdz-cont .mode-bb{border-bottom: 1px solid #e5e5e5;}
+.xdz-box .xdz-cont .mode{padding:10px 0;}
+.xdz-box .xdz-cont .mode.active{background: url("../images/icon53.png") no-repeat right center; background-size:17px 22px; }
+.xdz-box .xdz-cont .mode .tit{ color: #333; font-weight: 600; font-size: 14px;}
+.xdz-box .xdz-cont .mode .txt{color: #b2b3b7; font-size: 12px; margin-top: 2px;}
+/*选择地址 end*/
+/*车辆信息*/
+.chel-box{padding-bottom: 50px;}
+.chel-box .mode-bb{border-bottom: 1px solid #e5e5e5;}
+.chel-box .mode{padding:10px 0;}
+.chel-box .mode.active{background: url("../images/icon53.png") no-repeat right center; background-size:17px 22px; }
+.chel-box .mode .tit{ color: #282828;  font-size: 14px;}
+.chel-box .mode .txt{color: #b2b3b7; font-size: 12px; margin-top: 2px;}
+.chel-btn{background: #261a18; width: 100%; height:50px; line-height:50px; color: #fff; text-align: center; font-size: 0; position: fixed; left:0; bottom:0;}
+.chel-btn a{display: inline-block;height:50px; line-height:50px; padding-left:28px; font-size: 16px; background: url("../images/icon55.png") no-repeat left center; background-size:16px 16px;}
+.chel-btn a,.chel-btn a:link{color: #fff;}
+/*车辆信息 end*/
+/*知识库*/
+.zs-box{}
+.zs-mode{overflow: hidden; padding:15px 0;}
+.zs-mode .zs-img{width: 100px; float: left;}
+.zs-mode .zs-img img{width: 100px;}
+.zs-mode .zs-txt{margin-left:112px;}
+.zs-mode .zs-txt .tit{margin-top: 4px;}
+.zs-mode .zs-txt .txt{margin-top: 10px;}
+/*知识库 end*/
+/*积分兑换记录*/
+.zs-mode .zs-txt .txt-jf{margin-top: 2px;}
+.zs-mode .zs-txt .txt-jf span{color: #333;}
+.zs-mode .zs-txt .time{margin-top: 10px; padding-left:16px; background: url("../images/icon64.png") no-repeat 0 center; background-size:12px 12px; }
+/*积分兑换记录 end*/
+/*知识库 详情*/
+.xq-zsk-box{padding:25px 0;}
+.xq-zsk-box h1{text-align: center; font-size: 18px; margin-bottom: 25px; font-weight: 600;}
+.xq-zsk-box h2{ font-size: 14px; width: 100%;  height:36px; line-height: 36px; background: #f4f3f3  url("../images/icon50.png") no-repeat 0 center; background-size:4px 100%; text-indent: 12px; border-radius: 4px; color: #5f5f5f;}
+.xq-zsk-box .txt p{color: #5f5f5f; text-indent: 24px; padding-top: 24px; font-size: 14px;}
+/*知识库 详情 end*/
+/*积分商城*/
+.dqjf{padding:10px 0;}
+.dqjf .span-j{float: left; height: 30px; line-height: 30px;}
+.dqjf .span-j em{color: #f19716;}
+.dqjf .span-b{float: right; height: 30px; line-height: 30px; background: #f19716; font-size: 14px; color: #fff; border-radius: 4px; display: inline-block; padding:0 6px;}
+.dqjf span{float: left;}
+.dqjf-gap{height:20px;background: #ebecf0;}
+.jfsc-box .zs-mode .zs-txt .txt-jf{margin-top: 10px;}
+.jfsc-box .zs-mode .zs-txt .tit{margin-top: 10px;}
+/*积分商城 end*/
+/*保养评价*/
+.bpj-box{}
+.shi-mode{padding:10px 0; width: 90%; margin-left:auto; margin-right:auto;}
+.shi-mode .shi-top{overflow: hidden; padding-bottom: 6px;}
+.shi-mode .shi-top .shi-name{ float: left; font-size: 14px; color: #333;}
+.shi-mode .shi-top .shi-name span{color: #354a5d;}
+.shi-mode .shi-top .shi-time{float: right; font-size: 12px; color: #999;}
+.shi-mode .shi-bot{overflow: hidden;}
+.shi-mode .shi-fw{float: left; overflow: hidden;}
+.shi-mode .shi-fw .img{float: left;}
+.shi-mode .shi-fw .img img{ width:80px; height: auto; display: block; padding-top:1px;}
+.shi-mode .shi-fw .txt{float: left; font-style: italic; font-size: 12px; height: 16px; line-height: 16px;}
+.shi-mode .shi-zy{float: right; overflow: hidden;}
+.shi-mode .shi-zy .img{float: left;}
+.shi-mode .shi-zy .img img{ width:80px; height: auto; display: block; padding-top:1px;}
+.shi-mode .shi-zy .txt{float: left; font-style: italic; font-size: 12px;  height: 16px; line-height: 16px;}
+/*保养评价 end*/
+/*保养评价 end*/

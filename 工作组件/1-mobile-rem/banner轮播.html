@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>手机端-rem</title>
+    <script src="js/fx_common.js"></script>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <link rel="stylesheet" href="css/fx_base.css"/>
+</head>
+<body>
+<header class="fxheader">
+    <div class="main tc oh fdiv">
+        <a href="javascript:history.go(-1)" class="fl fBack"></a>
+        <span>产品详情</span>
+        <a href="javascript:history.go(-1)" class="fr fShare"></a>
+    </div>
+</header>
+<div class="fxBox">
+<!--banner 图片轮播 开始-->
+<div class="pr swiper-container">
+    <div class="swiper-wrapper">
+        <div class="bannerimg fz0 swiper-slide"><img src="images/imgs/banner.png" alt=""/></div>
+        <div class="bannerimg fz0 swiper-slide"><img src="images/imgs/banner.png" alt=""/></div>
+        <div class="bannerimg fz0 swiper-slide"><img src="images/imgs/banner.png" alt=""/></div>
+        <div class="bannerimg fz0 swiper-slide"><img src="images/imgs/banner.png" alt=""/></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="fixMark">
+        <img src="images/fixMark.png" alt=""/>
+    </div>
+</div>
+<!--banner 图片轮播 结束-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script src="js/fxjs.js"></script>
+<script>
+    bannerLunBo();
+    detailSelect();
+</script>
+</body>
+</html>

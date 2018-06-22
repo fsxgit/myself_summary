@@ -1,0 +1,5 @@
+
+1、index_day.html 每天提醒
+每天仅第一次登陆提醒，
+2、index_hour.html 每小时提醒
+每小时仅第一次登陆，提醒

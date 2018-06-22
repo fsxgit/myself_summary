@@ -1,0 +1,525 @@
+<?php
+// +----------------------------------------------------------------------
+// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2013-2014 http://www.thinkcmf.com All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: Dean <zxxjjforever@163.com>
+// +----------------------------------------------------------------------
+/**
+ * 搜索结果页面
+ */
+namespace Portal\Controller;
+use Common\Controller\CommonController;
+header("content-type:text/html;charset=utf-8");
+class WordpdfController extends CommonController {
+        //批量下载
+	public function xiazai($fileNameArr){
+		 // 最终生成的文件名（含路径）
+		$filename = "./" . date ( 'YmdH' ) . ".zip";
+		// 生成文件
+		// 使用本类，linux需开启zlib，windows需取消php_zip.dll前的注释
+		$zip = new \ZipArchive (); 
+		if ($zip->open ( $filename, \ZIPARCHIVE::CREATE ) !== TRUE) {
+			exit ( '无法打开文件，或者文件创建失败' );
+		}
+
+		//$fileNameArr 就是一个存储文件路径的数组 比如 array('/a/1.jpg,/a/2.jpg....');
+		//$fileNameArr = array('./2.pdf','./2.doc','./3.pdf','./4.pdf','./5.pdf','./3.doc');
+		foreach ( $fileNameArr as $val ) {
+			// 第二个参数是放在压缩包中的文件名称，如果文件可能会有重复，就需要注意一下
+			$zip->addFile ( $val, basename ( $val ) ); 
+		}
+		$zip->close (); // 关闭
+
+		//下面是输出下载;
+		header ( "Cache-Control: max-age=0" );
+		header ( "Content-Description: File Transfer" );
+		// 文件名
+		header ( 'Content-disposition: attachment; filename=' . basename ( $filename ) );
+		// zip格式的
+		header ( "Content-Type: application/zip" );
+		// 告诉浏览器，这是二进制文件
+		header ( "Content-Transfer-Encoding: binary" ); 
+		// 告诉浏览器，文件大小
+		header ( 'Content-Length: ' . filesize ( $filename ) ); 
+		//输出文件;
+		@readfile ( $filename );
+	}
+	function MakePropertyValue($name,$value,$osm){
+		$oStruct = $osm->Bridge_GetStruct("com.sun.star.beans.PropertyValue");
+		$oStruct->Name = $name;
+		$oStruct->Value = $value;
+		return $oStruct;
+	}
+        //转换为PDF
+	function word2pdf($doc_url, $output_url){
+		$osm = new \COM("com.sun.star.ServiceManager") or die ("Please be sure that OpenOffice.org is installed.n");
+		$args = array($this->MakePropertyValue("Hidden",true,$osm));
+		$oDesktop = $osm->createInstance("com.sun.star.frame.Desktop");
+		//echo $doc_url;die;
+		$oWriterDoc = $oDesktop->loadComponentFromURL($doc_url,"_blank", 0, $args);
+		//echo 111;die;
+		$export_args = array($this->MakePropertyValue("FilterName","writer_pdf_Export",$osm));
+		$oWriterDoc->storeToURL($output_url,$export_args);
+		$oWriterDoc->close(true);
+		//$oWriterDoc->Quit();
+		$oDesktop->terminate();
+		//$osm->dispose();
+	}
+        //模板的替换方式
+	public function tihuan(){
+		$a1 = $this->ti("aa",40);
+		$a2 = $this->ti("中",17);
+		$a3 = $this->ti("中",13);
+		$a4 = $this->ti("中文字符串",42);
+		$a5 = $this->ti("中文字符串",24);
+		$a6 = $this->ti("中文字符串",28);
+		$a7 = $this->ti("中文字符串",28);
+		$a8 = $this->ti("中文字符串",28);
+		$a9 = $this->ti("中文字符串",27);
+		$a9 = $this->ti("中文字符串",27);
+
+		require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+		$PHPWord = new \PHPWord();
+		$document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/ccc.docx');
+		$document->setValue("value1",$a1);
+		$document->setValue('value2',$a2);
+		$document->setValue('value3',$a3);
+		$document->setValue('value4',$a4);
+		$document->setValue('value5',$a5);
+		$document->setValue('value6',$a6);
+		$document->setValue('value7',$a7);
+		$document->setValue('value8',$a8);
+		$document->setValue('value9',$a9);
+		$document->save('./WORD/aaa.docx');
+		//生成的PDF存放路径
+		$output_dir = "D:/WWW/zscq/PDF/";
+		//被生成的word 文件
+		$doc_file = "D:/WWW/zscq/WORD/aaa.docx";
+		//文件命名
+		$pdf_file = "5.pdf";
+		$output_file = $output_dir . $pdf_file;
+		$doc_file = "file:///" . $doc_file;
+		$output_file = "file:///" . $output_file;
+                
+		$this->word2pdf($doc_file,$output_file);
+        $this->xiazai(array('D:/WWW/zscq/PDF/5.pdf'));
+	}
+        
+        /*
+         * 驳回复审  有两个模板
+         *           驳回商标注册申请复审申请书
+         *           商 标 评 审 代 理 委 托 书
+         */
+        //驳回商标注册申请复审申请书
+        public function bohuifushen(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/bohuifushen.docx');
+            //测试用数据
+            $a1 = "汉字";
+            $a2 = "汉字";
+            $a3 = "汉字";
+            $a4 = "汉字";
+            $a5 = "汉字";
+            $a6 = "汉字";
+            $a7 = "汉字";
+            $a8 = "汉字";
+            $a9 = "汉字";
+            
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            $document->setValue('value7',$a7);
+            $document->setValue('value8',$a8);
+            $document->setValue('value9',$a9);
+            //本地测试不加./线上加
+            $document->save('./WORD/bohuifushen.docx');
+        }
+        
+        //商标评审代理委托书
+        public function bohuifushenweituo(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/bohuifushenweituo.docx');
+            
+            //处理数据
+            $a1 = $this->ti("1",57);
+            $a2 = $this->ti("2",57);
+            $a3 = $this->ti("3",18);
+            $a4 = $this->ti("4",9);
+            $a5 = $this->ti("5",15);
+            $a6 = $this->ti("6",9);
+            $a7 = $this->ti("格式没问题吧",29);
+            //模板替换数据
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            $document->setValue('value7',$a7);
+            //本地测试不加./线上加
+            $document->save('./WORD/bohuifushenweituo.docx');
+        }
+        
+        /*
+         *      商标变更文件夹下的
+         *      变更商标申请人注册人名义地址变更集体商标证明商标管理规则集体成员名单申请书
+         *      商标代理委托书
+         */
+        //变更商标申请人注册人名义地址变更集体商标证明商标管理规则集体成员名单申请书
+        public function biangengshangbiao(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaobiangeng.docx');
+            //测试用数据
+            $a1 = "汉字";
+            $a2 = "汉字";
+            $a3 = "汉字";
+            $a4 = "汉字";
+            $a5 = "汉字";
+            $a6 = "汉字";
+            $a7 = "汉字";
+            $a8 = "汉字";
+            $a9 = "汉字";
+            $a10 = "汉字";
+            
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            $document->setValue('value7',$a7);
+            $document->setValue('value8',$a8);
+            $document->setValue('value9',$a9);
+            $document->setValue('value0',$a10);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaobiangeng.docx');
+        }
+        
+        //商标代理委托书
+        public function biangengshangbiaoweituo(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaobiangengweituo.docx');
+            //处理数据
+            $a1 = $this->ti("1",40);
+            $a2 = $this->ti("2",24);
+            $a3 = $this->ti("3",28);
+            $a4 = $this->ti("4",28);
+            $a5 = $this->ti("5",28);
+            $a6 = $this->ti("6",28);
+            //模板替换数据
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaobiangengweituo.docx');
+        }
+        
+        /*
+         *      商标许可下有两个模板
+         *      商标代理委托书
+         *      商标使用许可备案表
+         */
+        
+        //商标使用许可备案表
+        public function shangbiaobeian(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaoxuke.docx');
+            //测试用数据
+            $a1 = "汉字";
+            $a2 = "汉字";
+            $a3 = "汉字";
+            $a4 = "汉字";
+            $a5 = "汉字";
+            $a6 = "汉字";
+            $a7 = "汉字";
+            $a8 = "汉字";
+            $a9 = "汉字";
+            $a10 = "汉字";
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('为毛',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            $document->setValue('对不对',$a7);
+            $document->setValue('value8',$a8);
+            $document->setValue('value9',$a9);
+            $document->setValue('value0',$a10);
+            $document->setValue('valuea',$a10);
+            $document->setValue('valueb',$a10);
+            $document->setValue('valuec',$a10);
+            $document->setValue('valued',$a10);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaoxuke.docx');
+        }
+        //商标代理委托书
+        public function shiyongxukeweituo(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaoxukeweituo.docx');
+            //处理数据
+            $a1 = $this->ti("1",40);
+            $a2 = $this->ti("2",24);
+            $a3 = $this->ti("3",28);
+            $a4 = $this->ti("4",28);
+            $a5 = $this->ti("5",28);
+            $a6 = $this->ti("6",28);
+            //模板替换数据
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaoxukeweituo.docx');
+        }
+        
+        /*
+         *      商标续展& 宽展
+         *      商标续展注册申请书
+         *      商标代理委托书
+         */
+        //商标续展注册申请书
+        public function shangbiaoxuzhan(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaoxuzhan.docx');
+            //测试用数据
+            $a1 = 1;
+            $a2 = 1;
+            $a3 = 1;
+            $a4 = 1;
+            $a5 = 1;
+            $a6 = 1;
+            $a7 = 1;
+            
+            $document->setValue("为毛",$a1);
+            $document->setValue('不科学',$a2);
+            $document->setValue('什么梗',$a3);
+            $document->setValue('沃日',$a4);
+            $document->setValue('沃尔沃',$a5);
+            $document->setValue('我尼玛',$a6);
+            $document->setValue('小老弟',$a7);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaoxuzhan.docx');
+        }
+        
+        //商标代理委托书
+        public function shangbiaoxuzhanweituo(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaoxuzhanweituo.docx');
+            //处理数据
+            $a1 = $this->ti("1",40);
+            $a2 = $this->ti("2",24);
+            $a3 = $this->ti("3",28);
+            $a4 = $this->ti("4",28);
+            $a5 = $this->ti("5",28);
+            $a6 = $this->ti("6",28);
+            //模板替换数据
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaoxuzhanweituo.docx');
+        }
+        
+        /*
+         *      商标注册 文件夹下只有一个
+         *      商标代理委托书
+         */
+        //商标代理委托书
+        public function shangbiaozhuceweituo(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaozhuceweituo.docx');
+            //处理数据
+            $a1 = $this->ti("1",40);
+            $a2 = $this->ti("2",24);
+            $a3 = $this->ti("3",28);
+            $a4 = $this->ti("4",28);
+            $a5 = $this->ti("5",28);
+            $a6 = $this->ti("6",28);
+            //模板替换数据
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaozhuceweituo.docx');
+        }
+        
+        /*
+         *      商标转让
+         *      转让移转申请注册商标申请书
+         *      商标代理委托书
+         */
+        //转让移转申请注册商标申请书
+        public function zhuanrangshenqing(){
+            $orderid = I('get.orderid');
+            $arr1 = M("zcorder_copy")->where("orderid = {$orderid}")->find();
+            $arr2 = M("zcorder_copy_copy")->where("orderid = {$orderid}")->find();
+            $arr3 = M("mark")->where("id = {$arr2['markid']}")->find();
+            $arr4 = M("zcorder_detail")->where("orderid = {$orderid}")->find();
+            $user_id = $_COOKIE['zsid'];
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaozhuanrang.docx');
+            //测试用数据
+            $a1 = $arr3['entname'];
+            $a2 = $arr3['entnameaddress'];
+            $a3 = $arr4['applicantname'];
+            $a4 = $arr4['applicantaddress'];
+            $a5 = $arr4['code'];
+            $a6 = $arr4['customername'];
+            $a7 = $arr4['customermobile'];
+            $a8 = $arr3['markcode_key'];
+            $document->setValue("沃日",$a1);
+            $document->setValue('沃尔沃',$a2);
+            $document->setValue('什么梗',$a3);
+            $document->setValue('不科学',$a4);
+            $document->setValue('贼有才',$a5);
+            $document->setValue('你猜呢',$a6);
+            $document->setValue('好像是',$a7);
+            $document->setValue('对不对',$a8);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaozhuanrang.docx');
+            //生成的PDF存放路径
+            $output_dir = "D:/WWW/zscq/PDF/";
+            //被生成的word 文件
+            $doc_file = "D:/WWW/zscq/WORD/shangbiaozhuanrang.docx";
+            //文件命名
+            $pdf_file = "5.pdf";
+            $output_file = $output_dir . $pdf_file;
+            $doc_file = "file:///" . $doc_file;
+            $output_file = "file:///" . $output_file;
+            $this->word2pdf($doc_file,$output_file);
+
+            $this->xiazai(array('D:/WWW/zscq/PDF/5.pdf'));
+        }
+        
+        //商标代理委托书
+        public function zhuanrangshenqingweituo(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/shangbiaozhuanrangweituo.docx');
+            //处理数据
+            $a1 = $this->ti("1",40);
+            $a2 = $this->ti("2",24);
+            $a3 = $this->ti("3",28);
+            $a4 = $this->ti("4",28);
+            $a5 = $this->ti("5",28);
+            $a6 = $this->ti("6",28);
+            //模板替换数据
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            //本地测试不加./线上加
+            $document->save('./WORD/shangbiaozhuanrangweituo.docx');
+        }
+        
+        /*
+         *      异议答辩
+         *      商标代理委托书
+         */
+        //商标代理委托书
+        public function yiyidabianweituo(){
+            require 'simplewind/Lib/Util/PHPWord/PhpWord.php';
+            $PHPWord = new \PHPWord();
+            $document = $PHPWord->loadTemplate('simplewind/Lib/Util/PHPWord/Examples/yiyidabianweituo.docx');
+            //处理数据
+            $a1 = $this->ti("1",40);
+            $a2 = $this->ti("2",24);
+            $a3 = $this->ti("3",28);
+            $a4 = $this->ti("4",28);
+            $a5 = $this->ti("5",28);
+            $a6 = $this->ti("6",28);
+            //模板替换数据
+            $document->setValue("value1",$a1);
+            $document->setValue('value2',$a2);
+            $document->setValue('value3',$a3);
+            $document->setValue('value4',$a4);
+            $document->setValue('value5',$a5);
+            $document->setValue('value6',$a6);
+            //本地测试不加./线上加
+            $document->save('./WORD/yiyidabianweituo.docx');
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //需要加下划线的处理方式
+	function ti($str,$old){
+            $newStr = preg_replace('/[^\x{4e00}-\x{9fa5}]/u', '', $str);
+            $len = mb_strlen($newStr,"utf-8");//中文的个数
+            $chlen = $len*2;//一个中文两个空格  中文占的长度
+            $len1 = strlen($str);
+            $enlen = $len1-($len*3);//出来的长度是非中文的长度  只占用一个空格
+            $zifulen = $chlen+$enlen;//字符串的总长度
+            $new_len = $old-$zifulen;//需要添加多少个空格下划线
+            //$pppp = intval($new_len/2);
+            //等于1就是奇数  等于0就是偶数
+            if($new_len%2==1){
+		//如果是奇数除法之后就会少两个
+		$add_len = intval($new_len/2);
+		@$kong .= "_";
+		//字符串开头
+		$b = $this->str_prefix($str,$add_len+1,$kong);
+		//字符串尾部添加
+		$a = $this->str_suffix($b,$add_len,$kong);
+            }else{
+		$add_len = intval($new_len/2);
+		@$kong .= "_";
+		//字符串开头
+		$b = $this->str_prefix($str,$add_len-1,$kong);
+		//字符串尾部添加
+		$a = $this->str_suffix($b,$add_len,$kong);
+            }
+            return $a;
+	}
+        //开头添加字符串
+	function str_prefix($str, $n=1, $char=" "){
+		for ($x=0;$x<$n;$x++){$str = $char.$str;}
+		return $str;
+	}
+	//结尾添加字符串
+	function str_suffix($str, $n=1, $char=" "){
+		for ($x=0;$x<$n;$x++){$str = $str.$char;}
+		return $str;
+	}
+}

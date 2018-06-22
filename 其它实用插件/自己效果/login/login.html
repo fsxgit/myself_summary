@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_css.css"/>
+</head>
+<body>
+
+<div class="fx_box">
+    <div class="fx_login">
+        <h1>幸运时间后台管理中心</h1>
+        <form action="">
+            <input type="text" class="username" placeholder="请输入用户名"/><br/>
+            <input type="password" class="password" placeholder="请输入密码"/>
+            <input type="submit" class="sub" value="登录"/>
+        </form>
+    </div>
+</div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    fxtab();
+    function fxtab(){
+        //窗口改变页面自动刷新 开始
+        window.onresize=function(){
+            location.reload();
+        };
+
+        var LL = ($(".fx_box").width()-$(".fx_login").width())/2;
+        var LT = ($(".fx_box").height()-$(".fx_login").height())/2;
+        $(".fx_login").css({"left":LL,"top":LT});
+    };
+</script>
+</body>
+</html>

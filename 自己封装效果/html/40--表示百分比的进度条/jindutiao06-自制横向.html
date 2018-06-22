@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #progress{
+        width: 50%;
+        height: 30px;
+        border:1px solid #ccc;
+        border-radius: 15px;
+        margin: 50px 0 0 100px;
+        overflow: hidden;
+        box-shadow: 0 0 5px 0px #ddd inset;
+    }
+    #progress span {
+        display: inline-block;
+        width: 70%;
+        height: 100%;
+        background: #2989d8; /* Old browsers */
+        text-align: center;
+        color:#fff;
+        border-radius: 15px;
+        /*-webkit-animation:load 3s ease-in;*/
+    }
+    /*@-webkit-keyframes load{*/
+        /*0%{*/
+            /*width: 0%;*/
+        /*}*/
+        /*100%{*/
+            /*width:70%;*/
+        /*}*/
+    /*}*/
+
+    /*/!*改变进度条的位置的方法*!/*/
+    /*#progress span{*/
+        /*width: 70%;*/
+    /*}*/
+    /*@-webkit-keyframes load{*/
+        /*0%{*/
+            /*width: 0%;*/
+        /*}*/
+        /*100%{*/
+            /*width:70%;*/
+        /*}*/
+    /*}*/
+</style>
+<body>
+<div id="progress">
+    <span class="span"></span>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var m = 10;
+    $(".span").css({"width":"90%"})
+</script>
+</body>
+</html>
+<!--
+top     bottom    位置
+135     495         0
+315     315         满
+135     495         0
+135     495         0
+135     495         0
+
+-->

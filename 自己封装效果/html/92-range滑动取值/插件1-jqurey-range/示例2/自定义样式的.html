@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>修改过样式的拖拽</title>
+	<link rel="stylesheet" href="css/jquery.range.css" />
+<style type="text/css">
+	.serve_yue{padding-bottom:10px;}
+	.serve_tit{height:40px; padding-top:10px; font-size: 18px; text-align: center;}
+	.ding_hj span:nth-of-type(1){float: left; margin-left: 14px;}
+	.ding_hj span:nth-of-type(2){float: right; margin-right: 10px;}
+	.pro_box{padding:20px 10px; background: #fff;}
+	.pro_time{font-size: 0; margin-bottom: 20px;}
+	.pro_time span{display: inline-block;width: 25%; font-size: 12px;}
+	.pro_time span i{float: right;}
+	.pro_tiao{width:100%; height:8px; border-radius: 4px; background: url("../images/bg1.jpg") repeat-x 0 0; background-size:100% 100%;  margin-top: 4px;}
+	/*修改其自带的样式*/
+	.theme-green .back-bar{background: url("images/bg1.jpg") repeat-x 0 0; background-size:100% 100%; height: 8px;  border-radius: 4px;}
+	.theme-green .back-bar .pointer{background: url("images/pro_btn.png") repeat-x 0 0; background-size:100% 100%;  width: 27px; height: 28px; top:-10px;}
+	.theme-green .back-bar .selected-bar{ background: #fdcd63; }
+</style>
+</head>
+<body>
+
+<div class="serve_yue" style="padding-bottom: 60px;">
+	<div class="serve_tit">服务费用</div>
+	<div class="pro_box">
+		<div class="pro_time">
+			<span>0</span>
+			<span>3</span>
+			<span>6</span>
+			<span>9 <i>12/个月</i></span>
+		</div>
+		<div class="pao_feiy">
+			<div class="pro_tiao">
+				<input type="hidden" class="single-slider" value="0" />
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.range.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.single-slider').jRange({
+			from: 0,
+			to: 100,
+			step: 1,
+			scale: [0,25,50,75,100],
+			format: '%s',
+			width: '100%',
+			showLabels: false,
+			showScale: false,
+			onstatechange:function(va){
+				console.log(va);
+			}
+		});
+	});
+</script>
+</body>
+</html>
+

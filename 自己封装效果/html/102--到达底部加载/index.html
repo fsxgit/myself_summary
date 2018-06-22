@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>滚动到底部时加载</title>
+    <style>
+        *{margin:0; padding:0;}
+        .box div{height:400px; line-height: 400px; font-size: 50px; text-align: center; color: #fff;}
+        .box div:nth-of-type(3n+1){background: #08ff11;}
+        .box div:nth-of-type(3n+1):after{content: "斗"}
+        .box div:nth-of-type(3n+2){background: #ff113d;}
+        .box div:nth-of-type(3n+2):after{content: "地"}
+        .box div:nth-of-type(3n+3){background: #0f19ff;}
+        .box div:nth-of-type(3n+3):after{content: "主"}
+
+        .load{position: fixed; left:0; bottom:0; text-align: center; height: 30px; line-height: 30px; color: #fff; width: 100%; display: none;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <div></div>
+    <div></div>
+</div>
+<div class="load">正在加载...</div>
+<script src="jquery.min.js"></script>
+<script>
+    $(window).scroll(function(){
+//        页面滚动时加载
+        toEnd();
+
+    });
+    function toEnd(){
+        var h1 = $(window).height(); //窗口可视高度也即分辨率高度
+        var h2 = $("body").height();  //body高度，也即文档总高度
+        var h3 = $(window).scrollTop();   //滚动条滚动高度
+    //    判断滚动条是否到达底部
+        if(h2-h3 <= h1+10){
+            //到达底部时触发
+            $(".load").fadeIn();
+            setTimeout(function(){
+                $(".load").fadeOut();
+                $(".box").append("<div></div>");
+            },2000);
+
+
+
+        }
+    }
+</script>
+</body>
+</html>

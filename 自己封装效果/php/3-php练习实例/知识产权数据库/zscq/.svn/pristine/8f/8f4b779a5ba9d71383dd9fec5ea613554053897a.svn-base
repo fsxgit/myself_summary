@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人中心-绑定手机</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/perCenter.css"/>
+</head>
+<body>
+    <div class="perCenter-box main-hou">
+        <div class="per-nav">安全设置 > 绑定手机</div>
+        <div class="c-h1">绑定手机</div>
+        <div class="bang-cel-box">
+            <div class="fp-input-box bc">
+
+                <p><span class="tit">已绑定手机</span><span class="cel-has">157**98766</span></p>
+                <p><span class="tit">图片验证码</span><input type="text" class="fp-ma" placeholder="请输入验证码"/><img src="../images/icon31.png" class="cp fr" alt=""/></p>
+                <p><span class="tit"></span><input type="button" class="maBtn2  cfff" value="获取短信验证码"/></p>
+                <p class="warn-box"><span class="warn-txt">验证码输入错误</span></p>
+                <p><span class="tit">短信验证码</span><input type="text" value="" placeholder="请输入短信验证码"/></p>
+                <p><span class="tit">图片验证码</span><input type="text" class="fp-ma" placeholder="请输入图片验证码"/><img src="../images/icon31.png" class="cp fr" alt=""/></p>
+                <p><input type="submit" class="next bg1 cfff" value="下一步"/></p>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

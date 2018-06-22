@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>企业认领</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/search.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+    
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+ 
+    <!--公用右侧浮动导航 end-->
+
+
+<!--s-content内容存放的地方-->
+    <div class="s-content main pr">
+        <div class="s-bar f12 c333">
+            首页>企业查询列表>{$rs.entname}>企业认领
+        </div>
+        <!--公用结果 企业认领-->
+        <div class="s-result-rl bc">
+            <div class="rl-title">
+                <p class="rl-title-title">企业认领</p>
+                <p>欢迎认领公司，您可以通过认领公司获得商标注册、管理、检测、项目管理等权限。并可以获得一名专业的商标顾问，进行一对一服务。</p>
+            </div>
+            <div class="rl-cont bc">
+                <div class="rl-cont-top">
+                    <p><span class="tit c999">企业名称：</span><span>{$rs.entname}</span></p>
+                    <p><span class="tit c999">注册地址：</span><span>{$rs.dom}</span></p>
+                    <p><span class="tit c999">法定代表人：</span><span>{$rs.frdb}</span></p>
+                    <p><span class="tit c999">成了日期：</span><span>{$rs.esdate}</span></p>
+                    <p><span class="tit c999">邮政编码：</span><span>100000</span></p>
+                </div>
+                <div class="rl-cont-ts">
+                    <p class="ts1">1.我们会根据公司的信息为您提供服务，请进行确认。</p>
+                    <p>2.目前一个账号只能认领一家企业，请谨慎操作。</p>
+                </div>
+                <div class="rl-cont-btn">
+                    <input type="button" class="cfff bg1" onclick="renling();" value="认领企业"/>
+                </div>
+            </div>
+
+        </div>
+        <!--公用结果 end-->
+    </div>
+<!--s-content内容存放的地方-->
+
+
+
+<!--页面的弹出框一 再次确认认领-->
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-cont  zc-cont">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">再次确认</div>
+            <div class="c-tan-close  fr"><img src="public/html/images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <div class="c-tan-rl bc">
+            <p class="rl-sf">请再次确认是否认领该企业</p>
+            <p class="rl-name"><span class="c999">企业名称：</span><span>{$rs.entname}</span></p>
+            <p class="rl-site"><span class="c999">注册地址：</span><span>{$rs.dom}</span></p>
+        </div>
+        <div class="c-tan-bot bc">
+            <input type="button" class="btn-qu" value="暂不认领"/>
+            <input type="submit" class="dingBtn1 blue-small-btn" value="立即认领"/>
+        </div>
+    </div>
+
+<!--页面的弹出框一 再次确认认领 end-->
+<!--页面的弹出框二 认领成功-->
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-cont suc-cont">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">认领成功</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <div class="c-tan-rl bc">
+            <div class="rl-suc oh">
+                <img src="public/html/images/sBg.png" width="54" height="60" class="fl" alt=""/>
+                <span class="fl">恭喜您，认领成功！</span>
+            </div>
+            <p class="rl-name"><span class="c999">企业名称：</span><span>{$rs.entname}</span></p>
+            <p class="rl-site"><span class="c999">注册地址：</span><span>{$rs.dom}</span></p>
+        </div>
+        <div class="c-tan-bot bc">
+            <input type="submit" class="dingBtn2 blue-small-btn" value="确定" onclick='ren("{$rs.entname}")'/>
+        </div>
+    </div>
+<!--页面的弹出框二 认领成功 end-->
+</div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+<script>
+    $(function() {
+//      二维码的显示隐藏
+ //       maTab();
+
+    });
+//    认领企业弹出框
+    function renling() {
+//        遮罩层
+            var oShadow = $(".c-tan-shadow");
+//        弹出框
+            var oBox1 = $(".zc-cont");
+            var oBox2 = $(".suc-cont");
+//        弹出框 确定按钮
+            var oSure1 = $(".dingBtn1");
+            var oSure2 = $(".dingBtn2");
+//        弹出框 关闭按钮
+            var oClose = $(".c-tan-close");
+            var oQu = $(".btn-qu");
+
+            var wW = $(window).width();
+            var wH = $(window).height();
+            var oW1 = oBox1.width();
+            var oW2 = oBox2.width();
+            var oH1 = oBox1.height();
+            var oH2 = oBox2.height();
+            var L1 = (wW - oW1) / 2;
+            var L2 = (wW - oW2) / 2;
+            var T1 = (wH - oH1) / 2;
+            var T2 = (wH - oH2) / 2;
+            oBox1.css({"left": L1, "top": T1});
+            oBox2.css({"left": L2, "top": T2});
+            oBox1.fadeIn();
+            oShadow.show();
+            oSure1.click(function () {
+                oBox1.fadeOut();
+                oBox2.fadeIn();
+            });
+            oClose.click(function () {
+                oBox1.fadeOut();
+                oBox2.fadeOut();
+                oShadow.hide();
+            });
+            oQu.click(function () {
+                oBox1.fadeOut();
+                oShadow.hide();
+            });
+            oSure2.click(function () {
+                oBox1.fadeOut();
+                oBox2.fadeOut();
+                oShadow.hide();
+            });
+        }
+
+        function ren(nam){
+         //   alert(nam);
+            var business_name = $("#business_name").val();
+            location.href="index.php?g=Portal&m=Index&a=qiye_add&names="+nam+'&bname='+business_name+'&ty='+1;
+        }
+</script>
+</body>
+</html>

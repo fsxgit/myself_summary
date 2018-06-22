@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的订单-详情</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main-hou xq-feiyong c333">
+        <div class="bread-nav">
+            我的订单 > 订单详情
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1">订单详情</h1>
+            <div class="bgl-cont">
+                <table class="brand-table c333">
+                    <tr class="bt-tr1 bg5 c999">
+                        <td style="width:15%;">订单号</td>
+                        <td style="width:14%;">下单时间</td>
+                        <td style="width:9%;">订单类型</td>
+                        <td style="width:9%;">订单状态</td>
+                        <td style="width:9%;">订单金额</td>
+                        <td style="width:8%;">优惠金额</td>
+                        <td style="width:9%;">应付总额</td>
+                        <td style="width:27%;">操作</td>
+                    </tr>
+                    <tr>
+                        <td>{$zcorder.order_no}</td>
+                        <td><?php echo date('Y-m-d H:i:s',$zcorder['addtime']);?></td>
+                        <td>
+						<if condition=" $zcorder.type eq 1 ">
+                        商标注册
+					    <elseif condition=" $zcorder.type eq 1 "/>
+
+					    </if>
+					    </td>
+                        <td>
+						
+						<if condition=" $zcorder.state eq 0 ">
+                         待付款
+					    <elseif condition=" $zcorder.state eq 1 "/>
+                        已付款
+					    </if>
+						</td>
+                        <td>{$zcorder.summary_price}元</td>
+                        <td>0元</td>
+                        <td class="fc2">{$zcorder.summary_price}元</td>
+                        <td class="xq-order-hand">----</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="bgl-mode" style="display:none">
+            <h1 class="c-h1">变更信息</h1>
+            <div class="bgl-cont">
+                <p class="oh"><span class="tit fl">申请人姓名变更为:</span><span class="fl">神州易桥（北京）财税科技有限公司</span></p>
+                <p class="oh"><span class="tit fl">申请人地址变更为：</span><span class="fl">北京市海淀区清河中街68号华润五彩城购物中心二期13层</span></p>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1">联系人信息</h1>
+            <div class="bgl-cont">
+                <p class="oh"><span class="tit fl">联系人:</span><span class="fl">{$zcorder.customername}</span></p>
+                <p class="oh"><span class="tit fl">手机号：</span><span class="fl">{$zcorder.customermobile}</span></p>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1">企业信息</h1>
+            <div class="bgl-cont">
+                <p class="oh"><span class="tit fl">企业名称:</span><span class="fl">{$zcorder.applicantname}</span></p>
+                <p class="oh"><span class="tit fl">注册地址：</span><span class="fl">{$zcorder.applicantaddress}</span></p>
+            </div>
+        </div>
+        <div class="bgl-mode pb30">
+            <h1 class="c-h1">商标详情</h1>
+			<foreach name="nice" item="vo" key="k" >
+            <div class="bb"></div>
+            <div class="bgl-cont">
+                <p class="oh"><span class="tit fl">商标图片:</span><span class="sb-xq-logo fl"><img src="{$vo.marklogo}" alt=""/></span><span  class="sb-xq-logo-kan fl">查看商标</span></p>
+                <p class="oh"><span class="tit fl">商标名称：</span><span class="fl">{$vo.markname}</span></p>
+                <p class="oh"><span class="tit fl">申请人姓名：</span><span class="fl">{$zcorder.applicantname}</span></p>
+                <p class="oh"><span class="tit fl">申请人地址：</span><span class="fl">{$zcorder.applicantaddress}</span></p>
+                <p class="oh"><span class="tit fl">类别：</span><span class="fl">{$vo.one_code}{$zcorder.mark.0.one_code}</span></p>
+                <div class="oh">
+                    <div class="tit fl">小类：</div>
+                    <div class="fl">
+					<foreach name="vo.mark" item="vi" >
+                     <p>{$vi.code}&nbsp;&nbsp;&nbsp;&nbsp;{$vi.name}</p>
+					</foreach>
+            
+                    </div>
+                </div>
+                <p class="oh"><span class="tit fl">官费：</span><span class="fl">{$zcorder.official_price}元</span></p>
+                <p class="oh"><span class="tit fl">服务费：</span><span class="fl">{$zcorder.service_price}元</span></p>
+            </div>
+			</foreach>
+        </div>
+    </div>
+</body>
+</html>

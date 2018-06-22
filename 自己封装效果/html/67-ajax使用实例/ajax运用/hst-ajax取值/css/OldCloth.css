@@ -1,0 +1,79 @@
+
+@charset "utf-8";
+/*公共样式*/
+/*Css reset*/
+body, div,img, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0;}
+address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li {list-style:none;}
+a{ text-decoration:none;}
+th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before, q:after{content:' '}
+abbr,acronym{border:0;}
+button,input,select,option,textarea{margin:0px; padding: 0px; border: none;outline: none;}
+body{ font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; text-align: center;-webkit-tap-highlight-color:rgba(0,0,0,0); }
+img{max-width: 100%; max-height:100%;}
+.bc{padding-left:0.3333333rem; padding-right:0.3333333rem;}
+.main{width:9.324074074074074rem; margin: 0 auto;height:auto; overflow: hidden;}
+.header{background: #fff391; height:1.307rem;font-size: 0.3519rem; line-height:0.4815rem; color:#f75b06; text-align: left; width:100%; padding-top:0.315rem;}
+.headerBg{float: left;margin-top: 0.1852rem; margin-left:0.2rem; margin-right:0.2777rem;width:0.5238rem; height:0.5238rem; }
+.mode1{}
+.tit{width:100%;height:1.259rem; line-height: 1.259rem; background: #efeff4; text-align: left;}
+.h1{font-size: 0.3518rem; color: #6c6c6c; padding-left:0.694rem; background: url("../images/fBg.png") no-repeat 0.398rem center; background-size:0.1388rem 0.138rem; }
+.modeBox{margin-left:0.398rem; font-size: 0.426rem;}
+.hBox{font-size: 0.426rem; height: 1.37rem; line-height: 1.37rem; border-bottom: 1px solid #ccc;}
+/*几个模块的公共样式 start*/
+.fl{float:left;}
+.fr{float:right;}
+.cb{clear: both;}
+.oh{overflow:hidden;}
+.noBorder{border: none;}
+.pr16{padding-right: 0.407rem;}
+.cf{color:#cfcfcf;}
+.marg{margin-top:0.3rem; padding-bottom: 0.3rem;}
+.bg{ margin-left: 0.7777rem; display: inline-block; width:0.472rem; height:0.240rem;}
+.bg1{background: url("../images/downBg.png") no-repeat right center;background-size:0.472rem 0.240rem;}
+.bg2{background: url("../images/upBg.png") no-repeat right center;background-size:0.472rem 0.240rem;}
+.selectBox{width: 100%; height:auto; display: none;}
+.selectBox p{width: 100%; height:1.37rem; line-height:1.37rem; border-bottom: 1px solid #ccc; font-size:0.426rem;}
+.selected{ background:url("../images/chooseBg.png") no-repeat 8.503rem center; background-size:0.546rem 0.416rem;}
+.mode2{}
+.tit2{width: 100%; height:0.4444rem; background: #efeff4;border-bottom: 1px solid #ccc;}
+.mode2Box{font-size: 0.426rem; margin-left:0.398rem; text-align: left;}
+.Txt{ height: 1.37rem; line-height:1.37rem;}
+.TxtBg{ border-bottom: 1px solid #dcdcdc;}
+.TxtBox{margin-left:0.926rem; font-size:0.426rem;}
+/*几个模块的公共样式 end*/
+#Bao .choose,#Ture .choose{width:0.659rem; height:0.518rem; line-height: 0.518rem; display: inline-block; background: url("../images/nochooseBg2.png") no-repeat 0 center; background-size:0.472rem; padding-left:0.772rem;}
+.btnY{margin-left:3rem;}
+.btnN{ margin-left:1rem;}
+#Bao label.active,#Ture label.active{background: url("../images/chooseBg2.png") no-repeat 0 center; background-size:0.472rem;}
+.fhide{display:none;}
+.mode3Box{font-size: 0;text-align: left;}
+.mode3block div{display: inline-block; width:3.2rem;height:1rem; line-height: 1.37rem; text-align: center; border-bottom:1px solid #dcdcdc; font-size:0; margin-top:0.3rem;}
+.mode3block div span{display: block; width:100%; height:0.5rem; line-height:0.5rem; text-align: center;border-right:1px solid #ccc; font-size: 0.426rem;}
+.mode3block div span.brn{border-right:none; }
+.mode3block div.active{background: url("../images/gou.png")no-repeat right bottom; background-size:0.564rem 0.583rem; }
+.mode3block2 div{display: inline-block; width:3.2rem;height:1rem; text-align: center; padding-top: 0.4rem;}
+.mode3block2 div span{display:block; float: left; width:100%; height:0.5rem;  text-align: center; line-height:0.8rem; border-right:1px solid #ccc; }
+.mode3block2 div span.brn{border-right:none; }
+.mode3block2 div.active{background: url("../images/gou.png")no-repeat right bottom; background-size:0.564rem 0.583rem; }
+.mode3block2 p{display: inline-block; width:3.2rem;height:1rem; text-align: center; padding-top: 0.4rem;}
+.mode3block2 p span{display:block; float: left; width:100%; height:0.5rem;  text-align: center; line-height:0.8rem; border-right:1px solid #ccc; }
+.mode3block2 p span.brn{border-right:none; }
+
+.mt{margin-top:0.24rem;}
+.desc{font-size: 0.366rem; text-align: left;}
+.imgBox div{width:2.22rem; height:2.22rem; float: left;margin-right: 0.14rem;}
+#textarea{width:100%; height:3.6rem; overflow: auto; line-height:0.566rem; font-size: 0.366rem; border: none;}
+.botBox{width: 100%; height:1.33rem; line-height: 1.33rem;}
+.botBox span{width: 50%; height:1.33rem; line-height: 1.33rem; display: inline-block; color:#58ab22; background: #fff; font-size: 0.466rem; float: left;}
+.botBox span.active{color:#fff; background:#58ab22;}
+/*个人资料PerData.html 开始*/
+.PDbox{width:100%; height:auto;overflow:hidden; background: #fff;}
+.PDbox .PhoneNum{width:96%; height:1.388rem; line-height:1.388rem; background: #fff; font-size: 0.3518rem; padding-left: 0.398rem; overflow:hidden;}
+.PDbtn{width:100%; height:auto;overflow:hidden; text-align: center;margin-top: 0.926rem;}
+.PDbtn button{ width:8.9rem; height:1.33rem; border-radius:0.06rem; background:#58ab22;color:#fff; font-size: 0.4rem;  }
+/*个人资料PerData.html 结束*/

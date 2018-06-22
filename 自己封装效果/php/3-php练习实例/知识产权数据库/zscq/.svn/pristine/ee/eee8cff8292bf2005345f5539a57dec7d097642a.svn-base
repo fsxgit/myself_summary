@@ -1,0 +1,112 @@
+<admintpl file="header" />
+<head lang="en">
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <style type="text/css">
+		.bg-table{width: 100%; }
+		.bg-table td{border:1px solid #eee;width:auto; padding:18px 12px; font-size: 12px;  text-align: center; ;}
+		.bg-table td.bg-neirong{text-align: left;}
+		.bg-table .tr1 td{background: #f5fafd; color: #999;}
+		.bg-table .zhong td{background: #fef8df;}
+		.xk-hand a{display: inline-block; margin:0 10px;}
+		.xk-hand a,.xk-hand a:link,.xk-hand a:visited,.xk-hand a:hover,.xk-hand a:active{color: #157efb;}
+		DIV.digg .pager{font-size:0;}
+		DIV.digg .pager a,DIV.digg .pager span{font-size:12px;}
+
+    </style>
+</head>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+    <ul class="nav nav-tabs">
+		<li class="active"><a>企业详情</a></li>
+    </ul>
+
+	<div id="mydiv">
+	 <!--上面 公用-->
+        <div class="list-gk-top oh">
+            <div class="logo fl">
+                <img src="public/html/images/img1.png" alt=""/>
+            </div>
+            <div class="logo-txt f12">
+                <p><span class="fb f16">{$infolist.entname}</span></p>
+                <p><span class="c999">法定代表人：</span><span>{$infolist.frdb}</span></p>
+                <p><span class="c999">成立：</span><span>25</span></p>
+				<p><span class="c999">注册资本：</span><span>{$infolist.regcap}</span></p>
+				<p><span class="c999">商标数量：</span><span>{$markcount}</span></p>
+				<p><span class="c999">企业地址：</span><span>{$infolist.dom}</span></p>
+            </div>
+        </div>
+        <!--上面 公用 end-->
+        <table class="table table-hover table-bordered">
+			<tr>
+				<td style="width: 108px;">统一社会信用代码：</td>
+				<td>{$infolist.shxydm}</td>
+				<td style="width: 90px;">组织机构代码：</td>
+				<td>1111111111111111</td>
+			 </tr>
+			 <tr>
+				<td style="width: 80px;">注册号：</td>
+				<td>{$infolist.regno}</td>
+				<td style="width: 80px;">经营状态：</td>
+				<td>{$infolist.entstatus}</td>
+			 </tr>
+			 <tr>
+				<td style="width: 80px;">公司类型：</td>
+				<td>{$infolist.enttype}</td>
+				<td style="width: 80px;">成立日期：</td>
+				<td>{$infolist.esdate}</td>
+			 </tr>
+			 <tr>
+				<td style="width: 80px;">法定代表人：</td>
+				<td>{$infolist.frdb}</td>
+				<td style="width: 80px;">营业期限：</td>
+				<td>{$infolist.shxydm}</td>
+			 </tr>
+			 <tr>
+				<td style="width: 80px;">注册资本：</td>
+				<td>{$infolist.regcap}</td>
+				<td style="width: 80px;">发照日期：</td>
+				<td>{$infolist.shxydm}</td>
+			 </tr>
+
+
+			 <tr>
+				<td style="width: 80px;">登记机关：</td>
+				<td colspan="3">{$infolist.regorg}</td>
+			 </tr>
+			 <tr>
+				<td style="width: 80px;">企业地址：</td>
+				<td colspan="3">{$infolist.dom}</td>
+			 </tr>
+			 <tr>
+				<td style="width: 80px;">经营范围：</td>
+				<td colspan="3">{$infolist.opscope}</td>
+			 </tr>
+        </table>
+		<table class="bg-table mt20">
+			<tr class="tr1">
+				<td style="width: 15%;">商标</td>
+				<td style="width: 29%;">商标名</td>
+				<td style="width: 9%;">状态</td>
+				<td style="width: 12%;">申请时间</td>
+				<td style="width: 19%;">注册号</td>
+				<td style="width: 37%;">类别</td>
+			</tr>
+			<foreach name="marklist" item="vo" key='k'>
+				<tr>
+					
+					<td><img src="data:png;base64,{$vo.markimage}" alt="" width='100' height="100"/></td>
+					<td>{$vo.markname}</td>
+					<td>{$vo.state}</td>
+					<td>{$vo.appdate}</td>
+					<td>{$vo.markcode_key}</td>
+					<td>{$vo.marktype}</td>
+				</tr>
+			</foreach>
+		</table>
+		<div class="digg">{$page}</div>
+    </div>
+</div>
+</body>
+</html>

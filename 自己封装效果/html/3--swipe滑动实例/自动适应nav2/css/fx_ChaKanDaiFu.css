@@ -1,0 +1,48 @@
+/*内容*/
+body{background:#f0eff5;}
+.YFbox{width:100%; height:auto; margin-bottom:0.2rem; border-bottom: 1px solid #ccc; background: #fff; }
+.dingBox{width:100%; height:auto; border-bottom: 1px solid #ccc; font-size: 0;}
+.dingCenter{width:0.84375rem; margin:0 auto; font-size: 0;}
+.dingCenter .dingTit{font-size: 0; width:0.55rem; margin:0 auto; padding:0.05625rem 0; }
+.dingCenter .DThao{width:100%; height:auto;}
+.dingCenter .DDzt{width:100%; height:auto; color:#f78b8b;font-size:0.04rem;}
+.dingCenter .dingTit span{font-size:0.046rem;}
+.dingCenter .img{width:0.071875rem; height:0.071875rem;font-size: 0; margin-right:0.028rem;}
+.dingCenter .dinghao{margin-top:0.008rem; font-size: 0.0375rem; word-break: break-all;}
+.shouHuo{font-size: 0; background: url("../images/borderDot.png") no-repeat left top; background-size: 100% 2px; height:0.146875rem; line-height: 0.146875rem;}
+.shouHuo span{font-size: 0.0375rem;}
+.shouHuo .SHname{margin-right:0.046875rem;}
+.diZhi{font-size: 0; background: url("../images/borderDot.png") no-repeat left top; background-size: 100% 2px; height:auto; padding:0.046875rem 0;}
+.diZhi span{font-size: 0.0375rem;}
+.diZhi .LTit{ display:inline-block; height: 100%;}
+.diZhi .LTit,.shouHuo .LTit{margin-right:0.1rem; width:0.2rem; display: block;  color:#999; }
+.diZhi .detail{display:block;  width:0.45rem;height:auto; line-height:0.06rem; }
+.dinggoods{ margin-left:0.04rem; height:auto;}
+.dinggoods .dingTit span{font-size:0.04rem; padding:0.04rem 0;}
+.dinggoods .dingimg{ padding:0.04rem 0; border-top: 1px solid #ccc;}
+.dinggoods .dingimg .img{width:0.276rem; height:0.195rem; margin-right: 0.04rem;}
+.dinggoods .nameprice{height:0.09rem; line-height:0.09rem; font-size:0.046rem; margin-bottom:0.016rem;}
+.dinggoods .songFen{height:0.078rem; line-height:0.078rem; font-size:0.03rem; color: #999;}
+
+.xinDetail{width:0.84375rem; margin:0 auto; font-size: 0;}
+.xinDetail p{width:100%; height:0.14rem; line-height: 0.14rem; font-size: 0; background: url("../images/borderDot.png") no-repeat left bottom; background-size: 100% 2px; }
+.xinDetail p:nth-last-of-type(1){background: none;}
+.xinDetail span{font-size: 0.04rem;}
+.xinDetail span.fl{color: #999;}
+.xinDetail span.fr{color: #000;}
+.xinDetail span.coff8{color:#ff843a;}
+.xinxi{width:100%; height:auto; padding:0.059375rem 0 0.0375rem 0; border-bottom:1px solid #ccc; background:#f0eff5; font-size:0;}
+.xinxi h1{ margin-left:0.046rem;  height:0.04375rem; line-height:0.04375rem; font-size:0.0375rem; border-left:3px solid #49becd; padding-left:0.025rem; }
+.XDbot{width:100%; height: auto; position:fixed; left: 0; bottom:0;   text-align:center;  font-size: 0;}
+.XDbot a{display:inline-block;  width:100%; height:0.156rem; font-size: 0.05rem; background:#49becd; color:#fff; line-height: 0.156rem; }
+
+.payStyle{ margin-left:0.046rem;}
+.payStyle .pay{  height:0.15rem; line-height: 0.15rem; border-bottom: 1px solid #ccc; font-size:0.046875rem; }
+.payStyle .pay3{border:none;}
+.payStyle .pay span{ font-size:0.0375rem; }
+.payStyle .pay .payBgN{margin:0.04rem 0.039rem 0 0.0625rem; display: inline-block; width:0.065625rem; height:0.065625rem; background: url("../images/payN.png") no-repeat center; background-size: cover;}
+.payStyle .pay .payBgY{margin:0.04rem 0.039rem 0 0.0625rem; display: inline-block; width:0.065625rem; height:0.065625rem; background: url("../images/payY.png") no-repeat center; background-size: cover;}
+.payStyle .pay1 .payName{padding-left:0.14rem; background: url("../images/youhui.png") no-repeat left center; background-size:0.085rem;}
+.payStyle .pay2 .payName{padding-left:0.14rem; background: url("../images/zhifu.png") no-repeat left center; background-size:0.085rem;}
+.payStyle .pay3 .payName{padding-left:0.14rem; background: url("../images/weixin.png") no-repeat left center; background-size:0.085rem;}
+

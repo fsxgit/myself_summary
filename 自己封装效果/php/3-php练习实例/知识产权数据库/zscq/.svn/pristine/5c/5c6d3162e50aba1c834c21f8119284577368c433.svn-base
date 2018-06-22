@@ -1,0 +1,7 @@
+<frameset rows="60,*" frameborder="0">
+	<frame src="{:U('Userinfo/top')}" />
+    <frameset cols="200,*" >
+        <frame src="{:U('Userinfo/left')}" />
+        <frame name="showFrame" src="{:U('Userinfo/trademark_gk')}" />
+    </frameset>
+</frameset>

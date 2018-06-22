@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>公司介绍</title>
+    <link rel="stylesheet" href="__CSS__/base.css"/>
+    <link rel="stylesheet" href="__CSS__/css.css"/>
+</head>
+<body class="bfff">
+<!--header-->
+<div class="c-header">
+    <div class="c-logo main oh">
+        <a href="{:('/')}"><img class="limg fl" src="__IMG__/logo.png" alt=""/></a>
+        <!--<span class="fl">消消乐</span>-->
+        <div class="c-nav">
+            <a href="{:('/')}">首页</a>
+            <i></i>
+            <a href="{:U('Home/Index/introduce')}" >公司介绍</a>
+            <i></i>
+            <a href="{:U('Home/Index/product')}" >公司产品</a>
+            <i></i>
+            <a href="{:U('Home/Index/tel')}"  class="active">联系我们</a>
+        </div>
+        <span class="reglogin fr oh">
+                <include file="Public/gologin" />
+           </span>
+        <span class="eye fr f12">本游戏适合18岁（含）以上玩家进入</span>
+    </div>
+</div>
+<!--header end-->
+
+<div class="tei_box">
+    <div class="tel_banner">
+        <h1>联系我们</h1>
+    </div>
+    <div class="tels_style_box pr main">
+        <div class="tels_style">
+            <div class="mode styles1">
+                <div class="icon"></div>
+                <div class="name">电话</div>
+                <div class="txt">0459-6079913</div>
+            </div>
+            <div class="mode styles2">
+                <div class="icon"></div>
+                <div class="name">手机</div>
+                <div class="txt">13555522333</div>
+            </div>
+            <div class="mode styles3">
+                <div class="icon"></div>
+                <div class="name">邮箱</div>
+                <div class="txt">youshiwl007@163.com</div>
+            </div>
+            <div class="mode styles4">
+                <div class="icon"></div>
+                <div class="name">QQ</div>
+                <div class="txt">2938181059</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<include file="Public/footer" />
+</body>
+</html>

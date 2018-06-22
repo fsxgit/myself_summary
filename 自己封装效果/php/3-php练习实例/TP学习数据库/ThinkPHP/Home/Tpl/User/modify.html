@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        window.onload=function(){
+            alert("{$data.sex}");
+            if("{$data.sex}"== 0){
+                document.getElementsByName('sex')[1].checked="checked";
+            }else{
+                document.getElementsByName('sex')[0].checked="checked";
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+<h1>hello 我是用户修改界面！！</h1>
+
+<h2>修改信息：</h2>
+<form action="/ThinkPHP/index.php/User/update" method='post'>
+    <input type="hidden" name="id" value="{$data.id}"/>
+   <table>
+       <tr>
+           <td>用户名：</td>
+           <td> <input type="text" name="username" value="{$data.username}"/></td>
+       </tr>
+       <tr>
+           <td>性别：</td>
+           <td><input type="radio" name="sex" value="1"/>男<input type="radio" name="sex"  value="0"/>女</td>
+       </tr>
+       <tr>
+           <td><input type="submit" value="确认修改"/></td>
+           <td><input type="button" value="取消"/></td>
+       </tr>
+   </table>
+</form>
+
+
+</body>
+</html>

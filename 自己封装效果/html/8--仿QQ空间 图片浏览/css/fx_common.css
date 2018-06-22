@@ -1,0 +1,48 @@
+@charset "utf-8";
+/*公共样式*/
+body{ font-family:微软雅黑;}
+.main{ width:990px; height:auto; overflow:hidden; margin:0 auto;}
+a:link{color: #666;}
+a:hover{ text-decoration:underline; }
+button,input{cursor: pointer;}
+
+/*登录与注册 我的订单等*/
+.head_fot{ width:990px; height:auto; border-bottom:1px solid #f4f4f4; overflow:hidden; margin:0 auto; padding-bottom:15px;}
+.hf_right{ width:auto; height:auto; float:right;}
+.hf_right a{ display:block; font-size:12px; line-height:15px; float:left; overflow:hidden; color:#666666; margin-top:18px;}
+.hf_right a#user_hoverColorChange:hover{color:#0188cc; text-decoration: underline;}
+.login{ width:auto; margin-right:16px;}
+.shuxian{ width:auto; height:15px; border:1px solid #f4f4f4; float:left;margin-top:18px;}
+.zhuce{width:24px; margin-left:16px;}
+.show_two{ width:auto; height:75px;float:left; position:absolute; margin-left:-15px;}
+.show_two li{ width:100%;  overflow:hidden; }
+.show_two li a{width:100%; height:12px;line-height:12px; overflow:hidden; display:block; margin-top:15px; }
+.new_zx{font-size:12px; line-height:15px; float:right; overflow:hidden; color:#666666; margin-top:18px;}
+.my_some{ display:block; padding-left:15px; text-align:left;}
+/*头部下面登录和二级菜单样式*/
+.fx_head{width:990px; height:48px; border-bottom:1px solid #f4f4f4;  margin:0 auto;}
+.fx_header{height:74px;line-height: 74px; font-size: 22px; border-bottom: 2px solid #ccc;}
+.fx_subList li{float:left; margin-left: 22px;}
+.fx_subList .fx_quit{margin-right: 24px; margin-left:10px;}
+/*登录与注册*/
+.head_fot{ width:990px; height:48px; border-bottom:1px solid #f4f4f4; overflow:hidden; margin:0 auto;}
+.hf_right{ height:auto; float:right;}
+.hf_right a{ display:block; font-size:12px;height:15px; line-height:15px; float:left; overflow:hidden;  margin-top:18px;}
+.login{ width:24px; margin-right:16px;}
+.hf_right a.fx_hover:hover{text-decoration:underline; color:#0188cc;}
+/**!/!*底部二维码  样式 start**!/*/
+#fx_WX{position:relative;}
+#fx_SM{width:200px; height:200px; background:url("../images/MaBg2.png") no-repeat 0 0; position:absolute; left: -200px; top:-150px; display: none;}
+#MaBox{width: 157px; height: 157px; margin-top:22px; margin-left:17px;background: #0000cc; }
+#fx_fot_nav{width:60px; height:auto;float:left;}
+#fx_fot_nav li a{color:#666; font-size: 12px;}
+#fx_fot_left2{width:835px; height:auto;float:left; margin-top:10px;}
+#fx_main{width:990px;margin:0 auto; height: 94px;}
+#fx_footer{width:100%; height:200px;background:#fbfbfb; border-top:1px solid #f1f1f0; border-bottom:1px solid #f1f1f0; margin-top: 60px;}
+/*/!*底部二维码  样式 end*!/*/
+
+/* 首页中间内容*/
+.cont{width:990px; overflow:hidden; text-align: center;}
+.cont_logo{ height:55px;  margin-top:104px;}
+.cont_logo2{ height:37px; margin-top:30px;}
+.cont_logo3{ height:566px;  margin-top:30px; margin-bottom:90px;}

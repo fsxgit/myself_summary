@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是咨询页</title>
+</head>
+<body>
+<h1>我是咨询页，我的错误是外部引用的js文件的错误，看看onerror会怎么报错</h1>
+<a href="index.html">跳转首页</a>
+<p style="color: red;">去看日志，这个页面报错了</p>
+
+<div>
+<h2 style="color: blue;">验证结果：</h2>
+<h2>错误信息是这样的：</h2>
+JsError: Script error.<br />
+url:<br />
+line: 0<br />
+</div>
+<div>
+    <h2 style="color:green;">结果分析：</h2>
+    <p>此问题验证了js的一个事实：</p>
+    <p>script Error 是什么？是外部加载的JS 抛出异常的时候， 出于安全方面的考虑，js错误信息中可能包含一些敏感信息，比如用户名、权限提示等，希望能够把这类信息屏蔽。目前跨域的场景下会触发这种安全限制，window.onerror无法获得具体出错信息，而只能得到Script error.</p>
+    <p>由验证可得出一个结论：</p>
+    <p>如果外部引入的js文件中有错误；window.onerror是不会抛出异常的具体位置的，解决方法；那么要怎么获取外部文件的错误位置呢：
+        <br /><a href="http://www.xuanfengge.com/javascript-error-script-error-the-solution.html">点这里查看帮助文档</a>
+        <br /><a href="sove.html">还没解决呢</a>
+    </p>
+</div>
+
+<script src="js.js"></script>
+<script src="js2.js"></script>
+
+</body>
+</html>

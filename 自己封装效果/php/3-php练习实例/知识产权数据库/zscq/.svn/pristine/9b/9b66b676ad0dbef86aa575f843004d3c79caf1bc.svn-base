@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标查询</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+
+<div class="cx-list-wu main-hou">
+    <div class="bread-nav">
+        商标列表 > 商标详情
+    </div>
+    <!--小熊提示-->
+    <div class="cx-list-zc bufen-pet">
+        <div class="c-img-txt ">
+            <span class="oh">
+                <span class="fl mr10"><img src="../images/icon2.png" width="52" height="80" alt=""/></span>
+                 <span class="fl">您所搜索的企业正在收录中或企业尚未注册</span>
+            </span>
+        </div>
+        <div class="zc-btn">
+            <a href="javascript:;" class="blue-big-btn">立即注册公司</a>
+        </div>
+    </div>
+    <!--小熊提示 end-->
+</div>
+</body>
+</html>

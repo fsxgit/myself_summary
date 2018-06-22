@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*公共样式  开始*/
+.fl{float:left;}
+.fr{float:right;}
+.oh{overflow:hidden;}
+.cb{clear:both;}
+.tc{text-align:center;}
+.bc{margin-left:auto; margin-right:auto;}
+.fz0{font-size:0;}
+.pr{position:relative;}
+.pa{position:absolute;}
+.fff{color:#fff;}
+.bgfff{background: #fff;}
+.f12{font-size:12px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.f18{font-size:18px;}
+.f20{font-size:20px;}
+.br4{border-radius: 4px;}
+.br50{border-radius: 50%;}
+.tl{text-align: left;}
+.tr{text-align: right;}
+/*以下的公共样式是由项目决定的*/
+/*修改input的placeholder的默认颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */
+color:    #a5a5aa;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color:    #a5a5aa;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+color:    #a5a5aa;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+color:    #a5a5aa;
+}
+/*
+html {font-size:64px; }先设定一个根元素标注,防止设定根元素标准的js没加载进来时页面布局混乱的现象以rem为单位,此标准与设计稿相同尺寸10rem = 640px;
+*/
+.a0a0{color: #a0a0a0;}
+html {font-size:64px; }
+.bb{border-bottom: 1px solid #d5d5d5;}
+.bt{border-top: 1px solid #d5d5d5;}
+.e50{color:#e50065;}
+.c000{color:#000;}
+.mt14{margin-top:14px;}
+.gap{width:100%; height:14px; background: #f2f2f6;}
+.btnLg{width:100%; height:44px; line-height: 44px; text-align: center; color: #fff; background:#e50065; font-size:16px; border-radius: 4px; display:block; margin-left: auto; margin-right:auto; margin-top:32px; }
+.main{width:91.87%; margin-left:auto; margin-right:auto;}
+
+a .a000{color:#000; }
+html,body{background: #f2f2f6; overflow-x:hidden; width:100%; height:auto; min-height:100%; }
+body{ font-size: 14px;}
+/*登录模块下的 长短行*/
+.cdBox{background: #fff;}
+.cdCont{width:95.93%; float:right;}
+.cdhang{width:100%; padding:18px 0; font-size: 0;}
+.cdhang img{width:16px; height:18px; margin-left:4px; margin-right:12px; float: left; }
+.cdhang span{width:56px; height:18px; margin-right:12px; display: inline-block;  font-size: 14px;}
+.cdhang input{width:126px; height:18px; font-size: 14px;}
+.cdhang input.getMa{width:88px; height:34px; font-size: 14px; background: #ccc; color: #fff; position:absolute; right:16px; top:10px; border-radius: 2px;}
+/*登录模块下的 长短行 end*/
+/*index模块 more  */
+.moreBox{padding:14px 0; float: right; overflow: hidden; width:96%; height: 20px; line-height: 20px;}
+.hdmoreBox{padding:14px 0; float: right; overflow: hidden; width:96%; }
+.moreImg{ margin-right: 10px;  margin-top: 2px;}
+.moreImg img{width:16px; height:16px; display: block;}
+.moreShow img{width:18px; height:18px; display: block;}
+.moreName{height:20px; line-height: 20px; font-size: 16px; color: #333;}
+.moreBox .main{margin-left: 0;}
+.moreBox .more{display: inline-block; font-size: 14px; height:20px; line-height:20px; padding-right: 14px; background: url("../images/right.png") no-repeat right center;background-size:8px 14px; color:#a0a0a0; }
+.moreMain{width:94.06%;}
+.tiaozhuan{}
+.tiaozhuan a{display: inline-block;}
+.tiaozhuan a .moreName{color: #333;}
+.tza{display: inline-block;}
+/*index模块 more  end*/
+
+/*头部*/
+/*header*/
+header{width:100%; background: #e50065; padding:8px 0;  height:32px; font-size: 0;}
+.xqHeader{background: none;}
+header span{display: inline-block; font-size: 16px;}
+.place{width:15.94%; text-align: left;}
+.back{width:20%;  text-align: left; background: url("../images/left.png") no-repeat 8px center; background-size:10px 16px;}
+.ma{width:20%; color: #fff; font-size: 16px; text-align: right; margin-top: 2px;}
+.search{width:60%; text-align: center; margin:0 auto;color: #fff; font-size: 0;}
+.mainTitle{width:60%; text-align: center; margin:0 auto;color: #fff; font-size: 14px;}
+header.place,.back,.ma,.search,.mainTitle{ height:32px; line-height: 32px;}
+/*头部 end*/
+/*底部导航 */
+/*footer*/
+footer{padding-top:12px;  overflow: hidden; font-size: 0; position: fixed; left:0; bottom:0; width: 100%; height:auto; background:url("../images/footerBg.png") repeat-x 0 0 ; background-size:100% 12px;}
+.footer{background: #fff; padding:5px 0; height:38px; }
+.botNav{width:40.46%;}
+.botNav a{display: inline-block; width:50%;}
+.botNav a img{display:block; width:22px; height:38px; margin:0 auto;}
+.botNav a img:nth-of-type(2){display: none;}
+.botNav a.active img{display:none;}
+.botNav a.active img:nth-of-type(2){display: block;}
+.center{width:19.08%; font-size: 0; text-align: center; position: relative;}
+.center img{width:56px; height:56px; display: block; position: absolute; left:0; top:-16px;}
+/*底部导航 end*/
+
+
+
+
+
+
+
+
+
+
+
+/*公共样式  结束*/
+
+
+

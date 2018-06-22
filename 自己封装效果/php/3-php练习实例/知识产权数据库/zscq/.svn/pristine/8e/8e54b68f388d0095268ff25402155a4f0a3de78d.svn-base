@@ -1,0 +1,113 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class MarknameController extends AdminbaseController{
+	//行业分类
+	public function industry_sort_lst(){
+		$r = M("nice_first")->select();
+		$e = self::sortOut($r);
+	//	echo "<pre>";
+	//	print_r($e);
+		$this->display();
+	}
+	
+
+	public function sortOut($cate,$pid=0,$level=0,$html='|-'){
+               $tree = array();
+               foreach($cate as $v){
+                       if($v['pid'] == $pid){
+                               $v['level'] = $level + 1;
+                               $v['html'] = str_repeat($html, $level);
+                               $tree[] = $v;
+                               $tree = array_merge($tree, self::sortOut($cate,$v['code'],$level+1,$html));
+                       }
+               }
+               return $tree;
+      }
+
+
+
+	//尼斯分类 列表
+	public function nice_lst(){
+		$count = M("nice")->count();
+		$page = $this->page($count,10);
+
+		$res = M("nice")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	public function nice_add(){
+		if(IS_POST){
+			var_dump($_POST);
+		}else{
+			$res = M("nice_first")->select();
+			$this->assign("res",$res);
+			$this->display();
+		}
+	}
+	//一级类目
+	public function class_name(){
+		$count = M("nice_first")->count();
+		$page = $this->page($count,10);
+
+		$res = M("nice_first")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//一级类目 添加
+	public function class_add(){
+		if(IS_POST){
+			$info["class_num"]= I("num");
+			$info["class_name"]= I("name");
+			$info["class_desc"]= I("area");
+            $arr = M("nice_first")->add($info);
+			if($arr){
+                $this->success("添加成功",U('Markname/class_name'));
+            }else{
+                $this->error("添加失败");
+            }
+		}else{
+			$this->display();
+		}
+	}
+	//删除
+	public function del_act(){
+		$id = I("id");
+		$reg=M("nice_first")->where("id=".$id)->delete();
+		if($reg){
+			$this->success("删除成功",U('markname/class_name'));
+		}else{
+			$this->error("删除失败");
+		}
+	}
+	//修改
+	public function upd_act(){
+		if(IS_POST){
+		//	var_dump($_POST);die;
+			$id = I("id");
+
+			$info['class_num'] = I("num");
+			$info['class_name'] = I("name");
+			$info["class_desc"] = I("area");
+
+			$reg=M("nice_first")->where("id=".$id)->save($info);
+		
+			$this->success("更新成功",U('markname/class_name'));
+		}else{
+			$id=$_GET["id"];
+			$res=M("nice_first")->where("id=".$id)->find();
+			$this->assign("res",$res);
+			$this->display();
+		}
+	}
+}

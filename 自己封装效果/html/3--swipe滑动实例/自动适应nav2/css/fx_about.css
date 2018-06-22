@@ -1,0 +1,17 @@
+/*内容*/
+body{background:#f0eff5;}
+.ZJTiaobox{background: #fff; width:100%; height:auto; border-top: 1px solid #ccc; border-bottom:1px solid #ccc; margin-top:0.046875rem;}
+.ZJTiao{margin-left:0.04rem; background: #fff;}
+.ZJTiao p{ height:0.15rem; line-height: 0.15rem;}
+.ZJTiao p.pFen{border-bottom:1px solid #ccc;}
+.ZJTiao p span{ font-size:0.04375rem; color:#6a6a6a;}
+.ZJTiao p a{display: block;  margin-right:0.04rem; width:0.0375rem;height:100%; }
+.ZJTiao p a.aa{display: block;  margin-right:0.04rem; width:0.0375rem;height:100%; background: url("../images/right.png") no-repeat center; background-size:0.0234rem 0.0375rem; }
+.ZJTiao p.pFen .tel{width:auto; height:100%; font-size:0.04375rem;}
+.ZJTiao p.pBanBen .wangzhan{width:auto; height:100%; font-size:0.04375rem; color:#ed5252;}
+.ZJbox{width:100%; height:auto; background:#f0eff5;}
+.DNlogoBox{padding:0.13rem 0;}
+.logoImg{width:0.246875rem; height:0.246875rem; margin:0 auto;}
+.logoTxt{width:0.246875rem; height:auto; margin:0 auto; padding-top:0.034rem; font-size:0.034rem; text-align: center; color: #6a6a6a;}
+
+

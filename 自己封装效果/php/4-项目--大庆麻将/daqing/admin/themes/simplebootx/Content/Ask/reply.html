@@ -1,0 +1,73 @@
+<admintpl file="header" />
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">提问列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+    <form name="myform" action="{:U('')}" method="post" class="form-horizontal J_ajaxForms" enctype="multipart/form-data">
+        <input name="id" type="hidden" value="{$info['id']|default=''}"/>
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th width="100">用户</th>
+                <td>
+                    {$info.nickname}
+                </td>
+            </tr>
+            <tr>
+                <th width="100">提问</th>
+                <td>
+                    {$info.content}
+                </td>
+            </tr>
+            <tr>
+                <th width="100">提问时间</th>
+                <td>
+                    {$info.add_time|time_format}
+                </td>
+            </tr>
+            <tr>
+                <th width="100">专家</th>
+                <td>
+                    <volist name="experts" id="vo">
+                        <label class="radio inline"><input type="radio" name="expert_id"  {$vo.checked} value="{$vo.id}">{$vo.realname}</label>
+                    </volist>
+                </td>
+            </tr>
+            <tr>
+                <th>是否前台展示</th>
+                <td>
+                    <label class="radio inline">
+                      <input type="radio" name="is_index" <if condition="isset($info['is_index']) && !$info['is_index']">checked</if> value="0">否
+                    </label>
+                    <label class="radio inline">
+                      <input type="radio" name="is_index" <if condition="isset($info['is_index']) && $info['is_index']">checked</if> value="1">是
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th>回复</th>
+                <td>
+                    <textarea name="reply" class="txt100">{$info.reply|default=''}</textarea>
+                </td>
+            </tr>
+        </table>
+        <div class="form-actions">
+            <button class="btn btn-primary btn_submit ajax-post" <if condition="$info['status']">disabled</if>  type="submit" target-form="form-horizontal">确定</button>
+            <a class="btn" href="{$backUrl}">返回</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

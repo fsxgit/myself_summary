@@ -1,0 +1,27 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/css/slb.css"/>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>详情页</a></li>
+		<li><a href="{:U('Markname/industry_sort_lst')}">列表页</a></li>
+    </ul>
+<div class="sl-xq main">
+    <div class="sl-cont">
+       <div class="sb-xq">
+           <p><span class="tit" style="margin-left: 27px;">行业类别：</span>{$res.industry_name}</p>
+           <p><span class="tit" style="margin-left: 27px;">二级类别：</span>
+           <foreach name="r" item="vo">
+               {$vo.industry_name}&nbsp;&nbsp;
+           </foreach>
+           </p>
+           <p><span class="tit">关联尼斯分类：</span>
+           <foreach name="rs" item="v">
+               {$v.code}&nbsp;{$v.name}<br>
+           </foreach>
+           </p>
+       </div>
+    </div>
+</div>
+</body>
+</html> 

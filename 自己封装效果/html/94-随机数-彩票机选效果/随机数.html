@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机数</title>
+    <style>
+        .num{height:50px; border:1px solid #ccc;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>点击生成随机数（0-1）</h2>
+    <button class="btn1">点我</button>
+    <div class="num"></div>
+</div>
+<div class="box">
+    <h2>点击生成随机数（1-10）</h2>
+    <button class="btn2">点我</button>
+    <div class="num"></div>
+</div>
+<div class="box">
+    <h2>点击生成随机数（0-100）</h2>
+    <button class="btn3">点我</button>
+    <div class="num"></div>
+</div>
+<div class="box">
+    <h2>点击生成随机数（0-25）</h2>
+    <button class="btn4">点我</button>
+    <div class="num"></div>
+</div>
+<div class="box">
+    <h2>点击生成3个随机数（0-25）</h2>
+    <button class="btn5">点我</button>
+    <div class="num"></div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".btn1").click(function(){
+        var zhi = Math.random();
+         $(this).siblings(".num").html(zhi);
+    });
+    $(".btn2").click(function(){
+        var zhi = Math.floor((Math.random()*10)+1);
+        $(this).siblings(".num").html(zhi);
+    });
+    $(".btn3").click(function(){
+        var zhi = Math.floor((Math.random()*100)+1);
+        $(this).siblings(".num").html(zhi);
+    });
+    $(".btn4").click(function(){
+        //x上限，y下限
+        var x = 25;
+        var y = 1;
+        var zhi = parseInt(Math.random() * (x - y + 1) + y);
+        //如果随机数是一位数，在前面补充0
+        var len =zhi.toString().length;
+        if(len == 1 ){
+            zhi = "0"+zhi;
+        }
+        $(this).siblings(".num").html(zhi);
+    });
+
+    $(".btn5").click(function(){
+        //x上限，y下限
+        var zhi = sj_zhu(25,1,3)
+        $(this).siblings(".num").html(zhi);
+    });
+
+
+    function sj_zhu(x,y,k){
+        //x上限 y下限 n生成的数量
+
+        var zhi ="";
+        var n =parseInt(k);
+        for(var i = 1; i <= n; i++){
+            var val = parseInt(Math.random() * (x - y + 1) + y);
+            var len =zhi.toString().length;
+            if(len == 1 ){
+                zhi += "0"+val+" ";
+            }else{
+                zhi += val+" ";
+            }
+            console.log(i);
+        }
+        return zhi;
+    }
+
+</script>
+</body>
+</html>

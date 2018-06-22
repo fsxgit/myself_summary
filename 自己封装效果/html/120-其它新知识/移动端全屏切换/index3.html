@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <style>
+        /* ==== 页面容器样式开始{{{ ==== */
+        #page1{background:url(http://y1.ifengimg.com/l/2015/52/7a6a9014b0658e0/page1_bg.jpg) no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;}
+        #page2{background: #ff0039;}
+        #page3{background: #1dff2b;}
+        #page4{background: #0f13ff;}
+    </style>
+    <title>必应</title>
+</head>
+<body>
+<!--content-->
+<div id="dowebok">
+    <div class="section" id="page1">
+1
+    </div>
+    <div class="section" id="page2">
+        2
+    </div>
+    <div class="section" id="page3">
+3
+    </div>
+    <div class="section" id="page4">
+4
+        <button class="btn_moveTo">走走走左</button>
+    </div>
+</div>
+
+
+<!--content end-->
+<!--footer-->
+
+<!--footer end-->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.fullPage.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#dowebok').fullpage({
+            afterLoad: function (anchorLink, index) {
+                //第一屏
+                if (index == 1) {
+
+                }
+                if (index == 2) {
+
+                }
+                if (index == 3) {
+
+                }
+                if (index == 4) {
+
+                }
+            },
+            onLeave: function (index, direction) {
+                if (index == 1) {
+
+                }
+                if (index == 2) {
+
+                }
+                if (index == 3) {
+
+                }
+                if (index == 4) {
+
+                }
+            }
+        });
+    });
+
+    //跳转指定屏
+    $(".btn_moveTo").click(function () {
+        $.fn.fullpage.moveTo(2, 0);
+    });
+
+</script>
+</body>
+</html>

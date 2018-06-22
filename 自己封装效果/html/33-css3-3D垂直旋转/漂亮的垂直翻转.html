@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		div{
+			border: solid red 1px;
+		}
+		#mdiv{
+			width: 171px;
+			height: 134px;
+			background: no-repeat url("images/1.jpg") ;
+			background-size: contain;
+		}
+		#mspan{
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+<div id="mdiv"><span id="mspan">内容内容内容内容内容内容内容内容内容内容内容内容</span></div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+	var div = $('#mdiv');
+	var isFirst = true;
+	div.click(function(){
+		if(isFirst){
+			isFirst = false;
+			div.css({"transformStyle":"preserve-3d","-webkitTransform":"rotateY(90deg)", "-webkitTransition":"all 0.6s"});
+			setTimeout(function(){
+				$('#mspan').show();
+				$('#mspan').css({'transform':'rotateY(180deg)','display':'block'});
+				div.css('background','none')
+			},700);
+			setTimeout(function(){
+				div.css({"transformStyle":"preserve-3d","-webkitTransform":"rotateY(180deg)", "-webkitTransition":"all 0.6s"});
+			},800);
+		}
+
+	});
+</script>
+</body>
+</html>

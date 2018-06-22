@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3动画</title>
+	<link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+	<div class="box">
+		<h1>动画特效--由上飞入</h1>
+		<div class="btn btn1">点击</div>
+		<div class="mode tx1">由上飞入</div>
+	</div>
+<div class="box">
+	<h1>按钮移入</h1>
+	<div class="btnHover">
+		确认提交
+	</div>
+	<div class="btnHover2">
+		再次确认
+	</div>
+	<h1>如果按钮本来有背景，则移出时达不到预期效果，且在移入时还需要主动清空原来的背景</h1>
+	<div class="btnHover3">
+		我有背景
+	</div>
+
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script>
+		$(".btn1").click(function(){
+			$(".tx1").addClass("bounceInUp");
+		})
+</script>
+</body>
+</html>

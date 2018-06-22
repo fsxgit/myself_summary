@@ -1,0 +1,13 @@
+/*内容*/
+body{background:#f0eff5;}
+.pinglunBox{width:100%; height: auto; background: #fff;}
+.pinglun{width:100%; height:auto;border-bottom:1px solid #ccc;}
+.ppTit{width:100%; height:0.189rem; line-height: 0.189rem; background: url("../images/pinglunBg.png") no-repeat 0 0; background-size: cover;}
+.ppTit span{font-size: 0.05rem; padding-left:0.18rem;}
+.ppTxt{width:0.918rem; margin: 0 auto; padding:0.04rem 0;}
+.TxtTop{}
+.TxtTop div{font-size: 0.0375rem; color:#999;}
+.TxtTop .xing{width:auto; height:auto; }
+.TxtTop .xing span{float:left; margin-right:0.00625rem; display: inline-block; width:0.0375rem; height:0.0375rem; background: url("../images/xingY.png") no-repeat 0 0; background-size: cover;}
+.pingTxt{width:100%; height:auto; font-size:0.043rem; line-height: 0.08rem;}
+

@@ -1,0 +1,99 @@
+
+@charset "utf-8";
+/*公共样式*/
+/*Css reset*/
+body, div,img, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0;}
+address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li {list-style:none;}
+a{ text-decoration:none;}
+th{text-align:left;}
+em,i{font-style: normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before, q:after{content:' '}
+abbr,acronym{border:0;}
+img{max-width: 100%; max-height:100%;}
+button,input,select,option,textarea{margin:0px; padding: 0px; border: none;outline: none;}
+body{ font-family: "Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+.fl{float:left;}
+.fr{float:right;}
+.oh{overflow: hidden;}
+/*报价详情BaojiaDetail.html  开始*/
+.BJbox{width:100%; height:auto;overflow: hidden; font-size:0.333rem; color:#8b8b8b;}
+.BJbox .dots{width:9.185rem; height:2px;overflow: hidden;margin:0 auto;}
+.BJbox .dots2{width:100%; height:auto;overflow: hidden;margin:0 auto;}
+.BJbox .dots img{display: block;}
+.BJbox .dots2 img{display: block;}
+.BJhead{width: 100%; height:auto; text-align: center; padding-bottom:0.61rem;}
+
+.BJhead h1{margin-top:0.61rem;}
+.BJhead h2{color:#ff7200;margin-top:0.481rem;}
+.BJhead h3{color:#ff7200;margin-top:0.24rem;}
+.BJhead .yuan{font-size:0.48rem;}
+.BJhead .m{color:#a7a7a7; background:#eee url("../images/place.png") no-repeat 0.24rem center; font-size:0.2777rem;  display:inline-block;  padding-left:0.39rem; width: 1.4rem; height:0.518rem; line-height:0.518rem; text-align: center; border-radius:0.3rem; background-size:0.222rem 0.287rem;margin-top:0.37rem;}
+.BJbox .serves{width:100%; height:auto; overflow:hidden; text-align: center; background: #f6f6f6; padding-top:0.462rem; padding-bottom:0.462rem;}
+.BJbox .serves h1{padding-bottom:0.37rem; }
+.BJbox .serves span{width: 2.176rem; height:0.629rem; line-height:0.629rem;  display: inline-block; border-radius:0.3rem; background: #fff;}
+.BJbox .Sbtn1{margin-right:0.259rem;}
+.BJbox .Sbtn2{ }
+.BJbox .site{width: 100%; height:1.2777rem; line-height:1.2777rem; background: #fff url("../images/fBg.png") no-repeat 2rem center; background-size:0.129rem 0.130rem; text-align: center; }
+.BJbox .bgf6{width: 100%; height:0.5rem; line-height:1.2777rem; background: #f6f6f6;}
+.BJbox .WBox{width:9.185rem; height:auto; margin: 0 auto; text-align: center;}
+.BJbox .WBox h1{color:#000; margin-top:0.467rem; padding-bottom:0.74rem;}
+.BJbox .WT{width:100%; height:0.666rem; line-height: 0.666rem; text-align: center; padding-bottom: 0.463rem;}
+.BJbox .imgbox{width:1.85rem; height:0.467rem;margin-top: 0.07rem; margin-left:0.46rem;}
+.BJbox .Wbtn{width:1.914rem; height:0.648rem; border:1px solid #fd962d; border-radius:4px; display: block; line-height:0.648rem; text-align:center; color:#fd962d; padding-left: 0.5rem;background: #f7f7f7 url("../images/id.png") no-repeat 0.166rem center; background-size:0.398rem; }
+.BJbox .zong{width:100%; height:auto; margin-top:0.55rem; padding-bottom:0.55rem;}
+.BJbox .znBox{width:3.8rem; height:1.11rem; line-height:1.11rem; text-align: left; border-right: 1px solid #adadad; margin-right:0.777rem;}
+.BJbox .znBox .zn{color:#58ab22;}
+.BJbox .gnBox div{ width:3.07rem; height:0.611rem; line-height:0.611rem; text-align: left;}
+.BJbox .gnBox .gn1{background: url("../images/downg.png") no-repeat right center; background-size:0.194rem 0.333rem;}
+.BJbox .gnBox .gn1 span{color:#58ab22;}
+.BJbox .gnBox .gn2 span{color:#ea262f;}
+.BJbox .gnBox .gn2{background: url("../images/upr.png") no-repeat right center; background-size:0.194rem 0.333rem;}
+.BJbox .sunum{margin-top: 0.54rem; padding-bottom:0.54rem;}
+.BJbox .sunum .name{width:3.8rem; height:0.5rem; line-height:0.5rem; text-align: left; border-right: 1px solid #adadad; margin-right:0.777rem;}
+.BJbox .starts{width:3.8rem; height:0.5rem; line-height:0.5rem; text-align: left; margin-top: 0.54rem; padding-bottom:0.54rem; }
+.BJbox .iPhBox{margin-left:0.37rem;}
+.BJbox .iPhBox h1{ height:1.44rem; line-height:1.44rem;width: 90%; text-align: center;}
+.iPhBox .conBox{margin-top:0.37rem; padding-bottom: 0.37rem; border-bottom:1px solid #d0d0d0;}
+.iPhBox .iphone{ padding-bottom:0.26rem;}
+.iPhBox .rbox{ padding-right:0.3888rem; height: 1.1rem; line-height: 1.1rem; color: #000;}
+.bs{color:#000; font-size:0.3888rem;}
+.iPhBox .cg{color:#58ab22;}
+.BJbox .btnBox{width:100%; height:1.48rem; line-height: 1.48rem; text-align: center;}
+.BJbox .btnBox button{width:2.59rem; height:0.82rem;border:1px solid #58ab22; border-radius:4px; color:#58ab22; background: #fff;}
+.BJbox .WPJ{text-align: center;}
+.BJbox .WPJ h1{height:1.5rem; line-height:1.5rem;}
+.BJbox .WPJ .phonenum{margin-top:0.648rem; text-align: left; margin-left:0.37rem;}
+.BJbox .WPJ .txt{margin-top:0.248rem; text-align: left;margin-left:0.37rem; color: #000; font-size: 0.38rem; padding-bottom:0.44rem; }
+.BJbot{width: 100%; height:1.333rem; line-height:1.333rem; font-size: 0.407rem;}
+.BJbot span{display:inline-block; width:50%; height: 100%; text-align: center; float: left; color:#58ab22; background: #fff;}
+.BJbot span.active{ background: #58ab22; color:#fff;}
+/*报价详情BaojiaDetail.html  结束*/
+/*报价列表BaojiaList.html  开始*/
+.BLbox{width:100%; height:auto; overflow:hidden; background: #fff;}
+.BLhead{width:100%; height:0.5rem; line-height: 0.5rem; font-size:0; padding-top:0.37rem; padding-bottom:0.37rem; background:#fafafa;}
+.BLhead span{width:23%; text-align:center; font-size:0.35rem; display: inline-block;border-right: 1px solid #ccc;}
+.BLhead span.brn{border-right:none;}
+.BLhead span.ml{ margin-left:0.25rem;}
+.BLhead span img{width:0.351rem; height:0.17rem; margin-left:0.2rem;}
+.BLhead span img{width:0.351rem; height:0.17rem; margin-left:0.2rem;}
+.BLnav{width:100%; height:auto; background: #d2d2d2;font-size:0; text-align: center;}
+.BLnav span{width:2.166rem; height:0.888rem; line-height:0.888rem; font-size:0.351rem; display: inline-block; border-radius:0.037rem; text-align: center; background: #fff; margin:0.166rem 0.13rem;}
+.BLmode{width: 100%; height:auto; overflow: hidden;color: #9b9b9b; padding-bottom:0.61rem; border-bottom:1px solid #dfdfdf;}
+.BLmode .bgf6{width: 100%; height:0.37rem;  background: #f6f6f6;}
+.BLmode .Tit{width: 100%; height:1.037rem; line-height: 1.037rem; border-top:1px solid #dfdfdf; border-bottom:1px solid #dfdfdf; font-size:0.296rem; padding-left:0.333rem; color: #9b9b9b;}
+.BLmode .informBox{width:92.2%; height:auto; overflow: hidden; margin:0 auto; font-size: 0.37rem;}
+.BLmode .money{ margin:0.425rem 0;}
+.BLmode .mt426{ margin-top:0.426rem;}
+.BLmode .se{color:#ff7200; margin-right:0.555rem;}
+.BLmode .start{width:1.824rem; height:0.37rem;}
+.BLmode .dash{width: 100%; height:1px;}
+.BLmode .dash img{display: block;}
+.BLmode .color{font-size:0.462rem; color:#ff7200; margin-bottom:0.2rem; }
+.BLmode .dot{width:0.138rem; height:0.138rem; float: left; margin-top:0.231rem; margin-right:0.37rem;}
+.BLmode .ml{ margin-left:0.4rem;}
+.BLmode  .m{color:#a7a7a7; background:#eee url("../images/place.png") no-repeat 0.24rem center; font-size:0.2777rem;  display:inline-block;  padding-left:0.39rem; width: 1.4rem; height:0.518rem; line-height:0.518rem; text-align: center; border-radius:0.3rem; background-size:0.222rem 0.287rem; margin-top:0.462rem;}
+/*报价列表BaojiaList.html  结束*/

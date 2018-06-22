@@ -1,0 +1,40 @@
+html,body{width:100%; height:auto;  background: #fff;}
+/*我要报名*/
+.bbn{border-bottom:none !important;}
+.bmBox{background: #efeff4;}
+.h4ef{background: #efeff4; height:0.5rem;}
+.zuo_lei{}
+.zuo_lei h1{height:0.5rem; line-height: 0.5rem; font-size: 0; padding-top:0.6rem; padding-bottom:0.4rem; color: #757575;}
+.hSpan{font-size: 0.45rem;  background: url("../images/l_kuai.png") no-repeat 0 center; background-size:0.11rem 0.11rem;  display: inline-block; padding-left:0.5rem; }
+.lei_span{background: #fff; padding:0.3rem 0;}
+.lei_span span{font-size: 0.4rem; width:2.6rem; text-align: center; height:0.5rem; line-height: 0.5rem; display: inline-block; padding:0.2rem 0; border:1px solid #d5d5d5; border-radius:0.5rem; margin:0.2rem; color: #696969;}
+.lei_span span.active{color:#fff; background: #53c474;border:1px solid #53c474;}
+.fotBtnBM{width:100%; height:auto; padding:0.45rem 0; font-size: 0; text-align: center;}
+.fotBtnBM input{width:90%; height:1.39rem; line-height: 1.39rem;   font-size: 0.5rem;  background: #30bc59; color:#fff; border-radius: 4px;}
+.tianBox{background: #fff; }
+.tianBox input{font-size: 0.4rem;}
+.tianCon{width:9.6rem;float:right; font-size: 0; overflow: hidden;  min-height:0.7rem; line-height: 0.7rem; padding:0.4rem 0; border-bottom: 1px solid #ccc;}
+.tianCon span{ font-size: 0.45rem; display: inline-block;}
+.tianCon .tianName{ float: left; margin-right:0.5rem; width:2rem;}
+.tianCon .tianValue{ float: left; width:6.6rem;}
+
+.tianCon label,.xieyi label{background: url("../images/gou_no.png") no-repeat 0 center; background-size:0.58rem 0.58rem; padding-left:0.9rem; margin-right:1rem; }
+.tianCon label.active,.xieyi label.active{background: url("../images/gou.png") no-repeat 0 center; background-size:0.58rem 0.58rem;}
+
+.learnDe{text-align: center;}
+.learnDe input{width:8.8rem;  background:#efeff4 ; padding:0.25rem 0 0.25rem 0.4rem; font-size: 0.4rem; border-radius: 4px;}
+
+.xieyi{font-size: 0.45rem; width:9.2rem; margin:0 auto; background: #fff;}
+.xieyi p{border-bottom: 1px solid #ccc; padding:0.3rem 0; line-height: 0.7rem;}
+.xieyi .sexChoose{width:5rem; margin:0 auto; border-bottom: none;}
+
+
+.tongyi{width: 9.2rem;  margin: 0 auto; text-align: left; padding:0.4rem 0; overflow: hidden;}
+.tongyi span{font-size: 0.4rem; display: inline-block;line-height: 0.5rem;  float: left;}
+.tongtxt{width:8rem;  height:auto; color: #adadad; }
+.chooseBtn{height:0.5rem; width:0.48rem; background: url("../images/chooseN.png") no-repeat 0 center; background-size:  0.45rem 0.45rem;margin-right:0.3rem;}
+.chooseBtn.active{background: url("../images/chooseY.png") no-repeat 0 center; background-size: 0.45rem 0.45rem;}
+.tongyi a,.tongyi a:link,.tongyi a:visited,.tongyi a:active{color: #2376d4;}
+
+#scroller,#demo_dummy{ padding-right:0.8rem; background: url("../images/g_down.png") no-repeat right center; background-size:0.4rem 0.25rem; width:5.8rem;  min-height:0.55rem; line-height: 0.55rem; display:inline-block;}
+

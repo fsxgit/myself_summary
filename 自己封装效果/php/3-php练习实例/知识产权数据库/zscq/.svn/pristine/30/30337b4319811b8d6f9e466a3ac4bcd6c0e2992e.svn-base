@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标概况</title>
+	<link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css"/>
+    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui-append.min.css"/>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/brand.css"/>
+    <style>
+        .list-gk-cont-left.last{margin-right:0;}
+        .dao{display: inline-block; height: 32px; line-height: 32px; margin:0 6px;}
+
+        .xz-alert-box{width: 570px;}
+        .xz-alert-box .c-tan-bot{width: 486px;}
+        .brand-detail .bd-tit{width:150px;}
+        .xz-beian{height:460px; overflow: auto; width: 480px;}
+        .xz-beian p{margin-bottom: 10px;}
+        .xz-beian .bd-tit{display: inline-block; font-size: 12px; height: 34px; line-height: 34px;}
+        .xz-beian input{width:270px; padding-left: 10px;  font-size: 12px; height: 32px; line-height: 32px; border: 1px solid #ccc; border-radius: 4px;}
+        .choose-xk input[type="checkbox"]{display: none;  width: 20px; height: 20px; margin:0; padding:0;}
+        .xz-beian .lei-xk{}
+        .xz-beian .lei-xk{width:52px; display: inline-block; padding-left:24px; background: url("public/html/images/yn.png") no-repeat 0 center; margin-right: 20px; cursor: pointer;}
+        .xz-beian .lei-xk.active{background: url("public/html/images/y.png") no-repeat 0 center;}
+        .choose-xk{padding-left:20px; background: url("public/html/images/yn1.png") no-repeat 0 center; cursor: pointer; height: 24px; line-height: 26px;}
+        .choose-xk.active{background: url("public/html/images/y1.png") no-repeat 0 center;}
+        .xk-qixian .date{width: 120px;}
+		 /*驳回*/
+        .bohui-alert,.yiyi-alert,.alert-alert,.tjzs-alert,.ytjz-alert,.szsca-alert,.sdzcz-alert,.fuwujieshu{width: 576px;}
+
+        .bohui-alert .c-tan-bot,.yiyi-alert .c-tan-bot,.alert-alert .c-tan-bot,.tjzs-alert .c-tan-bot,.ytjz-alert .c-tan-bot,.szsca-alert .c-tan-bot,.sdzcz-alert .c-tan-bot,.fuwujieshu .c-tan-bot{width: 496px;}
+
+        .bohui-alert .fei,.yiyi-alert .fei,.alert-alert .fei,.tjzs-alert .fei,.ytjz-alert .fei,.szsca-alert .fei,.sdzcz-alert .fei,.fuwujieshu .fei{display: inline-block; width: 60px; text-align:right;}
+
+        .gw-ly{border:1px solid #ccc; padding:10px; font-size: 12px; color: #333; height:20px; line-height: 20px;}
+        .gw-ly .area textarea{width:390px; border:0; resize: none; outline: none; font-size: 12px; height:20px; line-height: 20px;}
+        .bh-box{border:1px solid #ccc; padding:10px; margin-bottom: 10px;}
+        .bha,.bha:link,.bha:visited,.bha:hover,.bha:active{color: #157efb;}
+		.alertHei{height:150px;}
+        /*驳回 end*/
+    </style>
+	
+</head>
+<body>
+<script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <div class="brand-gl main-hou c333">
+        <div class="bread-nav">
+            <a href="{:U('Brand/brand_lst')}">商标列表</a> > 商标详情
+        </div>
+        <!--上面 公用-->
+        <div class="list-gk-top oh">
+            <div class="logo fl">
+			<if condition="$mark['markimage'] eq '' ">
+             <img src="{$mark.marklogo}" alt=""width='100' height="100"/>
+             <else />
+			 <img src="data:png;base64,{$mark.markimage}" alt="" width='100' height="100"/>
+			 </if>
+            </div>
+            <div class="logo-txt f12">
+                <p><span class="fb f16">{$mark.markname}</span><!--<span class="xuzhan">续展中</span>!--></p>
+                <!--<p><span class="c999">商标类型：</span><span>{$mark.marktype}</span></p>!-->
+                <p><span class="c999">商标类别：</span><span>{$mark.uniontypecode}</span></p>
+                <div class="oh">
+                    <div class="fl c999">小　　类：</div>
+                    <div class="xlei " >
+                       <foreach name="mark.typedetaildes" item="vo" >
+					<span>{$vo}</span>
+                    </foreach>
+                        <!--  <span class="zhankai">展开更多</span>!-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="asdfg" id = "asdfg" value="{$mark.id}">
+		<input type="hidden" name="orderid" id="orderid" value="{$order['orderid']}">
+        <!--上面 公用 end-->
+        <div class="list-gk-tab">
+            <a class="active" href="javascript:;" onclick="sbgk({$mark.id})">商标概况</a>
+            <a href="javascript:;" onclick="zr({$mark.id})">转让</a>
+            <a href="javascript:;" onclick="bg({$mark.id})">变更</a>
+            <a href="javascript:;" onclick="xkba({$mark.id})">许可备案</a>
+            <a href="javascript:;" onclick="xz({$mark.id})">续展</a>
+            <a href="javascript:;" onclick="zllb({$mark.id})">资料列表</a>
+
+        </div>
+		<script type="text/javascript">
+		//注册
+		function sbgk(e){
+			$.ajax({
+				type: "POST",
+				url: "{:U('Brand/sbgk')}",
+				data: {'markid':e},
+				success: function(msg){
+					 $("#mydivqiehuan").html(msg); 
+				}
+			});
+		}
+		//转让
+		function zr(e){
+			$.ajax({
+				type: "POST",
+				url: "{:U('Brand/shxq_zhuanrang')}",
+				data: {'markid':e},
+				success: function(msg){
+					 $("#mydivqiehuan").html(msg); 
+				}
+			});
+		}
+		//变更
+		function bg(e){
+			$.ajax({
+				type: "POST",
+				url: "{:U('Brand/biangeng')}",
+				data: {'markid':e},
+				success: function(msg){
+					 $("#mydivqiehuan").html(msg); 
+				}
+			});
+		}
+		//许可备案
+		function xkba(e){
+			$.ajax({
+				type: "POST",
+				url: "{:U('Brand/xukebeian')}",
+				data: {'markid':e},
+				success: function(msg){
+					 $("#mydivqiehuan").html(msg); 
+				}
+			});
+		}
+		//续展
+		function xz(e){
+			$.ajax({
+				type: "POST",
+				url: "{:U('Brand/xuzhanz')}",
+				data: {'markid':e},
+				success: function(msg){
+					 $("#mydivqiehuan").html(msg); 
+				}
+			});
+		}
+		//资料列表
+		function zllb(e){
+			$.ajax({
+				type: "POST",
+				url: "{:U('Brand/ziliaoliebiao')}",
+				data: {'markid':e},
+				success: function(msg){
+					 $("#mydivqiehuan").html(msg); 
+				}
+			});
+		}
+		</script>
+        <div class="list-gk-cont">
+		<div id="mydivqiehuan" >
+            <!--切换的内容-->
+                <!--1.商标概况-->
+                <div class="div1 div_tab active">
+                    <!--右边的完成步骤部分-->
+                                <div class="list-gk-cont-right fr">
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                      <if condition="$order['state'] eq 10 ">
+
+						<div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl" onclick="fuwujieshu()">
+                                <p class="txt">本次服务结束，恭喜注册成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time10']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 9 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" onclick="funsd({$state.orderid})">请确认是否收到《商标注册证》</p>
+                            </div>
+                        </div>
+						</if>
+						 <if condition="($order['state'] eq 9) or ($order['state'] gt 8)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl" onclick="zscyjc({$order.id})">
+                                <p class="txt">《商标注册证》已寄出</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time9']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 8 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >等待寄出</p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="($order['state'] eq 8) or ($order['state'] gt 7)">
+                          <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl" onclick="sdzcz({$order.id})">
+                                <p class="txt">已收到商标注册证。</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time8']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<!--
+						有人提出异议
+						!-->
+						<if condition="($order['state'] eq '7') and ($order3['state'] eq '4')">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt" >异议答辩未通过，注册失败。</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order3['time4']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="(($order3['state'] eq '0') or ($order3['state'] eq '1') or ($order3['state'] eq '2')) and ($order['state'] eq 7)">
+                          <div class="step-mode  fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                               <div class="step-txt  fl">
+                                <p class="txt" >进入异议答辩阶段</p>
+                            </div>
+                          </div>
+                      </if>
+						<if condition="$order3 neq ''">
+                          <div class="step-mode active fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt fl">
+                                  <p class="txt"  onclick="xiazai()">进入异议答辩流程，请点击此处下载资料</p>
+                                  <p class="time"><?php echo date('Y.m.d H:i:s',$order5['paytime']);?></p>
+                              </div>
+                          </div>
+                      </if>
+					  <if condition="($order['state'] eq '7') and ($order['shibai'] eq '1')">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt" >放弃异议答辩，注册失败。</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time11']);?></p>
+                            </div>
+                        </div>
+						</if>
+                       <if condition="($order['state'] eq 7) and ($order['state'] gt 6)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl" onclick="sbyy({$order.id})">
+                                <p class="txt">第三人提出异议，商标注册中止</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time7']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 6 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入公告阶段</p>
+                            </div>
+                        </div>
+						</if>
+                      <if condition="(($order['state'] eq 6) or ($order['state'] gt 5)) and ($order2 eq '')">
+                          <div class="step-mode active fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt fl" onclick="szsca({$order.id})">
+                                  <p class="txt">通过实质审查</p>
+                                  <p class="time"><?php echo date('Y.m.d H:i:s',$order['time6']);?></p>
+                              </div>
+                          </div>
+                      </if>
+					  <if condition="(($order['state'] eq 6) or ($order['state'] gt 5)) and ($order2 neq '')">
+                          <div class="step-mode active fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt fl">
+                                  <p class="txt">驳回复审成功，通过实质审查</p>
+                                  <p class="time"><?php echo date('Y.m.d H:i:s',$order['time6']);?></p>
+                              </div>
+                          </div>
+                      </if>
+						<!--
+						驳回复审的状态展示
+						!-->
+                     <if condition="($order2['state'] eq '0') and ($order['state'] lt '6')">
+                          <div class="step-mode  fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt  fl">
+                                <p class="txt" >进入驳回复审阶段</p>
+                            </div>
+                          </div>
+                      </if>
+                      <if condition="$order2['state'] neq ''">
+                          <div class="step-mode active fl">
+                              <div class="step-dot fl">
+                                  <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                  <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                              </div>
+                              <div class="step-txt fl">
+                                  <p class="txt" onclick="xiazai()">进入驳回复审流程，请点击此处下载资料</p>
+                                  <p class="time"><?php echo date('Y.m.d H:i:s',$order4['paytime']);?></p>
+                              </div>
+                          </div>
+                      </if>
+                      <!--
+						驳回复审的状态展示
+						!-->
+                     <if condition="($order['state'] eq '5') and ($order['shibai'] eq '1')">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt" >放弃申请驳回复审，商标注册失败，服务结束。</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time11']);?></p>
+                            </div>
+                        </div>
+						</if>
+						 <if condition="($order['state'] eq '5') and ($order['state'] gt 4)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt" <if condition="$order2['state'] eq ''"> onclick="sbbh({$order.id})" </if>>商标全部驳回，请点击选择是否申请驳回复审。</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time5']);?></p>
+                            </div>
+                        </div>
+						</if>
+
+						<if condition="$order['state'] eq 4 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入实质审查阶段</p>
+                            </div>
+                        </div>
+						</if>
+                      <if condition="($order['state'] eq 4) or ($order['state'] gt 3)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl" onclick="xftzs({$order.id})">
+                                <p class="txt">已下发受理通知书</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time4']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 3 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入受理阶段</p>
+                            </div>
+                        </div>
+						</if>
+                        <if condition="($order['state'] eq 3) or ($order['state'] gt 2)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl" onclick="ytjzcsq({$order.id})">
+                                <p class="txt">已提交注册申请</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time3']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 2 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入提交申请阶段</p>
+                            </div>
+                        </div>
+						</if>
+                      <if condition="($order['state'] eq 2) or ($order['state'] gt 1)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt" onclick="tanchu()">资料符合要求</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time2']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="$order['state'] eq 1 ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" >进入资料审查阶段</p>
+                            </div>
+                        </div>
+						</if>
+                       <if condition="($order['state'] eq 1) or ($order['state'] gt 0)">
+                         <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">请根据要求准备材料，并发给顾问</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order['time1']);?></p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="($order1['state'] eq 1) and ($order['state'] eq 0) ">
+                          <div class="step-mode fl" >
+                            <div class="step-dot first fl">
+                                <img src="public/html/images/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt" onclick="xiazai({$order.orderid});">请根据要求准备材料，并发给顾问</p>
+                            </div>
+                        </div>
+						</if>
+						<if condition="($order1['state'] neq '0') and ($order1 neq '') ">
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/html/images/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/html/images/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">用户下单并支付成功</p>
+                                <p class="time"><?php echo date('Y.m.d H:i:s',$order1['paytime']);?></p>
+                            </div>
+                        </div>
+						</if>
+                    </div>
+              
+                </div>
+
+                 <input type="hidden" name="zhucedingdan" value="{$order.orderid}">
+            </div>
+                        <!--自增长步骤 end-->
+                    </div>
+                    <!--右边的完成步骤部分 end-->
+                    <!--上面切换模块 索要改变的部分-->
+                    <div class="list-gk-cont-left">
+                        <div class="bgl-mode">
+                            <h1 class="c-h1">注册步骤</h1>
+                            <div class="bgl-cont bgl-steps">
+                                <span class="bgl-step">1</span>
+                                <span>开始申报</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">2</span>
+                                <span>形式审查</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">3</span>
+                                <span>实质审查</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">4</span>
+                                <span>公告商标</span>
+                                <span class="bgl-point"></span>
+                                <span class="bgl-step">5</span>
+                                <span>注册成功</span>
+                            </div>
+                        </div>
+                         <div class="bgl-mode">
+                    <h1 class="c-h1">商标信息</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">申请人姓名:</span><span class="fl">{$mark.entname}</span></p>
+                        <p class="oh"><span class="tit fl">申请人地址：</span><span class="fl">{$mark.entnameaddress}</span></p>
+                        <p class="oh"><span class="tit fl">申请/注册号：</span><span class="fl"><if condition="$mark.markcode_key eq ''">--<else />{$mark.markcode_key}</if><span class="c999">（申请日期：<if condition="$mark.appdate eq ''">--<else />{$mark.appdate}</if>）</span></span></p>
+                        <p class="oh"><span class="tit fl">初审公告期号：</span><span class="fl"><if condition="$mark.checkdate_code eq ''">--<else />{$mark.checkdate_code}</if> <span class="c999">（初审公告日期：<if condition="$mark.checkdate eq ''">--<else />{$mark.checkdate}</if>）</span></span></p>
+                        <p class="oh"><span class="tit fl">注册公告期号：</span><span class="fl"><if condition="$mark.regdate_code eq ''">--<else />{$mark.regdate_code}</if> <span class="c999">（注册公告日期：<if condition="$mark.regdate eq ''">--<else />{$mark.regdate}</if>）</span></span></p>
+                        <p class="oh"><span class="tit fl">专用权有效期：</span><span class="fl">{$mark.begindate}--{$mark.enddate}</span></p>
+                    </div>
+                </div>
+                <div class="bgl-mode">
+                    <h1 class="c-h1">联系人信息</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">联系人:</span><span class="fl"><if condition="$user.linkman eq ''">--<else />{$user.linkman}</if></span></p>
+                        <p class="oh"><span class="tit fl">联系电话：</span><span class="fl"><if condition="$user.phone eq ''">--<else />{$user.phone}</if></span></p>
+                        <p class="oh"><span class="tit fl">联系人地址：</span><span class="fl"><if condition="$user.address eq ''">--<else />{$user.address}</if></span></p>
+
+                    </div>
+                </div>
+                       <div class="bgl-mode">
+                    <h1 class="c-h1">服务顾问</h1>
+                    <div class="bgl-cont xq-sb-xinxi">
+                        <p class="oh"><span class="tit fl">律师:</span><span class="fl">{$adviser.consultantname}</span></p>
+                        <p class="oh"><span class="tit fl">联系电话：</span><span class="fl">{$adviser.consultantmobile}</span></p>
+                        <p class="oh"><span class="tit fl">代理机构：</span><span class="fl">北京微税知识产权代理有限公司
+</span></p>
+                        <p class="oh"><span class="tit fl">代理机构地址：</span><span class="fl">北京市昌平区回龙观镇西大街118号1幢906室</span></p>
+
+                    </div>
+                </div>
+                    </div>
+                    <!--上面切换模块 索要改变的部分 end-->
+                </div>
+                <!--1.商标概况 end-->
+</div>
+
+
+               
+ 
+                
+         
+        </div>
+    </div>
+	 <!--弹出框遮罩-->
+    <div class="c-tan-shadow"></div>
+	  <!----------------------------资料齐备弹出--------------------->
+    <div class="c-tan-cont alert-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">资料符合要求</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box alertHei">
+                    <p>您的资料已符合商标注册的要求，等待代理人去往商标局报送材料。</p>
+                 
+                </div>
+               
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!-----------------------------资料齐备弹出--------------------->
+ <!----------------------------------已提交注册申请 --------------------->
+    <div class="c-tan-cont tjzs-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">已提交注册申请</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box alertHei">
+				<br><br>
+                    <p>顾问已经将您的注册申请提交给国家商标局，预计6个月后下发纸质的《商标注册申请受理通知书》。</p>
+                    
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="tjzs-alert"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!-----------------------------已提交注册申请 -------------------------------->
+	<!----------------------------------下发受理通知书 --------------------->
+    <div class="c-tan-cont ytjz-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">下发受理通知书</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box alertHei">
+				<br><br>
+                    <p>代理人已收到商标局下发的《商标注册申请受理通知书》（点击下载），申请号为<span id="shenqinghao"></span>，收文时间为<span id="shouwenshijian"></span>。</p>
+                    
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="ytjz-alert"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!-----------------------------下发受理通知书 -------------------------------->
+	<!----------------------------------通过实质审查 --------------------->
+    <div class="c-tan-cont szsca-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">已通过实质审查</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box alertHei">
+                    <p>您申请的商标已经通过商标局的实质审查，进入公告阶段，公告期为<span id="cha"></span>个月。</p>
+					<p>公告期：<span id="ksshijian"></span>至<span id="jsshijian"></span></p>
+					<p>在公告期内如果没有人提出异议，公告期结束后商标注册成功。</p>
+         
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="szsca-alert"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!-----------------------------通过实质审查 -------------------------------->
+	<!----------------------------------已收到商标注册证 --------------------->
+    <div class="c-tan-cont sdzcz-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">已收到商标注册证</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box alertHei">
+<p>公告期结束，公告期内没有人提出异议，商标注册成功，已收到商标局发放的证书，将第一时间寄送给您。</p>
+
+<p>注册公告期号为：<span id="zcqi"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注册公告期日期为：<span id="ggrq"></span></p>
+
+<p>专有权有效期为<span id="yxrq"></span>年，从<span id="kai"></span>到<span id="shu"></p>
+
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="sdzcz-alert"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!-----------------------------已收到商标注册证 -------------------------------->
+	<!----------------------------------商标注册证已寄出 --------------------->
+    <div class="c-tan-cont zscyjc-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">已收到商标注册证</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box alertHei">
+<p>您的商标注册证书已于<span id="fhri"></span>由<span id="kdmc"></span>寄出，快递单号是<span id="kddh"></span>，请注意查收。</p>
+
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="zscyjc-alert"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!-----------------------------商标注册证已寄出 -------------------------------->
+	<!----------------------------------服务成功 --------------------->
+    <div class="c-tan-cont fuwujieshu bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">已收到商标注册证</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box alertHei">
+<p>此次商标注册的服务已完成。</p>
+
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="fuwujieshu"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!-----------------------------服务成功 -------------------------------->
+	<!-----------------------------驳回 -------------------------------->
+<div class="c-tan-cont bohui-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">实质审查：全部驳回</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box">
+                    <p class="c999 mb5">您审请的商标在实质审查阶段被商标局全部驳回，<span class="c333">驳回原因请</span>下载《<a class="bha" href="javascript:;">商标驳回通知书</a>》。</p>
+                    <p class="c999 mb5">《商标驳回通知书》 收到日期：<span id="add_time"></span></p>
+                    <p class="c999 mb5">如果需要继续注册该商标，请于<span class="fc2" id="endtime"></span>进行驳回复审。</p>
+                    <p  class="c333 mt20">顾问建议您 申请驳回复审/不申请驳回复审</p>
+                    <div class="oh c333 mt10">
+                        <div class="fl">
+						<form method="post" action="{:U('Brand/brand_query_bohui')}">
+							 <input type="hidden" name="id" value="{$order.id}">
+							<span>您是否申请驳回复审</span> <input type="submit" class="write-small-btn mr10 ml10" value="申请"/> <input type="button" class="write-small-btn" value="不申请" onclick="bsq()"/>
+						</form>
+                            
+                        </div>
+                        <div class="fr">
+                            <p class="mb5"><span class="fei">官费总计：</span><span id="price_large"></span>元</p>
+                            <p><span class="fei">服务费：</span><span id="price_service"></span>元</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="content"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+	<!-----------------------------驳回 -------------------------------->
+	<!-----------------------------异议 -------------------------------->
+ <div class="c-tan-cont yiyi-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">异议答辩</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="c-bohui-center f12">
+                <div class="bh-box">
+                    <p class="c999 mb5">您审请的商标在公告期间有人提出异议，<span class="c333">异议原因请</span>下载《<a class="bha" href="javascript:;">商标异议通知书</a>》。</p>
+                    <p class="c999 mb5">《商标异议通知书》 收到日期：<span id="add_time1"></span></p>
+                    <p class="c999 mb5">如果需要继续注册该商标，请于<span class="fc2" id="endtime1"></span>进行异议答辩。</p>
+                    <p  class="c333 mt20">顾问建议您 申请异议答辩/不申异议答辩</p>
+                    <div class="oh c333 mt10">
+                        <div class="fl">
+						<form method="post" action="{:U('Brand/shangbiaoyiyi')}">
+							 <input type="hidden" name="orderid"  value="{$order.id}">
+							<span>您是否申请异议答辩</span> <input type="submit" class="write-small-btn mr10 ml10" value="申请"/> <input type="button" class="write-small-btn" value="不申请" onclick="bsb({$order.id})"/>
+						</form>
+                            
+                        </div>
+                        <div class="fr">
+                            <p class="mb5"><span class="fei">官费总计：</span><span id="price_large1"></span>元</p>
+                            <p><span class="fei">服务费：</span><span id="price_service1"></span>元</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gw-ly oh">
+                    <div class="fl">顾问留言：<span id="content"></span></div>
+                   
+                </div>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+	<!-----------------------------异议 -------------------------------->
+ <!--商标详情弹出框4 --->
+    <div class="c-tan-cont xia-zai-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">请根据要求下载资料</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <p class="pb20">资料是严格按照商标局的要求填制，如果您有任何疑问请联系顾问。 请打印并加盖公章，将盖章后的资料邮寄给顾问。</p>
+            <div class="ziliao oh">
+                <p class="pb10"><span class="c999 mr10">资料</span><span class="fc1 cp" onclick="addxiazai(111333)">全部下载</span></p>
+                <div id="ziliaodiv"></div>
+            </div>
+            <div class="mt20">
+                <p class="mb10"><span class="c999">邮寄至</span></p>
+                <p class="mb5">北京市朝阳区东四环中路远洋国际中心D座1001</p>
+                <p class="mb5">小布丁 顾问   186-1077-3717</p>
+            </div>
+            <div class="mt10">
+                <p class="mb10"><span class="c999">顾问留言</span></p>
+                <p>无</p>
+            </div>
+            <!--/*提示说明*//-->
+            <div class="c-dan-ts mt20">
+                <p class="ts1">如果许可给多人，需要根据被许可人的数量提供相应数量的资料。 </p>
+            </div>
+            <!--/*提示说明* end//-->
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="button" class="btn-qu write-big-btn" value="取消"/>
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    
+	
+<!--新增许可备案6 --->
+    <div class="c-tan-cont xz-alert-box bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">新增许可备案</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail brand-cha xz-beian bc">
+            <p><span class="bd-tit">被许可人名称（中文）</span><span><input type="text" placeholder="需与营业执照上的名称完全一致" name="applicantname"/></span></p>
+            <p><span class="bd-tit">被许可人地址（中文）</span><span><input type="text" placeholder="需与营业执照上的地址完全一致" name="applicantaddress"/></span></p>
+            <p><span class="bd-tit">被许可人邮编</span><span><input type="text" placeholder="需与营业执照上的邮编完全一致" name="code"/></span></p>
+            <p><span class="bd-tit">联系人</span><span><input type="text" placeholder="请输入联系人" name="customername"/></span></p>
+            <p><span class="bd-tit">电话</span><span><input type="text" placeholder="请输入联系电话" name="customermobile"/></span></p>
+            <p><span class="bd-tit">商标注册号</span><span>{$mark.markcode_key}</span></p>
+            <p><span class="bd-tit">是否共有商标</span><span>否</span></p>
+            <p><span class="bd-tit">再许可</span><span>是</span></p>
+            <div class="oh">
+                <span class="bd-tit fl">许可类型</span>
+                <div class="fl">
+                    <p><span class="lei-xk active" onclick="xk(1)">普通许可</span><span class="lei-xk" onclick="xk(2)">排他许可</span><span class="lei-xk" onclick="xk(3)">独占许可</span></p>
+					 <input type="hidden" name="xklx" value="1">
+                    <p><span class="c999">可以许可给多人，商标持有人和被许可人均可使用。</span></p>
+                </div>
+            </div>
+            <div class="oh xk-qixian">
+                <span class="bd-tit fl">许可期限</span>
+                <div class="fl">
+                    <p class="oh">
+                      <input type="text" id="demo1" class="sui-form date fl"  name="star_date" placeholder="开始日期">
+                      <span class="dao fl">-</span>
+                      <input type="text" id="demo2" class="sui-form date fl"  name="end_date" placeholder="结束日期"/>
+                    </p>
+                    <p><span class="c999">不能大于商标有效期{$mark.begindate}至{$mark.enddate}</span></p>
+                </div>
+            </div>
+            <div class="oh">
+                <span class="bd-tit fl">许可使用的商品/服务项目</span>
+                <div class="choose-xk-box fl pt5">
+				
+					 <foreach name="mark.typedetaildes" item="vo" >
+					<p class="choose-xk">{$vo}<input type="checkbox" value="{$vo}" name="fenlei"/></p>
+                    </foreach>
+                    <p><span class="choose-xk-quan">全选/全不选</span></p>
+                </div>
+            </div>
+
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="button" class="btn-ding " value="确定" onclick="addxk({$mark.id})"/>
+        </div>
+    </div>
+    <!--新增许可备案6 end-->
+	<!--许可备案详情5 --->
+    <div class="c-tan-cont beian-alert-box bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">许可备案详情</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="brand-detail brand-cha bc">
+            <p><span class="bd-tit">被许可人名称（中文）</span><span id="xk1"></span></p>
+            <p><span class="bd-tit">被许可人地址（中文）</span><span id="xk2"></span></p>
+            <p><span class="bd-tit">被许可人邮编</span><span id="xk3"></span></p>
+            <p><span class="bd-tit">联系人</span><span id="xk4"></span></p>
+            <p><span class="bd-tit">电话</span><span id="xk5"></span></p>
+            <p><span class="bd-tit">商标注册号</span><span id="xk6"></span></p>
+            <p><span class="bd-tit">是否共有商标</span><span id="xk7"></span></p>
+            <p><span class="bd-tit">再许可</span><span>否</span></p>
+            <p><span class="bd-tit">许可类型</span><span id="xk8"></span></p>
+            <p><span class="bd-tit">许可期限</span><span id="xk9"></span></p>
+            <div class="oh">
+                <span class="bd-tit fl">许可使用的商品/服务项目</span>
+                <div class="fl">
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                </div>
+            </div>
+
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!--许可备案详情5 end-->
+	<script type="text/javascript">
+$('#demo1').datepicker({size:"small"});
+$('#demo2').datepicker({size:"small"});
+</script>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+<script>
+function delxk(e){
+   $.ajax({
+				type: "POST",
+				url: "{:U('Brand/delxuke')}",
+				data: {'id':e},
+				success: function(msg){
+					if(msg==2){
+					   $("#"+e).remove();
+					}
+				}
+			});
+}
+function xk(e){
+$('[name="xklx"]').val(e);
+}
+   //添加许可
+   function addxk(e){
+       var applicantname = $('[name="applicantname"]').val();
+	   var applicantaddress = $('[name="applicantaddress"]').val();
+	   var code = $('[name="code"]').val();
+	   var customername = $('[name="customername"]').val();
+	   var customermobile = $('[name="customermobile"]').val();
+	   var star_date = $('[name="star_date"]').val();
+	   var end_date = $('[name="end_date"]').val();
+	   var xklx = $('[name="xklx"]').val();
+	   var obj=document.getElementsByName('fenlei');
+	   var s=''; 
+           for(var i=0; i<obj.length; i++){ 
+                 if(obj[i].checked) s+=obj[i].value+','; //如果选中，将value添加到变量s中 
+           } 
+	   var fenlei=s.substring(0,s.length-1);
+	   if(applicantname==''||applicantaddress==''||code==''||customername==''||customermobile==''||star_date==''||end_date==''||xklx==''||fenlei==''){
+		 
+	   }else{
+		   $.ajax({
+				type: "POST",
+				url: "{:U('Brand/addxuke')}",
+				data: {'markid':e,'applicantname':applicantname,'applicantaddress':applicantaddress,'code':code,'customername':customername,'customermobile':customermobile,'star_date':star_date,'end_date':end_date,'xklx':xklx,'fenlei':fenlei},
+				success: function(msg){
+					alert(msg)
+				}
+			});
+	   }
+	   
+   }
+  $(".list-gk-tab a").click(function(){
+      $(this).addClass("active").siblings().removeClass("active");
+      //var i = $(this).index();
+      //$(".div_tab").eq(i).addClass("active").siblings().removeClass("active");
+  })
+  //不驳回
+  function bsq(){
+       var oid = $("#orderid").val();
+	   $.ajax({
+            type: "POST",
+            url: "{:U('Brand/bbh')}",
+            data: {'orderid':oid},
+            success: function(msg){
+                if(msg=='1'){
+			       var oClose = $(".c-tan-close"); 
+				   oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+			   }
+            }
+        });
+  }
+   //不驳回
+  function bsb(e){
+	   $.ajax({
+            type: "POST",
+            url: "{:U('Brand/bsb')}",
+            data: {'orderid':e},
+            success: function(msg){
+               if(msg=='1'){
+			       var oClose = $(".c-tan-close"); 
+				   oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+			   }
+            }
+        });
+  }
+ function wenj(e){
+     var orderid = $('[name="orderids"]').val();
+	 var zhuce = $('[name="zhucedingdan"]').val();
+	 //alert(orderid)return false;
+	 if(e=='1'){
+	    window.location.href="index.php?g=Portal&m=Wordpdf&a=shangbiaozhuceweituo&orderid="+zhuce;
+	 }
+	 if(e=='2'){
+	    window.location.href="index.php?g=Portal&m=Wordpdf&a=zhuanrangshenqingweituo&orderid="+orderid;
+	 }
+	 if(e=='3'){
+	    window.location.href="index.php?g=Portal&m=Wordpdf&a=zhuanrangshenqing&orderid="+orderid;
+	 }
+    
+ }
+ function addxiazai(){
+    var type = $("#moban").val();
+	var orderids = $('[name="orderids"]').val();
+	 var zhuce = $('[name="zhucedingdan"]').val();
+	 if(zhuce!=''){
+	    var orderid = zhuce;
+	 }
+    window.location.href="index.php?g=Portal&m=Brand&a=addxiazai&type="+type+"&orderid="+orderid;
+ }
+  //    下载资料
+function xiazai(e){
+	$.ajax({
+            type: "POST",
+            url: "{:U('Brand/ziliaoxiazai')}",
+            data: {'orderid':e},
+            success: function(msg){
+               var obj = eval(msg); 
+			   var a = "";
+			   for(var i=0; i<obj.length; i++){ 
+				   a += '<p><span class="fl mb5">'+obj[i]['name']+'</span><span class="fc1 fr cp" onclick="wenj('+obj[i]['id']+')">下载</span></p><br><input type="hidden" id="moban" value="'+obj[i]['type']+'">';
+               }
+			   $('#ziliaodiv').html(a);
+            }
+        });
+
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".xia-zai-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+    var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oXiao.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+
+    function funsd(e){
+        $.ajax({
+            type: "POST",
+            url: "{:U('Brand/brand_query_order_state')}",
+            data: {'orderid':e,'state':'1'},
+            success: function(msg){
+                alert(msg)
+            }
+        });
+    }
+	
+
+	//<!--申请驳回 8 --->
+//    下载资料
+function sbbh(e){
+   $.ajax({
+        type: "POST",
+        url: "{:U('Brand/brand_bh_ym')}",
+        data: {'orderid':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  $('#add_time').html(obj['add_time']);
+			  $('#endtime').html(obj['endtime']);
+			  $('#price_service').html(obj['price_service']);
+			  $('#price_large').html(obj['price_large']);
+			  $('#content').html(obj['content']);
+			  
+			  
+        }
+    });
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".bohui-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//<!--申请驳回 8 end--->
+//<!--申请驳回 8 --->
+//    下载资料
+function sbyy(e){
+   $.ajax({
+        type: "POST",
+        url: "{:U('Brand/brand_bh_yy')}",
+        data: {'orderid':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  $('#add_time1').html(obj['add_time']);
+			  $('#endtime1').html(obj['endtime']);
+			  $('#price_service1').html(obj['price_service']);
+			  $('#price_large1').html(obj['price_large']);
+			  $('#content1').html(obj['content']);
+			  $('#orderids1').val(obj['orderid']);
+			  
+        }
+    });
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".yiyi-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//    资料齐备
+function tanchu(){
+    var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".alert-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//提交注册  
+function ytjzcsq(e){
+	$.ajax({
+        type: "POST",
+        url: "{:U('Brand/state_info')}",
+        data: {'id':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  var content  = obj['content'];
+			  $('#tjzs-alert').html(content);
+			  
+        }
+    });
+   var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".tjzs-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//受理通知
+function xftzs(e){
+$.ajax({
+        type: "POST",
+        url: "{:U('Brand/state_info2')}",
+        data: {'id':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  var content  = obj['content'];
+			  var shijian  = obj['regdate'];
+			  var binaho  = obj['tzscode'];
+			  $('#shenqinghao').html(binaho);
+			  $('#shouwenshijian').html(shijian);
+			  $('#ytjz-alert').html(content);	  
+        }
+    });
+   var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".ytjz-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//通过实质审查
+function szsca(e){
+$.ajax({
+        type: "POST",
+        url: "{:U('Brand/state_info3')}",
+        data: {'id':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  var content  = obj['content'];
+			  var cha  = obj['num'];
+			  var jsshijian  = obj['enddate'];
+			  var ksshijian  = obj['begindate'];
+			  $('#ksshijian').html(ksshijian);
+			  $('#jsshijian').html(jsshijian);
+			  $('#cha').html(cha);
+			  $('#szsca-alert').html(content);	  
+        }
+    });
+   var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".szsca-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//已收到注册正
+function sdzcz(e){
+  $.ajax({
+        type: "POST",
+        url: "{:U('Brand/state_info4')}",
+        data: {'id':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  var content  = obj['content'];
+			  var yxrq  = obj['validity'];
+			  var ggrq  = obj['regdate'];
+			  var zccode  = obj['zccode'];
+			  var kai  = obj['begindate'];
+			  var shu  = obj['enddate'];
+			  $('#zcqi').html(zccode);
+			  $('#ggrq').html(ggrq);
+			  $('#yxrq').html(yxrq);
+			  $('#kai').html(kai);
+			  $('#shu').html(shu);
+			  $('#sdzcz-alert').html(content);	  
+        }
+    });
+
+
+   var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".sdzcz-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//注册证已寄出
+function zscyjc(e){
+   $.ajax({
+        type: "POST",
+        url: "{:U('Brand/state_info5')}",
+        data: {'id':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  var content  = obj['content'];
+			  var kdmc  = obj['express'];
+			  var fhri  = obj['regdate'];
+			  var kddh  = obj['expresscode'];
+			  $('#fhri').html(fhri);
+			  $('#kdmc').html(kdmc);
+			  $('#kddh').html(kddh);
+			  $('#zscyjc-alert').html(content);	  
+        }
+    });
+   var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".zscyjc-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//服务结束
+function fuwujieshu(e){
+      $.ajax({
+        type: "POST",
+        url: "{:U('Brand/state_info6')}",
+        data: {'id':e},
+        success: function(msg){
+			  var obj = eval("("+msg+")");
+			  var content  = obj['content']; 
+			  $('#fuwujieshu').html(content);	  
+        }
+    });
+   var oShadow = $(".c-tan-shadow"); //遮罩层
+    var oBox = $(".fuwujieshu"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();
+    oClose.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+    oSure.click(function(){
+        oBox.fadeOut();
+        oShadow.hide();
+    });
+}
+//    新增许可备案
+    function xinzeng(e){
+		
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".xz-alert-box"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".alert-sure");  //弹出框确定按钮
+        var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        $("body").css("overflow","hidden");
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+            $("body").css("overflow","auto");
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+            $("body").css("overflow","auto");
+        });
+        oXiao.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+            $("body").css("overflow","auto");
+        });
+
+        $(".lei-xk").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+    }
+//    许可备案弹出框
+    function beian(e){
+		$.ajax({
+        type: "POST",
+        url: "{:U('Brand/xukebeianxq')}",
+        data: {'id':e},
+        success: function(msg){
+			//alert(msg);return false;
+			  var obj = eval("("+msg+")");
+			  $('#xk1').html(obj['applicantname']);
+			  $('#xk2').html(obj['applicantaddress']);
+			  $('#xk3').html(obj['code']);
+			  $('#xk4').html(obj['customername']);
+			  $('#xk5').html(obj['customermobile']);
+			  $('#xk6').html(obj['markcode_key']);
+			  $('#xk7').html(obj['note']);
+			  $('#xk8').html(obj['type']);
+			  $('#xk9').html(obj['riqi']);
+			  //$('#xk7').html(obj['note']);
+			  
+        }
+    });
+	//return false;
+        var oShadow = $(".c-tan-shadow"); //遮罩层
+        var oBox = $(".beian-alert-box"); //弹出框
+        var oClose = $(".c-tan-close"); //关闭弹出框按钮
+        var oSure = $(".alert-sure");  //弹出框确定按钮
+        var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+        oBox.fadeIn();
+        oShadow.show();
+        oClose.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oSure.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+        oXiao.click(function(){
+            oBox.fadeOut();
+            oShadow.hide();
+        });
+    }
+
+
+
+
+
+
+    $(".choose-xk").click(function(){
+        $(this).toggleClass("active");
+
+        var state = 1;
+        $(".choose-xk-box .choose-xk").each(function(){
+            if($(this).hasClass("active")){
+                state = 1;
+            }else{
+                state = 2;
+                return false;
+            }
+        });
+
+        if(state == 1){
+            $(".choose-xk-quan").addClass("active");
+        }else{
+            $(".choose-xk-quan").removeClass("active");
+        }
+
+        $(".choose-xk-box .choose-xk").each(function(){
+            if($(this).hasClass("active")){
+                $(this).find("input").attr("checked",true);
+            }else{
+                $(this).find("input").attr("checked",false);
+            }
+        });
+    });
+
+
+    $(".choose-xk-quan").click(function(){
+        if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $(".choose-xk-box .choose-xk").removeClass("active");
+        }else{
+            $(this).addClass("active");
+            $(".choose-xk-box .choose-xk").addClass("active");
+        }
+
+        $(".choose-xk-box .choose-xk").each(function(){
+            if($(this).hasClass("active")){
+                $(this).find("input").attr("checked",true);
+            }else{
+                $(this).find("input").attr("checked",false);
+            }
+        });
+    })
+</script>
+</body>
+</html>

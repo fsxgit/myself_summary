@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box div{width:100px; height:100px; background: #ffff00; margin:40px 20px; float: left;}
+        #box .active{background: #ff5a3f;}
+    </style>
+</head>
+<body>
+<div id="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var $divs = $("#box").find("div");
+
+    var bOff = true;
+
+    var  num = 3; //定义可以选中的数量
+
+    $divs.each(function(){
+
+        $(this).on('click',function(){
+
+
+            if( $("#box .active") && $("#box .active").length < num )
+            {
+                $(this).toggleClass("active");
+            }else if( $("#box .active").length == num ){
+
+                $(this).removeClass("active");
+
+            }
+
+        });
+    });
+</script>
+</body>
+</html>

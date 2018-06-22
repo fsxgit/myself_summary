@@ -1,0 +1,37 @@
+[ 2016-08-15T10:24:53+08:00 ] 127.0.0.1 /index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.089005s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.091005s ]
+NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent D:\WWW\zhishi\simplewind\Core\Common\functions.php 第 1263 行.
+NOTIC: [8] Undefined index: url D:\WWW\zhishi\application\Common\Controller\AppframeController.class.php 第 24 行.
+NOTIC: [2] Cannot modify header information - headers already sent D:\WWW\zhishi\application\Common\Controller\AppframeController.class.php 第 31 行.
+
+<<<<<<< .mine
+[ 2016-08-15T16:06:30+08:00 ] 127.0.0.1 /index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000550s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001700s ]
+NOTIC: [8] Undefined index: url F:\admin\application\Common\Controller\AppframeController.class.php 第 24 行.
+
+=======
+[ 2016-08-15T15:54:37+08:00 ] 127.0.0.1 /index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent D:\WWW\zscq\simplewind\Core\Common\functions.php 第 1263 行.
+NOTIC: [8] Undefined index: url D:\WWW\zscq\application\Common\Controller\AppframeController.class.php 第 24 行.
+NOTIC: [2] Cannot modify header information - headers already sent D:\WWW\zscq\application\Common\Controller\AppframeController.class.php 第 31 行.
+
+[ 2016-08-15T15:54:38+08:00 ] 127.0.0.1 /index.php?g=user&m=index&a=is_login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] session_start(): Cannot send session cache limiter - headers already sent D:\WWW\zscq\simplewind\Core\Common\functions.php 第 1263 行.
+NOTIC: [8] Undefined index: url D:\WWW\zscq\application\Common\Controller\AppframeController.class.php 第 24 行.
+NOTIC: [2] Cannot modify header information - headers already sent D:\WWW\zscq\application\Common\Controller\AppframeController.class.php 第 31 行.
+
+>>>>>>> .r8

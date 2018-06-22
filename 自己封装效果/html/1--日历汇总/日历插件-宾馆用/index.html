@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>购买日期</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/css.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/js.js"></script>
+    <link href="css/mobiscroll.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <script src="js/mobiscroll.min.js" type="text/javascript"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/js.js"></script>
+    <script src='js/fullcalendar.min.js'></script>
+    <style type="text/css">
+        .fc-widget-header, .fc-widget-content{border: none;}
+        .fc-grid .fc-day-number{float: none;text-align: center;}
+        .fc-event{background:none;border: none;}
+        .fc-event-inner{text-align: center;}
+        .fc-event-title{color: #666}
+    </style>
+</head>
+<body>
+<div class="fxbody">
+    <!--content-->
+    <div class="bd_date" id="calendar">
+    </div>
+    <div class="gap"></div>
+    <div class="bd_pprice">
+        <h1 class="c-h2 main">出游人数和价格</h1>
+        <div class="line95"></div>
+        <div class="main mode oh">
+            <span class="tit fl">成人</span>
+            <span class="txt fl"><i>￥1000</i>/人</span>
+            <div class="c_num_box fr">
+                <span class="c_num_reduce">-</span>
+                <input  class="c_num_val" type="text" value="2"/>
+                <span class="c_num_add">+</span>
+            </div>
+        </div>
+        <div class="line95"></div>
+        <div class="main mode oh">
+            <span class="tit fl">儿童</span>
+            <span class="txt fl"><i>￥500</i>/人</span>
+            <div class="c_num_box fr">
+                <span class="c_num_reduce">-</span>
+                <input  class="c_num_val" type="text" value="2"/>
+                <span class="c_num_add">+</span>
+            </div>
+        </div>
+    </div>
+    <div class="gap"></div>
+
+    <!--content end-->
+</div>
+<script type="text/javascript">
+$(function() {
+    $('#calendar').fullCalendar({
+        header: {
+            left: '',
+            center: 'prev,title,next',
+            right: ''
+        },
+        events: "{:U('orders/json',array('lineid'=>$info['id']))}",
+        editable: false,
+        dragOpacity: {
+            agenda: .5
+        },
+        /* 日程事件多选  */
+        selectable: true,
+        dayClick: function(date, allDay, jsEvent, view,id) {
+            alert(id)
+        },
+        eventClick: function(calEvent, jsEvent, view) {
+            alert('eventClick'+calEvent.id)
+        }
+    });
+
+    //////////////////////////////
+    num_change();
+});
+</script>
+</body>
+</html>

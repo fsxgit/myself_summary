@@ -1,0 +1,101 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class MarknameController extends AdminbaseController{
+	//行业分类
+	public function industry_sort_lst(){
+		$count = M("industry")->count();
+		$page = $this->page($count,10);
+
+		$res = M("industry")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//添加行业分类
+	public function add_lst(){
+		$res = M("nice_first")->where("pid=0")->select();
+		foreach($res as $k=>$v){
+			$r = M("nice_first")->where("pid=".$v["code"])->select();
+			$res[$k]["second"] = $r;
+			foreach($res[$k]["second"] as $kk=>$vv){
+				$rq = M("nice_first")->where("pid=".$vv["code"])->select();
+				$res[$k]["second"][$kk]["third"] = $rq;
+			}
+		}
+   
+		$this->assign("res",$res);
+		$this->display();
+	}
+        public function nice_add(){
+        //    var_dump($_POST);
+            /*
+             array(6) { ["class_name2"]=> string(24) "亲吻,热热,也同样,"
+             *            ["class_name3"]=> string(40) "010085亚砷酸,010092氮,0201023jiajia," 
+             *          ["cate"]=> string(9) "计算机" 
+             *          ["sort"]=> string(3) "123" 
+             *          ["second_cate"]=> string(9) "也同样" 
+             *          ["size"]=> array(3) { [0]=> string(3) "177" [1]=> string(3) "107" [2]=> string(3) "601" } }
+             */
+            $data["industry_name"] = I("cate");
+            $data["sort"] = I("sort");
+            $data["pid"] = 0;
+            $id = M("industry")->add($data);
+            
+            $name = substr(I("class_name2"),0,strlen(I("class_name2"))-1);
+            $arr = explode(",",$name);
+            $si = implode(",",I("size"));
+            foreach($arr as $k=>$v){
+                $da["industry_name"] = $v;
+                $da["pid"] = $id;
+                $da["querytype"] = $si;
+                
+                M("industry")->add($da);
+            }
+            $this->success("添加成功",U("Markname/industry_sort_lst"));
+        }
+	//获取数据
+	public function getdata(){
+		$id = I("id");
+		$r = M("nice_first")->where("id=$id")->find();
+		$res["id"] = $r["id"];
+		$res["code"] = $r["code"];
+		$res["name"] = $r["name"];
+		echo json_encode($res);
+	}
+	
+	//删除
+	public function del_act(){
+		$id = I("id");
+		$reg=M("nice_first")->where("id=".$id)->delete();
+		if($reg){
+			$this->success("删除成功",U('markname/class_name'));
+		}else{
+			$this->error("删除失败");
+		}
+	}
+	//修改
+	public function upd_act(){
+		if(IS_POST){
+		//	var_dump($_POST);die;
+			$id = I("id");
+
+			$info['class_num'] = I("num");
+			$info['class_name'] = I("name");
+			$info["class_desc"] = I("area");
+
+			$reg=M("nice_first")->where("id=".$id)->save($info);
+		
+			$this->success("更新成功",U('markname/class_name'));
+		}else{
+			$id=$_GET["id"];
+			$res=M("nice_first")->where("id=".$id)->find();
+			$this->assign("res",$res);
+			$this->display();
+		}
+	}
+}

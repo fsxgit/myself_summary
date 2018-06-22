@@ -1,0 +1,57 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<style>
+a{cursor: pointer;}
+.btnfx{margin-top:-10px;cursor: pointer; width:70px; height:35px;line-height:28px; border:1px solid #07a9ff; color: #07a9ff; border-radius: 4px; background: none; margin-left:4px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    顾问管理>>
+<a href="">顾问列表</a>
+&nbsp;<br>
+&nbsp;<br>
+    <form method="post" action="{:U('Gunwen/lst')}">
+	<input type="text" name="uname" placeholder="顾问名称" value="{$uname}">
+        <input type="text" name="mobile" placeholder="手机号" value="{$mobile}">
+        <input type="submit" value="搜索" class="btnfx">
+    </form>
+    <div id="mydiv">
+         <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>顾问</th>
+                <th>手机号</th>
+                <th>邮箱</th>
+				<th>在服务单数</th>
+                <th>已服务单数</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="res" item="vo" key='k'>
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.consultantname}</td>
+                    <td>{$vo.consultantmobile}</td>
+                    <td></td>
+					<td></td>
+                    <td></td>
+                    <td><a onclick="shows({$vo.id})">查看</a></td> 
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+   <div class="c-pages tc">
+							<span>{$page}</span>
+						</div>
+</div>
+</body>
+</html>
+<script src="publicml/js/js.js"></script>
+<script>
+function shows(id){
+	window.location.href='index.php?g=Admin&m=Gunwen&a=detail&id='+id;
+}
+</script>

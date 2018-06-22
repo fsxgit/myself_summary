@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>费用中心-我的钱包-充值</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/brand.css"/>
+</head>
+<body>
+    <div class="main-hou">
+        <div class="per-nav">我的钱包 > 开通钱包</div>
+        <div class="bgl-mode mt20">
+            <h1 class="c-h1">充值到神州钱包</h1>
+            <div class="bgl-cont">
+			<form method = "post" action = "{:U('Portal/oneroadpay/chongzhi1')}">
+                <div class="oh">
+					充值金额 <input class="qb-cz-e" name = "money" id = "money" type="text" placeholder="请输入充值金额" />元
+                </div>
+				<div class="mt20">
+					<input type="submit" class="qb-cz-xia blue-big-btn" value="下一步" />
+				</div>
+			</form>
+            </div>
+        </div>
+
+    </div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+</body>
+</html>

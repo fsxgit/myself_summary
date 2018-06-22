@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="html2">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>css3超出省略隐藏三要素</title>
+    <style>
+        h1,h2{font-size: 16px;}
+        #nowRoom{white-space: nowrap; width: 100px; height: 30px; line-height: 30px; overflow: hidden; text-align: right; text-overflow: ellipsis; display: block;}
+        #gadgetName{ width: 100%; overflow: hidden; text-overflow: ellipsis;}
+    </style>
+</head>
+<body>
+<h1>第一要素：要有超出的范围--宽高；</h1>
+<h2>第二要素：要有盒子超出隐藏：overflow: hidden;</h2>
+<h2>第三要素：要有文字超出省略号代替：text-overflow: ellipsis;</h2>
+<h2>第四要素：要有超出强制不换行：white-space: nowrap;</h2>
+<h2>第五要素：要是块状元素： display: block;</h2>
+
+<h3>input超出隐藏：</h3>
+<input  id="gadgetName" maxlength="20" type="text" value="为了我们的共同心愿，为祖国，为人民为了我们的共同心愿为了我们的共同心愿为了我们的共同心愿为了我们的共同心愿"/>
+<h3>div超出隐藏：</h3>
+<div id="nowRoom" >我们是共产主义接班人，为了我们的共同心愿，为祖国，为人民</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜索框</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="wrap">
+    <!--公用header-->
+
+    <!--公用header end-->
+    <!--公用右侧浮动导航-->
+
+    <!--公用右侧浮动导航 end-->
+
+    <!--公用企业搜索输入框-->
+    <div class="search-box main-hou">
+        <div class="s-bar f12 c333 mt20">
+            商标概况 > 搜索 >
+        </div>
+        <!--公用企业搜索输入框-->
+        <div class="search search-input oh bc">
+            <input type="text" class="s-in fl f14" placeholder="请输入您的企业名称"/>
+            <span class="s-btn f16 cfff">
+                <span>企业查询</span>
+            </span>
+        </div>
+        <!--公用企业搜索输入框 end-->
+    </div>
+    <!--公用企业搜索输入框 end-->
+    <!--公用企业搜索输入框 end-->
+
+</div>
+</body>
+</html>

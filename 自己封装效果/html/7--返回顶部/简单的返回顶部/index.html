@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单的返回顶部</title>
+    <style>
+        body{height:1600px; }
+        .c-backTop{position: fixed; right:20px; bottom:60px; display: none;}
+        .c-backTop2{position: fixed; right:20px; bottom:20px; display: none;}
+        .c-backTop3{position: fixed; right:20px; bottom:100px; display: none;}
+        h1{height:400px; line-height: 400px; text-align: center;}
+        .backe2{height:auto; width:100px; position:absolute; left:0; top:0; background: #ff6666;  color:#ffff00; font-weight: bold; text-align: center; line-height: 60px; font-size: 30px;}
+        .backe2 span{font-size: 80px;}
+    </style>
+</head>
+<body id="backTop">
+<div class="backe2">
+    1<br />
+    2<br />
+    <span>简</span><br />
+    3<br />
+    1<br />
+    <span>单</span><br />
+    4<br />
+    1<br />
+    5<br />
+    1<br />
+    <span>的</span><br />
+    1<br />
+    7<br />
+    <span>返</span><br />
+    8<br />
+    1<br />
+    1<br />
+    <span>回</span><br />
+    2<br />
+    3<br />
+    1<br />
+    <span>顶</span><br />
+    4<br />
+    1<br />
+    5<br />
+    1<br />
+    6<br />
+    <span>部</span><br />
+    7<br />
+    1<br />
+    8<br />
+    1<br />
+
+</div>
+<h1>您向下滑啊</h1>
+
+<!--返回顶部-->
+<div class="c-backTop">
+    <a href="javascript:scroll(0,0)" class="topback">
+        返回顶部方法一
+    </a>
+</div>
+<!--返回顶部 end-->
+
+
+<!--返回顶部-->
+<div class="c-backTop2">
+    <a href="#backTop" class="topback">
+        返回顶部方法二
+    </a>
+</div>
+<!--返回顶部 end-->
+
+
+<!--返回顶部-->
+<div class="c-backTop3">
+    <a href="">
+        返回顶部方法33
+    </a>
+
+</div>
+<!--返回顶部 end-->
+<script src="jquery.min.js"></script>
+<script>
+    //公用滚动天 滚动事件
+//    当鼠标向下滑动300px高度时才显示返回顶部
+    $(function(){
+        $(window).scroll(function(){
+            var st = $(window).scrollTop();
+            if( st>300){
+                $(".c-backTop").show();
+                $(".c-backTop2").show();
+                $(".c-backTop3").show();
+            }else{
+                $(".c-backTop").hide();
+                $(".c-backTop2").hide();
+                $(".c-backTop3").hide();
+            }
+        })
+    });
+    //公用滚动天 滚动事件 end
+
+
+    $(".c-backTop3").click(function(){
+        window.scrollTo(0, 0);
+    })
+
+</script>
+</body>
+</html>

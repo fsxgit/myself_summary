@@ -1,0 +1,128 @@
+<admintpl file="header" />
+<style>
+	label,.controls{display: inline-block;}
+	.input{height:15px !important;}
+	.fx_pr{position:relative;}
+	.mapBox{position: absolute; left:478px; top:80px; width:400px; height:320px;}
+</style>
+
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>添加商品</a></li>
+		<li><a href="{:U('Goods/goods_lst')}">商品列表</a></li>
+    </ul>
+    <div style="margin-left:100px;">
+        <form method="post" action="{:U('Goods/goods_add')}" id="form" enctype="multipart/form-data">
+			<div class="control-group">
+                <label class="control-label">商品名称：</label>
+                <div class="controls">
+                    <input type="text" name="goods_name" id="goods_name" class="input">
+                </div>
+            </div>
+            		<div class="control-group">
+                <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型：</label>
+                <div class="controls">
+                    <select name="type" id="type">
+                        <option value="">请选择</option>
+                        <option value="1">注册</option>
+                        <option value="2">转让</option>
+                        <option value="3">许可备案</option>
+                        <option value="4">变更</option>
+                        <option value="5">驳回</option>
+                        <option value="6">异议</option>
+                        <option value="7">续展</option>
+                    </select>
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">大类官费：</label>
+                <div class="controls">
+                    <input type="text" name="large" id="large" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')">元
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">小类官费：</label>
+                <div class="controls">
+                    <input type="text" name="small" id="small" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')">元
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">&nbsp;&nbsp;&nbsp;服务费：</label>
+                <div class="controls">
+                    <input type="text" name="service" id="service" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')">元
+                </div>
+            </div>
+			<div class="control-group">
+                <label class="control-label">&nbsp;&nbsp;&nbsp;市场价：</label>
+                <div class="controls">
+                    <input type="text" name="market" id="market" class="input" onkeyup="value=value.replace(/[^\d.]/g,'')">元
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">商品描述：</label>
+                <div class="controls">
+                <!--    <script type="text/plain" id="editor" name="area" style="width:700px;height:200px;"></script>  -->
+					<textarea name="area" id="area"></textarea>
+                </div>
+            </div>
+		
+            <div style="clear:both;"></div>
+    </div>
+    <div  style="text-align:center; background:#ccc; width:100%;">
+        <button type="button" class="btn btn-primary btn_submit" style="margin:0 20px;" onclick="sb()">添加</button>
+        <a class="btn" href="{:U('goods/goods_lst')}"  style="margin:0 20px;">返回</a>
+    </div>
+</form>
+</div>
+</body>
+</html>
+<script>
+function sb(){
+	var goods_name = $('#goods_name').val();
+        var type = $('#type option:selected').val();
+       
+	var large = $('#large').val();
+	var small = $('#small').val();
+	var service = $('#service').val();
+	var market = $('#market').val();
+	var area = $('#area').val();
+	if(goods_name==""){
+		alert("请输入商品名称!");
+		return false;
+	}if(type==""){
+            alert("请选择类型!");
+            return false;  
+        }if(large==""){
+		alert("请输入大类官费!");
+		return false;
+	}if(small==""){
+		alert("请输入小类官费!");
+		return false;
+	}if(service==""){
+		alert("请输入服务费!");
+		return false;
+	}if(market==""){
+		alert("请输入市场价!");
+		return false;
+	}if(area==""){
+		alert("请输入描述信息!");
+		return false;
+	}
+        $.ajax({
+             type: "POST",
+             url: "index.php?g=Admin&m=Goods&a=check",
+             data: {type:type},
+    
+             success: function(data){
+                   if(data==1){
+                       alert("该类型已经存在!");
+                       return false;
+                   }else{
+                      $("#form").submit(); 
+                   }   
+             }
+         });
+//	$("#form").submit();
+}
+</script>

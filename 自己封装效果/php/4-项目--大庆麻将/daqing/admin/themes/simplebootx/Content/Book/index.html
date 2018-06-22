@@ -1,0 +1,55 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">{$meta_title}</a></li>
+			<li><a href="{:U('add')}">添加图书</a></li>
+		</ul>
+			<!-- 搜索 -->
+				<!--信息提示-->
+	<div id="top-alert" class="fixed alert alert-error">
+		<button class="close fixed" style="margin-top: 4px;">&times;</button>
+		<div class="alert-content">{$meta_title}</div>
+	</div>
+	<!--信息提示-->
+		<form class="js-ajax-form" method="post">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+					<th width="50">排序</th>
+					<th width="50">ID</th>
+					<th>科目</th>
+					<th>库存(单位:本)</th>
+					<th>添加时间</th>
+					<th width="120">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<php>$status=array(0=>'<span class="label label-important">停止出售</span>',1=>'<span class="label label-success">出售中</span>',2=>'<span class="label label-warning">已售罄</span>');</php>
+				<foreach name="listData" item="vo">
+				<tr>
+					<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+					<td><input name='listorders[{$vo.id}]' class="input input-order mr5" type='text' size='3' value='{$vo.listorder}'></td>
+					<td>{$vo.id}</td>
+					<td>{$vo.title}</td>
+					<td>{$vo.stock}</td>
+					<td>{$vo.add_time|time_format}</td>
+					<td>
+						<a href="{:U('edit',array('id'=>$vo['id']))}">修改</a> | 
+						<a class="ajax-get confirm" href="{:U('del',array('id'=>$vo['id']))}" data-tips='确定要删除吗?'>删除</a>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('listorders')}">{:L('SORT')}</button>
+			</div>
+		</form>
+		<div class="pagination">{$page}</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

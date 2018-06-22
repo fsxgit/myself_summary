@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>textarea</title>
+</head>
+<body>
+<h2>加一些空格和换行试试看</h2>
+<textarea name="" id="txt" cols="30" rows="10" placeholder="请输入文字"></textarea>
+<div id="cont" style="border:1px solid #000; padding:50px;"></div>
+<button>点我提交</button>
+<script src="./jquery.min.js"></script>
+<script>
+    $("button").click(function(){
+        var txt = $("#txt").val().replace(/\n|\r\n/g,"<br/>").replace(/\s/g, '&nbsp;');
+        $("#cont").html(txt);
+    })
+</script>
+</body>
+</html>

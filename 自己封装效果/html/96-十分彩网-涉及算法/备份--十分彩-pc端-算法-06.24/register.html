@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)./register -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link href="./css/normalize.min.css" rel="stylesheet">
+    <script>(function () {
+        var IEvar = '9',
+                IEnum = navigator.userAgent.toLowerCase();
+        if (IEnum.indexOf("msie") > -1) {
+            if (Number(IEnum.match(/msie ([\d.]+)/)[1]) < IEvar) {
+                location.href = '/updateBrowser.html';
+            }
+        } else {
+            if (window.localStorage && window.sessionStorage) {
+                try {
+                    sessionStorage.setItem('TextLocalStorage', 'hello world');
+                    sessionStorage.removeItem('TextLocalStorage');
+                    localStorage.setItem('TextLocalStorage', 'hello world');
+                    localStorage.removeItem('TextLocalStorage');
+                } catch (e) {
+                    alert('您的浏览器太旧或者开启了隐私模式/无痕模式，无法浏览网页，请更换浏览器或使用常规模式，给您带来的不便，表示抱歉！')
+                }
+            } else {
+                location.href = '/updateBrowser.html';
+            }
+            ;
+        }
+    })();
+    ;
+    (function () {
+        if (location.href.search('CanPc') > -1) {
+            sessionStorage.setItem('CanPc', 1);
+        }
+        var u = navigator.userAgent;
+        if (!!u.match(/AppleWebKit.*Mobile.*/) && !sessionStorage.getItem('CanPc')) {
+            location.href = location.href.replace('www.', '').replace('http://', 'http://m.').replace(".html", '');
+        }
+    })();
+    (function () {
+        if ("undefined" === typeof(Promise)) {
+            document.write('<script src="//cdn.bootcss.com/es6-promise/4.0.5/es6-promise.auto.min.js"><\/script>');
+        }
+        ;
+        if ("undefined" === typeof(fetch)) {
+            document.write('<script src="//cdn.bootcss.com/fetch/2.0.1/fetch.min.js"><\/script>');
+        }
+    })()</script>
+    <script src="./js/layer.m.js"></script>
+    <link href="./css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script src="./js/xss.min.js"></script>
+    <link href="./css/app.css1.css" rel="stylesheet">
+    <title>十分彩网</title>
+    <link type="image/x-icon" rel="shortcut icon" href="./images/dafa.ico">
+</head>
+<body>
+<div id="app" class="register">
+    <div class="header head3">
+        <div data-v-5d0c0cde="" id="HeaderTop" class="">
+            <div data-v-5d0c0cde="" class="snav">
+                <div data-v-5d0c0cde="" class="container">
+                    <div data-v-5d0c0cde="" class="snavAll"><a data-v-5d0c0cde="" href="./index.html"
+                                                               class="">Hi，欢迎来到十分彩网！</a>
+                        <ins data-v-5d0c0cde=""> |</ins>
+                        <a data-v-5d0c0cde="" class="betNavMore">全部彩票</a></div>
+                    <ul data-v-5d0c0cde="" class="snavInfo">
+                        <li data-v-5d0c0cde=""><a data-v-5d0c0cde="" href="./login.html"
+                                                  class="curr">亲，请登录</a><i data-v-5d0c0cde="" class="vertical"></i></li>
+                        <li data-v-5d0c0cde=""><a data-v-5d0c0cde="" href="./register.html"
+                                                  class="">用户注册</a></li>
+                        <a data-v-5d0c0cde="" class="serviceLink ServiceBtn"><i data-v-5d0c0cde="" class="iconfont"></i><span
+                                data-v-5d0c0cde=""></span></a></ul>
+                </div>
+                <div data-v-ee8285fc="" data-v-5d0c0cde="" class="cardBox" style="display: none;"><!----></div>
+            </div>
+        </div>
+        <!---->
+        <div class="nav">
+            <div class="container fix"><h3><a href="./index.html"><img src="./images/logo1.png"></a></h3>
+                <!---->
+                <ul class="navItem fix flr">
+                    <li class="" id="navIndex"><a href="./index.html">首页</a></li>
+                    <li class="" id="navLottery"><a href="./lotteryHall.html">购彩大厅</a></li>
+                    <li class="" id="navActivity"><a href="./activity.html">活动中心</a></li>
+                    <li class="" id="navMobile"><a href="./mobile.html">手机购彩</a></li>
+                    <li class="" id="navSecurityCenter"><a href="./securityCenter.html">我的账户</a></li>
+                    <li class="" id="navHelp"><a href="./helpCenter.html">帮助指南</a></li>
+                    <span>
+
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container registerPage" s="[object Object]"><h3 class="reg_tit">用户注册</h3>
+
+        <p class="reg_small">
+            <ins>罗纳尔多</ins>
+            都已经注册了，赶紧加入吧！注册后系统将随机分配一张个性的头像。
+        </p>
+        <ul class="submitContent regMain">
+            <li><span>邀请码：</span> <input regmsg="您输入的邀请码错误或者已过期" tag="邀请码" type="url" placeholder="请输入邀请码"
+                                         class="userInput"> <!----></li>
+            <li><span>账号：</span> <input tag="帐号" placeholder="请输入账号" type="url" autocomplete="off" class="userInput">
+                <!----></li>
+            <li><span>设置密码：</span> <input type="password" class="dpn"> <input type="password" tag="设置密码"
+                                                                              placeholder="请输入密码" autocomplete="off"
+                                                                              class="userInput"> <!----></li>
+            <li><span>确认密码：</span> <input type="password" tag="确认密码" placeholder="请再次输入密码" autocomplete="off"
+                                          class="userInput _no_paste"> <!----></li>
+            <li style="position: relative;"><span>验证码：</span> <input tag="验证码" placeholder="请输入验证码" type="text"
+                                                                     class="userInput"> <!----> <img
+                    src="data:image/png;base64,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"
+                    alt="" class="codeImg"></li>
+            <li><span></span>
+
+                <p style="display: inline; margin-left: 0px; font-size: 12px; color: rgb(154, 154, 154);"><input
+                        type="checkbox" style="width: inherit; margin-right: 5px;">我已经年满18岁
+                    <span class="Validform_checktip"></span></p></li>
+            <li><span></span> <a class="mainColorBtn submitBtnBig ClickShade">注 册</a> <a
+                    class="resetForm submitBtnBig ClickShade" style="background: rgb(113, 112, 116);">重 置</a></li>
+        </ul>
+    </div>
+    <div data-v-270904ef="" class="footer mgt40">
+        <div data-v-270904ef="" class="ftadCon">
+            <div data-v-270904ef="" class="container">
+                <ul data-v-270904ef="" class="ftad fix">
+                    <li data-v-270904ef=""><a data-v-270904ef="" id="dafaCloud" href="http://www.dafacloud.com/"
+                                              target="_blank"><p data-v-270904ef="">技术支持<i data-v-270904ef="">Technical
+                        support</i></p>
+
+                        <div data-v-270904ef="" class="technicalSupport fix"><img data-v-270904ef=""
+                                                                                  src="./images/dafayun.png"
+                                                                                  alt="大发云">
+
+                            <p data-v-270904ef="">
+                                大发云系统
+                                <br data-v-270904ef=""> 专业的彩票系统平台
+                            </p> <i data-v-270904ef=""></i></div>
+                    </a></li>
+                    <li data-v-270904ef=""><p data-v-270904ef="">服务体验<i data-v-270904ef="">Service experience</i></p>
+                        <ul data-v-270904ef="" class="serviceExperience">
+                            <li data-v-270904ef="">昨日充值到账平均时间
+                                <p data-v-270904ef="" class="footBar"><span data-v-270904ef="" class="s1"
+                                                                            style="width: 30%;"></span></p> <em
+                                        data-v-270904ef="">1'12</em><i data-v-270904ef="">秒</i></li>
+                            <li data-v-270904ef="">昨日提现到账平均时间
+                                <p data-v-270904ef="" class="footBar"><span data-v-270904ef="" class="s2"
+                                                                            style="width: 64.1667%;"></span></p> <em
+                                        data-v-270904ef="" id="timer">2'34</em><i data-v-270904ef="">秒</i></li>
+                        </ul>
+                    </li>
+                    <li data-v-270904ef=""><p data-v-270904ef="">充值方式<i data-v-270904ef="">Recharge method</i></p>
+
+                        <div data-v-270904ef="" class="rechargeMethod"><i data-v-270904ef="" class="wechat"></i><i
+                                data-v-270904ef="" class="alipay"></i><i data-v-270904ef="" class="cup"></i></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-v-270904ef="" class="container _about aboutText"><p data-v-270904ef="" class="fix"><a
+                data-v-270904ef="">关于我们</a>|<a data-v-270904ef="">联系我们</a>|<a data-v-270904ef="">商务合作</a>|<a
+                data-v-270904ef="">法律声明</a>|<a data-v-270904ef="">隐私声明</a>|</p>
+
+            <p data-v-270904ef="" class="copyright">Copyright © <span data-v-270904ef="" class="siteName">十分彩网</span>
+                Reserved | 18+</p></div>
+    </div>
+    <!---->
+    <div data-v-0835e1db="" class="layermbox layermbox2 layermshow" style="display: none;">
+        <div data-v-0835e1db="" class="laymshade"></div>
+        <div data-v-0835e1db="" class="layermmain">
+            <div data-v-0835e1db="" class="section">
+                <div data-v-0835e1db="" class="layermchild  layermanim">
+                    <div data-v-0835e1db="" class="layermcont"><i data-v-0835e1db=""></i> <i data-v-0835e1db=""
+                                                                                             class="laymloadtwo"></i> <i
+                            data-v-0835e1db=""></i>
+
+                        <div data-v-0835e1db=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

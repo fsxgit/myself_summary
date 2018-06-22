@@ -1,0 +1,434 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>css3图片变形特效 - 站长素材</title>
+<link rel="stylesheet" href="css/normalize.min.css">
+<style>
+body {
+height: 100%;
+background-color: #f2f2f2;
+}
+
+.portfolio-grid {
+list-style: none;
+padding: 0;
+margin: 0 auto;
+text-align: center;
+width: 100%;
+}
+
+.portfolio-grid li {
+display: inline-block;
+margin: 5px 5px 5px 5px;
+vertical-align: top;
+width:212px;
+}
+
+.portfolio-grid li > a,
+.portfolio-grid li > a img {
+width: 100%;
+border: none;
+outline: none;
+display: block;
+position: relative;
+transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-webkit-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+}
+
+.portfolio-grid li > a img:hover {
+border-radius: 50%;
+z-index: 9999;
+}
+
+
+/******************************************
+Animate.CSS By Dan Eden
+******************************************/
+
+.animated{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;}
+@-webkit-keyframes flipInX {
+0% {
+-webkit-transform: perspective(400px) rotateX(90deg);
+opacity: 0;
+}
+
+40% {
+-webkit-transform: perspective(400px) rotateX(-10deg);
+}
+
+70% {
+-webkit-transform: perspective(400px) rotateX(10deg);
+}
+
+100% {
+-webkit-transform: perspective(400px) rotateX(0deg);
+opacity: 1;
+}
+}
+@-moz-keyframes flipInX {
+0% {
+-moz-transform: perspective(400px) rotateX(90deg);
+opacity: 0;
+}
+
+40% {
+-moz-transform: perspective(400px) rotateX(-10deg);
+}
+
+70% {
+-moz-transform: perspective(400px) rotateX(10deg);
+}
+
+100% {
+-moz-transform: perspective(400px) rotateX(0deg);
+opacity: 1;
+}
+}
+@-o-keyframes flipInX {
+0% {
+-o-transform: perspective(400px) rotateX(90deg);
+opacity: 0;
+}
+
+40% {
+-o-transform: perspective(400px) rotateX(-10deg);
+}
+
+70% {
+-o-transform: perspective(400px) rotateX(10deg);
+}
+
+100% {
+-o-transform: perspective(400px) rotateX(0deg);
+opacity: 1;
+}
+}
+@keyframes flipInX {
+0% {
+transform: perspective(400px) rotateX(90deg);
+opacity: 0;
+}
+
+40% {
+transform: perspective(400px) rotateX(-10deg);
+}
+
+70% {
+transform: perspective(400px) rotateX(10deg);
+}
+
+100% {
+transform: perspective(400px) rotateX(0deg);
+opacity: 1;
+}
+}
+
+.flipInX {
+-webkit-backface-visibility: visible !important;
+-webkit-animation-name: flipInX;
+-moz-backface-visibility: visible !important;
+-moz-animation-name: flipInX;
+-o-backface-visibility: visible !important;
+-o-animation-name: flipInX;
+backface-visibility: visible !important;
+animation-name: flipInX;
+}	</style>
+
+<script src="/assets/js/prefixfree.min.js"></script>
+
+<script>
+// We really want to disable
+window.open    = function() {};
+window.alert   = function() {};
+window.print   = function() {};
+window.prompt  = function() {};
+window.confirm = function() {};
+</script>
+
+<script>
+
+if (window !== window.top && location.hash !== '#dontkillanim') {
+window.is_webkit = /(webkit)[ \/]([\w.]+)/.exec(window.navigator.userAgent.toLowerCase())
+
+window.max_timer = window.is_webkit ? 2000 : 20
+
+var pauseCSSAnimations = function() {
+
+var stopCSSAnimations = function() {
+// Get the Body Element
+var body = document.getElementsByTagName('body')[0];
+
+body.addEventListener('webkitAnimationStart', stopAnimation, false);
+body.addEventListener('webkitAnimationIteration', stopAnimation, false);
+body.addEventListener('animationstart', stopAnimation, false);
+body.addEventListener('animationiteration', stopAnimation, false);
+};
+
+// e is the event object bro ;)
+var stopAnimation = function(e) {
+// e.srcElement? lulz...
+var target_el = e.target;
+var e_type = e.type.toLowerCase();
+
+if (e_type.indexOf('animationstart') !== -1 || e_type.indexOf('animationiteration') !== -1) {
+// LOL, we need to stop the animation now!
+// setInterval? lulz...
+
+setTimeout(false, function() {
+
+if (target_el.style.webkitAnimationPlayState !== 'paused')
+target_el.style.webkitAnimationPlayState = 'paused';
+
+if (target_el.style.MozAnimationPlayState !== 'paused')
+target_el.style.MozAnimationPlayState = 'paused';
+
+if (target_el.style.animationPlayState !== 'paused')
+target_el.style.animationPlayState = 'paused';
+
+}, window.max_timer);
+}
+}
+
+stopCSSAnimations();
+
+};
+
+// Next we need to pause/stop JS Animations
+
+var pauseJSAnimations = function() {
+
+
+window.setInterval = (function(oldSetInterval) {
+var registered = [];
+
+var f = function() {
+var id;
+// .. this!
+var $this = this;
+// setInterval accepts n no. of args
+var args = arguments;
+// What if someone used the awesome Function.bind() ?
+// I am sure we want the awesome apply() then ;)
+
+// this is my awesome brain usage. if first val is nonsense,
+// then don't register, heh.
+if (typeof args[0] !== 'function' && args[0] === false) {
+args = Array.prototype.slice.call(arguments);
+args = args.slice(1);
+
+id = oldSetInterval.apply($this, args)
+}
+else {
+id = oldSetInterval.apply($this, args);
+registered.push(id);
+}
+
+//console.log(registered);
+// Need to return the Interval ID
+return id;
+};
+
+f.clearAll = function() {
+var r;
+while (r = registered.pop()) {
+clearInterval(r);
+}
+};
+
+return f;
+})(window.setInterval);
+
+window.setTimeout = (function(oldSetTimeout) {
+var registered = [];
+
+var f = function() {
+var id;
+// .. this!
+var $this = this;
+// setInterval accepts n no. of args
+var args = arguments;
+// What if someone used the awesome Function.bind?
+// I am sure we want the awesome apply then ;)
+
+// this is my awesome brain usage. if first val is nonsense,
+// then don't register, heh.
+if (typeof args[0] !== 'function' && args[0] === false) {
+args = Array.prototype.slice.call(arguments);
+args = args.slice(1);
+
+id = oldSetTimeout.apply($this, args)
+}
+else {
+//console.log('lolzzzzz');
+id = oldSetTimeout.apply($this, args);
+registered.push(id);
+}
+
+//console.log(registered);
+// Need to return the Timeout ID
+return id;
+};
+
+f.clearAll = function() {
+var r;
+while (r = registered.pop()) {
+clearTimeout(r);
+}
+};
+
+return f;
+})(window.setTimeout);
+
+setTimeout(false, function() {
+setTimeout.clearAll();
+setInterval.clearAll();
+}, window.max_timer);
+
+
+// Time to Cancel rAF's Bro :)
+// You know things are harder when people are actually
+// using shims for rAF :/ So we need to test for vendors!
+
+window.__requestAnimFrame = window.requestAnimationFrame || undefined;
+window.__cancelAnimFrame = window.cancelAnimationFrame || undefined;
+window.__vendors = ['webkit', 'moz', 'ms', 'o'];
+window.__registered_rafs = [];
+
+// I can't think of a good way to cancel rAF's
+// So maybe lets use something similar to our other canceller's
+
+window.__requestFrame = function(cb) {
+if (!window.__requestAnimFrame) return;
+
+var req_id = window.__requestAnimFrame(cb);
+__registered_rafs.push(req_id);
+
+return req_id;
+};
+
+// Determine the proper VendorPrefixedFunctionName
+if (!window.__requestAnimFrame) {
+for (var x = 0; x < window.__vendors.length; x++) {
+if (!window.__requestAnimFrame) {
+window.__requestAnimFrame = window[window.__vendors[x]+'RequestAnimationFrame'];
+window[window.__vendors[x]+'RequestAnimationFrame'] = __requestFrame;
+}
+
+if(!window.__cancelAnimFrame) {
+// I came across webkitCancelAnimationFrame and webkitCancelRequestAnimationFrame
+// No idea about the difference, so maybe lets ||'fy it
+
+window.__cancelAnimFrame = window[window.__vendors[x]+'CancelAnimationFrame'] ||
+window[window.__vendors[x]+'CancelRequestAnimationFrame'];
+}
+}
+}
+
+// We have our proper vendor prefixed raf objects now :)
+// So let's go mad!!!
+// Let's Cancel our rAF's
+setTimeout(false, function() {
+if (!window.__requestAnimFrame) return;
+
+var r;
+while (r = window.__registered_rafs.pop()) {
+window.__cancelAnimFrame(r);
+}
+}, window.max_timer);
+
+};
+
+// Had to place outside pauseAnimations to work properly
+// else it was getting called afterwards code setTimeout/Interval executed
+if (window !== window.top)
+pauseJSAnimations();
+
+var __pauseAnimations = function() {
+if (window !== window.top)
+pauseCSSAnimations();
+};
+}
+else {
+__pauseAnimations = function() {};
+}
+</script>
+</head>
+<body onload="__pauseAnimations();">
+
+
+<div id="portfolio">
+<ul class="portfolio-grid">
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/1.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/2.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/3.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/4.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/5.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/6.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/7.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/8.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/9.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/10.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/11.jpg" alt="img01"/>
+</a>
+</li>
+<li>
+<a href="#" class="animated flipInX">
+<img src="images/12.jpg" alt="img01"/>
+</a>
+</li>
+</ul>
+
+</div>
+<script>
+</script>
+<div style="text-align:center;clear:both">
+<p>适用浏览器：FireFox、Chrome、Safari、Opera、傲游、搜狗. 不支持IE8、360、世界之窗。</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<!--公用右侧浮动导航-->
+
+<!--公用右侧浮动导航 end-->
+<div class="index-search-box">
+    <div class="main">
+        <div class="is-h1">
+            <img src="images/h1.png" width="502" height="107" alt="" onclick="javav"/>
+        </div>
+        <!--公用企业搜索输入框-->
+        <div class="search oh bc">
+            <input type="text" class="s-in fl f14" placeholder="请输入您的企业名称"/>
+            <span class="s-btn f16 cfff">
+                <span>企业查询</span>
+            </span>
+        </div>
+        <!--公用企业搜索输入框 end-->
+        <div class="is-step">
+            <img src="images/img11.png" width="1198" height="141" alt=""/>
+        </div>
+    </div>
+</div>
+<div class="index-gl-box main">
+    <h1 class="ig-h1">在这里，管理您的商标</h1>
+    <h2 class="ig-h2">时刻帮您检测企业商标信息情况</h2>
+    <div class="ig-mode-box">
+        <div class="ig-mode active">
+            <p class="img"><img src="images/ig1.png" width="142" height="142" alt=""/></p>
+            <p class="name">专属顾问</p>
+            <p class="txt">登录系统，认领您的企业，我们会为您分配一个专属顾问</p>
+        </div>
+        <div class="ig-mode">
+            <p class="img"><img src="images/ig2.png" width="142" height="142" alt=""/></p>
+            <p class="name">极速查询</p>
+            <p class="txt">专属顾问电脑前待命，实时查询，3分钟内可出结果</p>
+        </div>
+        <div class="ig-mode">
+            <p class="img"><img src="images/ig3.png" width="142" height="142" alt=""/></p>
+            <p class="name">流程可视化</p>
+            <p class="txt">办理流程全部可视化，并有消息提醒，让您清晰的知悉业务办理到哪一步</p>
+        </div>
+        <div class="ig-mode">
+            <p class="img"><img src="images/ig4.png" width="142" height="142" alt=""/></p>
+            <p class="name">商标检测</p>
+            <p class="txt">续展监测，侵权监测，撤三监测，竞争对手监测，为您提供更好保护</p>
+        </div>
+
+    </div>
+</div>
+<div class="index-reg-box">
+    <div class="main tc">
+        <h1 class="ir-h1">商标注册流程</h1>
+        <div class="ir-img"><img src="images/img12.png" width="983" height="520" alt=""/></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3demo</title>
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        h1,h2,h3{padding:40px;}
+    </style>
+</head>
+<body>
+<h1>模仿---https://www.protectwise.com/官网效果</h1>
+
+<h3>效果1--css3导航</h3>
+
+<div id="page-nav">
+    <div class="page-nav-inner">
+        <ul class="page-nav-list page-nav-list-slug-home">
+            <li class="page-nav-item page-nav-item-slug-home current"
+                data-index="0">
+
+                <span class="page-nav-ring"></span>
+                <span class="page-nav-ring-color"></span>
+                <span class="page-nav-puff"></span>
+                <span class="page-nav-label">
+                    <span class="page-nav-title">Home</span>
+                </span>
+            </li>
+
+
+            <li class="page-nav-item page-nav-item-slug-video"
+                data-index="1">
+
+                <span class="page-nav-ring"></span>
+                <span class="page-nav-ring-color"></span>
+                <span class="page-nav-puff"></span>
+                <span class="page-nav-label">
+                  <span class="page-nav-title">Video</span>
+                </span>
+
+            </li>
+
+
+            <li class="page-nav-item page-nav-item-slug-customers"
+                data-index="2">
+
+                <span class="page-nav-ring"></span>
+                <span class="page-nav-ring-color"></span>
+                <span class="page-nav-puff"></span>
+                <span class="page-nav-label">
+                  <span class="page-nav-title">Customers</span>
+                </span>
+
+            </li>
+
+
+            <li class="page-nav-item page-nav-item-slug-the-grid "
+                data-index="3">
+
+                <span class="page-nav-ring"></span>
+                <span class="page-nav-ring-color"></span>
+                <span class="page-nav-puff"></span>
+                <span class="page-nav-label">
+                  <span class="page-nav-title">The Grid</span>
+                </span>
+
+            </li>
+
+
+            <li class="page-nav-item page-nav-item-slug-latest has-sub-links"
+                data-index="4">
+
+                <span class="page-nav-ring"></span>
+                <span class="page-nav-ring-color"></span>
+                <span class="page-nav-puff"></span>
+                <span class="page-nav-label">
+                  <span class="page-nav-title">Latest</span>
+                </span>
+
+                <div class="page-nav-sub-ring page-nav-sub-ring-top"></div>
+                <div class="page-nav-sub-ring page-nav-sub-ring-bot"></div>
+                <div class="page-nav-sub-links">
+
+
+                    <a href="javascript:void(0)"
+                       class="page-nav-sub-link active">News</a>
+
+
+                    <a href="javascript:void(0)" class="page-nav-sub-link">Blog</a>
+
+
+                    <a href="javascript:void(0)" class="page-nav-sub-link">Featured</a>
+
+
+                </div>
+
+            </li>
+
+
+            <li class="page-nav-item page-nav-item-slug-partners"
+                data-index="5">
+
+                <span class="page-nav-ring"></span>
+                <span class="page-nav-ring-color"></span>
+                <span class="page-nav-puff"></span>
+                <span class="page-nav-label">
+                  <span class="page-nav-title">Partners</span>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="js/jquery.2.11.1.min.js"></script>
+<script>
+    $("#page-nav li").click(function(){
+        $(this).addClass("current").siblings().removeClass("current");
+    })
+</script>
+</body>
+</html>

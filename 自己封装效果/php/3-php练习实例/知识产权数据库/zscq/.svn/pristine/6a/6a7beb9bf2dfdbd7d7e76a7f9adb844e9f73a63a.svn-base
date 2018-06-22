@@ -1,0 +1,60 @@
+/**
+***
+知识产权全局换肤样式
+***
+**/
+/*字体*/
+html,body, div,img, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;  }
+body{overflow-y:scroll;}
+/*文本颜色*/
+.fc1{color: #157efb !important;}/*主题蓝色*/
+.fc2{color: #f34545;}/*主题红色 购买按钮，价格,警告颜色*/
+.fc3{color: #456588;}/*右侧浮动导航正常颜色*/
+.fc4{color: #ffca4f;}
+.fc5{color: #5cce24;}
+.fc6{color: #fedf70;}
+.fc7{color: #a6a7b3;}
+.fc8{color: #cc0000;}
+.fc9{color: #b2bbde;}
+.fc10{ color: #a4b5e0;}
+.fc11{ color: #feffff;}
+.fc12{ color: #adadad;}
+.c333{color: #333;}
+.c999{color: #999;}
+.cfff{color: #fff;}
+.c000{color: #000;}
+/*按钮组件*/
+.blue-big-btn{width:100px; height:34px; line-height: 34px; text-align: center; background: #157efb; color: #fff; font-size:14px; cursor: pointer; border-radius: 4px; display: inline-block;}
+.blue-small-btn{width:80px; height:28px; line-height: 28px; text-align: center;  background: #157efb; color: #fff; font-size:12px; cursor: pointer; border-radius: 2px;  display: inline-block;}
+.write-big-btn{width:98px; height:32px; line-height: 32px; text-align: center;  background: #fff;   color: #333; border:1px solid #ccc; font-size:14px; cursor: pointer; border-radius: 2px;  display: inline-block;}
+.write-small-btn{width:80px; height:28px; line-height: 28px; text-align: center;  background: #fff;  color: #333; border:1px solid #ccc; font-size:12px; cursor: pointer; border-radius: 2px;  display: inline-block;}
+.yellow-btn{width:100px; height:34px; line-height: 34px; text-align: center;  background: #f5b313;  color: #fff;  font-size:14px; cursor: pointer; border-radius: 2px;  display: inline-block;}
+/*按钮hover 颜色*/
+.blue-big-btn:hover,.blue-small-btn:hover{background: #0c75f2; text-decoration: none;}/*蓝色按钮hover*/
+.write-big-btn:hover,.write-small-btn:hover{background: #f2f2f2; text-decoration: none;}/*白色按钮hover*/
+.yellow-btn:hover,.yellow-btn:hover{background: #f6be3c; text-decoration: none;}/*黄色白色按钮hover*/
+/*背景 颜色*/
+.bg1{background: #157efb;}/*主题蓝色*/
+.bg2{background: #f34545;}/*主题红色 购买按钮，价格*/
+.bg3{background:#456588; }/*右侧浮动导航正常颜色*/
+.bg4{background: #fef8df;}/*提示信息背景颜色*/
+.bg5{background: #f5fafd;}/*表格标题背景*/
+.bg6{background: #ffca4f;}/*黄色按钮*/
+.bg7{background: #f9f9f9;}/*白色按钮*/
+.bg8{ background: #f5fafd;}
+.bg9{ background: #30a2e9;}
+.bg10{ background: #222f3c;}
+.bgfff{background: #fff;}
+.bg000{background: #000;}
+
+/*边框颜色*/
+.bd1{border:1px solid #eee;}
+.bd2{border:1px solid #ccc;}
+.bdn{border:none !important;}
+.bb{border-bottom: 1px solid #eee;}
+.bt{border-top: 1px solid #eee;}
+.bb1{border-bottom: 1px solid #eee;}
+.bb2{border-bottom: 1px solid #ccc;}
+.bt1{border-top: 1px solid #eee;}
+.bt2{border-top: 1px solid #eee;}
+

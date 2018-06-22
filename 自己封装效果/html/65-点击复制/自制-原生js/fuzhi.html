@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="html2">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>下载游戏</title>
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        html,body,.fxBox,.fuzBox{width: 100%; height: 100%; overflow: hidden;}
+        .fuzBox{background: url("images/dbg.jpg") no-repeat 0 0;background-size:100% 100%; position: relative;}
+
+        .input{border:none; background: none; color: #fff;display: inline-block; outline: none; }
+        .dl_text{text-align: center; color: #fff; padding-top: 26px; font-size: 16px;}
+        .dl_text span{margin-left: 4px; border:1px solid #fff; display: inline-block; font-size: 12px; height:20px; line-height: 20px; padding:0 10px; border-radius: 10px;}
+        .dl_text span.on{background: rgba(0,0,0,0.3);}
+        .dl_text p{padding:2px 0;}
+        .dl_ts{color: #fff; background: rgba(0,0,0,0.8); width:200px; padding:30px 0; position: fixed; left:calc(50% - 100px); top:calc(50% - 50px); text-align: center; font-size: 16px; border-radius: 4px; display: none; }
+    </style>
+</head>
+<body>
+<!--loading -->
+<div class="lyhBackstrop" id="loading">
+    <div class="lyhLoading">
+        <div class="url-loading">
+            <i class="nth-4"></i>
+            <i class="nth-5"></i>
+            <i class="nth-6"></i>
+            <i class="nth-3"></i>
+            <i class="nth-2"></i>
+            <i class="nth-1"></i>
+        </div>
+        Loading...
+    </div>
+</div>
+<!--loading end-->
+<div class="fxBox">
+    <div class="fuzBox">
+
+        <p class="dl_text">
+            shichengqipai06 <span class="fuzhi" data-id="6">点击复制</span>
+            <input type="text" style="z-index: -1; position: fixed; left:0; bottom:0;" readonly  class="input" value="shichengqipai06">
+        </p>
+    </div>
+</div>
+<div class="dl_ts">复制成功</div>
+<script src="./js/jquery.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+    var a = 1;
+    $(".fuzhi").click(function(){
+        $(this).addClass("on");
+        setTimeout(function(){
+            $(".fuzhi").removeClass("on");
+        },200);
+
+        var Url2=document.getElementsByClassName("input")[0];
+        Url2.select();
+        document.execCommand("Copy");
+
+        if(a == 1){
+            a = 2;
+            $(".dl_ts").fadeIn();
+            setTimeout(function(){
+                $(".dl_ts").fadeOut();
+                a = 1;
+            },2000);
+        }
+    })
+</script>
+</body>
+</html>

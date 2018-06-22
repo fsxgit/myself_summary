@@ -1,0 +1,40 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="css/loaders.css"/>
+    <title></title>
+  <style>
+    body{background: red;}
+    .loading{padding-left:12px; padding-bottom:36px;}
+    .loadingBox{position:fixed; left:0; top:0; z-index: 3;}
+    .shdaw{width:100%; height:100%;  background: #fff; opacity:0.8; position:fixed; left:0; top:0; display:none;}
+  </style>
+</head>
+<body>
+<button id="btn">点点点</button>
+<div class="shdaw"></div>
+    <div class="loaders">
+      <div class="loadingBox">
+        <div class="loader loading">
+          <div class="loader-inner ball-scale-multiple">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div>正在为您加载...</div>
+      </div>
+    </div>
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('main').className += 'loaded';
+    });
+    $(".loadingBox").css({left:($(document).width()-$(".loadingBox").width())/2,top:($(document).height()-$(".loadingBox").height())/2})
+    $("#btn").click(function(){
+      $(".loaders,.shdaw").show();
+    })
+  </script>
+</body>
+</html>

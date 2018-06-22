@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <title>创新世界</title>
+    <style>
+        *{margin:0; padding:0;}
+        html,body{font-family:"Microsoft Yahei", Arial, Tahoma, "hiragino sans gb", Helvetica; }
+        .shareBack{ width: 100%; height:50px; line-height: 50px; text-align: center; border-bottom: 1px solid #ddd; background: #fff; position: fixed; left:0; top:0; z-index: 10; }
+        .shareBack a.goback{display: inline-block; position: absolute; left:0; top:0; height: 50px; width: 50px; background: url("./images/backb.png") no-repeat center center; background-size:18px 30px; }
+        .main{width:90%;margin-left:auto; margin-right:auto;}
+        .sBox .tit{font-size: 18px;}
+        .sCont img{width: 100%; display: block; margin:10px 0;}
+        .sCont p{text-indent: 30px;}
+        .gap{height:15px; background: #f5f5f5; width: 100%;}
+        .pb10{padding-bottom: 10px;}
+        .mt10{margin-top: 10px;}
+        .mb10{margin-bottom: 10px;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .oh{overflow: hidden;}
+        .plbox{}
+        .pl_mode{overflow: hidden; border-bottom: 1px solid #ddd; padding: 14px 0;}
+        .pl_mode .img{width:50px; height: 50px; border-radius: 50%; overflow: hidden; margin-right: 10px;}
+        .pl_mode .img img{width:50px; height: 50px; border-radius: 50%; }
+        .pl_mode .name{font-size: 16px; margin-bottom: 8px; color: #444962; }
+        .pl_mode .say{font-size: 14px;}
+        .pl_mode .bot{font-size: 14px; margin-top: 14px;}
+        .pl_mode .bot span{display: inline-block;  height: 20px; line-height: 20px;}
+        .pl_mode .bot span.msg{padding-left:20px; background: url("images/msg.png") no-repeat 0 center; margin-right: 10px;}
+        .pl_mode .bot span.zan{padding-left:20px; background: url("images/zan.png") no-repeat 0 center;}
+        .plcont{padding-left:60px;}
+        .resay{background: #f5f4f9; font-size: 14px; padding:6px; margin:10px 0;}
+        .resay span.name2{color: #e6060a;}
+
+        .s_imgs{padding-top: 60px;}
+        .s_imgs_top{}
+        .s_imgs_top .img{float: left; width: 50px; height: 50px;  border-radius: 50%;}
+        .s_imgs_top .img img{width: 50px; height: 50px;  border-radius: 50%;}
+        .s_imgs_top p{margin-left: 60px; font-size: 14px;}
+        .s_imgs_top p.name{ padding-top: 4px; color: #444962;}
+        .s_imgs_txt{font-size: 14px; padding:10px 0;}
+        .s_imgs_box li{width: 33.3%; height: 100px; float: left; list-style: none; margin-bottom: 6px;}
+        .s_imgs_box li div{width: 90%; margin:0 auto;}
+
+        .imgs_swiper{position: fixed; width:100%; height: 100%; left:0; top:0; background: #000; z-index: 12; display: none;}
+
+
+        .swiper-container {
+            height: 100%;
+            background: #000;
+        }
+        .swiper-wrapper{height:75%; position:absolute; left:0; top:0;}
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            overflow: hidden;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-slide img{ max-width: 100%; max-height: 100%;}
+        #fotBox{width:100%; color:#fff; font-size:12px;   text-align: left; position:absolute; left:0; bottom:0; z-index: 2; padding:20px 0;}
+        #fotBox p{padding-left: 20px; margin:2px 0; font-size: 14px;}
+        #topBox{height: 40px; line-height: 40px; position: fixed; width: 100%; left:0; top:0; color: #fff; font-size: 16px; z-index: 2; text-align: center; }
+        #topBox .bhack{position: absolute; display: block; width: 20px; background: url("images/backf.png") no-repeat 0 center; background-size:8px 16px;  height: 40px; line-height: 40px; margin-left: 20px;}
+        #topBox .bdel{position: absolute; right:0; display: block; width: 20px; background: url("images/delf.png") no-repeat 0 center; background-size:18px 18px;  height: 40px; line-height: 40px; margin-right: 20px;}
+    </style>
+</head>
+<body>
+<div class="shareBack"><a class="goback" href="javascript:history.go(-1);"></a><span>分享页</span></div>
+<div class="s_imgs main">
+    <div class="s_imgs_top oh">
+        <div class="img"><img src="images/pt1.png" alt=""/></div>
+        <p class="name">创新一哥</p>
+        <p class="time">03-01 10:52</p>
+    </div>
+    <div class="s_imgs_txt">十年之后，我不认识你，你不属于我，我俩还是十年之后，我不认识你，你不属于我，我俩还是十年之后，我不认识你，你不属于我，我俩还是</div>
+    <div class="s_imgs_box">
+        <ul class="oh duo_imgs">
+            <li><div style="background: url('images/img3.jpg') no-repeat center center; background-size:cover; "></div></li>
+            <li><div style="background: url('images/img4.jpg') no-repeat center center; background-size:cover; "></div></li>
+            <li><div style="background: url('images/img5.jpg') no-repeat center center; background-size:cover; "></div></li>
+            <li><div style="background: url('images/img6.jpg') no-repeat center center; background-size:cover; "></div></li>
+            <li><div style="background: url('images/img13.jpg') no-repeat center center; background-size:cover; "></div></li>
+            <li><div style="background: url('images/img8.jpg') no-repeat center center; background-size:cover; "></div></li>
+            <li><div style="background: url('images/img9.jpg') no-repeat center center; background-size:cover; "></div></li>
+            <li><div style="background: url('images/img10.jpg') no-repeat center center; background-size:cover; "></div></li>
+        </ul>
+    </div>
+</div>
+<div class="gap mt10 mb10"></div>
+<div class="sBox">
+    <h2 class="tit pb10 main">评论</h2>
+    <div class="plbox">
+        <div class="pl_mode">
+           <div class="main">
+               <div class="img fl"><img src="images/pt1.png" alt=""/></div>
+               <div class="plcont">
+                   <p class="name">仗剑走天涯</p>
+                   <p class="say">世界那么大，我想去看看,世界那么大，我想去看看,世界那么大，我想去看看</p>
+                   <p class="resay"><span class="name2">狗眼看人低：</span>money那么少，哪都去不了，money那么少，哪都去不了，</p>
+                   <p class="bot">
+                       <span class="fl">刚刚</span>
+                       <span class="zan fr">100</span>
+                       <span class="msg fr"></span>
+                   </p>
+               </div>
+           </div>
+        </div>
+        <div class="pl_mode">
+            <div class="main">
+                <div class="img fl"><img src="images/pt1.png" alt=""/></div>
+                <div class="plcont">
+                    <p class="name">仗剑走天涯</p>
+                    <p class="say">世界那么大，我想去看看,世界那么大，我想去看看,世界那么大，我想去看看</p>
+                    <p class="resay"><span class="name2">狗眼看人低：</span>money那么少，哪都去不了，money那么少，哪都去不了，</p>
+                    <p class="bot">
+                        <span class="fl">刚刚</span>
+                        <span class="zan fr">100</span>
+                        <span class="msg fr"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="imgs_swiper">
+    <header id="topBox">
+        <a class="bhack" href="javascript:history.go(-1);"></a>
+        <a class="bdel" href="javascript:;"></a>
+        <span id="num">1</span>/<span id="tol"></span>
+
+    </header>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="images/img3.jpg" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/img4.jpg" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/img5.jpg" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/img6.jpg" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/img13.jpg" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/img8.jpg" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/img9.jpg" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/img10.jpg" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<!-- Swiper JS -->
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.jquery.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+
+    $(function(){
+        var a = $(".duo_imgs li").width();
+        $(".duo_imgs li>div").css("height",0.9*a);
+
+    });
+
+
+    $(".duo_imgs li").click(function(){
+        $(".imgs_swiper").show();
+        var k = $(this).index();
+        console.log(k);
+        var myswiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            autoplay : 4000,
+            slidesPerView: 1,
+            initialSlide :k,
+            autoplayDisableOnInteraction : false,
+            onSlideChangeEnd: function(swiper){
+                $(".swiper-wrapper div").each(function(){
+                    if( $(this).hasClass('swiper-slide-active')){
+                        var i =$(this).index()+1;
+                        $("#num").html(i);
+                    }
+                })
+            }
+        });
+        var oTol = $("#tol");
+        var aSwiperSlide = $(".swiper-slide");
+        var oSwiperWrapper = $(".swiper-wrapper");
+        var T = ($(window).height()-oSwiperWrapper.height())/2;
+        oSwiperWrapper.css({top:T});
+        oTol.html(aSwiperSlide.length);
+    });
+
+    $(".imgs_swiper").click(function(){
+        $(this).hide();
+    })
+</script>
+</body>
+</html>

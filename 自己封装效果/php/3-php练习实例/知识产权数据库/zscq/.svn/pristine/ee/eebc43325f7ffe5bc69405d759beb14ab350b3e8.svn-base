@@ -1,0 +1,223 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/css/slb.css"/>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    	   商标检测 >>
+
+<a href="{:U('Bcheck/xuzhan')}">续展检测</a> >>
+<a href="">查看详情</a>
+&nbsp;<br>
+&nbsp;<br>
+<div class="sl-xq main">
+    <div class="sl-yuan">订单来源：PC</div>
+    <div class="sl-logo oh">
+        <div class="img fl mr20 mt20">
+	
+		<if condition=" $r.marklogo eq '' ">
+			<img src="data:png;base64,{$r.markimage}" width="100" height="50"/>
+		<elseif condition=" $r.marking eq '' "/>
+			<img src="{$r.marklogo}" width="100" height="50"/>
+		</if>
+		
+		
+		</div>
+        <div class="img-txt fl mt20">
+            <p>商标名称：{$r.markname}</p>
+            <p>行业分类：企业服务</p>
+            <p>当前状态：企业服务</p>
+            <p>服务类型：企业服务</p>
+        </div>
+        <div class="txt fl">
+            <p class="sl-tit oh"><span class="fl c009">商标主体信息</span><span class="fr">创建时间：{$r.appdate}</span></p>
+            <p><span class="tit">公司名称：</span>{$r.entname}</p>
+            <p><span class="tit">公司地址：</span>{$ad.dom}</p>
+        </div>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">商标详细信息</span>
+    </div>
+    <div class="sl-cont">
+       <div class="sb-xq">
+           <p><span class="tit">申请/注册号：</span>{$r.markcode_key}</p>
+           <p><span class="tit">初审公告期号：</span>1502</p>
+           <p><span class="tit">注册公告期号：</span>--</p>
+           <p><span class="tit">专用权有效期：</span>{$r.begindate} 至 {$r.enddate}</p>
+           <p><span class="tit">商标类别：</span>第35类；{$r.uniontypecode}</p>
+           <div class="xl-box">
+               <div class="tit fl">小类：</div>
+               <div class="xiaolei">{$r.typedetaildes}</div>
+           </div>
+       </div>
+        <div class="sl-tit">
+            <span class="c009">联系人信息</span>
+        </div>
+        <div class="sl-cont">
+            <div class="sb-xq">
+                <p><span class="tit">联系人：</span>{$i.linkMan}</p>
+                <p><span class="tit">联系电话：</span>{$i.phone}</p>
+                <p><span class="tit">联系地址：</span>{$i.address}</p>
+            </div>
+       </div>
+        <div class="sl-tit">
+            <span class="c009">服务顾问</span>
+        </div>
+        <div class="sl-cont">
+            <div class="sb-xq">
+                <p><span class="tit">顾问：</span>{$g.consultantname}</p>
+                <p><span class="tit">联系电话：</span>{$g.consultantmobile}</p>
+                <p><span class="tit">代理机构：</span>{$g.organizationname}</p>
+                <p><span class="tit">代理机构地址：</span>{$g.organizationaddress}</p>
+            </div>
+        </div>
+        <div class="sc-tab">
+            <span class="active">顾问上传</span>
+            <span>用户上传</span>
+        </div>
+        <div class="tab-table">
+            <table cellpadding="0" cellspacing="0" border="0" >
+                <tr>
+                    <td>文件名称</td>
+                    <td>文件大小</td>
+                    <td>更新时间</td>
+                    <td>状态</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="fl img"><img src="public/img/img1.png" alt=""/></div>
+                        <div class="fl imgtxt">文件名称文件名称</div>
+                    </td>
+                    <td>56.7k</td>
+                    <td>2015-3-4 12:00</td>
+                    <td>请根据要求准备材料，并发给顾问。</td>
+                    <td class="hand"><a href="javascript:;">下载</a>|<a href="javascript:;">删除</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="sl-step-box">
+            <div class="list-gk-cont-right">
+                <h2 class="tc mb20">用户</h2>
+                <!--自增长步骤-->
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                        <div class="step-mode fl">
+                            <div class="step-dot first fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">等待下发《商标注册证》</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">公告期结束，注册成功</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">资料已下载</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--自增长步骤 end-->
+            </div>
+            <div class="list-gk-cont-right">
+                <h2 class="tc mb20">顾问</h2>
+                <!--自增长步骤-->
+                <div class="step-tree pr">
+                    <div class="fl pa">
+                        <div class="step-mode fl">
+                            <div class="step-dot first fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt  fl">
+                                <p class="txt">等待下发《商标注册证》</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">公告期结束，注册成功</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc3.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc4.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">资料已下载</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                        <div class="step-mode active fl">
+                            <div class="step-dot fl">
+                                <img src="public/img/wc2.png" class="wc2" width="11" height="" alt=""/>
+                                <img src="public/img/wc1.png" class="wc1" width="11" height="" alt=""/>
+                            </div>
+                            <div class="step-txt fl">
+                                <p class="txt">第三人提出异议，商标注册终止</p>
+                                <p class="time">2016.09.09 12:34:36</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--自增长步骤 end-->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".sc-tab span").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+</script>
+</body>
+</html> 

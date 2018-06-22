@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="sy-wrap">
+    <div class="sy-header">
+        <div class="fl sy-header-left"><img src="images/logo.png" alt=""/></div>
+        <div class="fr sy-header-right cfff f14">
+            <div class="tel fl">400-686-5658</div>
+            <div class=" name fl">您好，sw23455</div>
+            <div class="show-nav img fl pr">
+                <img src="images/img3.png" alt=""/>
+                <span class="ts-num f12">12</span>
+                <div class="sy-img-nav f12 c333">
+                    <p class="p1"><span>我的消息</span>
+                        <span class="ts-num f12 cfff">12</span>
+                    </p>
+                    <p class="fc1 p2"><span>个人中心</span></p>
+                    <p class="p3"><span>修改信息</span></p>
+                    <p class="p4"><span>退出登录</span></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sy-input main tc">
+        <p class="sy-input-txt fc7 f12">
+            已保护企业商标数 <span class="f14 fb fc6">2350</span>
+            累计商标注册量 <span class="f14 fb fc6">2410</span>
+            商标顾问数量 <span class="f14 fb fc6">8965</span>
+        </p>
+        <div class="chaxun bgfff bc tl">
+            <input type="text" class="txt" placeholder="请输入您的企业名称"/>
+            <input type="button" class="blue-big-btn" value="企业查询"/>
+        </div>
+        <div class="sy-lianjie cfff tc">
+            <div class="lj-mode">
+                <a href="javascript:;">
+                    <p><img src="images/img4.png" alt=""/></p>
+                    <p class="txt">注册商标</p>
+                </a>
+            </div>
+            <div class="lj-mode">
+                <a href="javascript:;">
+                    <p><img src="images/img4.png" alt=""/></p>
+                    <p class="txt">查询商标</p>
+                </a>
+            </div>
+            <div class="lj-mode">
+                <a href="javascript:;">
+                    <p><img src="images/img4.png" alt=""/></p>
+                    <p class="txt">监测商标</p>
+                </a>
+            </div>
+            <div class="lj-mode">
+                <a href="javascript:;">
+                    <p><img src="images/img4.png" alt=""/></p>
+                    <p class="txt">管理商标</p>
+                </a>
+            </div>
+        </div>
+        <div class="sy-bot fc7 f12">
+            <span>
+                <a href="javascript:;">神州易桥集团</a>
+                |
+                <a href="javascript:;">企博士</a>
+                |
+                <a href="javascript:;">企采团</a>
+                |
+                <a href="javascript:;">应用云</a>
+                |
+                <a href="javascript:;">商学院</a>
+                |
+                <a href="javascript:;">积分宝</a>
+            </span>
+            <span>Copyright © 1998 - 2016 All Rights Reserved. 神州网版权所有</span>
+            <span>京ICP备10028182号 京公网安备110108400735号</span>
+        </div>
+    </div>
+
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        $(".show-nav").hover(function(){
+            $(".sy-img-nav").show();
+        },function(){
+            $(".sy-img-nav").hide();
+        })
+    })
+</script>
+</body>
+</html>

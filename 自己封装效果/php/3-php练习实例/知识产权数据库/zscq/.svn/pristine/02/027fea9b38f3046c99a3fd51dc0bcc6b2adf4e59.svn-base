@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上传</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <style>
+        /*弹出框*/
+        .main-hou{width: auto; min-width:520px; margin-left:40px; margin-right:40px;}
+        .c-tan-cont{ background: #fff;   z-index: 12;}
+        .c-tan-top{width:100%; border-bottom:1px solid #eee; background: #f5fafd;}
+        .c-tan-Title{height:50px; line-height: 50px; font-size: 14px; margin-left: 20px; }
+        .c-tan-close img{margin-left:19px; margin-top:19px;}
+        .c-tan-input span{color: #333; margin-right:46px; font-size:12px;}
+        .c-tan-input input{height:32px; border:1px solid #ccc; width:298px; font-size:12px; border-radius: 2px; text-indent: 10px;}
+        .c-tan-bot{height:74px; line-height: 74px;  border-top: 1px solid #eee; text-align: right;}
+        .c-tan-bot input{height:32px;  width:98px; background: #157efb; color: #fff; border-radius: 2px; font-size: 14px;}
+        /*第二个弹出框不同部分*/
+        .xg-ren{padding:100px 0; text-align: center;}
+        .xg-ren input{ width:418px; border:1px solid #eee; font-size: 12px; height: 32px; text-indent:10px; }
+        .xg-ren .chuan{width: 422px; height: 34px; background: none; color: #999;}
+        #input1{border: none;}
+    </style>
+</head>
+<body>
+<div id="wrap " class="main-hou">
+<!--弹出框 -->
+    <!--弹出框遮罩-->
+    <div class="c-tan-cont  bc ">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">上传资料</div>
+        </div>
+		<form method="post" action="{:U('Api/file_add')}" enctype="multipart/form-data">
+			<div class="xg-ren bc">
+            <input type="button" class="chuan" id="btn1" onclick="myfile.click();" value="上传文件"/>
+            <br />
+			<input type="text" id="input1" style="">
+			<input type="file" name="myfile" id="myfile" onchange="input1.value=this.value" style="display:none">
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+		     <input type="hidden" name="state" value="{$state}">
+			 <input type="hidden" name="order_no" value="{$order_no}">
+			 <input type="hidden" name="aid" value="{$aid}">
+            <input type="submit" class="xg-sure" value="确定"/>
+        </div>
+		</form>
+        
+    </div>
+<!--弹出框 end-->
+</div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+    xgName();
+    function xgName(){
+        var oBox = $(".c-tan-cont"); //弹出框
+        var wW = $(window).width();
+        var wH = $(window).height();
+        var oW = oBox.width();
+        var oH = oBox.height();
+
+        var L = (wW - oW)/2;
+        var T = (wH - oH)/2;
+        oBox.css({"left":L,"top":T});
+    }
+
+</script>
+</body>
+</html>

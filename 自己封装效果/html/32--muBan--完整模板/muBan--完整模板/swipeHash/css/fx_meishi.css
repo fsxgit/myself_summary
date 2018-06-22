@@ -1,0 +1,190 @@
+.swiper-container{width:100%; height:auto; overflow:hidden; }
+.swiper-wrapper{width:170%; height:auto; font-size: 0;}
+.swiper-slide{width:0.109rem; height:0.12rem; line-height: 0.12rem; border-bottom: 2px solid #fff; margin:0 0.025rem;text-align: center; font-size: 0.04375rem;}
+.swiper-wrapper .active{border-bottom:2px solid #de3435; color:#de3435;}
+/*美食 MeiShi.html  样式 开始*/
+/*头部 开始*/
+#header{width:100%; height:auto; overflow:hidden; background: #de3435; padding-bottom:0.0375rem;}
+.headerBox{width:0.91rem; margin:0.0375rem auto 0; height:0.065rem;line-height: 0.065rem;}
+.fanhui{width:0.0375rem; height:0.065rem;}
+.search{width:0.0578rem; height:0.065rem;}
+.share{width:0.059rem; height:0.064rem;}
+.store{width:0.064rem; height:0.064rem; margin-right:0.064rem;}
+.headerBox span{font-size:0.055rem;color:#fff; display: block;}
+/*头部 结束*/
+/*头部导航 开始*/
+#MSbox{width:100%; height:auto; overflow: hidden; font-size:0;}
+#navBox{width:100%; height:auto;  overflow: hidden;}
+.nav{width:170%; height:auto; font-size: 0;}
+.nav span{display: inline-block; width:0.109rem; height:0.12rem; line-height:0.12rem; border-bottom:2px solid #fff; text-align: center; margin:0 0.025rem;font-size: 0.04375rem;}
+.nav span.active{border-bottom:2px solid #de3435; color:#de3435;}
+/*banner 轮播 开始*/
+#tabPic{ overflow:hidden; position:relative; height:0.3125rem;}
+#picList{ overflow:hidden;width:500%;}
+#picList li{float:left; width:20%; height:0.3125rem;}
+#picList img{max-width:100%; display: block;}
+#tabPic nav{height:0.025rem; width:auto; right:0.04rem; bottom:0.04rem; position:absolute;}
+#tabPic nav a{float:left; display:block;  width:0.025rem; height:0.025rem; border-radius:50%; background:#fff; opacity:0.4; margin-left:0.04rem;}
+#tabPic nav a.active{ opacity:1;}
+/*下拉列表  开始*/
+#MSselectBox{width:100%; height:auto; overflow: hidden;}
+#MSselectBox>div{ height:0.053rem; line-height:0.043rem; overflow: hidden;float:left;width:33%; text-align: center; border-right: 1px solid #ccc; margin:0.034rem auto; font-size: 0;}
+#MSselectBox>div.Brn{border:none;}
+#MSselectBox span{ font-size:0.034rem; display: inline-block; width:auto; height:0.053rem; line-height:0.053rem; background:url("../../images/downbg.png") no-repeat right center; background-size:0.034rem 0.015rem; padding-right:0.05rem;}
+#MSselectWrap{position:relative; width: 100%; height:auto;  z-index:5;}
+.area{ position:absolute; left:0; top:0;  width:100%; height:auto; padding-bottom:0.059rem; overflow:hidden; display:none;  background: #fff;}
+.area p{width:100%; height:0.1375rem; border-bottom:1px solid #ccc; font-size:0.044rem; line-height:0.1375rem; padding-left:0.1rem;}
+.areaL{width:50%; height:auto; float: left; border-top:1px solid #ccc; overflow:hidden;}
+.areaR{width:50%; height:auto; float: left; border-top:1px solid #ccc; overflow:hidden;}
+.areaL p{ }
+.areaL p.active{ background:#f0f0f0; }
+.areaR p{ border-left:1px solid #ccc; background:#f0f0f0;}
+.chooseSelect{border-top:1px solid #ccc; overflow:hidden;}
+.chooseSelect p{width:100%; padding-left:0;}
+/*商铺列表  开始*/
+.shopBox{width:100%; height:auto; overflow:hidden; border-top:1px solid #ccc;}
+.shopMode{margin-top:0.034rem; padding-bottom:0.034rem;  border-bottom:1px solid #ccc; font-size: 0;}
+.shopL{width:0.303rem; height:0.22rem;margin-left:0.0406rem;}
+.shopR{margin-left:0.04rem; width:0.56rem; height:0.22rem;}
+.shopName{width:0.58rem; height:0.0625rem; line-height:0.0625rem; font-size:0;}
+.shopName span{float:left; width: auto;}
+.shopName span:nth-of-type(1){font-size:0.046rem;}
+.shopName span.imgBox{ display:block; margin-top:0.01rem; width:0.046rem; height:0.046rem; margin-left:0.02rem;}
+.shopSite{width:0.58rem; height:0.0625rem; line-height:0.0625rem; font-size:0.0375rem; color:#7f7f7f;}
+.shopLover{width:0.58rem; height:0.05rem; line-height:0.05rem; font-size:0; color:#c2c2c2;}
+.shopLover span{font-size:0.034rem;}
+.shopLover span:nth-of-type(1){display:inline-block; width:0.028rem; height:0.025rem;margin-right:0.015rem;}
+.foodKind{height:0.05rem;font-size:0.034rem; color:#c2c2c2;}
+.foodKind span{display:inline-block; height:0.05rem; line-height: 0.05rem; width:auto;}
+.foodKind span:nth-of-type(2){padding-left:0.05rem; background: url("../../images/place.png") no-repeat 0 center; background-size:0.03126rem 0.0406rem;}
+/*vip 弹出层开始*/
+.vip{position:relative;}
+.vipTan{position:absolute; left:-0.02rem; bottom:-0.16rem; width:0.328rem; height:0.156rem; background: #ff0039; background: url("../../images/tanBg.png") no-repeat 0 bottom; background-size:0.326rem 0.154rem;  display: none;}
+.vipTan p{font-size:0.045rem; width:100%; height:0.064rem; line-height:0.064rem; padding-left:0.032rem;}
+.vipTan p.mt{ margin-top:0.022rem;}
+.show{display:block;}
+/*商铺列表  结束*/
+/*返回顶部 开始*/
+#MSding{width: 0.125rem; height:0.125rem; position:fixed; right:0.028rem; bottom:0.0375rem; z-index:4;}
+
+/*返回顶部 结束*/
+/*美食 MeiShi.html  样式 结束*/
+/*美食详情 MeiShiDetail.html  样式 开始*/
+/*分享到  样式 开始*/
+#shareBox{width:100%; height:100%; position:fixed; left:0; top:0; background: rgba(0,0,0,0.4); font-size:0.034rem; color:#000; display: none;}
+#shareBox h1{width:100%;font-size:0.048rem; height:0.156rem; line-height:0.156rem; text-align: center; background: url("../../images/shareBg.png") no-repeat 0 center; background-size: 1rem 3px; }
+.iconBox{width:100%;height:auto; background: rgba(226,226,226,0.9); position:absolute; left:0; bottom:0;}
+.iconImgBox{width:0.171rem;height:0.171rem;}
+.icon{padding-bottom:0.084rem;}
+.iconContent{width:0.171rem; height:auto; float:left; margin-left:0.06rem;}
+.iconContent p{margin-top:0.037rem; text-align: center;}
+.closeBox{width:100%; height:0.16rem;line-height:0.16rem; background: #fff; text-align: center;font-size:0.048rem;}
+/*分享到  样式 结束*/
+.main{width:0.91rem; height:auto; margin:0 auto;}
+.efe{background:#efeff4; height:0.04rem; border-top:1px solid #e0dfe4; border-bottom:1px solid #e0dfe4;}
+#MSDetail{width:100%; height:auto; overflow:hidden; padding-bottom:0.2rem;}
+/*banner 轮播 开始*/
+#MSDtabPic{width:100%;  overflow:hidden; position:relative; height:0.564rem;}
+#MSDpicList{ overflow:hidden;width:400%;}
+#MSDpicList li{float:left; width:25%; height:0.564rem;}
+#MSDtabPicList img{max-width:100%; display: block;}
+#MSDtabPic .navBox{position:absolute; right:0.38rem; bottom:0.04rem; height:0.025rem; width:auto;}
+#MSDtabPic nav{height:0.025rem; width:auto;}
+#MSDtabPic nav a{float:left; width:0.03rem; height:0.03rem; border-radius:50%; background:#fff; opacity:0.4; margin-left:0.04rem;}
+#MSDtabPic nav a.active{ opacity:1;}
+#MSDtabPic .xin{width:0.22rem; height:0.093rem; line-height: 0.093rem; border-radius:0.045rem;text-align: center;background:#000; opacity:0.6; position:absolute; right:0.02rem; bottom:0.02rem; font-size:0;}
+#MSDtabPic .xin span{display:inline-block; width:0.16rem;height:0.093rem;line-height: 0.093rem; padding-left:0.06rem;font-size:0.045rem; color: #fff;  background:url("../../images/xin-bai.png") no-repeat 0.037rem center; background-size:0.053rem 0.046rem;}
+#MSDtabPic .zi{width:0.22rem; height:0.093rem; line-height: 0.093rem; border-radius:0.045rem;text-align: center;background:#000; opacity:0.6; position:absolute; right:0.02rem; bottom:0.02rem; font-size:0;}
+#MSDtabPic .zi span{font-size:0.05rem; color: #fff; }
+/*轮播结束*/
+.shopDetail{width:100%; height:auto; position:relative;}
+.shoplogo{width:0.206rem; height:0.206rem; position:absolute; left:0.04rem; top:-0.103rem;}
+.shopDetail .MSshop{font-size:0; height:0.168rem; line-height:0.168rem;}
+/*.MSshop *{display:inline-block;vertical-align:middle;}*/
+.MSshop span{ display: inline-block; font-size:0.05rem; width:auto; }
+.MSshop .img1{width:0.0468rem; height:0.0468rem; display: inline-block; margin-left:0.021rem; margin-bottom:-0.0031rem;}
+.MSshop .img2{width:0.0468rem; height:0.0468rem; display: inline-block; margin-left:0.021rem; margin-bottom:-0.0031rem;}
+.shopDetail .siteBox{font-size:0; border-top:1px solid #e0dfe4;   margin-left:0.04rem; height:0.143rem; line-height:0.143rem;}
+.siteBox span{ display: inline-block; font-size:0.045rem; width:auto; float:left;}
+.siteBox .img3{width:0.0015rem; height:0.053rem; display: inline-block; margin-top:0.04375rem;margin-left:0.08rem; margin-right:0.06rem;}
+.siteBox .img4{width:0.0546rem; height:0.0656rem; display: inline-block;margin-top:0.04375rem;}
+.siteBox .img5{width:0.04rem; margin-right:0.039rem; height:0.051rem; display: inline-block;margin-top:0.044rem;}
+.landlord{ height:0.231rem; margin-left:0.04rem;}
+.landlord .img{width:0.121rem; height:0.121rem; margin-top:0.05937rem; margin-right:0.04rem; }
+.landlord .Txt{width:0.4rem; font-size: 0.045rem; margin-top:0.0468rem;}
+.landlord .f312{width:0.6rem; font-size: 0.04rem; color:#59b11e;}
+.landlord .f375{width:0.6rem; font-size: 0.045rem;}
+.landlord .mt{margin-top:0.01rem; margin-bottom:0.005rem;}
+.landlord .btn{font-size:0.038rem; display:inline-block; width:0.09rem; height:0.0475rem; line-height:0.047rem; text-align: center; border:1px solid #e24e4f; border-radius:3px;color:#e24e4f; }
+.landlord h1{width:auto;height:auto; font-size:0.05rem;}
+.landlord p{width:auto; height:auto; font-size:0.045rem; color:#a1a1a1;}
+.landlord .qiang{width:0.2rem; height:0.084rem; font-size:0.045rem; line-height:0.084rem; text-align: center; color:#e24e4f; border:1px solid #e24e4f;border-radius:4px; margin-top:0.07rem;}
+.shiyi{height:0.14rem; line-height:0.14rem;}
+.shiyi .img1{width:0.0656rem; height:0.0656rem; margin-top:0.0375rem; margin-right:0.0375rem;}
+.shiyi .img2{width:0.0656rem; height:0.0656rem;margin-top:0.0375rem;}
+.shiyi .Txt{height:0.14rem; font-size:0.05rem; width:auto;}
+.shangjia{height:0.14rem; line-height:0.14rem; }
+.shangjia .img1{width:0.0656rem; height:0.0656rem; margin-top:0.0375rem; margin-right:0.0375rem;}
+.shangjia .img2{width:0.0234rem; height:0.0437rem;margin-top:0.05rem;}
+.shangjia .img3{width:0.0625rem; height:0.0593rem; margin-top:0.0375rem; margin-right:0.0375rem;}
+.shangjia .Txt{height:0.14rem; font-size:0.05rem; width:auto;}
+.bb{border-bottom:1px solid #e0dfe4;}
+.foodimg{height:0.5625rem; margin-top:0.053rem; overflow:hidden; position:relative;}
+/*事物 轮播 开始*/
+#foodtabPic{width:100%;  overflow:hidden; position:relative; height:0.564rem;}
+#foodpicList{ overflow:hidden; width:500%;}
+#foodpicList li{float:left; width:20%; height:0.5625rem;}
+#foodtabPicList img{width:100%; display: block;}
+#foodtabPic .navBox{position:absolute; left:0.28rem; bottom:0.04rem; height:0.025rem; width:auto;}
+#foodtabPic nav{height:0.025rem; width:auto;}
+#foodtabPic nav a{float:left; width:0.02rem; height:0.02rem; border-radius:50%; background:#fff; opacity:0.4; margin-left:0.04rem;}
+#foodtabPic nav a.active{ opacity:1;}
+/*事物 轮播 结束*/
+.foodprice{height:0.156rem; line-height:0.156rem;}
+.foodprice .Txt1{font-size:0.05rem; color:#000; width: auto;}
+.foodprice .Txt2{font-size:0.045rem; color:#a1a1a1; width: auto; margin-left:0.0875rem;}
+.foodprice .Txt2 span{font-size:0.05rem; color:#e24e4f;}
+.foodprice .Txt3{font-size:0.045rem; color:#a1a1a1; width: auto; text-decoration: line-through;}
+/*评价  开始*/
+.pingjia{height:0.14rem; line-height:0.14rem; }
+.pingjia .img1{width:0.0625rem; height:0.0593rem; margin-top:0.0375rem; margin-right:0.0375rem;}
+.pingjia .img2{width:0.0234rem; height:0.0437rem;margin-top:0.05rem;}
+.pingjia .Txt{height:0.14rem; font-size:0.045rem; width:auto;}
+/*用户评价  开始i*/
+.usersay { height:auto; padding-bottom:0.0468rem;}
+.usersay  .img{width:0.121rem; height:0.121rem;margin-top:0.0468rem;margin-right:0.04rem; }
+.usersay .TxtBox{  width: 0.74rem; height:auto;}
+.usersay .Txt{font-size: 0.045rem; margin-top:0.0468rem;  width: 0.74rem;}
+.usersay .ca1{color:#a1a1a1;}
+.usersay  .f312{width:0.6rem; font-size: 0.045rem; color:#59b11e;}
+.usersay  .f375{width:0.6rem; font-size: 0.045rem;}
+.usersay  .mt{margin-top:0.01rem; margin-bottom:0.005rem;}
+.usersay  .btn{font-size:0.038rem; display:inline-block; width:0.09rem; height:0.0475rem; line-height:0.047rem; text-align: center; border:1px solid #e24e4f; border-radius:3px;color:#e24e4f; }
+.usersay  h1{width:auto;height:auto; font-size:0.05rem;}
+.usersay  p{width:auto; height:auto; font-size:0.045rem; color:#a1a1a1;}
+.usersay  .userTxt{width:100%; height:auto; font-size:0.05rem; margin-top:0.03rem;}
+/*全部商品  开始*/
+.allgood{height:0.14rem; line-height:0.14rem; }
+.allgood .img1{width:0.0625rem; height:0.0609rem; margin-top:0.0375rem; margin-right:0.0375rem;}
+.allgood .Txt{height:0.14rem; font-size:0.05rem; width:auto;}
+.goodsBox{height:auto; margin-top:0.0625rem;}
+.goodsBox li{width:0.437rem;  height:auto;float:left; border:1px solid #e0dfe4; overflow:hidden; margin-bottom:0.031rem;}
+.goodsBox li:nth-of-type(odd){margin-right:0.02rem;}
+.goodsBox .imgbox{width:0.437rem;  height:0.2828rem;}
+.goodsBox h1{width:100%; height:0.1rem; line-height:0.1rem; padding-left:0.02rem; font-size:0.045rem; border-bottom:1px solid #e0dfe4;}
+.goodsBox .price{width:100%; height:0.1rem; line-height:0.1rem; padding-left:0.02rem; font-size:0.045rem; background:#fafafa; color:#a1a1a1;}
+.goodsBox .price .fl{display:inline-block; width:auto; font-size:0.045rem}
+.goodsBox .price .fr{display:inline-block; width:auto;margin-right:0.04rem; font-size:0.04rem; text-decoration:line-through;}
+.goodsBox .price i{color:#e24e4f; font-size:0.05rem}
+/*固定 按钮*/
+.fixBtn{width:100%; height:0.19rem; line-height:0.19rem; background:#f8f8f8; text-align: center;font-size:0.045rem; position:fixed; left:0; bottom:0;}
+.fixBtn button{width:0.625rem; height:0.13rem; background:#de3435; color:#fff; border-radius:0.02rem; font-size:0.05rem;}
+.fixfot{width:100%; height:0.118rem; line-height:0.118rem; background:#fff; text-align: center;font-size:0.045rem; position:fixed; left:0; bottom:0; border-top:1px solid #e0dfe4;}
+.fixfot span{display:inline-block;width:0.44rem; height:0.043rem; line-height:0.048rem; background: url("../../images/right.png") no-repeat right center; background-size:0.025rem 0.04rem ; color:#666; }
+.fotHeight{height:0.14rem;}
+/*美食详情 MeiShiDetail.html  样式 结束*/
+a:link,a:visited,a:active{color:#000;}
+
+
+
+

@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsp弹出框</title>
+</head>
+<body>
+<h1>jsp弹出框</h1>
+<br /><br /><br />
+<button class="btn1" >点我显示</button>
+<br /><br /><br />
+<button class="btn2" >点我居中显示</button>
+
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".btn1").click(function(){
+        window.open("pages.html","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=1020, height=600,top=100,left=100");
+
+//参数：可参考http://www.runoob.com/jsref/met-win-open.html
+
+    });
+
+    $(".btn2").click(function(){
+
+        //设置居中
+        var wl = ($(window).width()-1020)/2;
+        window.open("pages.html","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=1020, height=600,top=100,left="+wl);
+
+//参数：可参考http://www.runoob.com/jsref/met-win-open.html
+
+    })
+</script>
+</body>
+</html>

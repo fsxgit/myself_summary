@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这里目前比较使用的是框架写法</title>
+    <link rel="stylesheet" href="css/style2.css"/>
+    <style>
+        *{margin:0; padding:0;}
+        .header{
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 11;
+            min-width: 960px;
+            height: 100px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            background: #3B3B3B;
+            _position: absolute;
+            _width: 100%;
+        }
+        .left{
+            position: absolute;
+            top: 100px;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            width: 100px;
+            background: #f91315;
+            _height: 100%;
+        }
+        .iframe-box{
+            position: absolute;
+            top:100px;
+            left: 100px;
+            bottom: 0;
+            right:0;
+            min-width: 920px;
+        }
+        .iframe-box iframe{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--top -->
+<div class="header">
+    <div class="main">
+        <span>首页</span>
+        <span>产品</span>
+        <span>关于</span>
+        <span>电话</span>
+        <span>城市</span>
+        <div class="sel-box">
+            分类
+            <div class="sel-item">
+                <p>手机</p>
+                <p>电脑</p>
+                <p>电视</p>
+                <p>洗衣机</p>
+                <p>电饭锅</p>
+                <p>电磁炉</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--top end-->
+<!--left nav-->
+<div class="left">
+    <p><a href="1.html" target="myFrame" >手机</a></p>
+    <p><a href="2.html" target="myFrame" >电脑</a></p>
+    <p><a href="3.html" target="myFrame" >电视</a></p>
+    <p><a href="4.html" target="myFrame" >洗衣机</a></p>
+    <p><a href="5.html" target="myFrame" >电饭锅</a></p>
+    <p><a href="6.html" target="myFrame" >电磁炉</a></p>
+</div>
+<!--left nav end-->
+<!--content 这里是存放内容的盒子，即需要改变的地方-->
+<div class="iframe-box">
+    <iframe name="myFrame" src="http://www.baidu.com" frameborder="0" ></iframe>
+</div>
+<!--content end-->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".sel-box").hover(function(){
+        $(".sel-item").slideDown("slow");
+    },function(){
+        $(".sel-item").slideUp("slow");
+    })
+</script>
+</body>
+</html>

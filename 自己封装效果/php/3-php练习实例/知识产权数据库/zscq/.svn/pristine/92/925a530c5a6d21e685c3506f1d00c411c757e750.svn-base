@@ -1,0 +1,87 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/css/slb.css"/>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+		<li class="active"><a>已查询详情页</a></li>
+		<li><a href="{:U('Bselect/already')}">已查询列表</a></li>
+    </ul>
+<div class="sl-xq main">
+    <div class="sl-yuan">订单来源：PC</div>
+    <div class="sl-logo oh">
+        <div class="img fl mr20 mt20"><img src="{$r.markpicture}" alt=""/></div>
+        <div class="img-txt fl mt20">
+            <p>商标名称：{$r.markname}</p>
+            <p>查询方式：自主选择类别</p>
+            <p>行业分类：{$r.industry}</p>
+        </div>
+        <div class="txt fl">
+            <p class="sl-tit oh"><span class="fl c009">商标主体信息</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fr">创建时间：{$r.addtime}</span></p>
+            <p><span class="tit">公司名称：</span>{$s.companyname}</p>
+            <p><span class="tit">公司地址：</span>{$d.dom}</p>
+            <p><span class="tit">联系人：</span>{$s.linkman}</p>
+            <p><span class="tit">联系电话：</span>{$s.phone}</p>
+        </div>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">所选查询分类</span>
+    </div>
+    <div class="sl-cont">
+        <div class="lei-mode">
+			<foreach name="nicecalss" item="v">
+            <h1>第{$v.id}类 {$v.name}</h1>
+			<foreach name="v.items" item="vo">
+            <div class="lei-box">
+				<foreach name="vo.items" item="vv">
+                <div class="lei"><span class="name">{$vv.code} {$vv.name}</span></div>
+				</foreach>
+            </div>
+			</foreach>
+			</foreach>
+        </div>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">服务顾问</span>
+    </div>
+    <div class="sl-cont">
+        <div class="img fl mr20 mt20"><img src="public/img/img2.png" alt=""/></div>
+        <div class="img-txt fl mr40 mt20">
+            <p class="name">{$g.consultantname}</p>
+            <p>{$g.consultantmobile}</p>
+        </div>
+    </div>
+    <div class="sl-tit">
+        <span class="c009">查询结果&nbsp;<font color="red">查询时间：{$r.addtime}   结果反馈时间：{$r.endtime}  共用时{$mins}分{$secs}秒</font></span>
+    </div>
+    <div class="sl-cont">
+		可注册分类
+        <div class="lei-mode">
+			<foreach name="nicecalss1" item="v">
+            <h1>第{$v.id}类 {$v.name}</h1>
+			<foreach name="v.items1" item="vo">
+            <div class="lei-box">
+				<foreach name="vo.items1" item="vv">
+                <div class="lei"><span class="name">{$vv.code} {$vv.name}</span></div>
+				</foreach>
+            </div>
+			</foreach>
+			</foreach>
+        </div>
+		顾问推荐注册分类
+        <div class="lei-mode">
+			<foreach name="nicecalss2" item="v">
+            <h1>第{$v.id}类 {$v.name}</h1>
+			<foreach name="v.items2" item="vo">
+            <div class="lei-box">
+				<foreach name="vo.items2" item="vv">
+                <div class="lei"><span class="name">{$vv.code} {$vv.name}</span></div>
+				</foreach>
+            </div>
+			</foreach>
+			</foreach>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html> 

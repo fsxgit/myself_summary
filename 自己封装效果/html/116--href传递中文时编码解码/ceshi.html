@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>href传递参数值为中文时乱码的解决方法</title>
+</head>
+<body>
+<h1>这个页面接受传递过来的参数，先接收，再解码！</h1>
+
+
+<script>
+    var href= location.href;
+    var gadgetName = href.substring(href.indexOf("gdname=")+7,href.indexOf("&gdid="));
+    alert("未转码："+gadgetName);
+    gadgetName = decodeURI(gadgetName);
+   alert("转码后："+gadgetName);
+</script>
+</body>
+</html>

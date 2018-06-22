@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟小米官网文本框输入</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{background: #f5f5f5;font-family: "hiragino sans gb", "Microsoft YaHei", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+        i,em{font-style: normal;}
+        h1{font-size:100%;font-weight:normal;;}
+        input,button{background: none; border: none; outline: none;}
+        #box{width:320px; height:258px; margin:40px auto;}
+        #name,#password{width:320px; height:46px; background: #fff; position: relative;}
+        #name i{font-size: 12px; position: absolute; left:10px; top:16px; background: url("images/wrong.png")no-repeat 0 0; padding-left: 26px; color:#ff7a4d; display: none;}
+        #name i.case2{}
+        #nameTxt,#passwordTxt{border:1px solid #e6e6e6; padding:12px 10px; width:298px; height:20px; font-size: 14px; color:#333;}
+        #password{margin-top: 16px;}
+        #milogin{position: relative; padding-top: 124px;}
+        #TxtBox{padding-bottom: 16px; position: absolute; left:0 ;top:0;}
+        #btn{width:320px; height:44px; line-height: 44px; font-size: 16px; color:#fff; background:#ff7a4d; text-align: center; cursor:pointer;}
+        #forgetPass{width:320px; height:20px; padding-top: 16px; text-align: right; font-size: 12px; color:#999; cursor: pointer;}
+        #regist{width:320px; height:44px; line-height: 44px; font-size: 14px; color:#7c7c7c; background:#fff; text-align: center; border: 1px solid #e5e5e5; cursor:pointer; margin-top:10px;}
+        #header{text-align: center; width: 100%; height:auto;}
+        #header h1{font-size: 24px; font-weight: bold; margin-top: 30px;}
+        #span{font-size: 12px; text-align: right;  margin-top:20px;padding-right: 20px; color:#8d8d8d; padding-bottom: 30px;}
+        #span span{cursor:pointer;}
+        .animation
+        {
+            animation: myfirst 0.3s;
+            -webkit-animation: myfirst 0.3s; /* Safari and Chrome */
+        }
+        @keyframes myfirst
+        {
+            20%{left:10px;}
+            40% {left:-10px;}
+            60%{left:5px;}
+            80% {left:-5px;}
+            100%{left:0px;}
+        }
+
+        @-webkit-keyframes myfirst /* Safari and Chrome */
+        {
+            20%{left:10px;}
+            40% {left:-10px;}
+            60%{left:5px;}
+            80% {left:-5px;}
+            100%{left:0px;}
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="header">
+            <span class="logo"><img src="images/void(0).png" alt=""/></span>
+            <h1>一个账号 , 玩转所有小米服务!</h1>
+            <p id="span"><span>小米手机</span> , <span>小米网</span> , <span>MIUI米柚</span> , <span>多看阅读</span> , <span>米聊</span></p>
+        </div>
+        <form method="post" action="" onsubmit="" id="milogin">
+            <div id="TxtBox">
+                <div id="name">
+                    <input type="text" id="nameTxt"  placeholder="邮箱/手机号码/小米账号"/>
+                    <i class="case1">用户名不正确</i>
+                    <i class="case2">用户名或密码不正确</i>
+                </div>
+                <div id="password">
+                    <input type="text" id="passwordTxt" placeholder="密码"/>
+                </div>
+            </div>
+
+            <input type="button" id="btn" value="立即登录"/>
+            <div id="forgetPass"><span>以其他方式登录</span> | <span>忘记密码?</span></div>
+            <input type="button" id="regist" value="注册小米账号"/>
+        </form>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        var $span = $("span");
+        var $regist = $("#regist");
+        var $btn = $("#btn");
+        var $TxtBox = $("#TxtBox");
+        var $nameTxt = $("#nameTxt");
+        var $passwordTxt = $("#passwordTxt");
+        var $case2 = $(".case2");
+        var timer = null;
+
+        $span.each(function(){
+            $(this).hover(function(){
+                $(this).css("color","#ff7a4d")
+            },function(){
+                $(this).css("color","#7c7c7c")
+            })
+        })
+        $regist.hover(function(){
+            $(this).css("color","#000")
+        },function(){
+            $(this).css("color","#7c7c7c")
+        })
+        $btn.hover(function(){
+            $(this).css("backgroundColor","#FDA67C")
+        },function(){
+            $(this).css("backgroundColor","#ff7a4d")
+        })
+//        输入框左右抖动
+//        $btn.click( function(){
+//                    $TxtBox.addClass("animation");
+//                    setTimeout(function(){
+//                        $TxtBox.removeClass("animation");
+//                    },500)
+//                })
+//        逻辑判断
+        $btn.click(function(){
+            if($nameTxt.val() === "" || $passwordTxt.val() === ""){
+                $TxtBox.addClass("animation");
+                setTimeout(function(){
+                    $TxtBox.removeClass("animation");
+                },500)
+            }else if ($nameTxt.val() != "18238800887" || $passwordTxt.val() != "123456"){
+                $case2.show();
+                $nameTxt.val(" ");
+                setTimeout(function(){
+                    $case2.hide();
+                    $nameTxt.val("");
+                },1000)
+            }else if($nameTxt.val() === "18238800887" || $passwordTxt.val() === "123456"){
+//                alert("hello,欢迎来到盘丝洞!");
+                location.href='http://www.woyaoxunpai.com';
+            }
+        })
+//        注册跳转
+        $regist.click(function(){
+            window.open("http://account.xiaomi.com/pass/register?callback=http%3A%2F%2Forder.mi.com%2Flogin%2Fcallback%3Ffollowup%3Dhttp%253A%252F%252Fwww.mi.com%252Findex.html%26sign%3DNDRhYjQwYmNlZTg2ZGJhZjI0MTJjY2ZiMTNiZWExODMwYjkwNzg2ZQ%2C%2C&sid=mi_eshop")
+        })
+    </script>
+</body>
+</html>

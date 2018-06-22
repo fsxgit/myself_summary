@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>下载资料</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/search.css"/>
+    <style>
+	.xia-zai-alert{display:block;}
+        .xz-beian p{margin-bottom: 10px;}
+        .xz-beian .bd-tit{display: inline-block; font-size: 12px; height: 34px; line-height: 34px;}
+        .xz-beian input{width:270px; padding-left: 10px;  font-size: 12px; height: 32px; line-height: 32px; border: 1px solid #ccc; border-radius: 4px;}
+        .xz-beian .lei-xk{}
+        .xz-beian .lei-xk{width:52px; display: inline-block; padding-left:24px; background: url("public/html/images/yn.png") no-repeat 0 center; margin-right: 20px; cursor: pointer;}
+        .xz-beian .lei-xk.active{background: url("public/html/images/y.png") no-repeat 0 center;}
+        .choose-xk{display: inline-block; padding-left:20px; background: url("public/html/images/y1.png") no-repeat 0 center; cursor: pointer; height: 24px; line-height: 26px;}
+        .choose-xk.active{background: url("public/html/images/yn1.png") no-repeat 0 center;}
+        .xk-qixian .date{width: 120px;}
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <!--商标详情弹出框4 --->
+    <div class="c-tan-cont xia-zai-alert bc">
+        <div class="c-tan-top oh">
+            <div class="c-tan-Title fl">请根据要求下载资料</div>
+            <div class="c-tan-close fr"><img src="public/html/images/close.png" class="img1" width="12" height="12" alt=""/><img src="public/html/images/closel.png" class="img2" width="12" height="12" alt=""/></div>
+        </div>
+        <!--弹出框需要修改的部分-->
+        <div class="c-alert-center">
+            <div class="ziliao oh">
+                <p class="pb10"><span class="c999 mr10">资料</span><span class="fc1 cp">全部下载</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span><span class="fc1 fr cp">下载</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span><span class="fc1 fr cp">下载</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span></p>
+                <p><span class="fl mb5">1、加盖公章的《转让转移申请注册申请书》原件 一份</span></p>
+            </div>
+        </div>
+        <!--弹出框需要修改的部分 end-->
+        <div class="c-tan-bot bc">
+            <input type="button" class="btn-qu write-big-btn" value="取消"/>
+            <input type="submit" class="btn-ding alert-sure" value="确定"/>
+        </div>
+    </div>
+    <!--商标详情弹出框4 end-->
+</div>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script src="public/html/js/js.js"></script>
+<script>
+
+$(function(){
+var oBox = $(".xia-zai-alert"); //弹出框
+    var oClose = $(".c-tan-close"); //关闭弹出框按钮
+    var oSure = $(".alert-sure");  //弹出框确定按钮
+    var oXiao = $(".btn-qu");  //弹出框确定按钮
+
+    var wW = $(window).width();
+    var wH = $(window).height();
+    var oW = oBox.width();
+    var oH = oBox.height();
+
+    var L = (wW - oW)/2;
+    var T = (wH - oH)/2;
+    oBox.css({"left":L,"top":T});
+    oBox.fadeIn();
+    oShadow.show();})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生js复制功能</title>
+</head>
+<body>
+<h1>原生js复制功能</h1>
+<div>
+	<button class="copy">交换机代课教师</button>
+	<input type="text" id="input" value="复制我">
+</div>
+<script src="jquery.js"></script>
+<script>
+	//【1】复制input值
+	$(".copy").click(function(){
+		var Url2=document.getElementById("input");
+		Url2.select(); // 选择对象
+		document.execCommand("Copy"); // 执行浏览器复制命令
+		alert("已复制好，可贴粘。");
+	})
+</script>
+</body>
+</html>

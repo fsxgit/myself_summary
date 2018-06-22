@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+
+.box{
+	width:350px;
+	height:350px;
+	border-radius:50%;
+	left:100px;
+	top:100px;
+	position:absolute;
+	border:10px solid #CC6699;
+
+	
+}
+
+@-webkit-keyframes test{
+	form{transform:rotate(0deg)}
+	to{transform:rotate(360deg)}
+}
+
+.box2{
+	float:left;
+	width:350px;
+	height:350px;
+	border-radius:50%;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-image:url(3.jpg);
+	display:block;
+	-webkit-animation:60s test linear infinite;
+	
+}
+
+.box div{ transform-origin:center bottom;}
+.cap{
+	width:30px;
+	height:30px;
+	border-radius:50%;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-15px;
+	margin-top:-15px;
+	background:-webkit-radial-gradient(#CCCCCC,#FF0099);
+	z-index:5;
+}
+.Hou{
+	width:16px;
+	height:100px;
+	background-color:#000;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-8px;
+	margin-top:-100px;
+	border-radius:50% 50% 0 0 ;
+	z-index:5;
+}
+
+.Min{
+	width:10px;
+	height:130px;
+	background-color:#000;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-5px;
+	margin-top:-130px;
+	border-radius:50% 50% 0 0 ;
+	z-index:5;
+}
+
+.Sec{
+	width:4px;
+	height:150px;
+	background-color:red;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-2px;
+	margin-top:-150px;
+	border-radius:50% 50% 0 0 ;
+	z-index:5;
+}
+.scale{ width:2px; height:10px; background:#00CC99; position:absolute; left:50%; margin-left:-1px; transform-origin:center 175px;}
+.biglong{ width:4px; height:15px; background:#333366; position:absolute; left:50%; margin-left:-1px; transform-origin:center 175px;}
+.biglong strong{ margin-top:20px; position:absolute; left:50%; margin-left:-50px; width:100px; text-align:center; font-size:20px; color:#FF6699;}
+
+</style>
+
+
+<script>
+	window.onload = function(){
+		var Hou = document.querySelector(".Hou");
+		var Min = document.querySelector(".Min");
+		var Sec = document.querySelector(".Sec");
+		var oBox = document.querySelector('.box');
+		
+		
+		
+		//描绘刻度
+		
+		var N = 60;
+		for(var i = 0;i<N;i++){
+			var oSpan = document.createElement("span");
+			
+			if(i%5 == 0){
+				oSpan.className='biglong';	
+				var n=i/5==0?12:i/5;	
+				oSpan.innerHTML='<strong>'+n+'</strong>';
+				oSpan.children[0].style.transform='rotate('+-i*6+'deg)';	
+			}else{
+				oSpan.className='scale';	
+			}
+			oSpan.style.transform = 'rotate('+i*6+'deg)';
+			oBox.appendChild(oSpan);
+		}
+		
+		
+		function clock(){
+			var oDate = new Date();
+			var h = oDate.getHours();
+			var m = oDate.getMinutes();
+			var s = oDate.getSeconds();
+			var ms = oDate.getMilliseconds();
+			
+			//获取小时 度数  360 /12
+			Hou.style.transform = 'rotate('+(h*30+m/60*30)+'deg)';
+			//获取分钟 度数  360/60
+			Min.style.transform = 'rotate('+(m*6+s/60*6)+'deg)';
+			//获取秒 度数  360/60	
+			Sec.style.transform = 'rotate('+(s*6+ms/1000*6)+'deg)';
+		}
+		
+		clock();
+		setInterval(clock,30);
+		//拖拽
+		var x = 0;
+		var y = 0;
+		
+		oBox.onmousedown = function(ev){
+			var disx = ev.clientX - x;
+			var disy = ev.clientY - y;
+			
+			document.onmousemove = function(ev){
+				x = ev.clientX - disx;
+				y = ev.clientY - disy;
+				oBox.style.transform = 'translate('+x+'px,'+y+'px)';
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;	
+			}
+			
+			return false;
+		}
+		
+		
+		
+		
+	}
+	
+</script>
+
+
+<body>
+	<div class="box">
+        <div class="Hou"></div>
+        <div class="Min"></div>
+        <div class="Sec"></div>
+        <div class="cap"></div> 
+        <span class="box2"> </span>
+    </div>
+</body>
+</html>

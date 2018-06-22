@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            border: solid red 1px;
+        }
+        .mdiv{
+            width: 171px;
+            height: 134px;
+            line-height: 134px;
+            background: no-repeat url("images/author.jpg");
+            text-align: center;
+        }
+        .mspan{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="mdiv" state="1"><span class="mspan">内容1</span></div>
+<!--下面2个url里放另外的图片url 记得用单引号引起来-->
+<div class="mdiv" state="1" style="background: url('7.jpg') no-repeat"><span class="mspan">内容2</span></div>
+<div class="mdiv" state="1" style="background: url('8.jpg') no-repeat"><span class="mspan">内容3</span></div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var div = $('.mdiv');
+    var span = $('.mspan')
+    var isFirst = true;
+    div.click(function(){
+       var index = $(this).index();
+        var state = $(this).attr('state');
+        console.log(state)
+        if(state=='1'){
+            div=$(this);
+            div.css({"transformStyle":"preserve-3d","-webkitTransform":"rotateY(90deg)", "-webkitTransition":"all 0.6s"});
+            setTimeout(function(){
+                $(span[index]).show();
+                $(span[index]).css({'transform':'rotateY(180deg)','display':'block'});
+                console.log(div)
+                $(div).css('background','none')
+            },700);
+            setTimeout(function(){
+                div.css({"transformStyle":"preserve-3d","-webkitTransform":"rotateY(180deg)", "-webkitTransition":"all 0.6s"});
+            },800);
+            $(this).attr('state','0');
+        }
+
+    });
+</script>
+</body>
+</html>

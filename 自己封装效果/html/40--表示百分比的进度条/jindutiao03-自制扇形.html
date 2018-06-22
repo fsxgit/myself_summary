@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .circleProgress_wrapper{
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+        position: relative;
+        border:1px solid #ddd;
+    }
+    .wrapper{
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        left:0;
+        overflow: hidden;
+    }
+    .top{
+        top:0;
+    }
+    .bot{
+        bottom:0;
+    }
+    .circleProgress3{
+        width: 160px;
+        height: 160px;
+        border:20px solid transparent;
+        border-radius: 50%;
+        position: absolute;
+        left:0;
+        /*-webkit-transform: rotate(315deg);*/
+    }
+    .topcircle{
+        border-top:20px solid green;
+        border-right:20px solid #ff0cd4;
+        top:0;
+    }
+    .botcircle{
+        border-bottom:20px solid green;
+        border-left:20px solid #0c0eff;
+        bottom:0;
+    }
+
+
+</style>
+<body>
+<!--3.随意圆形进度条-->
+<div class="circleProgress_wrapper">
+    <div class="wrapper top">
+        <div class="circleProgress3 topcircle"></div>
+    </div>
+    <div class="wrapper bot">
+        <div class="circleProgress3 botcircle"></div>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var m = 0;
+    jindu();
+    setInterval(function(){
+        m++;
+        jindu();
+    },100);
+    function jindu(){
+        var tpDg = 135;
+        var btDg = 135;
+        if(m<=180){
+            tpDg = m + 135;
+            btDg = 135;
+        }else if(180<m<360){
+            tpDg = 315;
+            btDg = (m-180) + 135;
+        }
+        $(".topcircle").css({"-webkit-transform":"rotate("+tpDg+"deg)"})
+        $(".botcircle").css({"-webkit-transform":"rotate("+btDg+"deg)"})
+    }
+
+</script>
+</body>
+</html>
+<!--
+top     bottom    位置
+135     495         0
+315     315         满
+135     495         0
+135     495         0
+135     495         0
+
+-->

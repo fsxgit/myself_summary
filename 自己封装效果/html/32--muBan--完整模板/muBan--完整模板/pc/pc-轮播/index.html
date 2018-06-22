@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/gua.css"/>
+</head>
+<body>
+<div class="box">
+    <!--头部 导航 开始i-->
+    <div class="main oh navbox">
+        <div class="logo fl"><a href="index.html"><img src="images/logo_gua.png" width="167" height="50" alt=""/></a></div>
+        <div class="fr">
+          <a href="javascript:;">关于农翼</a>
+        </div>
+    </div>
+    <!--头部 导航 结束-->
+    <!--banner 轮播  开始-->
+    <div class="swiper-container swiper-container-banner Index">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slideBg1">
+                <div class="main">
+                    <img src="images/ma.png" width="358" height="341"  alt=""/>
+                </div>
+            </div>
+
+            <div class="swiper-slide swiper-slideBg2">
+                <div class="main">
+                    <img src="images/ma.png" width="358" height="341"  alt=""/>
+                </div>
+            </div>
+
+            <div class="swiper-slide swiper-slideBg3">
+                <div class="main">
+                    <img src="images/ma.png" width="358" height="341"  alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <!--banner 轮播  结束-->
+    <!--图片展览 开始-->
+    <div class="imgShow">
+        <div class="showMode mode1">
+            <p class="name">飞防植保</p>
+            <p class="more"><a href="javascript:;">了解更多</a></p>
+        </div>
+        <div class="showMode mode2">
+            <p class="name">农机服务</p>
+            <p class="more"><a href="javascript:;">了解更多</a></p>
+        </div>
+        <div class="showMode mode3">
+            <p class="name">服务网络</p>
+            <p class="more"><a href="javascript:;">了解更多</a></p>
+        </div>
+        <div class="showMode mode4">
+            <p class="name">培训学校</p>
+            <p class="more"><a href="javascript:;">了解更多</a></p>
+        </div>
+    </div>
+    <!--图片展览 结束-->
+    <!--footer 开始-->
+    <div class="footer tc">
+        Copyright©  呱呱农服  2016  All Rights Reserved  京ICP备14033257号
+    </div>
+    <!--footer 结束-->
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script>
+    bannerSwipe();
+    function bannerSwipe(){
+        var mySwiperBanner = new Swiper('.swiper-container-banner', {
+            autoplay: 3000,//可选选项，自动滑动
+            effect : 'fade',
+            pagination : '.swiper-pagination',
+            speed:1000,
+            fade: {
+                crossFade:true
+            },
+            paginationClickable :true,
+            autoplayDisableOnInteraction : false
+        })
+        $(".swiper-container-banner").hover(function(){
+            mySwiperBanner.stopAutoplay();
+        },function(){
+            mySwiperBanner.startAutoplay();
+        });
+    }
+</script>
+</body>
+</html>

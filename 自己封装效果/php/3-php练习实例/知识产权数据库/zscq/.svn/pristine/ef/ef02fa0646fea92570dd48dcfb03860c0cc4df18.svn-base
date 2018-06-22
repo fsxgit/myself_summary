@@ -1,0 +1,727 @@
+<?php
+namespace Portal\Controller;
+use Common\Controller\CommonController;
+header("content-type:text/html;charset=utf-8");
+class BrandController extends CommonController {
+		/*
+	*  商标预览图片
+	*/
+	function preview(){
+		$str = I('post.markname'); 
+        $sum = mb_strlen($str,"utf-8");
+		$url = "public/shagnbiao_logo/".md5($str).createKey(time()).".jpg";
+        if($sum>20){
+            echo 1;die;
+        }
+		$fontarea = ImageTTFBBox(15,0,"C:\windows\Fonts\simhei.ttf",$str);
+		$width = $fontarea['2']+43;
+		$im = imagecreate($width,200);
+		$white = imagecolorallocate($im,0xFF,0xFF,0xFF);//图片大小和颜色
+		imagecolortransparent($im,$white);
+		$black = imagecolorallocate($im,0x00,0x00,0x00);
+		imagettftext($im,15,0,20,105,$black,"C:\windows\Fonts\simhei.ttf",$str);
+		header("Content-type:image/jpg");
+		imagejpeg($im,$url);
+		echo $url;die;
+	}
+	/**
+	* 上传图片
+	*/
+	function sheng(){
+		$img = I('post.img'); 
+        $url = "public/shagnbiao_logo/".md5($img).createKey(time()).".jpg";
+		if(preg_match('/^(data:\s*image\/(\w+);base64,)/', $img, $result)){
+		$image_name = uniqid().'.jpg';
+        $image_file = "./upload/test/{$image_name}";
+        //服务器文件存储路径
+        file_put_contents($url,base64_decode(str_replace($result[1],'',$img)));
+         echo $url;die; 
+	    }
+	}
+	/*
+	*	 商标管理 注册中
+	*/
+	function brand_lst(){
+		//var_dump($_POST);
+		$name = I("name");
+		$type = I("type");
+		$state = I("state");
+		$p = I("p");
+		if($p==""){
+			$p=0;
+		}else{
+			$p = $p-1;
+		}
+		$size = $p*10;
+		$where = " 1 ";
+		if($state!=""){
+			$where.=" and state=".$state;
+			$con.="&state=".$state;
+		}if($type!=""){
+			$where.=" and source=".$type;
+			$con.="&source=".$type;
+		}if($name!=""){
+			$where.=" and markname like '%$name%'";
+			$con.="&name=".$name;
+		}
+		$count = M("mark")->where("$where and markstate=1")->count();
+		$totalpage = ceil($count/10);
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=1")->limit("$page->firstRow,$page->listRows")->order("id desc")->select();
+
+		$this->assign("size",$size);
+		$this->assign("count",$count);
+		$this->assign("totalpage",$totalpage);
+		$this->assign("name",$name);
+		$this->assign("type",$type);
+		$this->assign("state",$state);
+		$this->assign('res',$res);
+		$this->assign("page",$page->show("portal",$con));
+		$this->display();
+	}
+	//已注册
+	function brand_already_lst(){
+		//var_dump($_POST);
+		$name = I("name");
+		$type = I("type");
+		$state = I("state");
+		$p = I("p");
+		if($p==""){
+			$p=0;
+		}else{
+			$p = $p-1;
+		}
+		$size = $p*10;
+		$where = " 1 ";
+		if($state!=""){
+			$where.=" and state=".$state;
+			$con.="&state=".$state;
+		}if($type!=""){
+			$where.=" and source=".$type;
+			$con.="&source=".$type;
+		}if($name!=""){
+			$where.=" and markname like '%$name%'";
+			$con.="&name=".$name;
+		}
+		$count = M("mark")->where("$where and markstate=0")->count();
+//		echo M("mark")->getlastsql();
+		$totalpage = ceil($count/10);
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=0")->limit("$page->firstRow,$page->listRows")->order("id desc")->select();
+
+		$this->assign("size",$size);
+		$this->assign("count",$count);
+		$this->assign("totalpage",$totalpage);
+		$this->assign("name",$name);
+		$this->assign("type",$type);
+		$this->assign("state",$state);
+		$this->assign('res',$res);
+		$this->assign("page",$page->show("portal",$con));
+		$this->display();
+	}
+	//注册失败
+	function brand_fail(){
+		//var_dump($_POST);
+		$name = I("name");
+//		$type = I("type");
+//		$state = I("state");
+		$p = I("p");
+		if($p==""){
+			$p=0;
+		}else{
+			$p = $p-1;
+		}
+		$size = $p*10;
+		$where = " 1 ";
+		if($name!=""){
+			$where.=" and pay=".$pay;
+			$con.="&pay=".$pay;
+		}
+		$count = M("mark")->where("$where and markstate=2")->count();
+		$totalpage = ceil($count/10);
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=2")->limit("$page->firstRow,$page->listRows")->order("id desc")->select();
+
+		$this->assign("size",$size);
+		$this->assign("count",$count);
+		$this->assign("totalpage",$totalpage);
+		$this->assign("name",$name);
+		
+		$this->assign('res',$res);
+		$this->assign("page",$page->show("portal",$con));
+		$this->display();
+	}
+	//已无效
+	function brand_no(){
+		//var_dump($_POST);
+		$name = I("name");
+//		$type = I("type");
+//		$state = I("state");
+		$p = I("p");
+		if($p==""){
+			$p=0;
+		}else{
+			$p = $p-1;
+		}
+		$size = $p*10;
+		$where = " 1 ";
+		if($name!=""){
+			$where.=" and pay=".$pay;
+			$con.="&pay=".$pay;
+		}
+		$count = M("mark")->where("$where and markstate=3")->count();
+		$totalpage = ceil($count/10);
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=3")->limit("$page->firstRow,$page->listRows")->order("id desc")->select();
+		$this->assign("size",$size);
+		$this->assign("count",$count);
+		$this->assign("totalpage",$totalpage);
+		$this->assign("name",$name);
+	
+		$this->assign('res',$res);
+		$this->assign("page",$page->show("portal",$con));
+		$this->display();
+	}
+	//商标详情
+	public function brand_detail(){
+		$zhu = I("zhuce");
+		$id = I("id");//商标id
+		$res = M("mark")->where("id=$id")->find();
+	//	var_dump($res);
+		$name = $res["entname"];
+		$r = M("enterprise")->where("entname='$name'")->field("dom")->find();
+		$res["dom"] = $r["dom"];
+		$res["begindate"] = str_replace("-", ".",$res["begindate"]);
+		$res["appdate"] = str_replace("-", ".",$res["appdate"]);
+		$res["checkdate"] = str_replace("-", ".",$res["checkdate"]);
+		$res["regdate"] = str_replace("-", ".",$res["regdate"]);
+		$res["enddate"] = str_replace("-", ".",$res["enddate"]);
+		$arr = explode("；",$res["typedetaildes"]);
+		
+		$uid = $res["customerid"];
+		$re = M("user")->where("id='$uid'")->find();
+		
+		$res["linkman"] = $re["linkman"];
+		$res["phone"] = $re["phone"];
+        $nice = M("nice_first")->where("id in({$res['registetype']})")->select();
+		if($res['orderid']!=''){
+			$order = M("zcorder")->where("orderid={$res['orderid']}")->find();
+			$state = M("mark_state")->where("orderid={$res['orderid']}")->find();
+		}
+		//json($state);
+		//顾问
+		$gu = M("adviser")->where("customerid=$uid")->find();
+	//	var_dump($gu);
+		$this->assign("gu",$gu);
+		$this->assign("zhu",$zhu);
+		$this->assign("arr",$arr);
+		$this->assign("res",$res);
+		$this->assign("nice",$nice);
+		$this->assign("order",$order);
+		$this->assign("state",$state);
+		$this->display("brand_detail2");
+	}
+	//转让
+	public function zhuan(){
+		$id = I("id");
+		$zhu = I("zhu");
+		$res = M("mark")->where("id='$id'")->find();
+		$this->assign("id",$id);
+		$this->assign("zhu",$zhu);
+		$this->assign("res",$res);
+		$this->assign("name",$res["entname"]);
+		$this->display();
+	}
+	//变更
+	public function geng(){
+		$id = I("id");
+		$res = M("mark")->where("id='$id'")->find();
+		$this->assign("id",$id);
+		$this->assign("res",$res);
+		$this->assign("name",$res["entname"]);
+		$this->display();
+	}
+	//续展
+	public function xuzhan(){
+		$id = I("id");
+		$res = M("mark")->where("id='$id'")->find();
+		$this->assign("id",$id);
+		$this->assign("res",$res);
+		$this->assign("name",$res["entname"]);
+		$this->display("zhan");
+	}
+	//备案
+	public function beian(){
+		$id = I("id");
+		$res = M("mark")->where("id='$id'")->find();
+		$this->assign("id",$id);
+		$this->assign("res",$res);
+		$this->assign("name",$res["entname"]);
+		$this->display();
+	}
+	//资料列表
+	public function ziliao(){
+		$id = I("id");
+		$res = M("mark")->where("id='$id'")->find();
+		$this->assign("id",$id);
+		$this->assign("res",$res);
+		$this->assign("name",$res["entname"]);
+		$this->display();
+	}
+
+
+
+	/**
+	*  请求尼斯分类接口按照级别查询
+	*/
+	function nice_level(){	
+		$code = I('post.code');
+	    $arr['a'] = M("nice_first")->where("id={$code}")->field("describe",true)->find();
+		$a['b'] = M("nice_first")->where("code={$arr['a']['pid']}")->field("describe",true)->find();
+		$arr['b'] = M("nice_first")->where("code={$a['b']['pid']}")->field("describe",true)->find();
+		echo json_encode($arr);
+	}
+	/*
+	*    商标查询
+	*/
+	function brand_query(){
+		if($_POST){
+			$user_id = $_COOKIE['zsid'];
+			$user = M("user")->where("id = {$user_id}")->find();
+			$arr = $_POST;
+			$arr['markpicture'] = $arr['image'];
+			unset($arr['image']);
+			$arr['customerid'] = $user['id'];
+			$arr['customername'] = $user['loginname'];
+			$arr['customermobile'] = $user['phone'];
+			$arr['addtime'] = time();
+			$time = date("YmdHis");
+			$arr['number'] = "c".$time.rand(100000,999999);
+			if($arr['type']=='3'){
+				$nice = M("nice_first")->where("id in({$arr['str']})")->field("describe,level",true)->select();
+				$two = array();
+				foreach($nice as $k=>$v){
+					if(!in_array($v['pid'], $two)){
+						$two[] = $v['pid'];
+					}
+				}
+				$two = implode(',',$two); 
+				$nicef = M("nice_first")->where("code in($two)")->field("describe,level",true)->select();
+				$one = array();
+				foreach($nicef as $k=>$v){
+					if(!in_array($v['pid'], $one)){
+						$one[] = $v['pid'];
+					}
+					foreach($nice as $ks=>$vs){
+						if($v['code']==$vs['pid']){
+							$nicef[$k]['items'][] = $vs;
+						}
+					}
+				}
+				$one = implode(',',$one);
+				$nicecalss = M("nice_first")->where("code in($one)")->field("describe,level",true)->select();
+				foreach($nicecalss as $k=>$v){
+					foreach($nicef as $ks=>$vs){
+						if($v['code']==$vs['pid']){
+							$nicecalss[$k]['items'][] = $vs;
+						}
+					}
+				}
+				
+				$str2 = explode(',',$arr['str2']);
+				foreach($str2 as $k=>$v){
+					foreach($nicecalss as $ko=>$vo){
+					     if($v==$vo['id']){
+							 $newnice[] = $vo;
+						 }
+				    }
+				}
+				foreach($newnice as $k=>$v){
+					foreach($v['items'] as $ks=>$vs){
+					    foreach($vs['items'] as $ko=>$vo){
+					       $query[] = $vo['id'];
+				        }
+				    }
+				}
+				$arr['querytype'] = implode(',',$query);
+			}
+			if($arr['type']=='1'){
+			/**
+			 智能推荐的代码
+			**/
+			}
+			/*
+			如果没有顾问则请求顾问接口分配顾问
+			*/
+			if($user['companyname']==''){
+				$user['companyname']=='';
+			}
+			if($user['adviser']=='0'){
+				$data = array(
+				              "customerid"=>$user['id'],
+							  "customername"=>$user['loginname'],
+							  "customermobile"=>$user['phone'],
+							  "customerentname"=>$user['companyname']
+				              );
+				$guwen = request_api_xt("intel_property/auto_fenpei_guwen",$data);
+				M("adviser")->add($guwen['data']);
+				M("user")->where("id = {$user['id']}")->save(array('adviser'=>'1'));
+			
+			}
+		   $guwenadviser = M("adviser")->where("customerid={$user['id']}")->find(); 
+			/*
+			   查询单传送至协同顾问端开始
+			*/
+			$fenpei_guwen = array(
+				                 "customerid"=>$user['id'],
+						         "customername"=>$user['loginname'],
+						         "customermobile"=>$user['phone'],
+							     "customerentname"=>$user['companyname'],
+								 "markname"=>$arr['markname'],
+								 "markpicture"=>"zscq.zai0312.com/".$arr['markpicture'],
+								 "querytype"=>$arr['str'],
+								 "consultantid"=>$guwenadviser['consultantid'], 
+								 "query_no"=>$arr['number']
+				              );
+		    request_api_xt("intel_property/chaxundan_submit",$fenpei_guwen);
+			/*
+			   查询单传送至协同顾问端结束
+			*/
+			$id = M("inquire")->add($arr);
+			M("user")->where("id = {$user_id}")->setInc('chasum');
+			echo $id;die;
+		}else{
+			$arr = M("nice_first")->where("level='1'")->field("describe",true)->select();
+			$two = M("nice_first")->where("level='2'")->field("describe",true)->select();
+			$three = M("nice_first")->where("level='3'")->field("describe",true)->select();
+			foreach($two as $k=>$v){
+				foreach($three as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$two[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+			foreach($arr as $k=>$v){
+				foreach($two as $ks=>$vs){
+				    if($v['code']==$vs['pid']){
+						$arr[$k]['subset'][] = $vs;
+					}
+			    } 
+			}
+			$industry = M("industry")->where("pid='0'")->field("id,industry_name,pid")->order("sort")->select();
+			$this->assign('arr',$arr);
+			$this->assign('industry',$industry);
+			$this->display();
+		}
+	}
+	/**
+	*  查询领域和行业
+	*/
+	function industry(){
+		$id = I('post.id');
+		$industry = M("industry")->where("pid={$id}")->field("id,industry_name,pid")->order("id")->select();
+		echo json_encode($industry);
+	}
+	function indu(){
+		$id = I('post.id');
+		$industry = M("industry")->where("id={$id}")->field("id,industry_name,pid")->order("id")->select();
+		echo json_encode($industry);
+	}
+	/**
+	* 商标查询列表
+	*/
+	function brand_query_lst(){
+		$state = I('post.state');
+		$number = I('post.number');
+		$start_time = I('post.start_time');
+		$end_time = I('post.end_time');		
+		$user_id = $_COOKIE['zsid'];
+		$where = "customerid = {$user_id}";
+		if($state!=''){
+			$where .=" and state={$state}";
+		}
+		if($number!=''){
+			$where .=" and number like '%$number%'";
+		}
+		if($start_time!=''&&$end_time!=''){
+			$start_time = strtotime($start_time);
+			$end_time = strtotime($end_time);
+			$where .=" and addtime>{$start_time} and addtime<{$end_time}";
+		}
+		
+		$count = M("inquire")->where($where)->count();
+		$page = $this->page($count,3);
+		$arr = M("inquire")->where($where)->order("addtime desc")->limit("$page->firstRow,$page->listRows")->select();
+		$user = M("user")->where("id = {$user_id}")->find();
+		$this->assign('arr',$arr);
+		$this->assign("count",$count);
+		$this->assign("user",$user);
+		$this->assign("page",$page->show("admin",array('state'=>$state,'number'=>$number,'start_time'=>$start_time,'end_time'=>$end_time,'state'=>$state)));
+		$this->assign("num",ceil($count/10));
+		$this->assign("state",$state);
+		$this->assign("number",$number);
+		$this->assign("start_time",$start_time);
+		$this->assign("end_time",$end_time);	
+		$this->display();
+	}
+	/**
+	*  商标查询详情
+	*/
+	function brand_query_details(){
+		$queryid = I('get.queryid');
+		$user_id = $_COOKIE['zsid'];
+		$arr = M("inquire")->where("queryid = {$queryid} and customerid={$user_id}")->find();
+		$user = M("user")->where("id = {$user_id}")->find();
+		if($user['isclaimed']=='1'){
+			$enterprise = M("enterprise")->where("user_id = {$user_id}")->find();
+		    $user['dom'] = $enterprise['dom'];
+		}
+		if($user['adviser']=='1'){
+			$adviser = M("adviser")->where("customerid = {$user_id}")->find();
+		    $user['consultantid'] = $adviser['consultantid'];
+			$user['consultantname'] = $adviser['consultantname'];
+			$user['consultantmobile'] = $adviser['consultantmobile'];
+			$user['consultantimage'] = '';
+		}
+		if($arr['okquerytype']!=''){
+			$nice = M("nice_first")->where("id in({$arr['okquerytype']})")->field("describe,level",true)->select();
+			$two = array();
+			foreach($nice as $k=>$v){
+				if(!in_array($v['pid'], $two)){
+					$two[] = $v['pid'];
+				}
+			}
+			$two = implode(',',$two); 
+			$nicef = M("nice_first")->where("code in($two)")->field("describe,level",true)->select();
+			$one = array();
+			foreach($nicef as $k=>$v){
+				if(!in_array($v['pid'], $one)){
+					$one[] = $v['pid'];
+				}
+				foreach($nice as $ks=>$vs){
+					if($v['code']==$vs['pid']){
+						$nicef[$k]['items'][] = $vs;
+					}
+				}
+			}
+			$one = implode(',',$one);
+			$nicecalss = M("nice_first")->where("code in($one)")->field("describe,level",true)->select();
+			foreach($nicecalss as $k=>$v){
+				foreach($nicef as $ks=>$vs){
+					if($v['code']==$vs['pid']){
+						$nicecalss[$k]['items'][] = $vs;
+					}
+				}
+			}
+			$arr['okquerytype'] = $nicecalss;
+			unset($nicecalss);
+		}
+		if($arr['noquerytype']!=''){
+			$nice1 = M("nice_first")->where("id in({$arr['noquerytype']})")->field("describe,level",true)->select();
+			$two1 = array();
+			foreach($nice1 as $k=>$v){
+				if(!in_array($v['pid'], $two1)){
+					$two1[] = $v['pid'];
+				}
+			}
+			$two1 = implode(',',$two1); 
+			$nicef1 = M("nice_first")->where("code in($two1)")->field("describe,level",true)->select();
+			$one1 = array();
+			foreach($nicef1 as $k=>$v){
+				if(!in_array($v['pid'], $one1)){
+					$one1[] = $v['pid'];
+				}
+				foreach($nice1 as $ks=>$vs){
+					if($v['code']==$vs['pid']){
+						$nicef1[$k]['items'][] = $vs;
+					}
+				}
+			}
+			$one1 = implode(',',$one1);
+			$nicecalss1 = M("nice_first")->where("code in($one1)")->field("describe,level",true)->select();
+			foreach($nicecalss1 as $k=>$v){
+				foreach($nicef1 as $ks=>$vs){
+					if($v['code']==$vs['pid']){
+						$nicecalss1[$k]['items'][] = $vs;
+					}
+				}
+			}
+			$arr['noquerytype'] = $nicecalss1;
+			unset($nicecalss1);
+		}
+		if($arr['suggestedtype']!=''){
+		    $nice2 = M("nice_first")->where("id in({$arr['suggestedtype']}) ")->field("describe,level",true)->select();
+			$two2 = array();
+			$one2 = array();
+			foreach($nice2 as $k=>$v){
+				if(!in_array($v['pid'], $two2)){
+					$two2[] = $v['pid'];
+					$one2[] = $v['code'];
+				}
+			}
+			$two2 = implode(',',$two2);
+            $one2 = implode(',',$one2);
+            $nicecalss2 = M("nice_first")->where("code in($two2)")->field("describe,level",true)->select();
+            $nicecalss3 = M("nice_first")->where("pid in($one2)")->field("describe,level",true)->select();
+            foreach($nice2 as $k=>$v){
+				foreach($nicecalss3 as $ki=>$vi){
+					if($v['code']==$vi['pid']){
+						$nice2[$k]['items'][] = $vi;
+					}
+			    }
+			}
+            foreach($nicecalss2 as $k=>$v){
+				foreach($nice2 as $ki=>$vi){
+					if($v['code']==$vi['pid']){
+						$nicecalss2[$k]['items'][] = $vi;
+					}
+			    }
+			}	
+            $arr['suggestedtype'] = $nicecalss2;
+			unset($nicecalss2);			
+		}
+		$this->assign("arr",$arr);
+		$this->assign("user",$user);
+		$this->display();
+	}
+	/**
+	*  添加订单
+	*/
+	function brand_register_add(){
+		$queryid = I('post.queryid');
+		$oneid = I('post.oneid');
+		$info['customerid'] = $_COOKIE['zsid'];
+		$enterprise = M("enterprise")->where("user_id={$info['customerid']}")->find();
+		$info['applicantname'] = $enterprise['entname'];
+		$info['applicantaddress'] = $enterprise['dom'];
+		$inquire = M("inquire")->where("queryid={$queryid}")->find();
+		$user = M("user")->where("id={$info['customerid']}")->find();
+		$oneid = implode(',',$oneid);
+		$info['query_no'] = $inquire['number'];
+		$info['customername'] = $user['linkman'];
+		$info['customermobile'] = $user['phone'];
+		$info['type'] = '1';
+		$info['addtime'] = time();
+		$time = date("YmdHis");
+		$info['order_no'] = "s".$time.rand(100000,999999);
+		$service = M("service")->where("id={$info['type']}")->find();
+		$price = 0;
+		$nice = M("nice_first")->where("id in($oneid)")->field("describe,level",true)->select();
+		$two = array();
+		foreach($nice as $k=>$v){
+			$xiaonoce[] = $v['name'];
+			if(!in_array($v['pid'], $two)){
+				$two[] = $v['pid'];
+			}
+		}
+		$two = implode(',',$two); 
+		$nicef = M("nice_first")->where("code in($two)")->field("describe,level",true)->select();
+		$one = array();
+		foreach($nicef as $k=>$v){
+			if(!in_array($v['pid'], $one)){
+				$one[] = $v['pid'];
+			}
+			foreach($nice as $ks=>$vs){
+				if($v['code']==$vs['pid']){
+					$nicef[$k]['items'][] = $vs;
+				}
+			}
+		}
+		$one = implode(',',$one);
+		$nicecalss = M("nice_first")->where("code in($one)")->field("describe,level",true)->select();
+		foreach($nicecalss as $k=>$v){
+			$danoce[] = $v['name'];
+			foreach($nicef as $ks=>$vs){
+				if($v['code']==$vs['pid']){
+					$nicecalss[$k]['items'][] = $vs;
+				}
+			}
+		}
+		foreach($nicecalss as $k=>$v){
+			$price = $price+$service['price_large'];
+			foreach($v['items'] as $ks=>$vs){
+				if(count($vs['items'])>10){
+					$price = $price+$service['price_small']*(count($vs['items'])-10);
+				}
+			}
+			
+		}
+		$money = $price+$service['price_service'];
+		$info['official_price'] = $price;
+		$info['service_price'] = $service['price_service'];
+		$info['summary_price'] = $money;
+		$info['one_code'] = $one;
+		$key = M("zcorder")->add($info);
+		//添加到商标表
+		$mark['customerid'] = $_COOKIE['zsid'];
+		if(empty($inquire['newmarkname'])){
+			$mark['markname'] = $inquire['markname'];
+		}else{
+			$mark['markname'] = $inquire['newmarkname'];
+		}
+		$mark['appdate'] = date("Y-m-d");
+		$mark['uniontypecode'] = implode(',',$danoce);
+		$mark['typedetaildes'] = implode(',',$xiaonoce);
+		$mark['registetype'] = $oneid;
+		$mark['marktype'] = "一般";
+		$mark['note'] = "否";
+		$mark['xiangmu'] = "未入注册流程";
+		$mark['marklogo'] = $inquire['markpicture'];
+		$mark['entname'] = $user['companyname'];
+		$mark['markstate'] = "1";
+		$mark['orderid'] = $key;
+		$mark['state'] = '0';
+		M("mark")->add($mark);
+		//添加结束
+		
+		 exit('<script>top.location.href="index.php?g=Portal&m=brand&a=brand_register_show&key='.$key.'"</script>');
+	}
+	/**
+	*   确认订单
+	*/
+	function brand_register_show(){
+		$key = "8";//I('get.key');
+		$order = M("zcorder")->where("orderid={$key}")->find();
+		$mark = M("mark")->where("orderid={$key}")->find();
+		$service = M("service")->where("id={$order['type']}")->find();
+		/*
+		    查询优惠券信息
+		*/
+		$this->assign("info",$order);
+		$this->assign("service",$service);
+		$this->assign("mark",$mark);
+		$this->display("order-brand");
+	}
+	/**
+	*  下注册订单是修改个人信息
+	*/
+	function order_info_save(){
+		$orderid = I('post.orderid');
+		$customername = I('post.customername');
+		$customermobile = I('post.customermobile');
+		$applicantname = I('post.applicantname');
+		$applicantaddress = I('post.applicantaddress');
+		$type = I('post.type');
+		if($type=='1'){
+			M("zcorder")->where("orderid={$orderid}")->save(array('customername'=>$customername));
+		}
+		if($type=='2'){
+			M("zcorder")->where("orderid={$orderid}")->save(array('customermobile'=>$customermobile));
+		}
+		if($type=='3'){
+			M("zcorder")->where("orderid={$orderid}")->save(array('applicantname'=>$applicantname));
+			M("mark")->where("orderid={$orderid}")->save(array('entname'=>$applicantname));
+		}
+		if($type=='2'){
+			M("zcorder")->where("orderid={$orderid}")->save(array('applicantaddress'=>$applicantaddress));
+		}
+		echo 1;die;
+		
+	}
+	
+
+}

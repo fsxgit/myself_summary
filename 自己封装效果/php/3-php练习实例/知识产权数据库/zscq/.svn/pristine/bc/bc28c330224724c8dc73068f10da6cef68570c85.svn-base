@@ -1,0 +1,76 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/html/css/common.css"/>
+<style>
+a{cursor: pointer;}
+
+.btnfx{cursor: pointer; width:70px; height:35px;line-height:28px; border:1px solid #07a9ff; color: #07a9ff; border-radius: 4px; background: none; margin-left:4px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>已取消订单</a></li>
+    </ul>
+	<form method="post" action="{:U('order/cancel')}">
+	<div style="float:left;">
+		<input type="text" name="orderno" placeholder="订单号" value="{$orderno}">
+		<input type="text" name="markname" placeholder="商标名称" value="{$markname}">
+		<select id="source" name="source" style="width:150px;height:38px;">
+                        <option value="" <?php if($state=="")echo "selected";?>>平台来源</option>
+                        <option value="1">PC</option>
+                        <option value="2">APP</option>
+                </select>
+	</div>
+        <input type="submit" value="搜索" class="btnfx">
+    </form>
+    <div id="mydiv">
+         <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>订单号</th>
+                <th>商标图样</th>
+                <th>商标名称</th>
+		<th>购买分类</th>
+                <th>交易金额</th>
+		<th>服务类型</th>
+		<th>订单状态</th>
+		<th>订单来源</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="res" item="vo" key='k'>
+                <tr>
+                    <td>{$vo.orderid}</td>
+                    <td>{$vo.order_no}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{$vo.one_code}</td>
+                    <td>{$vo.actual_price}</td>
+                    <td>
+                    <?php 
+                    if($vo["type"]==1){
+                            echo "注册";
+                    }
+                    ?>
+                    </td>
+                    <td>未支付</td>
+                    <td></td>
+                    <td><a onclick="order_detail({$vo.orderid})">查看详情</a>
+                    </td> 
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+   <div class="c-pages tc">
+							<span>{$page}</span>
+						</div>
+</div>
+</body>
+</html>
+<script>
+function order_detail(id){
+	window.location.href='index.php?g=Admin&m=Order&a=order_detail&id='+id;
+}
+</script>

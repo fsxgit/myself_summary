@@ -1,0 +1,10 @@
+.citybox{width:100%; background: #ccc;}
+.citybox h1{ border-bottom: 1px solid #cc3f1e; line-height: 0.1rem;height:0.1rem;  text-align: left; cursor:pointer; font-size:0.04rem;}
+.citybox p{ border-bottom: 1px solid #cc3f1e;  line-height: 0.1rem;height:0.1rem; text-align:left;  font-size:0.04rem; padding-left:0.1rem; cursor:pointer; }
+.shengbox,.qubox,.xianbox{display: none;}
+.fpBox{width:100%; height:auto; max-height: 1rem; overflow: auto; background: #fff; padding-bottom:0.06rem;}
+.SValue,.QValue,.XValue{float:right; margin-right:0.06rem;}
+.ftName{margin-left:0.08rem;}
+
+.tiJiao{width:100%; height:auto;  font-size:0; margin:0 auto; text-align: center;}
+.tiJiao input{width:0.6rem; height:0.1rem; background: #0f13ff; color: #fff; font-size: 0.04rem; border-radius: 4px; margin-top:0.3rem;}

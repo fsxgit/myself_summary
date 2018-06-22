@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta  name="viewport" content="width=device-width, initial-scale=1">
+  <title>charts</title>
+</head>
+<body>
+<canvas id="myChart"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+  var ctx = document.getElementById("myChart");
+  var chart = new Chart(ctx, {
+    type: 'line',
+    data: [0, 20, 40, 50],
+    options: {
+      scales: {
+        xAxes: [{
+          time: {
+            unit: 'month'
+          }
+        }]
+      }
+    }
+  })
+</script>
+</body>
+</html>

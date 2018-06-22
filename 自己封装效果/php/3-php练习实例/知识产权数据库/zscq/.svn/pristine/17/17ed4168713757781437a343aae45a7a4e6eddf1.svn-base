@@ -1,0 +1,87 @@
+<admintpl file="header" />
+<link rel="stylesheet" href="public/css/slb.css"/>
+<style>
+        .sl-yuan{font-size: 22px; font-weight: bold; margin-top: 30px;}
+        .sl-yuan span{margin-right: 30px;}
+        .sl-logo .txt{margin-right: 30px;}
+        .sl-logo .tit{margin-right: 10px; width: 70px;}
+        .sb-xq .tit{margin-right: 10px; width: 140px;}
+        .sb-xq .mt{margin-top: 20px;}
+        .xiaolei p{padding:0; line-height: 20px; margin-bottom: 6px;}
+        .sb-xq{padding-top: 20px;}
+        .sb-xq .logo{width:156px; height: 112px; border:1px solid #ccc;}
+        .sl-cont,.sl-logo{padding-left:140px;}
+</style>
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap fx_pr">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>订单详情页</a></li>
+</ul>
+<div class="sl-xq main">
+    <div class="sl-yuan">
+        <span>订单来源：PC</span>
+        <span>购买人：{$r.customername}</span>
+        <span>联系方式：{$r.customermobile}</span>
+    </div>
+    <div class="sl-logo">
+        <div class="oh">
+            <div class="txt fl">
+                <p><span class="tit">订单号：</span>{$r.order_no}</p>
+                <p><span class="tit">订单类型：</span>
+                    <?php
+                    if($r["type"]==1){
+                        echo "商标注册";
+                    }
+                    ?></p>
+                <p><span class="tit">订单金额：</span>{$r.summary_price}</p>
+            </div>
+            <div class="txt fl">
+                <p><span class="tit">下单时间：</span><?php echo date("Y-m-d H:i:s",$r["addtime"]);?></p>
+                <p><span class="tit">订单状态：</span><?php
+                    if($r["state"]==0){
+                        echo "未支付";
+                    }if($r["state"]==1){
+                        echo "已支付";
+                    }if($r["state"]==2){
+                        echo "已取消";
+                    }
+                    ?></p>
+                <p><span class="tit">优惠金额：</span>10</p>
+            </div>
+            <div class="txt fl">
+                <p><span class="tit">支付时间：</span><?php echo date("Y-m-d H:i:s",$r["paytime"]);?></p>
+                <p><span class="tit"></span></p>
+                <p><span class="tit">应付总额：</span>{$r.actual_price}</p>
+            </div>
+        </div>
+    </div>
+    <div class="sl-cont">
+        <div class="sb-xq">
+            <div class="oh mt">
+                <div class="tit fl mr40">商标图样:</div>
+                <div class="logo fl"><img src="public/img/img1.png" alt=""/></div>
+            </div>
+            <div class="mt"><span class="tit">商标名称：</span>易桥及分宝 WWW.12366.COM</div>
+            <div class="xl-box mt">
+                <div class="tit fl">申请人姓名和地址：</div>
+                <div class="xiaolei">
+                    <p>申请人姓名：神州易桥(北京)财税科技有限公司</p>
+                    <p>申请人地址：北京市昌平区回龙观镇西大街118号1幢905室</p>
+                </div>
+            </div>
+            <div class="mt"><span class="tit">类别：</span>35</div>
+            <div class="xl-box mt">
+                <div class="tit fl">小类：</div>
+                <div class="xiaolei">
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                    <p>090373 已录制的计算机程序</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

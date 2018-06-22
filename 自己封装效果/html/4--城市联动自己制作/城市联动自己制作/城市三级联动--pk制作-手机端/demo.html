@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>城市联动选择</title>
+    <link href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_css.css"/>
+</head>
+<body>
+<div class="container">
+    <h2 style="font-size: 20px;">城市选择联动组件</h2>
+    <div class="accordion">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle">
+                    选择省
+                </a>
+            </div>
+            <div class="accordion-body collapse in">
+                <div class="accordion-inner" id="proWrpper"></div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle">
+                    选择市
+                </a>
+            </div>
+            <div class="accordion-body collapse in">
+                <div class="accordion-inner" id="cityWrpper"></div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle">
+                    选择区
+                </a>
+            </div>
+            <div class="accordion-body collapse in">
+                <div class="accordion-inner" id="areaWrpper"></div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn" id="getVal">提交</button>
+    </div>
+</div>
+
+<!--<script src="//cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>-->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var sUrl = 'data/data.json';
+    $.ajax({
+        type:"GET",
+        url:sUrl,
+        async:false,
+        dataType:'json',
+        success:function(data)
+        {
+            /**
+             * 检出省
+             */
+            $.each(data.dataS,function(index,data){
+                if(data.C)
+                {
+                    var proDiv = "";
+                    $.each(data.C,function(i,d){
+                        proDiv += '<button class="btn" data-index="'+ i +'" style="margin: 5px;">'+ d +'</button>';
+                    });
+                    $('#proWrpper').html(proDiv);
+                };
+            });
+
+            /**
+             * 根据用户点击检出市
+             */
+            $('#proWrpper').find('button').on('click',function(){
+                var cityIndex = $(this).data('index');
+                $(this).addClass('btn-success').siblings().removeClass('btn-success');
+                $.each(data.dataS,function(index,data){
+                    if(data['C_'+cityIndex])
+                    {
+                        var cityDiv = "";
+                        var cityFirst = "";
+
+                        $.each(data['C_'+cityIndex],function(i,d){
+                            if(i===0)
+                            {
+                                cityFirst = '<button class="btn btn-success" data-index="'+ i +'" style="margin: 5px;">'+ d +'</button>';
+                            }else{
+                                cityDiv += '<button class="btn" data-index="'+ i +'" style="margin: 5px;">'+ d +'</button>';
+                            };
+                        });
+                        $('#cityWrpper').html(cityFirst+cityDiv);
+                    };
+
+                    //检出默认区域
+                    if(data['C_'+cityIndex+'_'+0])
+                    {
+                        var areaDiv = "";
+                        var areaFirst = "";
+
+                        $.each(data['C_'+cityIndex+'_'+0],function(i,d){
+                            if(i===0)
+                            {
+                                areaFirst = '<button class="btn btn-success" data-index="'+ i +'" style="margin: 5px;">'+ d +'</button>';
+                            }else{
+                                areaDiv += '<button class="btn" data-index="' + i + '" style="margin: 5px;">' + d + '</button>';
+                            };
+                        });
+                        $("#areaWrpper").html(areaFirst+areaDiv);
+                    };
+
+                    /**
+                     * 在选择省后直接选择区域*/
+                    $('#areaWrpper').find('button').on('click',function(){
+                        $(this).addClass('btn-success').siblings().removeClass('btn-success');
+                    });
+                });
+
+                /**
+                 * 根据城市检出区域
+                 */
+                $('#cityWrpper').find('button').on('click',function(){
+                    var areaIndex = $(this).data('index');
+                    $(this).addClass('btn-success').siblings().removeClass('btn-success');
+                    $.each(data.dataS,function(index,data){
+
+                        if(data['C_'+cityIndex+'_'+areaIndex])
+                        {
+                            var areaDiv = "";
+                            var areaFirst_c = "";
+                            $.each(data['C_'+cityIndex+'_'+areaIndex],function(i,d){
+                                if(i===0)
+                                {
+                                    areaFirst_c = '<button class="btn btn-success" data-index="'+ i +'" style="margin: 5px;">'+ d +'</button>';
+                                }else{
+                                    areaDiv += '<button class="btn" data-index="'+ i +'" style="margin: 5px;">'+ d +'</button>';
+                                }
+                            });
+                            $("#areaWrpper").html(areaFirst_c+areaDiv);
+                        };
+                    });
+
+                    /**
+                     * 选择区域*/
+                    $('#areaWrpper').find('button').on('click',function(){
+                        $(this).addClass('btn-success').siblings().removeClass('btn-success');
+                    });
+                });
+            });
+
+            /**
+             * 取值*/
+            $("#getVal").on('click',function(){
+                var arr = [];
+                $('.accordion-inner').find('button').each(function(){
+                    if($(this).hasClass('btn-success'))
+                    {
+                        arr.push($(this).text());
+                    };
+                });
+                //因为台湾没有区级数据，这是个蛋疼的判断
+                if(arr.length<3)
+                {
+                    alert('您选择的城市：'+arr[0]+'-'+arr[1]);
+                }else{
+                    alert('您选择的城市：'+arr[0]+'-'+arr[1]+'-'+arr[2]);
+                }
+            });
+
+        },
+        error:function()
+        {
+            console.log('error:This is error;');
+        }
+    });
+</script>
+</body>
+</html>

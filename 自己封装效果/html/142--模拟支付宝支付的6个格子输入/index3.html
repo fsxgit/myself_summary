@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>六个格子输入框</title>
+    <style>
+        body{font-family: "PingFang SC", "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .input {
+            display: inline-block;
+        }
+
+        input {
+            border: 1px solid #999;
+            width: 45px;
+            height: 45px;
+            outline:none;
+            font-family: inherit;
+            font-size: 28px;
+            font-weight: inherit;
+            text-align: center;
+            line-height: 45px;
+            color: #000;
+            background: rgba(255,255,255,0);
+        }
+        input::-webkit-input-placeholder { /* WebKit browsers */
+            color:    #ccc;
+        }
+        input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:    #ccc;
+        }
+        input::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:    #ccc;
+        }
+        input:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:    #ccc;
+        }
+    </style>
+</head>
+<body>
+<h2>模拟支付宝支付密码</h2>
+<h4>实现不连续格子密码输入</h4>
+<h5 style="color: red;">问题是在ios上面键盘一次一落</h5>
+<div class="input">
+    <input type="tel" placeholder="随" maxlength="1">
+    <input type="tel" placeholder="机" maxlength="1">
+    <input type="tel" placeholder="5" maxlength="1">
+    <input type="tel" placeholder="位" maxlength="1">
+    <input type="tel" placeholder="数" maxlength="1">
+</div>
+<script>
+    /**
+     * 模拟支付宝的密码输入形式
+     */
+    (function (window, document) {
+        var active = 0,
+                inputBtn = document.querySelectorAll('input');
+        for (var i = 0; i < inputBtn.length; i++) {
+            inputBtn[i].addEventListener('click', function () {
+                inputBtn[active].focus();
+            }, false);
+            inputBtn[i].addEventListener('focus', function () {
+                this.addEventListener('keyup', listenKeyUp, false);
+            }, false);
+            inputBtn[i].addEventListener('blur', function () {
+                this.removeEventListener('keyup', listenKeyUp, false);
+            }, false);
+        }
+
+        /**
+         * 监听键盘的敲击事件
+         */
+        function listenKeyUp() {
+//            var beginBtn = document.querySelector('#beginBtn');
+            if (!isNaN(this.value) && this.value.length != 0) {
+                if (active < 4) {
+                    active += 1;
+                }
+                inputBtn[active].focus();
+            } else if (this.value.length == 0) {
+                if (active > 0) {
+                    active -= 1;
+                }
+                inputBtn[active].focus();
+            }
+        }
+    })(window, document);
+</script>
+</body>
+</html>

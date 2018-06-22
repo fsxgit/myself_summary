@@ -1,0 +1,62 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">{$meta_title}</a></li>
+		</ul>
+			<!-- 搜索 -->
+				<!--信息提示-->
+	<div id="top-alert" class="fixed alert alert-error">
+		<button class="close fixed" style="margin-top: 4px;">&times;</button>
+		<div class="alert-content">{$meta_title}</div>
+	</div>
+	<!--信息提示-->
+	<!-- <form class="well form-search" method="post" action="">
+			下单时间: <input type="text" name="sdate" value="{$map.sdate|default=''}" placeholder="开始时间" class="js-date" style="width: 150px;">-<input type="text" name="edate" value="{$map.edate|default=''}"   placeholder="结束时间" class="js-date" style="width: 150px;">
+            <input type="submit" class="btn btn-primary" value="搜索">
+         </form> -->
+		<form class="js-ajax-form" method="post">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					
+					<th width="">订单号</th>
+					<th>图书</th>
+					<th>收件人</th>
+					<th>手机号</th>
+					<th>订单总价</th>
+					<th>状态</th>
+					<th>添加时间</th>
+					<th width="120">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<php>
+					$status=array(0=>'<span class="label label-important">未支付</span>',1=>'<span class="label label-success">已支付</span>');</php>
+				<foreach name="listData" item="vo">
+				<tr>
+					<td>{$vo.order_sn}</td>
+					<td>{$vo.order_sn}</td>
+					<td>{$vo.consinge}</td>
+					<td>{$vo.mobile}</td>
+					<td>{$vo.total}</td>
+					<td>{$status[$vo['status']]}</td>
+					<td>{$vo.add_time|time_format}</td>
+					<td>
+						<a href="{:U('view',array('id'=>$vo['id']))}">查看</a> | 
+						<a class="ajax-get confirm" href="{:U('del',array('id'=>$vo['id']))}" data-tips='确定要删除吗?'>删除</a>
+					</td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+		<div class="table-actions">
+
+			</div>
+		</form>
+		<div class="pagination">{$page}</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

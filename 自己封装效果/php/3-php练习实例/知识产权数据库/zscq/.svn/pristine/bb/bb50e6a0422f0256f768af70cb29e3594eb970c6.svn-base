@@ -1,0 +1,116 @@
+<?php
+namespace Admin\Controller;
+use Common\Controller\AdminbaseController;
+class BrandController extends AdminbaseController{
+	//注册中
+	public function zing(){
+		$bname = I("bname");
+		$state = I("state");
+        $where =" 1 ";
+		if($bname!=''){
+            $where.=" and markname like '%$bname%'";  
+			$con = "&bname=$bname";
+        }if($state!=''){
+			$where.=" and state={$state}";
+			$con .= "&state=$state";
+		}
+		$count = M("mark")->where("$where and markstate=1 and state=1")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=1 and state=1")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//注册成功
+	public function zsuccess(){
+		$bname = I("bname");
+		$state = I("state");
+        $where =" 1 ";
+		if($bname!=''){
+            $where.=" and markname like '%$bname%'";  
+			$con = "&bname=$bname";
+        }if($state!=''){
+			$where.=" and state={$state}";
+			$con .= "&state=$state";
+		}
+		$count = M("mark")->where("$where and markstate=0 and state=1")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=0 and state=1")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//注册失败
+	public function zfail(){
+		$bname = I("bname");
+		
+        $where =" 1 ";
+		if($bname!=''){
+            $where.=" and markname like '%$bname%'";  
+			$con = "&bname=$bname";
+        }
+		$count = M("mark")->where("$where and markstate=2 and state=1")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=2 and state=1")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//已失效
+	public function zwu(){
+		$bname = I("bname");
+		
+        $where =" 1 ";
+		if($bname!=''){
+            $where.=" and markname like '%$bname%'";  
+			$con = "&bname=$bname";
+        }
+		$count = M("mark")->where("$where and markstate=3 and state=1")->count();
+		$page = $this->page($count,10);
+
+		$res = M("mark")->where("$where and markstate=3 and state=1")
+			->limit("$page->firstRow,$page->listRows")
+			->order("id asc")
+			->select();
+	//	var_dump($res);die;
+		$this->assign("res",$res);
+		$this->assign("name",$bname);
+		$this->assign("page",$page->show());
+		$this->display();
+	}
+	//详情
+	public function detail(){
+		$id = I("id");
+		$r = M("mark")->where("id=$id")->find();
+		$uid = $r["customerid"];
+		$name = $r["entname"];
+		$ad = M("enterprise")->where("entname='$name'")->find();
+		$i = M("user")->where("id=$uid")->find();
+		if($i["adviser"]==1){
+			$g = M("adviser")->where("customerid=$uid")->find();
+			$this->assign("g",$g);
+		}
+		$this->assign("ad",$ad);
+		$this->assign("r",$r);
+		$this->assign("i",$i);
+		$this->display();
+	}
+}

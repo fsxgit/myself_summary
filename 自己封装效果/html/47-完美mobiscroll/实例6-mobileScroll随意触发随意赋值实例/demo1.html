@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>mobilescroll</title>
+    <link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>
+    <style>
+        *{margin:0; padding:0;}
+        .red{color: #ff2f15; text-align: center;}
+        .btnbox{width: 100%; overflow: hidden;}
+        .cho-mode{float: left; width: 50% ;text-align: center; height:60px; line-height: 60px;}
+        .cho-mode span{display:inline-block; text-align: center; height:40px; width: 80px; border:1px solid #ccc; border-radius: 4px; line-height: 40px; background: #eee;}
+
+        #none{display: -none;}
+        /*固定三级联动中的每一行的宽度，防止过长分为上下的*/
+        .dwhl{padding:1px 0 !important;}
+        .dw-ul{width:80px; overflow: hidden;}
+
+        /*这个是框架生成的触发条件的输入框*/
+        #site_dummy,#active_dummy{width:80%; border-radius: 4px; height:20px; padding:2px 6px; margin:10px 5%;}
+    </style>
+</head>
+<body>
+<h1 class="red">显示的选择框</h1>
+<h2 class="red">选择框触发事件</h2>
+<h3 class="red">选择框显示值</h3>
+
+<div class="btnbox">
+    <div class="cho-mode">
+        <span  id="btn1">选择1</span>
+    </div>
+    <div class="cho-mode">
+        <span  id="btn2">选择2</span>
+    </div>
+</div>
+
+<div id="none">
+    <!--选择1-->
+    <ul id="site">
+        <li>
+            <span class="sheng">河南</span>
+            <ul>
+                <li>
+                    <span class="shi">洛阳</span>
+                    <ul>
+                        <li>
+                            <span class="qu">涧西区</span>
+                        </li>
+                        <li>
+                            <span class="qu">西工区</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="shi">平顶山</span>
+                    <ul>
+                        <li>
+                            <span class="qu">汝州</span>
+                        </li>
+                        <li>
+                            <span class="qu">郏县</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="sheng">河北</span>
+            <ul>
+                <li>
+                    <span class="shi">衡水</span>
+                    <ul>
+                        <li>
+                            <span class="qu">阜城</span>
+                        </li>
+                        <li>
+                            <span class="qu">故城</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="shi">邯郸</span>
+                    <ul>
+                        <li>
+                            <span class="qu">邯山区</span>
+                        </li>
+                        <li>
+                            <span class="qu">南山区</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!--选择2-->
+    <select  id="active">
+        <option value="1">大专</option>
+        <option value="2">本科</option>
+        <option value="3">高中</option>
+        <option value="4">初中</option>
+        <option value="5">小学</option>
+    </select>
+</div>
+
+
+
+
+<script>
+//触发按钮
+$("#btn1").click(function(){
+    $("#site").mobiscroll("show");
+});
+$("#btn2").click(function(){
+    $("#active").mobiscroll("show");
+});
+
+
+
+//选择1
+$(function () {
+
+    var opt = { };
+
+    opt.tree_list = {
+        preset : 'list',
+        labels: ['Region', 'Country', 'City']
+    };
+    $('#site').val('').scroller('destroy').scroller(
+            $.extend(opt['tree_list'],
+                    {
+                        theme: 'android-ics light',
+                        mode: 'scroller',
+                        display: 'bottom',
+                        setText: '确定',
+                        cancelText: '取消',
+                        lang: 'zh',
+                        headerText: function (valueText) { return "选择地址";},
+                        formatResult: function (array) {
+                            var fir = $('#site>li').eq(array[0]).find(".sheng").text();	//第一级文字
+                            var sec = $('#site>li').eq(array[0]).find('.shi').eq(array[1]).text();	//第二级文字
+                            var tir = $('#site>li').eq(array[0]).find('.shi').eq(array[1]).siblings("ul").find('.qu').eq(array[2]).text();	//第三级文字
+//                            返回选择结果,在输入框里显示
+//                            alert(fir+" "+sec+" "+tir);
+                            return(fir+" "+sec+" "+tir);
+
+                        },
+                        onSelect: function (arr) {
+//                            把字符串转换成数组使用
+                            var reg = /(\d)+/g;
+                            var array = arr.match(reg);
+                            //            点击确定按钮触发
+                            var fir = $('#site>li').eq(array[0]).find(".sheng").text();	//第一级文字
+                            var sec = $('#site>li').eq(array[0]).find('.shi').eq(array[1]).text();	//第二级文字
+                            var tir = $('#site>li').eq(array[0]).find('.shi').eq(array[1]).siblings("ul").find('.qu').eq(array[2]).text();	//第三级文字
+//                            弹出选择结果
+//                            alert(fir+" "+sec+" "+tir);
+
+
+                        }
+
+                    }
+            )
+    );
+
+//			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+            $("#site_dummy").val("");
+            $("#site_dummy").attr("placeholder","请选择地区");
+
+});
+
+
+//选择2
+$(function () {
+    $('#active').mobiscroll().select({
+        preset: 'select',
+        theme: 'android-ics light',
+        lang: 'zh',
+        setText: '确定',
+        cancelText: '取消',
+        minWidth: 200,
+        headerText: function (valueText) { return "我是标题";},
+        mode: 'scroller',
+        display: 'bottom',//top： 顶部,bottom：底部,modal：居中,inline：显示在页面内,bubble：以提示框显示
+        onSelect: function (array,inst) {
+//            console.log(inst);
+//            点击确定按钮触发 弹出选中的文字
+//            alert(array);
+//            点击确定按钮触发 弹出选中的文字的value
+//            alert($('#state').mobiscroll('getValue'));
+        }
+    });
+
+    //			【自己修改的】修改控件自己生成的输入框，来改变初始状态，不然默认选中第一项
+    $("#active_dummy").val("");
+    $("#active_dummy").attr("placeholder","请选择选项");
+});
+
+</script>
+</body>
+</html>

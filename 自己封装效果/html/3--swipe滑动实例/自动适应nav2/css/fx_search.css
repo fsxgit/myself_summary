@@ -1,0 +1,29 @@
+/*登录页面 login.html css*/
+html,body{width:100%; height:100%;}
+.Lbox{width:100%; height:100%; background:#f0eff5; text-align: center;}
+.Lform{width:100%; height:auto; font-size:0.04375rem;}
+.Lform div{border-bottom:1px solid #ccc; background:#fff; padding:0.04rem 0; text-align: left;}
+.Lform .fname,.Lform .fma{margin-left:0.1rem; width:0.35rem; }
+.Lform .fbtn{background:#49becd; color:#fff; width:0.9rem; height:0.134rem; margin-top:0.1625rem; border-radius:0.01rem;}
+.Lform .fhuo{color:#49becd; border:1px solid #49becd; width:0.26875rem; height:0.07rem;  border-radius:0.035rem; margin-left:0.05rem;}
+/*搜索页面 search.html*/
+/*头部*/
+.XDheader{width:100%; height:auto; background:#49becd;}
+.XDheader div{ height:0.05rem;padding:0.04375rem 0;font-size:0.05rem; color:#fff;}
+.ff5{width:100%; height:0.046875rem; border-bottom:1px solid #ccc; background:#f0eff5;}
+.ffborTop{ border-top:1px solid #ccc;}
+/*内容*/
+.Sheader{width:100%; height:auto; background:#f8f8f8; border-bottom:1px solid #b5b5b5;}
+.Sheader .back{ width:0.0375rem; height:0.09rem; padding:0.04375rem 0; font-size:0; margin-left:0.02rem;}
+.Sheader .search{ width:0.7rem; height:0.08rem; border:1px solid #b5b5b5; margin:0.04375rem 0 0.04375rem 0.025rem ; border-radius:4px; background: #fff; font-size:0;}
+.Sheader .QuXiao{ height:0.09rem; line-height:0.09rem; padding:0.04375rem 0;  color:#49becd; margin-right:0.02rem; font-size: 0;}
+.Sheader .QuXiao input{ height:0.09rem; line-height:0.09rem;  font-size:0.05rem; color:#49becd;}
+.Sheader .search span:nth-of-type(1){width:0.1rem; height:100%; background: url(../images/search2.png) no-repeat center; background-size:0.047rem;}
+.Sheader .search span:nth-of-type(2){width:0.1rem; height:100%; background: url(../images/cha.png) no-repeat center; background-size:0.047rem;}
+.Sheader .search input{width:0.5rem; height:100%; }
+/*内容*/
+.Scontent{width:100%; height:auto;font-size: 0;}
+.SmodeBox{ margin-left:0.03rem;height:auto;font-size: 0; border-bottom:1px solid #b5b5b5; padding:0.04rem 0;}
+.SmodeBox .lou{font-size: 0.045rem;}
+.SmodeBox .qu{font-size: 0.03rem; line-height: 0.05rem;}
+.DiTubox{width:100%; height:0.36rem; border-bottom: 1px solid #ccc;}

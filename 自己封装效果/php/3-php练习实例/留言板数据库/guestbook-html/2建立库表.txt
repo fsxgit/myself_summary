@@ -1,0 +1,23 @@
+﻿在cmd命令行中，执行以下几步：
+
+//1：登录mysql服务器
+mysql -hlocalhost -uroot -p
+
+//2：设定环境编码（这一步可以不做）
+set names gbk;
+
+//3：创建数据库
+create database liuyanban charset utf8;
+
+//4：选择/使用数据库
+use liuyanban;
+
+//5：创建表：
+create table liuyanbiao(
+    id int primary key auto_increment,
+    xingming varchar(20) not null,
+    biaoti varchar(100) not null,
+    fabushijian datetime not null,
+    neirong varchar(1000),
+    huifu varchar(1000)
+) charset utf8;

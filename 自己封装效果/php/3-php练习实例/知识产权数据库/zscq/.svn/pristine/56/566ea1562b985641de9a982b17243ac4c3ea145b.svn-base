@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标查询</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/color.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+</head>
+<body>
+    <div class="main-hou">
+        <div class="brand-gl c333">
+            <div class="bgl-nav bb">
+                <a href="javascript:;">商标列表</a>
+                <a href="javascript:;">查询商标</a>
+                <a href="javascript:;"  class="active">查询列表</a>
+            </div>
+
+        </div>
+        <div class="tiaojian-box">
+            <div class="sel-mode">
+                <input type="text" class="fw-input" placeholder="服务单"/>
+            </div>
+            <!--/*公用输入框样式 */-->
+            <div class="sel-mode c-fp-sel-wrap statusSelect">
+                <div class="c-fp-sel-box c-cx-width">
+                    <input type="text" readonly="readonly" class="c-fp-sel-value" placeholder="状态"/>
+                    <span class="downUp"></span>
+                    <div class="c-fp-sel-p c-cx-width">
+                        <P class="active">手机</P>
+                        <P>密保</P>
+                    </div>
+                </div>
+                <div class="cb"></div>
+            </div>
+            <!--/*公用输入框样式 end*/-->
+            <!--/*公用输入框样式 */-->
+            <div class="sel-mode c-fp-sel-wrap sbLei">
+                <div class="c-fp-sel-box c-cx-width">
+                    <input type="text" readonly="readonly" class="c-fp-sel-value" placeholder="商标类型"/>
+                    <span class="downUp"></span>
+                    <div class="c-fp-sel-p c-cx-width">
+                        <P class="active">手机</P>
+                        <P>密保</P>
+                    </div>
+                </div>
+                <div class="cb"></div>
+            </div>
+            <!--/*公用输入框样式 end*/-->
+            <!--日期-->
+            <div class="sel-mode">
+                <input type="text" class="time-input" placeholder="开始日期"/>
+            </div>
+            <div class="sel-mode">
+                <div class="jie">-</div>
+            </div>
+            <div class="sel-mode">
+                <input type="text" class="time-input" placeholder="结束日期"/>
+            </div>
+            <!--日期 end-->
+            <div class="sel-mode">
+                <input type="button" class="blue-big-btn" value="搜索"/>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <!--/*提示说明*//-->
+        <div class="c-rl-cont-ts cx-list-ts">
+            <p>您还没有认领公司，最多可免费查询三次，认领公司后不限制 查询次数。<a class="kan fc1 fb">去认领公司</a></p>
+        </div>
+        <!--/*提示说明* end//-->
+        <!--商标-->
+        <div class="brand-box">
+            <table class="brand-table c333">
+                <tr class="bt-tr1 bg5 c999">
+                    <td style="width:5%;">序号</td>
+                    <td style="width:16.6%;">名称</td>
+                    <td style="width:8.3%;">图标样式</td>
+                    <td style="width:13.1%;">商标名称</td>
+                    <td style="width:10.6%;">查询方式</td>
+                    <td style="width:12.5%;">查询日期</td>
+                    <td style="width:12.5%;">查询状态</td>
+                    <td style="width:21.3%;">操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>MT232322232</td>
+                    <td class="brand-logo"><img src="../images/img1.png" alt=""/></td>
+                    <td>小米</td>
+                    <td>智能查询</td>
+                    <td>2015.09.08 10:30:30</td>
+                    <td>全部可注册</td>
+                    <td><a href="javascript:;">查看</a></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>MT232322232</td>
+                    <td class="brand-logo"><img src="../images/img1.png" alt=""/></td>
+                    <td>小米</td>
+                    <td>智能查询</td>
+                    <td>2015.09.08 10:30:30</td>
+                    <td>全部可注册</td>
+                    <td><a href="javascript:;">查看</a></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>MT232322232</td>
+                    <td class="brand-logo"><img src="../images/img1.png" alt=""/></td>
+                    <td>小米</td>
+                    <td>智能查询</td>
+                    <td>2015.09.08 10:30:30</td>
+                    <td>全部可注册</td>
+                    <td><a href="javascript:;">查看</a></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>MT232322232</td>
+                    <td class="brand-logo"><img src="../images/img1.png" alt=""/></td>
+                    <td>小米</td>
+                    <td>智能查询</td>
+                    <td>2015.09.08 10:30:30</td>
+                    <td>全部可注册</td>
+                    <td><a href="javascript:;">查看</a></td>
+                </tr>
+            </table>
+            <!--翻页按钮-->
+            <div class="c-pages mb50">
+                <span>共100条记录，20页</span>
+                <span>
+                    <a href="#">首页</a>
+                    <a href="#">上一页</a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#" class="active">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">下一页</a>
+                    <a href="#">末页</a>
+                </span>
+            </div>
+            <!--翻页按钮 end-->
+        </div>
+        <!--商标 end-->
+    </div>
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script>
+
+    $(".bgl-nav a").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+
+//    状态下拉
+    statusSelect();
+    function statusSelect(){
+        var aP = $(".statusSelect .c-fp-sel-p p"); //下拉的p
+        var apBox = $(".statusSelect .c-fp-sel-p"); //下拉的盒子
+        var oValue = $(".statusSelect .c-fp-sel-value"); //选中值存放的地方
+        var oBox = $(".statusSelect .c-fp-sel-box"); //最外层的盒子
+        oBox.click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                apBox.slideDown();
+            }else{
+                apBox.slideUp();
+            }
+        })
+        aP.click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            oValue.val(val);
+            oBox.removeClass("active");
+            apBox.slideUp();
+            event.stopPropagation();
+        })
+    }
+
+    sbLei();
+    function sbLei(){
+        var aP = $(".sbLei .c-fp-sel-p p"); //下拉的p
+        var apBox = $(".sbLei .c-fp-sel-p"); //下拉的盒子
+        var oValue = $(".sbLei .c-fp-sel-value"); //选中值存放的地方
+        var oBox = $(".sbLei .c-fp-sel-box"); //最外层的盒子
+        oBox.click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                apBox.slideDown();
+            }else{
+                apBox.slideUp();
+            }
+        })
+        aP.click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            oValue.val(val);
+            oBox.removeClass("active");
+            apBox.slideUp();
+            event.stopPropagation();
+        })
+    }
+</script>
+</body>
+</html>

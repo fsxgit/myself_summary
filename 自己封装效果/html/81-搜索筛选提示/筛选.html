@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Description" content="">
+  <title>筛选</title>
+     <style>
+         body{font-size: 14px;}
+         .selWrap{position: relative; background: #fff;}
+        .sel-box{border:1px solid #ccc;width:170px; display: none;  position: absolute;  background: #fff;}
+         .sel-top{width:160px; height:30px; line-height: 30px; padding-left:10px; border:1px solid #ccc; font-size: 14px; border-radius: 2px; overflow: hidden; cursor: pointer; color: #2c3e50;}
+         .selStatus{width:20px; height:30px; display:block; float: right; background:#eee url("images/seldown.png") no-repeat center center; }
+         .active .selStatus{background:#eee url("images/selup.png") no-repeat center center; }
+         .sel-cont{height:200px; overflow-y: auto;}
+        .sel-cont,.sel-cont li{list-style: none; margin:0; padding:0;}
+        .sel-cont li{padding:6px 10px; height:20px; line-height: 24px; overflow: hidden; cursor: pointer; }
+        .sel-cont li.active,.sel-cont li.hover{background: #eee;}
+         .sear-box{width:120px; padding-right:20px; padding-left:10px; margin:4px auto; border:1px solid #ccc; height:30px; background:url("images/selsearch.png") no-repeat 130px center; border-radius: 4px; }
+         .sear-box input{width:120px; height: 28px; border:none; outline: none;  background: none;}
+        .selVale{display:block; width:120px; height:30px; line-height:30px; overflow:hidden; float:left;}
+     </style>
+ </head>
+ <body>
+
+ <div style="width:500px; margin:50px auto;">
+     <h1>拼音、汉字搜索功能</h1>
+    <div class="selWrap">
+        <div class="sel-top">
+            <span class="selVale">请选择</span>
+            <span class="selStatus"></span>
+            <input type="hidden" class="inputVale"/>
+        </div>
+        <div class="sel-box">
+            <div class="sear-box"><input type="text" id="sou" onkeyup="fun()" placeholder="请输入搜索关键字"/></div>
+            <ul class="sel-cont"  id="op">
+                <li data-value="" class="active">请选择</li>
+                <li data-value="王牌W1 wangpaiw1">王牌W1 重汽王牌重汽王牌重汽王牌重汽王牌重汽王牌重汽王牌</li>
+                <li data-value="重汽王牌 zhongqiwangpai">重汽王牌</li>
+                <li data-value="东风小霸王V dongfengxiaobawangV">东风小霸王V</li>
+                <li data-value="东风小霸王  dongfengxiaobawang">东风小霸王</li>
+                <li data-value="重汽王牌AAA zhongqiwangpaiAAA">重汽王牌AAA</li>
+                <li data-value="唐僧肉  tangsengrou">唐僧肉</li>
+                <li data-value="唐朝李白  tangchaolibai">唐朝李白</li>
+                <li data-value="大唐荣耀  datangrongyao">大唐荣耀</li>
+                <li data-value="耀武扬威  yaowuyangwei">耀武扬威</li>
+                <li data-value="咬文嚼字  yaowenjiaozi">咬文嚼字</li>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+ <hr/>
+ </body>
+</html>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+function fun(){
+   var str = $("#sou").val();
+    $("#op li").each(function(){
+        var txt = $(this).data("value");
+	    if(txt.indexOf(str)!=-1){
+    　　    $(this).show();
+　　    }else{
+	        $(this).hide();
+        }
+    });
+}
+
+
+$(".sel-top").click(function(event){
+    if($(this).hasClass("active")){
+        $(this).removeClass("active");
+        $(".sel-box").hide();
+    }else{
+        $(this).addClass("active");
+        $(".sel-box").show();
+    }
+    event.stopPropagation();
+
+});
+$(".sel-cont li").hover(function(){
+    $(this).addClass("hover");
+},function(){
+    $(this).removeClass("hover");
+});
+$(".sel-cont li").click(function(){
+    var zhi = $(this).text();
+    $(this).addClass("active").siblings().removeClass("active");
+
+    $(".sel-box").hide();
+    $(".sel-top").removeClass("active");
+    $(".selVale").text(zhi);
+    $(".inputVale").val(zhi);
+});
+$("body").click(function(){
+    $(".sel-top").removeClass("active");
+    $(".sel-box").hide();
+});
+$(".sel-box").click(function(event){
+    event.stopPropagation();
+})
+</script>

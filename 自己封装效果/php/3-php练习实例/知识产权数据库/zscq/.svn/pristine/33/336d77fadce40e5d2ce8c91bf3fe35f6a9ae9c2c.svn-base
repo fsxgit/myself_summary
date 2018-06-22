@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商标管理-商标查询</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/brand.css"/>
+</head>
+<body>
+    <div class="brand-gl main c333">
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20 bdn">注册步骤</h1>
+            <div class="bgl-cont bgl-steps">
+                <span class="bgl-step">1</span>
+                <span>用户提交商标查询</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">2</span>
+                <span>顾问查询商标</span>
+                <span class="bgl-point"></span>
+                <span class="bgl-step">3</span>
+                <span>顾问反馈结果</span>
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <div class="bgl-cont ">
+                <!--/*提示说明*//-->
+                <div class="c-rl-cont-ts">
+                    <p class="ts1">1、顾问会按照您提交的名称和商标样式进行查询，请慎重填写。 </p>
+                    <p>2、如果没有商标样式，请输入名称后点击【预览】将根据商标的名称自动。</p>
+                </div>
+                <!--/*提示说明* end//-->
+            </div>
+        </div>
+        <div class="bgl-mode">
+            <h1 class="c-h1 mt20 bdn">查询方式</h1>
+            <div class="bgl-cont">
+                <div class="bgl-cx-styles">
+                    <span class="active">智能推荐</span>
+                    <span>委托顾问查询</span>
+                    <span>自主选择分类</span>
+                </div>
+                <p class="bgl-cx-styles-say">您只需选择领域及行业，系统会自动推荐适合注册的分类。</p>
+            </div>
+        </div>
+        <!--这里是查询方式的三种选择所需要显示部分的盒子-->
+        <div class="tj-styles-box">
+            <!--智能推荐-->
+            <div class="tj-mode">
+                <div class="bgl-mode">
+                    <h1 class="c-h1 mt20 bdn">选择领域及行业</h1>
+                    <div class="bgl-cont">
+                        <!--/*公用输入框样式 */-->
+                        <div class="c-fp-sel-wrap">
+                            <span class="tit">验证方式</span>
+                            <div class="c-fp-sel-box c-xg-width">
+                                <input type="text" readonly="readonly" class="c-fp-sel-value" placeholder="选择所在领域"/>
+                                <span class="downUp"></span>
+                                <div class="c-fp-sel-p c-xg-width">
+                                    <P class="active">手机</P>
+                                    <P>密保</P>
+                                </div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <!--/*公用输入框样式 end*/-->
+                    </div>
+                </div>
+            </div>
+            <!--委托顾问查询/-->
+            <div class="tj-mode"></div>
+            <!--自主选择分类-->
+            <div class="tj-mode"></div>
+        </div>
+        <!--这里是查询方式的三种选择所需要显示部分的盒子 end-->
+        <div class="bgl-mode bt">
+            <div class="bgl-cont tr">
+                <input type="button" class="blue-big-btn" value="立即办理"/>
+            </div>
+        </div>
+    </div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(".bgl-cx-styles span").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+    $(".bgl-nav a").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+
+    cSelect();
+    function cSelect(){
+        var aP = $(".c-fp-sel-p p"); //下拉的p
+        var apBox = $(".c-fp-sel-p"); //下拉的盒子
+        var oValue = $(".c-fp-sel-value"); //选中值存放的地方
+        var oBox = $(".c-fp-sel-box"); //最外层的盒子
+        var txt = aP.eq(0).text();
+        oValue.text(txt);
+        oBox.click(function(){
+            $(this).toggleClass("active");
+            if($(this).hasClass("active")){
+                apBox.slideDown();
+            }else{
+                apBox.slideUp();
+            }
+        })
+        aP.click(function(event){
+            $(this).addClass("active").siblings().removeClass("active");
+            var val = $(this).text();
+            oValue.val(val);
+            oBox.removeClass("active");
+            apBox.slideUp();
+            event.stopPropagation();
+        })
+    }
+</script>
+</body>
+</html>

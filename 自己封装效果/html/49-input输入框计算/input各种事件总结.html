@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input type="text" name="change" placeholder="请输入内容,我是change事件" />
+    <input type="text" name="keyup" placeholder="请输入内容，我是keyup事件" />
+    <input type="text" name="keydown" placeholder="请输入内容，我是keydown事件" />
+    <input type="text" name="keypress" placeholder="请输入内容，我是keypress事件" />
+    <input type="text" name="blur" placeholder="请输入内容，我是blur事件" />
+    <input type="text" name="focus" placeholder="请输入内容，我是focus事件" />
+    <input type="text" name="bian" placeholder="内容变化就触发事件" />
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $("input[name='change']").change(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keyup']").keyup(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keydown']").keydown(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keypress']").keypress(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='blur']").blur(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='bian']").on("input propertychange",function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+body{background: #ccc;}
+.top{width:80%; height:200px; line-height: 200px; margin:20px auto; text-align: center; color: #fff; font-size: 30px; background: #f00ebf; }
+.content{width:80%; height:100px; line-height: 100px;  margin:40px auto; text-align: center; color: #fff; font-size: 30px; background: #f0b005; }
+.bot{width:80%; height:200px; line-height: 200px;  margin:20px auto; text-align: center; color: #fff; font-size: 30px; background: #f00816; }

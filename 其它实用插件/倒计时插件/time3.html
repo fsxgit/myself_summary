@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>倒计时</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class = "daojishi">
+    <h2>剩余时间为：</h2>
+    <div id = "timer">
+    </div>
+</div>
+</body>
+<script>
+    var ts = 5*60*1000;//倒计时5分钟
+    function timer()
+    {
+        ts = ts - 1000;
+        var mm = parseInt(ts / 1000 / 60 % 60, 10);//计算剩余的分钟数
+        var ss = parseInt(ts / 1000 % 60, 10);//计算剩余的秒数
+        document.getElementById("timer").innerHTML = mm + "分" + ss + "秒";
+    }
+    setInterval(timer,1000);
+</script>
+</html>

@@ -1,0 +1,37 @@
+html,body{ background: #2dee60; width: 100%; height:100%; overflow-x: hidden;overflow-y:auto;}
+body {
+
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+.swiper-wrapper{ width: 1000%; height:1rem;overflow:hidden; position:absolute; left:0; top:0;}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    overflow: hidden;
+    width: 100%;
+    height:1rem;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide img{width:100%; height:100%;}
+#fotBox{width:100%; height:0.1rem;line-height:0.1rem;color:#fff; font-size:0.046rem;  text-align: center; position:absolute; left:0; bottom:0; z-index: 2;}

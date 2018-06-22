@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>找回密码</title>
+    <link rel="stylesheet" href="public/html/css/base.css"/>
+    <link rel="stylesheet" href="public/html/css/color.css"/>
+    <link rel="stylesheet" href="public/html/css/common.css"/>
+    <link rel="stylesheet" href="public/html/css/wrong.css"/>
+</head>
+<body>
+    <div class="fp-box main c333 f12">
+        <div class="fp-step"><img src="public/html/images/fp4.png" width="640" height="54" alt=""/></div>
+        <div class="fp-input-box bc tc">
+		<form class="form-horizontal js-ajax-form" action="{:U('Portal/pinfo/uppass7')}" id="formreg" method="post">
+            <p class="fp-suc-img">
+                <span>
+                    <span class="fl mr10">
+						<img src="public/html/images/sBg.png" width="54" height="60" alt=""/>
+					</span>
+                    <span class="fl">密码修改成功</span>
+                </span>
+            </p>
+            <p class="next4 tc">
+				<input type="button" onclick = "di()" class="next bg1 cfff" value="下一步"/>
+			</p>
+		</form>
+        </div>
+    </div>
+</body>
+<script src="public/html/js/jquery-1.9.1.min.js"></script>
+<script>
+	function di(){
+		$.ajax({
+			url:"{:U('Portal/pinfo/uppass7')}",
+			success: function(msg){
+				if(msg == 1){
+					location.reload();
+				}
+			}
+		});
+	}
+</script>
+</html>

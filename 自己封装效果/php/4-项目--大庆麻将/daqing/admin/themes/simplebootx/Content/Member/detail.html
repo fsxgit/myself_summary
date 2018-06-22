@@ -1,0 +1,75 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap" id="main">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="{:U('index')}">用户列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">{$meta_title}</a>
+        </li>
+    </ul>
+    <!--信息提示-->
+    <div id="top-alert" class="fixed alert alert-error">
+        <button class="close fixed" style="margin-top: 4px;">&times;</button>
+        <div class="alert-content">{$meta_title}</div>
+    </div>
+    <!--信息提示-->
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th  width="100">宝宝姓名</th>
+                <td>
+                    {$info.child_name|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>宝宝出生年月</th>
+                <td>
+                    {$info.child_birthday|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>手机号</th>
+                <td>
+                    {$info.phone|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>头像</th>
+                <td>
+                    <img src="{$info.avatar|default='/data/upload/face.png'}" width="150">
+                </td>
+            </tr>
+            <tr>
+                <th>吧币数量</th>
+                <td>
+                    {$info.gold|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>等级</th>
+                <td>
+                    {$info.level|default=''}
+                </td>
+            </tr>
+            <tr>
+                <th>上次签到时间</th>
+                <td>
+                    {$info.last_sign_time|time_format}
+                </td>
+            </tr>
+            <tr>
+                <th>注册时间</th>
+                <td>
+                    {$info.add_time|time_format}
+                </td>
+            </tr>
+        </table>
+        <div class="form-actions">
+            <a class="btn" href="{$backUrl}">返回</a>
+        </div>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
