@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Javascript 二维码生成库：QRCode</title>
+    <style>
+        *{margin:0; padding:0;}
+        html,body{background: #fff; font-family: PingFangSC-Regular, "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        body{max-width: 540px;  margin-left: auto;  margin-right: auto;   }
+        h2{text-align: center; margin:20px 0;}
+        #qrcode{width: 200px; height: 200px; margin:0 auto; }
+
+    </style>
+</head>
+<body>
+<h2>js生成二维码</h2>
+<div id="qrcode"></div>
+<p>参考网站：</p><a href="https://www.runoob.com/w3cnote/javascript-qrcodejs-library.html">菜鸟狗狗</a>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/qrcode.min.js"></script>
+<script>
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width : 200,
+        height : 200
+    });
+
+    function makeCode () {
+        qrcode.makeCode("www.baidu.com");
+    }
+
+    makeCode();
+</script>
+</body>
+</html>
