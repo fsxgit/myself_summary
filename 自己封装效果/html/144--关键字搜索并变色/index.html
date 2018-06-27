@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>城市选择</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/css.css"/>
+    <style>
+        html,body{width:100%; height: 100%;}
+        body{overflow: auto;}
+    </style>
+</head>
+<body>
+<header>
+    <a href="javascript:history.go(-1);" class="left" ></a>
+    <div class="citys_search">
+        <div class="search_zhe"><span>城市名</span></div>
+        <div class="sear_input_box"><input class="sear_input" type="text" placeholder="请输入城市名"/></div>
+        <input class="sear_btn" type="button" value="取消"/>
+    </div>
+</header>
+<div class="search_result">
+    <div class="no_results">
+        <img src="images/nocitys.png" alt=""/>
+        <p>请输入城市名、首字母或拼音</p>
+    </div>
+    <div class="find_results none">
+        <ul>
+            <!--<li><i>安1</i>阳</li>-->
+            <!--<li>阳<i>安</i></li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li>阳<i>安</i></li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安</i>阳</li>-->
+            <!--<li><i>安2</i>阳</li>-->
+        </ul>
+    </div>
+</div>
+<div class="fxBox ctys_box">
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/js_unite_sdk.js" type="text/javascript"></script>
+<script src="js/js.js" type="text/javascript"></script>
+<script>
+    $(".search_zhe").click(function(){
+        $(this).hide();
+        $(".sear_input").focus();
+    });
+    $(".sear_input").blur(function(){
+        $(".search_zhe").show();
+    });
+    var data = ["北京市北京市","洛阳市","上海市","南京","襄阳舞阳","濮阳","洛宁"];
+    $(".sear_input").on('input propertychange',function(){
+        var searVal = $(this).val();
+        //console.log(searVal);
+        if(typeof(data) == "string"){
+            data = eval('('+data+')');
+        }
+        var nArr =[];
+        $.each(data,function(i,v){
+            if(searVal){
+                var isTrue =  v.indexOf(searVal);
+                if(isTrue >= 0){
+                    var reg = eval("/"+searVal+"/g");
+                    var nstr = "<i>"+searVal+"</i>";
+
+                    var result = v.replace(reg,nstr);
+                    nArr.push(result);
+                }
+            }
+        });
+        //console.log(nArr);
+        var str ="";
+        $.each(nArr,function(i,v){
+            str += "<li>"+v+"</li>";
+        });
+        if(str != ""){
+            $(".no_results").hide();
+            $(".find_results").show();
+            $(".find_results ul").html(str);
+        }else{
+            $(".find_results").hide();
+            $(".no_results").show();
+        }
+
+
+
+    });
+</script>
+</body>
+</html>
