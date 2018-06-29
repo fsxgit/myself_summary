@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta  charset="UTF-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta  http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验证码示例-popup模式</title>
+</head>
+<body>
+<button id="j-popup">点击弹出验证码</button>
+<div id="captcha"></div>
+<script  charset="UTF-8" type="text/javascript" src="http://cstaticdun.126.net/load.min.js"></script>
+<script>
+    var captchaIns;
+    initNECaptcha({
+        element: '#captcha',
+        captchaId: '0571bf558f3a48ee8d645b1b97ed52d4',
+        mode: 'popup',
+        width: '320px',
+        onVerify: function (err, data) {
+            /**
+             * 第一个参数是err（Error的实例），验证失败才有err对象
+             * 第二个参数是data对象，验证成功后的相关信息，data数据结构为key-value，如下：
+             * {
+         *   validate: 'xxxxx' // 二次验证信息;这个验证码是要发给后台去验证 的
+         * }
+             */
+            // 验证成功返回的数据
+            console.log(console.log);
+            var validate = data.validate;
+            console.log(validate);
+        }
+    }, function (instance) {
+        // 初始化成功后得到验证实例instance，可以调用实例的方法
+        captchaIns = instance
+    }, function (err) {
+        // 初始化失败后触发该函数，err对象描述当前错误信息
+    })
+
+    // 监听button的点击事件，弹出验证码
+    document.getElementById('j-popup').addEventListener('click', function () {
+        captchaIns && captchaIns.popUp()
+    })
+</script>
+</body>
+</html>

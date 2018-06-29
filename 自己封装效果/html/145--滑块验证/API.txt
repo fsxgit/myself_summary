@@ -1,0 +1,8 @@
+这是“网易云”的功能；需要去购买开通：
+
+web/ios/Android 
+引入帮助文档：
+https://www.163yun.com/help/documents/150442915877015552
+其中的captchaId需要从账号获取
+
+

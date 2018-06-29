@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta  charset="UTF-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta  http-equiv="X-UA-Compatible" content="ie=edge">
+    验证码示例
+</head>
+<body>
+<div class="form-container">
+    <input  type="text" name="username" id="username" placeholder="用户名">
+    <input  type="password" name="password" id="password" placeholder="密码">
+    <div id="captcha"></div> <!-- 验证码容器元素 -->
+    登录
+</div>
+<script src="//cstaticdun.126.net/load.min.js"></script><!-- 初始化JS -->
+<script>
+    initNECaptcha({
+        captchaId: '0571bf558f3a48ee8d645b1b97ed52d4',
+        element: '#captcha',
+        mode: 'float',
+        width: 320,
+        onReady: function (instance) {
+            // 验证码一切准备就绪，此时可正常使用验证码的相关功能
+        },
+        onVerify: function (err, data) {
+            /**
+             * 第一个参数是err（Error的实例），验证失败才有err对象
+             * 第二个参数是data对象，验证成功后的相关信息，data数据结构为key-value，如下：
+             * {
+         *   validate: 'xxxxx' // 二次验证信息;这个验证码是要发给后台去验证 的
+         * }
+             */
+            //验证成功返回的数据
+            console.log(console.log);
+            var validate = data.validate;
+           console.log(validate);
+        }
+    }, function onload (instance) {
+        // 初始化成功
+    }, function onerror (err) {
+        // 验证码初始化失败处理逻辑，例如：提示用户点击按钮重新初始化
+    })
+</script>
+</body>
+</html>
