@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Swiper中文网基础演示(www.swiper.com.cn)</title>
+<link rel="stylesheet" href="css/idangerous.swiper.css">
+<script src="js/idangerous.swiper.min.js"></script>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+.blue-slide {
+	background: #4390EE;
+}
+.red-slide {
+	background: #CA4040;
+}
+.orange-slide {
+	background: #FF8604;
+}
+.swiper-slide {
+	line-height: 300px;
+	color: #fff;
+	font-size: 36px;
+	text-align: center;
+}
+.swiper-container{
+	width: 100%;
+}
+.swiper-slide{
+	width:265px;
+	height: 420px;
+	padding:0 10px;
+}
+.swiper-slide-active .swiper-center{
+	width: 100%;
+	height: 100%;
+	margin-top: 0;
+	opacity: 1;
+}
+.swiper-center{
+	background: #ccc;
+	width: 100%;
+	height: 80%;
+	opacity: 0.8;
+	margin:0 auto;
+	margin-top: 10%;
+	transition: all 500ms;
+	-moz-transition: all 500ms;	/* Firefox 4 */
+	-webkit-transition: all 500ms;	/* Safari 和 Chrome */
+	-o-transition: all 500ms;	/* Opera */
+}
+h1{
+	text-align: center;
+	padding:20px;
+	font-size: 20px;
+}
+</style>
+</head>
+<body>
+<h1>手机端的当前高，两边低的轮播，pc端看不出效果</h1>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide "><div class="swiper-center blue-slide">slider1</div></div>
+    <div class="swiper-slide "><div class="swiper-center red-slide">slider2</div></div>
+    <div class="swiper-slide "><div class="swiper-center orange-slide">slider3</div></div>
+    <div class="swiper-slide "><div class="swiper-center blue-slide">slider4</div></div>
+    <div class="swiper-slide "><div class="swiper-center red-slide">slider5</div></div>
+    <div class="swiper-slide "><div class="swiper-center blue-slide">slider6</div></div>
+    <div class="swiper-slide "><div class="swiper-center orange-slide">slider7</div></div>
+  </div>
+</div>
+<script type="text/javascript">
+var mySwiper = new Swiper('.swiper-container',{
+	loop: false,
+	centeredSlides : true,
+	slidesPerView : "auto",
+	autoplay: 300000
+});
+</script>
+</body>
+</html>
