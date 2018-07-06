@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>梵净山自然保护区</title>
+    <link rel="stylesheet" href="css/idangerous.swiper.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<!--loading-->
+<div class="mint-indicator">
+    <div class="mint-indicator-wrapper" style="padding: 15px;">
+        <span class="mint-indicator-spin">
+            <div class="mint-spinner-snake"></div>
+        </span>
+        <!--<span class="mint-indicator-text">loading...</span>-->
+    </div>
+    <div class="mint-indicator-mask"></div>
+</div>
+<!--loading end-->
+<div id="cherishBox" class="animal1">
+    <div id="cherishBack">
+        <div class="main pr">
+            <div class="back fl"><img src="images/back.png" alt=""/></div>
+            <div class="tit">珍惜动植物</div>
+            <div class="tab"><img src="images/tabicon1.png" alt=""/><img src="images/tabicon2.png" alt=""/></div>
+        </div>
+    </div>
+    <div id="cherishCont">
+        <div id="cherishTab">
+            <div class="swiper-container" id="swiperTab">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide active" data-kind="0"><span>一级动物</span></li>
+                    <li class="swiper-slide" data-kind="1"><span>二级动物</span></li>
+                    <li class="swiper-slide" data-kind="2"><span>一级植物</span></li>
+                    <li class="swiper-slide" data-kind="3"><span>二级植物</span></li>
+                </ul>
+            </div>
+        </div>
+        <div id="cherishSwipers">
+            <div class="swiper-container" id="swiperConts">
+                <div class="swiper-wrapper" id="swiperList">
+                    <div class="swiper-slide">
+                        <div class="swiper-center" style="background: url('images/pic/img4.jpg') no-repeat center center; background-size:cover; ">
+                            <div class="tags">
+                                <img src="images/tag1.png" alt=""/><img src="images/tag2.png" alt=""/>
+                            </div>
+                            <div class="details">
+                                <h2>黔金丝猴</h2>
+                                <p class="ellipsis3">黔金丝猴，体重可达15公斤，两肩间有一白色块斑，鼻子仰天朝上，因此又称为白肩仰鼻猴。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-center" style="background: url('images/pic/img5.jpg') no-repeat center center; background-size:cover;">
+                            <div class="tags">
+                                <img src="images/tag1.png" alt=""/><img src="images/tag2.png" alt=""/>
+                            </div>
+                            <div class="details">
+                                <h2>黔金丝猴</h2>
+                                <p class="ellipsis3">黔金丝猴，体重可达15公斤，两肩间有一白色块斑，鼻子仰天朝上，因此又称为白肩仰鼻猴。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-center" style="background: url('images/pic/img6.jpg') no-repeat center center; background-size:cover;">
+                            <div class="tags">
+                                <img src="images/tag1.png" alt=""/><img src="images/tag2.png" alt=""/>
+                            </div>
+                            <div class="details">
+                                <h2>黔金丝猴</h2>
+                                <p class="ellipsis3">黔金丝猴，体重可达15公斤，两肩间有一白色块斑，鼻子仰天朝上，因此又称为白肩仰鼻猴。两肩间有一白色块斑</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-center" style="background: url('images/pic/img4.jpg') no-repeat center center; background-size:cover;">
+                            <div class="tags">
+                                <img src="images/tag1.png" alt=""/>
+                                <img src="images/tag2.png" alt=""/>
+                            </div>
+                            <div class="details">
+                                <h2>黔金丝猴</h2>
+                                <p class="ellipsis3">黔金丝猴，体重可达15公斤，两肩间有一白色块斑，鼻子仰天朝上，因此又称为白肩仰鼻猴。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/idangerous.swiper.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+    var data=[
+      ["images/pic/img6.jpg", "images/pic/img4.jpg", "images/pic/img7.jpg", "images/pic/img8.jpg", "images/pic/img9.jpg", "images/pic/img4.jpg", "images/pic/img5.jpg"],
+      ["images/pic/img9.jpg", "images/pic/img4.jpg", "images/pic/img5.jpg"],
+      ["images/pic/img4.jpg", "images/pic/img7.jpg", "images/pic/img8.jpg", "images/pic/img9.jpg" ],
+      [ "images/pic/img7.jpg", "images/pic/img8.jpg"]
+    ];
+    $(function(){
+        loading("0","");
+    });
+    // tab切换
+    var mySwiper1 = new Swiper('#swiperTab',{
+        slidesPerView :"auto",
+        onSlideChangeStart: function(swiper){
+            if(swiper.activeIndex == 2){
+
+            }else{
+
+            }
+        }
+    });
+    // 图片轮播
+    var mySwiper2;
+    mySwiper2 = new Swiper('#swiperConts',{
+        loop: false,
+        centeredSlides : true,
+        slidesPerView : "auto",
+        observer:true,
+        observeParents:true
+    });
+    $("#cherishTab li").click(function(){
+        loading("1","");
+        $(this).addClass("active").siblings().removeClass("active");
+        var kind = $(this).data("kind");
+        if(kind == 0){
+            $("#cherishBox").removeClass().addClass("animal1");
+        }else if(kind == 1){
+            $("#cherishBox").removeClass().addClass("animal2");
+        }else if(kind == 2){
+            $("#cherishBox").removeClass().addClass("plant1");
+        }else if(kind == 3){
+            $("#cherishBox").removeClass().addClass("plant2");
+        }
+        var str = '';
+        str += '<div class="swiper-container" id="swiperConts">';
+        str += '<div class="swiper-wrapper" id="swiperList">';
+        $.each(data[kind],function(i,v){
+            str += '<div class="swiper-slide">';
+            str += '<div class="swiper-center" style="background: url(\''+v+'\') no-repeat center center; background-size:cover; ">';
+            str += '<div class="tags">';
+            str += '<img src="images/tag1.png" alt=""/><img src="images/tag2.png" alt=""/>';
+            str += '</div>';
+            str += '<div class="details">';
+            str += '<h2>黔金丝猴</h2>';
+            str += '<p class="ellipsis3">黔金丝猴，体重可达15公斤，两肩间有一白色块斑，鼻子仰天朝上，因此又称为白肩仰鼻猴。</p>';
+            str += '</div>';
+            str += '</div>';
+            str += '</div>';
+        });
+        str += '</div>';
+        str += '</div>';
+        $("#cherishSwipers").html(str);
+        var cuur = 1;
+        mySwiper2.destroy();
+        mySwiper2 = new Swiper('#swiperConts',{
+            loop: false,
+            centeredSlides : true,
+            initialSlide :cuur,
+            slidesPerView : "auto",
+            observer:true,
+            observeParents:true
+        });
+        // mySwiper2.reInit();
+        // mySwiper2.destroy();
+        loading("0","");
+    });
+</script>
+</body>
+</html>
