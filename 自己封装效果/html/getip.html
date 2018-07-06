@@ -6,13 +6,14 @@
 </head>
 <body>
 <p>您当前所在的城市为：<span></span></p>
-<script src="//cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
 <!-- 请求获取IP地址 -->
 <script>
     $(function () {
         //IP定位
         $("p>span").text(remote_ip_info.province);
+        alert(remote_ip_info.province);
     });
 </script>
 </body>
