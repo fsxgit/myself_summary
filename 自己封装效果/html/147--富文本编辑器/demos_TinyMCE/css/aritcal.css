@@ -1,0 +1,208 @@
+/* Begin Reset CSS, from YUI 2 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: auto !important;
+	height: auto !important;
+}
+
+table {
+	border-collapse: collapse !important;
+	border-spacing: 0 !important;
+}
+
+fieldset,img {
+	border: 0 !important;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style: normal !important;
+	font-weight: normal !important;
+}
+
+dl,dt,dd {
+	list-style: none !important;
+}
+
+ul,ol {
+	padding-left: 30px !important;
+	margin-left: 0 !important;
+}
+
+caption,th {
+	text-align: left !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100% !important;
+	font-weight: normal !important;
+}
+
+q:before,q:after {
+	content: '' !important;
+}
+
+abbr,acronym {
+	border: 0 !important;
+}
+/* End Reset CSS, from YUI 2 */
+
+
+/* Begin Global CSS */
+* {
+	line-height: 1.5 !important;
+	font-size: 18px !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", "黑体", sans-serif !important;
+	word-wrap: break-word !important;
+	word-break: break-all !important;
+	text-align: left !important;
+	text-decoration: none !important;
+	text-indent: 0 !important;
+	background: transparent !important;
+	color: #000 !important;
+}
+
+html {
+	overflow-y: scroll !important;
+}
+
+body {
+	background-color: #fff !important;
+	padding: 15px !important;
+}
+
+a[href],
+a[href] font {
+	color: #557533 !important;
+	outline: none !important;
+}
+
+a[href] {
+	text-decoration: underline !important;
+}
+
+a[href]:focus {
+	outline: none !important;
+}
+
+a[href]:link,
+a[href]:visited {
+}
+
+#article-title {
+	font-size: 20px !important;
+	font-weight: bold !important;
+}
+
+#article-time {
+	display: block !important;
+	color: #8c8c8c !important;
+	font-size: 11px !important;
+}
+
+#media-container {
+	margin-top: 18px !important;
+	font-size: 18px !important;
+}
+
+#media-container img {
+	display: block !important;
+	max-width: 100% !important;
+	height: auto !important;
+	margin: 10px auto 0 auto !important;
+}
+
+#article-content-container {
+}
+
+#article-content-container img,
+#article-content-container video {
+	max-width: 100% !important;
+	height: auto !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+}
+
+#article-content-container p,
+#article-content-container div,
+#article-content-container h,
+#article-content-container h1,
+#article-content-container h2,
+#article-content-container h3,
+#article-content-container h4,
+#article-content-container h5,
+#article-content-container h6,
+#article-content-container pre,
+#article-content-container blockquote,
+#article-content-container article,
+#article-content-container figure,
+#article-content-container section,
+#article-content-container aside {
+	display: block !important;
+}
+
+#article-content-container p,
+#article-content-container div,
+#article-content-container h,
+#article-content-container h1,
+#article-content-container h2,
+#article-content-container h3,
+#article-content-container h4,
+#article-content-container h5,
+#article-content-container h6,
+#article-content-container pre,
+#article-content-container blockquote,
+#article-content-container article,
+#article-content-container figure,
+#article-content-container section,
+#article-content-container aside,
+#article-content-container ul,
+#article-content-container ol,
+#article-content-container dl,
+#article-content-container dt,
+#article-content-container dd,
+#article-content-container li {
+	margin-top: 1em !important;
+}
+
+#article-content-container h,
+#article-content-container h1,
+#article-content-container h2,
+#article-content-container h3,
+#article-content-container h4,
+#article-content-container h5,
+#article-content-container h6,
+#article-content-container strong {
+	font-weight: bold !important;
+}
+
+#article-content-container blockquote {
+	padding: 0 1em !important;
+}
+
+#article-content-container em {
+	font-style: italic !important;
+}
+
+#source-link {
+	margin-top: 20px !important;
+}
+
+#source-link a {
+	text-decoration: none !important;
+	font-size: 16px !important;
+}
+
+a.btn {
+	display: block;
+	color: #fff !important;
+	font-size: 15px !important;
+	background-color: #40546e !important;
+	padding: 10px;
+	border-radius: 2px;
+	text-align: center !important;
+	box-sizing: border-box;
+	text-decoration: none !important;
+	margin-top: 15px;
+}

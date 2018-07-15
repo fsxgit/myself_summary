@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/jquery.min.js"></script>
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <style>
+        html,body,div,p,img,span,ul,li,h1,h2,h3,h4,h5,h6{padding:0;margin:0; font-weight: normal;}
+        html,body{background: #f6f8f9;}
+        ul,li{list-style: none;}
+        input{background: none; border:none; outline: none;}
+        body,input{font-family: "PingFang SC", "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        #editor-container {
+            margin: 20px;
+            font-family: "PingFang SC";
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #txt-title {
+            border: 1px solid #333;
+            color: #000;
+            font-size: 20px;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+<div id="editor-container">
+    <h1>TinyMCE 编辑器示例</h1>
+
+    <input id="txt-title" type="text" placeholder="请输入标题">
+
+    <textarea id="html-editor"></textarea>
+</div>
+<script type="text/javascript">
+
+    /*
+        // 参数可以是propmt, merge, clear，效果自行切换对比
+        powerpaste_word_import: 'propmt',
+        powerpaste_allow_local_images: true,
+        paste_data_images: true,
+        images_upload_handler: function (blobInfo, success, failure) {
+          // blobInfo.blob() 得到图片的file对象
+          ajaxUpload(blobInfo.blob()).then((data) => {
+             // 上传成功后，调用success函数传入图片地址
+             success(data.uploadedImageUrl)
+           })
+         },
+    */
+
+
+
+    var API_Base_Path = 'http://testlewis.api.chainbba.com';
+    var Static_Base_Path = 'http://test.static.chainbba.com';
+    var Artical_CSS = '/css/aritcal.css';
+
+    var cirlceId = '41';
+    var UID = '786e6667191c20264d9a60a8bbad0a67';
+    var token = 'OUFLNjNINmZLTGE0Ym1yN0tybFpTaGprOUx4cHNXMzZmd2tYMWZBdw==';
+
+    // save article to server
+    function saveArticle() {
+
+        var title = $.trim($('#txt-title').val());
+        var content = $.trim(tinyMCE.get('html-editor').getContent());
+
+        if (!title || !content) {
+            return;
+        }
+
+        // post data to server
+        $.ajax({
+            url: API_Base_Path + '/api/v1/circle_timeline',
+            type: 'post',
+            headers: {
+                Accept: 'application/json; charset=utf-8',
+                Authorization: token
+            },
+            data: {
+                'author_uid': UID,
+                'circle_id': cirlceId,
+                'type': 2,
+                'title': title,
+                'content': content
+            },
+            success: function(result) {
+                console.log(result);
+
+                if (result.code) {
+                    alert(result.message);
+                }
+                else {
+                    alert('文章发布成功');
+                }
+            },
+            error: function (error) {
+                alert('文章发布失败');
+            }
+        });
+
+    }
+
+    // tinymce initialize
+    tinymce.init({
+        selector: '#html-editor',
+        language: 'zh_CN',
+        height: 400,
+        menubar: false,
+        statusbar: false,
+        plugins: 'save code preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+        toolbar: 'save | insertfile undo redo | styleselect removeformat | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor | table link image | code preview fullscreen help',
+
+        // custome style
+        content_css: Artical_CSS,
+
+        /* image update setting */
+        // images_upload_credentials: true
+        images_upload_url: API_Base_Path + '/api/v1/upload_photo',
+        images_upload_base_path: Static_Base_Path,
+
+        // on save button click
+        save_onsavecallback: saveArticle,
+        save_enablewhendirty: false,
+
+    });
+
+
+</script>
+</body>
+</html>
