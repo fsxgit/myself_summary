@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+</head>
+<body>
+<textarea id="msgText" name=""  cols="30" rows="10" placeholder="请输入内容"></textarea>
+<div class="moreTxt">还可以输入<span>350</span>字</div>
+
+<script>
+    $('#msgText').bind('input propertychange','textarea',function(){
+        var curLength = $(this).val().trim().length;
+        if(curLength > 350)
+        {
+            var val = $(this).val().trim().substr(0,350);
+            $(this).val(val);
+            //alert("超过字数限制，多出的字将被截断！" );
+        }
+        curLength = $(this).val().trim().length;
+        $(".moreTxt span").text(parseInt(350-curLength));
+    });
+</script>
+</body>
+</html>
