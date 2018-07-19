@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var LenSmJsU = navigator.userAgent;
+    var isAndroid = LenSmJsU.indexOf('Android') > -1 || LenSmJsU.indexOf('Adr') > -1; //android终端
+    var isiOS = !!LenSmJsU.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    var isWeChat = LenSmJsU.toLowerCase().indexOf('micromessenger') > -1; //微信终端
+    alert("微信浏览器="+isWeChat);
+    alert("isiOS浏览器="+isiOS);
+    alert("isAndroid浏览器="+isAndroid);
+</script>
+</body>
+</html>
