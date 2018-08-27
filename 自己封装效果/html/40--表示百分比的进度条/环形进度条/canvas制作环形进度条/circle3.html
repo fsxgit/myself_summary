@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Canvas</title>
+
+</head>
+
+<style type="text/css">
+
+    body{margin:20px auto; padding:0; width:800px; }
+
+    canvas{border:dashed 2px #CCC}
+
+</style>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+
+    function $$(id){
+
+        return document.getElementById(id);
+
+    }
+
+    function pageLoad(){
+
+        var can = $$('can');
+
+        var cans = can.getContext('2d');
+
+        cans.beginPath();
+
+//        cans.arc(400,300,200,0,2*Math.PI/3,1);
+//        cans.arc(400,300,200,0,1.5*Math.PI,0);
+        cans.arc(400,475,200,0.8*Math.PI,2.2*Math.PI,0);
+
+
+//        0.5*Math.PI    《==》  90°
+//          1*Math.PI    《==》  180°
+//        1.5*Math.PI    《==》  270°
+//          2*Math.PI    《==》  360°
+
+//        context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+//        x: 圆的中心的 x 坐标
+//        y: 圆的中心的 y 坐标
+//        r: 圆的半径
+//        sAngle: 起始角，以弧度计。（弧的圆形的三点钟位置是 0 度） 总弧度 2*Math.PI
+//        eAngle: 结束角，以弧度计
+//        counterclockwise: 可选。规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针。
+
+//        cans.closePath();  //是否闭合
+
+        cans.strokeStyle = 'red';
+
+        cans.lineWidth = 10;
+
+        cans.lineJoin = "round";
+
+        cans.stroke();
+
+    }
+
+</script>
+
+<body onload="pageLoad();">
+
+<canvas id="can" width="800px" height="600px"></canvas>
+
+</body>
+
+</html>

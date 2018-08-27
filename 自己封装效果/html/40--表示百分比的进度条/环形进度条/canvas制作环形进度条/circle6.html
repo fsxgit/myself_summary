@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        canvas{
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;">这里是把前面的做一个总结，做一个封装</h1>
+<canvas id="myCanvas1">当前浏览器不支持canvas组件请升级！</canvas>
+<canvas id="myCanvas2">当前浏览器不支持canvas组件请升级！</canvas>
+
+<script type="text/javascript">
+    /**
+     * 使用canvas制作的环形滚动条
+     * CanProBar:
+     * @param:
+     *         id:绘图的canvas
+     *      start:起始位置[弧度]     最下方：0；  最上方：-Math.PI； 左边中心：0.5*Math.PI； 右边中心：-0.5*Math.PI  【其中2*Math.PI为一圈】
+     *        end:结束位置[弧度]      从开始角度到结束角度所要走的路程；一圈为2*Math.PI
+     *          W:canvas的宽[int]
+     *          H:canvas的高[int]
+     *         lw:进度条的粗度[int]
+     *         lc:进度条的颜色[string]
+     *        ist:是否需要中间绘制进度数字[int]  0 不绘制；1 绘制
+     *        fsz:字号[int]
+     *        fcl:字体颜色[string]
+     *
+     * */
+    var id1 = document.getElementById("myCanvas1");
+    var id2 = document.getElementById("myCanvas2");
+    var start = 0.25*Math.PI;
+    var end = 1.5 * Math.PI;
+    var W = 300;
+    var H = 300;
+    var lw = 8;
+    var lc = "#1c86d1";
+    var ist = 1;
+    var fsz = 35;
+    var fcl = "#D11D31";
+    CanProBar(id1,start,end,W,H,lw,lc,ist,fsz,fcl);
+    CanProBar(id2,0,2 * Math.PI,200,200,6,"#D11D31",1,fsz,fcl);
+    function CanProBar(id,start,end,W,H,lw,lc,ist,fsz){
+
+        //方法二：rotate() 动态画圆
+        var c = id;
+        var ctx = c.getContext('2d');
+
+        var mW = c.width = W;
+        var mH = c.height = H;
+        var lineWidth = lw;
+        var r = mW / 2; // 中间位置
+        var cR = r - 4 * lineWidth; // 圆半径
+        var startAngle = -(1 / 2 * Math.PI); // 开始角度
+        var endAngle = startAngle + end; // 结束角度(从开始角度到结束角度所要走的路程) 【一圈为2*Math.PI】
+        var xAngle = 1 * (Math.PI / 180); // 偏移角度量
+        var tmpAngle = startAngle; // 临时角度变量
+
+        //渲染函数
+        var rander = function(){
+            if(tmpAngle >= endAngle){
+                return;
+            }else if(tmpAngle + xAngle > endAngle){
+                tmpAngle = endAngle;
+            }else{
+                tmpAngle += xAngle;
+            }
+            ctx.clearRect(0, 0, mW, mH);
+
+            //画圈
+            ctx.save();
+            ctx.beginPath();
+            ctx.lineWidth = lineWidth;
+            ctx.strokeStyle = lc;
+            ctx.translate(r, r); // 重定义圆点
+            ctx.rotate(start); // 设置起点位置：    最下方：0；  最上方：-Math.PI；  其中2*Math.PI为一圈
+            for(var i = 0; i <= tmpAngle - startAngle; i += xAngle){ // 绘图
+                ctx.moveTo(0, cR - lineWidth);
+                ctx.lineTo(0, cR);
+                ctx.rotate(xAngle); // 通过旋转角度和画点的方式绘制圆
+            }
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+
+            //写字
+            if(ist == 1){
+                var fontSize = fsz; // 字号大小
+                ctx.fillStyle = fcl;
+                ctx.font= fontSize + 'px Microsoft Yahei';
+                ctx.textAlign='center';
+                ctx.fillText( Math.round((tmpAngle -  startAngle) / (endAngle - startAngle) * 100) + '%', r, r + fontSize / 2);
+            }
+
+            requestAnimationFrame(rander);
+        };
+
+        rander();
+    }
+</script>
+</body>
+</html>

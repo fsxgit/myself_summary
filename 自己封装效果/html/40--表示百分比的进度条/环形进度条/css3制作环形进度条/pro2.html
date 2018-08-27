@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>环形滚动条</title>
+    <style>
+        .c_wrap{width:200px; height: 200px; background: #ccc; margin:100px auto; overflow: hidden; position: relative;  border-radius: 50%; }
+        .c_left{width: 100px; height: 200px; position: absolute; left:0; top:0; background: #0079FF; overflow: hidden;}
+        .c_right{width: 100px; height: 200px; position: absolute; right:0; top:0; background: #ffa7a7; overflow: hidden;  }
+        .c_left_center{ position: absolute; left:0; top:0; width: 200px; height: 200px;  border:20px solid transparent;  border-left:20px solid #f06701;  border-top:20px solid #f0ba13;  border-radius: 50%;
+
+            box-sizing: border-box;
+            /*-webkit-transform: rotate(315deg);*/
+            -webkit-transform: rotate(0deg);
+
+        }
+        .c_right_center{ position: absolute; right:0; top:0; width: 200px; height: 200px;  border:20px solid transparent; border-top:20px solid #9af011;  border-right:20px solid #0c3df0;  border-radius: 50%;
+
+            box-sizing: border-box;
+            /*-webkit-transform: rotate(406deg);*/
+            -webkit-transform: rotate(-135deg);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="c_wrap">
+        <div class="c_left">
+            <div class="c_left_center"></div>
+        </div>
+        <div class="c_right">
+            <div class="c_right_center"></div>
+        </div>
+    </div>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+//    初始位置
+    var t = 20;
+    var ledg = 0;
+    var reDg = t-135;
+    $(".c_left_center").css({"-webkit-transform":"rotate("+ledg+"deg)"});
+    $(".c_right_center").css({"-webkit-transform":"rotate("+reDg+"deg)"});
+
+
+</script>
+</body>
+</html>
