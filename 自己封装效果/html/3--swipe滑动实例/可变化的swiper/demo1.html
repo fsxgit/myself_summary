@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>swiper的初始化</title>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <style>
+        *{margin:0; padding:0;}
+        .box{max-width: 540px; margin:0 auto;  background: #f5f5f5; padding:20px 0;}
+        ul,li{list-style: none;}
+        #panoSceneNav li{width: 120px; height: 80px;}
+        #panoSceneNav li>img{  max-width:95%; max-height: 100%; width: 100%; height: 100%; margin-right: 5%; box-sizing: border-box; position: relative;}
+        #panoSceneNav li::before{
+            content: "";
+            position: absolute;
+            width: 95%;
+            height: 100%;
+            left:0;
+            top:0;
+            background: rgba(0,0,0,0.6);
+            z-index: 10;
+        }
+        #panoSceneNav li.active>img{border:4px solid #ff0039;}
+        #panoSceneNav li.active::before{
+            display: none;
+        }
+        .swiperTab{margin-bottom: 10px; margin-top: 10px;}
+        .swiperTab span{display: inline-block; padding:6px 15px; background: #ff7d2b; color: #fff; font-size: 16px; cursor: pointer; border-radius: 2px;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>切换swiper，并滑动到对应位置</h2>
+    <h3 style="color: red;">特点：</h3>
+    <p style="color: red; font-size: 12px;">先把所有的slide都放进wrapper里面，再有选择性的显示隐藏</p>
+    <p style="color: red; font-size: 12px;">这样的话，每次第一次加载时，都要加载全部图片，故加载首次加载会慢；但是每次点击都不需要重新加载，只是控制显示隐藏，故能立马显示。</p>
+   <div class="swiperTab">
+       <span data-tab="1">切换一</span>
+       <span data-tab="2">切换二</span>
+       <span data-tab="3">切换三</span>
+   </div>
+    <div id="panoSceneNav" class="swiper-container">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide" data-type="1"><img src="images/img1.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="2"><img src="images/img2.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="3"><img src="images/img3.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="1"><img src="images/img4.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="2"><img src="images/img5.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="3"><img src="images/img6.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="1"><img src="images/img7.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="1"><img src="images/img1.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="2"><img src="images/img2.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="3"><img src="images/img3.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="3"><img src="images/img4.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="3"><img src="images/img5.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="3"><img src="images/img6.jpg" alt=""></li>
+            <li class="swiper-slide" data-type="1"><img src="images/img7.jpg" alt=""></li>
+        </ul>
+    </div>
+    <p>swiper个数：<span id="num"></span></p>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script>
+    $("#num").text($("#panoSceneNav li").length);
+    var mySwiper = new Swiper('#panoSceneNav',{
+        initialSlide :1,
+        slidesPerView : "auto",
+        observer:true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents:true //修改swiper的父元素时，自动初始化swiper
+    });
+    $(".swiperTab span").click(function(){
+        var tab = $(this).data("tab");
+        $("#panoSceneNav li").each(function(){
+            var oType = $(this).data("type");
+            if(oType == tab){
+                $(this).show();
+            }else{
+                $(this).hide();
+            }
+        });
+        // 切换完初始化swiper
+        mySwiper.init();
+        // 初始化完成让swiper滚动到指定位置
+        var n = 1;
+        var t = 1;
+        mySwiper.slideTo(n,t,false);
+        $("#panoSceneNav li:visible").eq(n).addClass("active").siblings().removeClass("active");
+        $("#num").text($("#panoSceneNav li:visible").length);
+    })
+</script>
+</body>
+</html>
