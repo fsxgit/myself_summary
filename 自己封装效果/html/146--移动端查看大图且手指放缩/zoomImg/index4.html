@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>图片缩放</title>
+    <link rel="stylesheet" href="./css/scale.css">
+    <style>
+        .imgzoom_pack{ display: none;}
+        #img1{visibility: visible;}
+        h1{color: #333; font-size: 20px; text-align: center;}
+        ul{text-align: center;}
+        ul li>img{width: auto !important; height:100px !important;}
+    </style>
+    <script src="../PinchZoom/pinchzoom.js"></script>
+</head>
+<body>
+<h1>点击图片看大图--并双指缩放</h1>
+<ul class="list">
+    <li><img src="images/img1.jpg" alt=""></li>
+    <li><img src="images/img2.jpg" alt=""></li>
+    <li><img src="images/img3.jpg" alt=""></li>
+    <li><img src="images/img4.jpg" alt=""></li>
+</ul>
+<div class="imgzoom_pack">
+    <div class="imgzoom_img"><img id="img1"  src="./images/mapLine4.jpg" /></div>
+</div>
+<script src="./js/scale3.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script>
+    $(".list li>img").click(function(){
+        var src = $(this).attr("src");
+        $(".imgzoom_pack").show();
+        $("#img1").attr("src",src);
+        ImagesZoom.init({});
+
+    });
+    $(".imgzoom_pack").click(function(){
+        $(this).hide();
+    });
+    document.addEventListener("DOMContentLoaded", function(event){
+
+    }, false);
+</script>
+</body>
+</html>

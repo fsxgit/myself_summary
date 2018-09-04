@@ -23,14 +23,14 @@
 */
 
 /**
- * ×Ô¶¨Òå·½·¨£º
- * fscaleClass£º// µ±Ëõ·Å±¶Êı´óÓÚ1µÄÊ±ºòÌí¼ÓÃÉ²ã
+ * ï¿½Ô¶ï¿½ï¿½å·½ï¿½ï¿½ï¿½ï¿½
+ * fscaleClassï¿½ï¿½// ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É²ï¿½
  * **/
 function changeEvent(fscale){
     if(fscale >1){
-        alert("±ÈÀıËõĞ¡ÓÚ1ÁË");
+        console.log("111");
     }else{
-        alert("±ÈÀı·Å´óÓÚ1±¶ÁË");
+        console.log("222");
     }
 }
 /*global jQuery, console, define, setTimeout, window*/
