@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <meta charset="utf-8">
+    <title>星空特效+沿边旋转</title>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            max-width: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: "microsoft-yahei";
+        }
+
+        #space {
+            width: 100%
+        }
+
+        #warp {
+            position: absolute;
+            height: 635px;
+            z-index: 9;
+            overflow: auto;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: #fff;
+            padding: 10px;
+            width: 800px;
+            font-size: 14px;
+            line-height: 45px;
+        }
+
+        /*倒计时css*/
+
+        ul#countdown {
+            text-align: center;
+            margin: 2em 0 2em;
+
+        }
+
+        ul#countdown li {
+            display: inline-block;
+            margin-right: 28px;
+            width: 85px;
+            height: 85px;
+            text-align: center;
+            padding: 12px;
+            border: 1px solid #2be0f0;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+            -moz-border-radius:50%;
+            position: relative;
+        }
+
+        ul#countdown li span{
+            font-size: 45px;
+            color: #fff;
+            font-weight: 100;
+            padding-top: 10px;
+            display: block;
+        }
+
+        ul#countdown li p.timeRefDays,
+        ul#countdown li p.timeRefHours,
+        ul#countdown li p.timeRefMinutes,
+        ul#countdown li p.timeRefSeconds {
+            color: #2be0f0;
+            font-size: 17px;
+            font-weight: 100;
+            font-style: "microsoft-yahei";
+            line-height: 0px;
+            font-style: italic;
+        }
+
+        /*倒计时加上圆圈*/
+
+        ul#countdown li i{
+
+            width: 85px;
+            height: 85px;
+            position: absolute;
+            display: block;
+            /*旋转动画*/
+            animation:circleRoate 5s infinite linear ;
+
+        }
+        .dotdot{
+            position: absolute;
+            left:-2px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background:#ff6200;
+        }
+        @keyframes circleRoate{
+            from{transform: rotate(0deg);}
+            to{transform: rotate(360deg);}
+        }
+    </style>
+    <script type="text/javascript" src="https://www.p2pcq.com/res/js/base/jquery-1.8.3.min.js"></script>
+
+</head>
+
+<body>
+
+<canvas id="space"></canvas>
+
+<div id="warp">
+    <!-- 加入倒计时 -->
+
+    <ul id="countdown">
+        <li>
+            <span class="days"></span>
+            <p class="timeRefDays">days</p>
+        </li>
+        <li>
+            <span class="hours"></span>
+            <p class="timeRefHours">hours</p>
+        </li>
+        <li>
+            <span class="minutes"></span>
+            <p class="timeRefMinutes">minutes</p>
+        </li>
+        <li>
+            <i><b class="dotdot"></b></i>
+            <span class="seconds"></span>
+            <p class="timeRefSeconds">seconds</p>
+        </li>
+        <div class="clear"></div>
+    </ul>
+
+</div>
+
+<script>
+    window.requestAnimFrame = (function() {
+        return window.requestAnimationFrame
+    })();
+    var canvas = document.getElementById("space");
+    var c = canvas.getContext("2d");
+    var numStars =1000; //星星总数量
+    var radius = '0.' + Math.floor(Math.random() * 9) + 1;
+    var focalLength = canvas.width * 2;
+    var warp = 0;
+    var centerX, centerY;
+
+    var stars = [],
+        star;
+    var i;
+
+    var animate = true;
+
+    initializeStars();//初始化单颗星星
+
+    function executeFrame() {
+
+        if (animate)
+            requestAnimFrame(executeFrame);
+        moveStars();
+        drawStars();
+    }
+
+    function initializeStars() {
+        centerX = canvas.width / 2;
+        centerY = canvas.height / 2;
+
+        stars = [];
+        for (i = 0; i < numStars; i++) {
+            star = {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                z: Math.random() * canvas.width,
+                o: '0.' + Math.floor(Math.random() * 99) + 1
+            };
+            stars.push(star);
+        }
+    }
+
+    function moveStars() {
+        for (i = 0; i < numStars; i++) {
+            star = stars[i];
+            star.z--;
+
+            if (star.z <= 0) {
+                star.z = canvas.width;
+            }
+        }
+    }
+
+    function drawStars() {
+        var pixelX, pixelY, pixelRadius;
+
+        // 适应屏幕 永远都是全屏
+        if (canvas.width != window.innerWidth || canvas.width != window.innerWidth) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initializeStars();
+        }
+        if (warp == 0) {
+            c.fillStyle = "rgba(0,10,20,1)"; //黑蓝色的夜空很美丽
+            c.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+
+        //定义星星的颜色，从文创汇3原色中随机选一个
+
+        // var wch_color,star_color,stars_color;
+        // wch_color = ["#ff6200","#5CBFE4","#5983B7"];
+        // star_color = Math.floor((Math.random()*wch_color.length));
+        // stars_colors = wch_color[star_color];
+
+        c.fillStyle = "rgba(251, 251, 251, " + radius + ")";
+        for (i = 0; i < numStars; i++) {
+            star = stars[i];
+
+            pixelX = (star.x - centerX) * (focalLength / star.z);
+            pixelX += centerX;
+            pixelY = (star.y - centerY) * (focalLength / star.z);
+            pixelY += centerY;
+            pixelRadius = 1 * (focalLength / star.z);
+
+            c.fillRect(pixelX, pixelY, pixelRadius, pixelRadius);
+            c.fillStyle = "rgba(251, 251, 251, " + star.o + ")";
+            //c.fill();
+        }
+    }
+
+    executeFrame();
+
+
+
+
+    // 增加完成升级倒计时提示
+
+    $(function() {
+
+        show_time();
+
+    });
+
+    function show_time() {
+        var time_start = new Date().getTime(); //获取现在的时间
+
+        var time_end = new Date("2018/12/05 15:51:00").getTime(); //设定未来时间
+
+        //计算时间差
+        var time_distance = time_end - time_start;
+        if (time_distance > 0) {
+            // 天时分秒换算
+            var int_day = Math.floor(time_distance / 86400000)
+            time_distance -= int_day * 86400000;
+
+            var int_hour = Math.floor(time_distance / 3600000)
+            time_distance -= int_hour * 3600000;
+
+            var int_minute = Math.floor(time_distance / 60000)
+            time_distance -= int_minute * 60000;
+
+            var int_second = Math.floor(time_distance / 1000)
+            // 时分秒为单数时、前面加零
+            if (int_day < 10) {
+                int_day = "0" + int_day;
+            }
+            if (int_hour < 10) {
+                int_hour = "0" + int_hour;
+            }
+            if (int_minute < 10) {
+                int_minute = "0" + int_minute;
+            }
+            if (int_second < 10) {
+                int_second = "0" + int_second;
+            }
+            // 显示时间
+            $(".days").html(int_day);
+            $(".hours").html(int_hour);
+            $(".minutes").html(int_minute);
+            $(".seconds").html(int_second);
+
+            setTimeout("show_time()", 1000);
+
+        } else {
+            $(".days").html('00');
+            $(".hours").html('00');
+            $(".minutes").html('00');
+            $(".seconds").html('00');
+
+        }
+    }
+</script>
+
+</body>
+
+</html>

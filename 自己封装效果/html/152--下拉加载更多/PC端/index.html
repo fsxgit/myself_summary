@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>向下滑动加载更多</title>
+    <style>
+        *{margin:0; padding:0;}
+        ul,li{list-style: none; background: #f5f5f5;}
+        li{text-align: center; line-height: 50px; font-size: 30px; color: #333; }
+        html,body{width: 100%; height: 100%;}
+        #scrollBox{width: 100%; height: 100%; overflow: auto; }
+        .ts{position: fixed; left:0; top:0; width: 100%; height: auto; font-size: 20px; color: #ff0039; background: rgba(255,255,255,0.7);}
+    </style>
+</head>
+<body>
+    <div class="ts">PC端向下滑动加载更多，请打开console查看打印数据,只能加载到51 <span style="color: #0b10ff;">为了防止滚动一次触发多次事件，加载到底部，暂停加载，导致下次在底部滚动加载不能触发事件，必须回滚一下才行[怎么破？？？？？？？？]</span></div>
+    <div id="scrollBox">
+        <ul class="scrollList">
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+            <li>第1条</li>
+        </ul>
+    </div>
+<script src="jquery.min.js"></script>
+<script>
+
+    /**
+     * 上滑加载更多
+     *  goMoreSate：控制加载状态，不至于，滚动一次触发好多次事件
+     *  isend:判断是不是加载完毕了
+     * */
+    var goMoreSate = 1;
+    var isend = 1;
+
+    $("#scrollBox").scroll(function(){
+        var hh = $(".scrollList").height();
+        var st = $("#scrollBox").scrollTop();
+        var winH = $(window).height();
+        console.log("11111111111111");
+        loadMore();
+    });
+
+    //    评论列表下拉加载更多
+    function loadMore(){
+        var hh = $(".scrollList").height();
+        var st = $("#scrollBox").scrollTop();
+        var winH = $(window).height();
+        if(st + winH >= hh-100){
+            if(goMoreSate == 1 && isend == 1){
+
+                goMoreSate = 2;
+                /**
+                 * 之后要去请求ajax
+                 * 等ajax请求成功之后，去改变这个加载状态，*防止滚动过快，服务端没来得及响应造成多次请求
+                 * goMoreSate = 1;
+                 */
+                console.log("开始加载更多");
+                addHtml();
+
+            }else{
+                if(goMoreSate != 1){
+                    console.log("稍等会，再下拉加载!");
+                }else if(isend != 1){
+                    console.log("isend="+isend);
+                    console.log("数据已全部加载完毕！")
+                }
+
+            }
+
+        }
+    }
+
+
+    var page = 1;
+    function addHtml(){
+        if(page <= 50){
+            console.log("加载了一次数据");
+            var str = '';
+            for(var i = 1; i<=10;i++){
+                page++;
+                str += '<li>第'+page+'条</li>';
+            }
+            $(".scrollList").append(str);
+        }else{
+            isend = 2;
+        }
+
+
+
+    }
+
+</script>
+</body>
+</html>

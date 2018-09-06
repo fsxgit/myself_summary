@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" style="font-size: 50px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .feature{
+            width: .8rem;
+            height: 100%;
+            position:absolute;
+            right:.23rem;
+            top:0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 10;
+
+        }
+        .feature i{
+            width: .8rem;
+            height: .8rem;
+            display: block;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0);
+            box-sizing: border-box;
+            background: url("./images/gongneng.png") no-repeat;
+            background-size: 6.696rem 0.8rem;
+        }
+        .like-wrap,.comment-wrap,.share-wrap,.photo-wrap{
+            width: .85rem;
+            height: .85rem;
+            margin:.13rem 0;
+            display: block;
+            position:relative;
+            border: 1px solid rgba(255,255,255,0);
+        }
+
+        .like-wrap p{
+            font-size: .24rem;
+            color:#fff;
+            text-align: center;
+            margin:-.9rem 0 0 .2rem;
+        }
+        .like-wrap i{
+            background-position:-1.272rem 0;
+        }
+        .like-wrap i.active{
+            background-position: -5.896rem 0;
+        }
+
+        .piaoxin{
+            width: .44rem;
+            height: .4rem;
+            position:absolute;
+            top:.2rem;
+            right:.2rem;
+            display: none;
+        }
+        .piaoxin1{
+            display: block;
+            animation: piaoxian .7s linear 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes piaoxian {
+            0% {
+                transform: scale(1);
+                right:.2rem;
+                top:.2rem;
+            }
+            25%{
+                transform: scale(.75);
+                right:0rem;
+                top:0;
+            }
+            50% {
+                transform: scale(.75);
+                right:-.2rem;
+                top:-.4rem;
+            }
+            75%{
+                transform: scale(.5);
+                right:0rem;
+                top:-.6rem;
+            }
+            100% {
+                transform: scale(0);
+                right:.2rem;
+                top:-.8rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<h3>点赞看效果</h3>
+<div class="feature" style="display: flex;">
+    <!--点赞-->
+    <div class="like-wrap">
+        <i></i>
+        <img class="piaoxin" src="./images/piaoxin.png" alt="">
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    $(".like-wrap").click(function(){
+        $(".piaoxin").addClass("piaoxin1");
+        $(".like-wrap i").addClass("active");
+        setTimeout(function(){
+            $(".piaoxin").removeClass("piaoxin1");
+            $(".like-wrap i").removeClass("active");
+        },1000)
+    })
+</script>
+</body>
+</html>
