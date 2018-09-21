@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>我要报名</title>
+    <link rel="stylesheet" href="css/fx_base.css"/>
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>
+    <script src="js/fx_common.js"></script>
+    <link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/fx_base.css"/>
+    <link rel="stylesheet" href="css/fx_baoming.css"/>
+</head>
+<body>
+<div class="bmBox">
+
+    <div class="tianBox">
+        <div class="tianCon">
+            <span class="tianName">出生年月</span>
+            <span class="tianValue "><input id="scroller" name="scroller"  type="text" placeholder="选择出生日期"/></span>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#scroller").mobiscroll().date();
+
+        var ddd = new Date();
+        var currYear = ddd.getFullYear();
+        var min1 = new Date(ddd.getFullYear()-20); //设置最小选择时间往前20年
+        var max2 = new Date(ddd.getFullYear(),ddd.getMonth(),ddd.getDate()); //设置当前日期为可选择最大日期
+
+        //初始化日期控件
+        var opt = {
+            preset: 'date',
+            theme: 'android-ics light',
+            display: 'bottom',
+            mode: 'scroller',
+            dateFormat: 'yyyy-mm-dd',
+            lang:'zh',
+            setText: '确定',
+            cancelText: '取消',
+
+            dateOrder: 'yyyymmdd',
+            timeFormat: 'HH:ii',
+            timeWheels: 'HHii',
+            stepMinute: 5,
+            dayText: '日', monthText: '月', yearText: '年',
+            showNow: false,
+            nowText: "今",
+            minDate: min1,
+            maxDate: max2
+
+        };
+
+        $("#scroller").mobiscroll(opt);
+    });
+</script>
+</body>
+</html>
