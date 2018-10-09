@@ -1,4 +1,8 @@
 
 
 
-需要在服务器环境下运行，否则图片有跨域问题
+1、需要在服务器环境下运行，否则图片有跨域问题
+
+2、html2canvas 不兼容ie 的解决方法：
+直接在页面引入bluebird.js问题就解决了。
+bluebird.js下载地址:https://cdn.jsdelivr.net/bluebird/latest/bluebird.js(打开链接，页面另存到文件夹即可)
