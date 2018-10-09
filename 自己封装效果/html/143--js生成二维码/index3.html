@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js生成二维码</title>
+    <style>
+        #qrcode{background: #29ff09;  margin-top:15px; padding:20px;}
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script>
+
+<h1>生成二维码</h1>
+<h2>参看文档：<a href="http://www.runoob.com/w3cnote/javascript-qrcodejs-library.html">菜鸟教程</a></h2>
+<h2>参看文档：<a href="http://code.ciaoca.com/javascript/qrcode/">QRCode.js 生成二维码 - 前端开发仓库</a></h2>
+<input id="text" type="text" value="http://www.runoob.com" style="width:80%" /><br />
+<div id="qrcode"></div>
+
+
+<script type="text/javascript">
+    /**
+     * qrcode生成二维码
+     * 参数：
+     * width：生成二维码的宽
+     * height：生成二维码的高
+     * colorDark：生成二维码的亮条色
+     * colorLight：生成二维码的背景色
+     *
+     * ***/
+
+
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width : 100,
+        height : 100,
+        colorDark : "#080fff",
+        colorLight : "#29ff09",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    function makeCode () {
+        var elText = document.getElementById("text");
+
+        if (!elText.value) {
+            alert("Input a text");
+            elText.focus();
+            return;
+        }
+
+        qrcode.makeCode(elText.value);
+    }
+
+    makeCode();
+
+    $("#text").on("blur", function () {
+        makeCode();
+    }).on("keydown", function (e) {
+        if (e.keyCode == 13) {
+            makeCode();
+        }
+    });
+</script>
+</body>
+</html>
