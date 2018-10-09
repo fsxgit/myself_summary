@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>屏幕截取</title>
+    <style>
+        *{padding:0; margin:0;}
+        html,body{width: 100%; height: 100%; background: #000;}
+        #box{background: #4f7f58; width: 100%; min-height: 100%; overflow: auto; color: #fff;}
+        #box img{max-width: 100%;}
+        .main{width: 90%; margin:0 auto; }
+
+        #predict_img{max-width: 100%;}
+        .hide{display: none;}
+        .bg h2{padding:20px 0;}
+        .bg img{  }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="main">
+        <div class="bg">
+            <h2>这个是没有图片时候可以使用，如果有图片时，则会有跨域问题</h2>
+            <h2>这个有折行文字截图问题</h2>
+        </div>
+    </div>
+</div>
+<img class="hide" id="predict_img" src="" alt=""/>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="html2canvas.min.js"></script>
+<script>
+html2canvas($("#box")[0], {
+    scale:2,
+    logging:false,
+    useCORS:true
+}).then(function(canvas) {
+    console.log(canvas);
+    var dataUrl = canvas.toDataURL();
+    console.log(dataUrl);
+    $("#predict_img").attr("src",dataUrl).removeClass("hide");
+    $("#box").hide();
+});
+</script>
+</body>
+</html>

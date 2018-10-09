@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取相对于父级的位置和窗口的位置</title>
+    <style>
+       *{margin:0; padding:0;}
+       .box{width: 500px; height: 500px; margin:100px auto; position: relative; border:1px solid #000;}
+        .div1{	width: 100px;
+            height: 100px;
+            background: #f00;
+            cursor: pointer;
+            position: absolute;
+            left: 59px;
+            top: 121px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="div1"></div>
+</div>
+<h1 style="text-align: center;">获取相对于父级的位置和窗口的位置</h1>
+<script src="jquery-1.9.1.min.js"></script>
+<script>
+    var boxleft = $(".box").offset().left;
+    var boxtop = $(".box").offset().top;
+    alert("box距离窗口左边距离："+boxleft);
+    alert("box距离窗口上边距离："+boxtop);
+    var divleft1 = $(".div1").offset().left;
+    var divtop1 = $(".div1").offset().top;
+    alert("div距离窗口左边距离："+divleft1);
+    alert("div距离窗口上边距离："+divtop1);
+    var divleft2 = $(".div1").position().left;
+    var divtop2 = $(".div1").position().top;
+    alert("div距离父级左边距离："+divleft2);
+    alert("div距离父级上边距离："+divtop2);
+</script>
+</body>
+</html>

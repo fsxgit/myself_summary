@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>模板管理</title>
+    <style>
+        .btns button{background: #0a6cd6; color: #fff; font-size: 16px; padding:10px 20px; border-radius: 4px; cursor: pointer; display: block; margin:10px;}
+    </style>
+</head>
+<body>
+<!--<div class="ts_box">-->
+    <!--<div class="ts_center">-->
+        <!--<img src="../images/ts0.png" alt="">-->
+        <!--<p>登录成功</p>-->
+        <!--<button>确定</button>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="btns">
+    <button onclick='fun1();'>成功</button>
+    <button onclick='fun2();'>失败</button>
+    <button onclick='fun3();'>提示</button>
+    <button onclick='fun4();'>两个按钮</button>
+</div>
+
+<script src="./jquery.min.js"></script>
+<script src="./js.js"></script>
+<script>
+/**
+ * kind：1 只有一个“确定”按钮；2 有两个按钮 “确定” 和 “取消”
+ * state：0 图标为成功，1图标为失败，2图标为提示图标
+ * txt：展示的文字
+ * sure：点击“确定按钮”要处理的逻辑
+ * cancel：点击“取消按钮”要处理的逻辑
+ *
+ *
+ * **/
+    function fun1(){
+        ts({
+            kind:"1",
+            state:"0",
+            txt:"登录成功",
+            sure:function(){
+                alert("点击确定");
+            },
+            cancel:function(){
+                alert("点击取消");
+            }
+        });
+    }
+    function fun2(){
+        ts({
+            kind:"1",
+            state:"1",
+            txt:"失败",
+            sure:function(){
+                alert("点击确定");
+            },
+            cancel:function(){
+                alert("点击取消");
+            }
+        });
+    }
+    function fun3(){
+        ts({
+            kind:"1",
+            state:"2",
+            txt:"提示信息提示信息提示信息",
+            sure:function(){
+                alert("点击确定");
+            },
+            cancel:function(){
+                alert("点击取消");
+            }
+        });
+    }
+    function fun4(){
+        ts({
+            kind:"2",
+            state:"0",
+            txt:"充值成功",
+            sure:function(){
+                alert("点击确定");
+            },
+            cancel:function(){
+                alert("点击取消");
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

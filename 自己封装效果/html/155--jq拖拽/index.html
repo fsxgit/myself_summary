@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加水印</title>
+    <style>
+        #shuiyin{width:800px; height: 400px; border:1px solid #000; position: relative; background: url("./images/bg.png") no-repeat center center; background-size:cover; }
+        .ma{position: absolute; left:200px; top:100px; width: 100px; height: 100px; background: url("./images/ma.png") no-repeat center center; background-size:cover; }
+        .moveCell{position: absolute; left:0; top:0;}
+        input{color: #fff; font-size: 16px; background: none; border:none;}
+        .btns button{padding:10px; margin:10px;}
+        input::placeholder{color: #fff;}
+    </style>
+</head>
+<body>
+<h2>包含知识点</h2>
+<p>1、拖拽</p>
+<p>2、html生成图片</p>
+<div id="shuiyin">
+    <div class="moveCell ma"></div>
+</div>
+<div class="btns">
+    <button class="addbtn1">添加固定模板</button>
+    <button class="addbtn2">添加文本框</button>
+    <button class="tosub">生成水印模板</button>
+    <button class="getxy">获取元素坐标</button>
+</div>
+<script src="jquery-1.9.1.min.js"></script>
+<script src="html2canvas.min.js"></script>
+<script>
+    /**
+     * 拖拽
+     *
+     * **/
+    var BOX = $("#shuiyin");
+    BOX.on("mousedown",".moveCell",function(e) {
+        // e.pageX
+        var positionDiv = $(this).position();
+        var DIV = $(this);
+        var distenceX = e.pageX - positionDiv.left;
+        var distenceY = e.pageY - positionDiv.top;
+        // alert(distenceX)
+        // alert(positionDiv.left);
+
+        BOX.mousemove(function(e) {
+            var x = e.pageX - distenceX;
+            var y = e.pageY - distenceY;
+
+            if (x < 0) {
+                x = 0;
+            } else if (x > BOX.width() - DIV.outerWidth(true)) {
+                x = BOX.width() - DIV.outerWidth(true);
+            }
+
+            if (y < 0) {
+                y = 0;
+            } else if (y > BOX.height() - DIV.outerHeight(true)) {
+                y = BOX.height() - DIV.outerHeight(true);
+            }
+
+            DIV.css({
+                'left': x + 'px',
+                'top': y + 'px'
+            });
+        });
+
+        BOX.mouseup(function() {
+            BOX.off('mousemove');
+        });
+    });
+
+
+    /**
+     * 添加模板
+     * */
+    $(".addbtn1").click(function(){
+        var str = '';
+        str += '<input class="moveCell" style="left:20%; top:20%;" type="text" placeholder="编码">';
+        str += '<input class="moveCell" style="left:30%; top:40%;" type="text" placeholder="姓名">';
+        str += '<input class="moveCell" style="left:20%; top:60%;" type="text" placeholder="日期">';
+        $("#shuiyin").append(str);
+    });
+
+
+    /**
+     * 添加文本框
+     * */
+    $(".addbtn2").click(function(){
+        var str = '';
+        str += '<input class="moveCell" style="left:10%; top:30%;" type="text" placeholder="请输入要添加的文本">';
+        $("#shuiyin").append(str);
+    });
+
+
+    /**
+     * 生成水印模板
+     * */
+    $(".tosub").click(function(){
+        html2canvas($("#shuiyin")[0], {
+            scale:2,
+            logging:false,
+            useCORS:true
+        }).then(function(canvas) {
+            console.log(canvas);
+            $("body").append("<h1>生成canvas</h1>");
+            $("body").append(canvas);
+            var dataUrl = canvas.toDataURL();
+            console.log(dataUrl);
+            $("body").append("<h1>生成图片</h1>");
+            $("body").append("<img style='width: 800px;' src='"+dataUrl+"' />");
+
+        });
+    });
+
+
+    /**
+     * 获取所有元素的坐标
+     * */
+    $(".getxy").click(function(){
+        $(".moveCell").each(function(){
+            var l = $(this).position().left;
+            var t = $(this).position().top;
+            console.log("left:"+l+" top:"+t);
+        })
+    })
+</script>
+
+</body>
+</html>
