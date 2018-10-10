@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>
+    <title>添加水印</title>
+    <style>
+        #shuiyin{width:670px; height: 420px;  position: relative; background: url("./images/bg.png") no-repeat center center; background-size:cover;  }
+        .moveCell{position: absolute;}
+        .ma{ left:262px; top:34px; width: 100px; height: 100px; background: url("./images/ma.png") no-repeat center center; background-size:cover; }
+        input{color: #000; font-size: 16px; max-width: 300px; background: none; border:none;}
+        .btns button{padding:10px; margin:10px;}
+        .sets input{border:1px solid #333;}
+        #shuiyin input{width: auto; display: inline-block;}
+        #shuiyin span{  }
+    </style>
+</head>
+<body>
+<h2>包含知识点</h2>
+<p>1、拖拽</p>
+<p>2、html生成图片</p>
+<div id="shuiyin">
+    <div class="moveCell ma" data-name="ma"></div>
+</div>
+<div class="sets">
+    设置字体大小：<input class="fontSize" maxlength="2" min="14" max="80" type="number" value="20"/>
+    设置字体颜色：<input class="fontColor" type="color">
+    <button class="setStyle">设置字体大小和颜色</button>
+</div>
+<div class="btns">
+    <button class="tabbg">修改背景图</button> <br/>
+    <button class="addbtn1">添加固定模板</button> <br />
+    <button class="addbtn2">添加文本框</button>
+    <button class="removebtn">删除文本框</button> <br />
+    <button class="tosub">生成水印模板</button> <br />
+    <button class="getxy">获取元素坐标</button> <br />
+</div>
+<p style="color: green;">优点：相比index1,把input换成了带有输入属性的span标签,可以自适应高度</p>
+<p style="color: red;">缺点：ie不支持type:color的颜色选择器</p>
+<script src="jquery-1.9.1.min.js"></script>
+<script src="bluebird.js"></script>
+<script src="html2canvas.min.js"></script>
+<script>
+
+    /**
+     * 全局变量：
+     * hasMode 0 已有模板不能再创建  1 没有模板可以再创建
+     *
+     * */
+    var hasMode = 1;
+
+    /**
+     * 获取字体大小和颜色
+     *
+     * */
+    $(".setStyle").click(function(){
+        var size = $(".fontSize").val();
+        var color = $(".fontColor").val();
+        console.log(size+"<br />"+color);
+        $("#shuiyin span").css("fontSize",size+"px");
+        $("#shuiyin span").css("color","#ff3a31");
+    });
+
+    /**
+     *
+     * 修改背景图
+     *
+     * */
+
+
+    /**
+     * 拖拽
+     *
+     * **/
+    var BOX = $("#shuiyin");
+    BOX.on("mousedown",".moveCell",function(e) {
+        // e.pageX
+        var positionDiv = $(this).position();
+        var DIV = $(this);
+        var distenceX = e.pageX - positionDiv.left;
+        var distenceY = e.pageY - positionDiv.top;
+        // alert(distenceX)
+        // alert(positionDiv.left);
+
+        BOX.mousemove(function(e) {
+            var x = e.pageX - distenceX;
+            var y = e.pageY - distenceY;
+
+            if (x < 0) {
+                x = 0;
+            } else if (x > BOX.width() - DIV.outerWidth(true)) {
+                x = BOX.width() - DIV.outerWidth(true);
+            }
+
+            if (y < 0) {
+                y = 0;
+            } else if (y > BOX.height() - DIV.outerHeight(true)) {
+                y = BOX.height() - DIV.outerHeight(true);
+            }
+
+            DIV.css({
+                'left': x + 'px',
+                'top': y + 'px'
+            });
+        });
+
+        BOX.mouseup(function() {
+            BOX.off('mousemove');
+        });
+    });
+
+
+    /**
+     * 添加模板
+     * */
+    $(".addbtn1").click(function(){
+        if( hasMode == 1 ){
+            var str = '';
+            str += '<span class="moveCell bianma" style="left:57px; top:373px;" data-name="num">编码</span>';
+            str += '<span class="moveCell name" style="left:291px; top:164px;" data-name="name">姓名</span>';
+            str += '<span class="moveCell date" style="left:445px; top:373px;" data-name="date">日期</span>';
+            $("#shuiyin").append(str);
+            hasMode = 0;
+            $(".addbtn1").text("删除固定模板");
+        }else{
+            $("#shuiyin .bianma").remove();
+            $("#shuiyin .name").remove();
+            $("#shuiyin .date").remove();
+            $(".addbtn1").text("添加固定模板");
+            hasMode = 1;
+        }
+        $("#shuiyin span").attr("contenteditable",true);
+    });
+
+
+    /**
+     * 添加文本框
+     * */
+    $(".addbtn2").click(function(){
+        var str = '';
+        str += '<span class="moveCell text" data-name="txt" style="left:230px; top:253px;">请输入要添加的文本</span>';
+        $("#shuiyin").append(str);
+        $("#shuiyin span").attr("contenteditable",true);
+    });
+
+    /**
+     * 删除文本框
+     * */
+    $(".removebtn").click(function(){
+        $("#shuiyin .text").remove();
+    });
+
+
+    /**
+     * 生成水印模板
+     * */
+    $(".tosub").click(function(){
+        html2canvas($("#shuiyin")[0], {
+            scale:2,
+            logging:false,
+            useCORS:true,
+            onrendered: function (canvas) {
+                if (isIE() || isIE11() || isEdge()) {
+                    var blob = canvas.msToBlob();
+                    navigator.msSaveBlob(blob, filename);
+                    return;
+                }
+                canvas.id = "mycanvas";
+                var dataURL = canvas.toDataURL('image/png');
+                var mine_type = "image/png";
+                var save_link = document.createElement("a");
+                save_link.setAttribute("class", "hide");
+                save_link.setAttribute("download", "filename");
+                save_link.href = dataUrl;
+                save_link.download = filename;
+                var event = document.createEvent('MouseEvents');
+                event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                save_link.dispatchEvent(event);
+            }
+        }).then(function(canvas) {
+            var dataUrl = canvas.toDataURL();
+            console.log(dataUrl);
+            $("body").append("<img style='width:670px;' src='"+dataUrl+"' />");
+
+        });
+    });
+
+
+    /**
+     * 获取所有元素的坐标
+     * */
+
+    $(".getxy").click(function(){
+        var arr =[];
+        $(".moveCell").each(function(){
+            var l = $(this).position().left;
+            var t = $(this).position().top;
+            var name = $(this).data("name");
+            if(!name){name = ""};
+            var txt = $(this).val();
+            if(!txt){txt = ""};
+            var arr0 ='{"name":"'+name+'","left":"'+l+'","top":"'+t+'","val":"'+txt+'"}';
+            arr.push(arr0);
+        });
+        console.log(arr);
+    });
+
+</script>
+</body>
+</html>
