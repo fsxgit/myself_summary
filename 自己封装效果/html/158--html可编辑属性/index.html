@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html标签可编辑属性</title>
+    <style>
+        div{padding:10px; border:1px solid #ccc; width: 300px;}
+        .div1{
+            user-modify: read-write;
+            -webkit-user-modify: read-write;
+        }
+    </style>
+</head>
+<body>
+<h1>css属性让html标签变成可编辑的，而且可以自动增加父级高度</h1>
+<p>参考文档 <a href="https://www.zhangxinxu.com/wordpress/2016/01/contenteditable-plaintext-only/">请点这里</a></p>
+<h2>第一种： <br />
+    contenteditable="true" <br />
+    contenteditable="events" <br />
+    contenteditable="caret" <br />
+    contenteditable="plaintext-only" <br />
+    contenteditable="true" <br />
+    contenteditable="false" <br />
+</h2>
+<div class="div2" contenteditable="true">我是可编辑的，不信你试试</div>
+<br />
+<button>点击切换可编辑状态</button>
+<h2>第二种： <br />
+    css属性 <br />
+    user-modify: read-only; <br />
+    user-modify: read-write; <br />
+    user-modify: write-only; <br />
+    user-modify: read-write-plaintext-only
+</h2>
+<div class="div1">我是可编辑的，不信你试试</div>
+<p style="color: red;">注意：user-modify属性只支持Chrome内核浏览器</p>
+<script src="jquery.min.js"></script>
+<script>
+    $("button").click(function(){
+        var isEdit = $(".div2").attr("contenteditable");
+        console.log(isEdit);
+        if(isEdit == "true"){
+            console.log(1);
+            $(".div2").attr("contenteditable",false);
+        }else{
+            console.log(2);
+            $(".div2").attr("contenteditable",true);
+        }
+    })
+
+</script>
+</body>
+</html>
