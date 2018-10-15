@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dl_ts{color: #fff; background: rgba(0,0,0,0.8); width:200px; padding:30px 0; position: fixed; left:calc(50% - 100px); top:calc(50% - 50px); text-align: center; font-size: 16px; border-radius: 4px; display: none; z-index: 101; }
+    </style>
+</head>
+<body>
+<h1>js点击复制</h1>
+<p>兼容android， <span style="color: red;">不兼容ios</span></p>
+<p>兼容谷歌和safari</p>
+
+<input id="fzVal"  type="text" style="z-index: -1; position: fixed; left:-999px; bottom:0;" readonly value="">
+<input id="cont" type="text" placeholder="请输入复制内容">
+<button class="btn">点我复制</button>
+
+<div class="dl_ts">复制成功</div>
+<script src="jquery.min.js"></script>
+<script>
+$(".btn").click(function(){
+    var txt = $("#cont").val();
+    if(txt){
+        $("#fzVal").val(txt);
+        copy();
+    }else{
+        alert("请输入要复制的内容");
+    }
+
+
+});
+
+function copy(){
+    var Url2=document.getElementById("fzVal");
+    Url2.select();
+    try{
+        if(document.execCommand('copy', false, null)){
+            alert("浏览器兼容此方法");
+            document.execCommand("Copy");
+            $(".dl_ts").hide();
+            $(".dl_ts").show();
+            setTimeout(function(){
+                $(".dl_ts").hide();
+            },2000);
+        } else{
+            alert("浏览器不兼容此方法");
+        }
+    } catch(err){
+        alert("异常");
+    }
+
+}
+</script>
+</body>
+</html>

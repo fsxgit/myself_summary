@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dl_ts{color: #fff; background: rgba(0,0,0,0.8); width:200px; padding:30px 0; position: fixed; left:calc(50% - 100px); top:calc(50% - 50px); text-align: center; font-size: 16px; border-radius: 4px; display: none; z-index: 101; }
+    </style>
+</head>
+<body>
+<h1>js点击复制</h1>
+<p>兼容android和ios</p>
+<p>兼容谷歌和safari</p>
+
+<!-- Target -->
+<input id="foo" value="I am the copy content!" style="position: fixed; left: -999px;" >
+<!-- Trigger -->
+<input id="cont" type="text" placeholder="请输入要复制的内容">
+<button class="btn" data-clipboard-target="#foo">点击复制</button>
+
+<div class="dl_ts">复制成功，请去粘贴测试</div>
+<script src="jquery.min.js"></script>
+<script src="./clipboard.min.js"></script>
+<script>
+    $(".btn").click(function(){
+        var txt = $("#cont").val();
+        if(txt){
+            $("#foo").val(txt);
+            copy();
+        }else{
+            alert("请先输入要复制的内容!");
+        }
+    });
+
+
+    function copy(){
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            e.clearSelection();
+            $(".dl_ts").hide();
+            $(".dl_ts").show();
+            setTimeout(function(){
+                $(".dl_ts").hide();
+            },2000)
+        });
+
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+    }
+
+</script>
+</body>
+</html>
