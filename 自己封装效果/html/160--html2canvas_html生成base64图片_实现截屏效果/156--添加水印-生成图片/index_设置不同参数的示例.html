@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>截图</title>
+    <style>
+        body{text-align: center;}
+        #box{background: #000; width: 500px; height: 300px; margin:50px auto; color: #fff; padding:50px;}
+        button{width: 200px; height: 50px; }
+        #img{border:1px solid #333; display: block; width: 500px; height: auto; margin:30px auto;}
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>我是一行文字</p>
+    <p>我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字我是一行文字</p>
+</div>
+<button>截图</button>
+<img id="img1" src="" alt="">
+<img id="img2" src="" alt="">
+<script src="jquery-1.9.1.min.js"></script>
+<script src="html2canvas.min.js"></script>
+<script>
+    /**
+     * scale:设置生成图片的大小（尺寸），同时生成图片的内存也会跟着改变
+     * toDataURL('image/jpeg',1);
+     * 设置生成图片的格式和清晰度
+     * 格式：'image/png'、'image/jpeg'、'image/gif';
+     * 清晰度：0-1
+     * **/
+
+    $("button").click(function(){
+        html2canvas($("#box")[0], {
+            scale:2, // 生成2倍图（大图）
+            logging:false,
+            useCORS:true
+        }).then(function(canvas) {
+            var dataUrl = canvas.toDataURL('image/jpeg',1);
+            $("#img1").attr("src",dataUrl);
+        });
+
+        html2canvas($("#box")[0], {
+            scale:0.5, // 生成0.5倍图（小图）
+            logging:false,
+            useCORS:true
+        }).then(function(canvas) {
+            var dataUrl = canvas.toDataURL('image/jpeg',1);
+            $("#img2").attr("src",dataUrl);
+            var type = "jpg";
+            var imgname = "fsx";
+            // downImg(type,imgname,canvas);
+
+        });
+
+    });
+
+    /**
+     *
+     * 把canvas转换为指定格式的图片下载下来
+     *
+     * type:要生成图片的格式png、jpg
+     * imgname：要生成图片的名称
+     * canvas：要生成图片的canvas
+     *
+     * */
+    function downImg(type,imgname,canvas){
+        var type = type;
+        var imgData = canvas.toDataURL(type);
+
+        var _fixType = function(type) {
+            type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+            var r = type.match(/png|jpeg|bmp|gif/)[0];
+            return 'image/' + r;
+        };
+        imgData = imgData.replace(_fixType(type),'image/octet-stream');
+        console.log(imgData);
+        var saveFile = function(data, filename){
+            var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+            save_link.href = data;
+            save_link.download = filename;
+
+            var event = document.createEvent('MouseEvents');
+            event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            save_link.dispatchEvent(event);
+        };
+        var filename = imgname + '.' + type;
+        saveFile(imgData,filename);
+
+    }
+
+</script>
+</body>
+</html>

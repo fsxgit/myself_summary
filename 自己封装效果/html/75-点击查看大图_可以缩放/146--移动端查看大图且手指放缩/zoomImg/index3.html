@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>图片缩放</title>
+    <link rel="stylesheet" href="./css/scale.css">
+    <style>
+        .imgzoom_pack{display: block;}
+        #img1{visibility: visible;}
+        h1{color: #fff; font-size: 20px; text-align: center;}
+    </style>
+</head>
+<body>
+<div class="imgzoom_pack">
+    <h1>去掉了img的onload事件，不知道会不会有问题</h1>
+    <div class="imgzoom_img"><img id="img1"  src="./images/mapLine4.jpg" /></div>
+</div>
+<script src="./js/scale3.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event){
+        ImagesZoom.init({});
+    }, false);
+</script>
+</body>
+</html>

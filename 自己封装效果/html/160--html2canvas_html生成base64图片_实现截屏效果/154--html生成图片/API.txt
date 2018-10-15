@@ -1,0 +1,17 @@
+
+
+
+1、需要在服务器环境下运行，否则图片有跨域问题
+
+2、html2canvas 不兼容ie 的解决方法：
+直接在页面引入bluebird.js问题就解决了。
+bluebird.js下载地址:https://cdn.jsdelivr.net/bluebird/latest/bluebird.js(打开链接，页面另存到文件夹即可)
+
+3、html2canvas缺陷：不能够截取换行的文字，换行的文字会被截取调
+
+4、参数：
+	 * scale:设置生成图片的大小（尺寸），同时生成图片的内存也会跟着改变
+     * toDataURL('image/jpeg',1);
+     * 设置生成图片的格式和清晰度
+     * 格式：'image/png'、'image/jpeg'、'image/gif';
+     * 清晰度：0-1

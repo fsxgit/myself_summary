@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>图片缩放</title>
+    <link rel="stylesheet" href="./css/scale.css" type="text/css" />
+    <style>
+        .imgzoom_pack{display: block;}
+        h1{color: #fff; font-size: 20px; text-align: center;}
+    </style>
+</head>
+<body>
+<h1>弊端：img的onload事件不是每次都走，奇了怪了</h1>
+<div class="imgzoom_pack">
+    <div class="imgzoom_img"><img  src="./images/mapLine4.jpg" /></div>
+</div>
+<script src="./js/scale.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event){
+        ImagesZoom.init({});
+    }, false);
+</script>
+</body>
+</html>
