@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>证书</title>
+    <style>
+        *{margin:0; padding:0;}
+        .img{width: 100px; height: 100px; margin:10px;}
+
+
+        /* 图片放大css */
+        #zoomBox{position: fixed; left:0; top:0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; z-index: 99;}
+        #showImg{position: absolute; left:0; right:0; top:0; bottom:0; margin:auto; }
+
+        .pinch-zoom {  position: relative;  transform-origin: 0% 0% 0px; position: absolute; transform: scale(1, 1) translate(0px, 0px);  }
+        .pinch-zoom, .pinch-zoom img {  width: 100%;  -webkit-user-drag: none;  -moz-user-drag: none;  -ms-user-drag: none;  user-drag: none;  }
+        /* 图片放大css end */
+    </style>
+</head>
+<body>
+<img class="img" src="./img1.jpg" alt="">
+<img class="img" src="./img2.jpg" alt="">
+<img class="img" src="./img3.jpg" alt="">
+<img class="img" src="./img4.jpg" alt="">
+
+<!-- 图片放大 容器 -->
+<div id="zoomBox">
+    <div class="pinch-zoom" style="">
+        <img id="showImg" src="">
+    </div>
+</div>
+<!-- 图片放大 容器 end -->
+<script src="./jquery.min.js"></script>
+<script src="./pinchzoom.js"></script>
+<script>
+
+
+    //    点击看大图
+    $(".img").click(function(){
+        var src = $(this).attr("src");
+        $("#showImg").attr("src",src);
+        setTimeout(function(){
+            var winH = $(window).height();
+            $(".pinch-zoom").height(winH);
+            $("#zoomBox").show();
+
+            $('div.pinch-zoom').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+        },200)
+
+    });
+
+    $("#zoomBox").click(function(){
+        $(this).hide();
+    });
+    $("#showImg").click(function(e){
+        e.stopPropagation();
+    });
+</script>
+</body>
+</html>
