@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片上传本地预览</title>
+    <style>
+        #div1{width: 400px; height: 300px; background: #ff0039; border:1px solid #333; margin: 10px 0;}
+        #img{width: 400px; height: 300px;}
+    </style>
+</head>
+<body>
+    <h1>生成blob的图片</h1>
+    <h2>相比base64的图片可以动态添加为背景</h2>
+    <input id="file" type="file">
+
+    <div id="div1"></div>
+    <img id="img" src="" alt="">
+<script src="jquery.min.js"></script>
+<script>
+    $('#file').change(function(event) {
+        // 根据这个 <input> 获取文件的 HTML5 js 对象
+        var files = event.target.files, file;
+        if (files && files.length > 0) {
+            // 获取目前上传的文件
+            file = files[0];
+            // 来在控制台看看到底这个对象是什么
+            console.log(file);
+            // 那么我们可以做一下诸如文件大小校验的动作
+            if(file.size > 1024 * 1024 * 2) {
+                alert('图片大小不能超过 2MB!');
+                return false;
+            }
+            // !!!!!!
+            // 下面是关键的关键，通过这个 file 对象生成一个可用的图像 URL
+            // 获取 window 的 URL 工具
+            var URL = window.URL || window.webkitURL;
+            // 通过 file 生成目标 url
+            var imgURL = URL.createObjectURL(file);
+            // 用这个 URL 产生一个 <img> 将其显示出来
+            $('#img').attr('src', imgURL);
+            $("#div1").attr("style",'background:url('+imgURL+') no-repeat center center; background-size:cover;');
+            // 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+            // URL.revokeObjectURL(imgURL);
+        }
+    });
+</script>
+</body>
+</html>

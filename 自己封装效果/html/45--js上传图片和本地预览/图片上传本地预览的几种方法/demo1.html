@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片上传本地预览</title>
+    <style>
+        #div1{width: 400px; height: 300px; background: #ff0039; border:1px solid #333;}
+        #img{width: 400px; height: 300px;}
+    </style>
+</head>
+<body>
+    <h1>生成base64位的图片</h1>
+    <h2>缺点：base64的图片如果是动态添加为背景，则显示不出来</h2>
+    <input id="file" type="file">
+
+    <div id="div1"></div>
+    <img id="img" src="" alt="">
+<script src="jquery.min.js"></script>
+<script>
+    $("#file").change(function(){
+
+        var src = "";
+        var flObj=document.getElementById("file");
+        var file=flObj.files[0];                 //因为每次只上传了一张图片，所以获取到flObj.files[0];    
+        var fReader=new FileReader();
+        fReader.readAsDataURL(file);
+        fReader.onload=function(e)
+        {
+            console.log(this.result);
+            src = this.result;
+            document.getElementById("img").src=src;
+        };
+
+        console.log(src);
+        $("#div1").attr("style",'background:url('+src+') no-repeat center center; background-size:cover;');
+    });
+</script>
+</body>
+</html>
