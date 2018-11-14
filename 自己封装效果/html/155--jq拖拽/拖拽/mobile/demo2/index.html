@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--导入jquery插件-->
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <!--导入jqueryUI插件-->
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
+    <!--自写脚本-->
+    <script type="text/javascript" language="javascript">
+        //在页面加载完之后加载jquery
+        $(function(){
+            //拖拽函数
+            $('#draggable').draggable({scroll: true});
+        })
+    </script>
+    <!--自写脚本-->
+    <style type="text/css">
+        #box{position: relative; width: 300px; height: 300px; margin:0 auto; overflow: hidden; background: #eee;}
+        #draggable
+        {
+            width:50px;
+            height:50px;
+            background: #ff0039;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="draggable" class="ui-widget-content">
+        <p>拖拽我！</p>
+    </div>
+</div>
+
+<script>
+    $("#draggable").click(function(){
+        alert(1);
+    })
+</script>
+</body>
+</html>

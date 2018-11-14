@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://captaincodeman.github.io/sign-here/components/sign-here/demo/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- Shady DOM styles for custom-style --><!-- Shady DOM styles for dom-template --><!-- Shady DOM styles for dom-repeat --><!-- Shady DOM styles for array-selector --><!-- Shady DOM styles for dom-if --><!-- Shady DOM styles for iron-meta --><!-- Shady DOM styles for iron-meta-query --><!-- Shady DOM styles for iron-icon --><style scope="iron-icon-0">.iron-icon-0 {
+  display: -ms-inline-flexbox;
+      display: -webkit-inline-flex;
+      display: inline-flex;-ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;-ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      position: relative;
+
+      vertical-align: middle;
+
+      fill: currentcolor;
+      stroke: none;
+
+      width: 100%;
+      height: 100%;
+}</style><!-- Shady DOM styles for iron-iconset-svg --><!-- Shady DOM styles for marked-element --><style scope="marked-element">.hidden.marked-element {
+  display: none !important;
+}</style><!-- Shady DOM styles for paper-ripple --><style scope="paper-ripple">paper-ripple {
+  display: block;
+        position: absolute;
+        border-radius: inherit;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        
+        pointer-events: none;
+}
+
+paper-ripple[animating] {
+  -webkit-transform: translate(0, 0);
+        transform: translate3d(0, 0, 0);
+}
+
+#background.paper-ripple,#waves.paper-ripple,.wave-container.paper-ripple,.wave.paper-ripple {
+  pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+}
+
+#background.paper-ripple,.wave.paper-ripple {
+  opacity: 0;
+}
+
+#waves.paper-ripple,.wave.paper-ripple {
+  overflow: hidden;
+}
+
+.wave-container.paper-ripple,.wave.paper-ripple {
+  border-radius: 50%;
+}
+
+paper-ripple.circle #background.paper-ripple,paper-ripple.circle #waves.paper-ripple {
+  border-radius: 50%;
+}
+
+paper-ripple.circle .wave-container.paper-ripple {
+  overflow: hidden;
+}</style><!-- Shady DOM styles for paper-icon-button --><style scope="paper-icon-button-0">.paper-icon-button-0 {
+  display: inline-block;
+        position: relative;
+        padding: 8px;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        z-index: 0;
+        line-height: 1;
+
+        width: 40px;
+        height: 40px;
+
+        
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+
+        
+        box-sizing: border-box !important;;
+}
+
+.paper-icon-button-0 #ink.paper-icon-button {
+  color: #212121;
+        opacity: 0.6;
+}
+
+.paper-icon-button-0[disabled] {
+  color: #9b9b9b;
+        pointer-events: none;
+        cursor: auto;;
+}
+
+.paper-icon-button-0:hover {
+  ;
+}
+
+.paper-icon-button-0 iron-icon.paper-icon-button {
+  ;
+}</style><!-- Shady DOM styles for prism-highlighter --><!-- Shady DOM styles for demo-snippet --><style scope="demo-snippet-0">.demo-snippet-0 {
+  display: block;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 1px -2px rgba(0, 0, 0, 0.2);;
+}
+
+.demo-snippet-0 .demo.demo-snippet {
+  border-bottom: 1px solid #e0e0e0;
+        background-color: white;
+        margin: 0;
+        padding: 20px;;
+}
+
+.demo-snippet-0 .code.demo-snippet {
+  padding: 20px;
+        margin: 0;
+        background-color: #f5f5f5;
+        font-size: 13px;
+        overflow: auto;;
+}
+
+.demo-snippet-0 .code.demo-snippet > pre.demo-snippet {
+  margin: 0;
+        padding: 0 0 10px 0;
+}
+
+.demo-snippet-0 .code-container.demo-snippet {
+  position: relative;
+}
+
+.demo-snippet-0 paper-icon-button.demo-snippet {
+  position: absolute;
+        top: 0;
+        right: 0px;
+}</style><!-- Shady DOM styles for sign-here --><style scope="sign-here">sign-here {
+  display: block;
+}</style><!-- Shady DOM styles for x-sign-here --><style scope="x-sign-here">sign-here.x-sign-here,img.x-sign-here {
+  border: 1px solid #ccc;
+        width: 400px;
+        height: 200px;
+}
+
+pre.x-sign-here {
+  white-space: pre-wrap;
+        word-wrap: break-word;
+}</style><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+    <title>sign-here demo</title>
+    
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="./webcomponents-lite.js"></script>
+
+    <link rel="import" href="https://captaincodeman.github.io/sign-here/components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="https://captaincodeman.github.io/sign-here/components/iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="https://captaincodeman.github.io/sign-here/components/sign-here/demo/x-sign-here.html">
+    <link rel="import" href="https://captaincodeman.github.io/sign-here/components/sign-here/sign-here.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">body:not([style-scope]):not(.style-scope) {
+  font-family: 'Roboto', 'Noto', sans-serif;
+        font-size: 14px;
+        margin: 0;
+        padding: 24px;
+        background-color: #fafafa;
+}
+
+.horizontal-section-container:not([style-scope]):not(.style-scope) {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;-ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;-ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.vertical-section-container:not([style-scope]):not(.style-scope) {
+  display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -ms-flex-direction: column;
+      -webkit-flex-direction: column;
+      flex-direction: column;;
+}
+
+.horizontal-section:not([style-scope]):not(.style-scope) {
+  background-color: white;
+        padding: 24px;
+        margin-right: 24px;
+        min-width: 200px;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.vertical-section:not([style-scope]):not(.style-scope) {
+  background-color: white;
+        padding: 24px;
+        margin: 0 24px 24px 24px;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.centered:not([style-scope]):not(.style-scope) {
+  max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+code:not([style-scope]):not(.style-scope) {
+  color: #616161;
+}
+
+demo-snippet:not([style-scope]):not(.style-scope) {
+  margin-bottom: 40px;
+}
+
+</style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Basic sign-here Demo</h3>
+      <demo-snippet class="x-scope demo-snippet-0">
+    
+
+    <prism-highlighter class="style-scope demo-snippet"></prism-highlighter>
+
+    <div class="demo style-scope demo-snippet">
+      
+        <template></template>
+      
+          <sign-here id="signhere" width="360" height="180">
+    
+    <canvas id="canvas" class="style-scope sign-here" width="360" height="180" style="width: 360px; height: 180px; touch-action: none;"></canvas>
+  </sign-here>
+        
+    </div>
+
+    <div class="code-container style-scope demo-snippet">
+      <marked-element id="marked" class="style-scope demo-snippet">
+    
+    <div class="markdown-html code style-scope demo-snippet" id="code"><pre class="style-scope demo-snippet"><code class="style-scope demo-snippet">
+<span class="token tag style-scope demo-snippet"><span class="token tag style-scope demo-snippet"><span class="token punctuation style-scope demo-snippet">&lt;</span>sign-here</span> <span class="token attr-name style-scope demo-snippet">id</span><span class="token attr-value style-scope demo-snippet"><span class="token punctuation style-scope demo-snippet">=</span><span class="token punctuation style-scope demo-snippet">"</span>signhere<span class="token punctuation style-scope demo-snippet">"</span></span> <span class="token attr-name style-scope demo-snippet">width</span><span class="token attr-value style-scope demo-snippet"><span class="token punctuation style-scope demo-snippet">=</span><span class="token punctuation style-scope demo-snippet">"</span>360<span class="token punctuation style-scope demo-snippet">"</span></span> <span class="token attr-name style-scope demo-snippet">height</span><span class="token attr-value style-scope demo-snippet"><span class="token punctuation style-scope demo-snippet">=</span><span class="token punctuation style-scope demo-snippet">"</span>180<span class="token punctuation style-scope demo-snippet">"</span></span><span class="token punctuation style-scope demo-snippet">&gt;</span></span><span class="token tag style-scope demo-snippet"><span class="token tag style-scope demo-snippet"><span class="token punctuation style-scope demo-snippet">&lt;/</span>sign-here</span><span class="token punctuation style-scope demo-snippet">&gt;</span></span>
+</code></pre></div>
+    <div id="content" class="hidden style-scope marked-element"></div>
+  </marked-element>
+      <paper-icon-button id="copyButton" icon="content-copy" title="copy to clipboard" class="style-scope demo-snippet x-scope paper-icon-button-0" role="button" tabindex="0" aria-disabled="false"><iron-icon id="icon" class="style-scope paper-icon-button x-scope iron-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" class="style-scope iron-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope iron-icon"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" class="style-scope iron-icon"></path></g></svg>
+  </iron-icon></paper-icon-button>
+    </div>
+  </demo-snippet>
+
+      <h3>With Bound Properties</h3>
+      <x-sign-here>
+    
+    <sign-here id="signhere" width="400" height="200" background-color="#fffff7" class="style-scope x-sign-here">
+    
+    <canvas id="canvas" class="style-scope sign-here" width="400" height="200" style="width: 400px; height: 200px; touch-action: none;"></canvas>
+  </sign-here>
+    <ul class="style-scope x-sign-here">
+      <li class="style-scope x-sign-here">Active: </li>
+      <li class="style-scope x-sign-here">Empty: true</li>
+    </ul>
+    <button class="style-scope x-sign-here">Clear</button>
+    <button class="style-scope x-sign-here">Jpeg</button>
+    <button class="style-scope x-sign-here">Png</button>
+    <button class="style-scope x-sign-here">Webp</button>
+    <button style="color: #a33" class="style-scope x-sign-here">Red</button>
+    <button style="color: #3a3" class="style-scope x-sign-here">Green</button>
+    <button style="color: #33a" class="style-scope x-sign-here">Blue</button>
+    <h3 class="style-scope x-sign-here">Captured Image</h3>
+    <img class="style-scope x-sign-here">
+    <h3 class="style-scope x-sign-here">Image Data</h3>
+    <p class="style-scope x-sign-here"> bytes</p>
+    <pre class="style-scope x-sign-here"> </pre>
+  </x-sign-here>
+    </div>
+  
+
+</body></html>

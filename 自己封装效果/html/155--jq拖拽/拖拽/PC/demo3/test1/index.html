@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .pdiv{border:2px solid #ff0039; margin:50px auto; width: 300px; height: 300px;}
+        .adiv{width: 50px; height: 50px; background: #000; color: #fff;}
+        .pr{position: relative;}
+        .close{position: absolute; right:-5px; top:5px; width: 20px; height: 20px; line-height: 20px; text-align: center;  background: #000; color: #fff;}
+        .div3a{padding-top: 10px;}
+        .div3b{background: #0714ff; color: #fff; width: 50px; height: 50px; padding-top: 10px;}
+    </style>
+</head>
+<body>
+<div class="div1 adiv">拖拽我</div>
+
+<div class="div2 pdiv pr">
+    <div class="div2a adiv">拖拽我</div>
+</div>
+
+<div class="div3 pdiv pr">
+    <h2>点击删除事件</h2>
+    <div class="div3a pr">
+        <div class="close">X</div>
+        <div class="div3b">
+            拖拽我
+        </div>
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script src="Tdrag.js"></script>
+<script>
+$(function(){
+//    无边界拖拽
+    $(".div1").Tdrag();
+
+//     有边界拖拽
+    $(".div2a").Tdrag({
+        scope:".div2"
+    });
+
+//     有边界拖拽
+    $(".div3a").Tdrag({
+        scope:".div3",
+        handle:".div3b"
+    });
+//    拖拽点击事件
+    $(".close").click(function(){
+        alert(1);
+    })
+
+})
+</script>
+</body>
+</html>

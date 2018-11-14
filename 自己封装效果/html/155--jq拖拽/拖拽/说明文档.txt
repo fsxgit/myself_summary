@@ -1,0 +1,22 @@
+
+
+支持移动端和PC端的插件
+
+demo1、支持移动端拖拽
+JQuery UI的拖拽功能
+https://www.cnblogs.com/haoxuan/p/3996961.html
+使用touch-punch.js实现移动端的拖放效果
+https://blog.csdn.net/u012011360/article/details/45743039
+demo实例：
+http://touchpunch.furf.com/content.php?/draggable/default-functionality
+文档：
+http://touchpunch.furf.com/
+
+
+demo2:
+jquery.drag.js
+https://blog.csdn.net/pvfhv/article/details/6174337
+
+demo3__不支持移动端
+Tdrag.js
+http://www.jq22.com/yanshi8362

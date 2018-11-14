@@ -1,0 +1,22 @@
+
+1、根据画布笔数，判断是否有签名内容。
+var isSign = $sigdiv.jSignature('getData', 'native').length;
+0 没有签名  1 有签名
+
+2、绑定画布变化事件
+ // 初始化插件
+$("#signature").jSignature({
+	'UndoButton':false, //是否显示后退按钮
+	"width":"100%",
+	"height":"100%"
+}).bind('change', function (e) {
+	// 绑定画布变化事件
+	console.log(e);
+	//绑定change事件，判断画布有没有数据，如果有数据设置提交按钮可用；这是画布的笔数
+	var isSign =$(this).jSignature('getData', 'native').length;
+	console.log("画布笔数="+isSign);
+});
+
+3、修改画笔颜色
+
+4、修改画笔粗细
