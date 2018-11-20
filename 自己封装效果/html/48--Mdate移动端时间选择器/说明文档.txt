@@ -1,0 +1,17 @@
+如果要修改选择后的值是input还是其他标签，只需要修改Mdate.js里面的
+这些代码里面的value 变为 innerText即可
+
+input标签使用：
+ if (that.format == "YMD") {
+	that.acceptId.value = yearTag + "年" + monthTag + "月" + dayTag + "日"
+} else {
+	that.acceptId.value = yearTag + that.format + that.dateForTen(monthTag) + that.format + that.dateForTen(dayTag)
+}
+
+span、div标签使用：
+
+ if (that.format == "YMD") {
+	that.acceptId.innerText = yearTag + "年" + monthTag + "月" + dayTag + "日"
+} else {
+	that.acceptId.innerText = yearTag + that.format + that.dateForTen(monthTag) + that.format + that.dateForTen(dayTag)
+}

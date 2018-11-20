@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://www.jq22.com/demo/mdate201803160029/ -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title>Document</title>
+    <script src="./iScroll.js"></script>
+    <script src="./Mdate.js"></script>
+    <link rel="stylesheet" type="text/css" href="./Mdate.css">
+</head>
+<body>
+<div style="width: 20px; height: 1000px; background: #333;"></div>
+<input type="text" id="dateSelectorOne" readonly  placeholder="请填写：xxxx-xx-xx">
+<div style="width: 20px; height: 200px; background: #333;"></div>
+<input type="text" id="dateSelectorTwo"  placeholder="请填写：xxxx-xx-xx">
+<button type="button" id="dateShowBtn">选择日期</button>
+<div style="width: 20px; height: 200px; background: #333;"></div>
+<script type="text/javascript">
+    new Mdate("dateShowBtn", {
+        acceptId: "dateSelectorTwo",
+        beginYear: "2002",
+        beginMonth: "10",
+        beginDay: "24",
+        endYear: "2017",
+        endMonth: "1",
+        endDay: "1",
+        format: "-"
+    });
+    new Mdate("dateSelectorOne", {
+        acceptId: "dateSelectorOne",
+        beginYear: "2002",
+        beginMonth: "10",
+        beginDay: "24",
+        endYear: "2017",
+        endMonth: "1",
+        endDay: "1",
+        format: "-"
+    })
+</script>
+
+</body>
+</html>
