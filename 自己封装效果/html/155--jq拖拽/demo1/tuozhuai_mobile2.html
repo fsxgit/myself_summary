@@ -15,18 +15,15 @@
             position: absolute;
             left: 0;
             top: 0;}
-        #box{width: 200px; height: 200px; border:1px solid #ccc; margin:50px; position: relative}
     </style>
 </head>
 <body>
 <h1 style="text-align: center;">相对于窗口的拖拽</h1>
-<div id="box">
-    <div class="div1"></div>
-</div>
+<div class="div1"></div>
 <script src="jquery-1.9.1.min.js"></script>
 <script>
     var DIV = document.getElementsByClassName('div1')[0];
-    var BOX = $("#box");
+    var BOX = $(document);
     var distenceX;
     var distenceY;
 
