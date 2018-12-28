@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    var randArray =  function( data ){
+        //获取数组长度
+        var arrLen = data.length;
+
+        //创建数组 存放下标数
+        var try1 = new Array();
+        for( var i = 0 ; i < arrLen ; i++ ){
+            try1[i] = i;
+        }
+        console.log(try1);
+
+        //创建数组 生成随机下标数
+        var try2 = new Array();
+        for( var i = 0 ; i < arrLen ; i++ ){
+//            console.log(Math.floor(Math.random() * 100));
+            try2[i] = try1.splice(Math.floor(Math.random() * try1.length),1);
+        }
+        console.log(try2);
+
+        //创建数组，生成对应随机下标数的数组
+        var try3 = new Array();
+        for( var i = 0 ; i < arrLen ; i++){
+            try3[i] = data[ try2[i] ];
+        }
+        return try3;
+    };
+
+    //测试数组
+    var arr=["A","B","C","D","E","F","G","H","I"];
+    (function(arr){
+        var ar = randArray(arr);
+        console.log(ar.join(","));
+    })(arr);
+</script>
+</body>
+</html>
