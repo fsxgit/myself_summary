@@ -1,0 +1,8 @@
+
+iframe : 使用iframe获取链接内容在本地展示，如果链接是百度的在ios滑动没问题，但是有的链接不行在ios滑动迟钝，滑不动。
+
+object : 使用object则没有滑不动的问题，能够兼容ios和Android
+
+
+另外：这种iframe在ios滑不动的问题与普通的H5在ios滑不动的问题不一样，普通的在ios滑不动的添加
+-webkit-overflow-scrolling: touch; overflow-y: scroll;这个属性即可，但是iframe不行。

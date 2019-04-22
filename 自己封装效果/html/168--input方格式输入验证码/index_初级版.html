@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{padding:50px 0;}
+        .box{width: 400px; margin:0 auto;}
+        ul,li{list-style: none;}
+        .sInput{height:80px; overflow:hidden;}
+        input{height: 50px; line-height: 50px; margin-bottom: 20px; font-size: 20px;}
+        .li{display: block; width: 40px; height: 40px; line-height: 40px; text-align: center; border:1px solid #ccc; font-size: 20px; position: relative; float: left;}
+        .li.focus::before{
+            content: "";
+            width:1px;
+            height:30px;
+            position: absolute;
+            left:19px;
+            top:5px;
+            background: #999;
+            animation: myfirst 0.8s infinite;
+            -moz-animation: myfirst 0.8s infinite;	/* Firefox */
+            -webkit-animation: myfirst 0.8s infinite;	/* Safari 和 Chrome */
+            -o-animation: myfirst 0.8s infinite;	/* Opera */
+        }
+        @keyframes myfirst
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        @-moz-keyframes myfirst /* Firefox */
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        @-webkit-keyframes myfirst /* Safari 和 Chrome */
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        @-o-keyframes myfirst /* Opera */
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="tel" id="wInput" maxlength="6" autofocus="autofocus">
+    <div class="sInput">
+        <div class="li focus"></div>
+        <div class="li"></div>
+        <div class="li"></div>
+        <div class="li"></div>
+        <div class="li"></div>
+        <div class="li"></div>
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    $(function(){
+        setTimeout(function(){
+            $("#wInput").trigger("click").focus();
+            alert(1);
+        },1000)
+        $("#wInput").on('input propertychange',function(){
+            var str = $(this).val();
+            var len = str.length;
+            var len2 = $(".sInput .li").length;
+            var arr = str.split('');
+            console.log("len="+len);
+            console.log("len2="+len2);
+            $(".sInput .li").text("");
+            if(len <= 0){
+                console.log("A区");
+                $(".sInput .li").removeClass("focus");
+                $(".sInput .li").eq(0).addClass("focus");
+            }else{
+                $.each(arr,function(i,v){
+                    $(".sInput .li").eq(i).text(v);
+                    $(".sInput .li").removeClass("focus");
+                    $(".sInput .li").eq(i+1).addClass("focus");
+                });
+                if(len >= len2){
+                    console.log("失去焦点");
+                    $("#wInput").blur();
+                }
+            }
+        });
+    })
+</script>
+</body>
+</html>

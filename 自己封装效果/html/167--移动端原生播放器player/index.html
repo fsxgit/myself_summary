@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="./css/base.css"/>-->
+    <!--<link rel="stylesheet" href="./css/style.css"/>-->
+    <title>童趣</title>
+    <style>
+        *{margin:0; padding:0;}
+        .pr{position: relative;}
+        .tc{text-align: center;}
+        .main{width: 90%; margin-left:auto; margin-right:auto;}
+        img{display: inline-block;}
+
+        #c_header{ width: 100%; height:50px; line-height: 50px; background: #fff; position: fixed; left:0; top:0; z-index: 11; }
+        #c_header .center{ height: 100%; }
+        #c_header .back{width: auto; height:100%; position: absolute; left:0; top:0; }
+        #c_header .back img{width: 11px; height: auto;}
+        #c_header .back img.back1{width: 40px; height: auto;}
+        #c_header .txt{ font-weight: bold; font-size: 18px;  }
+        #c_header .txt2{ color: #fff;  }
+        #c_header .dots{ color: #fff;  }
+        #c_header .right{ position: absolute; right:0; top:0; }
+        #c_header .close img{ width: 14px; height: auto; }
+        #c_header .wave{ }
+        #c_header .wave img{ width:22px; height: auto;}
+        #c_header .nums{font-size: 16px;}
+        #c_header .cnums{font-size: 24px; font-weight: bold;}
+        #c_header .search{ width: 30px; height:100%; position: absolute; right:0; top:0; text-align: right; }
+        #c_header .search img{ width: 20px; height: auto; }
+
+
+        #video_box{ width: 100%; height: 100%; position: fixed; left:0; top:0; background: #000; display: flex;  flex-direction: column; justify-content: center; border:1px solid #333;}
+        #video_box video{ width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+<!--header-->
+<div id="c_header" style="background: none;">
+    <div class="main pr center">
+        <div class="back"><a href="javascript:history.go(-1);"><img src="./images/back_fff.png" alt=""></a></div>
+        <div class="txt tc txt2">白雪公主</div>
+        <!--<div class="right dots"><span>···</span></div>-->
+    </div>
+</div>
+<!--header end-->
+<div id="content">
+    <div id="video_box">
+        <video width="320" height="240" autoplay controls>
+            <source src="http://www.runoob.com/try/demo_source/movie.mp4"  type="video/mp4">
+            您的浏览器不支持 HTML5 video 标签。
+        </video>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端方格键盘</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{padding:50px 0;}
+        .box{ background: #1f1f1f; padding:50px 0;}
+        .telWrap{background: #fff; position: relative; width: 252px; height: 40px; margin:0 auto; }
+        .telWrap .sInput{position: absolute; left:0; top:0;}
+        #wInput{background: #0b6cbc; position: fixed; left:-1000px; bottom:-1000px;}
+        ul,li{list-style: none;}
+        .sInput{height:auto; overflow:hidden; background: #eee;}
+        input{height: 40px; line-height: 40px; font-size: 20px; width: 252px;  outline: none; border: none;}
+        .li{display: block; width: 40px; height: 40px; line-height: 40px; text-align: center; border:1px solid #ccc; font-size: 20px; position: relative; float: left;}
+        .li.focus::before{
+            content: "";
+            width:1px;
+            height:30px;
+            position: absolute;
+            left:19px;
+            top:5px;
+            background: #999;
+            animation: myfirst 0.8s infinite;
+            -moz-animation: myfirst 0.8s infinite;	/* Firefox */
+            -webkit-animation: myfirst 0.8s infinite;	/* Safari 和 Chrome */
+            -o-animation: myfirst 0.8s infinite;	/* Opera */
+        }
+        .li.del::after{
+            content: "";
+            width:1px;
+            height:30px;
+            position: absolute;
+            left:28px;
+            top:5px;
+            background: #999;
+            animation: myfirst 0.8s infinite;
+            -moz-animation: myfirst 0.8s infinite;	/* Firefox */
+            -webkit-animation: myfirst 0.8s infinite;	/* Safari 和 Chrome */
+            -o-animation: myfirst 0.8s infinite;	/* Opera */
+        }
+        @keyframes myfirst
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        @-moz-keyframes myfirst /* Firefox */
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        @-webkit-keyframes myfirst /* Safari 和 Chrome */
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        @-o-keyframes myfirst /* Opera */
+        {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+<h1>终极版</h1>
+<div class="box">
+    <div class="telWrap">
+        <input type="tel" id="wInput" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="6" autofocus="autofocus">
+        <div class="sInput">
+            <div class="li"></div>
+            <div class="li"></div>
+            <div class="li"></div>
+            <div class="li"></div>
+            <div class="li"></div>
+            <div class="li"></div>
+        </div>
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    $(function(){
+        $(".sInput").click(function(){
+            $("#wInput").focus();
+        });
+        $("#wInput").focus(function(){
+            valSet(1);
+        });
+        $("#wInput").blur(function(){
+            $(".sInput .li").removeClass("focus");
+        });
+        $("#wInput").on('input propertychange',function(){
+            valSet(2);
+        });
+        /**
+         *  state:判断触发的事件，1是获取焦点时触发，否则，是值改变时触发
+         *
+         * **/
+        function valSet(state){
+            var str = $("#wInput").val();
+            var len = str.length;
+            var len2 = $(".sInput .li").length;
+            var arr = str.split('');
+            $(".sInput .li").text("");
+            $(".sInput .li").removeClass("del");
+            if(len <= 0){
+                $(".sInput .li").removeClass("focus");
+                $(".sInput .li").eq(0).addClass("focus");
+            }else{
+                $.each(arr,function(i,v){
+                    $(".sInput .li").eq(i).text(v);
+                    $(".sInput .li").removeClass("focus");
+                    $(".sInput .li").eq(i+1).addClass("focus");
+                });
+                if(len >= len2){
+                    if(state == 1){
+                        // 获取焦点触发
+                        $(".sInput .li:nth-last-of-type(1)").addClass("del");
+                    }else{
+                        // 值改变触发
+                        $("#wInput").blur();
+                    }
+
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

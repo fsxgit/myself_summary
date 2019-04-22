@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{ background: #0b16f0;}
+        input{width: 100%; height: 50px; line-height: 50px; margin-bottom: 20px; box-sizing: border-box; padding:10px 20px; font-size: 16px;}
+    </style>
+</head>
+<body>
+<h1>微信浏览器 IOS手机软键盘消失后页面不回退的问题</h1>
+<h2>这是第二种解决方法：思路是这样的，和第一种思路一样，只是滚动方法不一样</h2>
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<input type="tel" placeholder="请输入手机号"><br />
+<input type="text" placeholder="请输入姓名"><br />
+<script src="https://cdn.bootcss.com/jquery/1.10.0/jquery.min.js"></script>
+<script>
+    var u = navigator.userAgent, app = navigator.appVersion
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    $(document).ready(function(){
+        $("input").blur(function(){
+            if (isIOS) {
+                blurAdjust()
+                // alert("1231321233")
+            }
+        });
+    });
+    // 解决苹果不回弹页面
+    function blurAdjust(e){
+        setTimeout(function (){
+            if(document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA'){
+                return
+            }
+            var result = 'pc';
+            if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+                result = 'ios'
+            }else if(/(Android)/i.test(navigator.userAgent)) {  //判断Android
+                result = 'android'
+            }
+
+            if( result = 'ios' ){
+                window.scroll(0,0);
+            }
+        },100);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹出式电话号码</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="dtel_box">
+    <div class="dtel_center">
+        <h2>绑定手机号</h2>
+        <div class="input"><input type="tel" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11" placeholder="请输入手机号" /></div>
+        <div class="next">下一步</div>
+    </div>
+    <div class="dcode_center none">
+        <h2>验证码已发送至<span id="telNum">132****8907</span></h2>
+        <div class="telWrap">
+            <input type="tel" id="wInput" oninput = "value=value.replace(/[^\d]/g,'')" maxlength="6" autofocus="autofocus">
+            <div class="sInput">
+                <div class="li"></div>
+                <div class="li"></div>
+                <div class="li"></div>
+                <div class="li"></div>
+                <div class="li"></div>
+                <div class="li"></div>
+            </div>
+        </div>
+        <div class="submit">完成</div>
+    </div>
+</div>
+<script src="./jquery.min.js"></script>
+<script>
+    $(function(){
+        $(".next").click(function(){
+            var tel = $(".input input").val();
+            if(tel){
+                $("#telNum").text(tel);
+                $(".dtel_center").addClass("none");
+                $(".dcode_center").removeClass("none");
+            }else{
+                alert("请输入手机号");
+            }
+        });
+        $(".sInput").click(function(){
+            $("#wInput").focus();
+        });
+        $("#wInput").focus(function(){
+            valSet(1);
+        });
+        $("#wInput").blur(function(){
+            $(".sInput .li").removeClass("focus");
+        });
+        $("#wInput").on('input propertychange',function(){
+            valSet(2);
+        });
+        /**
+         *  state:判断触发的事件，1是获取焦点时触发，否则，是值改变时触发
+         *
+         * **/
+        function valSet(state){
+            var str = $("#wInput").val();
+            var len = str.length;
+            var len2 = $(".sInput .li").length;
+            var arr = str.split('');
+            $(".sInput .li").text("");
+            $(".sInput .li").removeClass("del");
+            if(len <= 0){
+                $(".sInput .li").removeClass("focus");
+                $(".sInput .li").eq(0).addClass("focus");
+            }else{
+                $.each(arr,function(i,v){
+                    $(".sInput .li").eq(i).text(v);
+                    $(".sInput .li").removeClass("focus");
+                    $(".sInput .li").eq(i+1).addClass("focus");
+                });
+                if(len >= len2){
+                    if(state == 1){
+                        // 获取焦点触发
+                        $(".sInput .li:nth-last-of-type(1)").addClass("del");
+                    }else{
+                        // 值改变触发
+                        $("#wInput").blur();
+                    }
+
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

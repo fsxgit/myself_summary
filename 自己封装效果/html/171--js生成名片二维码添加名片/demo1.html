@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>手机名片生成器</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--<link rel="stylesheet" href="./css/normalize.min.css" />-->
+    <link href="https://cdn.bootcss.com/normalize/6.0.0/normalize.min.css" rel="stylesheet">
+    <!--<script type="text/javascript" src="./js/zepto.min.js"></script>-->
+    <!--<script src="https://cdn.bootcss.com/zepto/1.1.1/zepto.min.js"></script>-->
+    <script src="jquery.min.js"></script>
+    <!--<script type="text/javascript" src="./js/qrcode.js"></script>-->
+    <script type="text/javascript" src="./qrcode.min.js"></script>
+    <style type="text/css">
+        #mytable {
+            width: 100%;
+        }
+
+        #mytable, #mytable td {
+            border: 1px solid #ccc;
+        }
+
+        #mytable input, #mytable select {
+            height: 40px;
+            border: none;
+            width: 100%;
+            -webkit-appearance: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .title {
+            text-align: right;
+            padding-right: 5px;
+        }
+
+        #qrcode {
+            text-align: center;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        #tips {
+            position: fixed;
+            bottom: -40%;
+            left: 50%;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(0,0,0,.8);
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table id="mytable">
+    <tbody>
+    <tr>
+        <td colspan="4">
+            <div style="height: 60px; line-height: 60px; text-align: center; font-size: 24px;">
+                手机名片生成器
+            </div></td>
+    </tr>
+    <tr>
+        <td width="25%" class="title">姓氏</td>
+        <td width="25%"><input type="text" id="fname" placeholder="姓氏" maxlength="4" /></td>
+        <td width="25%" class="title">名字</td>
+        <td width="25%"><input type="text" id="name" placeholder="名字" maxlength="4" /></td>
+    </tr>
+    <tr>
+        <td class="title">职称</td>
+        <td colspan="3"><input type="text" id="title" placeholder="职称" maxlength="10" /></td>
+    </tr>
+    <tr>
+        <td class="title">移动电话</td>
+        <td colspan="3"><input type="tel" id="cell" placeholder="xxx-xxxx-xxxx" maxlength="13" /></td>
+    </tr>
+    <tr>
+        <td class="title">家庭电话</td>
+        <td colspan="3"><input type="tel" id="home" placeholder="xxx-xxxxxxxx" maxlength="13" /></td>
+    </tr>
+    <tr>
+        <td class="title">家庭住址</td>
+        <td colspan="3"><input type="text" id="adr" placeholder="家庭住址" maxlength="20" /></td>
+    </tr>
+    <tr>
+        <td class="title">公司名称</td>
+        <td colspan="3"><input type="text" id="org" placeholder="公司名称" maxlength="20" /></td>
+    </tr>
+    <tr>
+        <td class="title">个人网站</td>
+        <td colspan="3"><input type="url" id="url" placeholder="http://www.xxx.com" maxlength="25" /></td>
+    </tr>
+    <tr>
+        <td class="title">电子邮箱</td>
+        <td colspan="3"><input type="email" id="email" placeholder="xxxx@xxx.com" maxlength="25" /></td>
+    </tr>
+    <tr>
+        <td class="title">生日</td>
+        <td colspan="3"><input type="date" id="bday" placeholder="yyyy-mm-dd" /></td>
+    </tr>
+    <tr>
+        <td><select id="radius"><option value="0">直角</option><option value="0.25">小圆角</option><option value="0.5">大圆角</option></select></td>
+        <td><select id="fill"><option value="#000">黑色块</option><option value="#002C7D">蓝色块</option><option value="#AE4141">红色块</option><option value="#FF79E1">粉色块</option><option value="#7CFF57">绿色块</option></select></td>
+        <td><select id="mode"><option value="0">无签名</option><option value="1">签名1</option><option value="2">签名2</option></select></td>
+        <td><select id="fontcolor"><option value="#000">黑签名</option><option value="#002C7D">蓝签名</option><option value="#AE4141">红签名</option><option value="#FF79E1">粉签名</option><option value="#7CFF57">绿签名</option></select></td>
+    </tr>
+    <tr>
+        <td colspan="4"><input type="button" onclick="createvcf()" value="生成名片二维码" /></td>
+    </tr>
+    </tbody>
+</table>
+<div id="qrcode">
+</div>
+<div id="tips"></div>
+<script type="text/javascript">
+    function createvcf() {
+        var a,
+            b = $("#fname").val().replaceAll(" ", ""),	//姓氏
+            c = $("#name").val().replaceAll(" ", ""),	//名字
+            d = $("#title").val().replaceAll(" ", ""),	//职称
+            e = $("#adr").val().replaceAll(" ", ""),	//家庭住址
+            f = $("#org").val().replaceAll(" ", ""),	//公司名称
+            g = $("#cell").val().replaceAll(" ", ""),	//移动电话
+            h = $("#home").val().replaceAll(" ", ""),	//家庭电话
+            i = $("#url").val().replaceAll(" ", ""),	//个人网站
+            j = $("#email").val().replaceAll(" ", ""),	//电子邮箱
+            k = $("#bday").val().replaceAll(" ", "");	//生日
+
+        b ? c ? g || h ? (a = "BEGIN:VCARD", a += "\r\nN:" + b + ";" + c + ";;;", a += "\r\nFN: " + c + "  " + b, d && (a += "\r\nTITLE:" + d), e && (a += "\r\nADR;HOME:;;" + e + ";;;;"), f && (a += "\r\nORG:" + f), g && (a += "\r\nTEL;CELL,VOICE:" + g), h && (a += "\r\nTEL;HOME,VOICE:" + h), i && (a += "\r\nURL;WORK:" + i), j && (a += "\r\nEMAIL;INTERNET,HOME:" + j), k && (a += "\r\nBDAY:" + k), a += "\r\nEND:VCARD",new QRCode('qrcode', {
+                render: "image",
+                ecLevel: "0" == $("#mode").val() ? "L": "H",
+                size: 300,
+                background: "#fff",
+                fill: $("#fill").val(),
+                radius: $("#radius").val(),
+                mode: 1 * $("#mode").val(),
+                fontcolor: $("#fontcolor").val(),
+                label: b + c,
+                text: a
+            }),
+            //提示框
+            tips("名片生成成功"), window.scrollTo(0, 1e3)) : tips("必须输入一个电话") : tips("请填写您的名字") : tips("请填写您的姓氏")
+    }
+    String.prototype.replaceAll = function(a, b) {
+        return this.replace(new RegExp(a.replace(/([\(\)\[\]\{\}\^\$\+\-\*\?\.\"\'\|\/\\])/g, "\\$1"), "ig"), b)
+    };
+    var _tipstime, tips = function(a) {
+        _tipstime && clearTimeout(_tipstime);
+        var b = $("#tips").text(a);
+        b.css({
+            transform: "translateX(" + -b.width() / 2 + "px)",
+            bottom: "20%"
+        }),
+            _tipstime = setTimeout(function() {
+                    b.empty().css("bottom", "-40%")
+                },
+                1500)
+    };
+</script>
+</body>
+</html>
