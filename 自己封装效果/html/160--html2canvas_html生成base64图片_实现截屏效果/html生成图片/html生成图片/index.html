@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>屏幕截取</title>
+    <style>
+        body{background: #000;}
+        *{padding:0; margin:0;}
+
+        #box{ width: 819px; height: 620px; background: url("./bg1.png") no-repeat center center; background-size:contain;  text-align: center; margin:50px 10px; font-size: 20px; line-height: 200px; float: left;}
+        #predict_img{ width: auto; height: auto; }
+        #nbox{float: left;  margin:50px 10px;}
+    </style>
+</head>
+<body>
+<div id="box">
+    测试清晰度
+</div>
+<div id="nbox">
+    <img id="predict_img" src="" alt=""/>
+</div>
+<div style="clear: both;"></div>
+<div>
+    <button style="width: 100%; height: 100px;" onclick="beImg()">点击生成图片</button>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="html2canvas.min.js"></script>
+<script>
+//使用html2canvas将节点转为图片
+function beImg(){
+    html2canvas($("#box")[0], {
+        scale:1,
+        logging:false,
+        useCORS:true,
+        dpi: window.devicePixelRatio
+    }).then(function(canvas) {
+        console.log(canvas);
+        var dataUrl = canvas.toDataURL();
+        $("#predict_img").attr("src",dataUrl).removeClass("hide");
+    });
+
+}
+
+</script>
+</body>
+</html>

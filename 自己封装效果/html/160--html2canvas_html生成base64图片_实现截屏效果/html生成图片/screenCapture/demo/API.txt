@@ -1,0 +1,22 @@
+
+1、html2canvas截图的内容中存在跨域图片时出错解决思路
+问题描述
+
+如果不跨域的话，截图正常。
+
+如果有跨域的图片，那么js报错，报错信息如下：
+Uncaught SecurityError: Failed to execute 'toDataURL' on 'HTMLCanvasElement': Tainted canvases may not be exported.
+
+
+
+忽略通过设置头部参数及服务器跨域参数等方案描述。
+
+网上资料搜索过后及大神们的解决方案尝试无果后，基本得出结论：
+
+处理网络跨域的问题，让html2canvas能正常进行跨域访问网络图片基本行不通（能力有限，浅尝辄止）。
+
+
+
+转换思路：
+
+如果单纯只是网络图片的问题，在渲染要截图的html内容时，我们将图片渲染成为base64转码的内容以后，再进行截图，此时对于html2canvas处理截图部分html内容便不存在网络跨域的问题，问题得以解决。
