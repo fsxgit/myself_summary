@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>融云聊天</title>
+    <script src="rong/jquery.min.js"></script>
+    <script src="https://cdn.ronghub.com/RongIMLib-2.4.0.min.js"></script>
+    <script src="rong/init.js"></script>
+    <link rel="stylesheet" href="rong/style.css">
+</head>
+<body>
+<h1>欢迎来到融云工作室</h1>
+<h5>第1步：</h5>
+<div class="sender">
+    选择发送人：
+    <label><input type="radio" name="sender" value="1" >用户1 </label>
+    <label><input type="radio" name="sender" value="2" >古香 </label>
+    <label><input type="radio" name="sender" value="22">用户22</label>
+</div>
+<h5>第2步：</h5>
+<div class="btns">
+    <button onclick="initChat()">初始化聊天室</button><br />
+    <button onclick="getChatList()">获取会话列表</button><span>*需要开通商业版</span><br />
+    <button onclick="getDanMsgList('22')">获取和谁的单独的聊天记录</button><span>*需要开通商业版</span><br />
+</div>
+
+<h5>聊天列表</h5>
+<div class="msgList">
+    <ul>
+       <li data-user="1" data-groupid="">用户1</li>
+       <li data-user="2" data-groupid="">用户2</li>
+       <li data-user="22" data-groupid="">用户22</li>
+       <li data-user="" data-groupid="1">测试群1</li>
+    </ul>
+</div>
+<h5>第3步：</h5>
+<div class="sendBox">
+    <input id="sendTxt" type="text" placeholder="请输入文本"><button onclick="sendMsg();">发送消息</button>
+</div>
+<h5>聊天详情：</h5>
+<div class="msgDetail">
+    <ul>
+        <!--<li class="me">-->
+            <!--<h3 class="name">user1</h3>-->
+            <!--<p class="txt">我是内容</p>-->
+        <!--</li>-->
+        <!--<li class="they">-->
+            <!--<h3 class="name">user1</h3>-->
+            <!--<p class="txt">我是内容</p>-->
+        <!--</li>-->
+    </ul>
+</div>
+<script src="rong/js.js"></script>
+<script>
+
+// 用户1信息：user1   {"code":200,"userId":"1","token":"PV1tPF2tobtKjc+unMxqv0t/AHx0/N1rHdiwTYOoJ9jFFN8rKyh7QgBvllPbG1HS7ZCQy5xNSuM="}
+// 用户2信息：古香   {"code":200,"userId":"2","token":"ScxecYGUNurZpuL65PSDLAsJ8S1LVcAmieQdWBLSbntFVM45KCXDOIljI48IRP8En/6RHkBNnlJ0bbPlod+zKQ=="}
+// 用户22信息：user22   {"code":200,"userId":"22","token":"RyOHEDY2Q3QyBl1NbSt6IQsJ8S1LVcAmieQdWBLSbntFVM45KCXDODaL4+wvt+Pj7V3OHyYo0Q10bbPlod+zKQ=="}
+
+// 测试群1：userId=1&userId=2&userId=22&groupId=1&groupName=测试1群
+
+
+    /**
+     * 切换用户
+     * */
+    $(".msgList li").click(function(){
+        var user = $(this).data("user");
+        $(this).addClass("active").siblings().removeClass("active");
+        /**
+         * 获取最后一条历史记录并展示出来
+         *
+        * */
+        getMsgList(user);
+
+    })
+</script>
+<script>
+</script>
+</body>
+</html>

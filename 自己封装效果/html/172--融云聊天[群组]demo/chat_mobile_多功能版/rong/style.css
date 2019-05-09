@@ -1,0 +1,20 @@
+*{margin:0; padding:0;}
+html{width: 100%;}
+body{width: 100%;}
+body{padding:20px;}
+ul,li{list-style: none;}
+div{margin:10px ;}
+.msgList{ width: 250px;}
+.msgList li{ background: #1f1f1f; color: #fff; border-bottom: 1px solid #eee; padding:10px 20px;  cursor: pointer;}
+.msgList li.active{ background: #ff0e1c; color: #fff; border-bottom: 1px solid #eee; padding:10px 20px; }
+.msgDetail{border:1px solid #333; padding:20px;  width: 250px;}
+.msgDetail h2{margin-bottom: 20px;}
+.msgDetail li{background: #eee; margin-bottom: 10px; padding:10px; color: #fff; border-radius: 10px;}
+.msgDetail .me{text-align: right; background: #ce002f;}
+.msgDetail .they{text-align: left; background: #0a62ab;}
+button,input{padding:10px 20px;}
+input[type="radio"]{width: 20px; height: 20px;}
+.sender,.receiver{font-size: 16px; height: 20px; line-height: 20px; padding:10px 0;}
+h5{font-size: 16px; font-weight: bold; padding:10px 0; color: #ce002f; }
+.btns button{margin:10px;}
+.btns span{ font-size: 12px; color: #ff0039;}
