@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位</title>
+</head>
+<body>
+<iframe id="geoPage" width=0 height=0 frameborder=0  style="display:none;" scrolling="no"
+        src="https://apis.map.qq.com/tools/geolocation?key=JGRBZ-QNFKO-JS2WV-SCW36-YSFH7-E5B3B&referer=星河智慧外卖">
+</iframe>
+<div>
+    <h2>定位：</h2>
+    <div id="loc"></div>
+</div>
+<script>
+    window.addEventListener('message', function(event) {
+        // 接收位置信息
+        var loc = event.data;
+        console.log('location', loc);
+        document.getElementById("loc").innerHTML += loc.province+" <br />";
+        document.getElementById("loc").innerHTML += loc.city+" <br />";
+        document.getElementById("loc").innerHTML += loc.lng+" <br />";
+        document.getElementById("loc").innerHTML += loc.lat+" <br />";
+        document.getElementById("loc").innerHTML += loc.addr+" <br />";
+    }, false);
+</script>
+</body>
+</html>

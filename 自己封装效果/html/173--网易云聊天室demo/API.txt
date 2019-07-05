@@ -1,0 +1,9 @@
+参考api:
+https://dev.yunxin.163.com/docs/product/IM%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/SDK%E5%BC%80%E5%8F%91%E9%9B%86%E6%88%90/Web%E5%BC%80%E5%8F%91%E9%9B%86%E6%88%90/%E8%81%8A%E5%A4%A9%E5%AE%A4
+https://dev.yunxin.163.com/docs/product/IM%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E8%81%8A%E5%A4%A9%E5%AE%A4%E5%8A%9F%E8%83%BD
+
+demo1：
+参看微信小程序--骑手联盟的聊天室
+
+demo2:
+https://yunxin.163.com/im-demo

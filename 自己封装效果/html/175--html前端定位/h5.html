@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="demo">
+    <h2>H5自带定位</h2>
+</div>
+<script>
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+
+    function success(pos) {
+        var crd = pos.coords;
+
+        alert('Your current position is:');
+        alert('Latitude : ' + crd.latitude);
+        alert('Longitude: ' + crd.longitude);
+        alert('More or less ' + crd.accuracy + ' meters.');
+        document.getElementById("demo").appendChild(document.createElement('pre')).innerHTML = JSON.stringify(pos);
+    };
+
+    function error(err) {
+        alert('ERROR(' + err.code + '): ' + err.message);
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+</script>
+</body>
+</html>

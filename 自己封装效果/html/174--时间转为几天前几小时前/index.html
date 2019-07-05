@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>时间显示形式：</h2>
+<h3>**分钟前（1小时内）、**小时前（24小时内）、2019-06-07</h3>
+<script>
+
+    var time = "2019-06-10 11:45:18"; // 获取到时间
+
+    timeChange(time);
+
+    /**
+     *
+     * 将时间转化为:
+     *
+     * **分钟前（1小时内）、**小时前（24小时内）、2019-06-07
+     *
+     * */
+    function timeChange(time){
+        var date = new Date();
+        var ztime = new Date(time).valueOf();  // 获取时间转化为时间戳
+        var ctime = date.valueOf(); // 当前时间的时间戳
+
+        var ms = ctime - ztime; // 差距的时间戳 毫秒数
+        var s = ms/1000;    //毫秒转化为秒
+        var m = s/60;    //秒转化为分
+        var h = m/60;   // 分转化为小时
+
+        if(s < 60){
+            console.log(parseInt(s) + "秒前");
+        }else if(m < 60){
+            console.log(parseInt(m) + "分前");
+        }else if(h < 24){
+            console.log(parseInt(h) + "小时前");
+        }else{
+            var date = new Date(time);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            var seperator1 = "-";
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = year + seperator1 + month + seperator1 + strDate;
+            console.log(currentdate);
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

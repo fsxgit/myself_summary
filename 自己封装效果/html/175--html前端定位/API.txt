@@ -1,0 +1,15 @@
+
+运用的是腾讯地图的定位API
+
+参考网址：
+	API：
+		https://lbs.qq.com/tool/component-geolocation.html
+	我的key:
+		https://lbs.qq.com/console/mykey.html?console=mykey
+		账号：微信扫码
+			name:星河智慧外卖
+			key: JGRBZ-QNFKO-JS2WV-SCW36-YSFH7-E5B3B
+			
+			
+注意：需要连接是https协议才可以定位
+	
