@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title></title>
+</head>
+<body>
+<div class="box addbox">
+    <div style="text-align: center; font-weight: 600; font-size: 20px; padding:50px 0;">移动端自带时间选择和下拉选择的优化和使用</div>
+    <div class="title main">普通选择框</div>
+    <ul>
+        <li>
+            <div class="main oh">
+                <div class="tit"><i>*</i>文化程度</div>
+                <div class="val select">
+                    <span>点击选择</span>
+                    <select name="">
+                        <option value="0">请选择</option>
+                        <option value="1">小学</option>
+                        <option value="2">初中</option>
+                        <option value="3">高中</option>
+                        <option value="4">大学</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+        <li style="height:auto; background: #f8f8f8;">
+            <div class="title main">时间选择</div>
+        </li>
+        <li>
+            <div class="main oh">
+                <div class="tit"><i>*</i>出生日期</div>
+                <div class="val select date">
+                    <span>点击选择</span>
+                    <input type="date">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="main oh">
+                <div class="tit"><i>*</i>入党申请时间</div>
+                <div class="val select date">
+                    <span>点击选择</span>
+                    <input type="datetime-local">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".select select").change(function(){
+        var val = $(this).find("option:selected").text();
+        $(this).siblings("span").text(val);
+    });
+    $(".select input").change(function(){
+        var val = $(this).val();
+        if(val){
+            $(this).siblings("span").text(val);
+        }else{
+            $(this).siblings("span").text("请选择");
+        }
+
+    })
+</script>
+</body>
+</html>

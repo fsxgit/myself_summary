@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+/*common*/
+html{
+    background: #f2f3f4;
+}
+body{
+    max-width: 540px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.main{
+    width: 94%;
+    margin-left:auto;
+    margin-right:auto;
+}
+a:link,a:visited,a:hover,a:active{
+    color: inherit;
+    text-decoration: none;
+}
+.addbox{
+
+}
+.addbox .title{
+    font-size: 19px;
+    font-weight: 600;
+    color: #282828;
+    padding:20px 0 10px;
+}
+.addbox li{
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+.addbox li .tit{
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    color: #282828;
+}
+.addbox li .tit i{
+    color:#e74744;
+    margin-right:2px;
+}
+.addbox li .val{
+    font-size: 16px;
+    color: #c0c0c0;
+    float: right;
+    padding-right:15px;
+    background: url("../images/more.png") no-repeat right center;
+    background-size:8px 15px;
+}
+.addbox li .val.input{
+    background: #fff;
+}
+.addbox li .val.input input{
+    background: #fff;
+    height:30px;
+    line-height: 30px;
+    text-align: right;
+    font-size: 16px;
+
+}
+.addbox li .select{
+    position: relative;
+    width: 200px;
+    text-align: right;
+}
+.addbox li .date{
+    padding-right: 25px;
+    background: url("../images/date.png") no-repeat right center;
+    background-size:17px 18px;
+}
+.addbox li .select input,.addbox li .select select{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
