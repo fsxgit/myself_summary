@@ -21,21 +21,3 @@ li{list-style:none}*/
 /* =============================================================================
    My CSS
    ========================================================================== */
-
-html,body{ 
-	width:100%;
-	height:80%;
-	background:#000;
-}
-
-/* remove canvas default margin */
-canvas{
-	display:block;
-	vertical-align:bottom;
-}
-
-#particles-js{
-	width:100%;
-	height:95%;
-}
-.htmleaf-header{color: #fff;}
