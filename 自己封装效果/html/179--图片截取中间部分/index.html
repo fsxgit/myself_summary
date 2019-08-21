@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box,.box2{ border:1px solid #000; margin: 50px; overflow: hidden; display: inline-block; }
+    .box2 img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+<h1></h1>
+<a href="https://www.cnblogs.com/libo0125ok/p/8422617.html">参考网址:https://www.cnblogs.com/libo0125ok/p/8422617.html</a>
+<h2>未使用object-fit和object-position 属性的</h2>
+  <div class="box" style="width: 200px; height: 200px;">
+    <img src="./img1.jpg" alt="">
+  </div>
+  <div class="box" style="width: 200px; height: 100px;">
+    <img src="./img1.jpg" alt="">
+  </div>
+  <div class="box" style="width: 200px; height: 200px;">
+    <img src="./img2.jpg" alt="">
+  </div>
+  <div class="box" style="width: 200px; height: 100px;">
+    <img src="./img2.jpg" alt="">
+  </div>
+
+<div style="clear: both;"></div>
+<h2>使用object-fit和object-position 属性的</h2>
+<div class="box2" style="width: 200px; height: 200px;">
+  <img src="./img1.jpg" alt="">
+</div>
+<div class="box2" style="width: 200px; height: 100px;">
+  <img src="./img1.jpg" alt="">
+</div>
+<div class="box2" style="width: 200px; height: 200px;">
+  <img src="./img2.jpg" alt="">
+</div>
+<div class="box2" style="width: 200px; height: 100px;">
+  <img src="./img2.jpg" alt="">
+</div>
+</body>
+</html>
