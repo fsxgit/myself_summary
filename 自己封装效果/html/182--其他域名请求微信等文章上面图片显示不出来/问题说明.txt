@@ -1,0 +1,10 @@
+问题：
+	应用场景：自己网站html页面的详情部分是读的数据，数据是图文混排，如果去复制微信里面的文章的源码，作为数据，访问时就会报这个问题。
+	自己域名下面请求微信等上面文章下面的图片时显示不出来,network报403--forbidden?
+解决方法：
+	解决此图片来自微信公众平台，未经允许不可引用；单点的话，在html模板的head里添加
+	<meta name=”referrer” content=”never”>
+	
+	
+延伸：
+	https://www.imooc.com/wenda/detail/384418
