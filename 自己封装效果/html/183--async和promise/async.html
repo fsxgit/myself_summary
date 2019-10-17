@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>async的使用</title>
+</head>
+<body>
+<h1>promise的使用</h1>
+<h3>请查看控制器打印日志</h3>
+<a href="https://www.runoob.com/w3cnote/es6-promise.html">参考文档</a>
+<h1>async的使用</h1>
+<h3>请查看控制器打印日志</h3>
+<a href="https://www.runoob.com/w3cnote/es6-async.html">参考文档</a>
+<h1>async中await的使用</h1>
+<h3>请查看控制器打印日志</h3>
+<a href="https://www.runoob.com/w3cnote/es6-async.html">参考文档</a>
+<script>
+  function FirstFun() {
+    return new Promise (function (resolve,reject){
+      setTimeout(function(){
+        console.log("我是第一步要完成的，我完成不了，其他都不能进行！");
+        let isTrue = true;
+        if(isTrue){
+          resolve("正确返回");
+        }else{
+          reject("错误返回");
+        }
+      },2000);
+    })
+
+  }
+  function SecondFun() {
+    console.log("promise的使用：");
+    FirstFun().then(function(res){
+      console.log("我是第二步要完成的，我要等第一步执行完了才能进行！");
+      console.log(res);
+    }).catch(function(err){
+      console.log(err);
+    });
+  }
+  SecondFun();
+
+  // async 函数返回一个 Promise 对象，可以使用 then 方法添加回调函数。
+  // async 函数中可能会有 await 表达式，async 函数执行时，如果遇到 await 就会先暂停执行 ，等到触发的异步操作完成后，恢复 async 函数的执行并返回解析值。
+  // await 关键字仅在 async function 中有效。如果在 async function 函数体外使用 await ，你只会得到一个语法错误。
+  async function ThirdFun() {
+    await FirstFun();
+    console.log("我是第三步要完成的，我要等第一步执行完了才能进行！");
+    return "方法三返回";
+  }
+  ThirdFun().then(function(res){
+    console.log(res);
+  });
+//
+//  function getBackName1(){
+//    return "olding";
+//  }
+//  console.log(getBackName1());
+//  async function getBackName2(){
+//    return "olding";
+//  }
+//  console.log(getBackName2());
+//  getBackName2().then(function (e) {
+//    console.log(e);
+//  });
+//
+////  await
+//  function testAwait (x) {
+//    return new Promise(resolve => {
+//      setTimeout(() => {
+//        resolve(x);
+//      }, 2000);
+//    });
+//  }
+//
+//  async function helloAsync() {
+//    var x = testAwait ("hello world");
+//    console.log(x);
+//  }
+//  helloAsync ();
+//
+//  new Promise(function(resolve,reject){
+//	resolve(aaa());
+//	function aaa() {
+//	setTimeout(function(){
+//      console.log("时间到");
+//    },3000)}
+//  }).then(function(){
+//    console.log("我我我");
+//  })
+//  .catch(function(){
+//    console.log(4)
+//  });
+</script>
+</body>
+</html>

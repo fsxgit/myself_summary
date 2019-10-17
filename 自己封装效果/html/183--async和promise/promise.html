@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<button id="start">开始加载</button>
+<h6>使用promise和then方法去实现，等待接口返回来结果之后执行，</h6>
+<script>
+var oStart = document.getElementById("start");
+oStart.onclick = function (){
+  getdata().then(function(res){
+    console.log(res);
+    console.log("下面进行要进行的逻辑");
+  });
+};
+
+function getdata(){
+  // 模拟调用接口 延迟返回的效果
+  return new Promise (function(resolve, reject){
+    setTimeout(function(){
+      resolve("接口返回成功");
+    },3000)
+  })
+}
+
+</script>
+</body>
+</html>
