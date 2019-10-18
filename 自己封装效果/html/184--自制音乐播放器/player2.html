@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css"/>
+    <title>童趣</title>
+</head>
+<body>
+<!--header-->
+<div id="c_header" style="background: none;">
+    <div class="main pr center">
+        <div class="back"><img src="images/down.png" alt=""></div>
+        <div class="txt tc txt2">白雪公主</div>
+        <div class="right dots"><span>···</span></div>
+    </div>
+</div>
+<!--header end-->
+<div id="content">
+    <div class="player1_poster">
+        <p class="img" style="background: url('./images/img33.png') no-repeat center center; background-size:cover; "></p>
+    </div>
+    <div class="process_audio">
+        <div class="time tr"><span  style="left:0%;" class="gone_time">00:00</span><span class="total_time">00:00</span></div>
+        <div class="audio_ppro pr"><p style="width:0%;" class="audio_cpro"></p><p style="left:0%;" class="dot time_dot"></p></div>
+    </div>
+    <div class="player1_tools bb">
+        <ul class="player1_handles">
+            <li class="circle"><img src="images/circle.png" alt=""><img src="images/circle_r.png" alt=""></li>
+            <li class="prev"><img src="images/prev.png" alt=""></li>
+            <li class="player"><img src="images/player14.png" alt=""><img src="images/player15.png" alt=""></li>
+            <li class="next"><img src="images/next.png" alt=""></li>
+            <li class="meau"><img src="images/meau.png" alt=""></li>
+        </ul>
+        <ul class="player1_btns">
+            <li>
+                <p><img src="images/store.png" alt=""></p>
+                <p>喜欢</p>
+            </li>
+            <li>
+                <p><img src="images/praise.png" alt=""></p>
+                <p>点赞</p>
+            </li>
+            <li>
+                <p><img src="images/download1.png" alt=""></p>
+                <p>下载</p>
+            </li>
+            <li>
+                <p><img src="images/time2.png" alt=""></p>
+                <p>定时</p>
+            </li>
+        </ul>
+    </div>
+    <ul class="my_works_list">
+        <li>
+            <div class="main center pr">
+                <div class="img imgbg"><p  style="background: url('./images/img1.png') no-repeat center center; background-size:cover; "></p></div>
+                <div class="txt">
+                    <h2 class="ellipsis">经典童话故事</h2>
+                    <p>共10个故事</p>
+                </div>
+                <div class="hands"><img src="images/more.png" alt=""></div>
+            </div>
+            <!--<div class="line95 bb"></div>-->
+        </li>
+    </ul>
+</div>
+<!-- handles -->
+<div id="handles_box">
+    <div class="handles_center">
+        <ul>
+            <li>
+                <p><img src="images/player_btn1.png" alt=""></p>
+                <p>分享</p>
+            </li>
+            <li>
+                <p><img src="images/player_btn2.png" alt=""></p>
+                <p>查看专辑</p>
+            </li>
+            <li>
+                <p><img src="images/player_btn3.png" alt=""></p>
+                <p>播放历史</p>
+            </li>
+            <li>
+                <p><img src="images/player_btn4.png" alt=""></p>
+                <p>举报</p>
+            </li>
+            <li>
+                <p><img src="images/player_btn5.png" alt=""></p>
+                <p>录音</p>
+            </li>
+            <li>
+                <p><img src="images/player_btn6.png" alt=""></p>
+                <p>购买</p>
+            </li>
+            <li>
+                <p><img src="images/player_btn7.png" alt=""></p>
+                <p>评论</p>
+            </li>
+        </ul>
+        <p class="cancel">取消</p>
+    </div>
+</div>
+<!-- handles end -->
+<!--音乐播放器-->
+<audio controls id="audio_player" src="http://html.zai0312.com/Liyv.mp3" style="display: none;" >
+    <!--<source src="http://www.runoob.com/try/demo_source/horse.ogg" type="audio/ogg">-->
+    <!--<source src="http://www.runoob.com/try/demo_source/horse.mp3" type="audio/mpeg">-->
+    <!--<source src="http://html.zai0312.com/Liyv.mp3" type="audio/mpeg">-->
+    您的浏览器不支持 audio 元素。
+</audio>
+<!--音乐播放器 end-->
+<script src="js/jquery.min.js"></script>
+<script>
+    /**
+     * 全局变量
+     * */
+    var timer;
+    var oAudio = document.getElementById("audio_player");
+    var oW = $(".audio_ppro").width(); // 进度条总宽度
+    var oWdot = $(".time_dot").width(); // 进度点的宽度
+    var oWtime = $(".gone_time").width(); //时间的宽度
+    var tTime = 0;
+    var cTime = 0;
+    var wrapper = document.getElementsByClassName('audio_ppro')[0];
+    var time_dot = document.getElementsByClassName('time_dot')[0];
+    var audio_cpro = document.getElementsByClassName('audio_cpro')[0];
+    var gone_time = document.getElementsByClassName('gone_time')[0];
+    var isState = 0;
+    var curr = 0;
+    var iscircle = 0;
+    var audioList =["http://www.runoob.com/try/demo_source/horse.mp3","http://html.zai0312.com/Liyv.mp3","http://html.zai0312.com/bird.mp3"];
+
+    // 上一首
+    $(".next").click(function(){
+        var src = audioList[curr];
+        if(curr >= (audioList.length-1)){
+            curr = 0;
+        }else{
+            curr++;
+        }
+        $("#audio_player").attr("src",src);
+        isState = 1;
+    });
+    //下一首
+    $(".prev").click(function(){
+        var src = audioList[curr];
+        if(curr <= 0){
+            curr = (audioList.length-1);
+        }else{
+            curr--;
+        }
+        $("#audio_player").attr("src",src);
+        isState = 1;
+    });
+
+    // 循环播放
+    $(".circle").click(function(){
+        $(this).toggleClass("on");
+        if($(this).hasClass("on")){
+            iscircle = 1;
+        }else{
+            iscircle = 0;
+        }
+    });
+
+    $(".dots").click(function(){
+        $("#handles_box").show();
+    });
+    $(".cancel").click(function(){
+        $("#handles_box").hide();
+    });
+
+    $(".player").click(function(){
+        if(oAudio.paused){
+            oAudio.play();// 播放
+            $(this).addClass("on");
+            getCurrTimePercent();
+        }else{
+            oAudio.pause();// 暂停
+            $(this).removeClass("on");
+            clearInterval(timer);
+        }
+    });
+    $(function(){
+//        监听音频可以播放时执行
+        oAudio.oncanplay = function(){
+            console.log(2);
+            tTime = oAudio.duration;
+            var totalTime = getTotalTimeString(tTime);
+            $(".total_time").text(totalTime);
+        };
+    });
+
+    /**
+     *  【1】获取音频的总时间，并换算成时分秒,返回“00:00”格式
+     *
+     * **/
+    function getTotalTimeString(time){
+        time = parseInt(time);
+        if(time < 60){
+            if(time < 10){
+                time = "00:0"+time;
+            }else{
+                time = "00:"+time;
+            }
+        }else{
+            var minute = Math.floor(time/60).toString();
+            var second = (time%60).toString();
+            if(minute.length == 1){
+                minute = "0"+minute;
+            }
+            if(second.length == 1){
+                second = "0"+second;
+            }
+            time = minute+":"+second;
+        }
+        return time;
+    }
+
+    /**
+     * 【2】获取音频实时播放的时长，并换算成进度百分比 用px而不是%，px更精确
+     *
+     * */
+    function getCurrTimePercent(){
+        timer = setInterval(function(){
+            tTime = parseInt(oAudio.duration);
+            cTime = parseInt(oAudio.currentTime);
+            $(".gone_time").text(getTotalTimeString(cTime));
+            var per = cTime/tTime; // 走过的百分比
+            var x = oW*per; // 走过的距离px
+            setPlace(x);
+
+        },100);
+    }
+
+    /**
+     * 设置当前的时间，时间位置，滑块位置，进度条颜色位置
+     * */
+    function setPlace(x,ishandle){
+        if(ishandle){
+            // 如果是滑动快进快退的时候要改变进度时间
+            var curtime  = Math.ceil(parseInt(tTime)*(parseInt(x)/parseInt(oW)));
+            $(".gone_time").text(getTotalTimeString(curtime));
+            cTime = Math.ceil(curtime);
+
+            // console.dir(oAudio.buffered);
+            // console.log( "已缓冲的范围："+oAudio.buffered.length);
+            // console.log( "已缓冲的秒数："+oAudio.buffered.end(0));
+            // console.log( "获取某个已缓冲返回的开始位置："+oAudio.buffered.start(index));
+            // console.log( "获取某个已缓冲范围的结束位置："+oAudio.buffered.end(index));
+            // oAudio.seekable.start(0);
+            // oAudio.seekable.end(2);
+            // console.log(oAudio.seekable);
+
+            console.log(cTime);
+            /**
+             * 快进、快退：本地音频文件无法设置；文件必须是服务器上面的文件；如：
+             *
+             * 【正确】：<source src="http://html.zai0312.com/bird.mp3" type="audio/mpeg">
+             * 【错误】：<source src="./bird.mp3" type="audio/mpeg">
+             */
+            oAudio.currentTime = cTime;
+            console.log(oAudio.currentTime);
+        }
+
+        if( x > (oW-oWdot)) {
+            time_dot.style.left = (oW-oWdot) + 'px';
+            audio_cpro.style.width = oW + 'px';
+        }else if( x < oWdot/2){
+            time_dot.style.left = '0px';
+            audio_cpro.style.width = '0px';
+        }else{
+            time_dot.style.left = x - oWdot/2+'px';
+            audio_cpro.style.width = x +'px';
+        }
+
+        if( x > (oW-oWtime)) {
+            gone_time.style.left = (oW-oWtime) + 'px';
+        }else if( x < oWtime/2){
+            gone_time.style.left = '0px';
+        }else{
+            gone_time.style.left = x - oWtime/2+'px';
+        }
+
+//        if(per < 10){
+//            $(".gone_time").css({"left" : per+"%"});
+//            $(".time_dot").css({"left" : per+"%"});
+//        }else if(per > 90){
+//            $(".gone_time").css({"left" : per+"%","margin-left":"-63px"});
+//            $(".time_dot").css({"left" : per+"%","margin-left":"-20px"});
+//        }else{
+//            $(".gone_time").css("left",per+"%");
+//            $(".time_dot").css("left",per+"%");
+//        }
+//        $(".audio_cpro").css("width",per+"%");
+    }
+
+    /**
+     * 【3】监听：音频加载完毕，可以播放时执行
+     * */
+    oAudio.addEventListener('canplaythrough',function () {
+        console.log(1);
+        tTime = oAudio.duration;
+        var totalTime = getTotalTimeString(tTime);
+        $(".total_time").text(totalTime);
+        if(isState == 1){
+            $(".player").click();
+            isState = 0;
+        }
+    });
+
+    /**
+     * 【4】监听：音频播放结束时触发
+     * */
+    $('#audio_player').bind('ended',function () {
+        $('.player').removeClass('on');
+        clearInterval(timer);
+        //播放结束，恢复到初始位置：
+        setPlace(0);
+        // 结束时进行专辑里的下一首
+        if( iscircle == 0){
+            $(".player").click();
+        }else{
+            $(".next").click();
+        }
+
+    });
+
+    /**
+     * 当currentTime改变的时候会触发timeupdate事件
+     * */
+    oAudio.addEventListener('timeupdate',function () {
+        console.log("时间更新触发="+oAudio.currentTime);
+    });
+
+    /**
+     * 进度滑动
+     * */
+    var slider=(function(){
+        init=function(){
+            var wrapper=document.getElementsByClassName('audio_ppro')[0];
+            var slider=document.getElementsByClassName('time_dot')[0];
+            var fill=document.getElementsByClassName('audio_cpro')[0];
+            move(wrapper,slider,fill);
+        };
+        move=function(dom1,dom2,dom3){
+            //drag用来存储滑块允许拖拽和不允许拖拽的状态
+            var drag=0;
+            //在滑动条上绑定click事件以实现点击任意位置,自动调整滑块和填充块的效果
+            dom1.addEventListener('click',function (e) {
+                if(e.target===dom2){
+                    //点击滑块自身不做任何事情
+                }else{
+//                    if(e.offsetX > (oW-oWdot)) {
+//                        console.log(oW-oWdot);
+//                        dom2.style.left = (oW-oWdot) + 'px';
+//                        dom3.style.width = oW + 'px';
+//                    }else if(e.offsetX < oWdot){
+//                        dom2.style.left='0px';
+//                        dom3.style.width='0px';
+//                    }else{
+//                        dom2.style.left=e.offsetX - oWdot/2+'px';
+//                        dom3.style.width=e.offsetX - oWdot/2+'px';
+//                    }
+                    setPlace(e.offsetX,true);
+
+                }
+            });
+            //修改drag的状态
+            dom2.addEventListener('touchstart',function(){
+                drag=1;
+            });
+            //释放按钮绑定在document上,保证在整个页面容器里面任何地方松开按钮都能修改drag的状态
+            document.addEventListener('touchend',function(){
+                drag=0;
+            });
+            // 使滑块和填充块跟随移动,这里使用的pageX,需要计算和视窗左侧的距离而不是和滑动块左侧的距离
+            dom1.addEventListener('touchmove',function(e){
+                var touch = e.touches[0];
+                if(drag == 1){
+//                    if(touch.pageX > (oW-oWdot)) {
+//                        dom2.style.left = (oW-oWdot) + 'px';
+//                        dom3.style.width = oW + 'px';
+//                    }else if(touch.pageX < oWdot/2){
+//                        dom2.style.left = '0px';
+//                        dom3.style.width = '0px';
+//                    }else{
+//                        dom2.style.left = touch.pageX - oWdot/2+'px';
+//                        dom3.style.width = touch.pageX +'px';
+//                    }
+                    setPlace(touch.pageX,true);
+                }
+            });
+
+        };
+        return {
+            init:init
+        }
+    })();
+    slider.init();
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        *{margin:0; padding:0;}
+        #box{width:375px; min-height: 500px; border:4px solid #000; border-radius: 2px; padding:20px; }
+        #box.iszhan{
+            position: relative;
+        }
+        #box.iszhan::before{
+            content: "";
+            position: absolute;
+            left:0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+
+        }
+        .moudle_item{margin-bottom: 20px;}
+        ul,li{list-style: none;}
+        h2,h4{padding:20px 30px;}
+    </style>
+</head>
+<body>
+<button>清零</button>
+<div style="float: left; margin-right:80px;">
+    <h2>盒子</h2>
+    <h4 style="color: red;">双击删除已选模块</h4>
+    <div id="box" draggable="false">
+
+    </div>
+</div>
+<div style="float: left; ">
+    <h2>模块</h2>
+    <h4 style="color: red;">拖拽模块到左边盒子里生成页面</h4>
+    <div style="border:4px solid #ee443a; width: 300px; padding:20px;">
+        <div class="moudle_item" data-id="1" draggable="true" >
+            <div class="moudle_item_cont" style=" min-height:100px; border:2px solid #ff0039; padding:10px;" >
+                <h2>新闻标题</h2>
+                <p>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</p>
+            </div>
+        </div>
+        <div class="moudle_item" data-id="2" draggable="true" >
+            <div class="moudle_item_cont" style="min-height:100px; border:2px solid #0c1eff; padding:10px; " >
+                <img src="images/bg.jpg" style="width: 100%; height: auto; display: block;" alt="">
+            </div>
+        </div>
+        <div class="moudle_item" data-id="3" draggable="true" >
+            <div class="moudle_item_cont" style="min-height:100px; border:2px solid #07ff45; padding:10px;" >
+                <h1 style="color:red;">
+                    <ul style="overflow: hidden;">
+                        <li style="width: 32%; height: 100px; margin:0 0.65%; float: left;"><img style="width: 100%; height: 100%; display: block;" src="images/img1.jpg" alt=""></li>
+                        <li style="width: 32%; height: 100px; margin:0 0.65%; float: left;"><img style="width: 100%; height: 100%; display: block;" src="images/img2.jpg" alt=""></li>
+                        <li style="width: 32%; height: 100px; margin:0 0.65%; float: left;"><img style="width: 100%; height: 100%; display: block;" src="images/img3.jpg" alt=""></li>
+                    </ul>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+
+
+    $(function(){
+        /**
+         * 1 获取储存的模块id列表，生成对应的页面
+         * */
+        var list = JSON.parse(window.localStorage.getItem("list"));
+        arr = list;
+        console.log(list);
+        console.log(typeof(list));
+        $.each(list,function(i,v){
+            console.log(i+"-"+v);
+            $(".moudle_item").each(function(){
+                if( $(this).data("id") == v ){
+                    $("#box").append('<div class="page_item"  draggable="true">'+$(this).html()+'</div>');
+                }
+            })
+        })
+    });
+
+
+
+    /**
+     * 2 选择模块放入到页面中
+     * */
+    var arr = [];
+
+    // 储存当前拖拽模块的内容
+    var html = "";
+
+    // 储存当前拖拽的模块的id
+    var id = 0;
+
+    // 拖拽目标开始
+    $(".moudle_item").on("dragstart",function(e){
+        html = $(this).html();
+        id = $(this).data("id");
+        $("#box").addClass("iszhan");
+    });
+
+    // 鼠标离开时
+    $(".moudle_item").mouseleave(function(e){
+        $("#box").removeClass("iszhan");
+    });
+
+    // 拖拽目标放入指定位置
+    $("#box").on("drop",function(e){
+        e.preventDefault();
+        $(this).append('<div class="page_item"  draggable="true">'+html+'</div>');
+        arr.push(id);
+        console.log(arr);
+        window.localStorage.setItem("list",JSON.stringify(arr));
+
+        $("#box").removeClass("iszhan");
+    });
+
+    // 拖拽目标放入指定位置结束
+    $("#box").on("dragover",function(e){
+        e.preventDefault();
+    });
+
+    // 删除 对应模块
+    $("#box").on("dblclick",".page_item",function(){
+        var index = $(this).index();
+        $(this).remove();
+        arr.splice(index,1);
+        window.localStorage.setItem("list",JSON.stringify(arr));
+    });
+
+
+    /**
+     * 3 已添加的模块切换位置
+     *
+     * */
+    var index1 = 0;
+    var index2 = 0;
+    var oDiv = null;
+    var oHtml = "";
+    $("#box").on("dragstart",".page_item",function(e){
+        oHtml = $(this).html();
+        oDiv = $(this);
+        index1 = $(this).index();
+
+    });
+    // 拖拽目标放入指定位置
+    $("#box").on("drop",".page_item",function(e){
+        index2 = $(this).index();
+        oDiv.html($(this).html());
+        $(this).html(oHtml);
+        var id1 = arr[index1];
+        var id2 = arr[index2];
+        arr[index1] = id2;
+        arr[index2] = id1;
+        window.localStorage.setItem("list",JSON.stringify(arr));
+
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+    // 拖拽目标放入指定位置结束
+    $("#box").on("dragover",".page_item",function(e){
+        e.preventDefault();
+    });
+
+    /**
+     * 4 删除储存数据
+     * **/
+    $("button").click(function(){
+        var arr = [];
+        window.localStorage.setItem("list",JSON.stringify(arr));
+        location.reload();
+    })
+</script>
+</body>
+</html>

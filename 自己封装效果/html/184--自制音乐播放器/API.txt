@@ -1,0 +1,24 @@
+自制音乐播放器【移动端】：
+player1.html 初识
+player2.html 感知
+player3.html 整理封装
+涉及知识点：
+1、播放、暂停
+2、快进、快退
+   src文件必须是服务器上面的文件，本地的不起作用
+3、已播放时间设置、音乐总时长设置
+4、音频ios不自动播放的解决方法：
+
+5、js切换音频的方法
+
+6、循环播放和单曲循环
+
+7、上一首、下一首
+
+8、声音开关、声音加减
+
+
+参看文档：
+1、https://www.jianshu.com/p/1fe701c9179f
+2、http://www.w3school.com.cn/jsref/dom_obj_audio.asp
+

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <script type="text/javascript">
+        function allowDrop(ev)
+        {
+            ev.preventDefault();
+        }
+
+        var srcdiv = null;
+        function drag(ev,divdom)
+        {
+            srcdiv=divdom;
+            ev.dataTransfer.setData("text/html",divdom.innerHTML);
+        }
+
+        function drop(ev,divdom)
+        {
+            ev.preventDefault();
+            if(srcdiv != divdom){
+                srcdiv.innerHTML = divdom.innerHTML;
+                divdom.innerHTML=ev.dataTransfer.getData("text/html");
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div style="width: 200px;height:100px; border:2px solid #ff0039;"  ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+    <p>div1!</p>
+</div>
+<div style="width: 200px;height:100px; border:2px solid #0c1eff;" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+    <h2>div2!</h2>
+</div>
+<div style="width: 200px;height:100px; border:2px solid #07ff45;" ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+    <h1 style="color:red;">div3</h1>
+</div>
+
+</body>
+</html>
