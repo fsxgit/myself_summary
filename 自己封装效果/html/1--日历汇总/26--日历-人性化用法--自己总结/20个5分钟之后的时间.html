@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20个5分钟时间相加</title>
+</head>
+<body>
+    <h1 style="color: red;">20个5分钟之后的时间</h1>
+    <div class="tx-box">
+        <h2>当前时间：<span class="now"></span></h2>
+        <ul class="tTime"></ul>
+
+    </div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    var ndate = new Date();
+
+    var timeStr = ndate.getTime();
+   console.log(timeStr);
+
+    var ny = ndate.getFullYear();
+    var nm = ndate.getMonth()+1;
+    var nd = ndate.getDate();
+    var nh = ndate.getHours();
+    var ni = ndate.getMinutes();
+    var ns = ndate.getSeconds();
+    if(nm.toString().length == 1){
+        nm = "0"+nm;
+    }
+    if(nd.toString().length == 1){
+        nd = "0"+nd;
+    }
+    if(nh.toString().length == 1){
+        nh = "0"+nh;
+    }
+    if(ni.toString().length == 1){
+        ni = "0"+ni;
+    }
+    if(ns.toString().length == 1){
+        ns = "0"+ns;
+    }
+    var now = ny+''+nm+''+nd+' '+nh+':'+ni+':'+ns;
+    $(".now").html(now);
+
+
+    var tdate = new Date( "2017/07/22 16:30:17");//设定开始时间
+    var thaom = tdate.getTime();
+    var eTime = 5;//分钟
+       for(var i = 0;i< 20; i++){
+           var aTime = eTime*i;
+           var tTime = thaom+aTime*60*1000;
+           var rDate = new Date(tTime);
+
+           var ny2 = rDate.getFullYear();
+           var nm2 = rDate.getMonth()+1;
+           var nd2 = rDate.getDate();
+           var nh2 = rDate.getHours();
+           var ni2 = rDate.getMinutes();
+           var ns2 = rDate.getSeconds();
+           if(nm2.toString().length == 1){
+               nm2 = "0"+nm2;
+           }
+           if(nd2.toString().length == 1){
+               nd2 = "0"+nd2;
+           }
+           if(nh.toString().length == 1){
+               nh2 = "0"+nh2;
+           }
+           if(ni2.toString().length == 1){
+               ni2 = "0"+ni2;
+           }
+           if(ns2.toString().length == 1){
+               ns2 = "0"+ns2;
+           }
+           var rTime = ny2+''+nm2+''+nd2+' '+nh2+':'+ni2+':'+ns2;
+
+           var ht = "<li>"+(i+1)+"---"+rTime+"</li>";
+           $(".tTime").append(ht)
+       }
+
+
+</script>
+</body>
+</html>

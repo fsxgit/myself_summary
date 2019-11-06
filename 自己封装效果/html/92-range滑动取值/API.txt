@@ -1,3 +1,6 @@
 滑块 网站：
 1.http://www.runoob.com/jqueryui/example-slider.html  PC
 2.百度搜索jquery.range.js查找API/查找插件   移动端
+
+3、js设置滑块的滑动位置和值
+$('.range').jRange('setValue', '10');
