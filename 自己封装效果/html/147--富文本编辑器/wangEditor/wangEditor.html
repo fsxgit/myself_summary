@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.wangeditor.com/index.html -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>wangEditor - 轻量级web富文本编辑器</title>
+</head>
+<body style="">
+<!-- body container -->
+<h1><a href="https://www.kancloud.cn/wangfupeng/wangeditor3/332599">参考文档</a></h1>
+<h2><a href="http://www.wangeditor.com/index.html">demo</a></h2>
+<div class="container">
+  <div id="divDemo">
+
+  </div>
+  <button id="gethtml">获取html</button>
+  <button id="gettext">获取text</button>
+</div>
+
+<script type="text/javascript" src="./jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./wangEditor.min.js"></script>
+<script>
+  $(function (){
+    // 初始化实例
+    var E = window.wangEditor;
+    var editor = new E('#divDemo');
+    editor.customConfig.uploadImgShowBase64 = true;
+    editor.create();
+    // 初始化实例 end
+
+
+    $("#gethtml").click(function(){
+      alert(editor.txt.html());
+    });
+    $("#gettext").click(function(){
+      alert(editor.txt.text());
+    })
+  });
+
+</script>
+
+
+</body>
+</html>
