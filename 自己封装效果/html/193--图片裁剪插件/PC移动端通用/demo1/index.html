@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://cdn.bootcss.com/cropper/3.0.0/cropper.css" rel="stylesheet">
+</head>
+<body>
+<!-- 用一个块元素(容器)包装图像或画布元素 -->
+<div class="box">
+  <img id="image" src="1.jpg">
+</div>
+<div class="small"></div>
+<button id="getData">生成base64格式图片</button>
+<script src="js/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/cropper/3.0.0/cropper.min.js"></script>
+<script>
+  $('#image').cropper({
+    aspectRatio: 26 / 38,
+    dragMode: 'move',//拖拽模式
+    viewMode:1,
+    crop: function (e) {
+      console.log(e);
+    }
+  });
+
+  $("#getData").on("click", function () {
+    var cas=$('#image').cropper('getCroppedCanvas');
+    var base64url=cas.toDataURL('image/jpeg');
+    console.log(base64url); //生成base64图片的格式
+  })
+</script>
+</body>
+</html>

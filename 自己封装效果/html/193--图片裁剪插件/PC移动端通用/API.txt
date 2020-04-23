@@ -1,0 +1,28 @@
+1、要在服务器环境下面使用
+2、参考文档：https://blog.csdn.net/weixin_38023551/article/details/78792400
+3、
+// 引入本地js的时候（3.0版本以上的时候），用这个：
+$("#image").cropper({
+      aspectRatio: 1/1,
+      viewMode: 1,
+       minCropBoxWidth: 100,
+        preview: ".smallImg"
+ });
+ 
+ // 使用cdn引入Js
+var cropper = new Cropper(image, {
+        aspectRatio: 16 / 9,
+        viewMode:1,
+        crop: function (e) {
+            console.log(e.detail.x);
+            console.log(e.detail.y);
+            console.log(e.detail.width);
+            console.log(e.detail.height);
+            console.log(e.detail.rotate);
+            console.log(e.detail.scaleX);
+            console.log(e.detail.scaleY);
+        }
+    });
+	
+4、切换图片并重新渲染组件：
+$('#clipAreaImg').cropper('replace',newUrl,false);
