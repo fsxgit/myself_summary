@@ -1,0 +1,23 @@
+
+【解决ios生成图片旋转】
+https://blog.csdn.net/linlzk/article/details/48652635
+https://www.cnblogs.com/Bideam/p/5799751.html
+
+卓越云：自定义海报
+http://api.summitdigitalcloud.com/yunteam/customizeCard.html?uid=55&font=1&end=0
+
+工具js:
+https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.js
+
+
+注意：
+html2canvas 必须在具有服务器环境下才能够运行
+
+
+本demo涉及到知识点：
+1、获取农历日期
+2、base64图片上传服务器的方法
+3、使用exif.js来处理在ios上面的拍照和上传图片后图片旋转的问题
+4、html2canvas生成自定义图片
+5、处理html2canvas生成图片时文字不换行的问题：
+	字符串按照长度截取，主动添加p标签换行

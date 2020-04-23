@@ -1,0 +1,6 @@
+        <form action="javascript:void 0;">
+        <div class="input"><input @keyup.enter="search" v-model="keyword" type="search" autofocus placeholder="热搜商品关键字"></div>
+        </form>
+		
+		vue：https://blog.csdn.net/yanby921005/article/details/80360538
+		H5:  https://blog.csdn.net/lianzhang861/article/details/80023377
