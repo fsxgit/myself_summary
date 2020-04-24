@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>国家公祭日把网站置灰的方法</title>
+  <style>
+    *{margin:0; padding:0;}
+
+    /*置灰*/
+    *{
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: url("data:image/svg+xml;utf8,#grayscale");
+      filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+      -webkit-filter: grayscale(1);
+    }
+    /*置灰 end*/
+
+    body{max-width: 540px; margin-left:auto; margin-right:auto; background: #f0cc96;}
+    body{background: #ccc;}
+    ul,li{list-style: none;}
+    ul{overflow: hidden;}
+    li{float: left; width: 200px; height: auto; margin:10px; }
+    li img{ width: 100%; height: auto;}
+    .tit1{text-align: center; font-size: 30px; color: #fff;  padding:20px 0;}
+    .tit2{text-align: center; font-size: 30px; color: #ff191f;  padding:20px 0;}
+  </style>
+</head>
+<body>
+<div class="tit1">国家公祭日把网站置灰的方法</div>
+<div class="tit2">国家公祭日把网站置灰的方法</div>
+<div class="tit3">body的背景色，如果是亮色，则需要手动去置灰</div>
+<ul>
+  <li><img src="./images/a.jpg" alt=""></li>
+  <li><img src="./images/b.jpg" alt=""></li>
+  <li><img src="./images/c.jpg" alt=""></li>
+  <li><img src="./images/d.jpg" alt=""></li>
+  <li style="width: 400px; height: 200px; margin:0 auto; background: url('./images/a.jpg') no-repeat center center;"></li>
+  <li style="width: 300px; height: 200px; margin:0 auto; background: #ff0039;"></li>
+</ul>
+</body>
+</html>
