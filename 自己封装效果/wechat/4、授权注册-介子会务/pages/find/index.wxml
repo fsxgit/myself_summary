@@ -1,0 +1,127 @@
+<!--pages/find/index/index.wxml-->
+<view wx:if="{{pageShow}}">
+<view class="c_fixed_top">
+  <view class="main">
+    <view class="search">
+    <image mode="widthFix" src="{{__IMG__}}/search.png"></image>输入关键词搜索
+    </view>
+    <view class="tab">
+      <view class="active">推荐</view>
+      <view> <navigator open-type="navigate" url="/pages/pay/index">收藏</navigator></view>
+    </view>
+  </view>
+</view>
+<view style="height:160rpx;"></view>
+<view class="list main">
+  <view class="li" wx:for="{{dataList}}">
+    <view class="status status1" wx:if="{{item.status == 1}}">报名中</view>
+    <view class="status status2" wx:if="{{item.status == 2}}">进行中</view>
+    <view class="status status3" wx:if="{{item.status == 3}}">已结束</view>
+    <view class="img"><image mode="aspectFill" src="{{item.thumbimg}}"></image></view>
+    <view class="bot">
+      <view class="h2">{{item.name}}</view>
+      <view class="time1"><image mode="widthFix" src="{{__IMG__}}/time.png"></image>报名截止：{{item.signup_edate}}</view>
+      <view class="time2"><image mode="widthFix" src="{{__IMG__}}/time.png"></image>会议时间：{{item.startdate}}-{{item.enddate}}</view>
+      <view class="site"><image mode="widthFix" src="{{__IMG__}}/site.png"></image>{{item.place}}</view>
+    </view>
+  </view>
+  <!-- 
+  <view class="li">
+    <view class="status status2">进行中</view>
+    <view class="img"><image mode="widthFix" src="{{__IMG__}}/img1.jpg"></image></view>
+    <view class="bot">
+      <view class="h2">一带一路国际一带一路国际一带一路国际一带一路国际一带一路国际一带一路国际</view>
+      <view class="time1"><image mode="widthFix" src="{{__IMG__}}/time.png"></image>报名截止：2019.04.08 18：00</view>
+      <view class="time2"><image mode="widthFix" src="{{__IMG__}}/time.png"></image>会议时间：2019.04.08 09：00 - 2019.04.08 18：00</view>
+      <view class="site"><image mode="widthFix" src="{{__IMG__}}/site.png"></image>北京市海淀区</view>
+    </view>
+  </view>
+  <view class="li">
+    <view class="status status3">已结束</view>
+    <view class="img"><image mode="widthFix" src="{{__IMG__}}/img1.jpg"></image></view>
+    <view class="bot">
+      <view class="h2">一带一路国际一带一路国际一带一路国际一带一路国际一带一路国际一带一路国际</view>
+      <view class="time1"><image mode="widthFix" src="{{__IMG__}}/time.png"></image>报名截止：2019.04.08 18：00</view>
+      <view class="time2"><image mode="widthFix" src="{{__IMG__}}/time.png"></image>会议时间：2019.04.08 09：00 - 2019.04.08 18：00</view>
+      <view class="site"><image mode="widthFix" src="{{__IMG__}}/site.png"></image>北京市海淀区</view>
+    </view>
+  </view> -->
+</view>
+<!-- 认证提示 -->
+<view class="rzts_wrap" wx-if="{{identifyState}}">
+  <view class="rzts">
+    <view class="img"><image mode="widthFix" src="{{__IMG__}}/rzheng.png"></image></view>
+    <view class="txt">认证成功成为企业用户，方可发布会议</view>
+    <view class="btns">
+      <view class="cancel">取消</view>
+      <view class="sure">去认证</view>
+    </view>
+  </view>
+</view>
+<!-- 认证提示 end -->
+<!-- 授权 end -->
+<view class="getUserInfo"  wx-if="{{showSQInfo}}">
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授 权 </button>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授 权 </button>
+</view>
+<!-- 扫码授权 -->
+<view class="saoSQbox"  wx-if="{{saoSQstate}}">
+  <image mode="widthFix" src="{{__IMG__}}/sqts.png"></image>
+</view>
+<!-- 扫码授权 end -->
+
+<view class="getMobileBox" wx-if="{{showSQMobile}}">
+  <view class="center">
+    <view class="h2">为了更好的为您服务，请您绑定手机号码</view>
+    <!-- 
+    <view class="item">
+      <view class="input"><input type="number" placeholder="请输入手机号码" /></view>
+        <button  class="btn wx" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >
+        <image mode="widthFix" style="width:31rpx;" src="{{__IMG__}}/wx.png"></image> 微信号码
+        </button>
+    </view>
+    <view class="item">
+      <view class="input"><input type="number" placeholder="请输入手机号码" /></view>
+      <view class="btn send" bindtap="getCode">{{sendTxt}}</view>
+    </view> -->
+    <view class="sqbtn">
+      <view class="cancel"   bindtap="bangMobilecancel"><button>取消</button></view>
+      <view class="sure"  bindtap="bangMobile"><button open-type="getPhoneNumber" style="width:100%; height:88rpx; line-height:88rpx; display:block; color:#fff; background:none; font-size:14px; padding:0;" bindgetphonenumber="getPhoneNumber" >授权绑定</button></view>
+     
+    </view>
+  </view>
+</view>
+<!-- 授权 end -->
+
+<!-- footer -->
+<view class="c_footer">
+  <view class="find active">
+    <!-- <navigator open-type="navigate" url="/pages/find/index"> -->
+    <view class="img">
+      <!-- <image mode="widthFix" src="{{__IMG__}}/find_h.png"></image> -->
+      <image mode="widthFix" src="{{__IMG__}}/find_r.png"></image>
+    </view>
+    <view class="txt">发现</view>
+    <!-- </navigator> -->
+  </view>
+  <view class="publish">
+    <navigator open-type="navigate" url="/pages/publish/index">
+    <view class="img">
+      <image mode="widthFix" src="{{__IMG__}}/add2.png"></image>
+    </view>
+    <view class="txt">发布</view>
+    </navigator>
+  </view>
+  <view class="my">
+    <navigator open-type="navigate" url="/pages/my/index">
+    <view class="img">
+      <image mode="widthFix" src="{{__IMG__}}/my_h.png"></image>
+      <!-- <image mode="widthFix" src="{{__IMG__}}/my_r.png"></image> -->
+    </view>
+    <view class="txt">我的</view>
+    </navigator>
+  </view>
+</view>
+<!-- footer end -->
+</view>
+

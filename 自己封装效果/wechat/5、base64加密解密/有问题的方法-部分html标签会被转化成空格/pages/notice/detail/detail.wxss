@@ -1,0 +1,4 @@
+/* pages/notice/detail/detail.wxss */
+.name{font-size:32rpx; color:#333; padding:30rpx 0 10rpx; }
+.time{font-size:24rpx; color:#999; padding-bottom:26rpx; border-bottom:1px solid #eee; }
+.detail{padding:30rpx 0;}

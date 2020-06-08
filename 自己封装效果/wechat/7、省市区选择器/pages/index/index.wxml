@@ -1,0 +1,33 @@
+<view class="address-item" bindtap="pickAddress" data-ptpid="6a75-10f3-aaad-329c">
+  <view class="item-title">所在地区</view>
+  <view class="item-content arrow {{region ? '' : 'item-content_shadow'  }}">{{region||"请选择"}}</view>
+</view>
+<view style="font-size:80px;">w</view>
+<view style="font-size:80px;">w</view>
+<view style="font-size:80px;">w</view>
+<view style="font-size:80px;">w</view>
+<view style="font-size:80px;">w</view>
+<view style="font-size:80px;">w</view>
+
+<view style="font-size:80px;">w</view>
+<pop-up visible="{{visible}}" onClose="closePopUp">
+  <view slot="content">
+    <view class="picker-view">
+      <view class="picker-view__pane">
+        <text catchtap="cityCancel" data-ptpid="fa67-12ea-9918-cdf8">取消</text>
+        <text catchtap="citySure" data-ptpid="0cbd-188c-b3e5-cd10">确定</text>
+      </view>
+      <picker-view class="pick-view__group" bindchange="cityChange" value="{{value}}" wx:key="">
+        <picker-view-column indicator-class="item_active">
+          <view wx:for="{{provinces}}" class="picker-item" wx:key="idnex">{{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{citys}}" class="picker-item" wx:key="">{{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{areas}}" class="picker-item" wx:key="">{{item.name}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+</pop-up>

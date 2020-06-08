@@ -1,0 +1,11 @@
+1、WXS 中不能调用 javascript 中定义的函数或者变量，也不能调用小程序提供的
+API，他的运行环境和 javascript 是隔离的。
+只能使用 var 来定义变量，表现形式和 javascript 一样，会有变量提升。
+不能使用 new Date() 应该使用getDate()。
+
+2、时间转化，ios不支持
+时间转化前要先变成系统支持的格式：
+例如：2018-10-28 15:30:20 这种格式转换为时间戳时ios手机不支持转化，要先转化成
+2018/10/25 15:30:20才可以；
+转化方法：var formattime = time.replace(/-/g, "/");
+转化时间戳方法：var timestr = getDate(time).valueOf();

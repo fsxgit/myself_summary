@@ -1,0 +1,58 @@
+
+【.wxml】
+<view class='login tc' bindtap="wxpay" style='background: url("{{__IMG__}}/bg1.png") no-repeat center center; background-size: 100% 100%;'>微信支付</view>
+
+【.js】
+
+// /**
+  //  * 微信支付
+  // */
+  // wxpay:function(){
+  //   /**
+  //    * 微信小程序支付三步：
+  //    * 1、前端获取code；
+  //    * 2、code传给后台；
+  //    * 3、后台返回调起微信支付的参数调起微信支付
+  //    *
+  //   */
+  //   // 第一步
+  //   wx.login({
+  //     success(res) {
+  //       console.log(res);
+  //       if (res.code) {
+  //         let data = {
+  //           "uid": wx.getStorageSync('userId'),
+  //           "type": 1,
+  //           "money": 0.01,
+  //           "code": res.code
+  //         };
+  //         // 第二步
+  //         $api.getWxPayApi(data).then(function (res) {
+  //           console.log(res);
+
+  //           var timeStamps = res["timeStamp"]+"";
+  //           var nonceStrs = res["nonceStr"];
+  //           var packages = res["package"];
+  //           var paySigns = res["paySign"];
+
+  //           //第三步：调起支付
+  //           wx.requestPayment({
+  //             'timeStamp': timeStamps,
+  //             'nonceStr': nonceStrs,
+  //             'package': packages,
+  //             'signType': 'MD5',
+  //             'paySign': paySigns,
+  //             'success': function (res) {
+  //                // 支付成功返回
+  //               console.log(res);
+  //             },
+  //             'fail': function (res) {
+  //                 // 支付成功返回
+  //               console.log(res);
+  //             }
+  //           });
+  //         });
+  //       }
+  //     }
+  //   })
+  // },

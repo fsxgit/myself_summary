@@ -1,0 +1,140 @@
+<!--index.wxml-->
+<view class="box c_color{{gbData.__STYLEID__}}" wx:if="{{gbData.__IMG__}}">
+  <!-- 当前社区 -->
+  <view class="currArea cbgcolor">{{currCommunity.community_name}}</view>
+  <!-- 当前社区 end -->
+  <view class="banner" style="background:url('{{gbData.__IMG__}}bg1.png') no-repeat 0 0; background-size:100% 160rpx;">
+    <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{bannerList}}" wx:key="index" >
+          <swiper-item>
+            <image mode="aspectFill" src="{{item.image}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="nav">
+    <view class="item">
+      <navigator url="/pages/wuye/pay/pay" hover-class="navigator-hover">
+        <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon1.png"></image></view>
+        <view class="name">物业缴费</view>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/wuye/form/form" hover-class="navigator-hover">
+        <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon2.png"></image></view>
+        <view class="name">物业报修</view>
+      </navigator>
+    </view>
+    <view class="item" bindtap="makephone">
+      <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon3.png"></image></view>
+      <view class="name">在线客服</view>
+    </view>
+    <view class="item">
+      <navigator url="/pages/servers/index/index" hover-class="navigator-hover">
+        <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon4.png"></image></view>
+        <view class="name">生活服务</view>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/notice/list/list" hover-class="navigator-hover">
+        <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon5.png"></image></view>
+        <view class="name">通知公告</view>
+      </navigator>
+    </view>
+    <view class="item" bindtap="mats">
+      <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon6.png"></image></view>
+      <view class="name">二维码开门</view>
+    </view>
+    <view class="item" bindtap="mats">
+      <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon7.png"></image></view>
+      <view class="name">快递代收</view>
+    </view>
+    <view class="item">
+      <navigator url="/pages/room/list/list" hover-class="navigator-hover">
+        <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon8.png"></image></view>
+        <view class="name">房屋租赁</view>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/community/index/index" hover-class="navigator-hover">
+      <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon9.png"></image></view>
+      <view class="name">社区交流</view>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/shop/index/index" hover-class="navigator-hover">
+      <view class="img"><image mode="heightFix" src="{{gbData.__IMG__}}icon10.png"></image></view>
+      <view class="name">社区团购</view>
+      </navigator>
+    </view>
+  </view>
+  <view class="gap"></view>
+  <view class="list">
+  <!-- 
+    <view class="list_first">
+        <view class="li">
+          <navigator url="/pages/servers/detail/detail" hover-class="navigator-hover">
+            <view class="img"><image mode="aspectFill" src="{{gbData.__IMG__}}img2.png"></image></view>
+            <view class="info">
+              <view class="title">衣服干洗<text class="label1">健康</text></view>
+              <view class="desc">在衣服和领口处均匀的涂抹牙膏</view>
+              <view class="tel"><image mode="widthFix" src="{{gbData.__IMG__}}tel.png"></image></view>
+            </view>
+          </navigator>
+        </view>
+        <view class="li">
+          <navigator url="/pages/servers/detail/detail" hover-class="navigator-hover">
+              <view class="img"><image mode="aspectFill" src="{{gbData.__IMG__}}img2.png"></image></view>
+              <view class="info">
+                <view class="title">衣服干洗 <text class="label2">健康</text></view>
+                <view class="desc">在衣服和领口处均匀的涂抹牙膏</view>
+                <view class="tel"><image mode="widthFix" src="{{gbData.__IMG__}}tel.png"></image></view>
+              </view>
+          </navigator>
+        </view>
+    </view>
+    <view class="list_second">
+        <view class="li">
+          <navigator url="/pages/servers/detail/detail" hover-class="navigator-hover">
+              <view class="img"><image mode="aspectFill" src="{{gbData.__IMG__}}img2.png"></image></view>
+              <view class="info">
+                <view class="title">衣服干洗</view>
+                <view class="desc">在衣服和领口处均匀的涂抹牙膏在衣服和领口处均匀的涂抹牙膏在衣服和领口处均匀的涂抹牙膏</view>
+              </view>
+          </navigator>
+        </view>
+        <view class="li">
+          <navigator url="/pages/servers/detail/detail" hover-class="navigator-hover">
+              <view class="img"><image mode="aspectFill" src="{{gbData.__IMG__}}img2.png"></image></view>
+              <view class="info">
+                <view class="title">衣服干洗</view>
+                <view class="desc">在衣服和领口处均匀的涂抹牙膏在衣服和领口处均匀的涂抹牙膏在衣服和领口处均匀的涂抹牙膏</view>
+              </view>
+          </navigator>
+        </view>
+    </view> -->
+    <view class="list_third">
+        <view class="li" wx:for="{{noticeList}}" wx:key="index">
+          <navigator url="/pages/notice/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+              <view class="img"><image mode="aspectFill" src="{{item.img}}"></image></view>
+              <view class="info">
+                <view class="title">【通知】{{item.name}}<text>{{item.ctime}}</text></view>
+                <view class="desc">{{item.title}}</view>
+              </view>
+          </navigator>
+        </view>
+        <!-- 
+        <view class="li">
+          <navigator url="/pages/servers/detail/detail" hover-class="navigator-hover">
+              <view class="img"><image mode="aspectFill" src="{{gbData.__IMG__}}img2.png"></image></view>
+              <view class="info">
+                <view class="title">会滴社区居委会<text>2020-04-27</text></view>
+                <view class="desc">在衣服和领口处均匀的涂抹牙膏在衣服和领口处均匀的涂抹牙膏在衣服和领口处均匀的涂抹牙膏在衣服和领口处均匀的涂抹牙膏</view>
+              </view>
+          </navigator>
+        </view> -->
+    </view>
+  </view>
+</view>

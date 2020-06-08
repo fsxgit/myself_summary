@@ -1,0 +1,114 @@
+
+<wxs module='tools' src='../../../wxs/tools.wxs' />
+
+<!-- 引导用户去授权 -->
+  <view class='gettels'  wx:if="{{!hasUserInfo}}">
+    <view class='center'>
+      <view class='h2'>请求获取信息</view>
+      <view class='txt'>为了更好的为您提供服务，我们请求获取您的微信头像和昵称</view>
+      <view class='btn'><button open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain="true"> 下一步 </button></view>
+    </view>
+  </view>
+<!-- 引导用户去授权 end -->
+
+<!--pages/home/index/index.wxml-->
+<!-- top -->
+<view class='selfTop' style='background:url("{{__IMG__}}/bg2_1.jpg") no-repeat center center; background-size:100% 100%;'>
+  <image mode='widthFix' src='{{__IMG__}}/logo.png'></image>
+</view>
+<!-- top end -->
+<!-- swiper -->
+<view class='banner_box' style='background:url("{{__IMG__}}/bg2_2.jpg") no-repeat 0 0; background-size:100% 97rpx;'>
+  <view class='swiper_box main'>
+    <swiper
+      indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}"
+      interval="{{interval}}"
+      duration="{{duration}}"
+      indicator-color="rgba(255,255,255,0.5)"
+      indicator-active-color="rgba(255,255,255,1)"
+    >
+      <block wx:for="{{banners}}" wx-for-item="item">
+        <swiper-item>
+          <navigator hover-class="none" url='/pages/common/detail/detail?kind=1&id={{item.id}}'>
+          <view class='swiper_img' style='background:url("{{item.img_url}}") no-repeat center center; background-size:100% 100%;'>
+            <!-- <image mode='widthFix' src='{{item}}'></image> -->
+          </view>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<!-- swiper end -->
+<!-- 成长型社区 -->
+<view class='growArea' wx:if="{{is_vote == 1}}">
+  <view class='main oh bb'>
+  <navigator hover-class="none" url='/pages/home/grow/grow'>
+    <view class='tit fl'>成长型社区</view>
+    <view class='go fr' style='background:url("{{__IMG__}}/right.png") no-repeat right center; background-size:15rpx 25rpx;'>(快来进行投票吧)</view>
+    </navigator>
+  </view>
+</view>
+<!-- 成长型社区 end -->
+<!-- adds -->
+<!-- <view class='adds_item main bb' wx:if="{{news0[0]}}">
+  <navigator hover-class="none" url='/pages/common/detail/detail?kind=2&id={{news0[0].id}}'>
+    <view class='h2'>{{news0[0].title}}</view>
+    <image mode='widthFix' src="{{news0[0].img_url}}"></image>
+    <view class='time'>{{tools.timeChange(news0[0].created_at)}}</view>
+  </navigator>
+</view> -->
+<view class='adds_item main bb' wx:if="{{news0[0]}}">
+  <navigator wx:if="{{news0[0].type1 == 1}}" hover-class="none" url='/pages/common/detail/detail?kind=2&id={{news0[0].id}}'>
+    <view class='h2'>{{news0[0].title}}</view>
+    <view class='imgbox' style='background:url("{{news0[0].img_url}}") no-repeat center center; background-size:cover;'></view>
+    <view class='time'>{{tools.timeChange(news0[0].created_at)}}</view>
+  </navigator>
+  <navigator wx:if="{{news0[0].type1 == 2}}" hover-class="none" url='/pages/common/player/player?src={{news0[0].video_url}}'>
+    <view class='h2'>{{news0[0].title}}</view>
+    <view class='videobox' style='background:url("{{news0[0].img_url}}") no-repeat center center; background-size:cover;'>
+      <image  wx:if="{{news0[0].type1 == 2}}" mode='widthFix' src="{{__IMG__}}/player.png"></image>
+    </view>
+    <view class='time'>{{tools.timeChange(news0[0].created_at)}}</view>
+  </navigator>
+</view>
+<!-- adds end -->
+<!-- product_swiper -->
+<view class='product_box' wx:if="{{products[0]}}">
+  <view class='tit main' style='background:url("{{__IMG__}}/right.png") no-repeat right center; background-size:15rpx 25rpx;'>
+    <navigator hover-class="none" url='/pages/home/products/products?kind=2&id={{banners0.id}}'>ONE产品</navigator>
+  </view>
+  <swiper
+  display-multiple-items="{{showNum}}"
+  >
+    <block wx:for="{{products}}">
+      <swiper-item>
+        <view class='swiper_item'>
+          <navigator hover-class="none" url='/pages/common/detail/detail?kind=2&id={{item.id}}'>
+            <view class='img' style='background:url("{{item.img_url}}") no-repeat center center; background-size:cover;'>
+</view>
+            <view class='txt'><view>{{item.title}}</view></view>
+          </navigator>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- product_swiper end -->
+<!-- adds -->
+<view class='adds_item main bt' wx:for="{{news}}">
+  <navigator wx:if="{{item.type1 == 1}}" hover-class="none" url='/pages/common/detail/detail?kind=2&id={{item.id}}'>
+    <view class='h2'>{{item.title}}</view>
+    <view class='imgbox' style='background:url("{{item.img_url}}") no-repeat center center; background-size:cover;'></view>
+    <view class='time'>{{tools.timeChange(item.created_at)}}</view>
+  </navigator>
+  <navigator wx:if="{{item.type1 == 2}}" hover-class="none" url='/pages/common/player/player?src={{item.video_url}}'>
+    <view class='h2'>{{item.title}}</view>
+    <view class='videobox' style='background:url("{{item.img_url}}") no-repeat center center; background-size:cover;'>
+      <image mode='widthFix' src="{{__IMG__}}/player.png"></image>
+    </view>
+    <view class='time'>{{tools.timeChange(item.created_at)}}</view>
+  </navigator>
+</view>
+<!-- adds end -->

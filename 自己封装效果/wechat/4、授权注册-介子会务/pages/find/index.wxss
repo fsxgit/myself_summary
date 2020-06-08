@@ -1,0 +1,73 @@
+/* pages/find/index/index.wxss */
+page{background: #f4f4f4;}
+.c_fixed_top{ background: #fff;}
+.search{ padding:16rpx 25rpx; background: #f4f4f4; border-radius: 8rpx; font-size:28rpx; color:#999; }
+.search image{width:33rpx; height:auto; vertical-align: middle; margin-right:10rpx;}
+.tab{ display: flex;}
+.tab view{ flex: 1; text-align: center; padding:30rpx 0; font-size:32rpx; font-weight: 600;}
+.tab view.active{ color:#4b8cf6; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAGCAYAAACPfbNlAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUFCNzcyQ0U0QkRGMTFFQTg2RkJDMzZERUI0MkQ3NkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUFCNzcyQ0Y0QkRGMTFFQTg2RkJDMzZERUI0MkQ3NkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QUI3NzJDQzRCREYxMUVBODZGQkMzNkRFQjQyRDc2QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QUI3NzJDRDRCREYxMUVBODZGQkMzNkRFQjQyRDc2QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PrSDN8UAAAGdSURBVHjafFQ7TigxDPTAHgKJBglRUHARuAiip6VEQkLUHIYLcANKqBGif8UbvCROJs4uu8rG+Xh2Yo+zXDz+t/oceTteDdQJtm/MmKyUOcho3k8DYOS+X3zhr+KgGtz0KU/fI3M7PJTpiCP43gVXt7986X39/1J33nq79y2L0t578oGKTxBAteu+FKBCZN2BgXabEVDlEQfQIJJjgLc4WsVlCmwPTuFhGiALm88+ujlwpzMfPXhbwsksWwHKjbx0Iv0AGA5nbY7152hhtXaA0rdAMHzZ5DIkpeL8KlVUwaEKFN+aqjlpju2/iuEz1/65OvDF0ywbAJv6yUWo2aYGT9Ia2V77CCQ0q4EAm0oqfBQ/Myp7unowXQvCnJHQXPpj0lQk3k5WJb26/Yk/6rwDY6cQuVeXSf7x1sBStEhGTq3nCOnuGAObrwVOKaxluUdqUA4GpIr1z7uXxbl9++KlD568P3eyh9nFUs1zusyxuVYkHMHZVme/LAWDWpBoqWnliBTgIZkw1dZ4/3RcyEVh02mwon+4eed7334EGADv397/h6wEiwAAAABJRU5ErkJggg==") no-repeat center bottom; background-size:73rpx 6rpx;}
+.list{ padding-top:1px; padding-bottom: 140rpx;}
+.list .li{  margin-top:30rpx; background: #fff; padding-bottom: 20rpx;overflow: hidden; border-radius: 10rpx; box-shadow: 0 10rpx 10rpx rgba(0,0,0,0.1); position: relative; }
+.status{ position: absolute; left:0; top:0; width:109rpx; height:54rpx; line-height: 54rpx; text-align: center; border-bottom-right-radius: 30rpx;  font-size:28rpx; color:#fff;}
+.status1{background: #5b8cee;}
+.status2{background: #d6554f;}
+.status3{background: #c3c1c1;}
+.list .bot{padding:0 20rpx;}
+.list .img { width:100%; height:200px; overflow: hidden;}
+.list .img image{ display: block; width:100%; height: 100%;}
+.list .h2{overflow: hidden; text-overflow: ellipsis; white-space:nowrap; display: block; font-size:32rpx; color:#333; padding:24rpx 0 10rpx; }
+.list .time1{ font-size:24rpx; color:#666; height:40rpx; line-height: 40rpx;}
+.list .time1 image{vertical-align: middle; width:26rpx; height:auto; margin-right:15rpx;}
+.list .time2{ font-size:24rpx; color:#666; height:40rpx; line-height: 40rpx;}
+.list .time2 image{vertical-align: middle; width:26rpx; height:auto; margin-right:15rpx;}
+.list .site{ font-size:24rpx; color:#666; height:40rpx; line-height: 40rpx;}
+.list .site image{vertical-align: middle; width:24rpx; height:auto; margin-right:15rpx;}
+
+.rzts_wrap{position: fixed; left:0; top:0; width: 100%; height: 100%; z-index: 10; background:rgba(0,0,0,0.5);}
+.rzts{position: fixed; left:10%; top:calc(50% - 80px); background:#fff; border-radius: 20rpx; width:80%; }
+.rzts .img{ padding: 15rpx 0;}
+.rzts .img image{ width:121rpx; height: auto; display: block; margin:0 auto;  }
+.rzts .txt{ text-align: center; width: 370rpx; font-size:32rpx; color:#666; margin:0 auto; }
+.rzts .btns{ text-align: center; overflow: hidden; padding:36rpx 0;}
+.rzts .btns .cancel{ width:40%; margin-left:5%; margin-right:5%; float: left; box-sizing: border-box; border:1px solid #4b8cf6; border-radius: 8rpx; color:#4b8cf6; height:86rpx; line-height: 86rpx; font-size: 28rpx; }
+.rzts .btns .sure{ width:40%; margin-left:5%; margin-right:5%; float: left; border-radius: 8rpx; color:#fff; background: #4b8cf6; height:86rpx; line-height: 86rpx; font-size: 28rpx;}
+
+/* pages/login/index.wxss */
+.getUserInfo{ position: fixed; left:0; bottom:0; background: none; width:100%; height:100%; text-align: center; z-index: 12;}
+.getUserInfo button:nth-of-type(1){ position: absolute; left:0; bottom:0; width:100%; height:100%; display: block; background: none; color:#fff; font-size: 0;   margin:0;padding:0;box-sizing: none; 
+}
+.getUserInfo button:nth-of-type(2){ position: absolute; right:0; bottom:0; width:100%; height:100%; display: block; background: none; color:#fff; font-size: 0;   margin:0;padding:0;box-sizing: none; 
+}
+
+.getMobileBox{position: fixed; left:0; top:0; width:100%; height: 100%; background:rgba(0,0,0,0.5); z-index: 12;}
+.getMobileBox .center{position: fixed; left:10%; top:30%; width:80%; background: #fff; border-radius: 10px; box-sizing: border-box; padding:0 30rpx;}
+.getMobileBox .center .h2{ text-align: center; font-size:14px; color:#333; padding:16px 0; font-weight: 600; }
+.getMobileBox .center .item{ border:1px solid #e5e5e5; border-radius: 4px; height:88rpx; overflow: hidden; margin-bottom: 10px; }
+.getMobileBox .input{ width: calc(100% - 168rpx); height:100%; float: left;}
+.getMobileBox .input input{height:100%; width:100%; box-sizing: border-box; padding:0 20rpx;}
+.getMobileBox .btn{ width: 168rpx;  float: right; font-size: 26rpx;  text-align: center; 
+  /*弹性盒模型*/    
+    display:flex;
+/*主轴居中对齐*/
+    justify-content: center;
+/*侧轴居中对齐*/    
+    align-items: center; 
+    height:50rpx;
+    border-left:1px solid #e5e5e5;
+    box-sizing: border-box;
+    margin-top:19rpx;
+ }
+.getMobileBox .wx{ color:#07bb06; background:none; padding:0;border-radius:0; min-height:10px;}
+.getMobileBox .send{ color:#4b8cf6; }
+.getMobileBox .wx image{ margin-right:4px; }
+.getMobileBox .sqbtn{ width:100%;overflow: hidden; padding-bottom:40rpx;  }
+.getMobileBox .sqbtn button{ width:100%; height:88rpx; text-align: center; font-size: 16px;  }
+.getMobileBox .sqbtn .cancel{ width:48%; float: left;background: #aaa; color:#333; border-radius: 4px; overflow: hidden; }
+.getMobileBox .sqbtn .sure{width:48%; float: right; background: #4b8cf6; color:#fff; border-radius: 4px; overflow: hidden;  }
+.saoSQbox{position: fixed; left:0; top:0; width: 100%; height:100%; background: rgba(0,0,0,0.5); z-index:11; text-align: center; /*弹性盒模型*/    
+    display:flex;
+/*主轴居中对齐*/
+    justify-content: center;
+/*侧轴居中对齐*/    
+    align-items: center;  }
+.saoSQbox image{width:70%; z-index: 99;}

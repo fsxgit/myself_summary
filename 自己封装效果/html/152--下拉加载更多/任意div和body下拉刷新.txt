@@ -1,0 +1,29 @@
+1、任意div:
+ var obg1 = document.getElementById("all_sort_cont");
+  obg1.addEventListener('scroll', function() {
+    // 向上滚动的那一部分高度
+    var scrollTop = obg1.scrollTop || obg1.scrollTop;
+    // 屏幕高度也就是当前设备静态下你所看到的视觉高度
+    var clientHeight = obg1.clientHeight;
+    // 整个网页的实际高度，兼容Pc端
+    var scrHeight = obg1.scrollHeight || obg1.scrollHeight;
+    // 当滚动到距离页面底部100px时触发加载更多
+    if(scrollTop+clientHeight+100 > scrHeight){
+      var type = $(".kinds_tab span.active").data("type");
+      getData1();
+    }
+  });
+  
+2、body:
+$(window).scroll(function() {
+    // 向上滚动的那一部分高度
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    // 屏幕高度也就是当前设备静态下你所看到的视觉高度
+    var clientHeight = document.documentElement.clientHeight;
+    // 整个网页的实际高度，兼容Pc端
+    var scrHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+    // 当滚动到距离页面底部100px时触发加载更多
+    if(scrollTop+clientHeight+100 > scrHeight){
+      getData();
+    }
+  });

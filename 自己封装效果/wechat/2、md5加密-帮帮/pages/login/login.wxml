@@ -1,0 +1,44 @@
+<!--pages/login/login.wxml-->
+<view  wx:if="{{showLogin}}">
+  <view class="loginLogo tc">
+    <image mode="widthFix" src="{{__IMG__}}/logo.png"></image>
+  </view>
+  <view class="loginForm">
+    <view class="input">
+      <image mode="widthFix" src="{{__IMG__}}/icon1.png"></image>
+      <input type="text" bindinput="getAccount" placeholder-class="holdercolor" placeholder="请输入账号" />
+    </view>
+    <view class="input getcode">
+      <image mode="widthFix" src="{{__IMG__}}/icon8.png"></image>
+      <input type="text" bindinput="getCode" placeholder-class="holdercolor" placeholder="请输入验证码" />
+      <button bindtap="sendCode">{{maTxt}}</button>
+    </view>
+    <view class="input">
+      <image mode="widthFix" src="{{__IMG__}}/icon2.png"></image>
+      <input type="password" placeholder-class="holdercolor" bindinput="getPass" placeholder="请输入密码"></input>
+    </view>
+  </view>
+  <view class="main passts">*如果是新手机号则密码视为设置密码，否则则是重置或登录密码</view>
+  <view class="loginBtn main" bindtap="login">登录</view>
+  <view class="main loginReg">
+    <text><navigator url="/pages/project/detail/detail" hover-class="navHover">新用户注册</navigator></text>
+    <text><navigator url="/pages/project/detail/detail" hover-class="navHover">忘记密码？</navigator></text>
+  </view>
+</view>
+<!-- 登录提示 -->
+<view class="loginTs" wx:if="{{showSQ}}">
+  <view class="bot">
+    <view class="main pr">
+      <view class="close" bindtap="gotoauthor"><image mode="widthFix" style="width:40rpx;" src="{{__IMG__}}/close4.png"></image></view>
+      <view class="h2">
+        <text></text>
+        为了你的账号安全，请绑定手机号
+        <text></text>
+      </view>
+       <button class="sqbtn" wx:if="{{!showTelBtn}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权微信登录</button>
+       <!-- <button class="sqbtn" wx:if="{{showTelBtn}}"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >授权手机号</button> -->
+      <!-- <view class="srbtn"><navigator url="/pages/login/login" hover-class="navHover">手动输入手机号登录</navigator></view> -->
+    </view>
+  </view>
+</view>
+<!-- 登录提示 end -->

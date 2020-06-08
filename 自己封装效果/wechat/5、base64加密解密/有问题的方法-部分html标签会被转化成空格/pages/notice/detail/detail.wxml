@@ -1,0 +1,10 @@
+<!--pages/notice/detail/detail.wxml-->
+<view  class="box  c_color{{gbData.__STYLEID__}}">
+  <view class="main">
+    <view class="name">{{title}}</view>
+    <view class="time">{{time}}</view>
+    <view class='detail rich_box'>
+      <rich-text nodes="{{detail}}"></rich-text>
+    </view>
+  </view>
+</view>

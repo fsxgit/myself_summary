@@ -1,0 +1,132 @@
+/* pages/login/login.wxss */
+.loginLogo{
+  padding-top: 100rpx;
+  padding-bottom: 100rpx;
+}
+.loginLogo image{
+  width:151rpx;
+}
+.loginForm{
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  padding-left:4%;
+}
+.loginForm .input{
+  overflow: hidden;
+  padding-right:4%;
+  padding-top:25rpx;
+  padding-bottom: 25rpx;
+  border-bottom:1px solid #eee;
+}
+.loginForm .input:nth-last-of-type(1){
+  border-bottom:none;
+}
+.loginForm .input image{
+  width:32rpx;
+  float: left;
+  padding-top: 6rpx;
+}
+.loginForm .input input{
+  float: left;
+  box-sizing: border-box;
+  width:calc(100% - 40rpx);
+  font-size: 30rpx;
+  margin-left:10rpx;
+  
+}
+.loginBtn{
+  height:90rpx;
+  line-height:90rpx;
+  color:#fff;
+  border-radius: 8rpx;
+  font-size:30rpx;
+  text-align: center;
+  background: #e50065;
+  margin-top:60rpx;
+  margin-bottom: 30rpx;
+}
+.loginReg{
+  font-size: 28rpx;
+  color:#507daf;
+}
+.loginForm .getcode{
+  position: relative;
+}
+.loginForm .getcode input{
+  width:calc(100% - 200rpx);
+}
+.loginForm .getcode button{
+  padding:0;
+  width: 160rpx;
+  height:70rpx;
+  line-height:70rpx;
+  font-size:24rpx;
+  background: #e50065;
+  color:#fff;
+  float: right;
+  position: absolute;
+  right:4%;
+  top:15rpx;
+  min-height: 30px;
+}
+.passts{
+  color:#e50065;
+  font-size:24rpx;
+  padding:20rpx 0;
+}
+.loginTs{
+  position: fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background: #fff;
+  z-index: 10;
+}
+.loginTs .bot{
+  position: absolute;
+  left:0;
+  bottom:0;
+  box-shadow: 0 0 20rpx rgba(0,0,0,0.2);
+  width:100%;
+  padding-top: 60rpx;
+  text-align: center;
+  padding-bottom: 30rpx;
+}
+.loginTs .close{
+  position: absolute;
+  right:0;
+  top:-40rpx;
+}
+.loginTs .h2{
+  font-size: 24rpx;
+  color:#999;
+  font-weight: normal;
+  margin-bottom: 30rpx;
+}
+.loginTs .h2 text{
+  height:1px;
+  display: inline-block;
+  width:35rpx;
+  background: #eee;
+  position: relative;
+  top:-8rpx;
+}
+.loginTs .sqbtn{
+  width:100%;
+  border-radius: 4px;
+  background: #e50065;
+  color:#fff;
+  font-size: 32rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  padding:0;
+}
+.loginTs .srbtn{
+  width:100%;
+  height:90rpx;
+  line-height: 90rpx;
+  color:#507daf;
+  font-size: 32rpx;
+  padding:0;
+}

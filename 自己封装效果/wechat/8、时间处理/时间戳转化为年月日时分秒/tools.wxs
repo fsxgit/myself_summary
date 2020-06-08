@@ -1,0 +1,102 @@
+var sub = function (val) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  if (val.length > 60) {
+    // return val.substring(0, 17) + "...";
+    return val.substring(0, 60);
+  } else {
+    return val;
+  }
+};
+
+/**
+ * 将时间转化为：**分钟前（1小时内）、**小时前（24小时内）、2019-06-07
+*/
+
+var timeChange = function (time) {
+  // var reg = /^1[0-9]{10}$/;
+  // var time = time.prototype.replace(/-/g, "/");
+  // console.log("时间戳=" + time);
+  // 获取时间转化为时间戳
+  var ztime = "";
+  if (time.length == "13") {
+    ztime = time;
+  } else if (time.length == "10"){
+    ztime = time + "000";
+  }else{
+    ztime = getDate(time).valueOf();
+  }
+  // console.log("ztime="+ztime);
+  // 当前时间的时间戳
+
+  var date = getDate();
+  // console.log("date=" + date);
+  var ctime = date.valueOf();
+  // console.log("ctime="+ctime);
+  // 差距的时间戳 毫秒数
+  var ms = ctime - ztime;
+  // console.log("ms:" + ctime)
+
+  // 毫秒转化为秒
+  var s = ms / 1000;
+
+  // 秒转化为分
+  var m = s / 60;
+
+  // 分转化为小时
+  var h = m / 60;
+
+  if (s < 60) {
+
+    return parseInt(s) + "秒前";
+
+  } else if (m < 60) {
+
+    return parseInt(m) + "分前";
+
+  } else if (h < 24) {
+
+    return parseInt(h) + "小时前";
+
+  } else {
+
+    return timeConvert(time, 0);
+  }
+}
+/**
+ * 截取 2019-09-12 08:00:00 格式中的年月日
+ * 
+*/
+var getYMD = function (val) {
+  return val.split(" ")[0];
+};
+/**
+ * 时间戳转换为时间
+ * **/
+function timeConvert(timestamp, num) {//num:0 YYYY-MM-DD  num:1  YYYY-MM-DD hh:mm:ss // timestamp:时间戳
+  timestamp = timestamp + '';
+  timestamp = timestamp.length == 10 ? timestamp * 1000 : timestamp;
+  var date = getDate(timestamp);
+  console.log(date);
+  var y = date.getFullYear();
+  var m = date.getMonth() + 1;
+  m = m < 10 ? ('0' + m) : m;
+  var d = date.getDate();
+  d = d < 10 ? ('0' + d) : d;
+  var h = date.getHours();
+  h = h < 10 ? ('0' + h) : h;
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  minute = minute < 10 ? ('0' + minute) : minute;
+  second = second < 10 ? ('0' + second) : second;
+  if (num == 0) {
+    return y + '-' + m + '-' + d;
+  } else {
+    return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
+  }
+}
+
+module.exports.sub = sub;
+module.exports.timeChange = timeChange;
+module.exports.getYMD = getYMD;

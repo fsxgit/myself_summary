@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<textarea id="text" style="width: 500px; height: 400px;"></textarea>
+<button id="btn">开始测试</button>
+<div id="cont"></div>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+<script>
+  $("#btn").click(function(){
+    var txt = $("#text").val();
+    console.log("接收来的文字：");
+    console.log(txt);
+    console.log("处理后的文字：");
+    //替换所有的换行符
+    txt = txt.replace(/\r\n/g,"<br/>");       //兼容i7、i8
+    txt = txt.replace(/\n/g,"<br/>");        //i9及以上
+    //替换所有的空格（中文空格、英文空格都会被替换）
+    txt = txt.replace(/\s/g,"&nbsp;");
+    //输出转换后的字符串
+    console.log(txt);
+    $("#cont").html(txt);
+  });
+
+</script>
+</body>
+</html>

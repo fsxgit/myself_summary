@@ -1,0 +1,146 @@
+/* pages/home/index/index.wxss */
+.selfTop{
+  height: 190rpx;
+  width: 100%;
+  position: fixed;
+  left:0;
+  top:0;
+  box-sizing: border-box;
+  padding-top:65rpx;
+  text-align: center;
+  z-index: 8; 
+}
+.selfTop image{
+  width: 352rpx;
+  height: auto;
+}
+.banner_box{
+  margin-top:190rpx;
+}
+.swiper_box{
+  width: 92%;
+  background: #fff;
+  border-radius: 10rpx;
+  z-index: 9;
+}
+.swiper_box swiper,.swiper_box navigator{
+  height: 240rpx;
+}
+.swiper_img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.swiper_img image{
+  width:100%;
+  height: 100%;
+}
+.adds_item{
+  padding:40rpx 0;
+}
+.adds_item .h2{
+  font-size: 36rpx;
+  padding-bottom:26rpx;
+  color:#333;
+}
+.adds_item image{
+  width:100%;
+  height: auto;
+  border-radius: 10rpx;
+}
+.adds_item .time{
+  font-size: 28rpx;
+  color:#999;
+  padding-top:26rpx;
+}
+.product_box{
+  padding-top:40rpx;
+  padding-bottom:40rpx;
+}
+.product_box .tit{
+  font-size: 36rpx;
+  margin-bottom:26rpx;
+  color:#333;
+  font-weight: 600;
+}
+.product_box swiper{
+  height: 300rpx;
+  margin-left:5%;
+}
+.product_box swiper-item{
+  /* width: 320rpx !important; */
+}
+.product_box .swiper_item{
+  height: 100%;
+  width: 210rpx;
+  overflow: hidden;
+}
+.product_box .swiper_item .img{
+  height:200rpx;
+  border-radius: 10rpx;
+}
+.product_box .swiper_item .txt{
+  color:#333;
+  padding:10rpx 10rpx;
+  box-sizing: border-box;
+  height: 100rpx; 
+
+}
+.product_box .swiper_item .txt view{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color:#050a28;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  display: block;
+}
+.growArea{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.growArea .tit{
+  font-size: 36rpx;
+  color:#333;
+  font-weight: 600;
+}
+.growArea .go{
+ font-size: 26rpx;
+ color:#999;
+ padding-right:30rpx;
+}
+
+.imgbox{
+  width: 100%;
+  height: 360rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.videobox{
+  width: 100%;
+  height: 360rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.videobox::before{
+  content: "";
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.videobox image{
+  display: block;
+  margin:0 auto;
+  width:100rpx;
+  height: 100rpx;
+  position: relative;
+  top:126rpx;
+}
