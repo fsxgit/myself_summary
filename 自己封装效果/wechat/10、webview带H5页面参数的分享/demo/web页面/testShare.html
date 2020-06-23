@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分享测试</title>
+</head>
+<body>
+<div id="app">
+
+<h2>分享测试，点击小程序右上角分享</h2>
+<input type="text" placeholder="请输入数据" id="input1" oninput="input1change()">
+<input type="text" placeholder="请输入数据" id="input2">
+<div id="href"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+<script>
+  function input1change(){
+    var val = $("#input1").val();
+    $("#input2").val(val);
+    wx.miniProgram.postMessage({ data: val });
+  }
+</script>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+  },
+  created() {
+
+  },
+  methods: {
+
+  }
+});
+</script>
+</body>
+</html>

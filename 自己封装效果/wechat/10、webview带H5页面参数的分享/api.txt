@@ -1,0 +1,66 @@
+1、html页面
+	[1]引入sdk:
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+	[2]注册传参方法
+	<script>
+	  var href = "summitdigitalcloud";
+	  wx.miniProgram.postMessage({ data: href })
+	</script>
+	*注意如果是个对象的话需要这样去实现：
+	var param ={"id":1,"name":"王八蛋"}
+	wx.miniProgram.postMessage({ data: param })
+	
+2、wxml（注意只能在销毁、跳转、分享时才能调起bindmessage方法）
+	注册：bindmessage方法
+	<web-view bindload="loadingend" bindtap="toshare" binderror="loadingerr" bindmessage="getmessages" src="{{src}}"></web-view>
+3、js文件获取数据（注意只能在销毁、跳转、分享时才能调起bindmessage方法）
+	 /**
+	   * 获取页面传递过来的数据
+	   */
+	  getmessages: function (res) {
+		console.log("获取到网页传递过来的消息");
+		console.log(res);
+		this.setData({
+		  href: res.detail.data[0]
+		});
+	   // this.data.href = res.detail.data[0];
+	  },
+
+	  /**
+	   * 用户点击右上角分享调起getmessages方法，获取到页面传递过来的数据，赋值给分享的链接
+	   */
+	  onShareAppMessage: function () {
+		let This = this;
+		console.log("链接");
+		console.log(this.data.href);
+		return {
+		  path: '/pages/webview/index?type=666&data=' + this.data.href
+		}
+	   
+	  }
+	  
+4、在打开分享链接的时候去处理这些数据：
+		if (options.type == 666) {
+		  console.log(options);
+		  console.log(options.data);
+		}
+	
+5、如果页面要分享的是页面的或数据，比如输入框临时输入的数据，则可以在输入完成后，调用一下
+	  wx.miniProgram.postMessage({ data: val });
+	  function input1change(){
+		var val = $("#input1").val();
+		$("#input2").val(val);
+		wx.miniProgram.postMessage({ data: val });
+	  }
+	  则在小程序中获取到的数据是一个数组，取最后一项的数据就是最新修改后的数据
+	  data:["1", "12", "121", "1213", "12134", "121345", "1213456"]
+	  
+	  getmessages: function (res) {
+		console.log("获取到网页传递过来的消息");
+		console.log(res);
+		let length = res.detail.data.length;
+		this.setData({
+		  href: res.detail.data[length - 1]
+		});
+	  },
+	

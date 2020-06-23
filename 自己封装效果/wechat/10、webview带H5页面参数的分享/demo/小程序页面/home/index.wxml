@@ -1,0 +1,5 @@
+<!--home/index.wxml-->
+<text>home/index.wxml</text>
+<view>
+  <navigator url="/index/index" hover-class="navigator-hover">跳转到新页面</navigator>
+</view>

@@ -1,0 +1,1 @@
+<web-view bindload="loadingend" bindtap="toshare" binderror="loadingerr" bindmessage="getmessages" src="https://summitcloud.weiapp.net/calc/testShare.html"></web-view>
