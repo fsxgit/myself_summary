@@ -1,0 +1,30 @@
+使用方法：
+
+============1、外部引入==============
+https://www.cnblogs.com/yk-68/p/9296637.html
+
+【1】文件string.wxs
+function my_slice(str,a,b){
+  return str.slice(a,b);
+}
+module.exports = {
+  my_slice: my_slice
+}
+【2】引入文件
+<wxs src="../../utils/string.wxs" module="tools" />
+<view>
+  {{tools.my_slice("123456789",0,5)}}
+</view>
+
+
+===========2、内部定义==============
+https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxs/
+
+<!--wxml-->
+<wxs module="m1">
+var msg = "hello world";
+
+module.exports.message = msg;
+</wxs>
+
+<view> {{m1.message}} </view>

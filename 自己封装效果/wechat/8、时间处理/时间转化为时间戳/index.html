@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  var date = "2020-07-02 15:26:03";
+  var timestamp1 = Date.parse(new Date(date));
+  var timestamp2 = (new Date(date)).valueOf();
+  var timestamp3 = new Date().getTime();
+  console.log(timestamp1); // 1593674763000
+  console.log(timestamp2); // 1593674763000
+  console.log(timestamp3); // 1593675103646
+</script>
+</body>
+</html>

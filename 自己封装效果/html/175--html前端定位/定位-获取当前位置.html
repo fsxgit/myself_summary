@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>百度地图获取经纬度</title>
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script><!--调用jQuery-->
+</head>
+<body>
+<div id="allmap"></div>
+<div >
+  <h2>当前位置</h2>
+  <div id="currsite">
+
+  </div>
+  <input type="text" id="cityName" placeholder="位置"><br />
+  <input type="text" id="cityLatLng" placeholder="位置经纬度">
+</div>
+<script>
+  !function(mapInit) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://api.map.baidu.com/api?v=2.0&ak=06AaxMC0YSAuWTDW9FXUcGl4m9umA7Ee&callback=mapinit";
+    window['mapinit'] = function() {
+      mapInit();
+    };
+    document.head.appendChild(script);
+    //统计页面
+
+  }(function() {
+    // 这里使用BMap
+    aaa();
+  });
+  function aaa(){
+    var map = new BMap.Map("allmap");
+    var geolocation = new BMap.Geolocation();
+
+    site1();
+    function site1(){
+      geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+          var mk = new BMap.Marker(r.point);
+          map.addOverlay(mk);
+          map.panTo(r.point);
+
+          if(r.point){
+            console.log("位置1：");
+            console.log(r);
+            $("#currsite").append("位置1"+JSON.stringify(r));
+            $("#cityName").val(r.address.province+"-"+r.address.city);
+            $("#cityLatLng").val(r.point.lng+"-"+r.point.lat);
+          }else{
+            site3();
+          }
+        }
+        else {
+          console.log('failed'+this.getStatus());
+        }
+      });
+    }
+
+    site2();
+    function site2(){
+      function myFun(result){
+        var cityName = result.name;
+        map.setCenter(cityName);
+        if(cityName){
+          console.log("位置2：");
+          console.log(result);
+
+          $("#currsite").append("位置2"+JSON.stringify(result));
+          $("#cityName").val(result.name);
+          $("#cityLatLng").val(result.center.lng+"-"+result.center.lat);
+        }else{
+          site3();
+        }
+      }
+      var myCity = new BMap.LocalCity();
+      myCity.get(myFun);
+    }
+
+    site3();
+    function site3(){
+      // 开启SDK辅助定位
+      geolocation.enableSDKLocation();
+      geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+          var mk = new BMap.Marker(r.point);
+          map.addOverlay(mk);
+          map.panTo(r.point);
+          if(r.point){
+
+            console.log("位置3：");
+            console.log(r);
+            $("#currsite").append("位置3"+JSON.stringify(r));
+            $("#cityName").val(r.address.province+"-"+r.address.city);
+            $("#cityLatLng").val(r.point.lng+"-"+r.point.lat);
+          }
+        }
+        else {
+          console.log('failed'+this.getStatus());
+        }
+      });
+    }
+  }
+
+</script>
+</body>
+</html>

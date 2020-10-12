@@ -1,0 +1,8 @@
+参考文档：
+https://www.jianshu.com/p/a2ab21bc7e9e
+
+小程序下载地址：
+https://github.com/ecomfe/echarts-for-weixin
+
+echarts官网：
+https://echarts.apache.org/examples/zh/index.html

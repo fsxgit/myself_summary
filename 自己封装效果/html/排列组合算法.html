@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var GGlist = [
+      {
+        name: "规格1",
+        value: ["111","2222","33334"]
+      },
+      {
+        name: "规格2",
+        value: ["111", "2222", "3333"]
+      },
+      {
+        name: "规格3",
+        value: ["111","2222","33334"]
+      },
+      {
+        name: "规格4",
+        value: ["111", "2222", "3333"]
+      }
+    ];
+
+
+    var garr = [];
+    for(let i = 0; i < GGlist.length; i++){
+      garr.push(GGlist[i].value);
+    }
+
+
+    function doExchange(arr, depth)
+    {
+      for (var i = 0; i < arr[depth].length; i++) {
+        result[depth] = arr[depth][i];
+        if (depth != arr.length - 1) {
+          doExchange(arr, depth + 1);
+        } else {
+          results.push(result.join('-'));
+        }
+      }
+    }
+
+    function test(arr)
+    {
+      results = [];
+      result = [];
+      doExchange(arr, 0);
+      console.log(results);
+    }
+    test(garr)
+
+
+/**
+    function doExchange(arr, depth)
+    {
+      for (var i = 0; i < arr[depth].length; i++) {
+        result[depth] = arr[depth][i];
+        if (depth != arr.length - 1) {
+          doExchange(arr, depth + 1);
+        } else {
+          results.push(result.join('|'));
+        }
+      }
+    }
+
+    function test(arr)
+    {
+      results = [];
+      result = [];
+      doExchange(arr, 0);
+      console.log(results);
+    }
+    var garr = [
+      ['a', 'b', 'c'],
+      ['1', '2', '3'],
+      ['x', 'y', 'z'],
+    ];
+    test(garr)**/
+  </script>
+</body>
+</html>
