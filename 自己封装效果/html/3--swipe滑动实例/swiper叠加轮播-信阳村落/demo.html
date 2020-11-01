@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>信阳传统古村落</title>
+    <link rel="stylesheet" href="css/swiper.3.1.2.min.css">
+    <!--<link rel="stylesheet" href="statics/swiper.min.css">-->
+    <link rel="stylesheet" href="css/base.css">
+    <!--<link rel="stylesheet" href="css/style.css"/>-->
+    <style>
+        #certify {
+            position: relative;
+            width: 330px;
+            margin: 0 auto
+        }
+
+        #certify .swiper-container {
+            padding-bottom: 60px;
+        }
+
+        #certify  .swiper-slide {
+            width: 220px;
+            height: 400px;
+            background: #fff;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        #certify  .swiper-slide img{
+            display:block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+<div id="certify">
+    <div class="swiper-container" id="certifySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./images/cun1.jpg" /></div>
+            <div class="swiper-slide"><img src="./images/cun2.jpg" /></div>
+            <div class="swiper-slide"><img src="./images/cun3.jpg" /></div>
+            <div class="swiper-slide"><img src="./images/cun4.jpg" /></div>
+            <div class="swiper-slide"><img src="./images/cun5.jpg" /></div>
+            <div class="swiper-slide"><img src="./images/cun6.jpg" /></div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.3.1.2.jquery.min.js"></script>
+<script src="js/js.js"></script>
+<script>
+  var certifySwiper = new Swiper('#certifySwiper', {
+    watchSlidesProgress: true,
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: 5,
+    autoplay: 5000,//可选选项，自动滑动
+    effect: 'coverflow',
+    coverflow: {
+      rotate: 0, // 旋转的角度
+      stretch: 32, //拉伸 图片间左右的间距和密集度 可以改变重叠宽度，改变显示个数
+      depth: 30, // 深度 切换图片间上下的间距和密集度
+      modifier:5, // 修正值 该值越大前面的效果越明显
+      slideShadows: true // 页面阴影效果
+    }
+
+  });
+</script>
+</body>
+</html>
