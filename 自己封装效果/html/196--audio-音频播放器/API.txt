@@ -1,1 +1,13 @@
-由于手机限制 不支持自动播放，只能触发播放
+
+//      自动播放背景音乐
+document.addEventListener('DOMContentLoaded', function () {
+  var music = document.getElementById("audio");
+  function audioAutoPlay() {
+    music.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      music.play();
+    }, false);
+  }
+  audioAutoPlay();
+});
+//      自动播放背景音乐 end

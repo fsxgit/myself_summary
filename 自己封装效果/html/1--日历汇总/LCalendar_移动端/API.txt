@@ -1,0 +1,2 @@
+NAN bug的解决方法：
+https://blog.csdn.net/mario08/article/details/84101122

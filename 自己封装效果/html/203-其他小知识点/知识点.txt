@@ -1,0 +1,2 @@
+1、onclick去掉事件冒泡（区别于jq的）
+function clickdot(){event.cancelBubble=true;}

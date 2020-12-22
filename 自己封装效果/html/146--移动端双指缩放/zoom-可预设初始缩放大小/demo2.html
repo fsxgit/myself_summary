@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery支持图片放大缩小查看效果</title>
+  <style>
+
+    *{ margin:0; padding:0;}
+
+    body {background: #333;}
+
+    html{width: 100%;	height: 100%;}
+    body{width: 100%;	height: 100%;}
+    #pageContent {width: 100%;	height: 100%;overflow: hidden;position:relative;}
+
+    #imgContainer {width: 100%;	height: 100%;}
+
+    .positionMapClass area {cursor: pointer;}
+
+
+
+  </style>
+</head>
+<body>
+
+<div id="pageContent">
+  <div id="imgContainer">
+    <img id="zoom_box" src="map.jpg" />
+  </div>
+</div>
+<script src="https://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="e-smart-zoom-jquery.min.js"></script>
+<script>
+
+
+  $(document).ready(function() {
+    $('#zoom_box').smartZoom();
+    // 用css方法设定初始位置及放大倍数
+    $('#zoom_box').attr("style","transform: translate3d(-265.43px, 37.24px, 0px) scale3d(0.387494, 0.387494, 1); cursor: move; transform-origin: 0px 0px;");
+
+//    $('#zoom_box').smartZoom(options);
+//    $('#zoom_box').smartZoom('zoom', "1"); // 设置初始缩放比
+
+  });
+
+  /**
+   *  api
+   *
+   * 通过传入‘destroy‘来取消缩放;
+   * 方法中可以通过设置top，left等参数来指定图片初始参数；
+   * https://www.jb51.net/article/122062.htm
+   *
+   *
+   */
+
+  var options = {'top' : '0', // top 像素值 一般用不上
+    'left' : '0', // left 像素值 一般用不上
+    'width' : '100%', // 宽度 如果你不希望图片的显示区域是这个DIV全部区域，那么需要设置一下
+    'height' : '100%', // 高度 同上
+    'easing' : 'smartZoomEasing', // jquery easing 函数 如果浏览器不支持CSS3 那么需要写一下
+    'maxScale' : 3, // 最大放大倍率
+    'dblClickMaxScale' : 1.2, // 双击时的最大放大倍率
+    'mouseEnabled' : true, // 是否可以用鼠标与渲染区域交互
+    'scrollEnabled' : true, // 是否可以用滚轮缩放图片
+    'dblClickEnabled' : true, // 是否可以双击放大图片
+    'mouseMoveEnabled' : true, // 是否支持鼠标移动交互
+    'moveCursorEnabled' : true, // 是否可以鼠标拖动图片
+    'touchEnabled' : true, // 是否支持触摸交互（触摸屏）
+    'dblTapEnabled' : true, // 是否支持触摸双击（触摸屏）
+    'pinchEnabled' : true, // enable zoom when user pinch on target
+    'touchMoveEnabled' : true, // 是否可以通过触摸事件拖动图片
+    'containerBackground' : '#000', // 如果不用样式表，那么可以设置背景色，透明背景需要设为 transparent
+    'containerClass' : ''// 用的样式表 定制化样式时会用到
+  }
+</script>
+
+</body>
+</html>
