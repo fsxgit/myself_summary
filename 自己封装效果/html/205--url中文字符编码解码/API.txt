@@ -1,0 +1,9 @@
+
+url中文字符编码解码：
+方法：
+https://www.cnblogs.com/ryanzheng/p/10374226.html 
+编码：var title = encodeURIComponent("业绩排行榜");
+解码：var title = decodeURIComponent("%e4%b8%9a%e7%bb%a9%e6%8e%92%e8%a1%8c%e6%a6%9c");
+
+测试工具：
+http://tool.chinaz.com/tools/urlencode.aspx
