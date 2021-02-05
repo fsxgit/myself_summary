@@ -1,0 +1,8 @@
+
+解决“video  在ios和android上面播放时，自动全屏遮挡了上面悬浮元素“的写法：
+
+<video id="video" webkit-playsinline="true" x-webkit-airplay="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" poster="{$article['img_url']}" preload="auto"  loop="loop" >
+	<source src="{$article['video_url']}" type="video/mp4">
+	<source src="{$article['video_url']}" type="video/ogg">
+	您的浏览器不支持 video 标签。
+</video>
