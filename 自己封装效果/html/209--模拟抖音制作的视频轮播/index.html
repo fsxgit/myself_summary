@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <title>模拟抖音视频</title>
+  <style>
+    #video_box{ position: fixed; left:0; top:0; width: 100%; height: 100%; background: #000; z-index: 1;}
+    #swiper{width:100%; height: 100%;}
+    #swiper .item{ position: relative; color: #fff; width:100%; height: 100%; display: flex; align-items:center; justify-content: center;}
+    #swiper .item::after{
+      position: absolute;
+      content: "";
+      left:calc(50% - 20px);
+      top:calc(50% - 20px);
+      width:40px;
+      height: 40px;
+      background: url("./images/player.png") no-repeat center center;
+      background-size: 100% 100%;
+    }
+    #swiper .item.on::after{
+      display: none;
+    }
+    #swiper .item video{ width:100%; height: 100%; max-width: 100%; max-height: 100%; }
+    #swiper .item .title{ position: absolute; left:0; top:0; color: #fff; width: 100%; height: auto; padding:20px 0; text-align: center; background: rgba(0,0,0,0.3); }
+  </style>
+</head>
+<body>
+<div id="video_box">
+  <div class="swiper-container" id="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide item video0">
+        <!--<video webkit-playsinline="true" x-webkit-airplay="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto"  loop="loop" >-->
+          <!--<source src="http://hwvideo.summitcloud.weiapp.net/video/20210208/c3d99e4bf03382d914f3831b77510990.mp4" type="video/mp4">-->
+          <!--<source src="http://hwvideo.summitcloud.weiapp.net/video/20210208/c3d99e4bf03382d914f3831b77510990.mp4" type="video/ogg">-->
+          <!--您的浏览器不支持Video标签。-->
+        <!--</video>-->
+      </div>
+      <div class="swiper-slide item video1">
+        <!--<video webkit-playsinline="true" x-webkit-airplay="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto"  loop="loop" >-->
+          <!--<source src="http://hwvideo.summitcloud.weiapp.net/sv/10498578-171a1096ec0/10498578-171a1096ec0.mp4" type="video/mp4">-->
+          <!--<source src="http://hwvideo.summitcloud.weiapp.net/sv/10498578-171a1096ec0/10498578-171a1096ec0.mp4" type="video/ogg">-->
+          <!--您的浏览器不支持Video标签。-->
+        <!--</video>-->
+      </div>
+      <div class="swiper-slide item video2">
+        <!--<video webkit-playsinline="true" x-webkit-airplay="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto"  loop="loop" >-->
+          <!--<source src="http://hwvideo.summitcloud.weiapp.net/video/20210208/c3d99e4bf03382d914f3831b77510990.mp4" type="video/mp4">-->
+          <!--<source src="http://hwvideo.summitcloud.weiapp.net/video/20210208/c3d99e4bf03382d914f3831b77510990.mp4" type="video/ogg">-->
+          <!--您的浏览器不支持Video标签。-->
+        <!--</video>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+  var videoList = [
+    {
+      id:'1',
+      name: '视频1',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-07/601f4a23bc191.mp4'
+    },
+    {
+      id:'2',
+      name: '视频2',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-07/601f487b9dbfc.mp4'
+    },
+    {
+      id:'3',
+      name: '视频3',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-07/601f485a7814a.mp4'
+    },
+    {
+      id:'4',
+      name: '视频4',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-07/601f4823699d0.mp4'
+    },
+    {
+      id:'5',
+      name: '视频5',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-07/601f48017d999.mp4'
+    },
+    {
+      id:'6',
+      name: '视频6',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-07/601f437f61722.mp4'
+    },
+    {
+      id:'7',
+      name: '视频7',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-04/601baa82763e0.mp4'
+    },
+    {
+      id:'8',
+      name: '视频8',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-02/6018c84f7be0d.mp4'
+    },
+    {
+      id:'9',
+      name: '视频9',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-02-02/6018c82946910.mp4'
+    },
+    {
+      id:'10',
+      name: '视频10',
+      video:'http://ldtuokex.weiapp.net/attachment/upload/26/video/2021-01-30/601512a1055f3.mp4'
+    }
+  ];
+  var videoIndex = -1; // 当前视频索引
+  var videoLength = 0; // 视频列表长度
+  videoLength = videoList.length;
+  $(".video0").html(tohtml(0));
+  var mySwiper = new Swiper('#swiper', {
+    autoplay: false,
+    loop:true,
+    direction : 'vertical',
+    slidesPerView : 1,
+    onTransitionEnd: function(swiper){
+      // console.log('过渡结束='+swiper.realIndex);
+    },
+    onSlidePrevEnd: function(swiper){
+      console.log('向前滑动结束='+swiper.realIndex);
+      if(videoIndex > 0){
+        videoIndex--;
+      }else{
+        videoIndex = videoLength-1;
+      }
+      videotab(swiper.realIndex);
+    },
+    onSlideNextEnd: function(swiper){
+      console.log('向后滑动结束='+swiper.realIndex);
+      if(videoIndex < videoLength-1){
+        videoIndex++;
+      }else{
+        videoIndex = 0;
+      }
+      videotab(swiper.realIndex);
+    }
+  });
+  // 初始化
+  function videotab(swiperIndex){
+    console.log("swiperIndex="+swiperIndex);
+    console.log("videoIndex="+videoIndex);
+    var preIndex = 0;
+    var nextIndex = 0;
+    if(videoIndex >= videoLength-1){
+      nextIndex = 0;
+    }else{
+      nextIndex = videoIndex + 1;
+    }
+    if(videoIndex <= 0){
+      preIndex = videoLength - 1;
+    }else{
+      preIndex = videoIndex - 1;
+    }
+    console.log("nextIndex="+nextIndex);
+    console.log("preIndex="+preIndex);
+
+    // 这里要修改前后swiper的内容
+    if(swiperIndex == 0){
+      // 当前播放为第一个swiper
+      $(".video1").html(tohtml(nextIndex));
+      $(".video2").html(tohtml(preIndex));
+
+    }else if(swiperIndex == 1){
+      // 当前播放为第二个swiper
+      $(".video0").html(tohtml(preIndex));
+      $(".video2").html(tohtml(nextIndex));
+
+
+    }else if(swiperIndex == 2){
+      // 当前播放为第三个swiper
+      $(".video0").html(tohtml(nextIndex));
+      $(".video1").html(tohtml(preIndex));
+
+    };
+    // 自动播放
+    $(".video"+swiperIndex).click();
+  }
+
+  function tohtml(index){
+    var str = '';
+    str += '<div class="title">'+videoList[index].name+'</div>';
+    str += '<video webkit-playsinline="true" x-webkit-airplay="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto"  loop="loop" >';
+    str += '<source src="'+videoList[index].video+'" type="video/mp4">';
+    str += '<source src="'+videoList[index].video+'" type="video/ogg">';
+    str += '您的浏览器不支持Video标签。';
+    str += '</video>';
+    return str;
+  }
+
+  $("body").on("click","video",function(e){
+    var oVideo = $(this);
+    var oVideoItem = $(this).parents(".item");
+    console.log(oVideo);
+    console.log("播放状态："+oVideo.context.paused);
+    if(oVideo.context.paused){
+      // oVideo.play();
+      oVideo.trigger('play');// 播放
+      oVideoItem.addClass("on");
+    }else{
+      // oVideo.trigger('pause');
+      oVideo.trigger('pause');// 暂停
+      oVideoItem.removeClass("on");
+    }
+    e.stopPropagation();
+  });
+  $("body").on("click",".item",function(e){
+    var oVideo = $(this).find("video");
+    oVideo.click();
+    e.stopPropagation();
+  });
+</script>
+</body>
+</html>
