@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>腾讯云点播web端视频上传</title>
+</head>
+<body>
+<h2>腾讯云点播web端视频上传</h2>
+<ul>
+  <li>要点1：获取签名接口需要服务端提供（服务端生成方法：https://cloud.tencent.com/document/product/266/10638）</li>
+  <li>要点2：获取签名的方法需要promise</li>
+  <li>web端开发文档：https://cloud.tencent.com/document/product/266/9239</li>
+</ul>
+<div style="border:3px solid #eee;">
+  <h2>上传视频</h2>
+  <video id="companyVideoSrc" controls style="display: none;" src=""></video>
+  <div class="img" id="companyVideo" data-id="0" data-src="" style="width: 80px; height: 80px;"><img style="width: 100%; height: 100%; object-fit: cover;" src="./images/upbtn.png" alt=""></div>
+  <input type="file" id="companyVideoFile" style="display: none;">
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
+<script>
+
+
+  //  上传视频
+
+  $("#companyVideo").click(function(){
+    $("#companyVideoFile").click();
+  });
+  $("#companyVideoFile").change(function(event){
+    if($("#companyVideoFile").val() == ""){
+
+    }else{
+      var file = event.target.files;
+      txupload(file[0]);
+    }
+
+  });
+
+
+
+  var getSignature = function (){
+    return new Promise((resolve, reject) => {
+      // 上传视频
+      $.ajax({
+        url: HOST+'/api/meeting/vod_sign',
+        type: 'get',
+        data: {},
+        success: function (res) {
+          res = JSON.parse(res);
+          console.log(res);
+          if(res.code == 0){
+            resolve(res.data);
+          }
+        },
+        error: function (err) {
+          reject(err);
+          // console.log(err);
+        }
+      })
+    })
+  };
+
+  const tcVod = new TcVod.default({
+    getSignature: getSignature // 前文中所述的获取上传签名的函数
+  });
+  function txupload(mediaFile){
+    // 通过 import 引入的话，new TcVod(opts) 即可
+    // new TcVod.default(opts) 是 script 引入 的用法
+
+    const uploader = tcVod.upload({
+      mediaFile: mediaFile, // 媒体文件（视频或音频或图片），类型为 File
+    });
+    uploader.on('media_progress', function(info) {
+      console.log(info.percent) // 进度
+    });
+    // 回调结果说明
+      // type doneResult = {
+      //   fileId: string,
+      //   video: {
+      //     url: string
+      //   },
+      //   cover: {
+      //     url: string
+      //   }
+      // }
+    uploader.done().then(function (doneResult) {
+      // deal with doneResult
+      console.log("返回结果");
+      console.log(doneResult);
+
+      $("#companyVideo").data("id",doneResult.fileId);
+      $("#companyVideo").data("src",doneResult.video.url);
+      var str='';
+      str+='<source src="'+doneResult.video.url+'" type="video/mp4">';
+      str+='<source src="'+doneResult.video.url+'" type="video/ogg">';
+      str+='您的浏览器不支持 video 标签。';
+      $("#companyVideoSrc").attr("src",doneResult.video.url);
+      $("#companyVideoSrc").html(str);
+      $("#companyVideoSrc").show();
+      $("#companyVideoFile").val("");
+
+
+    }).catch(function (err) {
+      // deal with error
+      console.log("错误结果");
+      console.log(err);
+    })
+  }
+
+
+</script>
+</body>
+</html>
