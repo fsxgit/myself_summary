@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>弹出框</title>
+    <style>
+      *{margin:0; padding:0;}
+        .cys_ts{position: fixed; margin:auto; left:0; top:0; right:0; bottom:0; height: 292px; width:310px; border-radius: 6px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.8);  display: none; }
+        .cys_ts h2{font-size: 16px; font-weight: bold;  padding:0 14px; position: relative; height: 40px; line-height:40px; margin-bottom: 20px; }
+      .cys_ts .ts_txt{padding:20px 10px; text-align: center; color: #333; font-size: 14px; line-height: 20px; }
+      .cys_ts .ts_bot{text-align: center; border-top: 1px solid #ddd; font-size: 14px; height: 40px; line-height: 40px; }
+      .cys_ts .ts_bot div{text-align: center; cursor: pointer; float: left; height: 100%; width: 50%;  color: #e50065;}
+      .cys_ts .ts_bot div:nth-of-type(1){border-right: 1px solid #ddd; box-sizing: border-box; }
+      .cys_ts .section{ height: 40px; line-height: 40px; margin-bottom: 10px;}
+      .cys_ts .section .name{ display: block; width: 80px; text-align: right; float: left;}
+      .cys_ts .section select{ float: left; height: 40px; line-height: 40px; width: 190px; }
+      .cys_ts .section .select{  height: 40px; line-height: 40px; width: 180px;  margin-left:80px;}
+    </style>
+</head>
+<body>
+<button id="btn">弹弹弹</button>
+<div class="cys_ts">
+    <div class="ts_txt">
+        <h2>成为会员</h2>
+        <div class="section">
+            <div class="name">会员类型：</div>
+            <select name="" >
+                <option value="0">11111</option>
+                <option value="0">11111</option>
+                <option value="0">11111</option>
+            </select>
+        </div>
+        <div class="section section2">
+            <div class="name">城市：</div>
+            <div class="select">
+                <select name="" >
+                    <option value="0">选择省份</option>
+                    <option value="0">北京市</option>
+                    <option value="0">河南省</option>
+                    <option value="0">湖北省</option>
+                </select>
+            </div>
+        </div>
+        <div class="section">
+            <div class="name"></div>
+            <div class="select">
+                <select name="" >
+                    <option value="0">选择城市</option>
+                    <option value="0">海淀区</option>
+                    <option value="0">昌平区</option>
+                    <option value="0">西城区</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="ts_bot">
+        <div>取消</div>
+        <div>确定</div>
+    </div>
+</div>
+<script src="js/jquery.min.js" ></script>
+<script>
+    $("#btn").click(function(){
+        $(".cys_ts").fadeIn();
+    });
+    $(".ts_bot div").click(function(){
+        $(".cys_ts").hide();
+    })
+</script>
+</body>
+</html>

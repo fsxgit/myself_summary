@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小数加法</title>
+</head>
+<body>
+<input type="text" class="put1" /> +
+<input type="text" class="put2" /><button>等于</button>
+<input type="text" class="res"  />
+
+<script src="jquery.min.js"></script>
+<script>
+
+$("button").click(function(){
+    var V1 = $(".put1").val();
+	var V2 = $(".put2").val();
+	
+	var res = addNum (V1, V2);
+	console.log(res);
+	
+	$(".res").val(res);
+
+})
+
+function addNum (num1, num2) {
+ var sq1,sq2,m;
+ try {
+  sq1 = num1.toString().split(".")[1].length;
+ }
+ catch (e) {
+  sq1 = 0;
+ }
+ try {
+  sq2 = num2.toString().split(".")[1].length;
+ }
+ catch (e) {
+  sq2 = 0;
+ }
+ m = Math.pow(10,Math.max(sq1, sq2));
+ return (num1 * m + num2 * m) / m;
+}
+</script>
+</body>
+</html>

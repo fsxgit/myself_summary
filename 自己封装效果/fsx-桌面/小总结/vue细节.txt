@@ -1,0 +1,97 @@
+1、 ()前后都要留一个space;
+2、else前后都要留一个space
+3、标签名相同时，过渡效果不执行，需要指定不同的key
+4、页面名字的命名一定要避免关键字，不要和页面组件名字相同
+5、环境
+if (process.env.NODE_ENV === 'development') {
+  build前的开发环境
+} else if (process.env.NODE_ENV === 'debug') {
+  
+} else if (process.env.NODE_ENV === 'production') {
+  build后的线上生产环境
+}
+
+vue之重要框架：
+1、vue-cli
+2、vue-router
+3、vue ui
+4、nuxt.js https://nuxtjs.org/
+5、vant ui : https://youzan.github.io/vant/#/zh-CN/field
+6、配置：https://cn.eslint.org/docs/rules
+数据处理：
+vue2.0之后，就不再对vue-resource更新，而是推荐使用axios。基于 Promise 的 HTTP 请求客户端，可同时在浏览器和 Node.js 中使用。
+7、vue axios
+8、vue qs https://www.cnblogs.com/web1/p/8659398.html
+9、vue resource：https://www.cnblogs.com/Juphy/p/7073027.html
+
+
+mac版vue-cli的安装：
+https://www.jianshu.com/p/5138c5156e96
+
+
+兄弟之间的传值、互调
+给遍历的数据统一添加事件，比如切换列表各项单独的显示隐藏
+
+
+Vue全家桶： 
+前端框架 Vue.js 
+状态管理 Vuex 
+动态路由匹配 vue-router 
+http服务 axios 
+模块打包 webpack 
+UI框架 element 
+数据服务器 
+服务器端 node.js 
+基于node的web框架 express 
+分布式数据库 mongodb 
+mongodb工具 mongoose
+原文：https://blog.csdn.net/sps900608/article/details/79599121 
+
+
+插件：
+html-webpack-plugin 的使用
+
+
+
+
+vue功能：
+1.下拉刷新
+2.axios加载
+3.proxyTable
+4.axios.defaults.baseURL
+5.process.env.NODE_ENV 怎么区分是不同的环境
+if (process.env.NODE_ENV === 'development') {
+  axios.defaults.baseURL = 'http://test.api.zhaoyifen.com/web.app';
+} else if (process.env.NODE_ENV === 'debug') {
+  axios.defaults.baseURL = 'https://app.api.zhaoyifen.com/web.app';
+} else if (process.env.NODE_ENV === 'production') {
+  axios.defaults.baseURL = 'https://app.api.zhaoyifen.com/web.app';
+}
+
+6.mint-ui插件
+
+Mobile：https://mint-ui.github.io/#!/zh-cn
+mobile_Demo：http://elemefe.github.io/mint-ui/#/
+PC：http://element-cn.eleme.io/#/zh-CN
+
+7.使用插槽公共组件循环数据
+
+8.vue使用swiper
+
+9.vue async/await同步 案例
+
+10.nuxt
+https://nuxtjs.org/
+                    
+11.组件component
+
+12.stylus
+
+13.npm run dev 自动在浏览器启动
+	在index.js中配置
+	autoOpenBrowser: true,  //是否默认打开浏览器,默认是false，改为true即可
+	
+	
+babel-loader
+vue-loader
+

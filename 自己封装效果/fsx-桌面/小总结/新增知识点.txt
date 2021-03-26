@@ -1,0 +1,8 @@
+1°¢∂‘œÛcopy
+Object.assign({}, obj);
+https://blog.csdn.net/dwb123456123456/article/details/83316471
+
+2°¢ES6 ”Ô∑®
+
+3°¢new Promise()
+

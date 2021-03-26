@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分页</title>
+    <style>
+        *{margin:0; padding:0;}
+        .c_pages{text-align: center; padding:20px 0;}
+        .c_pages ul{ text-align: center;}
+        .c_pages ul li{ display: inline-block; width: auto; margin:0 2px;}
+        .c_pages ul li a{ cursor: pointer; color: #999; font-size: 16px; text-decoration: none; display: inline-block; height: 26px; line-height: 26px; padding:0 12px; border:1px solid #999; border-radius: 2px;}
+        .c_pages ul li a:link,.c_pages ul li a:visited,.c_pages ul li a:active{ color: #999;  text-decoration: none;}
+        .c_pages ul li a:hover{ color: #091bff; border-color:#091bff; }
+        .c_pages ul li a.active{  border-color:#091bff; background: #091bff; color: #fff;}
+    </style>
+</head>
+<body>
+
+<div class="c_pages">
+    <ul>
+        <li><a href="javascript:;">上一页</a></li>
+        <li><a href="javascript:;" class="active">1</a></li>
+        <li><a href="javascript:;">2</a></li>
+        <li><a href="javascript:;">3</a></li>
+        <li><a href="javascript:;">4</a></li>
+        <li><a href="javascript:;">5</a></li>
+        <li><a href="javascript:;">6</a></li>
+        <li><a href="javascript:;">下一页</a></li>
+    </ul>
+</div>
+</body>
+</html>

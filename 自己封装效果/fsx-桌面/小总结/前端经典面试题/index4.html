@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>今天学习了</h2>
+<p>(function(){}()) ; 匿名函数；函数自执行</p>
+<p>map遍历和forEach遍历</p>
+<p>promise多异步执行的先后处理</p>
+<p>闭包</p>
+
+<script>
+    setFn1();
+    // 正常，函数声明可提前调用
+    function setFn1() {
+        // coding
+        console.log(1);
+    };
+
+
+   // setFn2();
+    // 报错，setFn2未保存对函数的引用，函数调用需放在函数表达式后面
+    var setFn2 = function() {
+        // coding
+        console.log(2);
+    };
+
+    // 自执行
+    var setFn3 = function() {
+        // coding
+        console.log(3);
+    }();
+
+    // 匿名、自执行
+    // 这样写的好处是在内部定义的变量不会跟外部的变量有冲突，达到保护内部变量的作用。
+    (function () {
+        // coding
+        console.log(4);
+    })();
+
+    // 加运算符可以把
+    !function () {
+        // coding
+        console.log(5);
+    }();
+
+
+
+// 阿里测试题
+
+    var test = (function(a) {
+        this.a = a;
+        return function(b) {
+            console.log("a2="+a);
+            console.log("b2="+b);
+            return this.a + b;
+        }
+    } (function(a, b) {
+        console.log("a1="+a);
+        console.log("b1="+b);
+        return a;
+    }(1, 2)));
+
+    console.log(test(8)); //输出什么？？？？
+
+/**
+ * 阿里测试题解析：
+ * 上面方法可以化解为以下三步：
+ *
+ *    var test2 = (function(a){
+ *        fun2(a,b);
+ *    }(fun1));
+ *
+ *    其中传的参数直接传给了b
+ *
+ * */
+var fun1 = function(a, b) {
+    console.log("a1="+a);
+    console.log("b1="+b);
+    return a;
+}(1, 2);
+
+var fun2 = function(a,b) {
+    console.log("a2="+a);
+    console.log("b2="+b);
+    return this.a + b;
+};
+
+var test2 = fun2;
+console.log("新输出="+test2(fun1,8));
+
+
+/**
+ * forEach()和map()循环
+ * forEach  没有返回值
+ *     map  有返回值
+ * */
+var arr = ["我","们","都","是","一","家","人","！"];
+
+var res = arr.forEach(function (item,index,input) {
+    console.log(item+index);
+//    console.log("input="+input);
+    return item;
+});
+console.log(res);
+
+
+console.log("第二种遍历数组的方法：");
+var res = arr.map(function(item,index,arr){
+    console.log(item+index);
+//    console.log("arr="+arr);
+    return item;
+});
+console.log(res);
+
+
+
+</script>
+</body>
+</html>

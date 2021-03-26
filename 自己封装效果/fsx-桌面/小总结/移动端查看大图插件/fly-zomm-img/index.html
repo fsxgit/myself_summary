@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="headerPic" id="headerPic">
+  <img src="https://www.cnblogs.com/images/cnblogs_com/520BigBear/1196074/t_1.jpg" alt="">
+  <img src="https://farm4.staticflickr.com/3894/15008518202_b016d7d289_m.jpg" alt="">
+  <img src="https://farm6.staticflickr.com/5591/15008867125_68a8ed88cc_m.jpg" alt="">
+  <img src="https://farm4.staticflickr.com/3920/15008465772_383e697089_m.jpg" alt="">
+</div>
+
+
+<script src="./jquery.min.js"></script>
+<script src="./fly-zomm-img.js"></script>
+<script>
+  $('#headerPic').FlyZommImg({
+    rollSpeed: 200,//切换速度
+    miscellaneous: false,//是否显示底部辅助按钮
+    closeBtn: true,//是否打开右上角关闭按钮
+    hideClass: 'hideImg',//不需要显示预览的 class
+    imgQuality: 'thumb',//图片质量类型  thumb 缩略图  original 默认原图
+    slitherCallback: function (direction, DOM) {//左滑动回调 两个参数 第一个动向 'left,firstClick,close' 第二个 当前操作DOM
+      setTimeout(function(){
+// 为了一开始居中显示
+        $('.fly-zoom-box-img').css('width','100%').css('height','auto').css('top',0).css('bottom',0).css('margin','auto');
+      },300)
+    }
+  });
+</script>
+</body>
+</html>

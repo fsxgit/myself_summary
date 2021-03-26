@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{border:1px solid #ccc; width: 100px; height:60px; text-align: center;}
+        table input{width:50px; height:30px; text-align: center;}
+        .addWei{background: none; border:1px solid #ff8540; color: #ff8540; padding:4px 6px; font-size: 14px;}
+    </style>
+</head>
+<body>
+
+<input class="addWei" type="button" value="+添加行政单位"/>
+
+<table>
+    <tr>
+        <input type="hidden" class="name" value="1"/>
+        <td>1</td>
+        <td>2</td>
+        <td class="panduan">是</td>
+        <td><input type="text" value="哈哈"/></td>
+        <td class="tab" data-state="1">关闭</td>
+    </tr>
+    <tr>
+        <input type="hidden" class="name" value="1"/>
+        <td>1</td>
+        <td>2</td>
+        <td class="panduan">是</td>
+        <td><input type="text" value="哈哈"/></td>
+        <td class="tab" data-state="1">关闭</td>
+    </tr>
+    <tr>
+        <input type="hidden" class="name" value="1"/>
+        <td>1</td>
+        <td>2</td>
+        <td class="panduan">是</td>
+        <td><input type="text" value="哈哈"/></td>
+        <td class="tab" data-state="1">关闭</td>
+    </tr>
+    <tr>
+        <input type="hidden" class="name" value="1"/>
+        <td>1</td>
+        <td>2</td>
+        <td class="panduan">是</td>
+        <td><input type="text" value="哈哈"/></td>
+        <td class="tab" data-state="1">关闭</td>
+
+    </tr>
+    <tr>
+        <input type="hidden" class="name" value="1"/>
+        <td>1</td>
+        <td>2</td>
+        <td class="panduan">是</td>
+        <td><input type="text" value="哈哈"/></td>
+        <td class="tab" data-state="1">关闭</td>
+    </tr>
+
+</table>
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".tab").click(function(){
+        var state = $(this).data("state");
+        if(state == 1){
+            $(this).html("开启");
+            $(this).siblings(".panduan").html("否");
+            $(this).data("state","2");
+            $(this).siblings(".name").val("否");
+
+        }else{
+            $(this).html("关闭");
+            $(this).siblings(".panduan").html("是");
+            $(this).siblings(".name").val("是");
+            $(this).data("state","1");
+
+        }
+
+    })
+</script>
+</body>
+</html>

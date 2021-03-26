@@ -1,0 +1,315 @@
+.formService {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	min-height: 100%;
+	padding-bottom: 0.1rem;
+	min-width: 12rem;
+	background: url("../images/bg1.jpg") no-repeat center center;
+	background-size: cover;
+}
+
+.formService_header {
+	width: 100%;
+	height: 0.4rem;
+	padding: 0.1rem;
+	display: flex;
+}
+
+.formService_header .return {
+	width: 0.3rem;
+	height: 0.3rem;
+}
+
+.formService_left {
+	width: 3.4rem;
+	height: auto;
+	box-sizing: border-box;
+	padding: 0 0.12rem;
+}
+
+.formService_content {
+	width: 100%;
+}
+
+.formService_sjgx {
+	width: 3.3rem;
+	height: 4.3rem;
+	background: url("../images/three_sjgx.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.formService_sjgx .titleBox {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	font-size: 0.14rem;
+	padding-left: 0.05rem;
+}
+
+.formService_sjgx .titleBox .title {
+	margin-top: 0.1rem;
+	margin-left: 0.8rem;
+	display: flex;
+	align-items: center;
+	height: 0.35rem;
+	width: 1.5rem;
+	background: url("../images/sj_bj.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.formService_sjgx .titleBox .title img {
+	width: 0.45rem;
+	height: auto;
+	margin-left: -0.1rem;
+}
+
+.formService_sjgx .prompt {
+	display: flex;
+	justify-content: center;
+	margin-top: 0.1rem;
+}
+
+.formService_sjgx .prompt li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	margin: 0.1rem 0.1rem 0 0;
+}
+
+.formService_sjgx .prompt li img {
+	margin-right: 0.05rem;
+	width: 0.05rem;
+	height: 0.05rem;
+}
+
+.formService_sjgx .prompt li p {
+	font-size: 0.12rem;
+	color: #AFB6CD;
+}
+
+.formService_bmpmBox {
+	width: 3.3rem;
+	height: 2.1rem;
+	margin-top: 0.1rem;
+	background: url("../images/defenbg.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.formService_bmpmBox .titleBox {
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+	font-size: 0.14rem;
+	height: 0.28rem;
+	line-height: 0.28rem;
+	padding-left: 0.05rem;
+}
+
+.formService_bmpmBox .titleBox .title {
+	width: 1.5rem;
+	text-align: center;
+}
+
+.formService_bmpmList ul {}
+
+.formService_bmpmList li {
+	padding: 0 0.1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 0.01rem solid #064186;
+	height: 0.35rem;
+	color: #fff;
+	font-size: 0.12rem;
+}
+
+.formService_bmpmList li:last-child {
+	border: none;
+}
+
+.formService_bmpmList li .bmpmList_title {
+	display: flex;
+	align-items: center;
+}
+
+.formService_bmpmList li .bmpmList_title .rank {
+	float: left;
+	font-size: 0.12rem;
+	border: 0.01rem solid #064186;
+	height: 0.18rem;
+	line-height: 0.18rem;
+	width: 0.18rem;
+	text-align: center;
+	border-radius: 50%;
+	box-shadow: 0 0 0.04rem rgba(6, 65, 134, 0.2);
+}
+
+.formService_bmpmList li .bmpmList_title .name {
+	float: left;
+	margin-left: 0.1rem;
+}
+
+.formService_bmpmList li .status {
+	float: right;
+	font-size: 0.12rem;
+	width: 0.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formService_bmpmList li .status img {
+	float: left;
+	display: inline-block;
+	height: 0.2rem;
+}
+
+.formService_right {
+	margin: 0 0.1rem;
+	flex: 1;
+}
+
+.formService_a {
+	width: 4.5rem;
+	height: 2.4rem;
+	background: url("../images/zhengwubg.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.formService_a .public_title {
+	width: 1.4rem;
+	font-size: 0.14rem;
+	text-align: center;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	color: #fff;
+}
+
+.formService_a .public_rule {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.formService_a .public_rule li {
+	list-style: none;
+	color: #fff;
+	text-align: center;
+	font-size: 0.12rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
+.formService_a .public_rule li img {
+	margin-right: 0.05rem;
+}
+
+.formService_b .public_rule {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.formService_b .public_rule li {
+	list-style: none;
+	color: #fff;
+	text-align: center;
+	font-size: 0.12rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
+.formService_b .public_rule li img {
+	margin-right: 0.05rem;
+}
+
+.formService_b {
+	width: 5.1rem;
+	height: 2.4rem;
+	background: url("../images/zhengwubg.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.formService_b .public_title {
+	width: 1.6rem;
+	font-size: 0.14rem;
+	text-align: center;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	color: #fff;
+}
+
+#formService_ptsl {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#formService_gxzj {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#formService_APIzc {
+	width: 5.1rem;
+	height: 1.5rem;
+}
+
+#formService_APIkt {
+	width: 5.1rem;
+	height: 1.5rem;
+}
+
+.right_fotter {
+	width: 100%;
+	height: 1.5rem;
+	margin-bottom: 0.1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url("../images/platformService_zh.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.right_fotter .log {
+	width: 0.3rem;
+	margin-right: 0.1rem;
+}
+
+.right_fotter .txt {
+	width: 1.2rem;
+}
+
+.right_fotter em {
+	font-size: 0.2rem;
+	color: #F49B32;
+	margin-left: 0.05rem;
+	font-style: oblique;
+	font-weight: bold;
+}
+
+.rule {
+	color: #fff;
+	text-align: center;
+	font-size: 0.12rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+}
+
+.rule span {
+	padding: 0 0.06rem;
+}
+
+.rule span img {
+	margin-right: 0.04rem;
+	position: relative;
+}
+.bureau_formServicebj{
+	background: url("../images/zaixianbanlizhengwu_bj.png") no-repeat center center !important;
+	background-size: 100% 100% !important;
+}

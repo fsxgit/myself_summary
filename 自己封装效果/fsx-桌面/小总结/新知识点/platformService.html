@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=4.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>平台服务</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="css/platformService.css" />
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div class="formService">
+			<div class="formService_header">
+				<img class="return" id="tabReturn" src="images/return.png" />
+			</div>
+			<div style="display: flex;">
+				<div class="formService_left">
+					<div class="formService_content">
+						<div style="width: 100%;">
+							<div class="formService_sjgx">
+								<div class="titleBox">
+									<div class="title" id="fenshu">
+									</div>
+									<div class="c_txt_ts" style="margin-left: 0.5rem;">
+										<img src="./images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													北京市“平台服务”工作整体得分
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<ul class="prompt">
+									<li>
+										<img src="images/dot1.png" />
+										<p>风险<60分</p>
+									</li>
+									<li>
+										<img src="images/dot2.png" />
+										<p>预警60-80分</p>
+									</li>
+									<li>
+										<img src="images/dot3.png" />
+										<p>健康>80分</p>
+									</li>
+								</ul>
+								<div style="display: flex;justify-content: space-between;">
+									<div class="charts_sjgx" style="margin:0 auto;">
+										<div id="charts_sjgx" style="width: 3rem; height: 2rem;"></div>
+									</div>
+								</div>
+								<div class="charts_dfqk" style="margin:0 auto;">
+									<div class="c_txt_ts zindex1" style="margin-right: 0.2rem;margin-bottom: 0.1rem;">
+										<img src="./images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													北京市“平台服务”工作近期得分趋势
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="charts_dfqk" style="width: 3.5rem; height: 1.4rem;"></div>
+								</div>
+							</div>
+							<div class="formService_bmpmBox">
+								<div class="titleBox">
+									<div class="title">部门排名 <i>top5</i></div>
+									<div class="c_txt_ts">
+										<img src="./images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													北京市“平台服务”工作所有委办局得分对比前五名
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="formService_bmpmList bmpmList_box">
+									<ul id="bmpmList"></ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="formService_right">
+					<div class="right_fotter">
+						<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)' style="display: flex;align-items: center;">
+							<img class="log" src="images/platformService_log.png"/>
+							<img class="txt" src="images/platformService_txt.png"/>
+							<em id="yonghu"></em>
+							<div class="bounced" >
+								
+								<div class="center">
+									<div class="icon_title" style="margin-top: 0.1rem;">
+										<img src="images/txton.png" /> 图表说明
+									</div>
+									<div class="text">
+										到目前为止市大数据平台已有的租户数量
+									</div>
+									<div class="icon_titleA">
+										<img src="images/txton.png" /> 数据来源
+									</div>
+									<div class="text">
+										大数据平台
+									</div>
+									<div class="icon_titleA">
+										<img src="images/txton.png" /> 统计周期
+									</div>
+									<div class="text">
+										每周
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<div style="display: flex;justify-content: space-between;">
+						<!--平台算力及储存-->
+						<div class="formService_ptsl formService_a">
+							<div class="public_title">平台算力及储存</div>
+							<div class="rule">
+								<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+									<img src="./images/dot2.png" alt="">
+									平台算力
+									<div class="bounced top10" >
+										市大数据平台算力（内存+CPU）增长率
+									</div>
+								</span>
+								<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+									<img src="./images/dot6.png" alt="">
+									平台储存使用
+									<div class="bounced top10" >
+										市大数据平台已经使用的存储容量及增长率
+									</div>
+								</span>
+								<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt zx_tsTxt">
+										<div class="center">
+											<div class="icon_title">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												反映市大数据平台算力及存储的增长情况
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												算力增长率=CPU核数增长率*50%+内存G数增长率*50%；
+												存储使用增长率=（（本统计周期平台存储使用T数-上一统计周期平台存储存储使用T数）/上一统计周期平台存储存储使用T数）*100% 
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												大数据平台
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="formService_ptsl"></div>
+						</div>
+						<!--API接口支撑应用增长率-->
+						<div class="formService_APIzc formService_b">
+							<div class="public_title">平台支撑应用增长率</div>
+							<div class="rule">
+								<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+									<img src="./images/dot2.png" alt="">
+									API接口支撑应用增长率
+									<div class="bounced top10" >
+										各使用方使用市大数据平台API接口开发应用比例及增长率
+									</div>
+								</span>
+								<!--<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+									<img src="./images/dot6.png" alt="">
+									共性组件支撑应用增长率
+									<div class="bounced top10" >
+										各使用方使用市大数据平台共性组件开发应用比例及增长率
+									</div>
+								</span>-->
+								<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt zx_tsTxt">
+										<div class="center">
+											<div class="icon_title" style="margin-top: 0.2rem;">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												反映市大数据平台所提供的数据接口、共性组件支撑应用开发情况
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												接口支撑应用增长率=（（本统计周期平台API接口支撑应用数量-上一统计周期平台API接口支撑应用数量）/上一统计周期平台API接口支撑应用数量）*100%；
+												共性组件支撑应用增长率=（（本统计周期平台共性组件支撑应用数量-上一统计周期平台共性组件支撑应用数量）/上一统计周期平台共性组件支撑应用数量）*100%
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												大数据平台
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="formService_APIzc"></div>
+						</div>
+					</div>
+					<div style="display: flex;justify-content: space-between; margin-top: 0.1rem;">
+						<!--API接口开通增长率-->
+						<div class="formService_APIkt formService_b">
+							<div class="public_title">API接口开通增长率</div>
+							<div class="rule">
+								<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt tsTxt_top zx_tsTxt top270">
+										<div class="center">
+											<div class="icon_title">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												反映市大数据平台提供API接口的数量及增长率
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+											（（本统计周期API接口开通量-上一统计周期API接口开通量）/上一统计周期API接口开通量）*100%
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												大数据平台
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text" style="margin-bottom: 0.3rem;">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div id="formService_APIkt"></div>
+						</div>
+						<!--共性组件数量-->
+						<div class="formService_gxzj formService_a">
+							<div class="public_title">共性组件增长率</div>
+							<div class="rule">
+								<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt tsTxt_top zx_tsTxt top270">
+										<div class="center">
+										<div class="icon_title">
+											<img src="images/txton.png" /> 图表说明
+										</div>
+										<div class="text">
+											反映市大数据平台提供共性组件的数量
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 计算方法
+										</div>
+										<div class="text">
+											平台共性组件数量
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 数据来源
+										</div>
+										<div class="text">
+											大数据平台
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 统计周期
+										</div>
+										<div class="text" style="margin-bottom: 0.3rem;">
+											每周
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+							<div id="formService_gxzj"></div>
+						</div>
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<script src="common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/jquery.min.js"></script>
+		<script src="common/echarts.min.js"></script>
+		
+		<script type="text/javascript">
+			var search = window.location.search;
+			var id = getSearchString('id', search); //结果：2
+			function getSearchString(key, Url) {
+			    var str = Url;
+			    str = str.substring(1, str.length); // 获取URL中?之后的字符（去掉第一位的问号）
+			    var arr = str.split("&");
+			    var obj = new Object();
+			    for (var i = 0; i < arr.length; i++) {
+			        var tmp_arr = arr[i].split("=");
+			        obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+			    }
+			    return obj[key];
+			}
+			//数据共享
+			chartSjgx()
+			function chartSjgx() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataApply?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	let Data = res.data;
+	                	let img;
+	                	let score;
+	                	for(let i in Data){
+	                		if(Data[i].type==21){
+	                			score=Data[i].score
+                				if(score < 60){
+	                			 	img = "./images/lamp_r.png"
+	            			 	} else if(score > 80){
+	        			 			img = "./images/lamp_g.png"
+	            			 	}else{
+	            			 		img = "./images/lamp_y.png"
+	            			 	}
+	                		}
+	                	}
+	                	let dataLIst=`
+	                		<img src="${img}" />
+							<p style="margin-left: 0px;">平台服务 <i>${score}</i>分</p>
+	                	`
+	                	$('#fenshu').html(dataLIst)
+	                	let chart = document.getElementById("charts_sjgx");
+						let myChart = echarts.init(chart);
+						let option = {
+							series: [{
+									name: '业务指标',
+									type: 'gauge',
+									min: 0,
+									max: 100,
+									splitNumber: 10,
+									radius: '80%',
+									title: {
+										textStyle: {
+											color: "#0CD7D8"
+										}
+									},
+									axisLabel: { // 坐标轴小标记 刻度数字颜色
+										fontWeight: 'bolder',
+										color: '#5B699D',
+										shadowColor: '#fff', //默认透明
+										shadowBlur: 10
+									},
+									detail: {
+										formatter: '{value}%'
+									}, //仪表盘显示数据
+									axisLine: { //仪表盘样式
+										lineStyle: { // 属性lineStyle控制线条样式
+											color: [
+												[0.18, '#4CF59F'],
+												[0.82, '#1e90ff'],
+												[1, '#4CF59F']
+											],
+											width: 3,
+											shadowColor: '#fff', //默认透明
+											shadowBlur: 10
+										},
+									},
+									splitLine: { //分割线样式
+										length: 10
+									},
+									itemStyle:{
+										color:"#1e90ff"
+									},
+									detail: {
+										borderWidth: 2,
+										borderRadius: 3,
+										borderColor: '#0B8AB1',
+										shadowColor: '#0B8AB1', //默认透明
+										shadowBlur: 5,
+										offsetCenter: [0, '-40%'], // 显示位置 x, y，单位px
+										textStyle: {
+											fontSize: 16,
+											color: '#EA9538',
+										},
+										padding: [4, 10, 0, 10]
+									},
+									pointer: {
+										width: 8,
+										length: '45%'
+									},
+									data: [{
+										value: score
+									}],
+		
+								}
+		
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option);
+						}
+	            	}
+            	})
+				
+			}
+			
+			//数据共享得分情况
+			var echartData = [{
+					"name": "2019.06",
+					"num": "80"
+				},
+				{
+					"name": "2019.08",
+					"num": "80"
+				},
+				{
+					"name": "2019.10",
+					"num": "85"
+				},
+				{
+					"name": "2019.12",
+					"num": "90"
+				},
+				{
+					"name": "2020.02",
+					"num": "93"
+				}
+			];
+			// 得分趋势
+			chartDfqk();
+			function chartDfqk() {
+				$.ajax({
+					type: "get",
+					url: "http://47.56.170.82:8080/api/dataapply/getScore?departmentId="+id+"&type=21",
+					dataType: "json",
+					headers: {
+						"content-type": "application/json;charset=utf-8"
+					},
+					success: function(res) {
+						// 数据处理
+						var xData = [];
+						var yData = [];
+						$.each(res.data, function(i, v) {
+							xData.push(v.dataPeriod);
+							yData.push(v.score);
+						});
+						var dom = document.getElementById("charts_dfqk");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : {c}"
+							},
+							xAxis: {
+								type: 'category',
+								name: '',
+								boundaryGap: true,
+								data: xData,
+								splitLine: {
+									show: false
+								},
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+									},
+									//		                    rotate:30
+								},
+							},
+							yAxis: {
+								type: 'value',
+								name: '分',
+
+								axisTick: {
+									inside: true
+								},
+								scale: true,
+								max: 100,
+								type: 'value',
+								minInterval: 10,
+								axisLabel: {
+									margin: 0,
+									formatter: function(value, index) {
+										if(value >= 10000 && value < 10000000) {
+											value = value / 10000 + "万";
+										} else if(value >= 10000000) {
+											value = value / 10000000 + "千万";
+										}
+										return value;
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 30,
+								right: 50,
+								top: 40,
+								bottom: 20
+							},
+							series: [{
+								data: yData,
+								type: 'line',
+								itemStyle: {
+									normal: {
+										color: '#2fb795',
+										lineStyle: {
+											normal: {
+												color: '#2fb795'
+											}
+										},
+										label: {
+											show: true,
+											color: '#fff',
+										},
+										lineStyle: {
+											width: 1.5 // 0.1的线条是非常细的了
+										}
+									}
+								},
+								areaStyle: {
+									normal: {
+										barBorderRadius: 30,
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+											offset: 1,
+											color: 'rgba(13,246,238,0.1)'
+										}, {
+											offset: 0,
+											color: 'rgba(13,246,238,1)'
+										}]),
+									}
+								}
+							}],
+							axisLabel: {
+								color: "#000",
+								interval: 0,
+								formatter: function(value) {
+									if(value.length > 12) {
+										return value.substring(0, 12) + "...";
+									} else {
+										return value;
+									}
+								}
+							}
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+			}
+			//部门排名
+			bmpm()
+			function bmpm(){
+				let bmpmHtml=''
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getRank?type=7",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	console.log(res.data)
+	                	for(let i in res.data){
+	                		if(res.data[i].scoreTrend<0){
+	                			res.data[i].src='./images/down.png'
+	                			res.data[i].srcTit="较上个月下降"
+	                		}else{
+	                			res.data[i].src='./images/up.png'
+	                			res.data[i].srcTit="较上个月上升"
+	                		}
+	                		bmpmHtml+=`
+								<li>
+									<div class="bmpmList_title">
+										<div class="rank">${res.data[i].ranking}</div>
+										<div class="name" style="width:1rem">${res.data[i].departmentName}</div>
+									</div>
+									<div class="">${res.data[i].score}</div>
+									<div class="status positioning center_y" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<img src="${res.data[i].src}" alt=""> ${Math.abs(res.data[i].scoreTrend)}
+										<div class="bounced bounced_bmpm">
+											${res.data[i].srcTit}
+											${Math.abs(res.data[i].scoreTrend)}
+										</div>
+									</div>
+								</li>
+	                		`
+	                	}
+	                	$('#bmpmList').html(bmpmHtml)
+	                }
+	          })
+			}
+			
+			//多租户用户增长
+			getTenantUseRate()
+			function getTenantUseRate(){
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getTenantUseRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	$('#yonghu').html(res.data[0].tenantUseNumber + '个')
+	                }
+	          	})
+			}
+			
+			// 平台算力及存储
+			chartPtsl();
+			function chartPtsl() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getPlatformComputeRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	console.log('平台算力及存储',res.data)
+						var countNum = []; 
+						var storageNum =[]
+						var time=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								item.storageNum=parseInt((item.diskUseNumber-arr[a].diskUseNumber)/arr[a].diskUseNumber.toFixed(2) *100)
+								a++
+							})
+							res.data[0].storageNum = '-'
+							countNum.push(v.cpuNumber*0.5+v.memoryNumber*0.5)
+							storageNum.push(v.storageNum)
+							time.push(v.dataPeriod)
+						})
+						// 数据处理 end
+						var dom = document.getElementById("formService_ptsl");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+							 	trigger: 'axis',
+							 	formatter: '{b0}<br/>{a0}: {c0}%<br />{a1}: {c1}%<br />'
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0)'
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [{
+								nameLocation: 'end',
+								type: 'value',
+								min: 0,
+								max: 5000, //设置左侧最大值
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							},{
+									type: 'value',
+									splitLine: {
+										show: false,
+									},
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									},
+									axisTick: { show: false },
+									axisLabel: {
+										formatter: '{value}%', //右侧以百分比进行展示
+										show: true,
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '12'
+										}
+									}
+									// boundaryGap: [0.2, 0.2]
+								}],
+							grid: {
+								left: 80,
+								right: 80,
+								top: 30,
+								bottom: 30
+							},
+							series: [
+								{
+									name: '平台储存使用',
+									type: 'line',
+									yAxisIndex: 1,
+									data: storageNum,
+									itemStyle: {
+										normal: {
+											color: '#0995C2',
+											lineStyle: {
+												width: 2 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								},
+								{
+									name: '平台算力',
+									type: 'line',
+									data: countNum,
+									yAxisIndex: 1,
+									itemStyle: {
+										normal: {
+											color: '#D4963C',
+											lineStyle: {
+												width: 2 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								},
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	           	})
+				
+			}
+			//    API接口支撑应用增长率
+			chartAPIzc();
+			function chartAPIzc() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getApiApplicationRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let apiData = [];
+						let time=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								item.apiData=parseInt((item.apiApplicationNumber-arr[a].apiApplicationNumber)/arr[a].apiApplicationNumber.toFixed(2) *100)
+								a++
+							})
+							res.data[0].proportion = '0'
+							time.push(v.dataPeriod)
+							apiData.push(v.proportion);
+						});
+						var dom = document.getElementById("formService_APIzc");
+						var myChart = echarts.init(dom);
+						var option = {
+							color: ['#e59a35', '#00e3f9'],
+							tooltip: {
+								trigger: 'axis',
+								axisPointer: {
+									type: 'shadow'
+								},
+		//						formatter: function(params) {
+		//						　　var result = ''
+		//							var dotHtml0 = '<span style="display:inline-block;margin-right:0.05rem;border-radius:0.1rem;width:0.1rem;height:0.1rem;background-color:#DB9830"></span>'
+		//							var dotHtml1 = '<span style="display:inline-block;margin-right:0.05rem;border-radius:0.1rem;width:0.1rem;height:0.1rem;background-color:#008BE7"></span>'
+		//							var dotHtml2 = '<span style="display:inline-block;margin-right:0.05rem;border-radius:0.1rem;width:0.1rem;height:0.1rem;background-color:#00ECFC"></span>'
+		//							result +=params[0].name+'<br/>'+  dotHtml0 + params[0].seriesName + params[0].data+"<br />"+dotHtml1 + params[1].seriesName + params[1].data+"<br />"+dotHtml2 + params[2].seriesName + params[2].data+"%"
+		//						　　 return result
+		//						}
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [
+								{
+									nameLocation: 'end',
+									type: 'value',
+									scale: true,
+									minInterval: 10,
+									min: 0,
+									max: 500, //设置左侧最大值
+									splitLine: {
+										show: true,
+										lineStyle: {
+											color: '#39508c'
+										}
+									},
+									/*改变y轴颜色*/
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									}
+								},
+								{
+									type: 'value',
+									splitLine: {
+										show: false,
+									},
+									max: 100,
+									min: 0,
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									},
+									axisTick: { show: false },
+									axisLabel: {
+										formatter: '{value}%', //右侧以百分比进行展示
+										show: true,
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '12'
+										}
+									}
+									// boundaryGap: [0.2, 0.2]
+								}
+							],
+							grid: {
+								left: 80,
+								right: 80,
+								top: 30,
+								bottom: 30
+							},
+							series: [
+								{
+									name: 'API接口支撑应用增长率',
+								 	yAxisIndex:1,
+						            type: "line",
+									data: apiData,
+									itemStyle: {
+										normal: {
+											color: '#FF9714',
+											lineStyle: {
+												normal: {
+													color: '#FF9714'
+												}
+											},
+											label: {
+												show: false,
+												color: '#fff',
+											},
+											lineStyle: {
+												width: 1 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								},
+							]
+						};
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	            })    
+	            
+				
+				
+				
+			}
+			
+			//API接口开通增长率
+			chartAPIkt(echartData);
+			function chartAPIkt(echartData) {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getApiApplicationRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	console.log(res.data)
+                	// 数据处理
+						var time = [];
+						var dataList = [];
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								item.proportion=parseInt((item.apiOpenNumber-arr[a].apiOpenNumber)/arr[a].apiOpenNumber.toFixed(2) *100)
+								a++
+							})
+							res.data[0].proportion = '0'
+							time.push(v.dataPeriod);
+							dataList.push(v.proportion);
+						});
+						// 数据处理 end
+						var dom = document.getElementById("formService_APIkt");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : {c}%"
+							},
+							xAxis: {
+								type: 'category',
+								name: '',
+								boundaryGap: true,
+								data: time,
+								splitLine: {
+									show: false
+								},
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+									},
+									//		                    rotate:30
+								},
+							},
+							yAxis: {
+								type: 'value',
+								axisTick: {
+									inside: true
+								},
+								scale: true,
+								type: 'value',
+								minInterval: 10,
+								axisLabel: {
+									margin: 0,
+									formatter: '{value}%', //右侧以百分比进行展示
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 80,
+								right: 80,
+								top: 30,
+								bottom: 30
+							},
+							series: [{
+								data: dataList,
+								type: 'line',
+								itemStyle: {
+									normal: {
+										color: '#2fb795',
+										lineStyle: {
+											normal: {
+												color: '#2fb795'
+											}
+										},
+										label: {
+											show: true,
+											color: '#fff',
+										},
+										lineStyle: {
+											width: 1.5 // 0.1的线条是非常细的了
+										}
+									}
+								},
+								areaStyle: {
+									normal: {
+										barBorderRadius: 30,
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+											offset: 1,
+											color: 'rgba(13,246,238,0.1)'
+										}, {
+											offset: 0,
+											color: 'rgba(13,246,238,1)'
+										}]),
+									}
+								}
+							}],
+							axisLabel: {
+								color: "#000",
+								interval: 0,
+								formatter: function(value) {
+									if(value.length > 12) {
+										return value.substring(0, 12) + "...";
+									} else {
+										return value;
+									}
+								}
+							}
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+				
+			}
+			// 共性组件增长率
+			chartGxzj();
+			function chartGxzj() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getComponentApplicationRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						var componentApplicationNumber = [];
+						var time=[];
+						$.each(res.data, function(i, v) {
+							componentApplicationNumber.push(v.componentApplicationNumber)
+							time.push(v.dataPeriod)
+						})
+						// 数据处理 end
+						var dom = document.getElementById("formService_gxzj");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+							 	trigger: 'axis'
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0)'
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [{
+								nameLocation: 'end',
+								type: 'value',
+//								min: 0,
+//								max: 5000, //设置左侧最大值
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								
+							},{
+									type: 'value',
+									splitLine: {
+										show: false,
+									},
+//									max: 100,
+//									min: 0,
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									},
+									axisTick: { show: false },
+									axisLabel: {
+										formatter: '{value}%', //右侧以百分比进行展示
+										show: true,
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '12'
+										}
+									}
+									// boundaryGap: [0.2, 0.2]
+								}],
+							grid: {
+								left: 80,
+								right: 80,
+								top: 30,
+								bottom: 30
+							},
+							series: [
+								{
+									name: '共性组件率',
+									type: 'line',
+									data: componentApplicationNumber,
+									itemStyle: {
+										normal: {
+											color: '#D4963C',
+											lineStyle: {
+												width: 2 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								},
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	           	})
+				
+			}
+			$('#tabReturn').click(function(){
+				window.history.go(-1);//返回上一页
+			})
+			$(".c_txt_ts").mouseover(function() {
+				$(this).find(".tsTxt").toggle();
+			});
+			$(".c_txt_ts").mouseout(function() {
+				$(".tsTxt").hide();
+			})
+			function overShow(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:block;");
+
+			}
+			function outHide(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:none;");
+			}
+		</script>
+	</body>
+
+</html>

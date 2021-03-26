@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Description" content="">
+  <title>筛选</title>
+
+ </head>
+ <body>
+ <input type="radio" name="sex" value="1"/>1237
+ <input type="radio" name="sex" value="2"/>1236
+ <input type="radio" name="sex" value="3"/>1235
+ <input type="radio" name="sex" value="4"/>1234
+
+<button>点我</button>
+ <hr/>
+ </body>
+</html>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+    $("button").click(function(){
+        $("input").each(function(){
+            if( $(this).is(':checked') ){
+                alert(2);
+            }else{
+                alert(1);
+            }
+        })
+
+    })
+</script>

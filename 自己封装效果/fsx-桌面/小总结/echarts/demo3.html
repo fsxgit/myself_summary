@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>echarts_demo</title>
+</head>
+<body>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="container" style="height: 500px; width: 500px; margin:0 auto;"></div>
+
+<script src="js/echarts.min.js"></script>
+<script type="text/javascript">
+  // 基于准备好的dom，初始化echarts实例
+  // 浏览时间段分布
+  chart2();
+  function chart2() {
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null;
+    option = {
+      xAxis: {
+        type: 'category',
+        name: '时间',
+        boundaryGap: false,
+        data: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00']
+      },yAxis: {
+        type: 'value',
+        name: '浏览量',
+        axisTick: {
+          inside: true
+        },
+        scale: true,
+        axisLabel: {
+          margin: 2,
+          formatter: function (value, index) {
+            if (value >= 10000 && value < 10000000) {
+              value = value / 10000 + "万";
+            } else if (value >= 10000000) {
+              value = value / 10000000 + "千万";
+            }
+            return value;
+          }
+        }
+      },
+      grid: {
+        left: 50,
+        right: 50
+      },
+      series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 3320],
+        type: 'line',
+        areaStyle: {}
+      }],
+      axisLabel: {
+        color: "#000",
+        interval: 0,
+        formatter: function (value) {
+          if (value.length > 12) {
+            return value.substring(0, 12) + "...";
+          } else {
+            return value;
+          }
+        }
+      }
+    };
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  }
+</script>
+</body>
+</html>

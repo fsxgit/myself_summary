@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=4.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>数据开放</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="css/dataOpening.css" />
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div class="dataOpen">
+			<div class="dataOpen_centext">
+				<div class="dataOpen_header">
+					<img class="return" id="tabReturn" src="images/return.png" />
+				</div>
+				<div class="dataOpen_content">
+					<div style="width: 100%;display: flex;">
+						<div class="dataOpen_sjgx">
+							<div class="titleBox">
+								<div class="title" id="fenshu">
+								</div>
+								<div class="c_txt_ts" style="margin-left: 1rem;">
+									<img src="images/ts.png" alt="">
+									<div class="tsTxt tsTxt_a">
+										<div class="center">
+											<div class="icon_title">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												北京市“数据开放”工作整体得分
+											</div>
+											<div class="icon_title">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												综合指标内各方面数据
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每月
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<ul class="prompt">
+								<li>
+									<img src="images/dot1.png" />
+									<p>风险<60分</p>
+								</li>
+								<li>
+									<img src="images/dot2.png" />
+									<p>预警60-80分</p>
+								</li>
+								<li>
+									<img src="images/dot3.png" />
+									<p>健康>80分</p>
+								</li>
+							</ul>
+							<div style="display: flex;justify-content: space-between;">
+								<div class="charts_sjgx" style="margin:0 auto;">
+									<div id="charts_sjgx" style="width: 3rem; height: 2rem;margin-left: -0.5rem;"></div>
+								</div>
+							</div>
+							<div class="charts_dfqk" style="margin:0 auto;">
+								<div class="c_txt_ts zindex1" style="margin-right: 0.2rem;margin-bottom: 0.1rem;">
+									<img src="images/ts.png" alt="">
+									<div class="tsTxt tsTxt_a">
+										<div class="center">
+											<div class="icon_title">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												北京市“数据开放”工作近期得分趋势
+											</div>
+											<div class="text">
+												综合指标内各方面数据
+											</div>
+											<div class="icon_title">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												综合指标内各方面数据
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每月
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="charts_dfqk" style="width: 4.3rem; height: 1.4rem;"></div>
+							</div>
+						</div>
+						<div style="flex: 1;">
+							<div class="dataOpen_dz dataOpening_dz">
+								<div class="dz_view">
+									<ul class="dz_viewRight">
+										<li>
+											<div style="display: flex;align-items: center;justify-content: center;">
+												<div class="title">
+													<img src="images/data_daohang.png"/>
+													数据可开放率
+													<img src="images/data_daohang.png"/>
+												</div>
+												<div class="c_txt_ts" style="padding: 0;">
+													<img src="images/ts.png" alt="">
+													<div class="tsTxt tsTxt_a">
+														<div class="center">
+															<div class="icon_title">
+																<img src="images/txton.png" /> 图表说明
+															</div>
+															<div class="text">
+																反映全市可开放的数据占数据总量的比例情况
+															</div>
+															<div class="icon_titleA">
+																<img src="images/txton.png" /> 计算方法
+															</div>
+															<div class="text">
+																可开放率=（目录链可开放数据项数/目录链内所有数据项总数）*100%
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<div id="chart_gx1" style="width: 2.4rem;height: 1.2rem;"></div>
+										</li>
+										<li>
+											<div style="display: flex;align-items: center;justify-content: center;">
+												<div class="title">
+													<img src="images/data_daohang.png"/>
+													数据开放率
+													<img src="images/data_daohang.png"/>
+												</div>
+												<div class="c_txt_ts" style="padding: 0;">
+													<img src="images/ts.png" alt="">
+													<div class="tsTxt tsTxt_a">
+														<div class="center">
+															<div class="icon_title" style="margin-top: 0.1rem;">
+																<img src="images/txton.png" /> 图表说明
+															</div>
+															<div class="text">
+																未实际开放、实际开放
+															</div>
+															<div class="icon_titleA">
+																<img src="images/txton.png" /> 计算方法
+															</div>
+															<div class="text">
+																无条件开放率=（DATA网站实际开放数据项/计划可开放数据项数）*100%
+															</div>
+															<div class="icon_titleA">
+																<img src="images/txton.png" /> 数据来源
+															</div>
+															<div class="text">
+																/
+															</div>
+															<div class="icon_titleA">
+																<img src="images/txton.png" /> 统计周期
+															</div>
+															<div class="text">
+																每月
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="chart_gx2" style="width: 2.4rem;height: 1.2rem;"></div>
+										</li>
+										<li>
+											<div style="display: flex;align-items: center;justify-content: center;">
+												<div class="title" style="width: 1.3rem;">
+													<img src="images/data_daohang.png"/>
+													开放数据答复率
+													<img src="images/data_daohang.png"/>
+												</div>
+												<div class="c_txt_ts" style="padding: 0;">
+													<img src="images/ts.png" alt="">
+													<div class="tsTxt w300 tsTxt_a ">
+														<div class="center">
+															<div class="icon_title" style="margin-top: 0.1rem;">
+																<img src="images/txton.png" /> 图表说明
+															</div>
+															<div class="text">
+																全市社会单位申请开放数据的答复情况
+															</div>
+															<div class="icon_titleA">
+																<img src="images/txton.png" /> 计算方法
+															</div>
+															<div class="text">
+																答复率=（获取答复的开放数据申请数量/开放数据申请总数量）*100%  
+															</div>
+															<div class="icon_title">
+																<img src="images/txton.png" /> 数据来源
+															</div>
+															<div class="text">
+																DATA网站
+															</div>
+															<div class="icon_titleA">
+																<img src="images/txton.png" /> 统计周期
+															</div>
+															<div class="text">
+																每周
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="chart_gx3" style="width: 2.4rem;height: 1.2rem;"></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div style="margin-left: 0.15rem; flex: 1; display: flex;">
+								<div class="sjjh">
+									<div class="title">开放数据使用频次<br /></div>
+									<div class="rule">
+										<span><img src="images/dot2.png" alt="">开放数据使用频次</span>
+										<span><img src="images/dot6.png" alt="">开放数据使用频次增长率</span>
+										<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+											<img src="images/ts.png" alt="">
+											<div class="tsTxt zx_tsTxt">
+												<div class="center">
+													<div class="icon_title">
+														<img src="images/txton.png" /> 图表说明
+													</div>
+													<div class="text">
+														反映全市开放数据的使用频次情况
+													</div>
+													<div class="icon_titleA">
+														<img src="images/txton.png" /> 计算方法
+													</div>
+													<div class="text">
+														开放数据集下载次数+开放数据集API接口调用次数
+													</div>
+													<div class="icon_titleA">
+														<img src="images/txton.png" /> 数据来源
+													</div>
+													<div class="text">
+														DATA网站
+													</div>
+													<div class="icon_titleA">
+														<img src="images/txton.png" /> 统计周期
+													</div>
+													<div class="text">
+														每周
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="chart_sjjh" style="width: 4rem;height: 1.8rem;"></div>
+								</div>
+								<div class="gxjk">
+									<div class="title">数据开放参与度</div>
+									<div class="c_txt_ts zindex1" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+										<img src="images/ts.png" alt="">
+										<div class="tsTxt zx_tsTxt">
+											<div class="center">
+												<div class="icon_title" style="margin-top: 0.1rem;">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													反映全市数据开放工作的参与程度
+												</div>
+												<div class="icon_titleA">
+													<img src="images/txton.png" /> 计算方法
+												</div>
+												<div class="text">
+													参与度=（提供数据开放的单位数量／目录链上所有单位总数）*100%
+												</div>
+												<div class="icon_titleA">
+													<img src="images/txton.png" /> 数据来源
+												</div>
+												<div class="text">
+													DATA网站
+												</div>
+												<div class="icon_titleA">
+													<img src="images/txton.png" /> 统计周期
+												</div>
+												<div class="text">
+													每周
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="chart_kfcy" style="width: 4rem;height: 1.6rem;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--底部内容-->
+					<div style="width: 100%;display: flex;margin-top: 0.1rem;">
+						<div class="dataOpen_bmpmBox">
+							<div class="titleBox">
+								<div class="title">部门排名 <i>top5</i></div>
+								<div class="c_txt_ts">
+									<img src="images/ts.png" alt="">
+									<div class="tsTxt tsTxt_a">
+										<div class="center">
+											<div class="icon_title">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												北京市“数据开放”工作所有委办局得分对比前五名
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="dataOpen_bmpmList bmpmList_box">
+								<ul id="bmpmList">
+								</ul>
+							</div>
+						</div>
+						<div class="dataOpen_gxpm">
+							<div class="gxpm_title">数据开放率排名</div>
+							<div class="rule">
+								<span><img src="images/dot2.png" alt="">实际开放数据项</span>
+								<span><img src="images/dot6.png" alt="">未实际开放数据项</span>
+								<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+									<img src="images/ts.png" alt="">
+									<div class="tsTxt tsTxt_top zx_tsTxt top270">
+										<div class="center">
+											<div class="icon_title">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												全市所有委办局数据开放率的排名对比
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												无条件开放率=（DATA网站实际开放数据项/计划可开放数据项数）*100%
+											</div>
+											<div class="icon_title">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												DATA网站
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text" style="margin-bottom: 0.3rem;">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="chart_gxpm" style="width: 9.5rem; height: 1.6rem;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/jquery.min.js"></script>
+		<script src="common/echarts.min.js"></script>
+		
+		<script type="text/javascript">
+			var search = window.location.search;
+			var id = getSearchString('id', search); //结果：2
+			function getSearchString(key, Url) {
+			    var str = Url;
+			    str = str.substring(1, str.length); // 获取URL中?之后的字符（去掉第一位的问号）
+			    var arr = str.split("&");
+			    var obj = new Object();
+			    for (var i = 0; i < arr.length; i++) {
+			        var tmp_arr = arr[i].split("=");
+			        obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+			    }
+			    return obj[key];
+			}
+			//数据共享
+			chartSjgx()
+			function chartSjgx() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataApply?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	let Data = res.data;
+	                	let img;
+	                	let score;
+	                	for(let i in Data){
+	                		if(Data[i].type==20){
+	                			score=Data[i].score
+                				if(score < 60){
+	                			 	img = "./images/lamp_r.png"
+	            			 	} else if(score > 80){
+	        			 			img = "./images/lamp_g.png"
+	            			 	}else{
+	            			 		img = "./images/lamp_y.png"
+	            			 	}
+	                		}
+	                	}
+	                	let dataLIst=`
+	                		<img src="${img}" />
+							<p style="margin-left: 0px;">数据开放 <i>${score}</i>分</p>
+	                	`
+	                	$('#fenshu').html(dataLIst)
+	                	let chart = document.getElementById("charts_sjgx");
+						let myChart = echarts.init(chart);
+						let option = {
+							series: [{
+									name: '业务指标',
+									type: 'gauge',
+									min: 0,
+									max: 100,
+									splitNumber: 10,
+									radius: '80%',
+									title: {
+										textStyle: {
+											color: "#0CD7D8"
+										}
+									},
+									axisLabel: { // 坐标轴小标记 刻度数字颜色
+										fontWeight: 'bolder',
+										color: '#5B699D',
+										shadowColor: '#fff', //默认透明
+										shadowBlur: 10
+									},
+									detail: {
+										formatter: '{value}%'
+									}, //仪表盘显示数据
+									axisLine: { //仪表盘样式
+										lineStyle: { // 属性lineStyle控制线条样式
+											color: [
+												[0.18, '#4CF59F'],
+												[0.82, '#1e90ff'],
+												[1, '#4CF59F']
+											],
+											width: 3,
+											shadowColor: '#fff', //默认透明
+											shadowBlur: 10
+										},
+									},
+									splitLine: { //分割线样式
+										length: 10
+									},
+									itemStyle:{
+										color:"#1e90ff"
+									},
+									detail: {
+										borderWidth: 2,
+										borderRadius: 3,
+										borderColor: '#0B8AB1',
+										shadowColor: '#0B8AB1', //默认透明
+										shadowBlur: 5,
+										offsetCenter: [0, '-40%'], // 显示位置 x, y，单位px
+										textStyle: {
+											fontSize: 16,
+											color: '#EA9538',
+										},
+										padding: [4, 10, 0, 10]
+									},
+									pointer: {
+										width: 8,
+										length: '45%'
+									},
+									data: [{
+										value: score
+									}],
+		
+								}
+		
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option);
+						}
+	            	}
+            	})
+				
+			}
+			
+			//数据共享得分情况
+			var echartData = [{
+					"name": "2019.06",
+					"num": "80"
+				},
+				{
+					"name": "2019.08",
+					"num": "80"
+				},
+				{
+					"name": "2019.10",
+					"num": "85"
+				},
+				{
+					"name": "2019.12",
+					"num": "90"
+				},
+				{
+					"name": "2020.02",
+					"num": "93"
+				}
+			];
+			//得分趋势
+			chartDfqk(echartData);
+			function chartDfqk(echartData) {
+				$.ajax({
+					type: "get",
+					url: "http://47.56.170.82:8080/api/dataapply/getScore?departmentId="+id+"&type=20",
+					dataType: "json",
+					headers: {
+						"content-type": "application/json;charset=utf-8"
+					},
+					success: function(res) {
+						// 数据处理
+						var xData = [];
+						var yData = [];
+						$.each(res.data, function(i, v) {
+							xData.push(v.dataPeriod);
+							yData.push(v.score);
+						});
+						var dom = document.getElementById("charts_dfqk");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : {c}"
+							},
+							xAxis: {
+								type: 'category',
+								name: '',
+								boundaryGap: true,
+								data: xData,
+								splitLine: {
+									show: false
+								},
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+									},
+									//		                    rotate:30
+								},
+							},
+							yAxis: {
+								type: 'value',
+								name: '分',
+		
+								axisTick: {
+									inside: true
+								},
+								scale: true,
+								max: 100,
+								type: 'value',
+								minInterval: 10,
+								axisLabel: {
+									margin: 0,
+									formatter: function(value, index) {
+										if(value >= 10000 && value < 10000000) {
+											value = value / 10000 + "万";
+										} else if(value >= 10000000) {
+											value = value / 10000000 + "千万";
+										}
+										return value;
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 50,
+								right: 30,
+								top: 30,
+								bottom: 30
+							},
+							series: [{
+								data: yData,
+								type: 'line',
+								itemStyle: {
+									normal: {
+										color: '#2fb795',
+										lineStyle: {
+											normal: {
+												color: '#2fb795'
+											}
+										},
+										label: {
+											show: true,
+											color: '#fff',
+										},
+										lineStyle: {
+											width: 1.5 // 0.1的线条是非常细的了
+										}
+									}
+								},
+								areaStyle: {
+									normal: {
+										barBorderRadius: 30,
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+											offset: 1,
+											color: 'rgba(13,246,238,0.1)'
+										}, {
+											offset: 0,
+											color: 'rgba(13,246,238,1)'
+										}]),
+									}
+								}
+							}],
+							axisLabel: {
+								color: "#000",
+								interval: 0,
+								formatter: function(value) {
+									if(value.length > 12) {
+										return value.substring(0, 12) + "...";
+									} else {
+										return value;
+									}
+								}
+							}
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+			}
+			//部门排名
+			bmpm()
+			function bmpm(){
+				let bmpmHtml=''
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getRank?type=4",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	console.log(res.data)
+	                	for(let i in res.data){
+	                		if(res.data[i].scoreTrend<0){
+	                			res.data[i].src='./images/down.png'
+	                			res.data[i].srcTit="较上个月下降"
+	                		}else{
+	                			res.data[i].src='./images/up.png'
+	                			res.data[i].srcTit="较上个月上升"
+	                		}
+	                		bmpmHtml+=`
+								<li>
+									<div class="bmpmList_title">
+										<div class="rank">${res.data[i].ranking}</div>
+										<div class="name" style="width:1rem">${res.data[i].departmentName}</div>
+									</div>
+									<div class="">${res.data[i].score}</div>
+									<div class="status positioning center_y" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<img src="${res.data[i].src}" alt=""> ${Math.abs(res.data[i].scoreTrend)}
+										<div class="bounced bounced_bmpm">
+											${res.data[i].srcTit}
+											${Math.abs(res.data[i].scoreTrend)}
+										</div>
+									</div>
+								</li>
+	                		`
+	                	}
+	                	$('#bmpmList').html(bmpmHtml)
+	                }
+	          })
+			}
+			
+			//数据可开放率
+			chartGx1();
+			function chartGx1() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDataopenRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 21,
+								name: '可开放数据'
+							},
+							{
+								value: 79,
+								name: '不可开放数据'
+							}
+						];
+						dataList[0].value=res.data[0].canOpenData
+						dataList[1].value=res.data[0].totalOpenData-res.data[0].canOpenData
+						// 数据处理 end
+						var dom = document.getElementById("chart_gx1");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b} : {c} ({d}%)"
+							},
+							color: ['#0CE9E0', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								//						startAngle: 180,
+								clockwise: false,
+								name: '数据可开放率',
+								type: 'pie',
+								radius: ['18%', '65%'],
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									borderWidth: 5,
+									borderColor: "#02318F",
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)',
+										borderColor:"none"
+									}
+								}
+							}]
+						}
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			
+			//数据开放率
+			chartGx2();
+			function chartGx2() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDataopenRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let echartData = [{
+								value: 21,
+								name: '实际开放'
+							},
+							{
+								value: 79,
+								name: '未实际开放'
+							}
+						];
+						echartData[0].value=res.data[0].openData
+						echartData[1].value=res.data[0].canOpenData-res.data[0].openData
+						
+						// 数据处理 end
+						var dom = document.getElementById("chart_gx2");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : {c} ({d}%)"
+							},
+							color: ['#F3A52E', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								//						startAngle: 180,
+								clockwise: false,
+								name: '数据开放率',
+								type: 'pie',
+								radius: '60%',
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								//						roseType: 'radius',
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: echartData,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)'
+									}
+								}
+							}]
+						}
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+
+			//开放数据答复率
+			chartGx3();
+			function chartGx3() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getOpenDataReplyRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 670,
+								name: '答复申请'
+							},
+							{
+								value: 330,
+								name: '未答复申请'
+							}
+						];
+						dataList[0].value=res.data[0].replyOpenData
+						dataList[1].value=res.data[0].noReplyOpenData
+						// 数据处理 end
+						var dom = document.getElementById("chart_gx3");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b} : {c} ({d}%)"
+							},
+							color: ['#048bff', '#BA25FF'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								name: '社会数据共享覆盖量',
+								type: 'pie',
+								radius: ['18%', '60%'],
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 5,
+										length2: 3,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(128, 128, 128, 0.5)'
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			//开放数据使用频次增长率
+			chartSjjh();
+			function chartSjjh() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getOpenDataUseNumber?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						var openDataNumber = [];
+						var time=[]
+						var proportion=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								let presentCycle=item.openDataDownloadNumer+item.openDataApiCallNumber;
+								let periodicity=arr[a].openDataDownloadNumer+arr[a].openDataApiCallNumber;
+								item.proportion=parseInt((presentCycle-periodicity)/periodicity.toFixed(2))
+								a++
+							})
+							res.data[0].proportion = '-'
+							openDataNumber.push(v.openDataDownloadNumer+v.openDataApiCallNumber)
+							proportion.push(v.proportion)
+							time.push(v.dataPeriod)
+						})
+						// 数据处理 end
+						var dom = document.getElementById("chart_sjjh");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'axis',
+								axisPointer: {
+									type: 'shadow'
+								},
+								formatter: '{b0}<br/>{a0}: {c0}<br />{a1}: {c1}%<br />'
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0)'
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [{
+								name: '条',
+								nameLocation: 'end',
+								type: 'value',
+		//						min: 0,
+		//						max: 5000, //设置左侧最大值
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							},{
+									type: 'value',
+									splitLine: {
+										show: false,
+									},
+//									max: 100,
+//									min: 0,
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									},
+									axisTick: { show: false },
+									axisLabel: {
+										formatter: '{value}%', //右侧以百分比进行展示
+										show: true,
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '12'
+										}
+									}
+								}],
+							grid: {
+								left: 70,
+								right: 30,
+								top: 30,
+								bottom: 70
+							},
+							series: [
+								{
+									name: '开放数据使用频次',
+									type: 'bar',
+									itemStyle: {
+										barBorderRadius: 30,
+										color: "#EC9C35"
+									},
+									data: openDataNumber,
+									barWidth: 12, //柱图宽度
+								},
+								{
+									name: '开放数据使用频次增长率',
+									type: 'line',
+									data: proportion,
+									yAxisIndex: 1,
+									itemStyle: {
+										normal: {
+											color: '#0995C2',
+											lineStyle: {
+												normal: {
+													color: '#0995C2'
+												}
+											},
+											label: {
+												show: false,
+												color: '#fff',
+											},
+											lineStyle: {
+												width: 1 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								}
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	           	})
+			}
+			//数据开放参与度
+			chartKfcy();
+			function chartKfcy() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDataOpenParticipate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 21,
+								name: '提供数据开放的部门',
+								text:"提供数据开放的部门"
+							},
+							{
+								value: 90,
+								name: '未提供数据开放的部门',
+								text:"未提供数据开放的部门"
+						}];
+						dataList[0].value=res.data[0].provideDataOpenDepartment
+						dataList[1].value=res.data[0].noDataOpenDepartment
+						// 数据处理 end
+						var dom = document.getElementById("chart_kfcy");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b} : {c}"
+		//						formatter: function(e){
+		//							return (e.seriesName + "</br>" + e.data.text +":" + e.data.value)
+		//						}
+							},
+							color: ['#E6A749', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								name: '数据开放参与度',
+								type: 'pie',
+								radius: ['18%', '60%'],
+								center: ['50%', '60%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									borderWidth: 5,
+									borderColor: "#002980",
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)',
+										borderColor:"none"
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			
+			function sortNumber(a,b){
+				return  b - a
+			}
+			//数据开放率排名
+			chartGxpm()
+			function chartGxpm() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataOpenRateRank",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						var openData = [];
+						var noOpenData=[]
+						var name=[]
+						$.each(res.data, function(i, v) {
+							openData.push(v.openData)
+							noOpenData.push(v.noOpenData)
+							name.push(v.departmentName)
+						})
+						var dom = document.getElementById("chart_gxpm");
+						var myChart = echarts.init(dom);
+						var option = {
+							color: ['#00E4FA', '#E29738'],
+							tooltip: {},
+							xAxis: {
+								data: name,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#2F4C9B',
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									formatter: function(value) {
+										return value.split("").join("\n");
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+										fontSize:10
+									},
+		
+								}
+							},
+							yAxis: {
+								splitNumber: 4,
+								min: 0,
+								max: 600,
+								splitArea: {
+									show: false
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变Y轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 40,
+								right: 40,
+								top: 10,
+								bottom: 110
+							},
+							series: [{
+									name: '实际开放数据项',
+									type: 'bar',
+									stack: 'one',
+									data: openData.sort(sortNumber),
+									barWidth: 12, //柱图宽度
+								},
+								{
+									name: '未实际开放数据项 ',
+									type: 'bar',
+									stack: 'one',
+									data: noOpenData,
+									barWidth: 12, //柱图宽度
+								}
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	           	})
+				
+			}
+			$(".c_txt_ts").mouseover(function() {
+				$(this).find(".tsTxt").toggle();
+			});
+			$(".c_txt_ts").mouseout(function() {
+				$(".tsTxt").hide();
+			})
+			function overShow(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:block;");
+
+			}
+			function outHide(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:none;");
+			}
+			$('#tabReturn').click(function(){
+				window.history.go(-1);//返回上一页
+			})
+		</script>
+	</body>
+
+</html>

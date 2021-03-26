@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select name="" id="selid">
+    <option value="1">2</option>
+    <option value="2" disabled>3</option>
+    <option value="3">4</option>
+    <option value="4" selected>5</option>
+    <option value="5">6</option>
+    <option value="6">7</option>
+</select>
+<select name="" id="selxz">
+    <option value="1">2</option>
+    <option value="2" selected>3</option>
+    <option value="3">4</option>
+    <option value="4">5</option>
+    <option value="5">6</option>
+    <option value="6">7</option>
+</select>
+<script src="jquery.min.js"></script>
+<script>
+    var zhi = $("#selid option:selected").text();
+    alert(zhi);
+    $("#selid option").each(function(){
+        if($(this).is(":selected")){
+            alert($(this).val());
+            alert($(this).text());
+        }
+    });
+
+    $("#selxz option").eq(5).attr("selected",true);
+</script>
+</body>
+</html>

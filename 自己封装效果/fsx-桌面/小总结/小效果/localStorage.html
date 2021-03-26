@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button data-id="kfjsdkljkljlowie">存储1</button><br /><br />
+<button data-id="kfjs232423jlowie">存储2</button><br /><br />
+<button data-id="k78i789jlowie">存储3</button><br /><br />
+
+<button data-sid="kfjsdkljkljlowie">读取1</button><br /><br />
+<button data-sid="kfjs232423jlowie">读取2</button><br /><br />
+<button data-sid="k78i789jlowie">读取3</button><br /><br />
+<script src="jquery.min.js"></script>
+<script>
+    $("button").click(function(){
+        var id = $(this).data("id");
+        var sid = $(this).data("sid");
+        var text = $(this).text();
+        if(id){
+            localStorage.setItem(id,text);
+        }else{
+            var a= localStorage.getItem(sid);
+            alert(a);
+        }
+
+    })
+</script>
+</body>
+</html>

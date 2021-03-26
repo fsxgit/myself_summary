@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    //    通过正则获取href的hid的参数
+    //    1.获取href
+    var lhref = 'http://www.fsx.com/index.php?g=Home&m=Index&a=index&hid=123';
+    //    2.构造正则
+    var reg = /&hid=\d+/;
+    //    3.获取匹配字符串
+    var str = lhref.match(reg);
+    //    alert(str);
+    //    截取字符串中数字的部分
+    //    注意，这里先要把str变成string，否则str.substring(5)不解析，报错
+    str = str.toString();
+    var num = str.substring(5);
+    alert(num);
+</script>
+</body>
+</html>

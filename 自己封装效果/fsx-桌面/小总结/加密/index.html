@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>进制转换</title>
+</head>
+<body>
+<h1>PC端把字符串转换为16位加密的字符的方法</h1>
+<script type="text/javascript">
+  var str = "1";
+
+  var str2utf8 = window.TextEncoder ? function(str) {
+    console.log("支持");
+    var encoder = new TextEncoder('utf8');
+    var bytes = encoder.encode(str);
+    var result = '';
+    for(var i = 0; i < bytes.length; ++i) {
+      result += String.fromCharCode(bytes[i]);
+    }
+    return result;
+  } : function(str) {
+    console.log("不支持");
+    return eval('\''+encodeURI(str).replace(/%/gm, '\\x')+'\'');
+  };
+
+  function stringToHex(str){
+    str = str2utf8(str);
+    var val="";
+    for(var i = 0; i < str.length; i++){
+      if(val == "")
+        val = str.charCodeAt(i).toString(16);
+      else
+        val += "," + str.charCodeAt(i).toString(16);
+    }
+    return val.replace(/,/g,"");
+  }
+
+  console.log("方法二："+ stringToHex(str));
+</script>
+</body>
+</html>

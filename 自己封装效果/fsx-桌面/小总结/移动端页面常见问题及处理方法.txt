@@ -1,0 +1,41 @@
+
+移动端常见问题及解决方法：
+
+1、在ios微信中，有输入框时，键盘弹起消失后，页面不回弹
+window.addEventListener('focusout', function () {
+  document.body.scrollTop = document.body.scrollHeight;
+  window.scroll(0, 0);
+});
+
+2、在ios中底部固定定位的按钮，在页面内容不能够填充整个body时，底部按钮被遮挡
+	html{height:100%;}
+	body{min-height:100%;}
+	
+3、在ios中div超出滚动时，滑动不流畅
+	给滚动的div添加属性：
+	div{}
+	
+4、取消input输入框自动填充默认记录的账号密码功能
+
+5、在ios微信中，有输入框，底部还有固定按钮时，键盘弹起时按钮被顶起，键盘消失后，按钮不回到底部
+$("body").on("focus","input,textarea",function(){
+	// 获取焦点时隐藏底部按钮
+  $(".calc_teach_share").hide();
+  $(".c_bot_gap").hide();
+});
+$("body").on("blur","input,textarea",function(){
+	// 失去焦点时显示底部按钮
+  $(".calc_teach_share").show();
+  $(".c_bot_gap").show();
+  // 并回弹页面
+  document.body.scrollTop = document.body.scrollHeight;
+  window.scroll(0, 0);
+});
+
+
+7、pc端：input、textarea 表单在火狐浏览器会出现刷新页面，上次输入的信息还保留的问题，会造成表单的重复提交问题
+	解决方法：给所有 input加上 autocomplete="off"
+8、pc端：<input type="file" accept="video/*" > 在Safari浏览器不能选择.mp4文件。
+	解决方法：去掉  accept="video/*" 的限制，即可。
+	
+9、好多浏览器对行高支持不友好，所以用的行高居中的地方的时候尽量使用padding 来撑开，

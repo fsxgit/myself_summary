@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=4.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>数据共享</title>
+		<link rel="stylesheet" href="../css/base.css">
+		<link rel="stylesheet" type="text/css" href="../css/three.css" />
+		<link rel="stylesheet" type="text/css" href="../css/jindutiao.css"/>
+	</head>
+
+	<body>
+		<div class="dataBox">
+			<div class="dataBox_centext">
+				<div class="dataBox_header">
+					<img class="return" id="tabReturn" src="../images/return.png" />
+				</div>
+				<div class="dataBox_content">
+					<div style="width: 100%;display: flex;">
+						<div class="dataBox_sjgx" style="height: 6rem;">
+							<div class="titleBox">
+								<div class="title" id="fenshu">
+								</div>
+								<div class="c_txt_ts" style="margin-left: 1rem;">
+									<img src="../images/ts.png" alt="">
+									<div class="tsTxt tsTxt_a">
+										<div class="center">
+											<div class="icon_title">
+												<img src="../images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												本委办局“数据共享”工作整体得分
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<ul class="prompt">
+								<li>
+									<img src="../images/dot1.png" />
+									<p>风险<60分</p>
+								</li>
+								<li>
+									<img src="../images/dot2.png" />
+									<p>预警60-80分</p>
+								</li>
+								<li>
+									<img src="../images/dot3.png" />
+									<p>健康>80分</p>
+								</li>
+							</ul>
+							<div style="display: flex;justify-content: space-between;">
+								<div style="width: 50%;">
+									<div class="fensug" style="margin-top: 0.2rem;">
+										<div class="wavenum "><b id="dianzan"></b><tt>共享数据点赞率</tt></div>
+										<div class="waven">
+											<div class="wave">&nbsp;</div>
+										</div>
+									</div>
+								</div>
+								<div class="charts_sjgx" style="margin:0 auto;">
+									<div id="charts_sjgx" style="width: 3rem; height: 2rem;margin-left: -0.5rem;"></div>
+								</div>
+							</div>
+							<div class="charts_dfqk" style="margin:0 auto;margin-top: 0.3rem;">
+								<div class="c_txt_ts zindex1" style="margin-right: 0.2rem;margin-bottom: 0.1rem;">
+									<img src="../images/ts.png" alt="">
+									<div class="tsTxt tsTxt_a">
+										<div class="center">
+											<div class="icon_title">
+												<img src="../images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												本委办局“数据共享”工作近期得分趋势
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="charts_dfqk" style="margin-top: 0.8rem; width: 4.3rem; height: 2rem;"></div>
+							</div>
+						</div>
+						<div style="flex: 1;">
+							<div class="dataBox_dz" style="height: 2.95rem;">
+								<div id="gongxiangfg" class="gongxiangfg">
+									<!--<img src="../images/yes.png"/>
+									<p style="margin-left: 0px;">社会数据共享单位覆盖情况</p>-->
+								</div>
+								<div class="c_txt_ts" style="padding: 0;margin-top: -0.15rem;margin-right: 0.2rem;">
+									<img src="../images/ts.png" alt="">
+									<div class="tsTxt">
+										<div class="center">
+											<div class="text">
+												本委办局是否共享统采社会数据（是，否）
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dz_view">
+									
+									<ul class="dz_viewRight">
+										<li style="width: 50%;">
+											<div style="display: flex;align-items: center;justify-content: center;">
+												<div class="title">
+													<img src="../images/data_daohang.png"/>
+													数据可共享率
+													<img src="../images/data_daohang.png"/>
+												</div>
+												<div class="c_txt_ts" style="padding: 0;">
+													<img src="../images/ts.png" alt="">
+													<div class="tsTxt">
+														<div class="center">
+															<div class="icon_title" style="margin-top: 0.1rem;">
+																<img src="../images/txton.png" /> 图表说明
+															</div>
+															<div class="text">
+																反映本委办局可共享数据项数量占数据项总量的比例情况
+															</div>
+															<div class="icon_titleA">
+																<img src="../images/txton.png" /> 计算方法
+															</div>
+															<div class="text">
+																可共享率=（（本委办局有条件共享数据项+本委办局无条件共享数据项）/本委办局目录链内所有数据项总数）*100%
+															</div>
+															<div class="icon_titleA">
+																<img src="../images/txton.png" /> 数据来源
+															</div>
+															<div class="text">
+																目录链
+															</div>
+															<div class="icon_titleA">
+																<img src="../images/txton.png" /> 统计周期
+															</div>
+															<div class="text">
+																每周
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="chart_gx1" style="width: 100%;height: 1.7rem;"></div>
+										</li>
+										<li style="width: 50%;">
+											<div style="display: flex;align-items: center;justify-content: center;">
+												<div class="title" style="width: 1.2rem;">
+													<img src="../images/data_daohang.png"/>
+														数据共享率
+													<img src="../images/data_daohang.png"/>
+												</div>
+												<div class="c_txt_ts" style="padding: 0;">
+													<img src="../images/ts.png" alt="">
+													<div class="tsTxt">
+														<div class="center">
+															<div class="icon_title" style="margin-top: 0.1rem;">
+																<img src="../images/txton.png" /> 图表说明
+															</div>
+															<div class="text">
+																反映市大数据平台上本委办局实际共享数据项数量的情况
+															</div>
+															<div class="icon_titleA">
+																<img src="../images/txton.png" /> 计算方法
+															</div>
+															<div class="text">
+																共享率=（本委办局实际共享数据项数量/（本委办局有条件共享数据项数量+本委办局无条件共享数据项数量））*100%
+															</div>
+															<div class="icon_titleA">
+																<img src="../images/txton.png" /> 数据来源
+															</div>
+															<div class="text">
+																目录链
+															</div>
+															<div class="icon_titleA">
+																<img src="../images/txton.png" /> 统计周期
+															</div>
+															<div class="text">
+																每周
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="chart_gx2" style="width: 100%;height: 1.7rem;"></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div style="margin-left: 0.15rem; flex: 1; display: flex;">
+								<div class="sjjh" style="height: 2.95rem;">
+									<div class="title" style="height: 0.4rem;line-height: 0.4rem;">前置交换贡献率</div>
+									<div class="rule">
+										<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+											<img src="../images/ts.png" alt="">
+											<div class="tsTxt zx_tsTxt">
+												<div class="center">
+													<div class="icon_title" style="margin-top: 0.1rem;">
+														<img src="../images/txton.png" /> 图表说明
+													</div>
+													<div class="text">
+														反映本委办局通过前置交换方式提供共享数据和获取共享数据的比例
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 计算方法
+													</div>
+													<div class="text">
+														贡献率=（本委办局通过前置交换提供给其他单位的共享数据条数/本委办局通过前置交换获取其他单位的共享数据条数）*100%
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 数据来源
+													</div>
+													<div class="text">
+														大数据平台
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 统计周期
+													</div>
+													<div class="text">
+														每周
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="chart_sjjh" style="width: 4rem;height: 1.7rem;"></div>
+								</div>
+								<div class="gxjk" style="height: 2.95rem;">
+									<div class="title" style="width: 1.3rem; height: 0.4rem;line-height: 0.4rem;padding: 0;">共享接口调用贡献率</div>
+									<div class="rule">
+										<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+											<img src="../images/ts.png" alt="">
+											<div class="tsTxt zx_tsTxt">
+												<div class="center">
+													<div class="icon_title" style="margin-top: 0.1rem;">
+														<img src="../images/txton.png" /> 图表说明
+													</div>
+													<div class="text">
+														反映本委办局通过接口方式提供共享数据和获取共享数据的比例
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 计算方法
+													</div>
+													<div class="text">
+														共享率=（本委办局共享接口被其他单位调用次数/本委办局调用其他单位的共享接口次数）*100%
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 数据来源
+													</div>
+													<div class="text">
+														大数据平台
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 统计周期
+													</div>
+													<div class="text">
+														每周
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="chart_gxjk" style="width: 4rem;height: 1.7rem;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/jquery.min.js"></script>
+		<script src="../common/echarts.min.js"></script>
+		
+		<script type="text/javascript">
+			var search = window.location.search;
+			var id = getSearchString('id', search); //结果：2
+			function getSearchString(key, Url) {
+			    var str = Url;
+			    str = str.substring(1, str.length); // 获取URL中?之后的字符（去掉第一位的问号）
+			    var arr = str.split("&");
+			    var obj = new Object();
+			    for (var i = 0; i < arr.length; i++) {
+			        var tmp_arr = arr[i].split("=");
+			        obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+			    }
+			    return obj[key];
+			}
+			//共享数据点赞率
+			dianzan()
+			function dianzan(){
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getShareDataLikes?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	$('#dianzan').html(res.data[0].shareEvaluateLikes + '%')
+	                	$('.wave').css("height", res.data[0].shareEvaluateLikes + '%')
+	                }
+	          	})
+			}
+			//数据共享
+			chartSjgx()
+			function chartSjgx() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataApply?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	let Data = res.data;
+	                	let img;
+	                	let score;
+	                	for(let i in Data){
+	                		if(Data[i].type==23){
+	                			score=Data[i].score
+                				if(score < 60){
+	                			 	img = "../images/lamp_r.png"
+	            			 	} else if(score > 80){
+	        			 			img = "../images/lamp_g.png"
+	            			 	}else{
+	            			 		img = "../images/lamp_y.png"
+	            			 	}
+	                		}
+	                	}
+	                	let dataLIst=`
+	                		<img src="${img}" />
+							<p style="margin-left: 0px;">数据共享 <i>${score}</i>分</p>
+	                	`
+	                	$('#fenshu').html(dataLIst)
+	                	let chart = document.getElementById("charts_sjgx");
+						let myChart = echarts.init(chart);
+						let option = {
+							series: [{
+									name: '业务指标',
+									type: 'gauge',
+									min: 0,
+									max: 100,
+									splitNumber: 10,
+									radius: '80%',
+									title: {
+										textStyle: {
+											color: "#0CD7D8"
+										}
+									},
+									axisLabel: { // 坐标轴小标记 刻度数字颜色
+										fontWeight: 'bolder',
+										color: '#5B699D',
+										shadowColor: '#fff', //默认透明
+										shadowBlur: 10
+									},
+									detail: {
+										formatter: '{value}%'
+									}, //仪表盘显示数据
+									axisLine: { //仪表盘样式
+										lineStyle: { // 属性lineStyle控制线条样式
+											color: [
+												[0.18, '#4CF59F'],
+												[0.82, '#1e90ff'],
+												[1, '#4CF59F']
+											],
+											width: 3,
+											shadowColor: '#fff', //默认透明
+											shadowBlur: 10
+										},
+									},
+									splitLine: { //分割线样式
+										length: 10
+									},
+									itemStyle:{
+										color:"#1e90ff"
+									},
+									detail: {
+										borderWidth: 2,
+										borderRadius: 3,
+										borderColor: '#0B8AB1',
+										shadowColor: '#0B8AB1', //默认透明
+										shadowBlur: 5,
+										offsetCenter: [0, '-40%'], // 显示位置 x, y，单位px
+										textStyle: {
+											fontSize: 16,
+											color: '#EA9538',
+										},
+										padding: [4, 10, 0, 10]
+									},
+									pointer: {
+										width: 8,
+										length: '45%'
+									},
+									data: [{
+										value: score
+									}],
+		
+								}
+		
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option);
+						}
+	                }
+	            })
+				
+			}
+
+			//得分趋势
+			chartDfqk();
+			function chartDfqk() {
+				$.ajax({
+					type: "get",
+					url: "http://47.56.170.82:8080/api/dataapply/getScore?departmentId="+id+"&type=19",
+					dataType: "json",
+					headers: {
+						"content-type": "application/json;charset=utf-8"
+					},
+					success: function(res) {
+						// 数据处理
+						var xData = [];
+						var yData = [];
+						$.each(res.data, function(i, v) {
+							xData.push(v.dataPeriod);
+							yData.push(v.score);
+						});
+						// 数据处理 end
+						var dom = document.getElementById("charts_dfqk");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : {c}"
+							},
+							xAxis: {
+								type: 'category',
+								name: '',
+								boundaryGap: true,
+								data: xData,
+								splitLine: {
+									show: false
+								},
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+									},
+									//		                    rotate:30
+								},
+							},
+							yAxis: {
+								type: 'value',
+								name: '分',
+		
+								axisTick: {
+									inside: true
+								},
+								scale: true,
+								max: 100,
+								type: 'value',
+								minInterval: 10,
+								axisLabel: {
+									margin: 0,
+									formatter: function(value, index) {
+										if(value >= 10000 && value < 10000000) {
+											value = value / 10000 + "万";
+										} else if(value >= 10000000) {
+											value = value / 10000000 + "千万";
+										}
+										return value;
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 50,
+								right: 30,
+								top: 30,
+								bottom: 30
+							},
+							series: [{
+								data: yData,
+								type: 'line',
+								itemStyle: {
+									normal: {
+										color: '#2fb795',
+										lineStyle: {
+											normal: {
+												color: '#2fb795'
+											}
+										},
+										label: {
+											show: true,
+											color: '#fff',
+										},
+										lineStyle: {
+											width: 1.5 // 0.1的线条是非常细的了
+										}
+									}
+								},
+								areaStyle: {
+									normal: {
+										barBorderRadius: 30,
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+											offset: 1,
+											color: 'rgba(13,246,238,0.1)'
+										}, {
+											offset: 0,
+											color: 'rgba(13,246,238,1)'
+										}]),
+									}
+								}
+							}],
+							axisLabel: {
+								color: "#000",
+								interval: 0,
+								formatter: function(value) {
+									if(value.length > 12) {
+										return value.substring(0, 12) + "...";
+									} else {
+										return value;
+									}
+								}
+							}
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+			}
+			
+			//数据可共享率
+			chartGx1();
+			function chartGx1() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDatashareRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 21,
+								name: '可共享'
+							},
+							{
+								value: 79,
+								name: '不可共享'
+							}
+						];
+						dataList[0].value=res.data[0].canShareData+res.data[0].noShareData
+						dataList[1].value=res.data[0].allShareData-res.data[0].canShareData-res.data[0].noShareData
+						var dom = document.getElementById("chart_gx1");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "数据{b} : {c}项"
+							},
+							color: ['#0CE9E0', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								type: 'pie',
+								radius: ['20%', '50%'],
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+										textStyle:{       //这只是为了让文字居中而已
+										　　align:"center",            //水平对齐方式可选left，right，center
+										　　baseline:"top",　　　　//垂直对齐方式可选top，bottom，middle
+										},
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									borderWidth: 5,
+									borderColor: "#02318F",
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)',
+										borderColor:"none"
+									}
+								}
+							}]
+						}
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			//数据共享率
+			chartGx2();
+			function chartGx2() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDatashareRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 67,
+								name: '实际共享'
+							},
+							{
+								value: 33,
+								name: '未实际共享'
+						}];
+						dataList[0].value=res.data[0].shareData
+						dataList[1].value=res.data[0].canShareData+res.data[0].noShareData-res.data[0].shareData
+						// 数据处理 end
+						var dom = document.getElementById("chart_gx2");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b} : {c} ({d}%)"
+							},
+							color: ['#F3A52E', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								name: '数据共享率',
+								type: 'pie',
+								radius: '50%',
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)'
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			//社会数据共享单位覆盖量
+			chartGx3();
+			function chartGx3() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDatashareRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 670,
+								name: '使用部门'
+							},
+							{
+								value: 330,
+								name: '未使用部门'
+							}
+						];
+						dataList[0].value=res.data[0].useDepartment
+						dataList[1].value=res.data[0].nouseDepartment
+						// 数据处理 end
+						var dom = document.getElementById("chart_gx3");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b} : {c} ({d}%)"
+							},
+							color: ['#048bff', '#BA25FF'],
+							stillShowZeroSum: false,
+							series:[{
+								startAngle: 200,
+								clockwise: false,
+								name: '社会数据共享覆盖量',
+								type: 'pie',
+								radius: ['18%', '45%'],
+								center: ['53%', '50%'],
+								avoidLabelOverlap: true,
+								roseType: 'radius',
+								labelLine: {
+									normal: {
+										length: 5,
+										length2: 3,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(128, 128, 128, 0.5)'
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			//前置交换贡献率
+			chartSjjh();
+			function chartSjjh() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getBigDataDevelopScore?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+                		let dataList=[{
+								value: 21,
+								name: '提供数据条数'
+							},
+							{
+								value: 79,
+								name: '获取数据条数'
+							}
+						];
+						dataList[0].value=res.data.preexchangeOfferNumber
+						dataList[1].value=res.data.preexchangeGetNumber
+						var dom = document.getElementById("chart_sjjh");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "数据{b} : {c}项"
+							},
+							color: ['#0CE9E0', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								type: 'pie',
+								radius: '50%',
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+										textStyle:{       //这只是为了让文字居中而已
+										　　align:"center",            //水平对齐方式可选left，right，center
+										　　baseline:"top",　　　　//垂直对齐方式可选top，bottom，middle
+										},
+									}
+								},
+								data: dataList,
+								itemStyle: {
+//									borderWidth: 5,
+//									borderColor: "#02318F",
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)',
+										borderColor:"none"
+									}
+								}
+							}]
+						}
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	            })    
+				
+			}
+			
+			//共享接口调用频次
+			chartGxjk();
+			function chartGxjk() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getBigDataDevelopScore?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 67,
+								name: '接口被调用次数'
+							},
+							{
+								value: 33,
+								name: '调用其他接口次数'
+						}];
+						dataList[0].value=res.data.datashareCallNumber
+						dataList[1].value=res.data.datashareOtherNumber
+						let img;
+						let txt;
+						if(res.data.isopenShareSocial==1){
+							img='../images/yes.png'
+							txt='本委办局未申请成为大数据平台多租户用户'
+						}else{
+							img='../images/no.png'
+							txt='本委办局未开通共享统采社会数据'
+						}
+						let dataLIst=`
+	                		<img src="${img}" />
+							<p style="margin-left: 0px;color:#F49B32">${txt}</p>
+	                	`
+	                	$('#gongxiangfg').html(dataLIst)
+						// 数据处理 end
+						var dom = document.getElementById("chart_gxjk");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b} : {c} ({d}%)"
+							},
+							color: ['#F3A52E', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								name: '数据共享率',
+								type: 'pie',
+								radius: '50%',
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)'
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			function sortNumber(a,b){
+				return b - a
+			}
+			//数据共享率排名
+//			chartGxpm()
+			function chartGxpm() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataShareRateRank",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	var shareNumber = [];
+						var shareRate=[]
+						var name=[]
+						$.each(res.data, function(i, v) {
+							shareNumber.push(v.shareNumber)
+							shareRate.push(v.shareRate)
+							name.push(v.departmentName)
+						})
+	                	var dom = document.getElementById("chart_gxpm");
+						var myChart = echarts.init(dom);
+						var option = {
+							color: ['#00E4FA', '#E29738'],
+							tooltip: {},
+							xAxis: {
+								data: name,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#2F4C9B',
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									formatter: function(value) {
+										return value.split("").join("\n");
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+										fontSize:10
+									},
+		
+								}
+							},
+							yAxis: {
+								splitNumber: 4,
+								min: 0,
+								max: 600,
+								splitArea: {
+									show: false
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变Y轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 40,
+								right: 40,
+								top: 10,
+								bottom: 110
+							},
+							series: [{
+									name: '共享接口调用频次增长率',
+									type: 'bar',
+									stack: 'one',
+									data: shareNumber.sort(sortNumber),
+									barWidth: 12, //柱图宽度
+								},
+								{
+									name: '共享接口调用频次 ',
+									type: 'bar',
+									stack: 'one',
+									data: shareRate,
+									barWidth: 12, //柱图宽度
+								}
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+	                }
+	           	})
+				
+			}
+			
+			
+			$(".c_txt_ts").mouseover(function() {
+				$(this).find(".tsTxt").toggle();
+			});
+			$(".c_txt_ts").mouseout(function() {
+				$(".tsTxt").hide();
+			})
+			function overShow(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:block;");
+
+			}
+			function outHide(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:none;");
+			}
+			$('#tabReturn').click(function(){
+				window.history.go(-1);//返回上一页
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,12 @@
+ZoomMarker 一款用于图片滚动放大拖动,且可以添加标记的jQuery插件;
+
+功能特点：
+1、可以放大、拖动
+2、可以添加锚点
+3、PC端的
+
+示例：
+https://yeye0922.github.io/ZoomMarker/
+
+API:
+https://blog.csdn.net/u011615421/article/details/78712795

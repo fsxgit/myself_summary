@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>入口</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+	</head>
+	<body>
+		<div class="Entrance_box">
+			<div style="width:13.3rem; height: auto; margin:0 auto; box-sizing: border-box; padding:0 0.12rem;">
+				<div class="Entrance_header"><img src="images/Entrance_header.png"/></div>
+				<div class="Entrance_a">
+					<div class="Entrance_qg">
+						<div style="width: 100%;height: 1rem;margin-top: 0.55rem;display: flex;justify-content: center;align-items: center;flex-wrap: wrap;">
+							<div class="Entrance_content">城市大数据发展指数</div>
+						</div>
+					</div>
+					<div class="Entrance_bj">
+						<div style="width: 100%;height: 1.3rem;margin-top: 0.8rem;display: flex;justify-content: center;align-items: center;flex-wrap: wrap;">
+							<div class="Entrance_content" onclick="tabJump('one.html')">全市大数据发展水平</div>
+							<div class="Entrance_content">数据管理能力成熟度</div>
+						</div>
+					</div>
+					<div class="Entrance_zd">
+						<div style="width: 95%;height: 1.3rem;margin: 0 0.3rem; margin-top: 0.8rem;display: flex;flex-wrap: wrap;">
+							<div class="content" onclick="tabJump('dataApplication.html?id=0')">数据应用</div>
+							<div class="content" onclick="tabJump('dataOpening.html?id=0')">数据开放</div>
+							<div class="content" onclick="tabJump('three.html?id=0')">数据共享</div>
+							<div class="content" onclick="tabJump('dataAggregation.html?id=0')">数据汇聚</div>
+							<div class="content" onclick="tabJump('catalogChain.html?id=0')">目录上链</div>
+							<div class="content" onclick="tabJump('systemCloud.html?id=0')">系统入云</div>
+							<div class="content">数据治理</div>
+							<div class="content" onclick="tabJump('platformService.html?id=0')">平台服务</div>
+						</div>
+					</div>
+				</div>
+				<div class="Entrance_b">
+					<div class="Entrance_wbj">
+						<div id="wbj" style="width: 95%;height: 1.3rem;margin: 0 0.65rem; margin-top: 0.8rem;display: flex;flex-wrap: wrap;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/jquery.min.js"></script>
+		<script type="text/javascript">
+			var data=[
+				{name:"市发展改革委",url:"two.html?id=1"},
+				{name:"市教委",url:"two.html?id=2"},
+				{name:"市科委",url:"two.html?id=3"},
+				{name:"市经济和信息化局",url:"two.html?id=4"},
+				{name:"市民宗委",url:"two.html?id=5"},
+				{name:"市公安局",url:"two.html?id=6"},
+				{name:"市民政局",url:"two.html?id=7"},
+				{name:"市司法局",url:"two.html?id=8"},
+				{name:"市财政局",url:"two.html?id=9"},
+				{name:"市人力社保局",url:"two.html?id=10"},
+				{name:"市规划自然委员会",url:"two.html?id=11"},
+				{name:"市生态环境局",url:"two.html?id=12"},
+				{name:"市住房城乡建设委",url:"two.html?id=13"},
+				{name:"市城市管理委",url:"two.html?id=14"},
+				{name:"市交通委",url:"two.html?id=15"},
+				{name:"市水务局",url:"two.html?id=16"},
+				{name:"市商务局",url:"two.html?id=17"},
+				{name:"市文化和旅游局",url:"two.html?id=18"},
+				{name:"市卫生健康委",url:"two.html?id=19"},
+				{name:"市应急管理局",url:"two.html?id=20"},
+				{name:"市场监督管理局",url:"two.html?id=21"},
+				{name:"市国资委",url:"two.html?id=22"},
+				{name:"市广播电视局",url:"two.html?id=23"},
+				{name:"市文物局",url:"two.html?id=24"},
+				{name:"市体育局",url:"two.html?id=25"},
+				{name:"市统计局",url:"two.html?id=26"},
+				{name:"市园林绿化局",url:"two.html?id=27"},
+				{name:"市地方金融监管局",url:"two.html?id=28"},
+				{name:"市人防办",url:"two.html?id=29"},
+				{name:"市信访办",url:"two.html?id=30"},
+				{name:"市政务服务管理局",url:"two.html?id=31"},
+				{name:"市知识产权局",url:"two.html?id=32"},
+				{name:"市医保局",url:"two.html?id=33"},
+				{name:"中关村管委会",url:"two.html?id=34"},
+				{name:"西站地区管委会",url:"two.html?id=35"},
+				{name:"市监狱局",url:"two.html?id=36"},
+				{name:"市粮食局",url:"two.html?id=37"},
+				{name:"市城管执法局",url:"two.html?id=38"},
+				{name:"市文化执法总队",url:"two.html?id=39"},
+				{name:"市重大项目办",url:"two.html?id=40"},
+				{name:"市公园管理中心",url:"two.html?id=41"},
+				{name:"住房公积金管理",url:"two.html?id=42"},
+				{name:"市地方志编委会",url:"two.html?id=43"},
+				{name:"市税务局",url:"two.html?id=44"},
+				{name:"市气象局",url:"two.html?id=45"},
+				{name:"市总工会",url:"two.html?id=46"},
+				{name:"市妇联",url:"two.html?id=47"},
+				{name:"市残联",url:"two.html?id=48"},
+				{name:"市药监局",url:"two.html?id=49"},
+				{name:"市农业农村局",url:"two.html?id=50"},
+				{name:"市退役军人事务局",url:"two.html?id=51"},
+				{name:"市审计局",url:"two.html?id=52"},
+				{name:"市政府外办",url:"two.html?id=53"}
+			]
+			var cent = document.getElementById("wbj");
+			for(let i in data){
+				cent.innerHTML += "<div id='' class='content' onclick="+"tabJump('"+data[i].url+"') >" +
+					"<div id=''> " + data[i].name + "</div>" +
+					"</div>";
+			}
+			function tabJump(e){
+				window.location.href=e
+			}
+		</script>
+	</body>
+</html>

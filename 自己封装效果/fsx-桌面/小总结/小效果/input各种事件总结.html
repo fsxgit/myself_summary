@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title></title>
+</head>
+<body>
+    <input type="text" name="change" placeholder="请输入内容,我是change事件" />
+    <input type="number" name="number" value="1" />
+    <input type="text" name="keyup" placeholder="请输入内容，我是keyup事件" />
+    <input type="text" name="keydown" placeholder="请输入内容，我是keydown事件" />
+    <input type="text" name="keypress" placeholder="请输入内容，我是keypress事件" />
+    <input type="text" name="blur" placeholder="请输入内容，我是blur事件" />
+    <input type="text" name="focus" placeholder="请输入内容，我是focus事件" />
+    <input type="text" name="bian" placeholder="内容变化就触发事件" />
+    <button>蒂娜我</button>
+    <h1 style="color: red;">注意：如果是通过jQuery改变inuput的值（如：$("input").val("123")），这些事件都不会触发。</h1>
+<script src="jquery.min.js"></script>
+<script>
+    $("input[name='change']").change(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keyup']").keyup(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keydown']").keydown(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='keypress']").keypress(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='blur']").blur(function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+    $("input[name='bian']").on("input propertychange",function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+
+    $("button").click(function(){
+        $("input[name='bian']").val("123456");
+    })
+
+    $("input[name='number']").on("input propertychange",function(){
+        var zhi = $(this).val();
+        alert(zhi);
+    });
+</script>
+</body>
+</html>

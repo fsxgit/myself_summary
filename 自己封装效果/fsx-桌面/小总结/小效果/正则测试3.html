@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则测试</title>
+    <style>
+        .red{color: red;}
+    </style>
+</head>
+<body>
+<div style="padding:30px 50px;">
+    <div><span class="red">【时时彩--组六单式】</span><br/>条件：从 <br/><span class="red">数组“["001","111","100","010","000","002","200","020","363","633","336","222","2326","8866","123","321","213","231"]”</span><br/>中选择出三位数，三位数字不能重复，不限顺序，合并成一起（也就是说，321,123,231,312是一个）按照从小到大的顺序显示出来</div>
+
+    思路：<br />
+    1、判断是否是三个数相同的。是，淘汰；<br />
+    2、判断是否 符合010 100 001格式的<br />
+    3、把符合格式的三位数，按从小到大的顺序排列；<br />
+    4，比较排列后的数是否相同，相同的合为是一组数据，按从大到小顺序呈现。
+    <div class="box1">
+        <h2>1】三位数相同的数：</h2>
+
+    </div>
+    <div class="box2">
+        <h2>2】符合格式的数：</h2>
+
+    </div>
+    <div class="box3">
+        <h2>3】把符合格式的三位数，按从小到大的顺序排列：</h2>
+
+    </div>
+    <div class="box4">
+        <h2>4】合并：</h2>
+
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+    var arr1 = ["001","111","100","010","000","002","200","020","363","633","336","222","2326","8866","123","321","213","231"];
+    var new_arr = [];
+    var new_arr2 = [];
+    var reg1 = /^([0-9])\1{2}$/;
+    var reg2 = /^([0-9])\1[0-9]$/;
+    var reg3 = /^([0-9])[0-9]\1$/;
+    var reg4 = /^[0-9]([0-9])\1$/;
+    var reg5 = /^[0-9]{3}$/;
+    $.each(arr1,function(i,v){
+        var ist1 = reg1.test(v);
+       if(ist1){
+           //第一步
+           $(".box1").append(v+",");
+       }else{
+           //第二步
+           var ist2 = reg2.test(v);
+           var ist3 = reg3.test(v);
+           var ist4 = reg4.test(v);
+           var ist5 = reg5.test(v);
+           if(ist2||ist3||ist4||!ist5){
+               $(".box2").append(v+",");
+           }else{
+                //第三步
+               var k = 0;
+               var nstr = "";
+               for(var j = 0 ; j< v.length ; j++){
+                   if(k <=  v[j]){
+                       nstr += v[j];
+                       k = v[j]
+                   }else{
+                       nstr = v[j] + nstr;
+                   }
+               }
+               $(".box3").append(nstr+",");
+               new_arr.push(nstr);
+           }
+
+       }
+    });
+    // 第四步
+    $.each(new_arr,function(i,v){
+        var ic = 0;
+        $.each(new_arr2,function(i0,v0){
+            if(v == v0){
+                ic = 1;
+            }
+        });
+        if(ic == 0){
+            new_arr2.push(v);
+        }
+    });
+    $(".box4").append(new_arr2+"<br />");
+    $.each(new_arr2,function(i,v){
+        $(".box4").append(v+",");
+    });
+    $(".box4").append("<br />长度："+new_arr2.length);
+    console.log(new_arr2);
+    console.log(new_arr2.length);
+
+
+</script>
+</body>
+</html>

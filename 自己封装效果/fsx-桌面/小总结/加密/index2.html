@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>进制转换</title>
+</head>
+<body>
+<h1>把字符串转换为16位加密的字符的方法</h1>
+<h2>使用自定义方法替代eval方法</h2>
+<script type="text/javascript">
+  var str = "张三丰";
+
+  // 字符串转化为utf-8
+  var str2utf8 = function(str) {
+    console.log("不支持");
+    str = '\''+encodeURI(str).replace(/%/gm, '\\x')+'\'';
+    console.log("str="+str);
+    str = evil(str);
+    console.log("eval="+str);
+    return str;
+  };
+
+  function stringToHex(str){
+    str = str2utf8(str);
+    var val="";
+    for(var i = 0; i < str.length; i++){
+      if(val == "")
+        val = str.charCodeAt(i).toString(16);
+      else
+        val += "," + str.charCodeAt(i).toString(16);
+    }
+    return val.replace(/,/g,"");
+  }
+
+  //计算表达式的值
+
+  function evil(fn) {
+
+    var Fn = Function; //一个变量指向Function，防止有些前端编译工具报错
+
+    return new Fn('return ' + fn)();
+
+  }
+
+
+  console.log("方法二："+ stringToHex(str));
+</script>
+</body>
+</html>

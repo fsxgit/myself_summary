@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <style>
+      *{margin:0; padding:0;}
+        .dmg_ts{position: fixed; margin-left: -170px; left:50%; top:200px; width:300px; padding:0 20px; border-radius: 6px; background: #fff; box-shadow: 0 0 10px; rgba(0,0,0,0.5)}
+        .dmg_ts h2{font-size: 20px; font-weight: bold; position: relative; height: 50px; line-height:60px; border-bottom: 1px solid #ccc;}
+        .dmg_ts .ts_close{ position: absolute; right:0; top:24px; width: 14px; height: 14px; background: url("images/close.png") no-repeat 0 0; background-size:100% 100%; cursor: pointer; opacity: 0.5; }
+      .dmg_ts .ts_close:hover{opacity: 1;}
+      .dmg_ts .ts_txt{padding:20px 0; color: #666; font-size: 14px; line-height: 20px;}
+      .dmg_ts .ts_bot{text-align: center; padding:10px 0 20px; }
+      .dmg_ts .ts_bot input{width:120px; height: 36px; border-radius:4px; background: #f03d42; color: #fff; cursor: pointer; outline: none;}
+    </style>
+</head>
+<body>
+<button id="btn">弹弹弹</button>
+<div class="dmg_ts">
+    <h2 >提示 <i class="ts_close"></i></h2 >
+    <div class="ts_txt"></div>
+    <div class="ts_bot"><input class="ts_sure" type="button" value="确定"/></div>
+</div>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script>
+    $("#btn").click(function(){
+        $(".dmg_ts").show();
+        $(".ts_txt").text("收货人名字不能为空收货人名字不能为空收货人名字不能为空收货人名字不能为空");
+    });
+    $(".ts_close").click(function(){
+        $(".dmg_ts").hide();
+    });
+    $(".ts_sure").click(function(){
+        $(".dmg_ts").hide();
+    })
+</script>
+</body>
+</html>

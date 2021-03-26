@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时时彩开奖倒计时</title>
+    <style>
+        body{padding:20px 50px;}
+        .kjbox{color: red;}
+        .red{color: red;}
+    </style>
+</head>
+<body>
+    <div class="tx-box">
+        <h1>时时彩开奖倒计时</h1>
+        <h2>当前时间： <span class="ntime red"></span></h2>
+        <div>
+            <h2>每期开奖结果:</h2>
+            <div class="kjbox" >
+
+            </div>
+        </div>
+
+    </div>
+<script src="js/jquery.min.js"></script>
+<script>
+    //开始时间（时、分、秒）
+    var stime ="06:00:00";
+    //每注投注时间（分钟）：
+    var etime = 10;
+    //固定触发事件的时间：
+    var setime = "23:00:00";
+
+    function nowtime(){
+        //现在的时间:
+        var mydate = new Date();
+        var ntime =  mydate.getTime(); //时间戳
+        var Y =  mydate.getFullYear().toString(); //年
+        var M1 =  (mydate.getMonth()+1).toString(); //月
+        var D =  mydate.getDate().toString(); //日
+        var H =  mydate.getHours().toString(); //时
+        var M2 =  mydate.getMinutes().toString(); //时
+        var S =  mydate.getSeconds().toString(); //时
+
+
+        //把时间统一转换成这种格式 2017-06-19&19:05:06
+        if(M1.length == 1){M1 = "0" + M1;}
+        if(D.length == 1){D = "0" + D;}
+        if(H.length == 1){H = "0" + H;}
+        if(M2.length == 1){M2 = "0" + M2;}
+        if(S.length == 1){S = "0" + S;}
+//        var ftime = Y+"-"+M1+"-"+D+"&"+H+":"+M2+":"+S; //返回年月日时分秒，格式：2017-06-19&19:05:06
+        var ftime = H+":"+M2+":"+S;  //返回时分秒，格式：19:05:06
+        return ftime;
+    }
+    //刷新页面时获取时间
+    var ntime = nowtime();
+    $(".ntime").text(ntime);
+    if(ntime == setime){
+        alert("测试1");
+    }
+
+    //时间流逝,倒计时
+    setInterval(function(){
+        var ntime = nowtime();
+        $(".ntime").text(ntime);
+    },1000);
+
+    //10分钟触发一次事件
+    setInterval(function(){
+        alert("十分钟到了！");
+    },1000*60*10)
+
+
+</script>
+</body>
+</html>

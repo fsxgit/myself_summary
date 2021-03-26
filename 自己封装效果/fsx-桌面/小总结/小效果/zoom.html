@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zoom</title>
+    <style>
+        div{padding:20px; cursor: pointer; width: 500px; height: 300px;}
+        div img{width: 100%; height: 100%;}
+    </style>
+</head>
+<body>
+<div><img class="img1" src="images/top1.jpg" alt=""/></div>
+<div><img class="img2" src="images/top1.jpg" alt=""/></div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".img1").hover(function(){
+        $(this).animate({'transform':'scale(2)'});
+    },function(){
+        $(this).animate({'transform':'scale(1)'});
+    });
+    $(".img2").hover(function(){
+        $(this).animate({'transform':'scale(0.5)'});
+    },function(){
+        $(this).animate({'transform':'scale(1)'});
+    })
+</script>
+</body>
+</html>

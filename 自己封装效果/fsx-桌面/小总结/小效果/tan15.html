@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>弹出框</title>
+    <style>
+      *{margin:0; padding:0;}
+        .ccont_ts{position: fixed; left:0; top:0; right:0; bottom:0; margin:auto; border:4px solid #000; background: #fff; width:320px; height: 200px; padding:60px 50px; }
+      .ccont_shadow{position: fixed; left:0; top:0; width: 100%; height: 100%; background: rgba(0,0,0,0.6);}
+      .ccont_close{position: absolute; right:-10px; top:-10px;  border-radius: 50%; width: 20px; height: 20px; cursor: pointer; border:2px solid #fff; background: #fff; opacity: 0.8;}
+      .ccont_close:hover{opacity: 1.0;}
+      .ccont_close img{width: 20px; height: 20px;}
+      .ccont_hang{margin-bottom: 10px;}
+      .ccont_hang textarea{height:80px; padding:10px; width:232px; outline: none;  box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box; vertical-align: top; resize: none;}
+      .ccont_hang select{height:40px; padding:10px; width:232px;  outline: none; vertical-align: middle;  box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;}
+      .ccont_btn{text-align: center; margin-top: 40px;}
+      .ccont_btn input{width: 100%; height:44px; background: #e50065; color: #fff; border-radius: 2px; outline: none; border:none; cursor: pointer;}
+      .ccont_btn input:hover{background: #c60057;}
+    </style>
+</head>
+<body>
+<button id="btn">弹弹弹</button>
+<div class="ccont_shadow"></div>
+<div class="ccont_ts">
+    <div class="ccont_center">
+        <div class="ccont_close"><img src="images/_close30.png" alt=""/></div>
+        <div class="ccont_hang">　原　因：
+            <textarea name="" id="" cols="30" rows="10" placeholder="请填写原因"></textarea>
+        </div>
+        <div class="ccont_hang">选择地址：
+            <select name="" id="">
+                <option value="1">北京</option>
+                <option value="1">南京</option>
+                <option value="1">东京</option>
+                <option value="1">西京</option>
+                <option value="1">盛京</option>
+            </select>
+        </div>
+        <div class="ccont_btn"><input type="button" value="提交"/></div>
+    </div>
+</div>
+<script src="js/jquery.min.js" ></script>
+<script>
+    $("#btn").click(function(){
+        $(".ccont_ts").fadeIn();
+    });
+    $(".ts_bot div").click(function(){
+        $(".ccont_ts").hide();
+    })
+</script>
+</body>
+</html>

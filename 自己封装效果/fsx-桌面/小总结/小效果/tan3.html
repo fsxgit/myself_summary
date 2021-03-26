@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <style>
+        .c-tan-shadow{position: fixed; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.3); display:none;}
+        .c-tan-box{width:auto; padding:20px 30px 10px; height:auto; background: #fff;position: fixed; left:50%;  top:50%; margin-top:-118px; margin-left:-164px;  display:none;}
+        .c-tan-box .liang{margin:10px 0;}
+        .c-tan-box .liang textarea{width: 240px; height:100px; padding:6px;}
+        .c-btn{ text-align: center;}
+        .c-btn span{display: inline-block; width: 40%; height:30px; line-height: 30px; cursor: pointer;}
+        .c-btn span:hover{color: #ff0511;}
+    </style>
+</head>
+<body>
+<button class="c-tan">弹弹弹</button>
+
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-box">
+        <div>备注：</div>
+        <div class="liang">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="c-btn">
+            <span class="c-tan-xiao">取消</span>
+            <span class="c-tan-sure">确认</span>
+        </div>
+    </div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".c-tan").click(function(){
+        $(".c-tan-shadow,.c-tan-box").show();
+    });
+    $(".c-tan-xiao").click(function(){
+        $(".c-tan-shadow,.c-tan-box").hide();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=4.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>目录上链</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="css/catalogChain.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="catalogChain">
+			<div class="catalogChain_header">
+				<img class="return" id="tabReturn" src="images/return.png" />
+			</div>
+			<div style="display: flex;">
+				<div class="catalogChain_left">
+					<div class="catalogChain_content">
+						<div style="width: 100%;">
+							<div class="catalogChain_sjgx">
+								<div class="titleBox">
+									<div class="title" id="fenshu">
+									</div>
+									<div class="c_txt_ts" style="margin-left: 0.5rem;">
+										<img src="./images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													北京市“目录上链”工作整体得分
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<ul class="prompt">
+									<li>
+										<img src="images/dot1.png" />
+										<p>风险
+											<60分</p>
+									</li>
+									<li>
+										<img src="images/dot2.png" />
+										<p>预警60-80分</p>
+									</li>
+									<li>
+										<img src="images/dot3.png" />
+										<p>健康>80分</p>
+									</li>
+								</ul>
+								<div style="display: flex;justify-content: space-between;">
+									<div class="charts_sjgx" style="margin:0 auto;">
+										<div id="charts_sjgx" style="width: 3rem; height: 2rem;"></div>
+									</div>
+								</div>
+								<div class="charts_dfqk" style="margin:0 auto;">
+									<div class="c_txt_ts zindex1" style="margin-right: 0.2rem;margin-bottom: 0.1rem;">
+										<img src="./images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													北京市“目录上链”工作近期得分趋势
+												</div>
+												<div class="icon_title">
+													<img src="images/txton.png" /> 统计周期
+												</div>
+												<div class="text">
+													每月
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="charts_dfqk" style="width: 3.5rem; height: 1.4rem;"></div>
+								</div>
+							</div>
+							<div class="catalogChain_bmpmBox">
+								<div class="titleBox">
+									<div class="title">部门排名 <i>top5</i></div>
+									<div class="c_txt_ts">
+										<img src="./images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													北京市“目录上链”工作所有委办局得分对比前五名
+												</div>
+												<div class="icon_title">
+													<img src="images/txton.png" /> 统计周期
+												</div>
+												<div class="text">
+													每月
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="catalogChain_bmpmList bmpmList_box">
+									<ul id="bmpmList">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="catalogChain_right">
+					<div class="right_a">
+						<div class="right_box">
+							<div class="right_tit">
+								职责目录-数据目录对应率
+								<div class="c_txt_ts right_ts">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt zx_tsTxt">
+										<div class="center">
+											<div class="icon_title" style="margin-top: 0.1rem;">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												反映职责目录和数据目录的对应情况，对应率越高，目录越完整
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												对应率=（有数据目录对应的职责目录类数/职责目录总类数）*100%
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												目录链
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="right_rule">
+								<span>
+									<img src="images/dot5.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>符合数据目录对应的</p>
+										<p>职责目录类数</p>
+										<div class="bounced">
+											部门在履行职责时，产生了相应的数据并形成数据目录
+										</div>
+									</div>
+								</span>
+								<span>
+									<img src="images/dot3.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>不符合数据目录<br/>对应的职责目录类数</p>
+										<div class="bounced">
+											部门在履行这些职责时，并未产生相应的数据，无相关数据目录
+										</div>
+									</div>
+								</span>
+							</div>
+							<div id="chart_1" style="width: 2.5rem;height: 2.2rem;"></div>
+						</div>
+						<div class="right_box">
+							<div class="right_tit">
+								系统目录-职责目录对应率
+								<div class="c_txt_ts right_ts">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt zx_tsTxt">
+										<div class="center">
+											<div class="icon_title" style="margin-top: 0.1rem;">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												反映职责目录和系统目录的对应情况，对应率越高，目录越完整
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												对应率=（有职责目录对应的信息系统数/信息系统总数）*100%
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												目录链
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="right_rule" style="z-index: 99;">
+								<span>
+									<img src="images/dot5.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>符合有职责目录</p>
+										<p>对应的信息系统数</p>
+										<div class="bounced">
+											部门在履行职责时所开发建设的信息系统数量
+										</div>
+									</div>
+								</span>
+								<span>
+									<img src="images/dot2.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>不符合有职责目录<br/>对应的信息系统数</p>
+										<div class="bounced">
+											这些信息系统并未对应部门职责，属于特殊开发建设
+										</div>
+									</div>
+								</span>
+							</div>
+							<div id="chart_2" style="width: 2.5rem;height: 2.2rem;"></div>
+						</div>
+					</div>
+					<div class="right_a" style="margin-left: 3rem;">
+						<div class="right_box">
+							<div class="right_tit">
+								系统目录-数据目录对应率
+								<div class="c_txt_ts right_ts">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt zx_tsTxt">
+										<div class="center">
+											<div class="icon_title" style="margin-top: 0.1rem;">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												反映系统目录和数据目录的对应情况，对应率越高，目录越完整
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												对应率=（有数据目录对应的信息系统数/信息系统总数）*100%
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												目录链
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="right_rule">
+								<span>
+									<img src="images/dot5.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>符合有数据目录</p>
+										<p>对应的信息系统数</p>
+										<div class="bounced">
+											部门使用的业务系统，产生了相应数据并形成数据目录
+										</div>
+									</div>
+								</span>
+								<span>
+									<img src="images/dot2.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>不符合有数据目录<br/>对应的信息系统数</p>
+										<div class="bounced">
+											部门使用的业务系统，并未产生相应数据，无相关数据目录
+										</div>
+									</div>
+								</span>
+							</div>
+							<div id="chart_3" style="width: 2.5rem;height: 2.2rem;"></div>
+						</div>
+						<div class="right_box" style="width: 2rem;margin-left: 0.8rem;">
+							<div class="right_tit" style="width: 2rem;">
+								交钥匙比例
+								<div class="c_txt_ts right_ts">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt zx_tsTxt">
+										<div class="center">
+											<div class="icon_title" style="margin-top: 0.1rem;">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												反映各委办局各业务系统账号密码提交情况
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												交钥匙率=（已完成交钥匙的信息系统数量/应交钥匙的信息系统数量）*100%
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												目录链
+											</div>
+											<div class="icon_titleA">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="right_rule" style="width: 2rem;">
+								<span>
+									<img src="images/dot5.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>已交钥匙系统</p>
+										<div class="bounced">
+											已经将账号密码提交至管理单位的业务系统
+										</div>
+									</div>
+								</span>
+								<span>
+									<img src="images/dot.png"/>
+									<div class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<p>未交钥匙系统</p>
+										<div class="bounced">
+											未将账号密码提交至管理单位的业务系统
+										</div>
+									</div>
+								</span>
+							</div>
+							<div id="chart_4" style="width: 2.5rem;height: 2.2rem;z-index: 1;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/jquery.min.js"></script>
+		<script src="common/echarts.min.js"></script>
+		<script type="text/javascript">
+			var search = window.location.search;
+			var id = getSearchString('id', search); //结果：2
+			function getSearchString(key, Url) {
+			    var str = Url;
+			    str = str.substring(1, str.length); // 获取URL中?之后的字符（去掉第一位的问号）
+			    // 以&分隔字符串，获得类似name=xiaoli这样的元素数组
+			    var arr = str.split("&");
+			    var obj = new Object();
+			
+			    // 将每一个数组元素以=分隔并赋给obj对象 
+			    for (var i = 0; i < arr.length; i++) {
+			        var tmp_arr = arr[i].split("=");
+			        obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+			    }
+			    return obj[key];
+			}
+			
+			//数据共享
+			chartSjgx()
+			function chartSjgx() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataApply?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	let Data = res.data;
+	                	let img;
+	                	let score;
+	                	for(let i in Data){
+	                		if(Data[i].type==23){
+	                			score=Data[i].score
+                				if(score < 60){
+	                			 	img = "./images/lamp_r.png"
+	            			 	} else if(score > 80){
+	        			 			img = "./images/lamp_g.png"
+	            			 	}else{
+	            			 		img = "./images/lamp_y.png"
+	            			 	}
+	                		}
+	                	}
+	                	let dataLIst=`
+	                		<img src="${img}" />
+							<p style="margin-left: 0px;">目录上链 <i>${score}</i>分</p>
+	                	`
+	                	$('#fenshu').html(dataLIst)
+	                	let chart = document.getElementById("charts_sjgx");
+						let myChart = echarts.init(chart);
+						let option = {
+							series: [{
+									name: '业务指标',
+									type: 'gauge',
+									min: 0,
+									max: 100,
+									splitNumber: 10,
+									radius: '80%',
+									title: {
+										textStyle: {
+											color: "#0CD7D8"
+										}
+									},
+									axisLabel: { // 坐标轴小标记 刻度数字颜色
+										fontWeight: 'bolder',
+										color: '#5B699D',
+										shadowColor: '#fff', //默认透明
+										shadowBlur: 10
+									},
+									detail: {
+										formatter: '{value}%'
+									}, //仪表盘显示数据
+									axisLine: { //仪表盘样式
+										lineStyle: { // 属性lineStyle控制线条样式
+											color: [
+												[0.18, '#4CF59F'],
+												[0.82, '#1e90ff'],
+												[1, '#4CF59F']
+											],
+											width: 3,
+											shadowColor: '#fff', //默认透明
+											shadowBlur: 10
+										},
+									},
+									splitLine: { //分割线样式
+										length: 10
+									},
+									itemStyle:{
+										color:"#1e90ff"
+									},
+									detail: {
+										borderWidth: 2,
+										borderRadius: 3,
+										borderColor: '#0B8AB1',
+										shadowColor: '#0B8AB1', //默认透明
+										shadowBlur: 5,
+										offsetCenter: [0, '-40%'], // 显示位置 x, y，单位px
+										textStyle: {
+											fontSize: 16,
+											color: '#EA9538',
+										},
+										padding: [4, 10, 0, 10]
+									},
+									pointer: {
+										width: 8,
+										length: '45%'
+									},
+									data: [{
+										value: score
+									}],
+		
+								}
+		
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option);
+						}
+	            	}
+            	})
+				
+			}
+			
+			//数据共享得分情况
+			var echartData = [{
+					"name": "2019.06",
+					"num": "80"
+				},
+				{
+					"name": "2019.08",
+					"num": "80"
+				},
+				{
+					"name": "2019.10",
+					"num": "85"
+				},
+				{
+					"name": "2019.12",
+					"num": "90"
+				},
+				{
+					"name": "2020.02",
+					"num": "93"
+				}
+			];
+			// 得分趋势
+			chartDfqk(echartData);
+			function chartDfqk(echartData) {
+				$.ajax({
+					type: "get",
+					url: "http://47.56.170.82:8080/api/dataapply/getScore?departmentId="+id+"&type=24",
+					dataType: "json",
+					headers: {
+						"content-type": "application/json;charset=utf-8"
+					},
+					success: function(res) {
+						// 数据处理
+						var xData = [];
+						var yData = [];
+						$.each(res.data, function(i, v) {
+							xData.push(v.dataPeriod);
+							yData.push(v.score);
+						});
+						var dom = document.getElementById("charts_dfqk");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : {c}"
+							},
+							xAxis: {
+								type: 'category',
+								name: '',
+								boundaryGap: true,
+								data: xData,
+								splitLine: {
+									show: false
+								},
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+									},
+									interval:0,
+									//		                    rotate:30
+								},
+							},
+							yAxis: {
+								type: 'value',
+								name: '分',
+
+								axisTick: {
+									inside: true
+								},
+								scale: true,
+								max: 100,
+								type: 'value',
+								minInterval: 10,
+								axisLabel: {
+									margin: 0,
+									formatter: function(value, index) {
+										if(value >= 10000 && value < 10000000) {
+											value = value / 10000 + "万";
+										} else if(value >= 10000000) {
+											value = value / 10000000 + "千万";
+										}
+										return value;
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 30,
+								right: 50,
+								top: 40,
+								bottom: 20
+							},
+							series: [{
+								data: yData,
+								type: 'line',
+								itemStyle: {
+									normal: {
+										color: '#2fb795',
+										lineStyle: {
+											normal: {
+												color: '#2fb795'
+											}
+										},
+										label: {
+											show: true,
+											color: '#fff',
+										},
+										lineStyle: {
+											width: 1.5 // 0.1的线条是非常细的了
+										}
+									}
+								},
+								areaStyle: {
+									normal: {
+										barBorderRadius: 30,
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+											offset: 1,
+											color: 'rgba(13,246,238,0.1)'
+										}, {
+											offset: 0,
+											color: 'rgba(13,246,238,1)'
+										}]),
+									}
+								}
+							}],
+							axisLabel: {
+								color: "#000",
+								interval: 0,
+								formatter: function(value) {
+									if(value.length > 12) {
+										return value.substring(0, 12) + "...";
+									} else {
+										return value;
+									}
+								}
+							}
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+			}
+			
+			//部门排名
+			bmpm()
+			function bmpm() {
+				let bmpmHtml = ''
+				$.ajax({
+					type: "get",
+					url: "http://47.56.170.82:8080/api/dataapply/getRank?type=6",
+					dataType: "json",
+					headers: {
+						"content-type": "application/json;charset=utf-8"
+					},
+					success: function(res) {
+						for(let i in res.data) {
+							if(res.data[i].scoreTrend < 0) {
+								res.data[i].src = './images/down.png'
+								res.data[i].srcTit = "较上个月下降"
+							} else {
+								res.data[i].src = './images/up.png'
+								res.data[i].srcTit = "较上个月上升"
+							}
+							bmpmHtml += `
+	                			<li>
+									<div class="center_y">
+										<div class="rank">${res.data[i].ranking}</div>
+										<div class="name" style="width:1rem">${res.data[i].departmentName}</div>
+									</div>
+									<div class="">${res.data[i].score}</div>
+									<div class="status positioning center_y" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<img src="${res.data[i].src}" alt=""> ${Math.abs(res.data[i].scoreTrend)}
+										<div class="bounced bounced_bmpm">
+											${res.data[i].srcTit}
+											${Math.abs(res.data[i].scoreTrend)}
+										</div>
+									</div>
+								</li>
+	                		`
+						}
+						$('#bmpmList').html(bmpmHtml)
+					}
+				})
+			}
+			//职责目录-数据目录对应率
+			chart1();
+			function chart1() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDutyDirectoryDataDirectoryRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 21,
+								name: '职责目录-数据目录对应率'
+							},
+							{
+								value: 79,
+								name: '职责目录-数据目录未对应率'
+							}
+						];
+						dataList[0].value=res.data[0].directoryDutydirectoryNumber
+						dataList[1].value=res.data[0].noDirectoryDutydirectoryNumber
+						var dom = document.getElementById("chart_1");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "数据{b} : {c}项"
+							},
+							color: ['#0CE9E0', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								type: 'pie',
+								radius: ['15%', '60%'],
+								center: ['50%', '40%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 12,
+										length2: 12,
+									}
+								},
+								label: {
+									normal: {
+										formatter: "{d}%",
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									borderWidth: 5,
+									borderColor: "#02318F",
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)',
+										borderColor: "none"
+									}
+								}
+							}]
+						}
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+			//系统目录-职责目录对应率
+			chart2();
+			function chart2() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getSystemDirectoryDutyDirectoryRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 21,
+								name: '系统目录-职责目录对应率'
+							},
+							{
+								value: 79,
+								name: '系统目录-职责目录未对应率'
+							}
+						];
+						dataList[0].value=res.data[0].dutyDirectorySystemNumber
+						dataList[1].value=res.data[0].noDutyDirectorySystemNumber
+						var dom = document.getElementById("chart_2");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "数据{b} : {c}项"
+							},
+							color: ['#FFC53A', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								type: 'pie',
+								radius: ['15%', '60%'],
+								center: ['50%', '40%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 8,
+										length2: 12,
+									}
+								},
+								label: {
+									normal: {
+										formatter: "{d}%",
+										textStyle: { //这只是为了让文字居中而已
+											　　
+											align: "center", //水平对齐方式可选left，right，center
+											　　baseline: "top",
+											　　　　 //垂直对齐方式可选top，bottom，middle
+										},
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									borderWidth: 5,
+									borderColor: "#02318F",
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)',
+										borderColor: "none"
+									}
+								}
+							}]
+						}
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	            })
+				
+			}
+			
+			//系统目录-数据目录对应率
+			chart3();
+			function chart3() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getSystemDirectoryDataDirectoryRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 67,
+								name: '系统目录-数据目录对应率'
+							},
+							{
+								value: 33,
+								name: '系统目录-数据目录未对应率'
+							}
+						];
+						dataList[0].value=res.data[0].directorySystemDirectoryNumber
+						dataList[1].value=res.data[0].noDirectorySystemDirectoryNumber
+						var dom = document.getElementById("chart_3");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : ({d}%)"
+							},
+							color: ['#FFC53A', '#1988EE'],
+							stillShowZeroSum: false,
+							series: [{
+								//						startAngle: 180,
+								clockwise: false,
+								name: '数据共享率',
+								type: 'pie',
+								radius: '60%',
+								center: ['50%', '40%'],
+								avoidLabelOverlap: true,
+								//						roseType: 'radius',
+								labelLine: {
+									normal: {
+										length: 12,
+										length2: 12,
+									}
+								},
+								label: {
+									normal: {
+										formatter: '{d}%',
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)'
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	            })
+				
+			}
+			//交钥匙比例
+			chart4();
+			function chart4() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getSystemTurnKeyRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let dataList=[{
+								value: 670,
+								name: '已交钥匙系统'
+							},
+							{
+								value: 330,
+								name: '未交钥匙系统'
+							}
+						];
+						dataList[0].value=res.data[0].alreadyTurnKeySystemNumber
+						dataList[1].value=res.data[0].noTurnKeySystemNumber
+						var dom = document.getElementById("chart_4");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{a} <br/>{b} : {c} ({d}%)"
+							},
+							color: ['#048bff', '#BA25FF'],
+							stillShowZeroSum: false,
+							series: [{
+								startAngle: 200,
+								clockwise: false,
+								name: '社会数据共享覆盖量',
+								type: 'pie',
+								radius: ['15%', '60%'],
+								center: ['40%', '45%'],
+								avoidLabelOverlap: true,
+								roseType: 'radius',
+								labelLine: {
+									normal: {
+										length: 12,
+										length2: 12,
+									}
+								},
+								label: {
+									normal: {
+										formatter: '{d}%',
+									}
+								},
+								data: dataList,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(128, 128, 128, 0.5)'
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	            })
+				
+			}
+
+			$('#tabReturn').click(function() {
+				window.history.go(-1); //返回上一页
+			})
+			$(".c_txt_ts").mouseover(function() {
+				$(this).find(".tsTxt").toggle();
+			});
+			$(".c_txt_ts").mouseout(function() {
+				$(".tsTxt").hide();
+			})
+
+			function overShow(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:block;");
+
+			}
+
+			function outHide(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:none;");
+			}
+		</script>
+	</body>
+
+</html>

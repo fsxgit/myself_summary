@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .alert_video{position: fixed; left:0; top:0; width: 100%; height: 100%; display: -none; z-index: 10; background: rgba(0,0,0,0.9);}
+    .alert_video .video{ width: 100%; height: 100%; align-items:center; justify-content: center; overflow: hidden; display: flex; }
+    .alert_video video{ display: inline-block; width: 100%; max-width: 100%; max-height: 100%; background: #000;}
+  </style>
+</head>
+<body>
+
+<h2>解决“video  在ios和android上面播放时，自动全屏遮挡了上面悬浮元素“的写法：</h2>
+
+<div class="alert_video">
+  <div class="video">
+    <video src="https://www.runoob.com/try/demo_source/movie.mp4"  webkit-playsinline="true" x-webkit-airplay="true"  playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto"  loop="loop"  controls id="after_video">
+      <source src="https://www.runoob.com/try/demo_source/movie.mp4" type="video/mp4">
+      <source src="https://www.runoob.com/try/demo_source/movie.mp4" type="video/ogg">
+      您的浏览器不支持 video 标签。
+    </video>
+  </div>
+</div>
+</body>
+</html>

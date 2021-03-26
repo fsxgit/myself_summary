@@ -1,0 +1,96 @@
+
+
+【【【【【【【【【【【【【【【【【【【【【【需要总结】】】】】】】】】】】】】】】】】】】】】】】】】】】】】】】】
+【【【【【【【【【【【【【【【【【【【【【【需要总结】】】】】】】】】】】】】】】】】】】】】】】】】】】】】】】】
+【0】jq ajax 上传图片、上传视频
+	https://www.cnblogs.com/notesbooks/p/9152213.html
+	
+【1】vue el-select 下拉加载【光合星球】
+	https://blog.csdn.net/weixin_30477797/article/details/95048567
+	F:\fsx20160321\xm\vue\vue_pc_blockchain\src\components\statistics\infolist.vue
+	
+【2】html 移动端 下拉加载
+	<script>
+	  const HOST = "http://api.summitdigitalcloud.com"; // 正式
+	  $(window).scroll(function() {
+		// 向上滚动的那一部分高度
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		// 屏幕高度也就是当前设备静态下你所看到的视觉高度
+		var clientHeight = document.documentElement.clientHeight;
+		// 整个网页的实际高度，兼容Pc端
+		var scrHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+		// 当滚动到距离页面底部100px时触发加载更多
+		if(scrollTop+clientHeight+100 > scrHeight){
+		  getCustomerData();
+		}
+	  });
+
+	  var rpage = 1; // 圈子客户页码
+	  var pageSize = 20; // 每页显示数
+	  var rRequestState = true; // 圈子请求状态
+
+	  getCustomerData();
+	  function getCustomerData(){
+		// 请求圈子用户数据
+		if(!rRequestState){
+		  console.log("请求太频繁了");
+		  var timer = setTimeout(function(){
+			rRequestState = true;
+			clearTimeout(timer);
+		  },2000);
+		  return false;
+		}
+		rRequestState = false;
+		$.ajax({
+		  "url": "",
+		  "type":"get",
+		  "data":{},
+		  success: function (res) {
+			var data = JSON.parse(res).data;
+			if(data.length < 1 && cpage == 1){
+			  $(".circle_customer_list .zanno").show();
+			}
+			if(data.length < 1){
+			  console.log("我也是有底线的");
+			  return false;
+			}
+			var str = '';
+		   
+			rpage++;
+			var timer = setTimeout(function(){
+			  rRequestState = true;
+			  clearTimeout(timer);
+			},1000);
+			$(".circle_customer_list").append(str);
+		  },
+		  error: function (res) {
+			console.log("错误");
+		  }
+		});
+	  }
+	</script>
+
+【3】vue 任意 div 下拉加载更多
+	https://www.jianshu.com/p/2c0e7c1bc03f?utm_campaign=haruki&utm_content=note&utm_medium=reader_share&utm_source=qq
+	F:\fsx20160321\xm\vue\vue_pc_blockchain\src\main.js【定义全局滚动方法】
+	F:\fsx20160321\xm\vue\vue_pc_blockchain\src\components\projectManage\projectStart.vue【调用方法】
+	
+	注意：需要当前div是会滚动的
+	如果使用window来全局注册，则需要判断当前的路由（_this.$route.path）为当前时才去加载更多，否则在其它页面滚动会执行非当前页面的加载更多。
+	
+【4】vue-html 下拉加载更多
+
+
+【4】卓越云，关闭浏览器请求接口 【卓越云分享页面的关闭】
+【5】帮帮捐款页面的柱状图、新闻滚动效果；【 http://bangbang.zai0312.com/poster/】【F:\fsx20160321\xm\html\bangbang\poster\index.php】
+【6】 vue缓存机制
+<keep-alive>
+           <router-view></router-view>
+        </keep-alive>
+		
+【7】js图片压缩 和 vue图片压缩
+【8】优彩上拉刷新页面
+F:\fsx20160321\xm\vue\vue_youcaimojing\index.html
+【9】优彩查看大图插件
+F:\fsx20160321\xm\vue\vue_youcaimojing\index.html
+

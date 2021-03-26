@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>js</title>
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var a = document.getElementById("eq").offsetTop;
+                if (a >= $(window).scrollTop() && a < ($(window).scrollTop()+$(window).height())) {
+                    console.log("div在可视范围");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div style="position: relative;">
+    <div class="ddd">隐藏加跳转</div>
+<a href="#dd" id="ding">到达底部</a>
+<div id="dd" style="position: absolute; left:0; bottom:0;">我再底部
+
+
+    <a href="#ding">回到顶部</a>
+</div>
+<div style="width:1px;height:2000px;"></div>
+<div id="eq" style=" width:100px; height:100px; background-color:Red;">1</div>
+<div style="width:1px;height:2000px;"></div>
+
+
+
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    $(".ddd").click(function(){
+        $(".ddd").hide(function(){
+            window.location = "http://www.baidu.com";
+        })
+    })
+</script>
+</body>
+</html>

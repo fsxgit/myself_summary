@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>弹出框</title>
+    <style>
+      *{margin:0; padding:0;}
+      .sj2_shadow{position: fixed; left:0; top:0; width: 100%; height: 100%; background: rgba(0,0,0,0.8);}
+      .sj2_bangym_tan{position: fixed; left:0; top:0; right:0; bottom:0; margin:auto; border:4px solid #000; background: #fff; width:320px; height: 140px; padding:60px 50px;}
+      .sj2_bangym_tan .sj2_close{position: absolute; right:-10px; top:-10px;  border-radius: 50%; width: 20px; height: 20px; cursor: pointer; border:2px solid #fff; background: #fff; opacity: 0.8;}
+      .sj2_bangym_tan .sj2_close:hover{opacity: 1.0;}
+      .sj2_bangym_tan .sj2_close img{width: 20px; height: 20px;}
+        .sj2_tym{}
+        .sj2_tym input{padding:10px; width: 90px; height:20px; border:none; outline: none;}
+        .sj2_ma_input{display: inline-block; border-bottom: 1px solid #eee;}
+        .sj2_ma_input span{display: inline-block; border-right: 1px solid #ccc; padding:4px 10px; font-size: 14px;}
+        .sj2_ma_img{display: inline-block; vertical-align: top;}
+        .sj2_ma_img img{width: auto; height:40px;}
+        .sj2_ymbtn{text-align: center; margin-top: 40px;}
+        .sj2_ymbtn input{width: 100%; height:44px; color: #fff; font-size: 14px; border-radius: 22px; background: #01a573; outline: none; border: none;}
+        .sj2_ymbtn input:hover{background: #019668; }
+    </style>
+</head>
+<body>
+<div class="sj2_shadow"></div>
+<div class="sj2_bangym_tan">
+    <div class="sj2_close"><img src="images/_close30.png" alt=""/></div>
+    <div class="sj2_tym">
+        <div class="sj2_ma_input">
+            <span>图形验证码</span>
+            <input type="text" placeholder="请输入验证码"/>
+        </div>
+        <a class="sj2_ma_img" href="javascript:;"><img src="images/yzm.png" alt=""/></a>
+    </div>
+    <div class="sj2_ymbtn"><input type="button" value="提交"/></div>
+</div>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script>
+    $("#btn").click(function(){
+        $(".sj2_shadow").show();
+        $(".sj2_bangym_tan").show();
+    });
+    $(".sj2_close").click(function(){
+        $(".sj2_shadow").hide();
+        $(".sj2_bangym_tan").hide();
+    })
+</script>
+</body>
+</html>

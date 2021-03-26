@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <style>
+        .c-tan-shadow{position: fixed; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.3);}
+        .c-tan-box{width:auto; padding:20px 40px 30px; height:auto; background: #fff;position: fixed; left:50%;  top:50%; margin-top:-200px; margin-left:-164px}
+        .c-tan-box table{border-collapse: collapse; width: 400px;}
+        .c-tan-box table td{border:1px solid #000; text-align: center; padding:8px 10px;}
+        .c-tan-title{text-align: center; position: relative; height:30px; line-height: 30px; padding-bottom:20px; font-size: 16px;}
+        .c-tan-title .c-tan-xiao{ position: absolute; right:0; top:0; width:50px; height:30px; line-height: 30px; cursor: pointer; font-size: 12px;}
+        .c-tan-title .c-tan-xiao:hover{ color: #f0080b;}
+        .c-tan-center{max-height:220px; width: 420px; overflow:auto;}
+
+
+
+    </style>
+</head>
+<body>
+<button class="c-tan">弹弹弹</button>
+
+    <div class="c-tan-shadow"></div>
+    <div class="c-tan-box">
+        <div class="c-tan-title">选择员工 <span class="c-tan-xiao">关闭</span></div>
+        <div class="c-tan-center">
+            <table>
+                <tr>
+                    <td>选择</td>
+                    <td>工号</td>
+                    <td>姓名</td>
+                    <td>电话</td>
+                </tr>
+                <tr>
+                    <td><input class="xzRadio" type="radio"/></td>
+                    <td>1234545</td>
+                    <td>刮胡子那</td>
+                    <td>312345678900</td>
+                </tr>
+                <tr>
+                    <td><input class="xzRadio" type="radio"/></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td><input class="xzRadio" type="radio"/></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".c-tan").click(function(){
+        $(".c-tan-shadow,.c-tan-box").show();
+    });
+    $(".c-tan-xiao").click(function(){
+        $(".c-tan-shadow,.c-tan-box").hide();
+    });
+
+    $(".xzRadio").click(function(){
+        $(".c-tan-shadow,.c-tan-box").hide();
+    })
+</script>
+</body>
+</html>

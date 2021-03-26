@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>echarts_demo</title>
+</head>
+<body>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="container" style="height: 600px; width: 600px; margin:0 auto;"></div>
+
+<script src="js/echarts.min.js"></script>
+<script type="text/javascript">
+  // 基于准备好的dom，初始化echarts实例
+  var dom = document.getElementById("container");
+  var myChart = echarts.init(dom);
+  option = null;
+
+  option = {
+    tooltip : {
+      trigger: 'item',
+      formatter: "{b} : {c} ({d}%)"
+    },
+    series : [
+      {
+        type: 'pie',
+        radius : '65%',
+        center: ['50%', '50%'],
+        selectedMode: 'single',
+        data:[
+          { value:1548, name: '幽州幽州幽州幽州幽州幽州'},
+          {value:535, name: '荆州荆州荆州荆州'},
+          {value:510, name: '兖州兖州兖州兖州兖州兖州兖州'},
+          {value:634, name: '益州益州益州益州益州'},
+          {value:735, name: '西凉西凉西凉西凉西凉西凉西凉西凉西凉'}
+        ],
+        itemStyle: {
+          normal: {
+            label: {
+              position:"inner",　　　　　　　//可选参数：外部 “outer” 和内部 “inner”　
+              textStyle:{
+                align:"center",
+                baseline:"middle",
+              },
+              // formatter: "{a} \n {b} \n {c} \n ({d}%)",
+              formatter: function(e){
+                var name = e.data.name;
+                return name.split("").join("\n"); 　　//这里的e直接就是字符串，如果不是的话，还需要获取到字符串再进行操作
+              },
+            }
+          }
+        }
+      }
+    ]
+  };
+  if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+  }
+  var getter=function(e){
+    var newStr=" ";
+    var start,end;
+    var name_len=e.name.length;    　　　　　　　　　　　　   //每个内容名称的长度
+    var max_name=4;    　　　　　　　　　　　　　　　　　　//每行最多显示的字数
+    var new_row = Math.ceil(name_len / max_name); 　　　　// 最多能显示几行，向上取整比如2.1就是3行
+    if(name_len>max_name){ 　　　　　　　　　　　　　　  //如果长度大于每行最多显示的字数
+      for(var i=0;i<new_row;i++){ 　　　　　　　　　　　   //循环次数就是行数
+        var old='';    　　　　　　　　　　　　　　　　    //每次截取的字符
+        start=i*max_name;    　　　　　　　　　　     //截取的起点
+        end=start+max_name;    　　　　　　　　　  //截取的终点
+        if(i==new_row-1){    　　　　　　　　　　　　   //最后一行就不换行了
+          old=e.name.substring(start);
+        }else{
+          old=e.name.substring(start,end)+"\n";
+        }
+        newStr+=old; //拼接字符串
+      }
+    }else{                                          //如果小于每行最多显示的字数就返回原来的字符串
+      newStr=e.name;
+    }
+    return newStr;
+  }
+</script>
+</body>
+</html>

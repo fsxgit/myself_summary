@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <style>
+        html,body,div,option,input,select{padding:0;margin:0;}
+        .c-tan-shadow{position: fixed; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.3); display:none;}
+        .c-tan-box{width:784px;  height:auto; background: #fff; position: fixed; left:50%;  top:50%; margin-top:-160px; margin-left:-392px;  display:none; font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma; border-radius: 4px;}
+        .c-btn{ text-align: center; border-top: 1px solid #ccc;}
+        .c-btn span{display: inline-block; width: 48%; height:40px; line-height: 40px; cursor: pointer;}
+        .c-btn span:nth-of-type(1){border-right: 1px solid #ccc;}
+        .c-btn span:hover{color: #ff0511;}
+        .fl{float: left;}
+        .c-tan-center{padding:20px 30px 30px 30px;}
+        .c-tan-box select{width: 150px; height: 30px; margin-right: 10px;}
+        .c-tan-box input{width: 146px; height: 24px;}
+        .c-tan-center div{padding:6px 0;}
+        .c-tan-center h2{font-size: 20px;}
+    </style>
+</head>
+<body>
+类型：
+<button id="btn">弹弹弹</button>
+
+<div class="c-tan-shadow"></div>
+<div class="c-tan-box">
+    <div class="c-tan-center">
+        <h2>数据补录</h2>
+        <div>房　　间
+            <select name="" >
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <select name="" >
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <select name="" >
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            <select name="" >
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            财务月份
+            <input style="margin-right:20px;" type="text"/>
+            数据起于
+            <select name=""  style="margin-right: 27px;">
+                <option value="">2017年10月25日</option>
+                <option value=""></option>
+            </select>
+            数据止于
+            <select name="" >
+                <option value="">2017年10月25日</option>
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            费用名称
+            <select name="" >
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+            单价
+            <input type="text"/>
+        </div>
+
+    </div>
+    <div class="c-btn">
+        <span class="c-tan-xiao">取消</span>
+        <span class="c-tan-sure">确认添加</span>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script>
+    $("#btn").click(function(){
+        $(".c-tan-shadow,.c-tan-box").show();
+    });
+    $(".c-tan-xiao").click(function(){
+        $(".c-tan-shadow,.c-tan-box").hide();
+    });
+    $(".c-tan-sure").click(function(){
+        $(".c-tan-shadow,.c-tan-box").hide();
+    })
+</script>
+</body>
+</html>

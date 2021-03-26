@@ -1,0 +1,11 @@
+参考项目：
+帮帮分享、卓越云分享
+
+微信里面点击右上角转发显示、标题描述和图片的配置:
+微信里面二次分享不显示标题、描述和图片的配置；
+参考文档：
+1、https://blog.csdn.net/weixin_42087730/article/details/80583412
+2、https://blog.csdn.net/yangdl6/article/details/86174301
+155 3109 7316
+http://yuanfangdata.weiapp.net/one.html
+http://yuanfangdata.weiapp.net/two.html

@@ -1,0 +1,2 @@
+https://photoswipe.com/
+https://github.com/dimsemenov/PhotoSwipe

@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<style>div{border:1px solid #ddd;}</style>
+</head>
+<body>
+<div class="btn1"  style="width:300px; height:300px;">
+	<div class="btn2" style="width:50px; height:20px;">
+	点我
+	</div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    $(".btn1").click(function(){
+		alert(1)
+	})
+	$(".btn2").click(function(e){
+		alert(2);
+		e.stopPropagation();
+	});
+	
+	$("body").on("click",".btn1 .btn2",function(){
+		alert(3);
+		e.stopPropagation();
+	})
+	$("body").on("click",".btn1",function(){
+		alert(4);
+		e.stopPropagation();
+	})
+	
+	setTimeout(function(){
+		var hm = '<div class="btn1"  style="width:300px; height:300px;"><div class="btn2" style="width:50px; height:20px;">点我</div></div>'
+		$("body").append(hm);
+	},1000)
+</script>
+</body>
+</html>

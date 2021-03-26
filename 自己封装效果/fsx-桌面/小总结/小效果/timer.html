@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动效</title>
+</head>
+<body>
+    <div class="tx-box">
+
+    </div>
+<script src="js/jquery.min.js"></script>
+<script>
+    var i =0;
+    function xie(){
+        i++;
+        var html = $(".tx-box").html();
+        html += i;
+        $(".tx-box").html(html+" ");
+
+    }
+    setInterval("xie()",1000);
+
+    15:10:00 开奖
+
+    开 10
+</script>
+</body>
+</html>

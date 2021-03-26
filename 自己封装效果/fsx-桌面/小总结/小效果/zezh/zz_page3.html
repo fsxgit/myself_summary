@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单</title>
+    <style>
+        *{margin:0; padding:0; font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        html,body{height: 100%; }
+        .fl{float: left;}
+        .jiesuan_box{ overflow: hidden; border:1px solid #333; padding:6px 20px; line-height: 24px;}
+        .jiesuan_box .box1{border:1px solid #eee; padding:10px; margin:10px 0;}
+        .jiesuan_box .box1 .label{display: inline-block; margin-right: 4px; cursor: pointer;}
+        .jiesuan_box .box2{border:1px solid #eee; padding:10px;}
+        .jiesuan_box input[type="text"]{width: 50px; border: 1px solid #a2c1e9; height: 24px; padding-left:4px; margin-left: 10px; margin-right: 2px;}
+        .jiesuan_box input[type="checkbox"]{width: 16px; border: 1px solid #a2c1e9; height: 16px; display: inline-block; float: left; margin-top: 4px; margin-right: 2px; }
+        .jiesuan_box button{border: 1px solid #a2c1e9; background: #efeff0; height: 24px; padding:2px 6px; cursor: pointer;}
+        .jiesuan_box select{width: 100px; margin-right: 10px;}
+        .jiesuan_box .red{color: #ff2f15; margin-right:30px;}
+        .jiesuan_box .top{margin-bottom:10px;}
+        .jiesuan_box .time{width: 140px !important;}
+        .jiesuan_box .long{width: 80px !important;}
+        .jiesuan_btn {width: 100px; text-align: center;}
+        .jiesuan_btn button{width: 80px; height: 30px; margin-top: 20px;}
+
+    </style>
+</head>
+<body>
+<div class="jiesuan_box">
+    <div class="fl" >
+        <div class="box1">
+            <button id="fanx">反选</button>
+            <span class="label" data-v ="1"><input type="checkbox"/>常规费用</span>
+            <span class="label" data-v ="1"><input type="checkbox"/>仪表费用</span>
+            <span class="label" data-v ="1"><input type="checkbox"/>车位费用</span>
+            <span class="label" data-v ="1"><input type="checkbox"/>其它费用</span>
+            <span class="label" data-v ="1" style="margin-right: 20px;"><input type="checkbox"/>滞纳金</span>
+            折扣 <input type="text"/><button>打折</button>
+            优惠 <input type="text"/><button>优惠</button>
+        </div>
+        <div class="box2">
+            <div class="top">
+                本次缴纳：<span class="red">0.00</span>
+                滞纳金：<span class="red">0.00</span>
+                收款：<input type="text" value="0.00"/>
+            </div>
+            <div>
+                收款方式：
+                <select name="">
+                    <option value="">现金</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+                缴款日期：<input type="text" class="time" value="2017-10-25 16:36:39"/>
+                手开收据:<input class="long" type="text" value=""/>
+                发票号码:<input class="long" type="text" value=""/>
+            </div>
+        </div>
+    </div>
+    <div class="jiesuan_btn fl" ><button>结算</button></div>
+</div>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+$(".box1 .label").click(function(){
+    var v = $(this).data("v");
+    if(v == 1){
+        $(this).find("input[type='checkbox']").prop("checked",true);
+        $(this).data("v",2);
+    }else{
+        $(this).find("input[type='checkbox']").prop("checked",false);
+        $(this).data("v",1);
+    }
+});
+$("#fanx").click(function(){
+    $(".box1 .label").each(function(){
+        var v = $(this).data("v");
+        if(v == 1){
+            $(this).find("input[type='checkbox']").prop("checked",true);
+            $(this).data("v",2);
+        }else{
+            $(this).find("input[type='checkbox']").prop("checked",false);
+            $(this).data("v",1);
+        }
+    })
+})
+
+
+</script>
+</body>
+</html>

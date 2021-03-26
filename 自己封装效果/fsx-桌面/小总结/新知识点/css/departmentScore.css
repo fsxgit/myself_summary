@@ -1,0 +1,40 @@
+.department_box {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	min-height: 100%;
+	min-width: 12rem;
+	background: url("../images/bg1.jpg") no-repeat center center;
+	background-size: cover;
+}
+
+.department_header {
+	width: 100%;
+	height: 0.4rem;
+	padding: 0.1rem;
+	display: flex;
+}
+
+.department_header .return {
+	width: 0.3rem;
+	height: 0.3rem;
+}
+
+.department_bmpm {
+	width: 13.3rem;
+	height: 5.8rem;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 0 0.12rem;
+	background: url("../images/bmpmbj.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.department_bmpm .department_bmpmTitle {
+	width: 2rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 0.18rem;
+}

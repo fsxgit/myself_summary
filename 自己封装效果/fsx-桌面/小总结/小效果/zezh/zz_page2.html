@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单</title>
+    <style>
+        *{margin:0; padding:0;}
+        html,body{height: 100%; font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .fp_box{height: 100%;}
+        .fp_left{width: 300px; height: 100%; float: left; border-right: 2px solid #c1d5ee; overflow: auto;}
+        .fp_right{margin-left: 302px; height: 100%;  overflow: auto; }
+        .fb_left_select{width:100%; height: 40px; border-color:#c1d5ee;}
+        .fp_left_meau{padding:10px; height: calc(100% - 400px - 70px)}
+        .fp_left_meau input[type='checkbox']{margin-right:4px;}
+        .fp_left_meau ul{padding:10px 0 0 10px;}
+        .fp_left_meau li{padding:10px 0; list-style: none;}
+        .fp_left_meau span{cursor: pointer;}
+        .meau_mode{padding:10px;}
+        .meau_mode ul{display: none;}
+        .fb_table{padding-bottom: 50px; box-sizing: border-box;}
+        .fb_table table{width: 100%; border-collapse: collapse; color: #333; }
+        .fb_table table tr:nth-of-type(even){background: #f5f5f5;}
+        .fb_table table td,.fb_table table th{border:1px solid #c1d5ee; padding:4px 10px; height: 22px; text-align: center;}
+        .fb_table table thead{background: url("tbg.jpg") repeat-x 0 center; background-size:14px 100%;  font-size: 14px; }
+        .fb_right_tit{border-bottom: 1px solid #c1d5ee; height: 40px; line-height: 40px; padding-left: 20px; color: #344266; font-weight: 600; font-size: 16px;}
+        .fb_right_txt{border-bottom: 1px solid #c1d5ee; height: 40px; line-height: 40px; padding-left: 20px; color: #333;  font-size: 16px;}
+        .fb_right_txt span{display: inline-block; padding:2px 10px; margin-right:20px; cursor: pointer; border:1px solid #ccc; line-height: 24px; border-radius: 2px; background: #eee;}
+        .fb_right_txt span:hover{background: #ccc;}
+        .fb_left_bot{border-top: 1px solid #a2c1e9; height: 400px; overflow: auto; }
+        .fb_left_bot .tit{background: #dfedff; border-bottom: 1px solid #a2c1e9; padding-left: 10px; height: 30px; line-height: 30px;}
+        .fb_left_bot p{display: block; padding-left: 10px; height: 30px; line-height: 30px; cursor: pointer; box-sizing: border-box;}
+        .fb_left_bot p.on{border-top: 1px dashed #4470a3; border-bottom:1px dashed #4470a3; background: #c7d7ef;  }
+    </style>
+</head>
+<body>
+<div class="fp_box">
+    <div class="fp_left">
+        <select class="fb_left_select" name="" id="">
+            <option value="">测试1</option>
+            <option value="">测试2</option>
+            <option value="">测试3</option>
+            <option value="">测试4</option>
+            <option value="">测试5</option>
+        </select>
+        <div class="fp_left_meau">
+            <div class="meau_mode">
+                <input  data-state="1" type="checkbox"/><span>菜单1</span>
+                <ul >
+                    <li>
+                        <input data-state="1" type="checkbox"/><span>菜单21</span>
+                        <ul class="ul2">
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span>菜单31</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单46</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单47</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单48</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单49</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单40</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input data-state="1"  type="checkbox"/><span>菜单32</span>
+                                <ul class="ul3">
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单41</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单42</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单43</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单44</span></li>
+                                    <li><input data-state="1"  type="checkbox"/><span>菜单45</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="fb_left_bot">
+            <div class="tit">费用选择</div>
+            <p class="on"><input checked type="checkbox"/>物业费|0.0500</p>
+            <p><input type="checkbox"/>物业费|0.0500</p>
+            <p><input type="checkbox"/>物业费|0.0500</p>
+        </div>
+    </div>
+    <div class="fp_right">
+        <div class="fb_right_tit">费用分配信息</div>
+        <div class="fb_right_txt"><span>分配</span><span>删除</span></div>
+        <div class="fb_table">
+            <table>
+                <thead>
+                <th>小区</th>
+                <th>楼层</th>
+                <th>物业</th>
+                <th>琼姐</th>
+                <th>上课</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="zhedie.js"></script>
+<script>
+$(".fb_left_bot p").click(function(){
+    if($(this).hasClass("on")){
+        $(this).removeClass("on");
+        $(this).find("input[type='checkbox']").prop("checked",false);
+    }else{
+        $(this).addClass("on");
+        $(this).find("input[type='checkbox']").prop("checked",true);
+    }
+})
+</script>
+</body>
+</html>

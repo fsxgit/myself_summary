@@ -1,0 +1,21 @@
+
+1、ps无缝合并两个图
+
+方法1：https://zhidao.baidu.com/question/91015030.html 【羽化】
+方法2：https://zhidao.baidu.com/question/223890076.html【画笔】
+方法3：http://www.coozhi.com/youxishuma/diannao/59334.html【自动合并】
+	https://jingyan.baidu.com/article/63acb44a20367061fcc17e17.html【混合图层不可用的解决方法，栅格化图层即可】
+
+2、ps去除水印的方法
+方法1:https://jingyan.baidu.com/article/d5c4b52bb2228dda560dc528.html【仿印图章、污点修复画笔工具】
+
+3、抠图融合、换脸
+方法1：https://jingyan.baidu.com/article/77b8dc7faf32cd6174eab6ec.html
+
+
+4、磨皮、美颜
+
+
+
+5、换脸
+https://jingyan.baidu.com/article/6525d4b191e9b1ac7c2e947b.html

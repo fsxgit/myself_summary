@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <title>分享遮罩</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .share_box{background: rgba(0,0,0,0.8); position: fixed; left:0; top:0; width: 100%; height: 100%; display: none;}
+        .share_box .img{float: right; margin-right: 20px; width: 100%;}
+        .share_box .txt{text-align: center; color: #fff; margin-top: 10px; }
+        .share_box .center{display: inline-block;  padding:10px 20px 0 20px; background: url("images/x1.png") no-repeat 0 0,url("images/x2.png") no-repeat right bottom; background-size:18px 20px,14px 16px;  text-align: left;}
+        .share_box .center h2{font-size: 18px; padding:6px 0 10px; font-weight: normal;}
+        .share_box .btn{font-size: 14px;color: #fff; text-align: center; margin-top: 40px;}
+        .share_box .btn span{color: #fff; background: #3ac0fc; display: inline-block; width: 120px; height: 38px; line-height: 38px; border-radius: 20px;}
+    </style>
+</head>
+<body>
+
+<button>点我分享</button>
+
+<div class="share_box">
+    <img class="img" src="images/x0.png" alt=""/>
+    <div style="clear: both;"></div>
+    <div class="txt">
+        <div class="center">
+            <h2>点击这里分享</h2>
+            <p>下载 <span style="color:#3ac0fc;">爱左右APP</span>，快来体验吧！</p>
+        </div>
+    </div>
+    <div class="btn">
+        <span>我知道了</span>
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    $("button").click(function(){
+        $(".share_box").show();
+    })
+    $(".share_box").click(function(){
+        $(".share_box").hide();
+    })
+</script>
+</body>
+</html>

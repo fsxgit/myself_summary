@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>部门排名</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/departmentScore.css" />
+	</head>
+
+	<body>
+		<div class="department_box">
+			<div class="department_header">
+				<img class="return" id="tabReturn" src="./images/return.png" />
+			</div>
+			<div class="department_bmpm">
+				<div class="department_bmpmTitle">部门整体得分</div>
+				<div id="department_bmpm" style="width: 13rem;height: 5.4rem;"></div>
+			</div>
+		</div>
+
+		<script src="common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/jquery.min.js"></script>
+		<script src="common/echarts.min.js"></script>
+		<script type="text/javascript">
+			chartShpm()
+
+			function chartShpm() {
+				$.ajax({
+					type: "get",
+					url: "http://47.56.170.82:8080/api/dataapply/getRank?type=0",
+					dataType: "json",
+					headers: {
+						"content-type": "application/json;charset=utf-8"
+					},
+					success: function(res) {
+						var alreadyNumber = [];
+						var name = []
+						$.each(res.data, function(i, v) {
+							alreadyNumber.push(v.score)
+							name.push(v.departmentName)
+						})
+						var dom = document.getElementById("department_bmpm");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {},
+							xAxis: {
+								data: name,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#2F4C9B',
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									formatter: function(value) {
+										return value.split("").join("\n");
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+										fontSize: 10
+									},
+
+								}
+							},
+							yAxis: {
+								splitArea: {
+									show: false
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: 'rgba(255,255,255,0.1)'
+									}
+								},
+								//  改变Y轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#15368C'
+									}
+								}
+							},
+							grid: {
+								left: 80,
+								right: 80,
+								top: 80,
+								bottom: 100
+							},
+							series: [{
+								name: '已汇聚数据',
+								type: 'bar',
+								stack: 'one',
+								data: alreadyNumber.sort(sortNumber),
+								barWidth: 10, //柱图宽度
+								itemStyle: {
+									normal: {
+				                       	label: {
+				                        	show: true,		//开启显示
+				                            position: 'top',	//在上方显示
+				                            textStyle: {	    //数值样式
+				                                color: '#8C90A0',
+				                                fontSize: 12
+				                            }
+				                        },
+				                        color: new echarts.graphic.LinearGradient(
+										0, 0, 0, 1, [{
+												offset: 0,
+												color: '#188df0'
+											},
+											{
+												offset: 0.5,
+												color: '#188df0'
+											},
+											{
+												offset: 1,
+												color: '#83bff6'
+											}
+										]
+									)
+				                	},
+									
+								},
+								emphasis: {
+									itemStyle: {
+										color: new echarts.graphic.LinearGradient(
+											0, 0, 0, 1, [{
+													offset: 0,
+													color: '#2378f7'
+												},
+												{
+													offset: 0.7,
+													color: '#2378f7'
+												},
+												{
+													offset: 1,
+													color: '#83bff6'
+												}
+											]
+										)
+									}
+								},
+
+							}]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+
+			}
+
+			function sortNumber(a, b) {
+				return b - a
+			}
+			$('#tabReturn').click(function() {
+				window.history.go(-1); //返回上一页
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=4.0, minimum-scale=1.0">
+		<!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+		<title>数据统计</title>
+
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/one.css">
+
+	</head>
+
+	<body>
+		<div class="statisticsBox">
+			<div class="statisticsCenter">
+				<div class="statisticsTab">
+					<img id="tabReturn" src="images/return.png" />
+				</div>
+				<div class="statisticsMid">
+					<div class="statisticsLeft">
+						<div class="total">
+							全市大数据发展水平<i id="fenshu"></i> 分
+						</div>
+						<div class="deifen">
+							<div class="tit">得分趋势
+								<div class="c_txt_ts">
+									<img src="./images/ts.png" alt="">
+									<div class="tsTxt tsTxt_a">
+										<div class="center">
+											<div class="icon_title">
+												<img src="images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												北京市大数据发展水平评价近期得分趋势
+											</div>
+											<div class="icon_title">
+												<img src="images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每月
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="chartsBox" style="width:100%; height:1.5rem; margin:0 auto;">
+								<div id="chart1_container" style="width: 100%; height: 100%;"></div>
+							</div>
+						</div>
+						<div class="bmpm">
+							<div class="tit">
+								部门排名<i>top5</i>
+								<div  class="more" id="">
+									<span onclick="tabJump('departmentScore.html')">更多></span>
+									<div class="c_txt_ts" style="margin-left: 0.05rem;">
+										<img src="./images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title">
+													<img src="images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													北京市所有部门大数据发展水平得分对比前5名
+												</div>
+												<div class="icon_title">
+													<img src="images/txton.png" /> 统计周期
+												</div>
+												<div class="text">
+													每月
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="bmpmList">
+								<ul id="bmpmList"></ul>
+							</div>
+						</div>
+					</div>
+					<div class="statisticsRight">
+						<div class="title">
+							重点工作
+						</div>
+						<div class="rule">
+							<span><img src="./images/dot1.png" alt="">风险 < 60分</span>
+							<span><img src="./images/dot2.png" alt="">预警 60-80分</span>
+							<span><img src="./images/dot3.png" alt="">健康 > 80分</span>
+						</div>
+						<ul class="zdgzList" id="zdgzList">
+							
+							
+						</ul>
+					</div>
+				</div>
+				<div class="statisticsBot">
+					<div class="zhengwu">
+						<div class="title">政务数据汇聚率</div>
+						<div class="rule">
+							<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+								<img src="./images/dot4.png" alt="">已汇聚数据类
+								<div class="bounced bounced_sj" >
+									各部门已汇聚到市大数据平台的政务数据类，如人口类、组织类等
+								</div>
+							</span>
+							<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+								<img src="./images/dot5.png" alt="">目录链数据项总数
+								<div class="bounced">
+									各部门在目录链系统中上报的应该汇聚到大数据平台中的数据类
+								</div>
+							</span>
+							<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+								<img style="top:-0.02rem;" src="./images/dot6.png" alt="">政务数据汇聚率
+								<div class="bounced">
+									反映实际汇聚的数据类比例及增长率
+								</div>
+							</span>
+							<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.08rem; margin-right:0.2rem;">
+								<img src="./images/ts.png" alt="">
+								<div class="tsTxt">
+									<div class="center">
+										<div class="icon_title">
+											<img src="images/txton.png" /> 图表说明
+										</div>
+										<div class="text">
+											全市政务数据汇聚情况
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 计算方法
+										</div>
+										<div class="text">
+											（已完成汇聚的数据项数/目录链数据项总数）*100%
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 统计周期
+										</div>
+										<div class="text">
+											每月
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="chartsBox" style="width:100%; height:1.5rem; margin:0 auto;">
+							<div id="chart2_container" style="width: 100%; height: 100%;"></div>
+						</div>
+					</div>
+					<div class="datalv">
+						<div class="tit">
+							<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+								数据共享率
+								<div class="bounced bounceda">
+									<p>实际共享：</p>
+									在目录链上标注可以共享且已经汇聚到大数据平台的数据
+									<p>未实际共享:</p>
+									在目录链上标注可以共享但目前并未汇聚到大数据平台的数据
+								</div>
+							</span>
+							<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+								数据开放率
+								<div class="bounced bounceda" style="width: 2.5rem !important;">
+									<p>实际开放:</p>
+									在目录链上标注可以开放且能在开放网站上申请的数据
+									<p>未实际开放:</p>
+									在目录链上标注可以开放但目前不能在开放网站上申请的数据
+								</div>
+							</span>
+							<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.02rem; margin-right:0.2rem;">
+								<img src="./images/ts.png" alt="">
+								<div class="tsTxt">
+									<div class="center">
+										<div class="icon_title">
+											<img src="images/txton.png" /> 图表说明
+										</div>
+										<div class="text">
+											全市大数据平台实际共享数据和开放数据的情况
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 计算方法
+										</div>
+										<div class="text">
+											无条件开放率=（DATA网站实际开放数据项/计划可开放数据项数）*100%”
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="chartsBox" style="width:4.8rem; height:2.12rem;display: flex;">
+							<div id="chart3_container" style="width: 2.88rem; height: 1.9rem;"></div>
+							<div id="chart4_container" style="width: 2.88rem; height: 1.9rem;margin-left: -0.9rem;"></div>
+						</div>
+					</div>
+					<div class="zaixian">
+						<div class="title">在线办理政务服务事项增长率</div>
+						<div class="rule">
+							<span><img src="./images/dot5.png" alt="">在线办理事项数</span>
+							<span><img src="./images/dot7.png" alt="">在线办理事项增长率</span>
+							<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+								<img src="./images/ts.png" alt="">
+								<div class="tsTxt tsTxt_top top270">
+									<div class="center">
+										<div class="icon_title">
+											<img src="images/txton.png" /> 图表说明
+										</div>
+										<div class="text">
+											全市政务服务事项的在线办理事项数的增长情况
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 计算方法
+										</div>
+										<div class="text">
+											增长率=（（本统计周期在线办理政务服务事项数-上一周期在线办理政务服务事项数／上一周期在线办理政务服务事项数））*100%
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 数据来源
+										</div>
+										<div class="text">
+											北京通和政务服务局网站以及BAT应用小程序
+										</div>
+										<div class="icon_titleA">
+											<img src="images/txton.png" /> 统计周期
+										</div>
+										<div class="text" style="margin-bottom: 0.3rem;">
+											每周
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="chartsBox" style="width:100%; height:1.5rem; ">
+							<div id="chart5_container" style="width: 100%; height: 100%;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/jquery.min.js"></script>
+		<script src="common/echarts.min.js"></script>
+		
+		<script>
+			let obj = [
+				{
+					title:'数据汇聚',
+					min:1,
+					max:2,
+					son:'',
+					titleTxt:"反映市大数据平台已经汇聚的政务数据、社会数据的成效",
+					box:[],
+					dot:"",
+					url:"dataAggregation.html?id=0",
+					Atype:"18"
+				},
+				{
+					title:'数据共享',
+					min:3,
+					max:5,
+					son:'',
+					titleTxt:"反映全市政务数据是否可以共享、共享方式、共享规模、共享结果",
+					box:[],
+					dot:"",
+					url:"three.html?id=0",
+					Atype:"19"
+				},
+				{
+					title:'数据开放',
+					min:6,
+					max:8,
+					son:'',
+					titleTxt:"反映全市政务数据是否可以开放、开放规模、各单位参与开放情况、开放成效",
+					box:[],
+					dot:"",
+					url:"dataOpening.html?id=0",
+					Atype:"20"
+				},
+				{
+					title:'平台服务',
+					max:10,
+					min:9,
+					son:'',
+					titleTxt:"反映市大数据平台提供的硬件、服务支撑能力",
+					box:[],
+					dot:"",
+					url:"platformService.html?id=0",
+					Atype:"21"
+				},
+				{
+					title:'数据治理',
+					min:11,
+					max:11,
+					son:'',
+					titleTxt:"反映市大数据平台内数据质量情况",
+					box:[],
+					dot:"",
+					url:"",
+					Atype:"22"
+				},
+				{
+					title:'数据应用',
+					min:12,
+					max:13,
+					son:'',
+					titleTxt:"反映数据支撑应用的能力，包括政务服务事项办理、政务服务平台支持、领导驾驶舱、统一身份认证、统一支付等",
+					box:[],
+					dot:"",
+					url:"dataApplication.html?id=0",
+					Atype:"23"
+				},
+				{
+					title:'目录上链',
+					min:14,
+					max:15,
+					son:'',
+					titleTxt:"反映目录链中职责目录、系统目录、数据目录的对应情况和系统交钥匙情况",
+					box:[],
+					dot:"",
+					url:"catalogChain.html?id=0",
+					Atype:"24"
+				},
+				{
+					title:'系统入云',
+					min:16,
+					max:17,
+					son:'',
+					titleTxt:"反映市政务云提供的基础设施支撑能力及云平台使用使用效果",
+					box:[],
+					dot:"",
+					url:"systemCloud.html?id=0",
+					Atype:"25"
+				},
+			]
+				
+			function overShow(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:block;");
+			}
+			function outHide(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:none;");
+			}
+			//全市大数据发展水平
+			getScore()
+			function getScore(){
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getBigDataDevelopScore?departmentId=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	$("#fenshu").html(res.data.score)
+	                }
+	          	})
+			}
+			//重点工作
+			getData()
+			function getData(){
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataApply?departmentId=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	let Data = res.data;
+	                	let dataLIst = '';
+	                	for(let x in obj){
+	                		for(let y in Data){
+	                			 if(Data[y].score < 60){
+	                			 	Data[y].src = "./images/lamp_r.png"
+	                			 } else if(Data[y].score > 80){
+                			 		Data[y].src = "./images/lamp_g.png"
+	                			 }else{
+                			 		Data[y].src = "./images/lamp_y.png"
+	                			 }
+								let NameList=["",'政务数据汇聚','社会数据汇聚','共享准备情况','共享实施情况','共享使用情况','开放准备情况'
+									,'开放实施情况','开放使用情况','平台基础能力','平台使用情况','数据质量','总体情况','重点应用',
+									'目录链运行情况','目录完整性','政务云平台建设情况','政务云平台使用情况'
+								]
+								let TitList=[
+									'','包括已汇聚的政务数据情况、已汇聚政务数据更新情况',
+									'包括已汇聚的社会数据情况、社会数据汇聚成本情况',
+									'包括目前可以共享的政务数据情况',
+									'包括接口调用情况、前置共享交换数据量、已共享数据情况',
+									'包括共享数据点赞情况、各单位使用社会统采数据情况',
+									'包括目前可以开放的政务数据情况、各单位参与开放情况',
+									'包括目前开放的政务数据量',
+									'包括开放数据各种方式调用情况、各单位对数据申请的答复情况',
+									'包括市大数据平台CPU、内存、存储能力情况、API接口情况、共用组件情况',
+									'包括市大数据平台已分配的租户情况、API接口和公用组件支撑应用开发情况',
+									'包括市大数据平台数据是否具有规范性、完整性、准确性、一致性、可用性',
+									'包括政务服务平台接入情况、政务服务事项办理情况',
+									'包括统一身份认证服务情况、统一支付情况、电子证照情况、系统入领导驾驶舱情况',
+									'包括交钥匙系统情况',
+									'包括目录链中职责目录、系统目录、数据目录的对应情况',
+									'包括云平台总体资源规模和已分配支援规模情况，即包括PU、存储、内存资源',
+									'包括申请云资源反馈时间、系统入云情况、入云系统资源使用率、入云系统成本等'
+								]
+								let dengTit=[
+									'',
+									'政务数据汇聚得分=（政务数据汇聚比例得分+政务数据更新率得分）/66.7%/15%',
+									'社会数据汇聚得分=（社会数据统采成本得分+社会数据统采量得分）/33.3%/15%',
+									'共享准备情况得分=数据可共享率得分/20%/15%',
+									'共享实施情况得分=（共享接口调用频次增长率得分+前置交换数据增长率+数据共享率）/53.3%/15%',
+									'共享使用效果得分=（共享数据点赞率得分+社会数据共享单位覆盖量得分）/26.7%/15%',
+									'开放准备情况得分=（数据可开放率得分+数据开放参与度得分）/46.7%/15%',
+									'开放实施情况得分=数据无条件开放率得分/26.7%/15%',
+									'开放使用效果得分=（开放数据使用频次增长率得分+开放数据答复率得分）/26.6%/15%',
+									'平台基础能力得分=（平台存储使用增长率得分+共性组件增长率得分+API接口开通增长率得分+平台算力增长率得分）/60%/10%',
+									'平台使用情况得分=（共性组件支撑应用增长率得分+API接口支撑应用增长率得分+多租户用户增长率得分）/40%/10%',
+									'数据质量得分=汇聚数据质量得分/100%',
+									'总体情况得分=（资源接入分发平台服务汇聚增长率得分+在线办理政务服务事项增长率得分）/40%/15%',
+									'重点应用得分=（统一身份认证服务增长率得分+统一支付平台应用增长率得分+电子证照系统数量得分+系统入舱率得分）/60%/15%',
+									'目录完整性得分=（职责目录数据目录对应率得分+系统目录数据目录对应率得分+系统目录职责目录对应率得分）/75%/10%',
+									'目录链运行情况得分=系统交钥匙率得分/25%/10%',
+									'政务云平台建设情况得分=（云平台总体资源规模增长率得分+云平台已分配资源规模增长率得分）/40%/10%',
+									'政务云平台使用情况得分=信息系统入云率得分+云主机资源满足响应时间得分+云资源使用增长率得分+入云系统使用效率得分）/60%/10%'
+								]
+								Data[y].name=NameList[Data[y].type]
+								Data[y].tit=TitList[Data[y].type]
+								Data[y].dengTit=dengTit[Data[y].type]
+								if(Data[y].type==obj[x].Atype){
+									obj[x].Ascore=Data[y].score
+								}
+								
+	                			 if(Data[y].type <= obj[x].max  && Data[y].type >= obj[x].min ){
+	                			 	obj[x].box.push(Data[y].score)
+	                			 	obj[x].son += `<div class="item">
+	                			 						<div class="img positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+	                			 							<img src="${Data[y].src}" alt="">
+	                			 							<div class="bounced w300">
+	                			 								<p>${Data[y].score}分</p>
+	                			 								计算方式
+	                			 								<p>${Data[y].dengTit}</p>
+	                			 							</div>
+	                			 						</div>
+	                			 						<div class="positioning zIndex" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+															<div class="name">
+																<span>${Data[y].name}</span>
+															</div>
+															<div class="bounced">
+																<span>${Data[y].tit}</span>
+															</div>
+														</div>
+	                			 				</div>`;
+	                			 }
+	                		}
+	                	}
+	                	for (let item in obj) {
+                			if(obj[item].Ascore<60){
+                				obj[item].dot="./images/dot1.png"
+                			}else if(obj[item].Ascore>=60&&obj[item].Ascore<=80){
+                				obj[item].dot="./images/dot2.png"
+                			}else{
+                				obj[item].dot="./images/dot3.png"
+                			}
+	                		dataLIst += `<li>
+								<div class="tit positioning" onclick="tabJump('${obj[item].url}')" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+									<img src="${obj[item].dot}" alt="">${obj[item].title}
+									<div class="bounced">
+										<p>${obj[item].Ascore}分</p>
+										${obj[item].titleTxt}
+									</div>
+								</div>
+								<div class="items">
+									${obj[item].son}
+								</div>
+							</li>`
+	                	}	                	
+	                	$('#zdgzList').html(dataLIst)
+	                }
+                });
+			}
+			
+			// 得分趋势
+			chart1();
+			function chart1() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getScore?departmentId=0"+"&type=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+                	// 数据处理
+					var xData = [];
+					var yData = [];
+					$.each(res.data, function(i, v) {
+						xData.push(v.dataPeriod);
+						yData.push(v.score);
+					});
+					// 数据处理 end
+					var dom = document.getElementById("chart1_container");
+					var myChart = echarts.init(dom);
+					var option = {
+						tooltip: {
+							trigger: 'item',
+							formatter: "{b} : {c}"
+						},
+						xAxis: {
+							type: 'category',
+							name: '',
+							boundaryGap: true,
+							data: xData,
+							splitLine: {
+								show: false
+							},
+							axisTick: { // y轴刻度
+								show: true
+							},
+							/*改变x轴颜色*/
+							axisLine: {
+								lineStyle: {
+									color: '#39508c',
+								}
+							},
+							//  改变x轴字体颜色和大小
+							axisLabel: {
+								textStyle: {
+									color: 'rgba(255,255,255,0.5)'
+								}
+							}
+						},
+						yAxis: {
+							type: 'value',
+							name: '分',
+							axisTick: {
+								inside: true
+							},
+							scale: true,
+							max: 100,
+							type: 'value',
+							minInterval: 10,
+							axisLabel: {
+								margin: 0,
+								formatter: function(value, index) {
+									if(value >= 10000 && value < 10000000) {
+										value = value / 10000 + "万";
+									} else if(value >= 10000000) {
+										value = value / 10000000 + "千万";
+									}
+									return value;
+								},
+								textStyle: {
+									color: 'rgba(255,255,255,0.5)'
+								}
+							},
+							splitLine: {
+								show: true,
+								lineStyle: {
+									color: '#39508c'
+								}
+							},
+							/*改变y轴颜色*/
+							axisLine: {
+								lineStyle: {
+									color: '#39508c'
+								}
+							}
+						},
+						grid: {
+							left: 30,
+							right: 30,
+							top: 50,
+							bottom: 30
+						},
+						series: [{
+							data: yData,
+							type: 'line',
+							itemStyle: {
+								normal: {
+									color: '#2fb795',
+									lineStyle: {
+										normal: {
+											color: '#2fb795'
+										}
+									},
+									label: {
+										show: true,
+										color: '#fff',
+									},
+									lineStyle: {
+										width: 1.5 // 0.1的线条是非常细的了
+									}
+								}
+							},
+							areaStyle: {
+								normal: {
+									barBorderRadius: 30,
+									color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+										offset: 1,
+										color: 'rgba(13,246,238,0.1)'
+									}, {
+										offset: 0,
+										color: 'rgba(13,246,238,1)'
+									}]),
+								}
+							}
+						}],
+						axisLabel: {
+							color: "#000",
+							interval: 0,
+							formatter: function(value) {
+								if(value.length > 12) {
+									return value.substring(0, 12) + "...";
+								} else {
+									return value;
+								}
+							}
+						}
+					};
+					if(option && typeof option === "object") {
+						myChart.setOption(option, true);
+					}
+		                }
+	         	})
+				
+			}
+			//部门排名
+			bmpm()
+			function bmpm(){
+				let bmpmHtml=''
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getRank?type=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	res.data=res.data.slice(0,5)
+	                	console.log(res.data)
+	                	for(let i in res.data){
+	                		if(res.data[i].scoreTrend<0){
+	                			res.data[i].src='./images/down.png'
+	                			res.data[i].srcTit="较上个月下降"
+	                		}else{
+	                			res.data[i].src='./images/up.png'
+	                			res.data[i].srcTit="较上个月上升"
+	                		}
+	                		bmpmHtml+=`
+								<li>
+									<div class="center_y">
+										<div class="rank">${res.data[i].ranking}</div>
+										<div class="name" style="width:1rem">${res.data[i].departmentName}</div>
+									</div>
+									<div class="">${res.data[i].score}</div>
+									<div class="status positioning center_y" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+										<img src="${res.data[i].src}" alt=""> ${Math.abs(res.data[i].scoreTrend)}
+										<div class="bounced bounced_bmpm">
+											${res.data[i].srcTit}
+											${Math.abs(res.data[i].scoreTrend)}
+										</div>
+									</div>
+								</li>
+	                		`
+	                	}
+	                	$('#bmpmList').html(bmpmHtml)
+	                }
+	          })
+			}
+			//政务数据汇聚率
+			chart2();
+			function chart2() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getConvergeRate?departmentId=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	var alreadyConvergeData = [];
+						var shouldConvergeData = [];
+						var time=[]
+						var proportion=[]
+						$.each(res.data, function(i, v) {
+							alreadyConvergeData.push(v.alreadyConvergeData);
+							shouldConvergeData.push(v.shouldConvergeData);
+							proportion.push((v.alreadyConvergeData/v.shouldConvergeData).toFixed(2)*100)
+							time.push(v.updatetime.substring(0,10))
+						});
+						var dom = document.getElementById("chart2_container");
+						var myChart = echarts.init(dom);
+						var option = {
+							color: ['#e59a35', '#00e3f9'],
+							tooltip: {
+								trigger: 'axis',
+								axisPointer: {
+									type: 'shadow'
+								},
+								formatter: '{b0}<br/>{a0}: {c0}<br />{a1}: {c1}<br />{a2}: {c2}%<br />'
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [{
+									name: '项',
+									nameLocation: 'end',
+									type: 'value',
+									scale: true,
+									minInterval: 10,
+									min: 0,
+									splitLine: {
+										show: true,
+										lineStyle: {
+											color: '#39508c'
+										}
+									},
+									/*改变y轴颜色*/
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									}
+								},
+								{
+									type: 'value',
+									scale: true,
+									splitLine: {
+										show: false,
+									},
+									max: 100,
+									min: 0,
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									},
+									axisLabel: {
+										formatter: '{value}%', //右侧以百分比进行展示
+										show: true,
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '12'
+										}
+									}
+								}
+							],
+							grid: {
+								left: 60,
+								right: 60,
+								top: 30,
+								bottom: 20
+							},
+							series: [{
+									name: '已汇聚数据类',
+									type: 'bar',
+									barGap: 0,
+									data: alreadyConvergeData,
+									barWidth: 8, //柱图宽度
+									itemStyle: {
+										normal: {
+											barBorderRadius: 30,
+											color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+												offset: 0,
+												color: '#ce8544'
+											}, {
+												offset: 1,
+												color: '#e79f30'
+											}]),
+										}
+									}
+								},
+								{
+									name: '目录链数据项总数',
+									type: 'bar',
+									data: shouldConvergeData,
+									barWidth: 8, //柱图宽度
+									itemStyle: {
+										normal: {
+											barBorderRadius: 30,
+											color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+												offset: 0,
+												color: '#0092f9'
+											}, {
+												offset: 1,
+												color: '#00e8f9'
+											}]),
+										}
+									}
+								},
+								{
+									name: '政务数据汇聚率',
+									yAxisIndex: 1,
+									type: "line",
+									data: proportion,
+									itemStyle: {
+										normal: {
+											color: '#2fb795',
+											lineStyle: {
+												normal: {
+													color: '#2fb795'
+												}
+											},
+											label: {
+												show: false,
+												color: '#fff',
+											},
+											lineStyle: {
+												width: 1 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								}
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+	                }
+	           })    
+			}
+
+			//    数据共享率
+			chart3();
+			function chart3() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDatashareRate?departmentId=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let echartData=[{
+								value: 21,
+								name: '未实际共享'
+							},
+							{
+								value: 79,
+								name: '实际共享'
+							}
+						];
+						echartData[0].value=res.data[0].shareData
+						echartData[1].value=res.data[0].canShareData+res.data[0].noShareData-res.data[0].shareData
+						//    数据处理 end
+						var dom = document.getElementById("chart3_container");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								show: true,
+								trigger: 'item',
+								formatter: "{b}数据 : {c}项"
+							},
+							color: ['#ffc53a', '#0196ff'],
+							stillShowZeroSum: false,
+							series: [{
+								startAngle: 180,
+								clockwise: false,
+								//						name: '数据共享率',
+								type: 'pie',
+								radius: '45%',
+								center: ['50%', '50%'],
+								avoidLabelOverlap: true,
+								labelLine: {
+									normal: {
+										length: 7,
+										length2: 14,
+									},
+								},
+								label: {
+									normal: {
+										formatter: '{b|{b}}\n{a|{d}%}',
+										//								padding: [-5, -15],
+										rich: {
+											a: {
+												fontSize: 12,
+											},
+											b: {
+												fontSize: 12,
+											}
+										},
+									}
+								},
+								data: echartData,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(128, 128, 128, 0.5)'
+									}
+								}
+							}]
+						};
+		
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	           })
+				
+			}
+
+			// 数据开放率
+			chart4();
+			function chart4() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getDataopenRate?departmentId=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						let echartData = [{
+								value: 21,
+								name: '实际开放'
+							},
+							{
+								value: 79,
+								name: '未实际开放'
+							}
+						];
+						// 数据处理 end
+						var dom = document.getElementById("chart4_container");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b}数据 : {c}项"
+							},
+							color: ['#048bff', '#0ce9e0'],
+							stillShowZeroSum: false,
+							series: [{
+								clockwise: false,
+								type: 'pie',
+								radius: ['18%', '45%'],
+								center: ['53%', '50%'],
+								avoidLabelOverlap: true,
+								roseType: 'radius',
+								labelLine: {
+									normal: {
+										length: 4,
+										length2: 8,
+									}
+								},
+								label: {
+									normal: {
+										formatter:"{b} \n {d}%",
+									}
+								},
+								data: echartData,
+								itemStyle: {
+									emphasis: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(128, 128, 128, 0.5)'
+									}
+								}
+							}]
+						}
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+
+			//在线办理政务服务事项增长率
+			chart5();
+			function chart5() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getOnlineServiceRate?departmentId=0",
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	console.log('在线办理政务服务事项增长率',res.data)
+						var onLineData = [];
+						var time=[]
+						var proportion=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								item.proportion=parseInt((item.onLineData-arr[a].onLineData)/arr[a].onLineData.toFixed(2) *100)
+								a++
+							})
+							res.data[0].proportion = '-'
+							onLineData.push(v.onLineData)
+							proportion.push(v.proportion)
+							time.push(v.dataPeriod)
+							var dom = document.getElementById("chart5_container");
+							var myChart = echarts.init(dom);
+							var option = {
+								color: ['#e59a35', '#00e3f9'],
+								tooltip: {
+									trigger: 'axis',
+									axisPointer: {
+										type: 'shadow'
+									},
+									formatter: '{b0}<br/>{a0}: {c0}<br />{a1}: {c1}%<br />'
+								},
+								xAxis: [{
+									type: 'category',
+									data: time,
+									axisTick: { // y轴刻度
+										show: true
+									},
+									/*改变x轴颜色*/
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0)'
+										},
+									},
+									//  改变x轴字体颜色和大小
+									axisLabel: {
+										interval:0,
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									}
+								}],
+								yAxis: [{
+										name: '项',
+										nameLocation: 'end',
+										type: 'value',
+//										min: 0,
+//										max: 500, //设置左侧最大值
+										splitLine: {
+											show: true,
+											lineStyle: {
+												color: '#39508c'
+											}
+										},
+										/*改变y轴颜色*/
+										axisLine: {
+											lineStyle: {
+												color: 'rgba(255,255,255,0.5)'
+											}
+										}
+									},
+									{
+										type: 'value',
+										scale: true,
+										splitLine: {
+											show: false
+										},
+//										max: 100,
+//										min: 0,
+										axisLine: {
+											lineStyle: {
+												color: '#39508c',
+											}
+										},
+										axisLabel: {
+											formatter: '{value}%', //右侧以百分比进行展示
+											show: true,
+											textStyle: {
+												color: 'rgba(255,255,255,0.5)',
+												fontSize: '12'
+											}
+										},
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '14'
+										}
+									}
+								],
+								grid: {
+									left: 60,
+									right: 60,
+									top: 30,
+									bottom: 30
+								},
+								series: [{ // For shadow
+										name: '任务量',
+										type: 'bar',
+										itemStyle: {
+											barBorderRadius: 30,
+											color: 'rgba(255,255,255,0.1)'
+										},
+										barGap: '-100%',
+										barCategoryGap: '40%',
+//										data: [500, 500, 500, 500, 500],
+										barWidth: 12, //柱图宽度
+										animation: false
+									},
+									{
+										name: '在线办理事项数',
+										type: 'bar',
+										itemStyle: {
+											barBorderRadius: 30,
+											color: new echarts.graphic.LinearGradient(
+												0, 0, 0, 1, [{
+														offset: 0,
+														color: '#83bff6'
+													},
+													{
+														offset: 0.5,
+														color: '#188df0'
+													},
+													{
+														offset: 1,
+														color: '#188df0'
+													}
+												]
+											)
+										},
+										emphasis: {
+											itemStyle: {
+												color: new echarts.graphic.LinearGradient(
+													0, 0, 0, 1, [{
+															offset: 0,
+															color: '#2378f7'
+														},
+														{
+															offset: 0.7,
+															color: '#2378f7'
+														},
+														{
+															offset: 1,
+															color: '#83bff6'
+														}
+													]
+												)
+											}
+										},
+										data: onLineData,
+										barWidth: 12, //柱图宽度
+									},
+									{
+										name: '在线办理事项增长率',
+										type: 'line',
+										yAxisIndex: 1,
+										data: proportion,
+										itemStyle: {
+											normal: {
+												color: '#ff0000',
+												lineStyle: {
+													normal: {
+														color: '#ff0000'
+													}
+												},
+												label: {
+													show: false,
+													color: '#fff',
+												},
+												lineStyle: {
+													width: 1 // 0.1的线条是非常细的了
+												}
+											}
+										}
+									}
+								]
+							};
+							if(option && typeof option === "object") {
+								myChart.setOption(option, true);
+							}
+						});
+					}
+	          	})
+			}
+			$(".c_txt_ts").mouseover(function() {
+				$(this).find(".tsTxt").toggle();
+			});
+			$(".c_txt_ts").mouseout(function() {
+				$(".tsTxt").hide();
+			})
+			$('#tabReturn').click(function() {
+				window.history.go(-1); //返回上一页
+			})
+
+			function tabJump(e) {
+				window.location.href = e
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,4 @@
+1、快捷键使用：
+https://www.cnblogs.com/manfredHu/p/4941307.html
+2、vue高亮插件的安装
+https://www.cnblogs.com/shuaiandjun/p/7238304.html

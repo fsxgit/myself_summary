@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>完美小数乘法</title>
+</head>
+<body>
+<h1>完美--小数乘法</h1>
+<input type="text" class="put1" value="1.1725" /> x
+<input type="text" class="put2" value="10000" /><button>等于</button>
+<input type="text" class="res"  />
+
+<script src="jquery.min.js"></script>
+<script>
+
+$("button").click(function(){
+    var V1 = $(".put1").val();
+	var V2 = $(".put2").val();
+	
+	var res = accMul(V1,V2);
+	console.log(res);
+	
+	$(".res").val(res);
+
+})
+function accMul(arg1,arg2)
+{
+var m=0,s1=arg1.toString(),s2=arg2.toString();
+try{m+=s1.split(".")[1].length}catch(e){}
+try{m+=s2.split(".")[1].length}catch(e){}
+return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m)
+}
+</script>
+</body>
+</html>

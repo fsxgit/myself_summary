@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=4.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>数据应用</title>
+		<link rel="stylesheet" href="../css/base.css">
+		<link rel="stylesheet" type="text/css" href="../css/dataApplication.css" />
+	</head>
+
+	<body>
+		<div class="dataApp">
+			<div class="dataApp_centext">
+				<div class="dataApp_header">
+					<img class="return" id="tabReturn" src="../images/return.png" />
+				</div>
+				<div class="dataApp_content">
+					<div style="width: 100%;display: flex;">
+						<div>
+							<div class="dataApp_sjgx" style="height: 4.2rem;">
+								<div class="titleBox">
+									<div class="title" id="fenshu"></div>
+									<div class="c_txt_ts" style="margin-left: 0.5rem;">
+										<img src="../images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title" style="margin-top: 0.1rem;">
+													<img src="../images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													本委办局“数据应用”工作整体得分
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<ul class="prompt">
+									<li>
+										<img src="../images/dot1.png" />
+										<p>风险
+											<60分</p>
+									</li>
+									<li>
+										<img src="../images/dot2.png" />
+										<p>预警60-80分</p>
+									</li>
+									<li>
+										<img src="../images/dot3.png" />
+										<p>健康>80分</p>
+									</li>
+								</ul>
+								<div style="display: flex;justify-content: space-between;">
+									<div class="charts_sjgx" style="margin:0 auto;">
+										<div id="charts_sjgx" style="width: 3rem; height: 1.8rem;"></div>
+									</div>
+								</div>
+								<div class="charts_dfqk" style="margin:0 auto;">
+									<div class="c_txt_ts zindex1" style="margin-right: 0.2rem;margin-bottom: 0.1rem;">
+										<img src="../images/ts.png" alt="">
+										<div class="tsTxt tsTxt_a">
+											<div class="center">
+												<div class="icon_title" style="margin-top: 0.1rem;">
+													<img src="../images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													本委办局“数据应用”工作近期得分趋势
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="charts_dfqk" style="width: 3.5rem; height: 1.4rem;"></div>
+								</div>
+							</div>
+							<div class="dataApp_xtrc" style="width: 3.3rem;height: 2.2rem;margin-top: 0.1rem;">
+								<div class="xtrc_title" style="width: 1rem;">系统入舱率</div>
+								<div class="c_txt_ts zindex1">
+									<img src="../images/ts.png" alt="">
+									<div class="tsTxt zx_tsTxt">
+										<div class="center">
+											<div class="icon_title" style="margin-top: 0.1rem;">
+												<img src="../images/txton.png" /> 图表说明
+											</div>
+											<div class="text">
+												本委办局在目录链上注册的信息系统接入市领导驾驶舱的比例
+											</div>
+											<div class="icon_titleA">
+												<img src="../images/txton.png" /> 计算方法
+											</div>
+											<div class="text">
+												入舱率=（本委办局已入舱系统数量/本委办局应入舱系统数量）*100%
+											</div>
+											<div class="icon_titleA">
+												<img src="../images/txton.png" /> 数据来源
+											</div>
+											<div class="text">
+												领导驾驶舱
+											</div>
+											<div class="icon_titleA">
+												<img src="../images/txton.png" /> 统计周期
+											</div>
+											<div class="text">
+												每周
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="dataApp_xtrc" style="width: 3.3rem;height: 1.6rem;"></div>
+							</div>
+						</div>
+						<div class="dataApp_headerRight">
+							<div class="" style="display: flex;justify-content: space-between;">
+								<div class="dataApp_hjzz dataApp_public" style="width: 4.8rem;height: 3.2rem;">
+									<div class="public_title lineHeight45">政务服务平台汇聚增长率</div>
+									<div class="rule">
+										<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+											<img src="../images/dot2.png" alt="">
+											政府服务平台汇聚增长数
+											<div class="bounced top10" >
+												政务服务资源接入分发平台服务注册即可以通过公共服务平台入口统一提供服务
+											</div>
+										</span>
+										<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+											<img src="../images/dot6.png" alt="">
+											政府服务平台汇聚增长率
+											<div class="bounced top10" >
+												增长率=（（本统计周期本委办局政务服务资源接入分发平台服务注册数量-上一周期本委办局政务服务资源接入分发平台服务注册数量）／上一周期本委办局政务服务资源接入分发平台服务注册数量）*100%
+											</div>
+										</span>
+										<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+											<img src="../images/ts.png" alt="">
+											<div class="tsTxt zx_tsTxt">
+												<div class="center">
+													<div class="icon_title" style="margin-top: 0.2rem;">
+														<img src="../images/txton.png" /> 图表说明
+													</div>
+													<div class="text">
+														本委办局现有各类政务、公共服务应用接入移动公共服务平台，从平台统一提供服务的应用数量及增长率
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 计算方法
+													</div>
+													<div class="text">
+														增长率=（（本统计周期本委办局政务服务资源接入分发平台服务注册数量-上一周期本委办局政务服务资源接入分发平台服务注册数量）／上一周期本委办局政务服务资源接入分发平台服务注册数量）*100%
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 数据来源
+													</div>
+													<div class="text">
+														资源接入分发平台
+													</div>
+													<div class="icon_titleA">
+														<img src="../images/txton.png" /> 统计周期
+													</div>
+													<div class="text">
+														每周
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="dataApp_hjzz" style="height: 2.3rem;"></div>
+								</div>
+								<div style="display: flex;justify-content: space-between;margin-left: 0.1rem;">
+									<div class="dataApp_sfrz dataApp_public" style="height: 3.2rem;">
+										<div class="public_title lineHeight45">统一身份认证服务增长率</div>
+										<div class="rule">
+											<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+												<img src="../images/dot2.png" alt="">
+												统一身份认证服务增长数
+												<div class="bounced top10" >
+													本委办局信息系统已接入统一身份认证平台的数量，即可以通过统一身份认证登陆的信息系统数量
+												</div>
+											</span>
+											<span class="positioning" onmouseover='overShow(this)' onmouseout='outHide(this)'>
+												<img src="../images/dot6.png" alt="">
+												统一身份认证服务增长率
+												<div class="bounced top10" >
+													增长率=（（本统计周期已接入统一身份认证平台系统数量-上一周期已接入统一身份认证平台系统数量）／上一周期已接入统一身份认证平台系统数量）*100%
+												</div>
+											</span>
+											<div class="c_txt_ts" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+												<img src="../images/ts.png" alt="">
+												<div class="tsTxt zx_tsTxt">
+													<div class="center">
+														<div class="icon_title" style="margin-top: 0.1rem;">
+															<img src="../images/txton.png" /> 图表说明
+														</div>
+														<div class="text">
+															反映本委办局接入统一认证平台系统数量的增长情况
+														</div>
+														<div class="icon_titleA">
+															<img src="../images/txton.png" /> 计算方法
+														</div>
+														<div class="text">
+															增长率=（（本统计周期本委办局已接入统一身份认证平台系统数量-上一周期本委办局已接入统一身份认证平台系统数量）／上一周期已接入统一身份认证平台系统数量）*100%
+														</div>
+														<div class="icon_titleA">
+															<img src="../images/txton.png" /> 数据来源
+														</div>
+														<div class="text">
+															北京市统一身份认证平台或者委办局获得数据
+														</div>
+														<div class="icon_titleA">
+															<img src="../images/txton.png" /> 统计周期
+														</div>
+														<div class="text">
+															每周
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="dataApp_sfrz" style="height: 2.3rem;"></div>
+									</div>
+								</div>
+							</div>
+							<div style="flex: 1; display: flex;justify-content: space-between;margin-top: 0.1rem;">
+								<div class="dataApp_zxbl dataApp_public" style="width: 4.8rem !important;height: 3.2rem;">
+									<div class="zxbl_title lineHeight45">在线办理政务服务事项增长率</div>
+									<div class="c_txt_ts public_ts">
+										<img src="../images/ts.png" alt="">
+										<div class="tsTxt zx_tsTxt">
+											<div class="center">
+												<div class="icon_title" style="margin: 0.1rem;">
+													<img src="../images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													反映本委办局政务服务事项的在线办理事项数的增长情况
+												</div>
+												<div class="icon_titleA">
+													<img src="../images/txton.png" /> 计算方法
+												</div>
+												<div class="text">
+													增长率=（（本统计周期本委办局在线办理政务服务事项数-上一周期本委办局在线办理政务服务事项数／上一周期本委办局在线办理政务服务事项数））*100%
+												</div>
+												<div class="icon_titleA">
+													<img src="../images/txton.png" /> 数据来源
+												</div>
+												<div class="text">
+													北京通和政务服务局网站以及BAT应用小程序
+												</div>
+												<div class="icon_titleA">
+													<img src="../images/txton.png" /> 统计周期
+												</div>
+												<div class="text">
+													每周
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="dataApp_zxbl" style="width: 4.8rem;height: 2.5rem;"></div>
+								</div>
+								<div class="dataApp_dzdy" style="width: 4.8rem;height: 3.2rem;">
+									<div class="dzdy_title lineHeight45">电子证照系统数量 </div>
+									<div class="c_txt_ts zindex1" style="padding:0.12rem 0; margin-top: -0.14rem; margin-right:0.2rem;">
+										<img src="../images/ts.png" alt="">
+										<div class="tsTxt zx_tsTxt">
+											<div class="center">
+												<div class="icon_titleA" style="margin-top: 0.1rem;">
+													<img src="../images/txton.png" /> 图表说明
+												</div>
+												<div class="text">
+													本委办局电子证照系统已接入市级公共服务平台电子证照平台的数量
+												</div>
+												<div class="icon_titleA">
+													<img src="../images/txton.png" /> 数据来源
+												</div>
+												<div class="text">
+													电子证照系统或者委办局获得数据
+												</div>
+												<div class="icon_titleA">
+													<img src="../images/txton.png" /> 统计周期
+												</div>
+												<div class="text">
+													每周
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="dataApp_dzdy" style="height: 2.5rem;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../common/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/jquery.min.js"></script>
+		<script src="../common/echarts.min.js"></script>
+		
+		<script type="text/javascript">
+			var search = window.location.search;
+			var id = getSearchString('id', search); //结果：2
+			function getSearchString(key, Url) {
+			    var str = Url;
+			    str = str.substring(1, str.length); // 获取URL中?之后的字符（去掉第一位的问号）
+			    // 以&分隔字符串，获得类似name=xiaoli这样的元素数组
+			    var arr = str.split("&");
+			    var obj = new Object();
+			
+			    // 将每一个数组元素以=分隔并赋给obj对象 
+			    for (var i = 0; i < arr.length; i++) {
+			        var tmp_arr = arr[i].split("=");
+			        obj[decodeURIComponent(tmp_arr[0])] = decodeURIComponent(tmp_arr[1]);
+			    }
+			    return obj[key];
+			}
+			//数据共享
+			chartSjgx()
+			function chartSjgx() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/dataapply/getDataApply?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	let Data = res.data;
+	                	let img;
+	                	let score;
+	                	for(let i in Data){
+	                		if(Data[i].type==23){
+	                			score=Data[i].score
+                				if(score < 60){
+	                			 	img = "../images/lamp_r.png"
+	            			 	} else if(score > 80){
+	        			 			img = "../images/lamp_g.png"
+	            			 	}else{
+	            			 		img = "../images/lamp_y.png"
+	            			 	}
+	                		}
+	                	}
+	                	let dataLIst=`
+	                		<img src="${img}" />
+							<p style="margin-left: 0px;">数据应用 <i>${score}</i>分</p>
+	                	`
+	                	$('#fenshu').html(dataLIst)
+	                	let chart = document.getElementById("charts_sjgx");
+						let myChart = echarts.init(chart);
+						let option = {
+							series: [{
+									name: '业务指标',
+									type: 'gauge',
+									min: 0,
+									max: 100,
+									splitNumber: 10,
+									radius: '90%',
+									title: {
+										textStyle: {
+											color: "#0CD7D8"
+										}
+									},
+									axisLabel: { // 坐标轴小标记 刻度数字颜色
+										fontWeight: 'bolder',
+										color: '#5B699D',
+										shadowColor: '#fff', //默认透明
+										shadowBlur: 10
+									},
+									detail: {
+										formatter: '{value}%'
+									}, //仪表盘显示数据
+									axisLine: { //仪表盘样式
+										lineStyle: { // 属性lineStyle控制线条样式
+											color: [
+												[0.18, '#4CF59F'],
+												[0.82, '#1e90ff'],
+												[1, '#4CF59F']
+											],
+											width: 3,
+											shadowColor: '#fff', //默认透明
+											shadowBlur: 10
+										},
+									},
+									splitLine: { //分割线样式
+										length: 10
+									},
+									itemStyle:{
+										color:"#1e90ff"
+									},
+									detail: {
+										borderWidth: 2,
+										borderRadius: 3,
+										borderColor: '#0B8AB1',
+										shadowColor: '#0B8AB1', //默认透明
+										shadowBlur: 5,
+										offsetCenter: [0, '-40%'], // 显示位置 x, y，单位px
+										textStyle: {
+											fontSize: 16,
+											color: '#EA9538',
+										},
+										padding: [4, 10, 0, 10]
+									},
+									pointer: {
+										width: 8,
+										length: '45%'
+									},
+									data: [{
+										value: score
+									}],
+		
+								}
+		
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option);
+						}
+	            	}
+            	})
+				
+			}
+			
+			// 得分趋势
+			chartDfqk();
+			function chartDfqk() {
+				$.ajax({
+					type: "get",
+					url: "http://47.56.170.82:8080/api/dataapply/getScore?departmentId="+id+"&type=23",
+					dataType: "json",
+					headers: {
+						"content-type": "application/json;charset=utf-8"
+					},
+					success: function(res) {
+						// 数据处理
+						var xData = [];
+						var yData = [];
+						$.each(res.data, function(i, v) {
+							xData.push(v.dataPeriod);
+							yData.push(v.score);
+						});
+						var dom = document.getElementById("charts_dfqk");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b} : {c}"
+							},
+							xAxis: {
+								type: 'category',
+								name: '',
+								boundaryGap: true,
+								data: xData,
+								splitLine: {
+									show: false
+								},
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+									},
+									//		                    rotate:30
+								},
+							},
+							yAxis: {
+								type: 'value',
+								name: '分',
+
+								axisTick: {
+									inside: true
+								},
+								scale: true,
+								max: 100,
+								type: 'value',
+								minInterval: 10,
+								axisLabel: {
+									margin: 0,
+									formatter: function(value, index) {
+										if(value >= 10000 && value < 10000000) {
+											value = value / 10000 + "万";
+										} else if(value >= 10000000) {
+											value = value / 10000000 + "千万";
+										}
+										return value;
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								},
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								}
+							},
+							grid: {
+								left: 30,
+								right: 50,
+								top: 40,
+								bottom: 20
+							},
+							series: [{
+								data: yData,
+								type: 'line',
+								itemStyle: {
+									normal: {
+										color: '#2fb795',
+										lineStyle: {
+											normal: {
+												color: '#2fb795'
+											}
+										},
+										label: {
+											show: true,
+											color: '#fff',
+										},
+										lineStyle: {
+											width: 1.5 // 0.1的线条是非常细的了
+										}
+									}
+								},
+								areaStyle: {
+									normal: {
+										barBorderRadius: 30,
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+											offset: 1,
+											color: 'rgba(13,246,238,0.1)'
+										}, {
+											offset: 0,
+											color: 'rgba(13,246,238,1)'
+										}]),
+									}
+								}
+							}],
+							axisLabel: {
+								color: "#000",
+								interval: 0,
+								formatter: function(value) {
+									if(value.length > 12) {
+										return value.substring(0, 12) + "...";
+									} else {
+										return value;
+									}
+								}
+							}
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+			
+			}
+			//政务服务平台汇聚增长率
+			chartHjzz();
+			function chartHjzz() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getGovernmentServiceSystemConverge?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						var governmentServiceRegisterNumber = [];
+						var time=[]
+						var proportion=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								item.proportion=parseInt((item.governmentServiceRegisterNumber-arr[a].governmentServiceRegisterNumber)/arr[a].governmentServiceRegisterNumber.toFixed(2) *100)
+								a++
+							})
+							res.data[0].proportion = '-'
+							governmentServiceRegisterNumber.push(v.governmentServiceRegisterNumber)
+							proportion.push(v.proportion)
+							time.push(v.dataPeriod)
+						})
+						// 数据处理 end
+						var dom = document.getElementById("dataApp_hjzz");
+						var myChart = echarts.init(dom);
+						var option = {
+							tooltip: {
+								trigger: 'axis',
+								axisPointer: {
+									type: 'shadow'
+								},
+								formatter: '{b0}<br/>{a0}: {c0}<br />{a1}: {c1}%<br />'
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0)'
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [{
+								name: '条',
+								nameLocation: 'end',
+								type: 'value',
+//								min: 0,
+//								max: 5000, //设置左侧最大值
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}, {
+								type: 'value',
+								splitLine: {
+									show: false,
+								},
+//								max: 100,
+//								min: 0,
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								axisTick: {
+									show: false
+								},
+								axisLabel: {
+									formatter: '{value}%', //右侧以百分比进行展示
+									show: true,
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+										fontSize: '12'
+									}
+								}
+							}],
+							grid: {
+								left: 100,
+								right: 80,
+								top: 30,
+								bottom: 40
+							},
+							series: [{ // For shadow
+									name: '任务量',
+									type: 'bar',
+									itemStyle: {
+										barBorderRadius: 30,
+										color: 'rgba(255,255,255,0.1)'
+									},
+									barGap: '-100%',
+									barCategoryGap: '40%',
+//									data: [5000, 5000, 5000, 5000],
+									barWidth: 12, //柱图宽度
+									animation: false
+								},
+								{
+									name: '政府服务平台汇聚增长数',
+									type: 'bar',
+									itemStyle: {
+										barBorderRadius: 30,
+										color: "#EC9C35"
+									},
+									data: governmentServiceRegisterNumber,
+									barWidth: 12, //柱图宽度
+								},
+								{
+									name: '政府服务平台汇聚增长率',
+									type: 'line',
+									data: proportion,
+									itemStyle: {
+										normal: {
+											color: '#0995C2',
+											lineStyle: {
+												normal: {
+													color: '#0995C2'
+												}
+											},
+											label: {
+												show: false,
+												color: '#fff',
+											},
+											lineStyle: {
+												width: 1 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								}
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	          	})
+				
+			}
+
+			//电子证照系统数量
+			chartDzdy();
+			function chartDzdy() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getElectronCertificateSystemNumber?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	var time=[]
+						var alreadyJoinSystemNumber = [];
+						var proportion=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								item.proportion=parseInt((item.alreadyJoinSystemNumber-arr[a].alreadyJoinSystemNumber)/arr[a].alreadyJoinSystemNumber.toFixed(2) *100)
+								a++
+							})
+							res.data[0].proportion = '-'
+							alreadyJoinSystemNumber.push(v.alreadyJoinSystemNumber)
+							proportion.push(v.proportion)
+							time.push(v.dataPeriod)
+						})
+						// 数据处理 end
+						var dom = document.getElementById("dataApp_dzdy");
+						var myChart = echarts.init(dom);
+						var option = {
+							color: ['#e59a35', '#00e3f9'],
+							tooltip: {
+								trigger: 'axis',
+								axisPointer: {
+									type: 'shadow'
+								},
+								formatter: '{b0}<br />{a0}: {c0}<br />{a1}: {c1}%<br />'
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								axisTick: { // X轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0)'
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [{
+									name: '次',
+									nameLocation: 'end',
+									type: 'value',
+									min: 0,
+									splitLine: {
+										show: true,
+										lineStyle: {
+											color: '#39508c'
+										}
+									},
+									/*改变y轴颜色*/
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									}
+								},
+								{
+									type: 'value',
+									scale: true,
+									splitLine: {
+										show: false
+									},
+									max: 100,
+									axisLine: {
+										lineStyle: {
+											color: '#39508c'
+										}
+									},
+									axisLabel: {
+										formatter: '{value}%', //右侧以百分比进行展示
+										show: true,
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '12'
+										}
+									},
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+										fontSize: '14'
+									}
+								}
+							],
+							grid: {
+								left: 100,
+								right: 100,
+								top: 50,
+								bottom: 40
+							},
+							series: [{ // For shadow
+									name: '任务量',
+									type: 'bar',
+									itemStyle: {
+										barBorderRadius: 30,
+										color: 'rgba(255,255,255,0.1)'
+									},
+									barGap: '-100%',
+									barCategoryGap: '40%',
+									barWidth: 12, //柱图宽度
+									animation: false
+								},
+								{
+									name: '电子证照系统已接入数',
+									type: 'bar',
+									itemStyle: {
+										barBorderRadius: 30,
+										color: new echarts.graphic.LinearGradient(
+											0, 0, 0, 1, [{
+													offset: 0,
+													color: '#83bff6'
+												},
+												{
+													offset: 0.5,
+													color: '#188df0'
+												},
+												{
+													offset: 1,
+													color: '#188df0'
+												}
+											]
+										)
+									},
+									emphasis: {
+										itemStyle: {
+											color: new echarts.graphic.LinearGradient(
+												0, 0, 0, 1, [{
+														offset: 0,
+														color: '#2378f7'
+													},
+													{
+														offset: 0.7,
+														color: '#2378f7'
+													},
+													{
+														offset: 1,
+														color: '#83bff6'
+													}
+												]
+											)
+										}
+									},
+									data: alreadyJoinSystemNumber,
+									barWidth: 12, //柱图宽度
+								},
+								{
+									name: '电子证照系统已接入率',
+									type: 'line',
+									yAxisIndex: 1,
+									data: proportion,
+									itemStyle: {
+										normal: {
+											color: '#ff0000',
+											lineStyle: {
+												normal: {
+													color: '#ff0000'
+												}
+											},
+											label: {
+												show: false,
+												color: '#fff',
+											},
+											lineStyle: {
+												width: 1 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								}
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+				})
+				
+			}
+
+			//在线办理政务服务事项增长率
+			chartZxbl();
+			function chartZxbl() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getOnlineServiceRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						var onLineData = [];
+						var time=[]
+						var proportion=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							arr.forEach((item,index) => {
+								a= index < 2 ? 0 : a
+								item.proportion=parseInt((item.onLineData-arr[a].onLineData)/arr[a].onLineData.toFixed(2) *100)
+								a++
+							})
+							res.data[0].proportion = '-'
+							onLineData.push(v.onLineData)
+							proportion.push(v.proportion)
+							time.push(v.dataPeriod)
+							var dom = document.getElementById("dataApp_zxbl");
+							var myChart = echarts.init(dom);
+							var option = {
+								tooltip: {
+									trigger: 'axis',
+									axisPointer: {
+										type: 'shadow'
+									},
+									formatter: '{b0}<br />{a0}: {c0}<br />{a1}: {c1}%<br />'
+								},
+								xAxis: [{
+									type: 'category',
+									data: time,
+									axisTick: { // X轴刻度
+										show: true
+									},
+									/*改变x轴颜色*/
+									axisLine: {
+										lineStyle: {
+											color: 'rgba(255,255,255,0)'
+										},
+									},
+									//  改变x轴字体颜色和大小
+									axisLabel: {
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)'
+										}
+									}
+								}],
+								yAxis: [{
+										name: '次',
+										nameLocation: 'end',
+										type: 'value',
+//										min: 0,
+//										max: 500, //设置左侧最大值
+										splitLine: {
+											show: true,
+											lineStyle: {
+												color: '#39508c'
+											}
+										},
+										/*改变y轴颜色*/
+										axisLine: {
+											lineStyle: {
+												color: 'rgba(255,255,255,0.5)'
+											}
+										}
+									},
+									{
+										type: 'value',
+										scale: true,
+										splitLine: {
+											show: false
+										},
+//										max: 100,
+//										min: 0,
+										axisLine: {
+											lineStyle: {
+												color: '#39508c'
+											}
+										},
+										axisLabel: {
+											formatter: '{value}%', //右侧以百分比进行展示
+											show: true,
+											textStyle: {
+												color: 'rgba(255,255,255,0.5)',
+												fontSize: '12'
+											}
+										},
+										textStyle: {
+											color: 'rgba(255,255,255,0.5)',
+											fontSize: '14'
+										}
+									}
+								],
+								grid: {
+									left: 100,
+									right: 80,
+									top: 50,
+									bottom: 40
+								},
+								series: [{ // For shadow
+										name: '任务量',
+										type: 'bar',
+										itemStyle: {
+											barBorderRadius: 30,
+											color: 'rgba(255,255,255,0.1)'
+										},
+										barGap: '-100%',
+										barCategoryGap: '40%',
+//										data: yData,
+										barWidth: 12, //柱图宽度
+										animation: false
+									},
+									{
+										name: '在线办理事项数',
+										type: 'bar',
+										itemStyle: {
+											barBorderRadius: 30,
+											color: new echarts.graphic.LinearGradient(
+												0, 0, 0, 1, [{
+														offset: 0,
+														color: '#83bff6'
+													},
+													{
+														offset: 0.5,
+														color: '#188df0'
+													},
+													{
+														offset: 1,
+														color: '#188df0'
+													}
+												]
+											)
+										},
+										emphasis: {
+											itemStyle: {
+												color: new echarts.graphic.LinearGradient(
+													0, 0, 0, 1, [{
+															offset: 0,
+															color: '#2378f7'
+														},
+														{
+															offset: 0.7,
+															color: '#2378f7'
+														},
+														{
+															offset: 1,
+															color: '#83bff6'
+														}
+													]
+												)
+											}
+										},
+										data: onLineData,
+										barWidth: 12, //柱图宽度
+									},
+									{
+										name: '在线办理事项增长率',
+										type: 'line',
+										yAxisIndex: 1,
+										data: proportion,
+										itemStyle: {
+											normal: {
+												color: '#ff0000',
+												lineStyle: {
+													normal: {
+														color: '#ff0000'
+													}
+												},
+												label: {
+													show: false,
+													color: '#fff',
+												},
+												lineStyle: {
+													width: 1 // 0.1的线条是非常细的了
+												}
+											}
+										}
+									}
+								]
+							};
+							if(option && typeof option === "object") {
+								myChart.setOption(option, true);
+							}
+						});
+					}
+	          	})
+			}
+
+			//系统入舱率
+			chartXtrc();
+			function chartXtrc() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getSystemEntryModuleRate?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+	                	let dataList=[
+	                		{
+	                			value:20,
+	                			name:"系统已舱率"
+	                		},
+	                		{
+	                			value:80,
+	                			name:"系统未舱率"
+	                		}
+	                	];
+						dataList[0].value=res.data[0].alreadyEntryModuleNumber
+						dataList[1].value=res.data[0].noEntryModuleNumber
+						var dom = document.getElementById("dataApp_xtrc");
+				var myChart = echarts.init(dom);
+				var option = {
+					tooltip: {
+						trigger: 'item',
+						formatter: "{b} : {c} ({d}%)"
+					},
+					color: ['#E6A749', '#1988EE'],
+					stillShowZeroSum: false,
+					series: [{
+						clockwise: false,
+						name: '系统入舱率',
+						type: 'pie',
+						radius: ['15%', '50%'],
+						center: ['50%', '60%'],
+						avoidLabelOverlap: true,
+						labelLine: {
+							normal: {
+								length: 4,
+								length2: 8,
+							}
+						},
+						label: {
+							normal: {
+								formatter:"{b} \n {d}%",
+							}
+						},
+						data: dataList,
+						itemStyle: {
+							borderWidth: 5,
+							borderColor: "#002980",
+							emphasis: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.5)',
+								borderColor: "none"
+							}
+						}
+					}]
+				}
+				if(option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
+					}
+	            })
+				
+			}
+			
+			//统一身份认证服务增长率
+			chartSfrz();
+			function chartSfrz() {
+				$.ajax({
+	                type: "get",
+	                url: "http://47.56.170.82:8080/api/rate/getUnifyIdentifyAuthentication?departmentId="+id,
+	                dataType: "json",
+	                headers:{"content-type": "application/json;charset=utf-8"},
+	                success: function(res){
+						var alreadyAuthenticationNumber = [];
+						var time=[]
+						var proportion=[]
+						$.each(res.data, function(i, v) {
+							let a=0;
+							let arr =res.data;
+							if(arr.length>=2){
+								arr.forEach((item,index) => {
+									a= index < 2 ? 0 : a
+									item.proportion=parseInt((item.proportion-arr[a].proportion)/arr[a].proportion.toFixed(2) *100)
+									a++
+								})
+							}
+							res.data[0].proportion = '-'
+							alreadyAuthenticationNumber.push(v.alreadyAuthenticationNumber)
+							time.push(v.dataPeriod)
+							proportion.push(v.proportion)
+						})
+						// 数据处理 end
+						var dom = document.getElementById("dataApp_sfrz");
+						var myChart = echarts.init(dom);
+						var option = {
+							//					color: ['#EC9C35', '#EC9C35'],
+							tooltip: {
+								trigger: 'axis',
+								axisPointer: {
+									type: 'shadow'
+								},
+								formatter: '{b0}<br/>{a0}: {c0}<br />{a1}: {c1}%<br />'
+							},
+							xAxis: [{
+								type: 'category',
+								data: time,
+								axisTick: { // y轴刻度
+									show: true
+								},
+								/*改变x轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0)'
+									},
+								},
+								//  改变x轴字体颜色和大小
+								axisLabel: {
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}],
+							yAxis: [{
+								name: '条',
+								nameLocation: 'end',
+								type: 'value',
+//								min: 0,
+//								max: 5000, //设置左侧最大值
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								/*改变y轴颜色*/
+								axisLine: {
+									lineStyle: {
+										color: 'rgba(255,255,255,0.5)'
+									}
+								}
+							}, {
+								type: 'value',
+								splitLine: {
+									show: false,
+								},
+//								max: 100,
+//								min: 0,
+								axisLine: {
+									lineStyle: {
+										color: '#39508c'
+									}
+								},
+								axisTick: {
+									show: false
+								},
+								axisLabel: {
+									formatter: '{value}%', //右侧以百分比进行展示
+									show: true,
+									textStyle: {
+										color: 'rgba(255,255,255,0.5)',
+										fontSize: '12'
+									}
+								}
+								// boundaryGap: [0.2, 0.2]
+							}],
+							grid: {
+								left: 100,
+								right: 100,
+								top: 30,
+								bottom: 40
+							},
+							series: [
+								{
+									name: '统一身份认证服务增长数',
+									type: 'bar',
+									itemStyle: {
+										barBorderRadius: 30,
+										color: "#EC9C35"
+									},
+									data: alreadyAuthenticationNumber,
+									barWidth: 12, //柱图宽度
+								},
+								{
+									name: '统一身份认证服务增长率',
+									type: 'line',
+									data: proportion,
+									itemStyle: {
+										normal: {
+											color: '#0995C2',
+											lineStyle: {
+												normal: {
+													color: '#0995C2'
+												}
+											},
+											label: {
+												show: false,
+												color: '#fff',
+											},
+											lineStyle: {
+												width: 1 // 0.1的线条是非常细的了
+											}
+										}
+									}
+								}
+							]
+						};
+						if(option && typeof option === "object") {
+							myChart.setOption(option, true);
+						}
+					}
+	           	})
+			}
+			$(".c_txt_ts").mouseover(function() {
+				$(this).find(".tsTxt").toggle();
+			});
+			$(".c_txt_ts").mouseout(function() {
+				$(".tsTxt").hide();
+			})
+			function overShow(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:block;");
+
+			}
+			function outHide(e) {
+				var p = $(e).children('.bounced');
+				p.attr("style", "display:none;");
+			}
+			$('#tabReturn').click(function(){
+				window.history.go(-1);//返回上一页
+			})
+		</script>
+	</body>
+
+</html>

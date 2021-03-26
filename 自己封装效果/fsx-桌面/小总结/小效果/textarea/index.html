@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<textarea name="" id="textarea" placeholder="请输入"></textarea>
+<p>字数剩余 <span id="yu">60</span></p>
+<script src="jquery.min.js"></script>
+<script>
+
+  var zong = 60;
+  $("#textarea").bind('propertychange, input',function () {
+    var str = $(this).val();
+    var len = str.length;
+    if(len > zong){
+      str = str.substring(0,zong);
+      $("#textarea").val(str);
+      $("#yu").text(0);
+    }else{
+      $("#yu").text(zong-len);
+    }
+  });
+</script>
+</body>
+</html>

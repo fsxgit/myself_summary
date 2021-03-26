@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>object和video视频播放器</h2>
+    <video width="320" height="240" controls>
+        <source src="http://www.runoob.com/try/demo_source/movie.ogg" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        <source src="movie.webm" type="video/webm">
+        <object data="http://www.runoob.com/try/demo_source/movie.ogg" width="320" height="240">
+            <embed src="movie.swf" width="320" height="240"></embed>
+        </object>
+    </video>
+
+    <h2>embed视频播放器</h2>
+    <embed src="http://www.runoob.com/try/demo_source/movie.ogg" height="200" width="200"></embed>
+
+    <h2>object视频播放器</h2>
+    <object data="http://www.runoob.com/try/demo_source/movie.ogg" height="200" width="200"></object>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<img src="" alt="">
+<div id="nong"></div>
+<script src="js.js"></script>
+<script>
+  // 获取当前的农历日期
+  var date = new Date();
+  var yy=date.getFullYear();
+  var mm=date.getMonth()+1;
+  var dd=date.getDate();
+  if (yy<100) yy="19"+yy;
+
+  console.log(yy);
+  document.getElementById('nong').innerHTML = GetLunarDay(yy,mm,dd);
+
+
+// 把字符串按照指定长度分割成数组
+  var str = "外卡队福克斯防静电，看见对1254544方快乐放得开。快递费辽阔的法1254544兰克福的脸孔！离开对方1254544考虑到付款了。";
+  if(str<10){
+    var  rs=[];
+    rs[0]=str;
+  }else{
+    var reg=/.{10}/g;
+    var rs=str.match(reg);//注意如果s的长度小于10,那么rs=null
+    rs.push(str.substring(rs.join('').length));
+  }
+  console.log(rs);
+</script>
+</body>
+</html>

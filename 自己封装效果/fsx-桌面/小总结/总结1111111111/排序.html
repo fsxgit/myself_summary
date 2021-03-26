@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>排序</title>
+</head>
+<body>
+<h2>快速排序</h2>
+<p>把 1, 6, 3, 7, 5, 9, 2, 8 按照从小到大的顺序排列</p>
+
+<script>
+  var date = new Date();
+
+  var year = date.getFullYear();
+
+  var month = date.getMonth()+1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  second = second.length > 1 ? second : '0' + second;
+  alert(year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second)
+
+
+//冒泡排序
+ let arr = [1, 6, 3, 7, 5, 9, 2, 8];
+ function sort1(arr) {
+     //升序
+    console.time("冒泡排序耗时");
+     let num1 = null;
+     for (let i = 0; i < arr.length - 1; i++) {
+         //外层循坏的作用是每次循坏找出一个最大数放在这个数组的最后面
+         for (let j = 0; j < arr.length - i - 1; j++) {
+            //内层循坏的作用是比较相邻两个数的大小从而进行交换位置
+             //借助一个中间容器交换位置
+             if (arr[j] > arr[j + 1]) {
+                 num1 = arr[j];
+                 arr[j] = arr[j + 1];
+                 arr[j + 1] = num1;
+             }
+         }
+     }
+   console.timeEnd("冒泡排序耗时");
+ }
+sort1(arr);
+
+ //快速排序
+ //快速排序就是从中间取一个数然后声明两个空数组
+ //小于这个数的放在左边大于这个数的放在右边
+ //最后通过递归调用实现的一种排序方法
+ //比冒泡排序用时更多
+ function sort2(arr) {
+   console.time("快速排序耗时");
+   if (arr.length <= 1) {
+     //递归出口
+     return arr;
+   }
+   let middleIndex = Math.floor(arr.length / 2);//中间数的下标 分奇偶
+   let middle = arr[middleIndex];
+   let left=[];
+   let right=[];
+   for(let i=0;i<arr.length;i++){
+      if(arr[i]<middle){
+         left.push(arr[i])
+      }else if(arr[i]>middle){
+         //注意这里不要直接写else 要排除相等的时候 否则会造成死循坏
+         right.push(arr[i])
+      }
+   }
+   console.timeEnd("快速排序耗时");
+   return sort2(left).concat([middle],sort2(right))
+ }
+ console.log(sort2(arr));
+</script>
+</body>
+</html>

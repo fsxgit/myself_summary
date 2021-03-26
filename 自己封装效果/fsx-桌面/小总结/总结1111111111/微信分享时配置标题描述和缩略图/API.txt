@@ -1,0 +1,5 @@
+1、参考文档：
+https://www.cnblogs.com/zhouyu629/p/4496065.html
+demo:
+http://www.bangbangwang.cn/index.php?g=home&m=project&a=sharedetail&id=506&from=singlemessage
+2、注意配置的信息，所以需要公众号的信息

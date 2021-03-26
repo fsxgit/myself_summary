@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加标签</title>
+    <style>
+        *{margin:0; padding:0;}
+        .c-tan-shadow{position: fixed; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.3); display:none;}
+        .c-tan-box{width:400px; padding:50px 20px; height:auto; background: #fff;position: fixed; left:50%;  top:50%; margin-top:-150px; margin-left:-200px;  display:none; }
+        .gb{position: absolute; right:0; top:0; width: 50px; height: 30px; line-height: 30px; text-align: center; cursor: pointer; font-size: 12px; background: #ddd; color: #999;}
+        .payCenter{ text-align: center; font-size: 14px; font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .payCenter input{ outline: none; border:none; padding:6px 10px; border:1px solid #ccc; border-radius:2px; font-size: 16px; font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .payCenter input[type='button']{cursor: pointer; margin-left:10px; border-color:#086cc9;   background: #086cc9; color: #fff; }
+        .labelBox{margin:30px;}
+        .labelBox .labels{background:#086cc9; position: relative; color: #fff; font-size: 16px; border-radius: 2px;  display: inline-block; padding:10px 24px 10px 24px;  margin:10px ; }
+        .labelBox i{position: absolute; right:0; top:0; cursor: pointer;}
+        .labelBox i:after{content: "×"; font-style: normal;   }
+        .labelBox i:hover{background: #032fc9;}
+    </style>
+</head>
+<body>
+<button class="c-tan">添加标签</button>
+<div class="labelBox">
+    <span class="labels">标签1<i></i></span>
+    <span class="labels">标签2<i></i></span>
+    <span class="labels">标签12345<i></i></span>
+</div>
+
+
+<div class="c-tan-shadow"></div>
+<div class="c-tan-box">
+    <div class="gb c-tan-xiao">关闭</div>
+    <div class="payCenter">
+        标签名字：<input class="adTxt" type="text" placeholder="请输入标签名字"/><input class="adBtn" type="button" value="添加"/>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js" ></script>
+<script>
+    $(".c-tan").click(function(){
+        $(".adTxt").val("");
+        $(".c-tan-shadow,.c-tan-box").show();
+    });
+    $(".c-tan-xiao").click(function(){
+        $(".c-tan-shadow,.c-tan-box").hide();
+    });
+    $(".labelBox").on("click",".labels i",function(){
+        $(this).parent().remove();
+    });
+    $(".adBtn").click(function(){
+        var val = $(".adTxt").val();
+        if(val){
+            $(".labelBox").append('<span class="labels">'+val+'<i></i></span>');
+        }
+        $(".c-tan-shadow,.c-tan-box").hide();
+
+    })
+</script>
+</body>
+</html>

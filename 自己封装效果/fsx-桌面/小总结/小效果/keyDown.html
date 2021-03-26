@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <meta name="format-detection" content="telphone=no"/>
+    <title>鼠标按下事件</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{background: rgba(0,0,0,0.6);}
+        .box{width:100%; margin:0 auto; font-size: 0; background: #00a0e9; padding:20px 0; position: fixed; left:0; bottom: 0;}
+        .box span{display: inline-block; width:10%; font-size: 16px; text-align: center; height:30px; line-height: 30px; margin:4px 5%;  color: #000; background: #fff; border-radius: 2px; }
+        span.active{
+            background: #05f517;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>Q</span>
+        <span>W</span>
+        <span>S</span>
+        <span>X</span>
+        <span>Z</span>
+        <span>G</span>
+        <span>R</span>
+        <span>Q</span>
+        <span>W</span>
+        <span>S</span>
+        <span>X</span>
+        <span>Z</span>
+        <span>G</span>
+        <span>R</span>
+        <span>Q</span>
+        <span>W</span>
+        <span>S</span>
+        <span>X</span>
+        <span>Z</span>
+        <span>G</span>
+        <span>R</span>
+    </div>
+<button type="button"> 蒂娜我</button>
+<script src="jquery.min.js"></script>
+<script>
+    $("span").mousedown(function(){
+        $(this).addClass("active");
+    });
+    $("span").mouseup(function(){
+        $(this).removeClass("active");
+    })
+
+
+
+    $("button").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "http://ats.zai0312.com//index.php?g=Admin&m=public&a=dologin",
+            data: {
+                'username':"admin",
+                'password':"123456",
+                'verify':"1234"
+            },
+            success: function(msg){
+               console.log(msg);
+            }
+        });
+    })
+
+</script>
+</body>
+</html>

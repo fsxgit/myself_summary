@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3结合JS来实现元素属性变化效果</title>
+    <style>
+        .box{position: relative; width: 1000px; margin:20px auto; border:1px solid #ccc; padding:10px;}
+        .box .part{width:300px; height:500px; background: #f0a5a4; position: absolute; top:10px; }
+
+
+        /*为什么这个动画效果不起作用，好尴尬啊 */
+        .part1{
+            transition: right .6s;
+            -webkit-transition: right .6s ;
+        }
+        .part2{
+            transition: right 1s;
+            -webkit-transition: right 1s ;
+        }
+        .part3{
+            transition: right 1.4s;
+            -webkit-transition: right 1.4s ;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button>变化</button>
+    <div class="box">
+        <div class="part part1"></div>
+        <div class="part part2"></div>
+        <div class="part part3"></div>
+    </div>
+
+</div>
+
+<script src="jquery.min.js"></script>
+<script>
+//    如果只有这个js是没有动画效果的，需在css中加入css3的动画即可
+    $("button").click(function(){
+
+        dong();
+    });
+
+    function dong(){
+        var W = $(".box").width();
+        var pw = $(".part1").width();
+
+        $(".part1").css("right",W/2+pw/2+10);
+        $(".part2").css("right",W/2-pw/2);
+        $(".part3").css("right",W/2-pw*1.5-10);
+    }
+
+</script>
+</body>
+</html>

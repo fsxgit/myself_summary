@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>弹出框</title>
+    <style>
+      *{margin:0; padding:0;}
+        .dmg_ts{position: fixed; margin-left: -100px; left:50%; top:100px; width:200px; border-radius: 6px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.8);  display: none;}
+        .dmg_ts h2{font-size: 16px; font-weight: bold;  padding:0 14px; position: relative; height: 40px; line-height:40px; border-bottom: 1px solid #ddd; display: none;}
+        .dmg_ts .ts_close{ position: absolute; right:20px; top:14px; width: 14px; height: 14px; background: url("images/close.png") no-repeat 0 0; background-size:100% 100%; cursor: pointer; opacity: 0.5; display: none; }
+      .dmg_ts .ts_close:hover{opacity: 1;}
+      .dmg_ts .ts_txt{padding:20px 10px; color: #333; font-size: 14px; line-height: 20px; }
+      .dmg_ts .ts_bot{text-align: center; border-top: 1px solid #ddd; font-size: 14px; height: 40px; line-height: 40px; }
+      .dmg_ts .ts_bot div{text-align: center; float: left; height: 100%; width: 50%;  color: #0cb4ff;}
+      .dmg_ts .ts_bot div:nth-of-type(1){border-right: 1px solid #ddd; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+<button id="btn">弹弹弹</button>
+<div class="dmg_ts">
+    <h2 >提示 <i class="ts_close"></i></h2 >
+    <div class="ts_txt"></div>
+    <div class="ts_bot">
+        <div>确定</div>
+        <div>取消</div>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script>
+    $("#btn").click(function(){
+        $(".dmg_ts").show();
+        $(".ts_txt").text("收货人名字不能为空");
+    });
+    $(".ts_bot div").click(function(){
+        $(".dmg_ts").hide();
+    })
+</script>
+</body>
+</html>

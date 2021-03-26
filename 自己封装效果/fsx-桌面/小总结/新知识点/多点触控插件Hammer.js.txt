@@ -1,0 +1,4 @@
+新知识点：多点触控插件Hammer.js
+手机端单手指、多手指事件
+API:
+http://www.cnblogs.com/vajoy/p/4011723.html?utm_source=tuicool#api1

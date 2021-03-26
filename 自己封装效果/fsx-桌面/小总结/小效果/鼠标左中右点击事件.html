@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标左中右点击事件</title>
+</head>
+<body>
+<div>
+    <h1>鼠标左中右点击事件</h1>
+</div>
+
+<script src="jquery.min.js"></script>
+<script>
+    $(function(){
+        $('html').mousedown(function(e){
+            alert(e.which); // 1 = 鼠标左键 left; 2 = 鼠标中键; 3 = 鼠标右键
+            return false;//阻止链接跳转
+        })
+    })
+</script>
+</body>
+</html>

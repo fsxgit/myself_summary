@@ -1,0 +1,32 @@
+
+链接加一个?userid=2才行
+
+
+vue-mint :上拉刷新下来加载：
+https://www.cnblogs.com/panax/p/10190943.html
+
+vue-video-player 视频播放器插件：
+https://www.jianshu.com/p/532fc1d8c90c
+
+vue 图片放大(查看大图)插件：
+https://blog.csdn.net/genius_yym/article/details/81196705
+
+http://web.iuv.zai0312.com/dist
+
+
+vue tab切换  vux-tab
+
+原生video在vue中不能播放
+https://blog.csdn.net/t595981879/article/details/82888029
+
+
+热门点进去显示title
+热门点进去返回还回到详情
+输入框遮挡
+
+
+
+
+
+
+	

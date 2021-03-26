@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <style>
+        body{font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .ccc-tan-shadow{position: fixed; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.3); display:none;}
+        .ccc-tan-box{width: 400px; height:216px; background: #fff;position: fixed; left:50%;  top:50%; margin-top:-118px; margin-left:-164px;  display:none;}
+        .cc-btn{ text-align: center; border-top: 1px solid #ccc;}
+        .cc-btn span{display: inline-block; width: 40%; height:40px; line-height: 40px; cursor: pointer;}
+        .cc-btn span:nth-of-type(1){border-right: 1px solid #ccc;}
+        .cc-btn span:hover{color: #ff0511;}
+        .ccc-tan-cont{ padding:20px 30px; overflow: hidden;}
+        .ccc-tan-cont div.xz{height: 40px; line-height: 40px; cursor: pointer; width: 26%; float: left;}
+        .ccc-tan-cont div.xz label{ cursor: pointer;}
+        .ccc-tan-cont textarea{width: 90%; padding:4px 10px; border:1px solid #eee; height:50px; margin-top: 10px; resize: none;}
+
+    </style>
+</head>
+<body>
+<button class="cc-tan">弹弹弹</button>
+
+<div class="ccc-tan-shadow"></div>
+<div class="ccc-tan-box">
+    <div class="ccc-tan-cont">
+        <div class="xz"><label><input type="radio" checked name="agree"/>同意</label></div>
+        <div class="xz"><label><input type="radio" name="agree"/>不同意</label></div>
+        <div style="clear:both;"></div>
+        理由：<br />
+        <textarea name="" id="" cols="30" rows="10" placeholder="请说明原因"></textarea>
+    </div>
+    <div class="cc-btn">
+        <span class="cc-tan-xiao">取消</span>
+        <span class="cc-tan-sure">确认</span>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(".cc-tan").click(function(){
+        $(".ccc-tan-shadow,.ccc-tan-box").show();
+    });
+    $(".cc-tan-xiao").click(function(){
+        $(".ccc-tan-shadow,.ccc-tan-box").hide();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.catalogChain{width:100%; height:auto; overflow: hidden; min-height:100%; padding-bottom: 0.1rem; min-width: 12rem;background: url("../images/bg1.jpg") no-repeat center center; background-size:cover;}
+.catalogChain_header{width: 100%;height: 0.4rem; padding: 0.1rem;display: flex;}
+.catalogChain_header .return{width: 0.3rem;height: 0.3rem;}
+.catalogChain_left{width:3.4rem; height: auto; box-sizing: border-box; padding:0 0.12rem;}
+.catalogChain_content{width: 100%;}
+.catalogChain_sjgx{width: 3.3rem;height: 4.6rem; background: url("../images/three_sjgx.png") no-repeat center center; background-size:100% 100%;}
+.catalogChain_sjgx .titleBox{ display: flex;align-items: center; color:#fff; font-size:0.14rem; padding-left:0.05rem;}
+.catalogChain_sjgx .titleBox .title{margin-top: 0.1rem;margin-left: 0.8rem; display: flex;align-items: center; height: 0.35rem; width: 1.5rem;background: url("../images/sj_bj.png") no-repeat center center; background-size:100% 100%;}
+.catalogChain_sjgx .titleBox .title img{width: 0.45rem;height: auto;margin-left: -0.1rem;} 
+.catalogChain_sjgx .prompt{display: flex;justify-content: center;margin-top: 0.1rem;}
+.catalogChain_sjgx .prompt li{display: flex;align-items: center;justify-content: center; list-style: none;margin: 0.1rem 0.1rem 0 0;}
+.catalogChain_sjgx .prompt li img{margin-right: 0.05rem;width: 0.05rem;height: 0.05rem;}
+.catalogChain_sjgx .prompt li p{font-size:0.12rem;color: #AFB6CD;}
+.catalogChain_bmpmBox{ width: 3.3rem;height: 2.3rem; margin-top: 0.1rem; background: url("../images/defenbg.png") no-repeat center center; background-size:100% 100%;}
+.catalogChain_bmpmBox .titleBox{display: flex;justify-content: space-between; color:#fff; font-size:0.14rem; height: 0.28rem; line-height: 0.28rem; padding-left:0.05rem;}
+.catalogChain_bmpmBox .titleBox .title{width: 1.5rem;text-align: center;}
+.catalogChain_bmpmList li{padding: 0 0.1rem; display: flex;justify-content: space-between;align-items: center; border-bottom: 0.01rem solid #064186; height:0.4rem; color:#fff; font-size:0.12rem;}
+.catalogChain_bmpmList li:last-child{border: none;}
+.catalogChain_bmpmList li {display: flex;align-items: center;}
+.catalogChain_bmpmList li .rank{ float: left; font-size:0.12rem; border:0.01rem solid #064186; height:0.18rem; line-height: 0.18rem; width: 0.18rem; text-align: center; border-radius: 50%; box-shadow: 0 0 0.04rem rgba(6,65,134,0.2); }
+.catalogChain_bmpmList li .name{ float: left; margin-left:0.1rem;}
+.catalogChain_bmpmList li .status{ float: right; font-size:0.12rem;width: 0.3rem;display: flex;justify-content: center;align-items: center;}
+.catalogChain_bmpmList li .status img{ float: left; display: inline-block; height:0.2rem;  }
+.catalogChain_right{margin: 0 0.1rem;width: 100%;height: 7rem; display: flex;align-items: center; background: url("../images/catalogChain_txt.png") no-repeat center center; background-size:100% 100%;}
+.right_a{width: 3rem;height: 5.5rem;margin-top: 0.2rem;}
+.right_a .right_box{width: 2.5rem;text-align: center;margin-left: 0.5rem;}
+.right_tit{width: 2.3rem;height: 0.5rem;display: flex;align-items: center;justify-content: center; line-height: 0.5rem; font-size:0.14rem;color: #C9CCD7; background: url("../images/catalogChain_tit.png") no-repeat center center; background-size:100% 100%;}
+.right_tit .right_ts{margin: 0 !important; margin-left: 0.05rem !important;padding: 0 !important;}
+.right_rule{width: 2.4rem;display: flex;justify-content: space-between;text-align: left;}
+.right_rule span img{width: 0.07rem;height: 0.07rem; margin-top: 0.03rem;margin-right: 0.03rem;}
+.right_rule span{font-size:0.12rem;color: #C9CCD7;display: flex;}

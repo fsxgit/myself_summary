@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小数加法</title>
+</head>
+<body>
+<input type="text" class="put1" /> +
+<input type="text" class="put2" /><button>等于</button>
+<input type="text" class="res"  />
+
+<script src="jquery.min.js"></script>
+<script>
+
+$("button").click(function(){
+    var V1 = $(".put1").val();
+	var V2 = $(".put2").val();
+	
+	var res = cfa(V1,V2);
+	console.log(res);
+	
+	$(".res").val(res);
+
+})
+function cfa(a,b){
+	var oStr1 = a.toString();
+	var oStr2 = b.toString();
+	var k1 = 1;
+	var k2 = 1;
+	if(oStr1.indexOf(".")==-1){
+		k1 = 1; 
+	}else{
+		k1 = parseInt(oStr1.split(".")[1].length); 
+	}
+	if(oStr2.indexOf(".")==-1){
+		k2 = 1; 
+	}else{
+		k2 = parseInt(oStr2.split(".")[1].length); 
+	}
+	var k = Math.pow(10,Math.max(k1,k2));
+	return ((a*k)+(b*k))/k;
+}
+</script>
+</body>
+</html>

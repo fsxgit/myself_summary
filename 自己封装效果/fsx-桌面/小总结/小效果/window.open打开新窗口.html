@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button>1111</button>
+
+
+<script>
+    document.getElementsByTagName("button")[0].onclick = function(){
+        // 获取窗口宽度
+        if (window.innerWidth) {
+            winWidth = window.innerWidth;
+        }else if ((document.body) && (document.body.clientWidth)) {
+            winWidth = document.body.clientWidth
+            ;
+        }
+        var L = (winWidth-1000)/2;
+
+        window.open (
+                'https://www.baidu.com',
+                'newwindow',
+                'height=800,width=1000,top=50,left='+L+',toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no, status=no'
+        )
+    }
+
+
+
+
+</script>
+</body>
+</html>

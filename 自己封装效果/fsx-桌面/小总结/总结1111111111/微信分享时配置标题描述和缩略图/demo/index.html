@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试标题</title>
+</head>
+<body>
+
+<script type="text/javascript" src="http://www.bangbangwang.cn/static/theme_mobile/Public/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  //微信配置
+  wx.config({
+    debug: false,
+    appId: "wx8f3e06766d752393",
+    timestamp: "1574826664",
+    nonceStr: "HMicoO6skg1yasVY",
+    signature: "1350087c419783c8aa53315fe108d54ce574bbb8",
+    jsApiList: ['getLocation','onMenuShareTimeline', 'onMenuShareAppMessage'] // 功能列表，我们要使用JS-SDK的什么功能
+  });
+  // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在 页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready 函数中。
+  wx.ready(function(){
+    // 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+    wx.onMenuShareTimeline({
+      title: "慈善募捐|一座书屋受益一村人|帮帮公益", // 分享标题
+      link:"http://www.bangbangwang.cn/index.php?g=home&m=project&a=sharedetail&id=506&from=singlemessage",
+      imgUrl: "http://img.1bangbang.com.cn/20180612/5b1f77f9709a0.png",
+      success: function (res) {
+        alert('分享成功！');
+      },
+      cancel: function (res) {
+        alert('分享已取消！');
+      }
+    });
+    // 获取“分享给朋友”按钮点击状态及自定义分享内容接口
+    wx.onMenuShareAppMessage({
+      title: "慈善募捐|一座书屋受益一村人|帮帮公益", // 分享标题
+      desc: "解决贫困农村买书难、借书难、看书难", // 分享描述
+      link:"http://www.bangbangwang.cn/index.php?g=home&m=project&a=sharedetail&id=506&from=singlemessage",
+      imgUrl: "http://img.1bangbang.com.cn/20180612/5b1f77f9709a0.png", // 分享图标
+      success: function (res) {
+        alert('分享成功！');
+      },
+      cancel: function (res) {
+        alert('分享已取消！');
+      }
+    });
+  });
+</script>
+</body>
+</html>

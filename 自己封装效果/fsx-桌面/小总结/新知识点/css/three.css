@@ -1,0 +1,375 @@
+.dataBox {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	min-height: 100%;
+	padding-bottom: 0.1rem;
+	min-width: 12rem;
+	background: url("../images/bg1.jpg") no-repeat center center;
+	background-size: cover;
+}
+
+.dataBox_centext {
+	width: 13.4rem;
+	height: auto;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 0 0.12rem;
+}
+
+.dataBox_header {
+	width: 100%;
+	height: 0.4rem;
+	padding: 0.1rem;
+	display: flex;
+}
+
+.dataBox_header .return {
+	width: 0.3rem;
+	height: 0.3rem;
+}
+
+.dataBox_content {
+	width: 100%;
+}
+
+.dataBox_sjgx {
+	width: 4.4rem;
+	height: 4.3rem;
+	background: url("../images/three_sjgx.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.dataBox_sjgx .titleBox {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	font-size: 0.14rem;
+	padding-left: 0.05rem;
+}
+
+.dataBox_sjgx .titleBox .title {
+	margin-top: 0.1rem;
+	margin-left: 1.5rem;
+	display: flex;
+	align-items: center;
+	height: 0.35rem;
+	width: 1.5rem;
+	background: url("../images/sj_bj.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.dataBox_sjgx .titleBox .title img {
+	width: 0.45rem;
+	height: auto;
+	margin-left: -0.1rem;
+}
+
+.dataBox_sjgx .prompt {
+	display: flex;
+	justify-content: center;
+	margin-top: 0.1rem;
+}
+
+.dataBox_sjgx .prompt li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	margin: 0.1rem 0.1rem 0 0;
+}
+
+.dataBox_sjgx .prompt li img {
+	margin-right: 0.05rem;
+	width: 0.05rem;
+	height: 0.05rem;
+}
+
+.dataBox_sjgx .prompt li p {
+	font-size: 0.12rem;
+	color: #AFB6CD;
+}
+
+.dataBox_dz {
+	width: 8.4rem;
+	height: 2.1rem;
+	margin-left: 0.15rem;
+	background: url("../images/dataOpening_bj.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+.gongxiangfg{
+	width: 100%;
+	height: 0.4rem;
+	font-size: 0.16rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 0.2rem;
+	color: #FFFFFF;
+}
+.gongxiangfg img{
+	width: 0.3rem;
+	margin-right: 0.1rem;
+}	
+.dataBox_dz .dz_view {
+	width: 100%;
+	padding: 0.1rem 0.15rem;
+	display: flex;
+}
+
+.dataBox_dz .dz_view .dz_viewRight {
+	flex: 1;
+	display: flex;
+}
+
+.dataBox_dz .dz_view .dz_viewRight li {
+	list-style: none;
+	width: 30%;
+	height: 1.6rem;
+	margin-left: 0.15rem;
+}
+
+.dataBox_dz .dz_view .dz_viewRight li .title {
+	width: 1.2rem;
+	height: 0.25rem;
+	font-size: 0.12rem;
+	color: #0DD5D5;
+	text-align: center;
+	line-height: 0.25rem;
+	margin: 0.13rem 0.1rem;
+	background: url(../images/dz_tit.png);
+	background-size: 100% 100%;
+}
+
+.dataBox_dz .dz_view .dz_viewRight li:last-child .title {
+	width: 1.8rem;
+}
+
+.dataBox_dz .dz_view .dz_viewRight li .title img {
+	width: 0.1rem;
+	height: 0.07rem;
+}
+
+.dataBox_dfqs {
+	width: 3.3rem;
+	height: 2.1rem;
+	background: url("../images/defenbg.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.dataBox_dfqs .titleBox {
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+	font-size: 0.14rem;
+	height: 0.28rem;
+	line-height: 0.28rem;
+	padding-left: 0.05rem;
+}
+
+.dataBox_dfqs .titleBox .title {
+	width: 1.5rem;
+	text-align: center;
+}
+
+.sjjh {
+	margin-top: 0.1rem;
+	width: 4.1rem;
+	height: 2.1rem;
+	margin-right: 0.15rem;
+	background: url("../images/zhengwubg.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.gxjk {
+	margin-top: 0.1rem;
+	width: 4.15rem;
+	height: 2.1rem;
+	background: url("../images/zhengwubg.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.sjjh .title {
+	color: #fff;
+	font-size: 0.14rem;
+	height: 0.28rem;
+	line-height: 0.28rem;
+	padding-left: 0.05rem;
+	width: 1.2rem;
+	text-align: center;
+}
+
+.gxjk .title {
+	color: #fff;
+	font-size: 0.14rem;
+	height: 0.28rem;
+	line-height: 0.28rem;
+	padding-left: 0.05rem;
+	width: 1.2rem;
+	text-align: center;
+}
+
+.sjjh .rule {
+	color: #fff;
+	text-align: center;
+	font-size: 0.12rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+}
+
+.sjjh .rule span {
+	padding: 0 0.06rem;
+}
+
+.sjjh .rule span img {
+	margin-right: 0.04rem;
+	position: relative;
+}
+
+.gxjk .rule {
+	color: #fff;
+	text-align: center;
+	font-size: 0.12rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+}
+
+.gxjk .rule span {
+	padding: 0 0.06rem;
+}
+
+.gxjk .rule span img {
+	margin-right: 0.04rem;
+	position: relative;
+}
+
+.dataBox_bmpmBox {
+	width: 3.3rem;
+	height: 2.1rem;
+	background: url("../images/defenbg.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.dataBox_bmpmBox .titleBox {
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+	font-size: 0.14rem;
+	height: 0.28rem;
+	line-height: 0.28rem;
+	padding-left: 0.05rem;
+}
+
+.dataBox_bmpmBox .titleBox .title {
+	width: 1.5rem;
+	text-align: center;
+}
+
+.bmpmList {}
+
+.dataBox_bmpmList ul {}
+
+.dataBox_bmpmList li {
+	padding: 0 0.1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 0.01rem solid #064186;
+	height: 0.35rem;
+	color: #fff;
+	font-size: 0.12rem;
+}
+
+.dataBox_bmpmList li:last-child {
+	border: none;
+}
+
+.dataBox_bmpmList li .bmpmList_title {
+	display: flex;
+	align-items: center;
+}
+
+.dataBox_bmpmList li .bmpmList_title .rank {
+	float: left;
+	font-size: 0.12rem;
+	border: 0.01rem solid #064186;
+	height: 0.18rem;
+	line-height: 0.18rem;
+	width: 0.18rem;
+	text-align: center;
+	border-radius: 50%;
+	box-shadow: 0 0 0.04rem rgba(6, 65, 134, 0.2);
+}
+
+.dataBox_bmpmList li .bmpmList_title .name {
+	float: left;
+	margin-left: 0.1rem;
+}
+
+.dataBox_bmpmList li .status {
+	float: right;
+	font-size: 0.12rem;
+	width: 0.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dataBox_bmpmList li .status img {
+	float: left;
+	display: inline-block;
+	height: 0.2rem;
+}
+
+.dataBox_gxpm {
+	width: 9.55rem;
+	height: 2.1rem;
+	margin-left: 0.15rem;
+	background: url("../images/dz_bj.png") no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.dataBox_gxpm .gxpm_title {
+	width: 1.5rem;
+	display: flex;
+	justify-content: center;
+	color: #fff;
+	font-size: 0.14rem;
+	height: 0.28rem;
+	line-height: 0.28rem;
+}
+
+.dataBox_gxpm .rule {
+	color: #fff;
+	text-align: center;
+	font-size: 0.12rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	margin-top: -0.1rem;
+}
+
+.dataBox_gxpm .rule span {
+	padding: 0 0.06rem;
+}
+
+.dataBox_gxpm .rule span img {
+	margin-right: 0.04rem;
+	position: relative;
+}
+
+.rule {
+	color: #fff;
+	text-align: center;
+	font-size: 0.12rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+}
+
+.rule span {
+	padding: 0 0.06rem;
+}
+
+.rule span img {
+	margin-right: 0.04rem;
+	position: relative;
+}

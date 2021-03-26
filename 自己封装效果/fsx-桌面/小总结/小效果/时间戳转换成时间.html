@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动效</title>
+</head>
+<body>
+    <div class="tx-box">
+
+    </div>
+<script>
+    // 自定义时间转换
+    function formatDate(time) {
+        var now = new Date(time*1000);
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        if(month.toString().length==1){
+            month = "0"+ month;
+        }
+        var date = now.getDate();
+        if(date.toString().length==1){
+            date = "0"+ date;
+        }
+        var hour = now.getHours();
+        if(hour.toString().length==1){
+            hour = "0"+ hour;
+        }
+        var minute = now.getMinutes();
+        if(minute.toString().length==1){
+            minute = "0"+ minute;
+        }
+        var second = now.getSeconds();
+        if(second.toString().length==1){
+            second = "0"+ second;
+        }
+        return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+    }
+    // 自定义时间转换 end
+    var a = formatDate(1505809182);
+    alert(a);
+</script>
+</body>
+</html>

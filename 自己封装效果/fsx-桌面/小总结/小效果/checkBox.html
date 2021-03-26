@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出框</title>
+    <style>
+        html,body,div,option,input,p,select,h2{padding:0;margin:0; font-family: "Microsoft Yahei", "hiragino sans gb", Helvetica, Arial, Tahoma;}
+        .ckbox{ height: 200px; overflow: auto}
+        .ckbox h2{ padding:2px 10px; font-size: 16px; color: #333; background: #f2f2f2; font-weight: normal; height:30px; line-height: 30px; cursor: pointer; border:1px solid #ccc;}
+        .ckbox .ckids{padding: 20px; display: none;}
+        .ckbox .ckidss{display: inline-block; margin-bottom:10px; margin-right: 10px; cursor: pointer;}
+        .ckbox .ckTit{}
+        .ckbox .ckTit p{background: url("images/ckrignt.png") no-repeat 0 center; background-size:10px 14px; padding-left: 20px; }
+        .ckbox .ckTit.on p{background: url("images/ckdown.png") no-repeat 0 center; background-size:14px 10px; padding-left: 20px; }
+
+    </style>
+</head>
+<body>
+
+<div class="ckbox">
+    <div class="ckMode">
+        <h2 class="ckTit"><p>中国</p></h2>
+        <div class="ckids">
+            <span data-v="1" class="ckidss"><input  type="checkbox"/>北京</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>天津</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>海南</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>湖北</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>河北</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>上海</span>
+        </div>
+    </div>
+    <div class="ckMode">
+        <h2 class="ckTit"><p>美国</p></h2>
+        <div class="ckids">
+            <span data-v="1" class="ckidss"><input type="checkbox"/>纽约</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>洛杉矶</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>芝加哥</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>休士顿</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>费城</span>
+            <span data-v="1" class="ckidss"><input type="checkbox"/>底特律</span>
+        </div>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script>
+$(".ckidss").click(function(){
+    var v = $(this).data("v");
+    if(v == 1){
+        $(this).find("input").prop("checked",true);
+        $(this).data("v",2);
+    }else{
+        $(this).find("input").prop("checked",false);
+        $(this).data("v",1);
+    }
+});
+$(".ckTit").click(function(){
+    $(this).toggleClass("on");
+    if($(this).hasClass("on")){
+        $(this).siblings(".ckids").show();
+    }else{
+        $(this).siblings(".ckids").hide();
+    }
+
+})
+</script>
+</body>
+</html>

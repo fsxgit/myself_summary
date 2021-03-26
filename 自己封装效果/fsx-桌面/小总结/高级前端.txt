@@ -1,0 +1,15 @@
+1、<b>和<strong>的区别
+2、移动端高清适配方案（解决图片模糊问题、1px细线问题）
+3、对闭包的理解&&工程中闭包使用场景
+4、为什么虚拟DOM比真实DOM性能好
+5、添加原生事件不移除为什么会内存泄露&&还有哪些地方会内存泄露
+6、js定时器为什么是不精确的
+https://zhidao.baidu.com/question/687427931701543012.html
+7、js中设置setInterval的注意点
+https://www.cnblogs.com/Sunnor/p/5171999.html
+8、javascript的宏任务和微任务
+https://blog.csdn.net/lc237423551/article/details/79902106
+https://juejin.im/post/59e85eebf265da430d571f89
+9、介绍ES6的功能
+10、let、const以及var的区别
+11、
